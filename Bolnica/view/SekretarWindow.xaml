@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
-        Title="SekretarWindow" Height="450" Width="800">
+        Title="SekretarWindow" Height="450" Width="600">
     <Grid>
-        
+        <Button Content="Prikaži pacijente" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="Button_Click"/>
+        <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="Button_Click_1"/>
+
     </Grid>
 </Window>

@@ -1,10 +1,7 @@
-using System;
-
 namespace Model
 {
-   public class Pacijent : Osoba
-   {
-      private bool Registrovan;
-   
-   }
+    public class Pacijent : Osoba
+    {
+        public bool Registrovan { get; set; }
+    }
 }

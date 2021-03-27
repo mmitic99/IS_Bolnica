@@ -21,3 +21,7 @@ D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.GenerateResource.cac
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.exe
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.pdb
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjePacijenta.g.cs
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\PrikazPacijenata.g.cs
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjePacijenta.baml
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\PrikazPacijenata.baml

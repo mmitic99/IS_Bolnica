@@ -2,12 +2,10 @@ using System;
 
 namespace Model
 {
-   public class Korisnik
-   {
-      public Osoba osoba;
-   
-      private String KorisnickoIme;
-      private String Lozinka;
-   
-   }
+    public class Korisnik
+    {
+        public String KorisnickoIme { get; set; }
+        public String Lozinka { get; set; }
+
+    }
 }

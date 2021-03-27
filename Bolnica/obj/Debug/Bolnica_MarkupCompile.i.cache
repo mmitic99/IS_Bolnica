@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\FTN_projekti\IS_Bolnica\Bolnica\App.xaml
-5136069125
+7-794503275
 
-391276075938
+41-902615270
 13-1505183044
-MainWindow.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
+MainWindow.xaml;view\DodavanjePacijenta.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\PrikazPacijenata.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
 
 True
 
