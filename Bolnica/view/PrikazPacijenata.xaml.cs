@@ -1,4 +1,5 @@
-﻿using Model.Skladista;
+﻿using Model;
+using Model.Skladista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,29 @@ namespace Bolnica.view
         {
             InitializeComponent();
             pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
+
+            if (pacijentiPrikaz.SelectedIndex != -1)
+            {
+                var s = new IzmenaPacijenta(pacijentiPrikaz);
+                s.Show();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
+
+            if (pacijentiPrikaz.SelectedIndex != -1)
+            {
+                pacijenti.RemoveAt(pacijentiPrikaz.SelectedIndex);
+                SkladistePacijenta.GetInstance().SaveAll(pacijenti);
+                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+            }
         }
     }
 }

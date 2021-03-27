@@ -25,3 +25,5 @@ D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjePacijenta.g.cs
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\PrikazPacijenata.g.cs
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjePacijenta.baml
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\PrikazPacijenata.baml
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\IzmenaPacijenta.g.cs
+D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\view\IzmenaPacijenta.baml

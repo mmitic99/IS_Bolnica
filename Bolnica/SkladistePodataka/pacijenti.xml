@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfPacijent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Pacijent>
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Ime>Mihajlo</Ime>
-    <Prezime>Mitić</Prezime>
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Ime />
-    <Prezime />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Ime />
-    <Prezime />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-03-02T00:00:00</DatumRodjenja>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv>3123123</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>dasdasd</KorisnickoIme>
-      <Lozinka>mihajlo</Lozinka>
-    </Korisnik>
-    <Ime>asdas</Ime>
-    <Prezime>dasdasd</Prezime>
-    <Jmbg>1233214566547</Jmbg>
-    <BrojTelefona>q12312312</BrojTelefona>
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-02-28T00:00:00</DatumRodjenja>
-    <Email>312312312</Email>
-    <Adresa>12312</Adresa>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
     <Grad>
       <Naziv />
     </Grad>
@@ -65,48 +8,12 @@
       <KorisnickoIme />
       <Lozinka />
     </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1999-12-31T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv>asd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>asd</KorisnickoIme>
-      <Lozinka>adsad</Lozinka>
-    </Korisnik>
-    <Ime>zxcz</Ime>
-    <Prezime>zxc</Prezime>
-    <Jmbg>zxc</Jmbg>
-    <BrojTelefona>asd</BrojTelefona>
+    <Ime>dddd</Ime>
+    <Prezime>ssss</Prezime>
+    <Jmbg>1233131</Jmbg>
+    <BrojTelefona>12333123aass</BrojTelefona>
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-04T00:00:00</DatumRodjenja>
-    <Email>asd</Email>
-    <Adresa>sad</Adresa>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-02-23T00:00:00</DatumRodjenja>
+    <DatumRodjenja>2021-03-27T00:00:00+01:00</DatumRodjenja>
     <Email />
     <Adresa />
     <Registrovan>false</Registrovan>
@@ -119,85 +26,13 @@
       <KorisnickoIme />
       <Lozinka />
     </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
+    <Ime>aaa</Ime>
+    <Prezime>dddd</Prezime>
+    <Jmbg>1233131</Jmbg>
+    <BrojTelefona>11111wwwwww</BrojTelefona>
     <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-03-27T15:55:35.5698243+01:00</DatumRodjenja>
+    <DatumRodjenja>2021-03-27T00:00:00+01:00</DatumRodjenja>
     <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-03-10T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-27T15:55:50.0158141+01:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv>asd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg>asdsadsadsadasasa</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-27T15:56:44.2669349+01:00</DatumRodjenja>
-    <Email>sad</Email>
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime />
-    <Prezime />
-    <Jmbg />
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-27T16:20:18.6209373+01:00</DatumRodjenja>
-    <Email>asdasd</Email>
     <Adresa />
     <Registrovan>false</Registrovan>
   </Pacijent>

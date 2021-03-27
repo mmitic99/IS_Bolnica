@@ -8,10 +8,10 @@
         Title="PrikazPacijenata" Height="450" Width="800">
     <Grid>
         <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <Button Margin="10">Izmeni pacijenta</Button>
-            <Button Margin="10">Obriši pacijenta</Button>
+            <Button Margin="10" Click="Button_Click">Izmeni pacijenta</Button>
+            <Button Margin="10" Click="Button_Click_1">Obriši pacijenta</Button>
         </WrapPanel>
-        <DataGrid Margin="5, 45, 5, 5" Name="pacijentiPrikaz" CanUserAddRows="false" AutoGenerateColumns="False">
+        <DataGrid Margin="5, 45, 5, 5" Name="pacijentiPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="jmbg" Header="JMBG" Binding="{Binding Jmbg}" Width="100"/>
                 <DataGridTextColumn x:Name="ime" Header="Ime" Binding="{Binding Ime}" Width="100"/>

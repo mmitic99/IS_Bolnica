@@ -1,6 +1,8 @@
 ﻿using Model;
 using Model.Skladista;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace Bolnica.view
@@ -49,12 +51,21 @@ namespace Bolnica.view
             {
                 pacijent.DatumRodjenja = DateTime.Now;
             }
-
-
-
-
-            SkladistePacijenta.GetInstance().Save(pacijent);
-            this.Close();
+            bool greska = false;
+            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
+            for (int i = 0; i < pacijenti.Count; i++)
+            {
+                if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                {
+                    greska = true;
+                }
+            }
+            if (!greska)
+            {
+                SkladistePacijenta.GetInstance().Save(pacijent);
+                this.Close();
+            }
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
