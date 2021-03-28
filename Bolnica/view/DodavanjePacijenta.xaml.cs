@@ -65,6 +65,10 @@ namespace Bolnica.view
                 SkladistePacijenta.GetInstance().Save(pacijent);
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             
         }
 

@@ -75,6 +75,7 @@ namespace Bolnica.view
                 noviPacijent.DatumRodjenja = DateTime.Now;
             }
 
+            bool greska = false;
             List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
             for (int i = 0; i < pacijenti.Count; i++)
             {
@@ -83,13 +84,25 @@ namespace Bolnica.view
                     pacijenti.RemoveAt(i);
                 }
             }
+            for (int i = 0; i < pacijenti.Count; i++)
+            {
+                if (pacijenti.ElementAt(i).Jmbg.Equals(noviPacijent.Jmbg))
+                {
+                    greska = true;
+                }
+            }
 
-
-
-            pacijenti.Add(noviPacijent);
-            SkladistePacijenta.GetInstance().SaveAll(pacijenti);
-            pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-            this.Close();
+            if (!greska)
+            {
+                pacijenti.Add(noviPacijent);
+                SkladistePacijenta.GetInstance().SaveAll(pacijenti);
+                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 

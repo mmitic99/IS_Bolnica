@@ -2,38 +2,20 @@
 <ArrayOfPacijent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Pacijent>
     <Grad>
-      <Naziv />
+      <Naziv>asdas</Naziv>
     </Grad>
     <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
+      <KorisnickoIme>sadasd</KorisnickoIme>
+      <Lozinka>asdasd</Lozinka>
     </Korisnik>
-    <Ime>dddd</Ime>
-    <Prezime>ssss</Prezime>
-    <Jmbg>1233131</Jmbg>
-    <BrojTelefona>12333123aass</BrojTelefona>
+    <Ime>ASd</Ime>
+    <Prezime>asda</Prezime>
+    <Jmbg>123465</Jmbg>
+    <BrojTelefona>12312</BrojTelefona>
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-27T00:00:00+01:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
-    </Korisnik>
-    <Ime>aaa</Ime>
-    <Prezime>dddd</Prezime>
-    <Jmbg>1233131</Jmbg>
-    <BrojTelefona>11111wwwwww</BrojTelefona>
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>2021-03-27T00:00:00+01:00</DatumRodjenja>
-    <Email />
-    <Adresa />
+    <DatumRodjenja>2021-03-24T00:00:00</DatumRodjenja>
+    <Email>asdasd</Email>
+    <Adresa>asdasd</Adresa>
     <Registrovan>false</Registrovan>
   </Pacijent>
 </ArrayOfPacijent>
