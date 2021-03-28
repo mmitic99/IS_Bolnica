@@ -60,10 +60,15 @@ namespace Bolnica.view
                     greska = true;
                 }
             }
-            if (!greska)
+            if (!greska && !pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals(""))
             {
                 SkladistePacijenta.GetInstance().Save(pacijent);
                 this.Close();
+            }
+            else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals(""))
+            {
+                MessageBox.Show("Polja JMBG i Ime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
             else
             {

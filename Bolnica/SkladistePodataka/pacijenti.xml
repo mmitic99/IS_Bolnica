@@ -18,4 +18,40 @@
     <Adresa>asdasd</Adresa>
     <Registrovan>false</Registrovan>
   </Pacijent>
+  <Pacijent>
+    <Grad>
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme />
+      <Lozinka />
+    </Korisnik>
+    <Ime>asd</Ime>
+    <Prezime />
+    <Jmbg>12</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-28T12:12:16.3659434+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <Registrovan>false</Registrovan>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme />
+      <Lozinka />
+    </Korisnik>
+    <Ime>saasd</Ime>
+    <Prezime />
+    <Jmbg>1</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-28T00:00:00+01:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <Registrovan>false</Registrovan>
+  </Pacijent>
 </ArrayOfPacijent>

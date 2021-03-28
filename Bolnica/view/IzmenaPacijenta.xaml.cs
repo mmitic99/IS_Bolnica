@@ -92,12 +92,17 @@ namespace Bolnica.view
                 }
             }
 
-            if (!greska)
+            if (!greska && !noviPacijent.Jmbg.Equals("") && !noviPacijent.Ime.Trim().Equals(""))
             {
                 pacijenti.Add(noviPacijent);
                 SkladistePacijenta.GetInstance().SaveAll(pacijenti);
                 pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
                 this.Close();
+            }
+            else if (noviPacijent.Jmbg.Trim().Equals("") || noviPacijent.Ime.Trim().Equals(""))
+            {
+                MessageBox.Show("Polja JMBG i Ime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
             else
             {
