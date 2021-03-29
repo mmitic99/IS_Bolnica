@@ -9,6 +9,9 @@
     <Grid>
         <Button Content="Prikaži pacijente" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="Button_Click"/>
         <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="Button_Click_1"/>
+        <Button HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="Button_Click_2">
+            <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
 
     </Grid>
 </Window>

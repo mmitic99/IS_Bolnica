@@ -2,36 +2,18 @@
 <ArrayOfPacijent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Pacijent>
     <Grad>
-      <Naziv>asdas</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>sadasd</KorisnickoIme>
-      <Lozinka>asdasd</Lozinka>
-    </Korisnik>
-    <Ime>ASd</Ime>
-    <Prezime>asda</Prezime>
-    <Jmbg>123465</Jmbg>
-    <BrojTelefona>12312</BrojTelefona>
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-24T00:00:00</DatumRodjenja>
-    <Email>asdasd</Email>
-    <Adresa>asdasd</Adresa>
-    <Registrovan>false</Registrovan>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
+      <KorisnickoIme>1234567890123</KorisnickoIme>
+      <Lozinka>Pera</Lozinka>
     </Korisnik>
-    <Ime>asd</Ime>
-    <Prezime />
-    <Jmbg>12</Jmbg>
+    <Ime>Pera</Ime>
+    <Prezime>Perić</Prezime>
+    <Jmbg>1234567890123</Jmbg>
     <BrojTelefona />
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-28T12:12:16.3659434+02:00</DatumRodjenja>
+    <DatumRodjenja>2021-03-29T23:42:22.6778339+02:00</DatumRodjenja>
     <Email />
     <Adresa />
     <Registrovan>false</Registrovan>
@@ -41,16 +23,52 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme />
-      <Lozinka />
+      <KorisnickoIme>9876543210987</KorisnickoIme>
+      <Lozinka>Mika</Lozinka>
     </Korisnik>
-    <Ime>saasd</Ime>
-    <Prezime />
-    <Jmbg>1</Jmbg>
+    <Ime>Mika</Ime>
+    <Prezime>Mikić</Prezime>
+    <Jmbg>9876543210987</Jmbg>
     <BrojTelefona />
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-28T00:00:00+01:00</DatumRodjenja>
+    <DatumRodjenja>2021-03-29T23:42:57.5889278+02:00</DatumRodjenja>
     <Email />
+    <Adresa />
+    <Registrovan>false</Registrovan>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>123456</KorisnickoIme>
+      <Lozinka>Janko</Lozinka>
+    </Korisnik>
+    <Ime>Janko</Ime>
+    <Prezime />
+    <Jmbg>123456</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-29T23:48:55.0280202+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <Registrovan>false</Registrovan>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>4567891230987</KorisnickoIme>
+      <Lozinka>Sara</Lozinka>
+    </Korisnik>
+    <Ime>Sara</Ime>
+    <Prezime>Sarić</Prezime>
+    <Jmbg>4567891230987</Jmbg>
+    <BrojTelefona>1234564</BrojTelefona>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
+    <Email>asdsad@mail.com</Email>
     <Adresa />
     <Registrovan>false</Registrovan>
   </Pacijent>

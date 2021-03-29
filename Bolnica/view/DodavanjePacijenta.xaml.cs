@@ -27,13 +27,30 @@ namespace Bolnica.view
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad { Naziv = grad.Text },
-                Korisnik = new Korisnik
-                {
-                    KorisnickoIme = korIme.Text,
-                    Lozinka = lozinka.Password
-                }
+                Grad = new Grad { Naziv = grad.Text }
             };
+
+
+            Korisnik korisnik = new Korisnik();
+            if (korIme.Text == "")
+            {
+                korisnik.KorisnickoIme = pacijent.Jmbg;
+            }
+            else
+            {
+                korisnik.KorisnickoIme = korIme.Text;
+            }
+            if (lozinka.Password == "")
+            {
+                korisnik.Lozinka = pacijent.Ime;
+            }
+            else
+            {
+                korisnik.Lozinka = lozinka.Password;
+            }
+
+            pacijent.Korisnik = korisnik;
+
 
             if (pol.SelectedIndex == 0)
             {

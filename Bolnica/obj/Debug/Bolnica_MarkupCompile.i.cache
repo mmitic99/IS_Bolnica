@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\FTN_projekti\IS_Bolnica\Bolnica\App.xaml
-8-1002390842
+91165495579
 
-421495235601
+43-1929490709
 13-1505183044
-MainWindow.xaml;view\DodavanjePacijenta.xaml;view\IzmenaPacijenta.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\PrikazPacijenata.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
+MainWindow.xaml;view\DodavanjeGostujucegPacijenta.xaml;view\DodavanjePacijenta.xaml;view\IzmenaPacijenta.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\PrikazPacijenata.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
 
 True
 

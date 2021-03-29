@@ -23,5 +23,11 @@ namespace Bolnica.view
             var s = new DodavanjePacijenta();
             s.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var s = new DodavanjeGostujucegPacijenta();
+            s.Show();
+        }
     }
 }
