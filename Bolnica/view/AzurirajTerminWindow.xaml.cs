@@ -41,9 +41,7 @@ namespace Bolnica.view
                 txt1.Text = t.DatumIVremeTermina.ToString();
                 txt2.Text = t.TrajanjeTermina.ToString();
                 ComboBox1.SelectedItem = t.VrstaTermina;
-               // termini.Remove(t);
-               // pr.Termini.RemoveAt(pregledWindow.Pregledi_Table.SelectedIndex);
-                //skladiste.SaveAll(termini);
+              
                
             }
         }
@@ -61,8 +59,9 @@ namespace Bolnica.view
             t.TrajanjeTermina = trajanjeDou;
             t.VrstaTermina = pre;
             t.SetProstorija(p);
+            skladiste.SaveAll(pregledWindow.Termini);
             pregledWindow.Pregledi_Table.Items.Refresh();
-            skladiste.Save(t);
+            
             
             this.Close();
             

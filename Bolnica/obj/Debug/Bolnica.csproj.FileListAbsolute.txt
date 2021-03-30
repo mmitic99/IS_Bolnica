@@ -21,7 +21,6 @@ D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.GenerateResource.cac
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.exe
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.pdb
-F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\MainWindow.g.cs
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\PacijentWindow.g.cs
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\PregledWindow.g.cs
@@ -48,3 +47,4 @@ F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\KreirajTerminWindow.g.cs
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\KreirajTerminWindow.baml
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\AzurirajTerminWindow.g.cs
 F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\view\AzurirajTerminWindow.baml
+F:\Program Files\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache

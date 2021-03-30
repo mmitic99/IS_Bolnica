@@ -45,7 +45,8 @@ namespace Bolnica.view
             InitializeComponent();
             this.DataContext = this;
            
-            if (skladiste.GetAll() != null)
+           
+            
                 Termini = skladiste.GetAll();
             Pregledi_Table.Items.Refresh();
         }

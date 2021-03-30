@@ -21,8 +21,23 @@
     <VrstaTermina>Pregled</VrstaTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2020-12-12T13:54:00</DatumIVremeTermina>
-    <TrajanjeTermina>120</TrajanjeTermina>
+    <DatumIVremeTermina>0001-01-01T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>32</TrajanjeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>0001-01-01T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>3000</TrajanjeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>2</TrajanjeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
   </Termin>
 </ArrayOfTermin>

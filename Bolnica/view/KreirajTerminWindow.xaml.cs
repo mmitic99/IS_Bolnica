@@ -27,6 +27,7 @@ namespace Bolnica.view
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
         public PregledWindow pregledWindow;
         Termin termin;
+        List<Termin> termini;
         public KreirajTerminWindow(PregledWindow pw)
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace Bolnica.view
             
             var vremeDataTime = DateTime.Parse(vreme);
             termin = new Termin { DatumIVremeTermina = vremeDataTime, prostorija = p, TrajanjeTermina = trajanjeDou, VrstaTermina = pre };
-            pregledWindow.Termini.Add(termin);
+            
             pregledWindow.Pregledi_Table.Items.Refresh();
         }
 
@@ -59,7 +60,10 @@ namespace Bolnica.view
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UcitajPodatke();
+            pregledWindow.Termini.Add(termin);
+            
             skladiste.Save(termin);
+            pregledWindow.Pregledi_Table.Items.Refresh();
             this.Close();
 
         }

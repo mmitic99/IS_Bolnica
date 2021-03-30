@@ -7,7 +7,7 @@ namespace Model.Skladista
 {
    public class SkladisteZaTermine
    {
-        private String Lokacija = "..\\..\\..\\Skladiste\\termini.xml";
+        private String Lokacija = "..\\..\\SkladistePodataka\\termini.xml";
         
         public List<Termin> GetAll()
       {
