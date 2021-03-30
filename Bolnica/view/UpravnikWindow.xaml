@@ -6,7 +6,22 @@
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
         Title="UpravnikWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="GreenYellow">
+        <DataGrid x:Name ="TabelaProstorija" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding lista}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                  SelectionMode="Single" AlternatingRowBackground ="Gray"  HorizontalAlignment="Left" Height="352" Margin="10,58,0,0" VerticalAlignment="Top" Width="565">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe_}"/>
+                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije_}" Width="*"/>
+                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat_}"/>
+                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Kvadratura_}"/>
+                <DataGridCheckBoxColumn Header="Renoviranje" Binding="{Binding RenoviraSe_}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="10,10,0,0" TextWrapping="Wrap" Text="---------------PROSTORIJE----------------------------------" VerticalAlignment="Top" Width="772" FontSize="30" Foreground="Black" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <Button Background="Gray" Content="Dodaj novu prostoriju" HorizontalAlignment="Left" Margin="606,100,0,0" VerticalAlignment="Top" Width="160" Height="60" Click="DodajProstoriju"/>
+        <Button Background="Gray" Content="Izmeni prostoriju" HorizontalAlignment="Left" Margin="606,210,0,0" VerticalAlignment="Top" Width="160" Height="60" Click="IzmeniProstoriju"/>
+        <Button Background="Gray" Content="Obriši prostoriju" HorizontalAlignment="Left" Margin="606,320,0,0" VerticalAlignment="Top" Width="160" Height="60" Click="ObrisiProstoriju"/>
+
     </Grid>
 </Window>

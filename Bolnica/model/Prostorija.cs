@@ -5,12 +5,15 @@ namespace Model
 {
     public class Prostorija
     {
+<<<<<<< HEAD
         public Sprat Sprat { get; set; }
         public String BrojSobe { get; set; }
         private VrstaProstorije VrstaProstorije { get; set; }
         private int IdProstorije;
         private bool RenoviraSe = false;
         private double Kvadratura;
+=======
+>>>>>>> b78c8620925912033017ba8b768004a68a71794f
         public void RenovirajProstoriju()
         {
             // TODO: implement
@@ -24,6 +27,7 @@ namespace Model
         public InventarZaProstorije inventarZaProstorije;
         public System.Collections.ArrayList termin;
 
+<<<<<<< HEAD
         public Prostorija()
         {
 
@@ -38,6 +42,8 @@ namespace Model
             this.BrojSobe = brs;
         }
 
+=======
+>>>>>>> b78c8620925912033017ba8b768004a68a71794f
 
         public System.Collections.ArrayList GetTermin()
         {
@@ -85,6 +91,7 @@ namespace Model
         public void RemoveAllTermin()
         {
             if (termin != null)
+<<<<<<< HEAD
             {
                 System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
                 foreach (Termin oldTermin in termin)
@@ -98,5 +105,99 @@ namespace Model
 
 
 
+=======
+            {
+                System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
+                foreach (Termin oldTermin in termin)
+                    tmpTermin.Add(oldTermin);
+                termin.Clear();
+                foreach (Termin oldTermin in tmpTermin)
+                    oldTermin.SetProstorija((Prostorija)null);
+                tmpTermin.Clear();
+            }
+        }
+
+        private int Sprat;
+        private String BrojSobe;
+        private VrstaProstorije VrstaProstorije;
+        private bool RenoviraSe;
+        private double Kvadratura;
+
+        public int Sprat_
+        {
+            get
+            {
+                return Sprat;
+            }
+            set
+            {
+                if (value != Sprat)
+                {
+                    Sprat = value;
+                }
+            }
+        }
+
+        public String BrojSobe_
+        {
+            get
+            {
+                return BrojSobe;
+            }
+            set
+            {
+                if (value != BrojSobe)
+                {
+                    BrojSobe = value;
+                }
+            }
+        }
+
+        public VrstaProstorije VrstaProstorije_
+        {
+            get
+            {
+                return VrstaProstorije;
+            }
+            set
+            {
+                if (value != VrstaProstorije)
+                {
+                    VrstaProstorije = value;
+                }
+            }
+        }
+
+        public bool RenoviraSe_
+        {
+            get
+            {
+                return RenoviraSe;
+            }
+            set
+            {
+                if (value != RenoviraSe)
+                {
+                    RenoviraSe = value;
+                }
+            }
+        }
+
+        public double Kvadratura_
+        {
+            get
+            {
+                return Kvadratura;
+            }
+            set
+            {
+                if (value != Kvadratura)
+                {
+                    Kvadratura = value;
+                }
+            }
+        }
+        public Prostorija() { }
+>>>>>>> b78c8620925912033017ba8b768004a68a71794f
     }
 }
