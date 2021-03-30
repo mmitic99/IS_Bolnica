@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="view\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
@@ -66,12 +67,24 @@
     </Compile>
     <Compile Include="view\LekarWindow.xaml.cs">
       <DependentUpon>LekarWindow.xaml</DependentUpon>
+=======
+    <Compile Include="view\AzurirajTerminWindow.xaml.cs">
+      <DependentUpon>AzurirajTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\KreirajTerminWindow.xaml.cs">
+      <DependentUpon>KreirajTerminWindow.xaml</DependentUpon>
+>>>>>>> lekar
     </Compile>
     <Compile Include="view\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="view\PrikazPacijenata.xaml.cs">
       <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
+=======
+    <Compile Include="view\PregledWindow.xaml.cs">
+      <DependentUpon>PregledWindow.xaml</DependentUpon>
+>>>>>>> lekar
     </Compile>
     <Compile Include="view\SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
@@ -91,6 +104,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Page Include="view\DodavanjeGostujucegPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +118,13 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarWindow.xaml">
+=======
+    <Page Include="view\AzurirajTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\KreirajTerminWindow.xaml">
+>>>>>>> lekar
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,7 +132,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="view\PrikazPacijenata.xaml">
+=======
+    <Page Include="view\PregledWindow.xaml">
+>>>>>>> lekar
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
