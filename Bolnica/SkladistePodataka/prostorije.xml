@@ -100,6 +100,7 @@
     <Kvadratura_>60</Kvadratura_>
   </Prostorija>
   <Prostorija>
+    <termin />
     <Sprat>Cetvrti</Sprat>
     <BrojSobe>405</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
@@ -108,5 +109,15 @@
     <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
     <RenoviraSe_>true</RenoviraSe_>
     <Kvadratura_>37</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <Sprat>Drugi</Sprat>
+    <BrojSobe>209</BrojSobe>
+    <VrstaProstorije>Magacin</VrstaProstorije>
+    <Sprat_>Drugi</Sprat_>
+    <BrojSobe_>209</BrojSobe_>
+    <VrstaProstorije_>Magacin</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>20</Kvadratura_>
   </Prostorija>
 </ArrayOfProstorija>

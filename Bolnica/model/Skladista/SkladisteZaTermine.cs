@@ -41,8 +41,6 @@ namespace Model.Skladista
                 StreamReader reader = new StreamReader(Lokacija);
                 termini = (List<Termin>)serializer.Deserialize(reader);
                 reader.Close();
-
-
             }
             return termini;
         }

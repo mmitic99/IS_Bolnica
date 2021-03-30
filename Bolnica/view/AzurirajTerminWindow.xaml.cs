@@ -22,7 +22,7 @@ namespace Bolnica.view
     /// </summary>
     public partial class AzurirajTerminWindow : Window
     {
-        
+        public Termin selektovani { get; set; }
         private PregledWindow pregledWindow;
         Termin t = null;
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
@@ -30,9 +30,11 @@ namespace Bolnica.view
         public AzurirajTerminWindow(PregledWindow pr)
         {
             InitializeComponent();
+           
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
             ComboBox2.ItemsSource = skladprost.GetAll();
             pregledWindow = pr;
+            this.selektovani = (Termin)pr.Pregledi_Table.SelectedItem;
             List<Termin> termini = skladiste.GetAll();
             
             this.DataContext = this;
@@ -49,22 +51,36 @@ namespace Bolnica.view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String vreme = txt1.Text;
-            String trajanje = txt2.Text;
-            Double trajanjeDou = Double.Parse(trajanje);
-            VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
-            Prostorija p = (Prostorija)ComboBox2.SelectedItem;
-            Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
-            var vremeDataTime = DateTime.Parse(vreme);
-            t.DatumIVremeTermina = vremeDataTime;
-            t.TrajanjeTermina = trajanjeDou;
-            t.VrstaTermina = pre;
-            t.SetProstorija(p);
-            t.pacijent = pa;
-            skladiste.SaveAll(pregledWindow.Termini);
+
+         
+       
+
+            List<Termin> termini = SkladisteZaTermine.getInstance().GetAll();
+            foreach (Termin t in termini)
+            {
+                if (t.IDTermina != null)
+                {
+                    if (t.IDTermina.Equals(this.selektovani.IDTermina))
+                    {
+                        String vreme = txt1.Text;
+                        String trajanje = txt2.Text;
+                        Double trajanjeDou = Double.Parse(trajanje);
+                        VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
+                        Prostorija p = (Prostorija)ComboBox2.SelectedItem;
+                        Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
+                        var vremeDataTime = DateTime.Parse(vreme);
+                        t.DatumIVremeTermina = vremeDataTime;
+                        t.TrajanjeTermina = trajanjeDou;
+                        t.VrstaTermina = pre;
+                        t.SetProstorija(p);
+                        t.pacijent = pa;
+                    }
+                }
+            }
+            SkladisteZaTermine.getInstance().SaveAll(termini);
             pregledWindow.Pregledi_Table.Items.Refresh();
-            
-            
+
+
             this.Close();
             
         }

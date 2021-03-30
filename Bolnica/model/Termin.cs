@@ -21,6 +21,18 @@ namespace Model
 
         }
 
+        public Termin(Prostorija pros, Lekar l, Pacijent p, DateTime dt, double tr, VrstaPregleda vp)
+        {
+            this.prostorija = pros;
+            this.lekar = l;
+            this.pacijent = p;
+            this.DatumIVremeTermina = dt;
+            this.TrajanjeTermina = tr;
+            this.VrstaTermina = vp;
+            this.opisTegobe = opisTegobe;
+            this.IDTermina = this.generateRandId();
+        }
+
         public Termin(Prostorija pros, Lekar l, Pacijent p, DateTime dt, double tr, VrstaPregleda vp, String opisTegobe)
         {
             this.prostorija = pros;

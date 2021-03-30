@@ -44,10 +44,6 @@ namespace Bolnica.view
 
         public static PacijentWindow getInstance()
         {
-            if (instance == null)
-            {
-                instance = new PacijentWindow();
-            }
             return instance;
         }
         public PacijentWindow()
@@ -55,14 +51,18 @@ namespace Bolnica.view
 
             InitializeComponent();
 
-            /* Pacijent p = new Pacijent("1000");
-             Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
-             Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
-             Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
-             SkladisteZaTermine.getInstance().Save(t);*/
-            String jmbg = "9876543210987";
-            prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(jmbg));
+            String jmbg = "123456";
+            Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+           Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
+            Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
+            Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
+            List<Termin> termins = new List<Termin>();
+            termins.Add(t);
+           SkladisteZaTermine.getInstance().SaveAll(termins);
+            
             DataContext = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+
+            prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(jmbg));
             this.JmbgPacijenta = jmbg;
             instance = this;
 
@@ -96,7 +96,7 @@ namespace Bolnica.view
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (prikazTermina.SelectedIndex != -1)
+            if (prikazTermina.SelectedIndex != -1 && ((Termin)prikazTermina.SelectedItem).VrstaTermina!=VrstaPregleda.Operacija)
             {
                 var s = new IzmenaTermina(((Termin)prikazTermina.SelectedItem).IDTermina);
                 s.Show();

@@ -49,10 +49,13 @@ namespace Bolnica.view
             Double trajanjeDou = Double.Parse(trajanje);
             VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
             Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
+            Lekar l = new Lekar("Pera", "Peric", "567889");
             Prostorija p = (Prostorija)ComboBox2.SelectedItem;
             
             var vremeDataTime = DateTime.Parse(vreme);
-            termin = new Termin { DatumIVremeTermina = vremeDataTime, prostorija = p, TrajanjeTermina = trajanjeDou, VrstaTermina = pre , pacijent = pa};
+            termin = new Termin { DatumIVremeTermina = vremeDataTime, prostorija = p, TrajanjeTermina = trajanjeDou, VrstaTermina = pre , pacijent = pa, lekar=l};
+            termin.IDTermina = termin.generateRandId();
+            SkladisteZaTermine.getInstance().Save(termin);
             
             pregledWindow.Pregledi_Table.Items.Refresh();
         }

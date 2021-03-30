@@ -43,11 +43,8 @@ namespace Bolnica.view
         public PregledWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-           
-           
-            
-                Termini = skladiste.GetAll();
+            this.DataContext = this;                         
+            Termini = skladiste.GetAll();
             Pregledi_Table.Items.Refresh();
         }
 

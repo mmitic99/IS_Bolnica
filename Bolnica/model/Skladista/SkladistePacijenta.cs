@@ -40,12 +40,15 @@ namespace Model.Skladista
         {
             List<Pacijent> pacijenti = this.GetAll();
             Pacijent p1 = new Pacijent();
-            foreach(Pacijent p in pacijenti)
+            foreach (Pacijent p in pacijenti)
             {
-                if(p.Jmbg.Equals(jmbg))
+                if (p.Jmbg != null)
                 {
-                    p1 = p;
-                    break;
+                    if (p.Jmbg.Equals(jmbg))
+                    {
+                        p1 = p;
+                        break;
+                    }
                 }
             }
             return p1;
