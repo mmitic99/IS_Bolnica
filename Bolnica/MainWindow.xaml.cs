@@ -1,4 +1,5 @@
 ﻿using Bolnica.view;
+using Model.Skladista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace Bolnica
         {
             var s = new UpravnikWindow();
             s.Show();
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

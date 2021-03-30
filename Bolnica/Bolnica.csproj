@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="view\DodavanjeProstorijeWindow.xaml.cs">
+      <DependentUpon>DodavanjeProstorijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\IzmenaProstorijeWindow.xaml.cs">
+      <DependentUpon>IzmenaProstorijeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarWindow.xaml.cs">
       <DependentUpon>LekarWindow.xaml</DependentUpon>
     </Compile>
@@ -79,6 +85,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="view\DodavanjeProstorijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\IzmenaProstorijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\LekarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

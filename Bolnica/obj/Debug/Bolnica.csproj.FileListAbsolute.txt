@@ -21,3 +21,30 @@ D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.GenerateResource.cac
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.exe
 D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\Bolnica.pdb
+D:\SIMS dijagram\IS_Bolnica\Bolnica\bin\Debug\Bolnica.exe.config
+D:\SIMS dijagram\IS_Bolnica\Bolnica\bin\Debug\Bolnica.exe
+D:\SIMS dijagram\IS_Bolnica\Bolnica\bin\Debug\Bolnica.pdb
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\MainWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\LekarWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\PacijentWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\SekretarWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\UpravnikWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\App.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica_MarkupCompile.cache
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica_MarkupCompile.lref
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\MainWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\LekarWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\PacijentWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\SekretarWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\UpravnikWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.g.resources
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.Properties.Resources.resources
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.GenerateResource.cache
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.exe
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\Bolnica.pdb
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjeProstorijeWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\DodavanjeProstorijeWindow.baml
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\IzmenaProstorijeWindow.g.cs
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\view\IzmenaProstorijeWindow.baml

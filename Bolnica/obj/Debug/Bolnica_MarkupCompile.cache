@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\FTN_projekti\IS_Bolnica\Bolnica\obj\Debug\
+D:\SIMS dijagram\IS_Bolnica\Bolnica\obj\Debug\
 Bolnica
 none
 false
 DEBUG;TRACE
-D:\FTN_projekti\IS_Bolnica\Bolnica\App.xaml
-5136069125
+D:\SIMS dijagram\IS_Bolnica\Bolnica\App.xaml
+71634565247
 
-382118435305
+40-16371668
 13-1505183044
-MainWindow.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
+MainWindow.xaml;view\DodavanjeProstorijeWindow.xaml;view\IzmenaProstorijeWindow.xaml;view\LekarWindow.xaml;view\PacijentWindow.xaml;view\SekretarWindow.xaml;view\UpravnikWindow.xaml;
 
 False
 
