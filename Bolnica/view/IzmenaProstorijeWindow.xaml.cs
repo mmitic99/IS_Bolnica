@@ -39,7 +39,6 @@ namespace Bolnica.view
             upravnikWindow = uw;
             indexSelektovanog = index;
             this.BrojProstorijeTextBox.Text = uw.lista.ElementAt(index).BrojSobe_;
-            this.SpratTextBox.Text = uw.lista.ElementAt(index).Sprat_.ToString();
             this.KvadraturaTextBox.Text = uw.lista.ElementAt(index).Kvadratura_.ToString();
             p.BrojSobe_ = uw.lista.ElementAt(index).BrojSobe_;
             p.Sprat_ = uw.lista.ElementAt(index).Sprat_;
@@ -74,6 +73,32 @@ namespace Bolnica.view
                 this.VrstaProstorijeComboBox.Text = "Magacin";
                 p.VrstaProstorije_ = Model.Enum.VrstaProstorije.Magacin;
             }
+
+            if (uw.lista.ElementAt(index).Sprat_ == Model.Enum.Sprat.Prizemlje)
+            {
+                this.SpratComboBox.Text = "Prizemlje";
+                p.Sprat_ = Model.Enum.Sprat.Prizemlje;
+            }
+            else if (uw.lista.ElementAt(index).Sprat_ == Model.Enum.Sprat.Prvi)
+            {
+                this.SpratComboBox.Text = "Prvi";
+                p.Sprat_ = Model.Enum.Sprat.Prvi;
+            }
+            else if (uw.lista.ElementAt(index).Sprat_ == Model.Enum.Sprat.Drugi)
+            {
+                this.SpratComboBox.Text = "Drugi";
+                p.Sprat_ = Model.Enum.Sprat.Drugi;
+            }
+            else if (uw.lista.ElementAt(index).Sprat_ == Model.Enum.Sprat.Treci)
+            {
+                this.SpratComboBox.Text = "Treci";
+                p.Sprat_ = Model.Enum.Sprat.Treci;
+            }
+            else if (uw.lista.ElementAt(index).Sprat_ == Model.Enum.Sprat.Cetvrti)
+            {
+                this.SpratComboBox.Text = "Cetvrti";
+                p.Sprat_ = Model.Enum.Sprat.Cetvrti;
+            }
         }
 
         private void PotvrdiClick(object sender, RoutedEventArgs e)
@@ -106,20 +131,37 @@ namespace Bolnica.view
             p.RenoviraSe_ = false;
         }
 
-        private void SpratTextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void SpratComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Regex regSprat = new Regex("[0-9]{1}");
-            if (regSprat.IsMatch(SpratTextBox.Text))
+            if (VrstaProstorijeComboBox.SelectedIndex.Equals(-1))
             {
-                p.Sprat_ = Int32.Parse(SpratTextBox.Text);
+                MessageBox.Show("Odaberite vrstu prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                checkVrstaProstorije = false;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(0))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Prizemlje;
                 checkSprat = true;
             }
-            //else if (SpratTextBox.Text.Equals("")) { checkSprat = false; }
-            else
+            else if (SpratComboBox.SelectedIndex.Equals(1))
             {
-                MessageBox.Show("Uneli ste nepostojeći sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                SpratTextBox.Text = "";
-                checkSprat = false;
+                p.Sprat_ = Model.Enum.Sprat.Prvi;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(2))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Drugi;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(3))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Treci;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(4))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Cetvrti;
+                checkSprat = true;
             }
         }
 

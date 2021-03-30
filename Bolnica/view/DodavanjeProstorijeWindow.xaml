@@ -14,7 +14,6 @@
             <ComboBoxItem Content="Soba za bolesnike"/>
             <ComboBoxItem Content="Magacin"/>
         </ComboBox>
-        <TextBox x:Name="SpratTextBox" HorizontalAlignment="Left" Height="30" Margin="288,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="16" TextChanged="SpratTextBox_TextChanged"/>
         <TextBox x:Name="KvadraturaTextBox" HorizontalAlignment="Left" Height="30" Margin="288,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="16" TextChanged="KvadraturaTextBox_TextChanged"/>
 
         <TextBlock x:Name="Dodavanje_Prostorija" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" TextWrapping="Wrap" Text="Dodavanje prostorije" VerticalAlignment="Top" Width="472" TextAlignment="Center" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="3"/>
@@ -24,7 +23,12 @@
         <TextBlock x:Name="Kvadratura" HorizontalAlignment="Left" Height="30" Margin="50,240,0,0" TextWrapping="Wrap" Text="Kvadratura (m2)*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="OdustaniButton" Content="Odustani" HorizontalAlignment="Left" Margin="50,320,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" Click="OdustaniClick"/>
         <Button x:Name="PotvrdiButton" Content="Potvrdi" HorizontalAlignment="Left" Margin="288,320,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" Click="PotvrdiClick"/>
-
-
+        <ComboBox x:Name="SpratComboBox" HorizontalAlignment="Left" Height="30" Margin="288,190,0,0" VerticalAlignment="Top" Width="150" FontSize="16" SelectionChanged="SpratComboBox_SelectionChanged">
+            <ComboBoxItem Content="Prizemlje"/>
+            <ComboBoxItem Content="Prvi"/>
+            <ComboBoxItem Content="Drugi"/>
+            <ComboBoxItem Content="Treci"/>
+            <ComboBoxItem Content="Cetvrti"/>
+        </ComboBox>
     </Grid>
 </Window>

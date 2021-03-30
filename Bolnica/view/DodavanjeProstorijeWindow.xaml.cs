@@ -84,6 +84,42 @@ namespace Bolnica.view
                 PotvrdiButton.IsEnabled = true;
         }
 
+        private void SpratComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SpratComboBox.SelectedIndex.Equals(-1))
+            {
+                MessageBox.Show("Odaberite sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                checkSprat = false;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(0))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Prizemlje;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(1))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Prvi;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(2))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Drugi;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(3))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Treci;
+                checkSprat = true;
+            }
+            else if (SpratComboBox.SelectedIndex.Equals(4))
+            {
+                p.Sprat_ = Model.Enum.Sprat.Cetvrti;
+                checkSprat = true;
+            }
+            if (checkBrojProstorije == true && checkVrstaProstorije == true && checkSprat == true && checkKvadratura == true)
+                PotvrdiButton.IsEnabled = true;
+        }
+
         private void VrstaProstorijeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (VrstaProstorijeComboBox.SelectedIndex.Equals(-1))
@@ -110,25 +146,6 @@ namespace Bolnica.view
             {
                 p.VrstaProstorije_ = Model.Enum.VrstaProstorije.Magacin;
                 checkVrstaProstorije = true;
-            }
-            if (checkBrojProstorije == true && checkVrstaProstorije == true && checkSprat == true && checkKvadratura == true)
-                PotvrdiButton.IsEnabled = true;
-        }
-
-        private void SpratTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Regex regSprat = new Regex("[0-9]{1,1}");
-            if (regSprat.IsMatch(SpratTextBox.Text))
-            {
-                p.Sprat_ = Int32.Parse(SpratTextBox.Text);
-                checkSprat = true;
-            }
-            else if (SpratTextBox.Text.Equals("")) { }
-            else
-            {
-                MessageBox.Show("Uneli ste nepostojeći sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                SpratTextBox.Text = "";
-                checkSprat = false;
             }
             if (checkBrojProstorije == true && checkVrstaProstorije == true && checkSprat == true && checkKvadratura == true)
                 PotvrdiButton.IsEnabled = true;

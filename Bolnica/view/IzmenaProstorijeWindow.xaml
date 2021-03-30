@@ -14,7 +14,6 @@
             <ComboBoxItem Content="Soba za bolesnike"/>
             <ComboBoxItem Content="Magacin"/>
         </ComboBox>
-        <TextBox x:Name="SpratTextBox" HorizontalAlignment="Left" Height="30" Margin="288,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="16" LostFocus="SpratTextBox_LostFocus"/>
         <TextBox x:Name="KvadraturaTextBox" HorizontalAlignment="Left" Height="30" Margin="288,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="16" LostFocus="KvadraturaTextBox_LostFocus"/>
 
         <TextBlock x:Name="Izmena_ProstorijaLabel" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" TextWrapping="Wrap" Text="Izmena prostorije" VerticalAlignment="Top" Width="472" TextAlignment="Center" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="3"/>
@@ -26,5 +25,12 @@
         <Button x:Name="PotvrdiButton" Content="Potvrdi" HorizontalAlignment="Left" Margin="288,320,0,0" VerticalAlignment="Top" Width="150" Height="40" FontSize="16" Click="PotvrdiClick"/>
         <TextBlock x:Name="Sprat_Copy" HorizontalAlignment="Left" Height="30" Margin="50,270,0,0" TextWrapping="Wrap" Text="Renoviranje*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
         <CheckBox x:Name="RenoviranjeCheckBox" Content="   Da li se prostorija&#xD;&#xA;   trenutno renovira ?" HorizontalAlignment="Left" Height="45" Margin="288,270,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.523,-0.189" FontSize="13" Unchecked="RenoviranjeCheckBox_Unchecked" Checked="RenoviranjeCheckBox_Checked" />
+        <ComboBox x:Name="SpratComboBox" HorizontalAlignment="Left" Height="30" Margin="288,170,0,0" VerticalAlignment="Top" Width="150" FontSize="16" SelectionChanged="SpratComboBox_SelectionChanged">
+            <ComboBoxItem Content="Prizemlje"/>
+            <ComboBoxItem Content="Prvi"/>
+            <ComboBoxItem Content="Drugi"/>
+            <ComboBoxItem Content="Treci"/>
+            <ComboBoxItem Content="Cetvrti"/>
+        </ComboBox>
     </Grid>
 </Window>

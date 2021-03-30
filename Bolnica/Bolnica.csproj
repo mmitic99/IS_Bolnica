@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="view\DodavanjeProstorijeWindow.xaml.cs">
+      <DependentUpon>DodavanjeProstorijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\IzmenaProstorijeWindow.xaml.cs">
+      <DependentUpon>IzmenaProstorijeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
@@ -105,9 +111,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\DodavanjeProstorijeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\IzmenaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\IzmenaProstorijeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\IzmenaTermina.xaml">
       <SubType>Designer</SubType>

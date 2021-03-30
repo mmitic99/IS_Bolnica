@@ -5,15 +5,14 @@ namespace Model
 {
     public class Prostorija
     {
-<<<<<<< HEAD
+
         public Sprat Sprat { get; set; }
         public String BrojSobe { get; set; }
-        private VrstaProstorije VrstaProstorije { get; set; }
-        private int IdProstorije;
+        public VrstaProstorije VrstaProstorije { get; set; }
         private bool RenoviraSe = false;
         private double Kvadratura;
-=======
->>>>>>> b78c8620925912033017ba8b768004a68a71794f
+
+
         public void RenovirajProstoriju()
         {
             // TODO: implement
@@ -27,7 +26,7 @@ namespace Model
         public InventarZaProstorije inventarZaProstorije;
         public System.Collections.ArrayList termin;
 
-<<<<<<< HEAD
+
         public Prostorija()
         {
 
@@ -37,13 +36,10 @@ namespace Model
         {
             this.inventarZaProstorije = new InventarZaProstorije();
             this.termin = new System.Collections.ArrayList();
-            this.VrstaProstorije = VrstaProstorije.SobaZaPreglede;
+            this.VrstaProstorije = VrstaProstorije.Soba_za_preglede;
             this.Sprat = s;
             this.BrojSobe = brs;
         }
-
-=======
->>>>>>> b78c8620925912033017ba8b768004a68a71794f
 
         public System.Collections.ArrayList GetTermin()
         {
@@ -91,7 +87,6 @@ namespace Model
         public void RemoveAllTermin()
         {
             if (termin != null)
-<<<<<<< HEAD
             {
                 System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
                 foreach (Termin oldTermin in termin)
@@ -105,25 +100,9 @@ namespace Model
 
 
 
-=======
-            {
-                System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
-                foreach (Termin oldTermin in termin)
-                    tmpTermin.Add(oldTermin);
-                termin.Clear();
-                foreach (Termin oldTermin in tmpTermin)
-                    oldTermin.SetProstorija((Prostorija)null);
-                tmpTermin.Clear();
-            }
-        }
 
-        private int Sprat;
-        private String BrojSobe;
-        private VrstaProstorije VrstaProstorije;
-        private bool RenoviraSe;
-        private double Kvadratura;
 
-        public int Sprat_
+        public Sprat Sprat_
         {
             get
             {
@@ -197,7 +176,6 @@ namespace Model
                 }
             }
         }
-        public Prostorija() { }
->>>>>>> b78c8620925912033017ba8b768004a68a71794f
     }
+
 }
