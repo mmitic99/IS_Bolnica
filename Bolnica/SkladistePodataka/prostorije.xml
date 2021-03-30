@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProstorija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Prostorija>
+    <termin />
+    <Sprat_>1</Sprat_>
+    <BrojSobe_>101</BrojSobe_>
+    <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>34</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>0</Sprat_>
+    <BrojSobe_>011</BrojSobe_>
+    <VrstaProstorije_>Magacin</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>150</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>2</Sprat_>
+    <BrojSobe_>201</BrojSobe_>
+    <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>74</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>3</Sprat_>
+    <BrojSobe_>302</BrojSobe_>
+    <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>96</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>4</Sprat_>
+    <BrojSobe_>403</BrojSobe_>
+    <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
+    <RenoviraSe_>true</RenoviraSe_>
+    <Kvadratura_>76</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>1</Sprat_>
+    <BrojSobe_>103</BrojSobe_>
+    <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>78</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>2</Sprat_>
+    <BrojSobe_>207</BrojSobe_>
+    <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>104</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>1</Sprat_>
+    <BrojSobe_>106</BrojSobe_>
+    <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>56</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>0</Sprat_>
+    <BrojSobe_>004</BrojSobe_>
+    <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>62</Kvadratura_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <Sprat_>3</Sprat_>
+    <BrojSobe_>321</BrojSobe_>
+    <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>45</Kvadratura_>
+  </Prostorija>
+</ArrayOfProstorija>
