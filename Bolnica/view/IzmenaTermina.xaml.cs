@@ -38,6 +38,15 @@ namespace Bolnica.view
             DataContext = p;
 
             izabraniLekar.SelectedIndex = selectedDoc(lekari, p);
+            if (p.DatumIVremeTermina.Minute == 0)
+            {
+                minut.SelectedIndex = 0;
+            }
+            else
+            {
+                minut.SelectedIndex = 1;
+            }
+            sat.SelectedIndex = p.DatumIVremeTermina.Hour - 6;
         }
 
         public int selectedDoc(List<Lekar> lekari, Termin t)
@@ -64,14 +73,22 @@ namespace Bolnica.view
                         t.lekar = (Lekar)izabraniLekar.SelectedItem;
                         if (datum.SelectedDate != null)
                         {
-                            t.DatumIVremeTermina = (DateTime)datum.SelectedDate;
+                            DateTime dt = (DateTime)datum.SelectedDate;
+                            int hours = (int)sat.SelectedIndex + 6;
+                            int minutes = 30;
+                            if (minut.SelectedIndex == 0)
+                            {
+                                minutes = 0;
+                            }
+                            DateTime dt1 = new DateTime(dt.Year, dt.Month, dt.Day, hours, minutes, 0);
+                            t.DatumIVremeTermina = dt1;
                         }
                         else
                         {
-                            t.DatumIVremeTermina = DateTime.Now.AddDays(3);
+                            DateTime dt = DateTime.Now.AddDays(3);
+                            t.DatumIVremeTermina = new DateTime(dt.Year, dt.Month, dt.Day, 13, 0, 0);
+
                         }
-                        t.opisTegobe = tegobe.Text;
-                        break;
                     }
                 }
             }

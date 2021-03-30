@@ -50,4 +50,55 @@
     <IDTermina>100023666/27/2021 12:00:00 AM</IDTermina>
     <TrajanjeTermina>0.5</TrajanjeTermina>
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T15:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </grad>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </grad>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>67</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+    </pacijent>
+    <IDTermina>6766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>

@@ -61,7 +61,10 @@ namespace Bolnica.view
              Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
              SkladisteZaTermine.getInstance().Save(t);*/
             String jmbg = "67";
+            Pacijent p = new Pacijent(jmbg);
+            SkladistePacijenta.GetInstance().Save(p);
             prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(jmbg));
+            DataContext = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
             this.JmbgPacijenta = jmbg;
             instance = this;
 

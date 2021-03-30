@@ -5,6 +5,17 @@ namespace Model
    public class Pacijent : Osoba
    {
         public bool Registrovan { get; set; }
+        public String FullName
+        {
+            get
+            {
+                return this.Ime + " " + this.Prezime;
+            }
+            set
+            {
+
+            }
+        }
 
         public Pacijent()
         {

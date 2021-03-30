@@ -9,7 +9,7 @@ namespace Model
         {
             get
             {
-                return this.Ime + " " + this.Prezime;
+                return "dr "+this.Ime + " " + this.Prezime;
             }
             set
             {

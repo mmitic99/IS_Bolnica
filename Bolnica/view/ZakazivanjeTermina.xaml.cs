@@ -33,7 +33,8 @@ namespace Bolnica.view
             lekari.Add(new Lekar("Miroslav", "Mi", "4536"));
             izabraniLekar.ItemsSource = lekari;
             izabraniLekar.SelectedIndex = 0;
-
+            sat.SelectedIndex = 0;
+            minut.SelectedIndex = 0;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,11 +52,21 @@ namespace Bolnica.view
             };
             if (datum.SelectedDate != null)
             {
-                p.DatumIVremeTermina = (DateTime)datum.SelectedDate;
+                DateTime dt = (DateTime)datum.SelectedDate;
+                int hours = (int)sat.SelectedIndex+6;
+                int minutes = 30;
+                if (minut.SelectedIndex == 0)
+                {
+                    minutes = 0;
+                }
+                DateTime dt1 = new DateTime(dt.Year, dt.Month, dt.Day, hours, minutes, 0);
+                p.DatumIVremeTermina = dt1;
             }
             else
             {
-                p.DatumIVremeTermina = DateTime.Now.AddDays(3);
+                DateTime dt = DateTime.Now.AddDays(3);
+                p.DatumIVremeTermina = new DateTime(dt.Year, dt.Month, dt.Day, 13, 0, 0);
+
             }
 
             p.IDTermina = p.generateRandId();
@@ -72,6 +83,9 @@ namespace Bolnica.view
 
         }
 
+        private void sat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

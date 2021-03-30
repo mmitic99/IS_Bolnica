@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
-        Title="Izmena Termina" Height="465.2" Width="346.4">
-    <Grid Margin="0,0,-27.4,-20">
+        Title="Izmena Termina" Height="499.6" Width="346.4">
+    <Grid Margin="0,0,-27,-41">
         <Label Content="Izmenite termin:" HorizontalAlignment="Left" Height="27" Margin="10,14,0,0" VerticalAlignment="Top" Width="174" FontSize="15"/>
-        <StackPanel Name="izmenaTermina" HorizontalAlignment="Left" Height="280" Margin="10,46,0,0" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.504,0.572">
+        <StackPanel Name="izmenaTermina" HorizontalAlignment="Left" Height="302" Margin="10,46,0,0" VerticalAlignment="Top" Width="318" RenderTransformOrigin="0.504,0.572">
             <Label Content="" HorizontalAlignment="Left" Height="38" Width="106"/>
             <Grid Margin="5">
 
@@ -53,15 +53,6 @@
             </Grid>
             <Grid Margin="5,5,5.4,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="23.4"/>
-                    <ColumnDefinition Width="137.4"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="Izaberite datum:" Margin="1,-42,5.8,38.8"/>
-                <DatePicker x:Name="datum" Text="{Binding Path=DatumIVremeTermina}" Grid.ColumnSpan="3" Margin="120,-41,-14.8,37" Width="176"/>
-            </Grid>
-            <Grid Margin="5,5,5.4,5">
-                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="87.4"/>
                     <ColumnDefinition Width="23"/>
                     <ColumnDefinition Width="11"/>
@@ -77,11 +68,55 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
             </Grid>
+            <Grid Margin="5,5,5.4,5" Height="21">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91.9"/>
+                    <ColumnDefinition Width="28.9"/>
+                    <ColumnDefinition Width="23.4"/>
+                    <ColumnDefinition Width="19.9"/>
+                    <ColumnDefinition Width="118.5"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Izaberite datum:" Margin="0,0,6.4,-5" Grid.ColumnSpan="2"/>
+                <DatePicker x:Name="datum" Text="{Binding DatumIVremeTermina}" Grid.ColumnSpan="4" Margin="29.2,0,-11.6,-5" Grid.Column="1"/>
+            </Grid>
 
 
 
         </StackPanel>
-        <Button Content="Sačuvaj" HorizontalAlignment="Left" Height="33" Margin="42,353,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click" />
-        <Button Content="Izađi" HorizontalAlignment="Left" Height="33" Margin="193,353,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1" />
+        <Button Content="Sačuvaj" HorizontalAlignment="Left" Height="33" Margin="45,402,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click" />
+        <Button Content="Izađi" HorizontalAlignment="Left" Height="33" Margin="192,402,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1" />
+        <Grid HorizontalAlignment="Left" Height="24" Margin="15,289,0,0" VerticalAlignment="Top" Width="298"/>
+        <Grid HorizontalAlignment="Left" Height="21" Margin="15,348,0,0" VerticalAlignment="Top" Width="298">
+            <Grid HorizontalAlignment="Left" Margin="-16,-12,0,-32" Width="314">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="245*"/>
+                    <ColumnDefinition Width="69*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Izaberite vreme:" HorizontalAlignment="Left" Height="37" Margin="10,15,0,0" VerticalAlignment="Top" Width="110"/>
+                <ComboBox x:Name="sat" HorizontalAlignment="Left" Height="27" Margin="135,15,0,0" VerticalAlignment="Top" Width="43">
+                    <ComboBoxItem Content="06"/>
+                    <ComboBoxItem Content="07"/>
+                    <ComboBoxItem Content="08"/>
+                    <ComboBoxItem Content="09"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="13"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="15"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="17"/>
+                    <ComboBoxItem Content="18"/>
+                    <ComboBoxItem Content="19"/>
+                    <ComboBoxItem Content="20"/>
+
+                </ComboBox>
+                <Label Content=":" HorizontalAlignment="Left" Height="32" Margin="184,10,0,0" VerticalAlignment="Top" Width="13"/>
+                <ComboBox x:Name="minut" HorizontalAlignment="Left" Height="27" Margin="202,15,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.097,0.467" Grid.ColumnSpan="2">
+                    <ComboBoxItem Content="00"/>
+                    <ComboBoxItem Content="30"/>
+                </ComboBox>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
