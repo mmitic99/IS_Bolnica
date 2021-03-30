@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
-        Title="PacijentWindow" Height="450" Width="800">
+        Title="Prikaz termina pacijenata" Height="450" Width="800">
     <Grid>
-        
+        <Image Source="image.jpg" Stretch="UniformToFill" Margin="0,0,-0.4,0" RenderTransformOrigin="0.91,0.424"/>
+
+
+        <DataGrid Name="prikazTermina"  Margin="49,55,252.6,37"  CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="prikazTermina_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="atumIVremeTerminaD" Header="Datum i vreme" Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*"/>
+                <DataGridTextColumn x:Name="VrstaTermina" Header="Tip pregleda" Binding="{Binding VrstaTermina}" Width="70"/>
+                <DataGridTextColumn x:Name="LekaPrezime" Header="Lekar" Binding="{Binding lekar.FullName}" Width="*"/>
+                <DataGridTextColumn x:Name="sprat" Header="Sprat" Binding="{Binding prostorija.Sprat}" Width="50"/>
+                <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" Binding="{Binding prostorija.BrojSobe}" Width="60"/>
+                <DataGridTextColumn x:Name="trajanje" Header="Trajanje" Binding="{Binding TrajanjeTermina}" Width="50"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="581,73,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click_2"/>
+        <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="581,141,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click"/>
+        <Button Content="Modifikuj termin" HorizontalAlignment="Left" Margin="581,212,0,0" VerticalAlignment="Top" Width="124" Height="41" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left"  Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="{Binding Path=FullName}" VerticalAlignment="Top" Width="206" FrameworkElement.FlowDirection="LeftToRight" Cursor="No" />
+
+
     </Grid>
 </Window>

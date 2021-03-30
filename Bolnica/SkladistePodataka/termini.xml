@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTermin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Termin>
+    <DatumIVremeTermina>2021-06-27T00:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Cetvrti</Sprat>
+      <BrojSobe>407B</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Dragana</Ime>
+      <Prezime>Dusanovic</Prezime>
+      <Jmbg>2366</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Dragana Dusanovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>1000</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>100023666/27/2021 12:00:00 AM</IDTermina>
+    <TrajanjeTermina>0.5</TrajanjeTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T15:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>67</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>6766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>67</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>6766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>67</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>6766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>67</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>6766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-28T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Ime>Dunja</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>609</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Dunja Jovanovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Jovana</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>1234</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Mikica 23/A</Adresa>
+      <Registrovan>true</Registrovan>
+      <FullName>Jovana Jovanovic</FullName>
+    </pacijent>
+    <IDTermina>123466674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </Grad>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Mika</Ime>
+      <Prezime>Mikić</Prezime>
+      <Jmbg>9876543210987</Jmbg>
+      <BrojTelefona />
+      <Pol>Muski</Pol>
+      <DatumRodjenja>2021-03-29T23:42:57.5889278+02:00</DatumRodjenja>
+      <Email />
+      <Adresa />
+      <Registrovan>false</Registrovan>
+      <FullName>Mika Mikić</FullName>
+    </pacijent>
+    <IDTermina>987654321098766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </Grad>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Mika</Ime>
+      <Prezime>Mikić</Prezime>
+      <Jmbg>9876543210987</Jmbg>
+      <BrojTelefona />
+      <Pol>Muski</Pol>
+      <DatumRodjenja>2021-03-29T23:42:57.5889278+02:00</DatumRodjenja>
+      <Email />
+      <Adresa />
+      <Registrovan>false</Registrovan>
+      <FullName>Mika Mikić</FullName>
+    </pacijent>
+    <IDTermina>987654321098766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-10T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije>
+        <lek />
+        <potrosnaOprema />
+        <stacionarnaOprema />
+      </inventarZaProstorije>
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+    </prostorija>
+    <lekar>
+      <Grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </Grad>
+      <Ime>Dunja</Ime>
+      <Prezime>Jovanovic</Prezime>
+      <Jmbg>609</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Dunja Jovanovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Mika</Ime>
+      <Prezime>Mikić</Prezime>
+      <Jmbg>9876543210987</Jmbg>
+      <BrojTelefona />
+      <Pol>Muski</Pol>
+      <DatumRodjenja>2021-03-29T23:42:57.5889278+02:00</DatumRodjenja>
+      <Email />
+      <Adresa />
+      <Registrovan>false</Registrovan>
+      <FullName>Mika Mikić</FullName>
+    </pacijent>
+    <IDTermina>98765432109876094/10/2021 10:00:00 AM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+</ArrayOfTermin>

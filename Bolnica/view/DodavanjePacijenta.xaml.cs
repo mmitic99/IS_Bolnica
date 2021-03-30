@@ -72,9 +72,12 @@ namespace Bolnica.view
             List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
             for (int i = 0; i < pacijenti.Count; i++)
             {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                if (pacijenti.ElementAt(i).Jmbg != null)
                 {
-                    greska = true;
+                    if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                    {
+                        greska = true;
+                    }
                 }
             }
             if (!greska && !pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals(""))

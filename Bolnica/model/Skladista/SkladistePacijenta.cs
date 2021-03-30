@@ -14,7 +14,7 @@ namespace Model.Skladista
 
         public static SkladistePacijenta GetInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = new SkladistePacijenta();
             }
@@ -34,6 +34,21 @@ namespace Model.Skladista
             }
 
             return pacijenti;
+        }
+
+        public Pacijent getByJmbg(String jmbg)
+        {
+            List<Pacijent> pacijenti = this.GetAll();
+            Pacijent p1 = new Pacijent();
+            foreach(Pacijent p in pacijenti)
+            {
+                if(p.Jmbg.Equals(jmbg))
+                {
+                    p1 = p;
+                    break;
+                }
+            }
+            return p1;
         }
 
         public void Save(Model.Pacijent pacijent)

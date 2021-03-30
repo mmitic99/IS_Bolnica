@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="view\IzmenaTermina.xaml.cs">
+      <DependentUpon>IzmenaTermina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,9 @@
     </Compile>
     <Compile Include="view\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\ZakazivanjeTermina.xaml.cs">
+      <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\IzmenaTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\LekarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\UpravnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\ZakazivanjeTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

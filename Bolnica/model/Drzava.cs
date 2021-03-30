@@ -4,8 +4,8 @@ namespace Model
 {
    public class Drzava
    {
-      private String Naziv;
-      private String Oznaka;
-   
-   }
+        public String Naziv { get; set; }
+        public String Oznaka { get; set; }
+
+    }
 }
