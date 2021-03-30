@@ -30,7 +30,7 @@ namespace Bolnica.view
         {
             InitializeComponent();
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
-            //ComboBox2.ItemsSource = SkladisteZaProstorija.getAll();
+            //ComboBox2.ItemsSource = SkladisteZaProstorija.getAlla();
             pregledWindow = pr;
             List<Termin> termini = skladiste.GetAll();
             
