@@ -12,6 +12,12 @@
       <termin />
       <Sprat>Cetvrti</Sprat>
       <BrojSobe>407B</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Cetvrti</Sprat_>
+      <BrojSobe_>407B</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Dragana</Ime>
@@ -47,6 +53,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Milos</Ime>
@@ -83,6 +95,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Milos</Ime>
@@ -119,6 +137,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Milos</Ime>
@@ -155,6 +179,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Milos</Ime>
@@ -191,6 +221,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Ime>Dunja</Ime>
@@ -227,6 +263,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Grad>
@@ -264,6 +306,39 @@
   <Termin>
     <DatumIVremeTermina>2021-04-02T13:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
+    <lekar>
+      <Grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </Grad>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Mihailo</Ime>
+      <Prezime>Majstorovic</Prezime>
+      <Jmbg>1234546789</Jmbg>
+      <Pol>Muski</Pol>
+      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
+      <Registrovan>false</Registrovan>
+      <FullName>Mihailo Majstorovic</FullName>
+    </pacijent>
+    <IDTermina>987654321098766674/2/2021 1:00:00 PM</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-01T06:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
     <prostorija>
       <inventarZaProstorije>
         <lek />
@@ -273,6 +348,12 @@
       <termin />
       <Sprat>Drugi</Sprat>
       <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
     </prostorija>
     <lekar>
       <Grad>
@@ -303,54 +384,22 @@
       <Registrovan>false</Registrovan>
       <FullName>Mika Mikić</FullName>
     </pacijent>
-    <IDTermina>987654321098766674/2/2021 1:00:00 PM</IDTermina>
+    <IDTermina>987654321098766674/1/2021 6:00:00 AM</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
+    <opisTegobe>gas</opisTegobe>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-10T13:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <inventarZaProstorije>
-        <lek />
-        <potrosnaOprema />
-        <stacionarnaOprema />
-      </inventarZaProstorije>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>205</BrojSobe>
-    </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Dunja</Ime>
-      <Prezime>Jovanovic</Prezime>
-      <Jmbg>609</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Dunja Jovanovic</FullName>
-    </lekar>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
     <pacijent>
-      <Ime>Mika</Ime>
-      <Prezime>Mikić</Prezime>
-      <Jmbg>9876543210987</Jmbg>
-      <BrojTelefona />
+      <Ime>Mihailo</Ime>
+      <Prezime>Majstorovic</Prezime>
+      <Jmbg>1234546789</Jmbg>
       <Pol>Muski</Pol>
-      <DatumRodjenja>2021-03-29T23:42:57.5889278+02:00</DatumRodjenja>
-      <Email />
-      <Adresa />
+      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
       <Registrovan>false</Registrovan>
-      <FullName>Mika Mikić</FullName>
+      <FullName>Mihailo Majstorovic</FullName>
     </pacijent>
-    <IDTermina>98765432109876094/10/2021 10:00:00 AM</IDTermina>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
+    <TrajanjeTermina>1234</TrajanjeTermina>
   </Termin>
 </ArrayOfTermin>

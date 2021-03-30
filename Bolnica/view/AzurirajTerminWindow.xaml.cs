@@ -26,11 +26,12 @@ namespace Bolnica.view
         private PregledWindow pregledWindow;
         Termin t = null;
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
+        SkladisteZaProstorije skladprost = new SkladisteZaProstorije();
         public AzurirajTerminWindow(PregledWindow pr)
         {
             InitializeComponent();
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
-            //ComboBox2.ItemsSource = SkladisteZaProstorija.getAlla();
+            ComboBox2.ItemsSource = skladprost.GetAll();
             pregledWindow = pr;
             List<Termin> termini = skladiste.GetAll();
             
@@ -53,12 +54,13 @@ namespace Bolnica.view
             Double trajanjeDou = Double.Parse(trajanje);
             VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
             Prostorija p = (Prostorija)ComboBox2.SelectedItem;
-            
+            Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
             var vremeDataTime = DateTime.Parse(vreme);
             t.DatumIVremeTermina = vremeDataTime;
             t.TrajanjeTermina = trajanjeDou;
             t.VrstaTermina = pre;
             t.SetProstorija(p);
+            t.pacijent = pa;
             skladiste.SaveAll(pregledWindow.Termini);
             pregledWindow.Pregledi_Table.Items.Refresh();
             

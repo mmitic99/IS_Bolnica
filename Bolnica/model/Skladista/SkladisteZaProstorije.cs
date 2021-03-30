@@ -1,5 +1,6 @@
 using Model.Enum;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -48,6 +49,11 @@ namespace Model.Skladista
             StreamWriter writer = new StreamWriter(Lokacija);
             serializer.Serialize(writer, Prostorije);
             writer.Close();
+        }
+
+        internal IEnumerable getAll()
+        {
+            throw new NotImplementedException();
         }
 
         public void SaveAll(List<Prostorija> prostorije)
