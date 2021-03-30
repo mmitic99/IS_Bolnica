@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTermin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Termin>
+    <DatumIVremeTermina>2000-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>345</TrajanjeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>45</TrajanjeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>1200</TrajanjeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T00:00:00</DatumIVremeTermina>
+    <TrajanjeTermina>2340</TrajanjeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2020-12-12T13:54:00</DatumIVremeTermina>
+    <TrajanjeTermina>120</TrajanjeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+  </Termin>
+</ArrayOfTermin>
