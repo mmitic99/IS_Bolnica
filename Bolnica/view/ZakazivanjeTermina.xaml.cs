@@ -26,15 +26,17 @@ namespace Bolnica.view
 
         public ZakazivanjeTermina(String jmbg)
         {
-            p = new Pacijent(jmbg);
+            p = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
             InitializeComponent();
             List<Lekar> lekari = new List<Lekar>();
             lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
             lekari.Add(new Lekar("Miroslav", "Mi", "4536"));
+            lekari.Add(new Lekar("Dunja", "Jovanovic", "609"));
             izabraniLekar.ItemsSource = lekari;
             izabraniLekar.SelectedIndex = 0;
             sat.SelectedIndex = 0;
             minut.SelectedIndex = 0;
+            datum.DisplayDateStart = DateTime.Today.AddDays(1);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

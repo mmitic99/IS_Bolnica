@@ -32,7 +32,7 @@
         <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="581,73,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click_2"/>
         <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="581,141,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click"/>
         <Button Content="Modifikuj termin" HorizontalAlignment="Left" Margin="581,212,0,0" VerticalAlignment="Top" Width="124" Height="41" Click="Button_Click_1"/>
-        <TextBlock HorizontalAlignment="Left"  Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="{Binding Path=FullName}" VerticalAlignment="Top" Width="206" FrameworkElement.FlowDirection="RightToLeft"/>
+        <TextBlock HorizontalAlignment="Left"  Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="{Binding Path=FullName}" VerticalAlignment="Top" Width="206" FrameworkElement.FlowDirection="LeftToRight" Cursor="No" />
 
 
     </Grid>

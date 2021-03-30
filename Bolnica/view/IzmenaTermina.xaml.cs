@@ -33,6 +33,7 @@ namespace Bolnica.view
             List<Lekar> lekari = new List<Lekar>();
             lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
             lekari.Add(new Lekar("Miroslav", "Mi", "4536"));
+            lekari.Add(new Lekar("Dunja", "Jovanovic", "609"));
             izabraniLekar.ItemsSource = lekari;
             this.p = SkladisteZaTermine.getInstance().getById(id);
             DataContext = p;
@@ -47,6 +48,9 @@ namespace Bolnica.view
                 minut.SelectedIndex = 1;
             }
             sat.SelectedIndex = p.DatumIVremeTermina.Hour - 6;
+            datum.DisplayDateStart = DateTime.Today.AddDays(1);
+            datum.SelectedDate = p.DatumIVremeTermina;
+
         }
 
         public int selectedDoc(List<Lekar> lekari, Termin t)
