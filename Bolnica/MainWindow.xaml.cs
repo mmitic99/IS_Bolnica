@@ -42,7 +42,7 @@ namespace Bolnica
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var s = new PregledWindow();
+            var s = new LekarWindow();
             s.Show();
         }
 
