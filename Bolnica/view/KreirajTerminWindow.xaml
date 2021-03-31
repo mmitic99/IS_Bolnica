@@ -15,7 +15,13 @@
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="206,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBox1"   HorizontalAlignment="Left" Margin="206,285,0,0" VerticalAlignment="Top" Width="120" Text="Izaberi opciju" />
         <Label Content="KREIRANJE NOVOG TERMINA" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="272" Height="60" FontSize="20" RenderTransformOrigin="0.78,0.533"/>
-        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="206,115,0,0" VerticalAlignment="Top" Width="120"  />
+        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="206,115,0,0" VerticalAlignment="Top" Width="120" >
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                    <TextBlock Text="{Binding BrojSobe_}"/>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+        </ComboBox>
         <Button Content="Primeni" HorizontalAlignment="Left" Margin="169,370,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click"/>
 
     </Grid>

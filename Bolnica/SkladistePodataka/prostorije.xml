@@ -111,6 +111,7 @@
     <Kvadratura_>37</Kvadratura_>
   </Prostorija>
   <Prostorija>
+    <termin />
     <Sprat>Drugi</Sprat>
     <BrojSobe>209</BrojSobe>
     <VrstaProstorije>Magacin</VrstaProstorije>

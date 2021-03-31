@@ -47,7 +47,10 @@ namespace Bolnica.view
             {
                 minut.SelectedIndex = 1;
             }
-            sat.SelectedIndex = p.DatumIVremeTermina.Hour - 6;
+            if (p.DatumIVremeTermina.Hour >= 6 && p.DatumIVremeTermina.Hour <= 20)
+                sat.SelectedIndex = p.DatumIVremeTermina.Hour - 6;
+            else
+                sat.SelectedIndex = 0;
             datum.DisplayDateStart = DateTime.Today.AddDays(1);
             datum.SelectedDate = p.DatumIVremeTermina;
 

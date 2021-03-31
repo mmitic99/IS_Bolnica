@@ -59,6 +59,19 @@ namespace Model.Skladista
             }
             return odgovTermini;
         }
+        public List<Termin> getByJmbgLekar(String jmbg)
+        {
+            List<Termin> odgovTermini = new List<Termin>();
+            List<Termin> sviTermini = this.GetAll();
+            foreach (Termin t in sviTermini)
+            {
+                if (t.lekar.Jmbg.Equals(jmbg))
+                {
+                    odgovTermini.Add(t);
+                }
+            }
+            return odgovTermini;
+        }
 
         public Termin getById(String id)
         {

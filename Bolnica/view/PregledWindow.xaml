@@ -15,7 +15,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum i pocetak termina" Binding="{Binding DatumIVremeTermina}" Width="*"/>
                 <DataGridTextColumn Header="Trajanje termina (u minutima)" Binding="{Binding TrajanjeTermina}"/>
-                <DataGridTextColumn Header="Prostorija" Binding="{Binding prostorija}"/>
+                <DataGridTextColumn Header="Prostorija" Binding="{Binding prostorija.BrojSobe}"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding VrstaTermina}"/>
             </DataGrid.Columns>
         </DataGrid>

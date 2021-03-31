@@ -101,23 +101,12 @@
     <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
   <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>356677</KorisnickoIme>
-      <Lozinka>Darko</Lozinka>
-    </Korisnik>
-    <Ime>Darko</Ime>
-    <Prezime />
-    <Jmbg>356677</Jmbg>
-    <BrojTelefona />
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-30T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
+    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
     <Registrovan>false</Registrovan>
-    <FullName>Darko </FullName>
+    <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

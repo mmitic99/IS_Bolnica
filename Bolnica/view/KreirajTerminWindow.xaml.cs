@@ -3,6 +3,7 @@ using Model.Enum;
 using Model.Skladista;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Bolnica.view
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
         SkladisteZaProstorije skladprod = new SkladisteZaProstorije();
         public PregledWindow pregledWindow;
+        Lekar l;
         Termin termin;
         List<Termin> termini;
         public KreirajTerminWindow(PregledWindow pw)
@@ -35,11 +37,14 @@ namespace Bolnica.view
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
             ComboBox1.SelectedItem = null;
             ComboBox1.Text = "---izaberi--";
-            ComboBox2.ItemsSource = skladprod.GetAll();
+            List<Prostorija> prostorije = skladprod.GetAll();
+            ComboBox2.ItemsSource = prostorije;
             this.DataContext = this;
             pregledWindow = pw;
             
-            
+            ComboBox2.SelectedIndex = 0;
+
+
 
         }
        public void UcitajPodatke()
@@ -48,16 +53,15 @@ namespace Bolnica.view
             String trajanje = txt2.Text;
             Double trajanjeDou = Double.Parse(trajanje);
             VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
-            Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
-            Lekar l = new Lekar("Pera", "Peric", "567889");
+            Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "123456789" };
+             l = new Lekar("Milos", "Marinkovic", "6667");
             Prostorija p = (Prostorija)ComboBox2.SelectedItem;
             
             var vremeDataTime = DateTime.Parse(vreme);
             termin = new Termin { DatumIVremeTermina = vremeDataTime, prostorija = p, TrajanjeTermina = trajanjeDou, VrstaTermina = pre , pacijent = pa, lekar=l};
             termin.IDTermina = termin.generateRandId();
             SkladisteZaTermine.getInstance().Save(termin);
-            
-            pregledWindow.Pregledi_Table.Items.Refresh();
+            PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(termin.lekar.Jmbg));
         }
 
        
@@ -65,10 +69,10 @@ namespace Bolnica.view
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UcitajPodatke();
-            pregledWindow.Termini.Add(termin);
             
-            skladiste.Save(termin);
-            pregledWindow.Pregledi_Table.Items.Refresh();
+            
+            
+            
             this.Close();
 
         }

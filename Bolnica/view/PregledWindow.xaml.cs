@@ -2,6 +2,7 @@
 using Model.Skladista;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,12 @@ namespace Bolnica.view
     /// </summary>
     public partial class PregledWindow : Window
     {
+        private static PregledWindow instance = null;
+
+        public static PregledWindow getInstance()
+        {
+            return instance;
+        }
         public List<Termin> Termini
         {
             get;
@@ -44,8 +51,9 @@ namespace Bolnica.view
         {
             InitializeComponent();
             this.DataContext = this;                         
-            Termini = skladiste.GetAll();
-            Pregledi_Table.Items.Refresh();
+            Termini = skladiste.getByJmbgLekar("6667");
+            
+            instance = this;
         }
 
 
@@ -70,8 +78,10 @@ namespace Bolnica.view
         {
             if (GetPregledi_Table().SelectedIndex != -1)
             {
-                Termini.RemoveAt(GetPregledi_Table().SelectedIndex);
-                skladiste.SaveAll(Termini);
+                SkladisteZaTermine.getInstance().RemoveByID(((Termin)Pregledi_Table.SelectedItem).IDTermina);
+                PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(((Termin)Pregledi_Table.SelectedItem).lekar.Jmbg));
+
+
             }
             else
                 Console.WriteLine("Niste odabrali nijedan red.");

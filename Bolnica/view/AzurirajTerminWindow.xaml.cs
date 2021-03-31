@@ -3,6 +3,7 @@ using Model.Enum;
 using Model.Skladista;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,10 +41,11 @@ namespace Bolnica.view
             this.DataContext = this;
             if (pregledWindow.Pregledi_Table.SelectedIndex != -1)
             {
-                t = pregledWindow.Termini[pregledWindow.Pregledi_Table.SelectedIndex];
+                t = (Termin)PregledWindow.getInstance().Pregledi_Table.SelectedItem;
                 txt1.Text = t.DatumIVremeTermina.ToString();
                 txt2.Text = t.TrajanjeTermina.ToString();
                 ComboBox1.SelectedItem = t.VrstaTermina;
+                
               
                
             }
@@ -67,18 +69,23 @@ namespace Bolnica.view
                         Double trajanjeDou = Double.Parse(trajanje);
                         VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
                         Prostorija p = (Prostorija)ComboBox2.SelectedItem;
-                        Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "1234546789" };
+                        
+                        
                         var vremeDataTime = DateTime.Parse(vreme);
                         t.DatumIVremeTermina = vremeDataTime;
                         t.TrajanjeTermina = trajanjeDou;
                         t.VrstaTermina = pre;
-                        t.SetProstorija(p);
-                        t.pacijent = pa;
+                        t.prostorija = p;
+                        
+                        
                     }
                 }
             }
+            
             SkladisteZaTermine.getInstance().SaveAll(termini);
-            pregledWindow.Pregledi_Table.Items.Refresh();
+
+            PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(t.lekar.Jmbg));
+
 
 
             this.Close();
