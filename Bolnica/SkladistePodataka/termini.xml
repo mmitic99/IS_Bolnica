@@ -266,7 +266,7 @@
     <TrajanjeTermina>1234</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2000-01-03T00:00:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2018-07-03T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <prostorija>
       <termin />
@@ -305,7 +305,52 @@
       <Registrovan>false</Registrovan>
       <FullName>Mihailo Majstorovic</FullName>
     </pacijent>
-    <IDTermina>12345678966671/3/2000 12:00:00 AM</IDTermina>
-    <TrajanjeTermina>2323</TrajanjeTermina>
+    <IDTermina>12345678966673.7.2018. 00:00:00</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-14T10:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <prostorija>
+      <inventarZaProstorije />
+      <termin />
+      <Sprat>Drugi</Sprat>
+      <BrojSobe>205</BrojSobe>
+      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+      <Sprat_>Drugi</Sprat_>
+      <BrojSobe_>205</BrojSobe_>
+      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+      <RenoviraSe_>false</RenoviraSe_>
+      <Kvadratura_>0</Kvadratura_>
+    </prostorija>
+    <lekar>
+      <Grad>
+        <drzava>
+          <Naziv>Srbija</Naziv>
+          <Oznaka>SRB</Oznaka>
+        </drzava>
+        <Naziv>Beograd</Naziv>
+        <PostanskiBroj>2300</PostanskiBroj>
+      </Grad>
+      <Ime>Milos</Ime>
+      <Prezime>Marinkovic</Prezime>
+      <Jmbg>6667</Jmbg>
+      <Pol>Zenski</Pol>
+      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+      <Adresa>Jovana Vojvodica 23/A</Adresa>
+      <FullName>dr Milos Marinkovic</FullName>
+    </lekar>
+    <pacijent>
+      <Ime>Mihailo</Ime>
+      <Prezime>Majstorovic</Prezime>
+      <Jmbg>123456789</Jmbg>
+      <Pol>Muski</Pol>
+      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
+      <Registrovan>false</Registrovan>
+      <FullName>Mihailo Majstorovic</FullName>
+    </pacijent>
+    <IDTermina>123456789666714.4.2021. 10:00:00</IDTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>bol</opisTegobe>
   </Termin>
 </ArrayOfTermin>

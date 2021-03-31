@@ -55,7 +55,7 @@ namespace Bolnica.view
             
            Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
            Pacijent p = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "123456789" };
-            SkladistePacijenta.GetInstance().Save(p);
+           // SkladistePacijenta.GetInstance().Save(p);
            /* Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
             Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
             List<Termin> termins = new List<Termin>();
