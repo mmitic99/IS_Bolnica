@@ -55,6 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Kontroler\KorisnikKontroler.cs" />
+    <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\PacijentKontroler.cs" />
+    <Compile Include="Kontroler\ProstorijeKontroler.cs" />
+    <Compile Include="Kontroler\SekretarKontroler.cs" />
+    <Compile Include="Kontroler\TerminKontroler.cs" />
+    <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="model\Izvestaj.cs" />
+    <Compile Include="model\Obavestenje.cs" />
+    <Compile Include="model\Recept.cs" />
+    <Compile Include="model\ZdravstveniKarton.cs" />
+    <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
+    <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
+    <Compile Include="Repozitorijum\SkladisteUpravnik.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaLekara.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaProstorije.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaSpecijalizaciju.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />
+    <Compile Include="Servis\KorisnikServis.cs" />
+    <Compile Include="Servis\LekarServis.cs" />
+    <Compile Include="Servis\PacijentServis.cs" />
+    <Compile Include="Servis\ProstorijeServis.cs" />
+    <Compile Include="Servis\SekretarServis.cs" />
+    <Compile Include="Servis\TerminServis.cs" />
+    <Compile Include="Servis\UpravnikServis.cs" />
     <Compile Include="view\AzurirajTerminWindow.xaml.cs">
       <DependentUpon>AzurirajTerminWindow.xaml</DependentUpon>
     </Compile>
@@ -193,12 +218,6 @@
     <Compile Include="model\Prostorija.cs" />
     <Compile Include="model\Radnik.cs" />
     <Compile Include="model\Sekretar.cs" />
-    <Compile Include="model\Skladista\SkladistePacijenta.cs" />
-    <Compile Include="model\Skladista\SkladisteSekretara.cs" />
-    <Compile Include="model\Skladista\SkladisteUpravnik.cs" />
-    <Compile Include="model\Skladista\SkladisteZaLekara.cs" />
-    <Compile Include="model\Skladista\SkladisteZaProstorije.cs" />
-    <Compile Include="model\Skladista\SkladisteZaTermine.cs" />
     <Compile Include="model\Specijalizacija.cs" />
     <Compile Include="model\StacionarnaOprema.cs" />
     <Compile Include="model\Termin.cs" />

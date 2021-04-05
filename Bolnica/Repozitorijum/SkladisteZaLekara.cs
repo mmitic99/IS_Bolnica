@@ -1,22 +1,24 @@
+using Model;
 using System;
 using System.Collections.Generic;
 
-namespace Model.Skladista
+namespace Repozitorijum
+
 {
-   public class SkladisteUpravnik
+   public class SkladisteZaLekara
    {
-      public List<Upravnik> GetAll()
+      public List<Lekar> GetAll()
       {
          // TODO: implement
          return null;
       }
       
-      public void Save(Model.Upravnik upravnik)
+      public void Save(Model.Lekar lekar)
       {
          // TODO: implement
       }
       
-      public void SaveAll(List<Pacijent> upravnici)
+      public void SaveAll(List<Lekar> lekari)
       {
          // TODO: implement
       }

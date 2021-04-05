@@ -4,8 +4,9 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 using System.Linq;
+using Model;
 
-namespace Model.Skladista
+namespace Repozitorijum
 {
     public class SkladisteZaTermine
     {

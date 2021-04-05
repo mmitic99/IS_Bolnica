@@ -1,5 +1,5 @@
 ﻿using Model;
-using Model.Skladista;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -26,26 +26,6 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>9876543210987</KorisnickoIme>
-      <Lozinka>Mika</Lozinka>
-    </Korisnik>
-    <Ime>Mika</Ime>
-    <Prezime>Mikić</Prezime>
-    <Jmbg>9876543210987</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-    <FullName>Mika Mikić</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
       <KorisnickoIme>123456</KorisnickoIme>
       <Lozinka>Janko</Lozinka>
     </Korisnik>
@@ -108,5 +88,25 @@
     <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>9876543210987</KorisnickoIme>
+      <Lozinka>Mika</Lozinka>
+    </Korisnik>
+    <Ime>Mika</Ime>
+    <Prezime>Mikić</Prezime>
+    <Jmbg>9876543210987</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <Registrovan>false</Registrovan>
+    <FullName>Mika Mikić</FullName>
   </Pacijent>
 </ArrayOfPacijent>
