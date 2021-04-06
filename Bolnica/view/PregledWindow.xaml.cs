@@ -70,7 +70,7 @@ namespace Bolnica.view
             if (GetPregledi_Table().SelectedIndex != -1)
             {
                 SkladisteZaTermine.getInstance().RemoveByID(((Termin)Pregledi_Table.SelectedItem).IDTermina);
-                PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(((Termin)Pregledi_Table.SelectedItem).lekar.Jmbg));
+                PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
 
 
             }

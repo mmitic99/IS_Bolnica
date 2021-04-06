@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Bolnica.view
 {
@@ -12,7 +13,7 @@ namespace Bolnica.view
     /// </summary>
     public partial class DodavanjeGostujucegPacijenta : Window
     {
-        public DodavanjeGostujucegPacijenta()
+        public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
         }

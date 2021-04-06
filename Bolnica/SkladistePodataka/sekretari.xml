@@ -7,5 +7,7 @@
     </Korisnik>
     <Pol>Muski</Pol>
     <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
+	<Ime>Sekretar</Ime>
+    <Prezime>Sekretar</Prezime>
   </Sekretar>
 </ArrayOfSekretar>

@@ -84,7 +84,7 @@ namespace Bolnica.view
             
             SkladisteZaTermine.getInstance().SaveAll(termini);
 
-            PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(t.lekar.Jmbg));
+            PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(t.JmbgLekara));
 
 
 

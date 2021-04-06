@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Linq;
 using Model;
+using Bolnica.model;
 
 namespace Repozitorijum
 {
@@ -46,6 +47,22 @@ namespace Repozitorijum
             return termini;
         }
 
+        public List<TerminPacijentLekar> GetBuduciTerminPacLekar()
+        {
+
+            List<TerminPacijentLekar> termini = new List<TerminPacijentLekar>();
+            foreach (Termin termin in SkladisteZaTermine.getInstance().GetAll())
+            {
+                if (termin.DatumIVremeTermina >= DateTime.Now)
+                {
+                    TerminPacijentLekar t = new TerminPacijentLekar { termin = termin, pacijent = SkladistePacijenta.GetInstance().getByJmbg(termin.JmbgPacijenta), lekar = SkladisteZaLekara.GetInstance().getByJmbg(termin.JmbgLekara) };
+                    termini.Add(t);
+                }
+            }
+
+            return termini;
+        }
+
 
         public List<Termin> getByJmbg(String jmbg)
         {
@@ -53,7 +70,7 @@ namespace Repozitorijum
             List<Termin> sviTermini = this.GetAll();
             foreach (Termin t in sviTermini)
             {
-                if (t.pacijent.Jmbg.Equals(jmbg))
+                if (t.JmbgPacijenta.Equals(jmbg))
                 {
                     odgovTermini.Add(t);
                 }
@@ -66,7 +83,7 @@ namespace Repozitorijum
             List<Termin> sviTermini = this.GetAll();
             foreach (Termin t in sviTermini)
             {
-                if (t.lekar.Jmbg.Equals(jmbg))
+                if (t.JmbgLekara.Equals(jmbg))
                 {
                     odgovTermini.Add(t);
                 }

@@ -60,7 +60,7 @@ namespace Bolnica.view
         {
             for (int i = 0; i < lekari.Count; i++)
             {
-                if (lekari.ElementAt(i).Jmbg.Equals(t.lekar.Jmbg))
+                if (lekari.ElementAt(i).Jmbg.Equals(t.JmbgLekara))
                 {
                     return i;
                 }
@@ -77,7 +77,7 @@ namespace Bolnica.view
                 {
                     if (t.IDTermina.Equals(this.IDPregleda))
                     {
-                        t.lekar = (Lekar)izabraniLekar.SelectedItem;
+                        t.JmbgLekara = ((Lekar)izabraniLekar.SelectedItem).Jmbg;
                         if (datum.SelectedDate != null)
                         {
                             DateTime dt = (DateTime)datum.SelectedDate;
@@ -100,7 +100,7 @@ namespace Bolnica.view
                 }
             }
             SkladisteZaTermine.getInstance().SaveAll(termini);
-            PacijentWindow.getInstance().prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
+            PacijentWindow.getInstance().prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.JmbgPacijenta));
 
             this.Close();
         }

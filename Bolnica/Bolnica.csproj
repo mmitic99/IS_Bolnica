@@ -65,6 +65,7 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="model\TerminPacijentLekar.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />

@@ -14,32 +14,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>96</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966677/7/2000 12:00:00 AM</IDTermina>
     <TrajanjeTermina>323</TrajanjeTermina>
   </Termin>
@@ -57,32 +33,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>20</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966678/8/0008 12:00:00 AM</IDTermina>
     <TrajanjeTermina>222</TrajanjeTermina>
   </Termin>
@@ -100,32 +52,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>73</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/4/2021 7:00:00 AM</IDTermina>
     <TrajanjeTermina>303</TrajanjeTermina>
     <opisTegobe>boli</opisTegobe>
@@ -144,32 +72,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>54</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673/3/0004 12:00:00 AM</IDTermina>
     <TrajanjeTermina>1234</TrajanjeTermina>
   </Termin>
@@ -187,32 +91,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>96</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673.7.2018. 00:00:00</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
@@ -235,32 +115,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>0</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666714.4.2021. 10:00:00</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>bol</opisTegobe>
@@ -284,43 +140,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>0</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Grad>
-        <drzava />
-        <Naziv />
-      </Grad>
-      <Korisnik>
-        <KorisnickoIme>9876543210987</KorisnickoIme>
-        <Lozinka>Mika</Lozinka>
-      </Korisnik>
-      <Ime>Mika</Ime>
-      <Prezime>Mikić</Prezime>
-      <Jmbg>9876543210987</Jmbg>
-      <BrojTelefona />
-      <Pol>Muski</Pol>
-      <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
-      <Email />
-      <Adresa />
-      <Registrovan>false</Registrovan>
-      <FullName>Mika Mikić</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>9876543210987</JmbgPacijenta>
     <IDTermina>987654321098766674/30/2021 9:30:00 AM</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
@@ -339,36 +160,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>54</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Korisnik>
-        <KorisnickoIme>6667</KorisnickoIme>
-        <Lozinka>Milos</Lozinka>
-      </Korisnik>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/12/2021 12:00:00 AM</IDTermina>
     <TrajanjeTermina>24</TrajanjeTermina>
   </Termin>
@@ -386,36 +179,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>96</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Korisnik>
-        <KorisnickoIme>6667</KorisnickoIme>
-        <Lozinka>Milos</Lozinka>
-      </Korisnik>
-      <Ime>Milos</Ime>
-      <Prezime>Marinkovic</Prezime>
-      <Jmbg>6667</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Milos Marinkovic</FullName>
-    </lekar>
-    <pacijent>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/4/2021 12:00:00 AM</IDTermina>
     <TrajanjeTermina>34</TrajanjeTermina>
   </Termin>
@@ -434,44 +199,8 @@
       <RenoviraSe_>false</RenoviraSe_>
       <Kvadratura_>0</Kvadratura_>
     </prostorija>
-    <lekar>
-      <Grad>
-        <drzava>
-          <Naziv>Srbija</Naziv>
-          <Oznaka>SRB</Oznaka>
-        </drzava>
-        <Naziv>Beograd</Naziv>
-        <PostanskiBroj>2300</PostanskiBroj>
-      </Grad>
-      <Korisnik>
-        <KorisnickoIme>609</KorisnickoIme>
-        <Lozinka>Dunja</Lozinka>
-      </Korisnik>
-      <Ime>Dunja</Ime>
-      <Prezime>Jovanovic</Prezime>
-      <Jmbg>609</Jmbg>
-      <Pol>Zenski</Pol>
-      <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-      <Adresa>Jovana Vojvodica 23/A</Adresa>
-      <FullName>dr Dunja Jovanovic</FullName>
-    </lekar>
-    <pacijent>
-      <Grad>
-        <drzava />
-        <Naziv />
-      </Grad>
-      <Korisnik>
-        <KorisnickoIme>123456789</KorisnickoIme>
-        <Lozinka>Mihailo</Lozinka>
-      </Korisnik>
-      <Ime>Mihailo</Ime>
-      <Prezime>Majstorovic</Prezime>
-      <Jmbg>123456789</Jmbg>
-      <Pol>Muski</Pol>
-      <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-      <Registrovan>false</Registrovan>
-      <FullName>Mihailo Majstorovic</FullName>
-    </pacijent>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/21/2021 9:00:00 AM</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
