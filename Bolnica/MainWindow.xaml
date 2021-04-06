@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="450"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Upravnik" HorizontalAlignment="Left" Margin="236,101,0,0" VerticalAlignment="Top" Width="100" Height="70" Click="Button_Click"/>
-        <Button Content="Sekretar" HorizontalAlignment="Left" Margin="440,101,0,0" VerticalAlignment="Top" Width="100" Height="70" Click="Button_Click_1"/>
-        <Button Content="Lekar" HorizontalAlignment="Left" Margin="236,216,0,0" VerticalAlignment="Top" Width="100" Height="70" Click="Button_Click_2"/>
-        <Button Content="Pacijent" HorizontalAlignment="Left" Margin="440,216,0,0" VerticalAlignment="Top" Width="100" Height="70" Click="Button_Click_3"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Upravnik" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click"/>
+        <Button Content="Sekretar" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_1"/>
+        <Button Content="Lekar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_2"/>
+        <Button Content="Pacijent" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_3"/>
 
     </Grid>
 </Window>

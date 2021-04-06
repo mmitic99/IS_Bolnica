@@ -24,7 +24,7 @@ namespace Repozitorijum
         public List<Sekretar> GetAll()
         {
             List<Sekretar> sekretari = new List<Sekretar>();
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Pacijent>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Sekretar>));
 
             if (File.Exists(Lokacija))
             {

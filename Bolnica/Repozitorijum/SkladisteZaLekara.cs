@@ -1,29 +1,67 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Repozitorijum
 
 {
-   public class SkladisteZaLekara
-   {
-      public List<Lekar> GetAll()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public void Save(Model.Lekar lekar)
-      {
-         // TODO: implement
-      }
-      
-      public void SaveAll(List<Lekar> lekari)
-      {
-         // TODO: implement
-      }
-   
-      private String Lokacija;
-   
-   }
+    public class SkladisteZaLekara
+    {
+        private SkladisteZaLekara()
+        {
+            Lokacija = "..\\..\\SkladistePodataka\\lekari.xml";
+        }
+        public static SkladisteZaLekara GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new SkladisteZaLekara();
+            }
+            return instance;
+        }
+
+        public List<Lekar> GetAll()
+        {
+            List<Lekar> lekari = new List<Lekar>();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Lekar>));
+
+            if (File.Exists(Lokacija))
+            {
+                StreamReader stream = new StreamReader(Lokacija);
+                lekari = (List<Lekar>)serializer.Deserialize(stream);
+                stream.Close();
+            }
+
+            return lekari;
+        }
+
+        public void Save(Lekar lekar)
+        {
+            List<Lekar> lekari = GetAll();
+            lekari.Add(lekar);
+
+            SaveAll(lekari);
+        }
+
+        public void SaveAll(List<Lekar> lekari)
+        {
+            StreamWriter stream = new StreamWriter(Lokacija);
+
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Lekar>));
+                serializer.Serialize(stream, lekari);
+            }
+            finally
+            {
+                stream.Close();
+            }
+        }
+
+        private String Lokacija;
+        private static SkladisteZaLekara instance = null;
+
+    }
 }

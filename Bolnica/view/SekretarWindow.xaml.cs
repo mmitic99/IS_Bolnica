@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Model;
+using System.Windows;
 
 namespace Bolnica.view
 {
@@ -7,9 +8,23 @@ namespace Bolnica.view
     /// </summary>
     public partial class SekretarWindow : Window
     {
-        public SekretarWindow()
+        Sekretar sekretar;
+        public SekretarWindow(Sekretar sekretar)
         {
             InitializeComponent();
+
+            this.sekretar = sekretar;
+            /*
+            imeS.Content = sekretar.Ime;
+            prezimeS.Content = sekretar.Prezime;
+
+
+            statusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
+            pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(0.5);
+            timer.Tick += Timer_Tick;
+            timer.Start();*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

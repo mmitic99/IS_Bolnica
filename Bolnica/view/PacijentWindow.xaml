@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Prikaz termina pacijenata" Height="450" Width="800">
     <Grid>
-        <Image Source="image.jpg" Stretch="UniformToFill" Margin="0,0,-0.4,0" RenderTransformOrigin="0.91,0.424"/>
+        <Image Source="../Images/image.jpg" Stretch="UniformToFill" Margin="0,0,-0.4,0" RenderTransformOrigin="0.91,0.424"/>
 
 
         <DataGrid Name="prikazTermina"  Margin="49,55,252.6,37"  CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="prikazTermina_SelectionChanged">

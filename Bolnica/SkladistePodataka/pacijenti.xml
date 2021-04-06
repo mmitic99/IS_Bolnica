@@ -81,6 +81,14 @@
     <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
   <Pacijent>
+	<Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>123456789</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
+    </Korisnik>
     <Ime>Mihailo</Ime>
     <Prezime>Majstorovic</Prezime>
     <Jmbg>123456789</Jmbg>

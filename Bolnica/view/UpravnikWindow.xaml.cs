@@ -10,15 +10,19 @@ namespace Bolnica.view
     /// </summary>
     public partial class UpravnikWindow : Window
     {
+        Upravnik upravnik;
         SkladisteZaProstorije skladiste = new SkladisteZaProstorije();
         public List<Prostorija> lista
         {
             get;
             set;
         }
-        public UpravnikWindow()
+        public UpravnikWindow(Upravnik upravnik)
         {
             InitializeComponent();
+
+            this.upravnik = upravnik;
+
             this.DataContext = this;
             lista = skladiste.GetAll();
         }

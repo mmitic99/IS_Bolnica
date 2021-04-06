@@ -14,6 +14,7 @@ namespace Bolnica.view
     /// </summary>
     public partial class PacijentWindow : Window
     {
+        Pacijent pacijent;
         public String JmbgPacijenta { get; set; }
 
         private static PacijentWindow instance = null;
@@ -22,10 +23,12 @@ namespace Bolnica.view
         {
             return instance;
         }
-        public PacijentWindow()
+        public PacijentWindow(Pacijent pacijent)
         {
 
             InitializeComponent();
+
+            this.pacijent = pacijent;
 
             String jmbg = "123456789";
             

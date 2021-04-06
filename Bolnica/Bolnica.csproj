@@ -113,6 +113,9 @@
     <Compile Include="view\PregledWindow.xaml.cs">
       <DependentUpon>PregledWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Prijavljivanje.xaml.cs">
+      <DependentUpon>Prijavljivanje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\PrikazPacijenata.xaml.cs">
       <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\Prijavljivanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\PrikazPacijenata.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -248,7 +255,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\image.jpg" />
+    <Resource Include="Images\image.jpg" />
+    <Resource Include="Images\Login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
