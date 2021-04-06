@@ -165,7 +165,7 @@ namespace Bolnica.view
                 }
                 if (korisnickoImeOK && lozinkaOK)
                 {
-                    var s = new LekarWindow(lekar);
+                    var s = new PregledWindow(lekar);
                     potvrdi = true;
                     this.Close();
                     s.Show();

@@ -29,9 +29,11 @@ namespace Bolnica.view
             p = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
             InitializeComponent();
             List<Lekar> lekari = new List<Lekar>();
-            lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
+            /*lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
             lekari.Add(new Lekar("Miroslav", "Mi", "4536"));
             lekari.Add(new Lekar("Dunja", "Jovanovic", "609"));
+            SkladisteZaLekara.GetInstance().SaveAll(lekari);*/
+            lekari = SkladisteZaLekara.GetInstance().GetAll();
             izabraniLekar.ItemsSource = lekari;
             izabraniLekar.SelectedIndex = 0;
             sat.SelectedIndex = 0;
@@ -52,6 +54,7 @@ namespace Bolnica.view
 
 
             };
+
             if (datum.SelectedDate != null)
             {
                 DateTime dt = (DateTime)datum.SelectedDate;

@@ -38,11 +38,11 @@ namespace Bolnica.view
         }
 
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
-        public PregledWindow()
+        public PregledWindow(Lekar lekar)
         {
             InitializeComponent();
             this.DataContext = this;                         
-            Termini = skladiste.getByJmbgLekar("6667");
+            Termini = skladiste.getByJmbgLekar(lekar.Jmbg);
             
             instance = this;
         }

@@ -87,7 +87,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Column="0" Content="Izaberite datum:" Margin="7,-30,-0.2,5.4" Grid.ColumnSpan="4"/>
-                <DatePicker x:Name="datum" Margin="121,-30,-0.2,9.4" Grid.ColumnSpan="4"/>
+                <DatePicker x:Name="datum" Margin="121,-30,-0.2,9.4" Grid.ColumnSpan="4" />
 
             </Grid>
             <Grid HorizontalAlignment="Left" Height="65" Margin="5,0,0,0" Width="314">
@@ -177,5 +177,6 @@
         </StackPanel>
         <Button Content="Zakaži" HorizontalAlignment="Left" Height="33" Margin="42,353,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
         <Button Content="Izađi" HorizontalAlignment="Left" Height="33" Margin="193,353,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
+        <Calendar x:Name="kalendar" HorizontalAlignment="Left" SelectionMode="MultipleRange" Margin="161,377,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

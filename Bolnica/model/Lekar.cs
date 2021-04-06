@@ -35,6 +35,9 @@ namespace Model
             this.Grad.PostanskiBroj = "2300";
             this.Grad.drzava.Naziv = "Srbija";
             this.Grad.drzava.Oznaka = "SRB";
+            this.Korisnik = new Korisnik();
+            this.Korisnik.KorisnickoIme = jmbg;
+            this.Korisnik.Lozinka = im;
 
 
 

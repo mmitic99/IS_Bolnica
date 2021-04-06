@@ -29,11 +29,8 @@ namespace Bolnica.view
             InitializeComponent();
 
             this.pacijent = pacijent;
-
-            String jmbg = "123456789";
             
-           Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
-           Pacijent p = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "123456789" };
+          // Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
            // SkladistePacijenta.GetInstance().Save(p);
            /* Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
             Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
@@ -41,10 +38,10 @@ namespace Bolnica.view
             termins.Add(t);
            SkladisteZaTermine.getInstance().SaveAll(termins);
             */
-            DataContext = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+            DataContext = SkladistePacijenta.GetInstance().getByJmbg(pacijent.Jmbg);
 
-            prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(jmbg));
-            this.JmbgPacijenta = jmbg;
+            prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(pacijent.Jmbg));
+            this.JmbgPacijenta = pacijent.Jmbg;
             instance = this;
 
 
