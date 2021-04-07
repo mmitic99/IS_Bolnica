@@ -77,14 +77,14 @@ namespace Bolnica.view
             p.IDTermina = p.generateRandId();
             SkladisteZaTermine.getInstance().Save(p);
             this.Close();
-            PacijentWindow.getInstance().prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
+            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
-            PacijentWindow.getInstance().prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.Jmbg));
+            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.Jmbg));
 
         }
 

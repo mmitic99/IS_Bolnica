@@ -210,10 +210,12 @@ namespace Bolnica.view
                 }
                 if (korisnickoImeOK && lozinkaOK)
                 {
-                    var s = new PacijentWindow(pacijent);
+                   // var s = new PacijentWindow(pacijent);
+                    var s1 = new PacijentMainWindow(pacijent);
                     potvrdi = true;
                     this.Close();
-                    s.Show();
+                   // s.Show();
+                    s1.Show();
                 }
                 else
                 {

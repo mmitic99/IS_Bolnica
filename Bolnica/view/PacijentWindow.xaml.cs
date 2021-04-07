@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using Model.Enum;
 using System.Collections.ObjectModel;
 using Repozitorijum;
@@ -26,7 +25,7 @@ namespace Bolnica.view
         public PacijentWindow(Pacijent pacijent)
         {
 
-            InitializeComponent();
+            instance = this;
 
             this.pacijent = pacijent;
             
@@ -40,18 +39,18 @@ namespace Bolnica.view
             */
             DataContext = SkladistePacijenta.GetInstance().getByJmbg(pacijent.Jmbg);
 
-            prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(pacijent.Jmbg));
+            List<Termin> termins = SkladisteZaTermine.getInstance().getByJmbg(pacijent.Jmbg);
+            prikazTermina.ItemsSource = termins;
             this.JmbgPacijenta = pacijent.Jmbg;
-            instance = this;
+            DataContext = pacijent;
+            InitializeComponent();
 
 
-        }
-
-
-        private void prikazTermina_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
+
+
+
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -79,6 +78,13 @@ namespace Bolnica.view
                 var s = new IzmenaTermina(((Termin)prikazTermina.SelectedItem).IDTermina);
                 s.Show();
             }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var s = new Prijavljivanje("p");
+            this.Close();
+            s.Show();
         }
     }
 }

@@ -2,8 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Bolnica"
+             xmlns:viewActions ="clr-namespace:Bolnica.viewActions"
+             xmlns:view ="clr-namespace:Bolnica.view"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="viewActions/TerminiPacjentTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewActions:PacijentTerminiModel}">
+                <view:PacijentZakazaniTermini/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewActions:ObavestenjaViewModel}">
+                <view:Obavestenja/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+            
     </Application.Resources>
 </Application>

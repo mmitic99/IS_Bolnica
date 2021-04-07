@@ -31,9 +31,10 @@ namespace Bolnica.view
             InitializeComponent();
             this.IDPregleda = id;
             List<Lekar> lekari = new List<Lekar>();
-            lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
+            /*lekari.Add(new Lekar("Milos", "Marinkovic", "6667"));
             lekari.Add(new Lekar("Miroslav", "Mi", "4536"));
-            lekari.Add(new Lekar("Dunja", "Jovanovic", "609"));
+            lekari.Add(new Lekar("Dunja", "Jovanovic", "609"));*/
+            lekari = SkladisteZaLekara.GetInstance().GetAll();
             izabraniLekar.ItemsSource = lekari;
             this.p = SkladisteZaTermine.getInstance().getById(id);
             DataContext = p;
@@ -100,7 +101,7 @@ namespace Bolnica.view
                 }
             }
             SkladisteZaTermine.getInstance().SaveAll(termini);
-            PacijentWindow.getInstance().prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
+            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
 
             this.Close();
         }

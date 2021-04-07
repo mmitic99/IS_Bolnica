@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
-        Title="Prikaz termina pacijenata" Height="450" Width="800">
-    <Grid>
-        <Image Source="../Images/image.jpg" Stretch="UniformToFill" Margin="0,0,-0.4,0" RenderTransformOrigin="0.91,0.424"/>
+        Title="Prikaz termina pacijenata" Height="450" Width="800" MaxHeight="768" MaxWidth="1024" ShowInTaskbar="False" ResizeMode="CanResizeWithGrip" Icon="/Bolnica;component/Images/image.jpg" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Background>
+        <ImageBrush ImageSource="image.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,-6.4,0.2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="336*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="105*"/>
+            <RowDefinition Height="338*"/>
+        </Grid.RowDefinitions>
 
 
-        <DataGrid Name="prikazTermina"  Margin="49,55,252.6,37"  CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="prikazTermina_SelectionChanged">
+        <DataGrid Name="prikazTermina"  Margin="69,73,233,97.2"  CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -29,11 +39,26 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="581,73,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click_2"/>
-        <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="581,141,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click"/>
-        <Button Content="Modifikuj termin" HorizontalAlignment="Left" Margin="581,212,0,0" VerticalAlignment="Top" Width="124" Height="41" Click="Button_Click_1"/>
-        <TextBlock HorizontalAlignment="Left"  Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="{Binding Path=FullName}" VerticalAlignment="Top" Width="206" FrameworkElement.FlowDirection="LeftToRight" Cursor="No" />
-
+        <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="459,8.2,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click_2" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="459,74.2,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="Button_Click" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Modifikuj termin" HorizontalAlignment="Left" Margin="459,145.2,0,0" VerticalAlignment="Top" Width="124" Height="41"  Click="Button_Click_1" Cursor="Hand" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding FullName}"  Height="22" Margin="10,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" FrameworkElement.FlowDirection="LeftToRight" Cursor="Arrow" Grid.ColumnSpan="2" />
+        <Grid HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="790" Background="#FF86DCD9" Opacity="0.6" Grid.ColumnSpan="2">
+            <TextBox HorizontalAlignment="Left" Height="14" Margin="730,35,0,-3" TextWrapping="Wrap" Text="Odjavite se" VerticalAlignment="Top" Width="60" FontSize="10" Background="#FF8CDDDA" ClipToBounds="True" BorderThickness="0"/>
+        </Grid>
+        <Button Content="" HorizontalAlignment="Left" Margin="623.8,5,0,0" VerticalAlignment="Top" Width="29" Height="27" FontFamily="Segoe UI Black" RenderTransformOrigin="0.5,0.5" Click="Button_Click_3" BorderBrush="{x:Null}" Grid.Column="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.106"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="User-Interface-Logout-icon.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
