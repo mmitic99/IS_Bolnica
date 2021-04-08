@@ -58,7 +58,7 @@ namespace Bolnica.view
             Prostorija p = (Prostorija)ComboBox2.SelectedItem;
             
             var vremeDataTime = DateTime.Parse(vreme);
-            termin = new Termin { DatumIVremeTermina = vremeDataTime, prostorija = p, TrajanjeTermina = trajanjeDou, VrstaTermina = pre , JmbgPacijenta = pa.Jmbg, JmbgLekara=l.Jmbg};
+            termin = new Termin { DatumIVremeTermina = vremeDataTime, IdProstorije = p.IdProstorije, TrajanjeTermina = trajanjeDou, VrstaTermina = pre , JmbgPacijenta = pa.Jmbg, JmbgLekara=l.Jmbg};
             termin.IDTermina = termin.generateRandId();
             SkladisteZaTermine.getInstance().Save(termin);
             PregledWindow.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(termin.JmbgLekara));

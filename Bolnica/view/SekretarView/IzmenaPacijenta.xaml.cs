@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Bolnica.view
+namespace Bolnica.view.SekretarView
 {
     /// <summary>
     /// Interaction logic for IzmenaPacijenta.xaml

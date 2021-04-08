@@ -1,11 +1,12 @@
-﻿using Model;
+﻿using Bolnica.model;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace Bolnica.view
+namespace Bolnica.view.SekretarView
 {
     /// <summary>
     /// Interaction logic for SekretarWindow.xaml
@@ -51,8 +52,6 @@ namespace Bolnica.view
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
-
             if (pacijentiPrikaz.SelectedIndex != -1)
             {
                 var s = new IzmenaPacijenta(pacijentiPrikaz);
@@ -71,5 +70,30 @@ namespace Bolnica.view
                 pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
             }
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz);
+            s.Show();
+        }
+
+        private void izmeniTer_Click(object sender, RoutedEventArgs e)
+        {
+            if (terminiPrikaz.SelectedIndex != -1)
+            {
+                var s = new IzmenaTermina(terminiPrikaz);
+                s.Show();
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (terminiPrikaz.SelectedIndex != -1)
+            {
+                SkladisteZaTermine.getInstance().RemoveByID(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin.IDTermina);
+                terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();
+            }
+        }
+
     }
 }

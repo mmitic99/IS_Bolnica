@@ -75,7 +75,7 @@ namespace Bolnica.view
                         t.DatumIVremeTermina = vremeDataTime;
                         t.TrajanjeTermina = trajanjeDou;
                         t.VrstaTermina = pre;
-                        t.prostorija = p;
+                        t.IdProstorije = p.IdProstorije;
                         
                         
                     }

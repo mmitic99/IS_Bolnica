@@ -1,4 +1,4 @@
-﻿<Window x:Class="Bolnica.view.SekretarWindow"
+﻿<Window x:Class="Bolnica.view.SekretarView.SekretarWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,18 +7,6 @@
         mc:Ignorable="d"
         Title="SekretarWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <RoutedUICommand x:Key="izmeniPac" Text="Text" />
-    </Window.Resources>
-
-    <Window.CommandBindings>
-        <CommandBinding Command="{StaticResource izmeniPac}" 
-                    Executed="Button_Click_2" />
-    </Window.CommandBindings>
-
-    <Window.InputBindings>
-        <KeyBinding Key="E" Modifiers="Ctrl" Command="{StaticResource izmeniPac}" />
-    </Window.InputBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="22" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <MenuItem Header="File">
@@ -55,12 +43,12 @@
                     <Label x:Name="prezimeS" FontSize="16" HorizontalAlignment="Center">Prezime</Label>
                 </StackPanel>
 
-                <Button Grid.Column="1" HorizontalAlignment="Left" Margin="26,22,0,0" VerticalAlignment="Top" Width="120" Height="34" Click="Button_Click">
+                <Button Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="120" Height="34" Click="Button_Click">
                     <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
             </Grid>
 
-            <TabControl TabStripPlacement="Left" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabControl x:Name="tabovi" TabStripPlacement="Left" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="HeaderTemplate">
@@ -93,7 +81,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_1"/>
-                            <Button Content="Izmeni pacijenta" Command="{StaticResource izmeniPac}" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2"/>
+                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2"/>
                             <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_3"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="pacijentiPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
@@ -119,11 +107,13 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            
+                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_4"/>
+                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmeniTer_Click"/>
+                            <Button Content="Oktaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_5"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="terminiPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="datVrT" Header="Datum i vreme pocetka" Width="*" Binding="{Binding termin.DatumIVremeTermina, StringFormat=dd.MM.yyyy   HH:mm}"/>
+                                <DataGridTextColumn x:Name="datVrT" Header="Datum i vreme početka" Width="*" Binding="{Binding termin.DatumIVremeTermina, StringFormat=dd.MM.yyyy   HH:mm}"/>
                                 <DataGridTextColumn x:Name="vrstaT" Header="Vrsta" Width="*" Binding="{Binding termin.VrstaTermina}"/>
                                 <DataGridTextColumn x:Name="pacijentT" Header="Pacijent" Width="*">
                                     <DataGridTextColumn.Binding>
@@ -141,7 +131,7 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="prostorijaT" Header="Prostorija" Width="*" Binding="{Binding termin.prostorija.BrojSobe}"/>
+                                <DataGridTextColumn x:Name="prostorijaT" Header="Prostorija" Width="*" Binding="{Binding termin.IdProstorije}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

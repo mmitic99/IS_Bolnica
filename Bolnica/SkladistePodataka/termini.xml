@@ -3,17 +3,7 @@
   <Termin>
     <DatumIVremeTermina>2000-07-07T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>204</BrojSobe>
-      <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>204</BrojSobe_>
-      <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>96</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966677/7/2000 12:00:00 AM</IDTermina>
@@ -22,17 +12,7 @@
   <Termin>
     <DatumIVremeTermina>0008-08-08T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>209</BrojSobe>
-      <VrstaProstorije>Magacin</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>209</BrojSobe_>
-      <VrstaProstorije_>Magacin</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>20</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966678/8/0008 12:00:00 AM</IDTermina>
@@ -41,17 +21,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-04T07:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Treci</Sprat>
-      <BrojSobe>301</BrojSobe>
-      <VrstaProstorije>Operaciona_sala</VrstaProstorije>
-      <Sprat_>Treci</Sprat_>
-      <BrojSobe_>301</BrojSobe_>
-      <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>73</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/4/2021 7:00:00 AM</IDTermina>
@@ -61,17 +31,7 @@
   <Termin>
     <DatumIVremeTermina>0004-03-03T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Prvi</Sprat>
-      <BrojSobe>101</BrojSobe>
-      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-      <Sprat_>Prvi</Sprat_>
-      <BrojSobe_>101</BrojSobe_>
-      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>54</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673/3/0004 12:00:00 AM</IDTermina>
@@ -80,66 +40,16 @@
   <Termin>
     <DatumIVremeTermina>2018-07-03T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>204</BrojSobe>
-      <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>204</BrojSobe_>
-      <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>96</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673.7.2018. 00:00:00</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-14T10:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <inventarZaProstorije>
-        <lek />
-        <potrosnaOprema />
-        <stacionarnaOprema />
-      </inventarZaProstorije>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>205</BrojSobe>
-      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>205</BrojSobe_>
-      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>0</Kvadratura_>
-    </prostorija>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>123456789666714.4.2021. 10:00:00</IDTermina>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe>bol</opisTegobe>
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-30T17:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <inventarZaProstorije>
-        <lek />
-        <potrosnaOprema />
-        <stacionarnaOprema />
-      </inventarZaProstorije>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>205</BrojSobe>
-      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>205</BrojSobe_>
-      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>0</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>9876543210987</JmbgPacijenta>
     <IDTermina>987654321098766674/30/2021 9:30:00 AM</IDTermina>
@@ -149,17 +59,7 @@
   <Termin>
     <DatumIVremeTermina>2021-12-12T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Prvi</Sprat>
-      <BrojSobe>101</BrojSobe>
-      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-      <Sprat_>Prvi</Sprat_>
-      <BrojSobe_>101</BrojSobe_>
-      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>54</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/12/2021 12:00:00 AM</IDTermina>
@@ -168,17 +68,7 @@
   <Termin>
     <DatumIVremeTermina>2021-12-04T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <prostorija>
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>204</BrojSobe>
-      <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>204</BrojSobe_>
-      <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>96</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/4/2021 12:00:00 AM</IDTermina>
@@ -187,22 +77,19 @@
   <Termin>
     <DatumIVremeTermina>2021-04-21T09:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <prostorija>
-      <inventarZaProstorije />
-      <termin />
-      <Sprat>Drugi</Sprat>
-      <BrojSobe>205</BrojSobe>
-      <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-      <Sprat_>Drugi</Sprat_>
-      <BrojSobe_>205</BrojSobe_>
-      <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-      <RenoviraSe_>false</RenoviraSe_>
-      <Kvadratura_>0</Kvadratura_>
-    </prostorija>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/21/2021 9:00:00 AM</IDTermina>
     <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-08T08:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>101</IdProstorije>
+    <IDTermina>8.4.2021. 08:00:00</IDTermina>
+    <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
 </ArrayOfTermin>

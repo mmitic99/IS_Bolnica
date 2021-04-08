@@ -6,16 +6,18 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Bolnica.view
+namespace Bolnica.view.SekretarView
 {
     /// <summary>
     /// Interaction logic for DodavanjePacijenta.xaml
     /// </summary>
     public partial class DodavanjePacijenta : Window
     {
+        private DataGrid pacijentiPrikaz;
         public DodavanjePacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
+            this.pacijentiPrikaz = pacijentiPrikaz;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -84,6 +86,7 @@ namespace Bolnica.view
             if (!greska && !pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals(""))
             {
                 SkladistePacijenta.GetInstance().Save(pacijent);
+                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
                 this.Close();
             }
             else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals(""))
@@ -101,6 +104,11 @@ namespace Bolnica.view
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
