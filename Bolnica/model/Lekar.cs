@@ -2,14 +2,60 @@ using System;
 
 namespace Model
 {
-   public class Lekar : Radnik
-   {
-      public Specijalizacija specijalizacija;
+    public class Lekar : Radnik
+    {
+        public Specijalizacija specijalizacija;
+        public System.Collections.ArrayList obavestenje;
+
+
+        public System.Collections.ArrayList GetObavestenje()
+        {
+            if (obavestenje == null)
+                obavestenje = new System.Collections.ArrayList();
+            return obavestenje;
+        }
+
+
+        public void SetObavestenje(System.Collections.ArrayList newObavestenje)
+        {
+            RemoveAllObavestenje();
+            foreach (Obavestenje oObavestenje in newObavestenje)
+                AddObavestenje(oObavestenje);
+        }
+
+
+        public void AddObavestenje(Obavestenje newObavestenje)
+        {
+            if (newObavestenje == null)
+                return;
+            if (this.obavestenje == null)
+                this.obavestenje = new System.Collections.ArrayList();
+            if (!this.obavestenje.Contains(newObavestenje))
+                this.obavestenje.Add(newObavestenje);
+        }
+
+
+        public void RemoveObavestenje(Obavestenje oldObavestenje)
+        {
+            if (oldObavestenje == null)
+                return;
+            if (this.obavestenje != null)
+                if (this.obavestenje.Contains(oldObavestenje))
+                    this.obavestenje.Remove(oldObavestenje);
+        }
+
+
+        public void RemoveAllObavestenje()
+        {
+            if (obavestenje != null)
+                obavestenje.Clear();
+        }
+
         public String FullName
         {
             get
             {
-                return "dr "+this.Ime + " " + this.Prezime;
+                return "dr " + this.Ime + " " + this.Prezime;
             }
             set
             {

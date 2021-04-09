@@ -38,7 +38,10 @@ namespace Bolnica.view.SekretarView
                 {
                     KorisnickoIme = jmbg.Text,
                     Lozinka = ime.Text
-                }
+                },
+                zdravstveniKarton = new ZdravstveniKarton(),
+                obavestenje = new List<Obavestenje>()
+                
             };
 
             bool greska = false;

@@ -30,30 +30,16 @@ namespace Bolnica.view.SekretarView
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad { Naziv = grad.Text }
+                Grad = new Grad { Naziv = grad.Text },
+                zdravstveniKarton = new ZdravstveniKarton(),
+                obavestenje = new List<Obavestenje>(),
+                Korisnik = new Korisnik
+                {
+                    KorisnickoIme = jmbg.Text,
+                    Lozinka = ime.Text
+                }
+
             };
-
-
-            Korisnik korisnik = new Korisnik();
-            if (korIme.Text == "")
-            {
-                korisnik.KorisnickoIme = pacijent.Jmbg;
-            }
-            else
-            {
-                korisnik.KorisnickoIme = korIme.Text;
-            }
-            if (lozinka.Password == "")
-            {
-                korisnik.Lozinka = pacijent.Ime;
-            }
-            else
-            {
-                korisnik.Lozinka = lozinka.Password;
-            }
-
-            pacijent.Korisnik = korisnik;
-
 
             if (pol.SelectedIndex == 0)
             {
@@ -98,7 +84,7 @@ namespace Bolnica.view.SekretarView
             {
                 MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

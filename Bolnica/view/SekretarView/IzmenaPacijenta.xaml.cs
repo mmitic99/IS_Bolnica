@@ -2,6 +2,7 @@
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,7 @@ namespace Bolnica.view.SekretarView
     {
         private DataGrid pacijentiPrikaz;
         private Pacijent pacijent;
+        private ObservableCollection<String> alergeni;
         public IzmenaPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
@@ -30,6 +32,14 @@ namespace Bolnica.view.SekretarView
             korIme.Text = pacijent.Korisnik.KorisnickoIme;
             lozinka.Password = pacijent.Korisnik.Lozinka;
             datum.SelectedDate = pacijent.DatumRodjenja.Date;
+            if(pacijent.zdravstveniKarton == null)
+            {
+                pacijent.zdravstveniKarton = new ZdravstveniKarton();
+            }
+            if(pacijent.obavestenje == null)
+            {
+                pacijent.obavestenje = new List<Obavestenje>();
+            }
             if (pacijent.Pol == Model.Enum.Pol.Muski)
             {
                 pol.SelectedIndex = 0;
@@ -38,6 +48,8 @@ namespace Bolnica.view.SekretarView
             {
                 pol.SelectedIndex = 1;
             }
+            alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
+            alergeniList.ItemsSource = alergeni;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,8 +67,11 @@ namespace Bolnica.view.SekretarView
                 {
                     KorisnickoIme = korIme.Text,
                     Lozinka = lozinka.Password
-                }
+                },
+                zdravstveniKarton = pacijent.zdravstveniKarton,
+                obavestenje = pacijent.obavestenje
             };
+            noviPacijent.zdravstveniKarton.Alergeni = new List<string>(alergeni);
 
             if (pol.SelectedIndex == 0)
             {
@@ -114,6 +129,20 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void dodajA_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new DodavanjeAlregena(alergeni);
+            s.Show();
+        }
+
+        private void obrisiA_Click(object sender, RoutedEventArgs e)
+        {
+            if(alergeniList.SelectedIndex != -1)
+            {
+                alergeni.RemoveAt(alergeniList.SelectedIndex);
+            }
         }
     }
 }

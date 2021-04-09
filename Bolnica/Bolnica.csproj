@@ -93,6 +93,9 @@
     <Compile Include="view\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\SekretarView\DodavanjeAlregena.xaml.cs">
+      <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\SekretarView\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
     <Page Include="view\AzurirajTerminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\SekretarView\DodavanjeAlregena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\DodavanjeGostujucegPacijenta.xaml">
       <SubType>Designer</SubType>

@@ -1,9 +1,58 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Model
 {
-   public class Pacijent : Osoba
-   {
+    public class Pacijent : Osoba
+    {
+        public ZdravstveniKarton zdravstveniKarton;
+        public List<Obavestenje> obavestenje;
+
+
+        public List<Obavestenje> GetObavestenje()
+        {
+            if (obavestenje == null)
+                obavestenje = new List<Obavestenje>();
+            return obavestenje;
+        }
+
+
+        public void SetObavestenje(List<Obavestenje> newObavestenje)
+        {
+            RemoveAllObavestenje();
+            foreach (Obavestenje oObavestenje in newObavestenje)
+                AddObavestenje(oObavestenje);
+        }
+
+
+        public void AddObavestenje(Obavestenje newObavestenje)
+        {
+            if (newObavestenje == null)
+                return;
+            if (this.obavestenje == null)
+                this.obavestenje = new List<Obavestenje>();
+            if (!this.obavestenje.Contains(newObavestenje))
+                this.obavestenje.Add(newObavestenje);
+        }
+
+
+        public void RemoveObavestenje(Obavestenje oldObavestenje)
+        {
+            if (oldObavestenje == null)
+                return;
+            if (this.obavestenje != null)
+                if (this.obavestenje.Contains(oldObavestenje))
+                    this.obavestenje.Remove(oldObavestenje);
+        }
+
+
+        public void RemoveAllObavestenje()
+        {
+            if (obavestenje != null)
+                obavestenje.Clear();
+        }
+
         public bool Registrovan { get; set; }
         public String FullName
         {
@@ -37,6 +86,5 @@ namespace Model
             this.Grad.drzava.Naziv = "Srbija";
             this.Grad.drzava.Oznaka = "SRB";
         }
-
     }
 }
