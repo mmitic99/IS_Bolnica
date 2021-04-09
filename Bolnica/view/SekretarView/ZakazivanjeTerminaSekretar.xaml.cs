@@ -33,10 +33,10 @@ namespace Bolnica.view.SekretarView
             sala.ItemsSource = sklad.GetAll();
             sala.SelectedIndex = 0;
             List<String> vremeTermina = new List<string>();
-            vremeTermina.Add("8:00");
-            vremeTermina.Add("8:30");
-            vremeTermina.Add("9:00");
-            vremeTermina.Add("9:30");
+            vremeTermina.Add("08:00");
+            vremeTermina.Add("08:30");
+            vremeTermina.Add("09:00");
+            vremeTermina.Add("09:30");
             vremeTermina.Add("10:00");
             vremeTermina.Add("10:30");
             vremeTermina.Add("11:00");

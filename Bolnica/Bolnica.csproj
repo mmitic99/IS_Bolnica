@@ -71,6 +71,7 @@
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
     <Compile Include="Repozitorijum\SkladisteUpravnik.cs" />
     <Compile Include="Repozitorijum\SkladisteZaLekara.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaObavestenja.cs" />
     <Compile Include="Repozitorijum\SkladisteZaProstorije.cs" />
     <Compile Include="Repozitorijum\SkladisteZaSpecijalizaciju.cs" />
     <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />

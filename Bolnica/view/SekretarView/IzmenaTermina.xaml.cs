@@ -61,7 +61,20 @@ namespace Bolnica.view.SekretarView
             {
                 vreme += minuti;
             }
-            vremeT.Items.Add(vreme);
+            vremeT.Items.Add("08:00");
+            vremeT.Items.Add("08:30");
+            vremeT.Items.Add("09:00");
+            vremeT.Items.Add("09:30");
+            vremeT.Items.Add("10:00");
+            vremeT.Items.Add("10:30");
+            vremeT.Items.Add("11:00");
+            vremeT.Items.Add("11:30");
+            vremeT.Items.Add("12:00");
+            vremeT.Items.Add("12:30");
+            if (!vremeT.Items.Contains(vreme))
+            {
+                vremeT.Items.Add(vreme);
+            }
             vremeT.SelectedItem = vreme;
             sala.ItemsSource = new SkladisteZaProstorije().GetAll();
             for (int i = 0; i < sala.Items.Count; i++)
@@ -98,6 +111,27 @@ namespace Bolnica.view.SekretarView
 
             SkladisteZaTermine.getInstance().RemoveByID(termin.termin.IDTermina);
             noviTermin.IDTermina = noviTermin.generateRandId();
+
+            Obavestenje obavestenjePacijent = new Obavestenje
+            {
+                JmbgKorisnika = termin.pacijent.Jmbg,
+                Naslov = "Izmena zakazanog termina",
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.termin.DatumIVremeTermina + "" +
+                " je pomeren na " + noviTermin.DatumIVremeTermina + ".",
+                VremeObavestenja = DateTime.Now
+            };
+            SkladisteZaObavestenja.GetInstance().Save(obavestenjePacijent);
+
+            Obavestenje obavestenjeLekar = new Obavestenje
+            {
+                JmbgKorisnika = termin.lekar.Jmbg,
+                Naslov = "Izmena zakazanog termina",
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.termin.DatumIVremeTermina + "" +
+                " je pomeren na " + noviTermin.DatumIVremeTermina + ".",
+                VremeObavestenja = DateTime.Now
+            };
+            SkladisteZaObavestenja.GetInstance().Save(obavestenjeLekar);
+
             SkladisteZaTermine.getInstance().Save(noviTermin);
 
             terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();

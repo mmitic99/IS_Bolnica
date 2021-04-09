@@ -36,10 +36,6 @@ namespace Bolnica.view.SekretarView
             {
                 pacijent.zdravstveniKarton = new ZdravstveniKarton();
             }
-            if(pacijent.obavestenje == null)
-            {
-                pacijent.obavestenje = new List<Obavestenje>();
-            }
             if (pacijent.Pol == Model.Enum.Pol.Muski)
             {
                 pol.SelectedIndex = 0;
@@ -68,8 +64,7 @@ namespace Bolnica.view.SekretarView
                     KorisnickoIme = korIme.Text,
                     Lozinka = lozinka.Password
                 },
-                zdravstveniKarton = pacijent.zdravstveniKarton,
-                obavestenje = pacijent.obavestenje
+                zdravstveniKarton = pacijent.zdravstveniKarton
             };
             noviPacijent.zdravstveniKarton.Alergeni = new List<string>(alergeni);
 

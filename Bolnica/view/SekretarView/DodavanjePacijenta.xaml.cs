@@ -32,7 +32,6 @@ namespace Bolnica.view.SekretarView
                 Email = email.Text,
                 Grad = new Grad { Naziv = grad.Text },
                 zdravstveniKarton = new ZdravstveniKarton(),
-                obavestenje = new List<Obavestenje>(),
                 Korisnik = new Korisnik
                 {
                     KorisnickoIme = jmbg.Text,
