@@ -26,10 +26,10 @@ namespace Bolnica.view
         private String uloga;
         private bool potvrdi = false;
 
-        UpravnikKontroler upravnikKontroler;
-        SekretarKontroler sekretarKontroler;
-        LekarKontroler lekarKontroler;
-        PacijentKontroler pacijentKontroler;
+        private UpravnikKontroler upravnikKontroler;
+        private SekretarKontroler sekretarKontroler;
+        private LekarKontroler lekarKontroler;
+        private PacijentKontroler pacijentKontroler;
 
         public Prijavljivanje(String uloga)
         {

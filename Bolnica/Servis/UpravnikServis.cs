@@ -49,6 +49,22 @@ namespace Servis
             throw new NotImplementedException();
         }
 
+        public List<Upravnik> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public void Save(Model.Upravnik upravnik)
+        {
+            // TODO: implement
+        }
+
+        public void SaveAll(List<Pacijent> upravnici)
+        {
+            // TODO: implement
+        }
+
         public SkladisteUpravnik skladisteUpravnik;
 
     }

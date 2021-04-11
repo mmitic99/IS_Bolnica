@@ -72,6 +72,22 @@ namespace Servis
             throw new NotImplementedException();
         }
 
+        public List<Pacijent> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public void Save(Model.Pacijent pacijent)
+        {
+            // TODO: implement
+        }
+
+        public void SaveAll(List<Pacijent> pacijenti)
+        {
+            // TODO: implement
+        }
+
         public SkladistePacijenta skladistePacijenta;
 
     }

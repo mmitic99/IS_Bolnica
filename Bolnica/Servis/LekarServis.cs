@@ -54,6 +54,22 @@ namespace Servis
             throw new NotImplementedException();
         }
 
+        public List<Lekar> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public void Save(Lekar lekar)
+        {
+            // TODO: implement
+        }
+
+        public void SaveAll(List<Lekar> lekari)
+        {
+            // TODO: implement
+        }
+
         public SkladisteZaLekara skladisteZaLekara;
     }
 }

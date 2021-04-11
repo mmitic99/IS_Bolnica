@@ -48,6 +48,22 @@ namespace Servis
             throw new NotImplementedException();
         }
 
+        public List<Sekretar> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public void Save(Model.Sekretar sekretar)
+        {
+            // TODO: implement
+        }
+
+        public void SaveAll(List<Sekretar> sekretari)
+        {
+            // TODO: implement
+        }
+
         public SkladisteSekretara skladisteSekretara;
 
     }

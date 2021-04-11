@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace Bolnica.view.SekretarView
     public partial class DodavanjeGostujucegPacijenta : Window
     {
         private DataGrid pacijentiPrikaz;
+        private PacijentKontroler pacijentKontroler;
         public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
             this.pacijentiPrikaz = pacijentiPrikaz;
+            pacijentKontroler = new PacijentKontroler();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

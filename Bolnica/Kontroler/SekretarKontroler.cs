@@ -1,6 +1,7 @@
 using Model;
 using Servis;
 using System;
+using System.Collections.Generic;
 
 namespace Kontroler
 {
@@ -30,6 +31,22 @@ namespace Kontroler
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Sekretar> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public void Save(Sekretar sekretar)
+        {
+            // TODO: implement
+        }
+
+        public void SaveAll(List<Sekretar> sekretari)
+        {
+            // TODO: implement
         }
 
         public Servis.SekretarServis sekretarServis;
