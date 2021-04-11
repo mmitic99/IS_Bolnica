@@ -1,9 +1,13 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Model
 {
-   public class Pacijent : Osoba
-   {
+    public class Pacijent : Osoba
+    {
+        public ZdravstveniKarton zdravstveniKarton { get; set; }
+
         public bool Registrovan { get; set; }
         public String FullName
         {
@@ -37,6 +41,5 @@ namespace Model
             this.Grad.drzava.Naziv = "Srbija";
             this.Grad.drzava.Oznaka = "SRB";
         }
-
     }
 }

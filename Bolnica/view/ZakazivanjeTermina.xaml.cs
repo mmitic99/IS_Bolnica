@@ -45,10 +45,10 @@ namespace Bolnica.view
         {
             Termin p = new Termin
             {
-                pacijent = this.p,
-                lekar = (Lekar)izabraniLekar.SelectedItem,
+                JmbgPacijenta = this.p.Jmbg,
+                JmbgLekara = ((Lekar)izabraniLekar.SelectedItem).Jmbg,
                 TrajanjeTermina = 30,
-                prostorija = new Prostorija(Model.Enum.Sprat.Drugi, "205"),
+                IdProstorije = 205,
                 VrstaTermina = Model.Enum.VrstaPregleda.Pregled, //jer pacijent sebi moze da zakaze samo pregled, ali ne moze i operaciju
                 opisTegobe = tegobe.Text
 
@@ -77,7 +77,9 @@ namespace Bolnica.view
             p.IDTermina = p.generateRandId();
             SkladisteZaTermine.getInstance().Save(p);
             this.Close();
-            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.pacijent.Jmbg));
+
+            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.JmbgPacijenta));
+
 
         }
 

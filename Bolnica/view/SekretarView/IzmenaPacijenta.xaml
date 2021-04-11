@@ -1,0 +1,191 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.IzmenaPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view"
+        mc:Ignorable="d"
+        Title="IzmenaPacijenta" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0" Grid.ColumnSpan="2" Margin="5">
+            <TabItem x:Name="izmena">
+                <TabItem.Header>
+                    <TextBlock Text="Izmena" FontSize="20"/>
+                </TabItem.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="135*"/>
+                        <ColumnDefinition Width="194*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">JMBG*:</Label>
+                                <TextBox x:Name="jmbg" Grid.Column="1" />
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Ime*:</Label>
+                                <TextBox x:Name="ime" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Prezime:</Label>
+                                <TextBox x:Name="prezime" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Pol:</Label>
+                                <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0">
+                                    <ComboBoxItem>Muški</ComboBoxItem>
+                                    <ComboBoxItem>Ženski</ComboBoxItem>
+                                </ComboBox>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Datum rođenja:</Label>
+                                <DatePicker x:Name="datum" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Korisničko ime:</Label>
+                                <TextBox x:Name="korIme" Grid.Column="1" />
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="0" Grid.Column="2" Margin="0,20,0,0">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Broj telefona:</Label>
+                                <TextBox x:Name="tel" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">E-mail adresa:</Label>
+                                <TextBox x:Name="email" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Adresa stanovanja:</Label>
+                                <TextBox x:Name="adresa" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Grad:</Label>
+                                <TextBox x:Name="grad" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Država:</Label>
+                                <TextBox x:Name="drzava" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15, 15, 15, 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Lozinka:</Label>
+                                <PasswordBox x:Name="lozinka" Grid.Column="1" />
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+            <TabItem x:Name="zdrKarton">
+                <TabItem.Header>
+                    <TextBlock Text="Zdravstveni karton" FontSize="20"/>
+                </TabItem.Header>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="25" Margin="10,3">Lista alergena:</Label>
+                    <ListBox Grid.Row="1" Grid.Column="0" FontSize="20" x:Name="alergeniList" Margin="5"/>
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="dodajA" Margin="50,10" Click="dodajA_Click">Dodaj alergen</Button>
+                        <Button x:Name="obrisiA" Margin="50,10" Click="obrisiA_Click">Obriši alergen</Button>
+                    </StackPanel>
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+        <Grid Grid.Column="0" Grid.Row="1" Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="Button_Click">Sačuvaj</Button>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Width="100" Grid.Column="1" Click="Button_Click_1">Otkaži</Button>
+        </Grid>
+
+    </Grid>
+</Window>

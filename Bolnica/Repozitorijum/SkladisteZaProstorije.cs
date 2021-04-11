@@ -52,11 +52,6 @@ namespace Repozitorijum
             writer.Close();
         }
 
-        internal IEnumerable getAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public void SaveAll(List<Prostorija> prostorije)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Prostorija>));

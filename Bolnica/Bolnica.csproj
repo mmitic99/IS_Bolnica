@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
@@ -90,16 +91,19 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="model\TerminPacijentLekar.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
     <Compile Include="Repozitorijum\SkladisteUpravnik.cs" />
     <Compile Include="Repozitorijum\SkladisteZaLekara.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaObavestenja.cs" />
     <Compile Include="Repozitorijum\SkladisteZaProstorije.cs" />
     <Compile Include="Repozitorijum\SkladisteZaSpecijalizaciju.cs" />
     <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />
     <Compile Include="Servis\KorisnikServis.cs" />
     <Compile Include="Servis\LekarServis.cs" />
+    <Compile Include="Servis\ObavestenjaServis.cs" />
     <Compile Include="Servis\PacijentServis.cs" />
     <Compile Include="Servis\ProstorijeServis.cs" />
     <Compile Include="Servis\SekretarServis.cs" />
@@ -122,13 +126,22 @@
     <Compile Include="view\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\DodavanjeGostujucegPacijenta.xaml.cs">
+    <Compile Include="view\SekretarView\DodavanjeAlregena.xaml.cs">
+      <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\DodavanjePacijenta.xaml.cs">
+    <Compile Include="view\SekretarView\DodavanjeLekaraTerminu.xaml.cs">
+      <DependentUpon>DodavanjeLekaraTerminu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\DodavanjePacijenta.xaml.cs">
       <DependentUpon>DodavanjePacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\IzmenaPacijenta.xaml.cs">
+    <Compile Include="view\SekretarView\DodavanjePacijentaTerminu.xaml.cs">
+      <DependentUpon>DodavanjePacijentaTerminu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\IzmenaPacijenta.xaml.cs">
       <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\KreirajTerminWindow.xaml.cs">
@@ -155,10 +168,10 @@
     <Compile Include="view\Prijavljivanje.xaml.cs">
       <DependentUpon>Prijavljivanje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PrikazPacijenata.xaml.cs">
-      <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
+    <Compile Include="view\SekretarView\IzmenaTermina.xaml.cs">
+      <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarWindow.xaml.cs">
+    <Compile Include="view\SekretarView\SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\UpravnikWindow.xaml.cs">
@@ -169,6 +182,9 @@
     </Compile>
     <Compile Include="view\ZakazivanjeTermina.xaml.cs">
       <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml.cs">
+      <DependentUpon>ZakazivanjeTerminaSekretar.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -190,11 +206,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\DodavanjeGostujucegPacijenta.xaml">
+    <Page Include="view\SekretarView\DodavanjeAlregena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\DodavanjePacijenta.xaml">
+    <Page Include="view\SekretarView\DodavanjeGostujucegPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\DodavanjeLekaraTerminu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\DodavanjePacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,7 +226,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\IzmenaPacijenta.xaml">
+    <Page Include="view\SekretarView\DodavanjePacijentaTerminu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\IzmenaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,11 +274,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PrikazPacijenata.xaml">
+    <Page Include="view\SekretarView\IzmenaTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarWindow.xaml">
+    <Page Include="view\SekretarView\SekretarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\ZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

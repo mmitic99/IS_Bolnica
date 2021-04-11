@@ -6,46 +6,6 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>1234567890123</KorisnickoIme>
-      <Lozinka>Pera</Lozinka>
-    </Korisnik>
-    <Ime>Pera</Ime>
-    <Prezime>Perić</Prezime>
-    <Jmbg>1234567890123</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-    <FullName>Pera Perić</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>123456</KorisnickoIme>
-      <Lozinka>Janko</Lozinka>
-    </Korisnik>
-    <Ime>Janko</Ime>
-    <Prezime />
-    <Jmbg>123456</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <Registrovan>false</Registrovan>
-    <FullName>Janko </FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
       <KorisnickoIme>4567891230987</KorisnickoIme>
       <Lozinka>Sara</Lozinka>
     </Korisnik>
@@ -57,6 +17,10 @@
     <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
     <Email>asdsad@mail.com</Email>
     <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Sara Sarić</FullName>
   </Pacijent>
@@ -77,11 +41,15 @@
     <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
     <Email />
     <Adresa>Jovana Mikica 23/A</Adresa>
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
   <Pacijent>
-	<Grad>
+    <Grad>
       <drzava />
       <Naziv />
     </Grad>
@@ -92,8 +60,15 @@
     <Ime>Mihailo</Ime>
     <Prezime>Majstorovic</Prezime>
     <Jmbg>123456789</Jmbg>
+    <BrojTelefona />
     <Pol>Muski</Pol>
     <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
@@ -114,7 +89,59 @@
     <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
     <Email />
     <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mika Mikić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>1234567890123</KorisnickoIme>
+      <Lozinka>Pera</Lozinka>
+    </Korisnik>
+    <Ime>Pera</Ime>
+    <Prezime>Perić</Prezime>
+    <Jmbg>1234567890123</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Pera Perić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>231321315464</KorisnickoIme>
+      <Lozinka>Nikola</Lozinka>
+    </Korisnik>
+    <Ime>Nikola</Ime>
+    <Prezime>Nikolic</Prezime>
+    <Jmbg>231321315464</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-04-11T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Nikola Nikolic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

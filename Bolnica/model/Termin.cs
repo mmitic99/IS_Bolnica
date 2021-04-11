@@ -9,9 +9,9 @@ namespace Model
 
         public VrstaPregleda VrstaTermina { get; set; }
 
-        public Prostorija prostorija { get; set; }
-        public Lekar lekar { get; set; }
-        public Pacijent pacijent { get; set; }
+        public int IdProstorije { get; set; }
+        public String JmbgLekara { get; set; }
+        public String JmbgPacijenta { get; set; }
         public String IDTermina { get; set; }
 
         public double TrajanjeTermina { get; set; } //u satima
@@ -21,11 +21,11 @@ namespace Model
 
         }
 
-        public Termin(Prostorija pros, Lekar l, Pacijent p, DateTime dt, double tr, VrstaPregleda vp)
+        public Termin(Prostorija pros, String l, String p, DateTime dt, double tr, VrstaPregleda vp)
         {
-            this.prostorija = pros;
-            this.lekar = l;
-            this.pacijent = p;
+            this.IdProstorije = pros.IdProstorije;
+            this.JmbgLekara = l;
+            this.JmbgPacijenta = p;
             this.DatumIVremeTermina = dt;
             this.TrajanjeTermina = tr;
             this.VrstaTermina = vp;
@@ -33,11 +33,11 @@ namespace Model
             this.IDTermina = this.generateRandId();
         }
 
-        public Termin(Prostorija pros, Lekar l, Pacijent p, DateTime dt, double tr, VrstaPregleda vp, String opisTegobe)
+        public Termin(Prostorija pros, String l, String p, DateTime dt, double tr, VrstaPregleda vp, String opisTegobe)
         {
-            this.prostorija = pros;
-            this.lekar = l;
-            this.pacijent = p;
+            this.IdProstorije = pros.IdProstorije;
+            this.JmbgLekara = l;
+            this.JmbgPacijenta = p;
             this.DatumIVremeTermina = dt;
             this.TrajanjeTermina = tr;
             this.VrstaTermina = vp;
@@ -45,14 +45,16 @@ namespace Model
             this.IDTermina = this.generateRandId();
         }
 
-        public Prostorija GetProstorija()
+        public int GetProstorija()
         {
-            return prostorija;
+            return IdProstorije;
         }
 
         public void SetProstorija(Prostorija newProstorija)
         {
-            if (this.prostorija != newProstorija)
+            // TODO: izmeni zakomentarisano ako je potrebno
+
+            /*if (this.prostorija != newProstorija)
             {
                 if (this.prostorija != null)
                 {
@@ -65,12 +67,13 @@ namespace Model
                     this.prostorija = newProstorija;
                     this.prostorija.AddTermin(this);
                 }
-            }
+            }*/
+            IdProstorije = newProstorija.IdProstorije;
         }
 
         public String generateRandId()
         {
-            return pacijent.Jmbg + lekar.Jmbg + DatumIVremeTermina.ToString();
+            return JmbgPacijenta + JmbgLekara + DatumIVremeTermina.ToString();
         }
 
 

@@ -5,7 +5,7 @@ namespace Model
 {
     public class Prostorija
     {
-
+        public int IdProstorije { get; set; }
         public Sprat Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }

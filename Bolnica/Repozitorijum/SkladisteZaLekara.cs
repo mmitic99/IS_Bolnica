@@ -45,6 +45,24 @@ namespace Repozitorijum
             SaveAll(lekari);
         }
 
+        internal Lekar getByJmbg(string jmbgLekara)
+        {
+            List<Lekar> lekari = this.GetAll();
+            Lekar l1 = new Lekar();
+            foreach (Lekar l in lekari)
+            {
+                if (l.Jmbg != null)
+                {
+                    if (l.Jmbg.Equals(jmbgLekara))
+                    {
+                        l1 = l;
+                        break;
+                    }
+                }
+            }
+            return l1;
+        }
+
         public void SaveAll(List<Lekar> lekari)
         {
             StreamWriter stream = new StreamWriter(Lokacija);

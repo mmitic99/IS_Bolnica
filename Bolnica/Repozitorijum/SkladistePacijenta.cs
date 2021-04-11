@@ -55,7 +55,7 @@ namespace Repozitorijum
             return p1;
         }
 
-        public void Save(Model.Pacijent pacijent)
+        public void Save(Pacijent pacijent)
         {
             List<Pacijent> pacijenti = GetAll();
             pacijenti.Add(pacijent);
