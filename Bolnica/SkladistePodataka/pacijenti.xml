@@ -27,54 +27,6 @@
   <Pacijent>
     <Grad>
       <drzava />
-      <Naziv>Beograd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>1234</KorisnickoIme>
-      <Lozinka>Jovana</Lozinka>
-    </Korisnik>
-    <Ime>Jovana</Ime>
-    <Prezime>Jovanovic</Prezime>
-    <Jmbg>1234</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Mikica 23/A</Adresa>
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Jovana Jovanovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>123456789</KorisnickoIme>
-      <Lozinka>Mihailo</Lozinka>
-    </Korisnik>
-    <Ime>Mihailo</Ime>
-    <Prezime>Majstorovic</Prezime>
-    <Jmbg>123456789</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
       <Naziv />
     </Grad>
     <Korisnik>
@@ -143,5 +95,55 @@
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>12</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
+    </Korisnik>
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mihailo Majstorovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv>Beograd</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>1234</KorisnickoIme>
+      <Lozinka>Jovana</Lozinka>
+    </Korisnik>
+    <Ime>Jovana</Ime>
+    <Prezime>Jovanovic</Prezime>
+    <Jmbg>1234</Jmbg>
+    <BrojTelefona />
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Mikica 23/A</Adresa>
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni>
+        <string>Kamilica</string>
+      </Alergeni>
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

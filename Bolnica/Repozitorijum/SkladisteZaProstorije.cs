@@ -11,6 +11,17 @@ namespace Repozitorijum
     public class SkladisteZaProstorije
     {
         public String Lokacija { get; set; }
+        private static SkladisteZaProstorije instance = null;
+
+        public static SkladisteZaProstorije GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new SkladisteZaProstorije();
+            }
+            return instance;
+        }
+
 
         public List<Prostorija> Prostorije
         {

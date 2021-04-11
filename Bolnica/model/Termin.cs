@@ -1,4 +1,5 @@
 using Model.Enum;
+using Repozitorijum;
 using System;
 
 namespace Model
@@ -13,6 +14,18 @@ namespace Model
         public String JmbgLekara { get; set; }
         public String JmbgPacijenta { get; set; }
         public String IDTermina { get; set; }
+        public String lekar
+        {
+            get
+            {
+                Lekar l=SkladisteZaLekara.GetInstance().getByJmbg(JmbgLekara);
+                return l.FullName;
+            }
+            set
+            {
+
+            }
+        }
 
         public double TrajanjeTermina { get; set; } //u satima
         public String opisTegobe { get; set; }
