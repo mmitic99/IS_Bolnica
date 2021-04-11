@@ -1,19 +1,25 @@
 using Model;
+using Servis;
 using System;
 
 namespace Kontroler
 {
-   public class SekretarKontroler : KorisnikKontroler
-   {
-      public bool RegistrujSekretara(Sekretar sekretar)
-      {
-         // TODO: implement
-         return false;
-      }
+    public class SekretarKontroler : KorisnikKontroler
+    {
+        public SekretarKontroler()
+        {
+            sekretarServis = new SekretarServis();
+        }
+
+        public bool RegistrujSekretara(Sekretar sekretar)
+        {
+            // TODO: implement
+            return false;
+        }
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            throw new NotImplementedException();
+            return sekretarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -27,6 +33,6 @@ namespace Kontroler
         }
 
         public Servis.SekretarServis sekretarServis;
-   
-   }
+
+    }
 }

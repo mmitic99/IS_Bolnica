@@ -1,25 +1,31 @@
 using Model;
+using Servis;
 using System;
 
 namespace Kontroler
 {
-   public class LekarKontroler : KorisnikKontroler
-   {
-      public bool RegistrujLekara(Lekar lekar)
-      {
-         // TODO: implement
-         return false;
-      }
-      
-      public bool DodajObavestenje(Obavestenje obavestenje)
-      {
-         // TODO: implement
-         return false;
-      }
+    public class LekarKontroler : KorisnikKontroler
+    {
+        public LekarKontroler()
+        {
+            lekarServis = new LekarServis();
+        }
+
+        public bool RegistrujLekara(Lekar lekar)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public bool DodajObavestenje(Obavestenje obavestenje)
+        {
+            // TODO: implement
+            return false;
+        }
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            throw new NotImplementedException();
+            return lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -33,6 +39,6 @@ namespace Kontroler
         }
 
         public Servis.LekarServis lekarServis;
-   
-   }
+
+    }
 }

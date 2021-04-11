@@ -1,4 +1,5 @@
 ﻿using Bolnica.view.SekretarView;
+using Kontroler;
 using Model;
 using Repozitorijum;
 using System;
@@ -24,6 +25,12 @@ namespace Bolnica.view
     {
         private String uloga;
         private bool potvrdi = false;
+
+        UpravnikKontroler upravnikKontroler;
+        SekretarKontroler sekretarKontroler;
+        LekarKontroler lekarKontroler;
+        PacijentKontroler pacijentKontroler;
+
         public Prijavljivanje(String uloga)
         {
             InitializeComponent();
@@ -49,188 +56,81 @@ namespace Bolnica.view
 
             }
 
+            upravnikKontroler = new UpravnikKontroler();
+            sekretarKontroler = new SekretarKontroler();
+            lekarKontroler = new LekarKontroler();
+            pacijentKontroler = new PacijentKontroler();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (uloga.Equals("u"))
             {
-                List<Upravnik> upravnici = SkladisteUpravnik.GetInstance().GetAll();
+                Upravnik prijavljeniUpravnik = (Upravnik)upravnikKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
-                bool korisnickoImeOK = false;
-                bool lozinkaOK = false;
-                Upravnik upravnik = new Upravnik();
-
-                foreach (Upravnik upravnik1 in upravnici)
+                if(prijavljeniUpravnik == null)
                 {
-                    if (upravnik1.Korisnik.KorisnickoIme.Equals(korIme.Text))
-                    {
-                        upravnik = upravnik1;
-                        korisnickoImeOK = true;
-                        if (upravnik1.Korisnik.Lozinka.Equals(lozinka.Password))
-                        {
-                            lozinkaOK = true;
-                        }
-                        break;
-                    }
-                }
-                if (korisnickoImeOK && lozinkaOK)
-                {
-                    var s = new UpravnikWindow(upravnik);
-                    potvrdi = true;
-                    this.Close();
-                    s.Show();
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+                    korIme.Focus();
                 }
                 else
                 {
-                    if (!korisnickoImeOK)
-                    {
-                        MessageBox.Show("Neispravno korisničko ime!");
-                        korIme.Text = "";
-                        lozinka.Password = "";
-                        korIme.Focus();
-                    }
-                    else if (!lozinkaOK)
-                    {
-                        MessageBox.Show("Neispravna lozinka!");
-                        lozinka.Password = "";
-                        lozinka.Focus();
-                    }
+                    var s = new UpravnikWindow(prijavljeniUpravnik);
+                    potvrdi = true;
+                    this.Close();
+                    s.Show();
                 }
             }
             else if (uloga.Equals("s"))
             {
-                List<Sekretar> sekretari = SkladisteSekretara.GetInstance().GetAll();
+                Sekretar prijavljeniSekretar = (Sekretar)sekretarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
-                bool korisnickoImeOK = false;
-                bool lozinkaOK = false;
-                Sekretar sekretar = new Sekretar();
-
-                foreach (Sekretar sekretar1 in sekretari)
+                if (prijavljeniSekretar == null)
                 {
-                    if (sekretar1.Korisnik.KorisnickoIme.Equals(korIme.Text))
-                    {
-                        sekretar = sekretar1;
-                        korisnickoImeOK = true;
-                        if (sekretar1.Korisnik.Lozinka.Equals(lozinka.Password))
-                        {
-                            lozinkaOK = true;
-                        }
-                        break;
-                    }
-                }
-                if (korisnickoImeOK && lozinkaOK)
-                {
-                    var s = new SekretarWindow(sekretar);
-                    potvrdi = true;
-                    this.Close();
-                    s.Show();
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+                    korIme.Focus();
                 }
                 else
                 {
-                    if (!korisnickoImeOK)
-                    {
-                        MessageBox.Show("Neispravno korisničko ime!");
-                        korIme.Text = "";
-                        lozinka.Password = "";
-                        korIme.Focus();
-                    }
-                    else if (!lozinkaOK)
-                    {
-                        MessageBox.Show("Neispravna lozinka!");
-                        lozinka.Password = "";
-                        lozinka.Focus();
-                    }
+                    var s = new SekretarWindow(prijavljeniSekretar);
+                    potvrdi = true;
+                    this.Close();
+                    s.Show();
                 }
             }
             else if (uloga.Equals("l"))
             {
-                List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+                Lekar prijavljeniLekar = (Lekar)lekarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
-                bool korisnickoImeOK = false;
-                bool lozinkaOK = false;
-                Lekar lekar = new Lekar();
-
-                foreach (Lekar lekar1 in lekari)
+                if (prijavljeniLekar == null)
                 {
-                    if (lekar1.Korisnik.KorisnickoIme.Equals(korIme.Text))
-                    {
-                        lekar = lekar1;
-                        korisnickoImeOK = true;
-                        if (lekar1.Korisnik.Lozinka.Equals(lozinka.Password))
-                        {
-                            lozinkaOK = true;
-                        }
-                        break;
-                    }
-                }
-                if (korisnickoImeOK && lozinkaOK)
-                {
-                    var s = new PregledWindow(lekar);
-                    potvrdi = true;
-                    this.Close();
-                    s.Show();
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+                    korIme.Focus();
                 }
                 else
                 {
-                    if (!korisnickoImeOK)
-                    {
-                        MessageBox.Show("Neispravno korisničko ime!");
-                        korIme.Text = "";
-                        lozinka.Password = "";
-                        korIme.Focus();
-                    }
-                    else if (!lozinkaOK)
-                    {
-                        MessageBox.Show("Neispravna lozinka!");
-                        lozinka.Password = "";
-                        lozinka.Focus();
-                    }
+                    var s = new LekarWindow(prijavljeniLekar);
+                    potvrdi = true;
+                    this.Close();
+                    s.Show();
                 }
             }
             else if (uloga.Equals("p"))
             {
-                List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
+                Pacijent prijavljeniPacijent = (Pacijent)pacijentKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
-                bool korisnickoImeOK = false;
-                bool lozinkaOK = false;
-                Pacijent pacijent = new Pacijent();
-
-                foreach (Pacijent pacijent1 in pacijenti)
+                if (prijavljeniPacijent == null)
                 {
-                    if (pacijent1.Korisnik.KorisnickoIme.Equals(korIme.Text))
-                    {
-                        pacijent = pacijent1;
-                        korisnickoImeOK = true;
-                        if (pacijent1.Korisnik.Lozinka.Equals(lozinka.Password))
-                        {
-                            lozinkaOK = true;
-                        }
-                        break;
-                    }
-                }
-                if (korisnickoImeOK && lozinkaOK)
-                {
-                    var s = new PacijentWindow(pacijent);
-                    potvrdi = true;
-                    this.Close();
-                    s.Show();
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka!");
+                    korIme.Focus();
                 }
                 else
                 {
-                    if (!korisnickoImeOK)
-                    {
-                        MessageBox.Show("Neispravno korisničko ime!");
-                        korIme.Text = "";
-                        lozinka.Password = "";
-                        korIme.Focus();
-                    }
-                    else if (!lozinkaOK)
-                    {
-                        MessageBox.Show("Neispravna lozinka!");
-                        lozinka.Password = "";
-                        lozinka.Focus();
-                    }
+                    var s = new PacijentWindow(prijavljeniPacijent);
+                    potvrdi = true;
+                    this.Close();
+                    s.Show();
                 }
             }
         }
