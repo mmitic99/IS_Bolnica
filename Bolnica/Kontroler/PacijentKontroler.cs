@@ -14,8 +14,7 @@ namespace Kontroler
 
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
-            // TODO: implement
-            return false;
+            return pacijentServis.RegistrujPacijenta(pacijent);
         }
 
         public bool DodajAlergen(String alergen)
@@ -59,8 +58,7 @@ namespace Kontroler
 
         public List<Pacijent> GetAll()
         {
-            // TODO: implement
-            return null;
+            return pacijentServis.GetAll();
         }
 
         public void Save(Pacijent pacijent)
@@ -73,7 +71,16 @@ namespace Kontroler
             // TODO: implement
         }
 
-        public Servis.PacijentServis pacijentServis;
+        public bool izmeniPacijenta(Pacijent stari, Pacijent novi)
+        {
+            return pacijentServis.izmeniPacijenta(stari, novi);
+        }
 
+        public PacijentServis pacijentServis;
+
+        internal bool obrisiPacijentaNaIndeksu(int selectedIndex)
+        {
+            return pacijentServis.obrisiPacijentaNaIndeksu(selectedIndex);
+        }
     }
 }

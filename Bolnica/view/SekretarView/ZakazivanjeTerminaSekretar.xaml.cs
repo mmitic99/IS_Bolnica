@@ -1,18 +1,10 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Bolnica.view.SekretarView
 {
@@ -22,15 +14,22 @@ namespace Bolnica.view.SekretarView
     public partial class ZakazivanjeTerminaSekretar : Window
     {
         private Termin termin;
-        DataGrid terminiPrikaz;
+        private DataGrid terminiPrikaz;
+        private ProstorijeKontroler prostorijeKontroler;
+        private TerminKontroler terminKontroler;
+
         public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz)
         {
             InitializeComponent();
+
+            prostorijeKontroler = new ProstorijeKontroler(); ;
+            terminKontroler = new TerminKontroler();
+
             this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
             termin = new Termin();
-            SkladisteZaProstorije sklad = new SkladisteZaProstorije();
-            sala.ItemsSource = sklad.GetAll();
+
+            sala.ItemsSource = prostorijeKontroler.GetAll();
             sala.SelectedIndex = 0;
             List<String> vremeTermina = new List<string>();
             vremeTermina.Add("08:00");
@@ -50,7 +49,7 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (vrstaT.SelectedIndex == 0) 
+            if (vrstaT.SelectedIndex == 0)
             {
                 termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
             }
@@ -72,8 +71,10 @@ namespace Bolnica.view.SekretarView
 
             termin.opisTegobe = tegobe.Text;
             termin.IDTermina = termin.generateRandId();
-            SkladisteZaTermine.getInstance().Save(termin); 
-            terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();
+
+            terminKontroler.ZakaziTermin(termin);
+
+            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
 
             this.Close();
         }

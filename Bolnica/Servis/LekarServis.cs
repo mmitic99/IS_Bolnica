@@ -56,8 +56,7 @@ namespace Servis
 
         public List<Lekar> GetAll()
         {
-            // TODO: implement
-            return null;
+            return skladisteZaLekara.GetAll();
         }
 
         public void Save(Lekar lekar)

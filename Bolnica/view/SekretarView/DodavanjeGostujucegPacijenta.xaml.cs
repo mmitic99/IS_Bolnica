@@ -43,32 +43,26 @@ namespace Bolnica.view.SekretarView
                     Lozinka = ime.Text
                 },
                 zdravstveniKarton = new ZdravstveniKarton()
-                
+
             };
 
-            bool greska = false;
-            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
-            for (int i = 0; i < pacijenti.Count; i++)
+            if (!pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals("") && !pacijent.Prezime.Trim().Equals(""))
             {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                bool uspesno = pacijentKontroler.RegistrujPacijenta(pacijent);
+                if (uspesno)
                 {
-                    greska = true;
+                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    this.Close();
                 }
-            }
-            if (!greska && !pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals("") && !pacijent.Prezime.Trim().Equals(""))
-            {
-                SkladistePacijenta.GetInstance().Save(pacijent);
-                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-                this.Close();
+                else
+                {
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    jmbg.Focus();
+                }
             }
             else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {
                 MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-            else
-            {
-                MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

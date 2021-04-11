@@ -41,8 +41,7 @@ namespace Kontroler
 
         public List<Lekar> GetAll()
         {
-            // TODO: implement
-            return null;
+            return lekarServis.GetAll();
         }
 
         public void Save(Model.Lekar lekar)

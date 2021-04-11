@@ -1,10 +1,16 @@
 using Model;
+using Servis;
 using System.Collections.Generic;
 
 namespace Kontroler
 {
     public class ObavestenjaKontroler
     {
+        public ObavestenjaKontroler()
+        {
+            obavestenjaServis = new ObavestenjaServis();
+        }
+
         public List<Obavestenje> GetAll()
         {
             // TODO: implement

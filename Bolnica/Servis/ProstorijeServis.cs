@@ -7,6 +7,11 @@ namespace Servis
 {
     public class ProstorijeServis
     {
+        public ProstorijeServis()
+        {
+            skladisteZaProstorije = new SkladisteZaProstorije();
+        }
+
         public void RenovirajProstoriju()
         {
             // TODO: implement
@@ -52,8 +57,7 @@ namespace Servis
 
         public List<Prostorija> GetAll()
         {
-            // TODO: implement
-            return null;
+            return skladisteZaProstorije.GetAll();
         }
 
         public void Save(Prostorija prostorija)

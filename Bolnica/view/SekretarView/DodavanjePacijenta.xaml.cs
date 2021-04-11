@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace Bolnica.view.SekretarView
     public partial class DodavanjePacijenta : Window
     {
         private DataGrid pacijentiPrikaz;
+        private PacijentKontroler pacijentKontroler;
         public DodavanjePacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
             this.pacijentiPrikaz = pacijentiPrikaz;
+            pacijentKontroler = new PacijentKontroler();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,32 +59,24 @@ namespace Bolnica.view.SekretarView
             {
                 pacijent.DatumRodjenja = DateTime.Now;
             }
-            bool greska = false;
-            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
-            for (int i = 0; i < pacijenti.Count; i++)
+
+            if (!pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals("") && !pacijent.Prezime.Trim().Equals(""))
             {
-                if (pacijenti.ElementAt(i).Jmbg != null)
+                bool uspesno = pacijentKontroler.RegistrujPacijenta(pacijent);
+                if (uspesno)
                 {
-                    if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
-                    {
-                        greska = true;
-                    }
+                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    jmbg.Focus();
                 }
             }
-            if (!greska && !pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals(""))
+            else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {
-                SkladistePacijenta.GetInstance().Save(pacijent);
-                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-                this.Close();
-            }
-            else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals(""))
-            {
-                MessageBox.Show("Polja JMBG i Ime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-            else
-            {
-                MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

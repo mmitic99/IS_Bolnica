@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using Repozitorijum;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,12 +11,15 @@ namespace Bolnica.view.SekretarView
     /// </summary>
     public partial class DodavanjePacijentaTerminu : Window
     {
-        Termin termin;
-        TextBox pacijent;
+        private Termin termin;
+        private TextBox pacijent;
+        private PacijentKontroler pacijentKontroler;
         public DodavanjePacijentaTerminu(Termin termin, TextBox pacijent)
         {
             InitializeComponent();
-            DodavanjePacijentaTerminuPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+            pacijentKontroler = new PacijentKontroler();
+
+            DodavanjePacijentaTerminuPrikaz.ItemsSource = pacijentKontroler.GetAll();
             this.termin = termin;
             this.pacijent = pacijent;
         }

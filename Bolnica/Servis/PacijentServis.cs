@@ -1,7 +1,8 @@
-using Model;
+﻿using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Servis
 {
@@ -14,8 +15,24 @@ namespace Servis
 
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
-            // TODO: implement
-            return false;
+            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
+            bool uspesno = true;
+
+            for (int i = 0; i < pacijenti.Count; i++)
+            {
+                if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                {
+                    uspesno = false;
+                    return uspesno;
+                }
+            }
+
+            if (uspesno)
+            {
+                skladistePacijenta.Save(pacijent);
+            }
+
+            return uspesno;
         }
 
         public bool DodajAlergen(String alergen)
@@ -62,6 +79,45 @@ namespace Servis
             return null;
         }
 
+        internal bool izmeniPacijenta(Pacijent stari, Pacijent novi)
+        {
+            bool uspesno = true;
+            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
+
+            for (int i = 0; i < pacijenti.Count; i++)
+            {
+                if (pacijenti.ElementAt(i).Jmbg.Equals(stari.Jmbg))
+                {
+                    pacijenti.RemoveAt(i);
+                    break;
+                }
+            }
+            for (int i = 0; i < pacijenti.Count; i++)
+            {
+                if (pacijenti.ElementAt(i).Jmbg.Equals(novi.Jmbg))
+                {
+                    uspesno = false;
+                    return uspesno;
+                }
+            }
+
+            if (uspesno)
+            {
+                pacijenti.Add(novi);
+                skladistePacijenta.SaveAll(pacijenti);
+            }
+
+            return uspesno;
+        }
+
+        public bool obrisiPacijentaNaIndeksu(int selectedIndex)
+        {
+            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
+            pacijenti.RemoveAt(selectedIndex);
+            skladistePacijenta.SaveAll(pacijenti);
+            return true;
+        }
+
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
         {
             throw new NotImplementedException();
@@ -74,8 +130,7 @@ namespace Servis
 
         public List<Pacijent> GetAll()
         {
-            // TODO: implement
-            return null;
+            return skladistePacijenta.GetAll();
         }
 
         public void Save(Model.Pacijent pacijent)

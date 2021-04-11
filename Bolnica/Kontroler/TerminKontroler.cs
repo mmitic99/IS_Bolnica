@@ -1,15 +1,21 @@
 using Model;
+using Servis;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Kontroler
 {
     public class TerminKontroler
     {
-        public bool ZakaziTermin(Model.Termin termin)
+        public TerminKontroler()
         {
-            // TODO: implement
-            return false;
+            terminServis = new TerminServis();
+        }
+
+        public bool ZakaziTermin(Termin termin)
+        {
+            return terminServis.ZakaziTermin(termin);
         }
 
         public bool OtkaziTermin(Model.Termin termin)
@@ -18,10 +24,9 @@ namespace Kontroler
             return false;
         }
 
-        public bool IzmeniTermin(Model.Termin termin)
+        public bool IzmeniTermin(Termin termin)
         {
-            // TODO: implement
-            return false;
+            return terminServis.IzmeniTermin(termin);
         }
 
         public List<Termin> DobaviMoguceTerminePoLekaru(int idLekara)
@@ -66,5 +71,14 @@ namespace Kontroler
 
         public Servis.TerminServis terminServis;
 
+        public IEnumerable GetBuduciTerminPacLekar()
+        {
+            return terminServis.GetBuduciTerminPacLekar();
+        }
+
+        public void RemoveByID(string iDTermina)
+        {
+            terminServis.RemoveByID(iDTermina);
+        }
     }
 }

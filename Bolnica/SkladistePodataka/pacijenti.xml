@@ -21,7 +21,6 @@
       <izvestaj />
       <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
     <FullName>Sara Sarić</FullName>
   </Pacijent>
@@ -46,7 +45,6 @@
       <izvestaj />
       <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
@@ -71,7 +69,6 @@
       <izvestaj />
       <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
@@ -96,7 +93,6 @@
       <izvestaj />
       <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
     <FullName>Mika Mikić</FullName>
   </Pacijent>
@@ -121,7 +117,6 @@
       <izvestaj />
       <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
     <FullName>Pera Perić</FullName>
   </Pacijent>
@@ -131,25 +126,22 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>123456</KorisnickoIme>
-      <Lozinka>Janko</Lozinka>
+      <KorisnickoIme>231321315464</KorisnickoIme>
+      <Lozinka>Nikola</Lozinka>
     </Korisnik>
-    <Ime>Janko</Ime>
-    <Prezime />
-    <Jmbg>123456</Jmbg>
+    <Ime>Nikola</Ime>
+    <Prezime>Nikolic</Prezime>
+    <Jmbg>231321315464</Jmbg>
     <BrojTelefona />
     <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <DatumRodjenja>2021-04-11T00:00:00+02:00</DatumRodjenja>
     <Email />
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <Alergeni>
-        <string>brufen</string>
-      </Alergeni>
+      <Alergeni />
     </zdravstveniKarton>
-    <obavestenje />
     <Registrovan>false</Registrovan>
-    <FullName>Janko </FullName>
+    <FullName>Nikola Nikolic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

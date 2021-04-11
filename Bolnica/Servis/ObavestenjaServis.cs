@@ -1,10 +1,16 @@
 using Model;
+using Repozitorijum;
 using System.Collections.Generic;
 
 namespace Servis
 {
     public class ObavestenjaServis
     {
+        public ObavestenjaServis()
+        {
+            skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();
+        }
+
         public List<Obavestenje> GetAll()
         {
             // TODO: implement

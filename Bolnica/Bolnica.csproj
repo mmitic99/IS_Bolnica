@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />
     <Compile Include="Servis\KorisnikServis.cs" />
     <Compile Include="Servis\LekarServis.cs" />
+    <Compile Include="Servis\ObavestenjaServis.cs" />
     <Compile Include="Servis\PacijentServis.cs" />
     <Compile Include="Servis\ProstorijeServis.cs" />
     <Compile Include="Servis\SekretarServis.cs" />

@@ -85,12 +85,12 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-27T08:00:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2021-05-14T10:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>101</IdProstorije>
+    <IdProstorije>403</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>123456789666727.4.2021. 08:00:00</IDTermina>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>231321315464666714.5.2021. 10:30:00</IDTermina>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>

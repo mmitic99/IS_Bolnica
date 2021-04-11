@@ -1,8 +1,7 @@
 ﻿using Bolnica.model;
+using Kontroler;
 using Model;
-using Repozitorijum;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -14,18 +13,23 @@ namespace Bolnica.view.SekretarView
     public partial class SekretarWindow : Window
     {
         private Sekretar sekretar;
+        private PacijentKontroler pacijentKontroler;
+        private TerminKontroler terminKontroler;
 
         public SekretarWindow(Sekretar sekretar)
         {
             InitializeComponent();
 
+            pacijentKontroler = new PacijentKontroler();
+            terminKontroler = new TerminKontroler();
+
             this.sekretar = sekretar;
-            
+
             imeS.Content = sekretar.Ime;
             prezimeS.Content = sekretar.Prezime;
 
-            pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-            terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();
+            pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
 
             statusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer();
@@ -61,13 +65,11 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
-
             if (pacijentiPrikaz.SelectedIndex != -1)
             {
-                pacijenti.RemoveAt(pacijentiPrikaz.SelectedIndex);
-                SkladistePacijenta.GetInstance().SaveAll(pacijenti);
-                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+                bool uspesno = pacijentKontroler.obrisiPacijentaNaIndeksu(pacijentiPrikaz.SelectedIndex);
+
+                pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
             }
         }
 
@@ -90,8 +92,8 @@ namespace Bolnica.view.SekretarView
         {
             if (terminiPrikaz.SelectedIndex != -1)
             {
-                SkladisteZaTermine.getInstance().RemoveByID(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin.IDTermina);
-                terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();
+                terminKontroler.RemoveByID(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin.IDTermina);
+                terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             }
         }
 

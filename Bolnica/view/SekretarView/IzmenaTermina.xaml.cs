@@ -1,19 +1,10 @@
 ﻿using Bolnica.model;
+using Kontroler;
 using Model;
 using Repozitorijum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Bolnica.view.SekretarView
 {
@@ -23,13 +14,25 @@ namespace Bolnica.view.SekretarView
     public partial class IzmenaTermina : Window
     {
         private TerminPacijentLekar termin;
-        DataGrid terminiPrikaz;
+        private DataGrid terminiPrikaz;
+
+        private TerminKontroler terminKontroler;
+        private ProstorijeKontroler prostorijeKontroler;
+        private ObavestenjaKontroler obavestenjaKontroler;
+
         public IzmenaTermina(DataGrid terminiPrikaz)
         {
             InitializeComponent();
+
+
+
+            terminKontroler = new TerminKontroler();
+            prostorijeKontroler = new ProstorijeKontroler();
+            obavestenjaKontroler = new ObavestenjaKontroler();
+
             this.terminiPrikaz = terminiPrikaz;
             this.termin = (TerminPacijentLekar)terminiPrikaz.SelectedItem;
-            if(termin.termin.VrstaTermina == Model.Enum.VrstaPregleda.Pregled)
+            if (termin.termin.VrstaTermina == Model.Enum.VrstaPregleda.Pregled)
             {
                 vrstaT.SelectedIndex = 0;
             }
@@ -76,10 +79,10 @@ namespace Bolnica.view.SekretarView
                 vremeT.Items.Add(vreme);
             }
             vremeT.SelectedItem = vreme;
-            sala.ItemsSource = new SkladisteZaProstorije().GetAll();
+            sala.ItemsSource = prostorijeKontroler.GetAll();
             for (int i = 0; i < sala.Items.Count; i++)
             {
-                if(((Prostorija)sala.Items[i]).BrojSobe.Equals(termin.termin.IdProstorije.ToString()))
+                if (((Prostorija)sala.Items[i]).BrojSobe.Equals(termin.termin.IdProstorije.ToString()))
                 {
                     sala.SelectedIndex = i;
                 }
@@ -98,7 +101,7 @@ namespace Bolnica.view.SekretarView
                 JmbgLekara = termin.lekar.Jmbg,
                 VrstaTermina = termin.termin.VrstaTermina
             };
-            
+
             DateTime selDate = (DateTime)datum.SelectedDate;
 
             string[] vreme = ((string)vremeT.SelectedItem).Split(':');
@@ -109,32 +112,11 @@ namespace Bolnica.view.SekretarView
 
             noviTermin.DatumIVremeTermina = datumIVreme;
 
-            SkladisteZaTermine.getInstance().RemoveByID(termin.termin.IDTermina);
-            noviTermin.IDTermina = noviTermin.generateRandId();
+            noviTermin.IDTermina = termin.termin.IDTermina;
 
-            Obavestenje obavestenjePacijent = new Obavestenje
-            {
-                JmbgKorisnika = termin.pacijent.Jmbg,
-                Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.termin.DatumIVremeTermina + "" +
-                " je pomeren na " + noviTermin.DatumIVremeTermina + ".",
-                VremeObavestenja = DateTime.Now
-            };
-            SkladisteZaObavestenja.GetInstance().Save(obavestenjePacijent);
-
-            Obavestenje obavestenjeLekar = new Obavestenje
-            {
-                JmbgKorisnika = termin.lekar.Jmbg,
-                Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.termin.DatumIVremeTermina + "" +
-                " je pomeren na " + noviTermin.DatumIVremeTermina + ".",
-                VremeObavestenja = DateTime.Now
-            };
-            SkladisteZaObavestenja.GetInstance().Save(obavestenjeLekar);
-
-            SkladisteZaTermine.getInstance().Save(noviTermin);
-
-            terminiPrikaz.ItemsSource = SkladisteZaTermine.getInstance().GetBuduciTerminPacLekar();
+            terminKontroler.IzmeniTermin(noviTermin);
+            
+            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
 
             this.Close();
         }

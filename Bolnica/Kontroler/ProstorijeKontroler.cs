@@ -1,4 +1,5 @@
 using Model;
+using Servis;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +7,12 @@ namespace Kontroler
 {
     public class ProstorijeKontroler
     {
+
+        public ProstorijeKontroler()
+        {
+            prostorijeServis = new ProstorijeServis();
+        }
+
         public void RenovirajProstoriju()
         {
             // TODO: implement
@@ -51,8 +58,7 @@ namespace Kontroler
 
         public List<Prostorija> GetAll()
         {
-            // TODO: implement
-            return null;
+            return prostorijeServis.GetAll();
         }
 
         public void Save(Prostorija prostorija)

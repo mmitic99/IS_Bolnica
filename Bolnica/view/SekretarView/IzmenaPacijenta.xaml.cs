@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,12 @@ namespace Bolnica.view.SekretarView
         private DataGrid pacijentiPrikaz;
         private Pacijent pacijent;
         private ObservableCollection<String> alergeni;
+        private PacijentKontroler pacijentKontroler;
         public IzmenaPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
+            pacijentKontroler = new PacijentKontroler();
+
             this.pacijentiPrikaz = pacijentiPrikaz;
             this.pacijent = (Pacijent)pacijentiPrikaz.SelectedItem;
             jmbg.Text = pacijent.Jmbg;
@@ -85,40 +89,25 @@ namespace Bolnica.view.SekretarView
                 noviPacijent.DatumRodjenja = DateTime.Now;
             }
 
-            bool greska = false;
-            List<Pacijent> pacijenti = SkladistePacijenta.GetInstance().GetAll();
-            for (int i = 0; i < pacijenti.Count; i++)
+
+            if (!noviPacijent.Jmbg.Trim().Equals("") && !noviPacijent.Ime.Trim().Equals("") && !noviPacijent.Prezime.Trim().Equals(""))
             {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
+                bool uspesno = pacijentKontroler.izmeniPacijenta(pacijent, noviPacijent);
+                if (uspesno)
                 {
-                    pacijenti.RemoveAt(i);
+                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    jmbg.Focus();
                 }
             }
-            for (int i = 0; i < pacijenti.Count; i++)
+            else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(noviPacijent.Jmbg))
-                {
-                    greska = true;
-                }
+                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            if (!greska && !noviPacijent.Jmbg.Equals("") && !noviPacijent.Ime.Trim().Equals(""))
-            {
-                pacijenti.Add(noviPacijent);
-                SkladistePacijenta.GetInstance().SaveAll(pacijenti);
-                pacijentiPrikaz.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-                this.Close();
-            }
-            else if (noviPacijent.Jmbg.Trim().Equals("") || noviPacijent.Ime.Trim().Equals(""))
-            {
-                MessageBox.Show("Polja JMBG i Ime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-            else
-            {
-                MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

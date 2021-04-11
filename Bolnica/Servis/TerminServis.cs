@@ -1,16 +1,24 @@
 using Model;
 using Repozitorijum;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Servis
 {
     public class TerminServis
     {
+        public TerminServis()
+        {
+            skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();
+            skladisteZaTermine = new SkladisteZaTermine();
+        }
+
         public bool ZakaziTermin(Model.Termin termin)
         {
-            // TODO: implement
-            return false;
+            skladisteZaTermine.Save(termin);
+
+            return true;
         }
 
         public bool OtkaziTermin(Model.Termin termin)
@@ -19,10 +27,41 @@ namespace Servis
             return false;
         }
 
-        public bool IzmeniTermin(Model.Termin termin)
+        public bool IzmeniTermin(Termin termin)
         {
-            // TODO: implement
-            return false;
+            bool uspesno = true;
+
+            skladisteZaTermine.RemoveByID(termin.IDTermina);
+            termin.IDTermina = termin.generateRandId();
+
+            Obavestenje obavestenjePacijent = new Obavestenje
+            {
+                JmbgKorisnika = termin.JmbgPacijenta,
+                Naslov = "Izmena zakazanog termina",
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.DatumIVremeTermina + "" +
+                " je pomeren na " + termin.DatumIVremeTermina + ".",
+                VremeObavestenja = DateTime.Now
+            };
+            skladisteZaObavestenja.Save(obavestenjePacijent);
+
+            Obavestenje obavestenjeLekar = new Obavestenje
+            {
+                JmbgKorisnika = termin.JmbgLekara,
+                Naslov = "Izmena zakazanog termina",
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.DatumIVremeTermina + "" +
+                " je pomeren na " + termin.DatumIVremeTermina + ".",
+                VremeObavestenja = DateTime.Now
+            };
+            skladisteZaObavestenja.Save(obavestenjeLekar);
+
+            skladisteZaTermine.Save(termin);
+
+            return uspesno;
+        }
+
+        public void RemoveByID(string iDTermina)
+        {
+            skladisteZaTermine.RemoveByID(iDTermina);
         }
 
         public List<Termin> DobaviMoguceTerminePoLekaru(int idLekara)
@@ -66,6 +105,11 @@ namespace Servis
         }
 
         public SkladisteZaTermine skladisteZaTermine;
+        public SkladisteZaObavestenja skladisteZaObavestenja;
 
+        internal IEnumerable GetBuduciTerminPacLekar()
+        {
+            return skladisteZaTermine.GetBuduciTerminPacLekar();
+        }
     }
 }
