@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Bolnica"
              xmlns:viewActions ="clr-namespace:Bolnica.viewActions"
+             xmlns:PacijentView ="clr-namespace:Bolnica.view.PacijentView"
              xmlns:view ="clr-namespace:Bolnica.view"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -16,6 +17,14 @@
 
             <DataTemplate DataType="{x:Type viewActions:ObavestenjaViewModel}">
                 <view:Obavestenja/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewActions:PacijentZakaziTermin}">
+                <PacijentView:ZakazivanjeTerminaP/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewActions:MoguciTerminiViewModel}">
+                <PacijentView:MoguciTermini/>
             </DataTemplate>
 
         </ResourceDictionary>

@@ -7,9 +7,24 @@ namespace Servis
 {
     public class LekarServis : KorisnikServis
     {
+        public static LekarServis instance = null;
+
+        public static LekarServis getInstance()
+        {
+            if(instance == null)
+            {
+                return new LekarServis();
+            }
+            else
+            {
+                return instance;
+            }
+        }
+
         public LekarServis()
         {
             skladisteZaLekara = SkladisteZaLekara.GetInstance();
+            instance = this;
         }
 
         public bool RegistrujLekara(Lekar lekar)
@@ -44,6 +59,27 @@ namespace Servis
             return null;
         }
 
+        public bool DaLiJeLekarSlobodan(String JmbgLekara, DateTime datumVreme, int trajanjeMinute)
+        {
+            bool slobodan = true;
+            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(JmbgLekara);
+            foreach(Termin t in terminiLekara)
+            {
+                if(datumVreme> t.DatumIVremeTermina && datumVreme<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
+                    && (datumVreme.AddMinutes(trajanjeMinute))>t.DatumIVremeTermina && (datumVreme.AddMinutes(trajanjeMinute))<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
+                {
+                    slobodan = false;
+                    break;
+                }
+                if(t.DatumIVremeTermina> datumVreme && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (datumVreme.AddMinutes(trajanjeMinute))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    slobodan = false;
+                    break;
+                }
+            }
+            return slobodan;
+        }
+
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
         {
             throw new NotImplementedException();
@@ -56,7 +92,7 @@ namespace Servis
 
         public List<Lekar> GetAll()
         {
-            return skladisteZaLekara.GetAll();
+            return SkladisteZaLekara.GetInstance().GetAll();
         }
 
         public void Save(Lekar lekar)

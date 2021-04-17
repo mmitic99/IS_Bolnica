@@ -27,7 +27,6 @@
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     </Style>
-
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="atumIVremeTerminaD" Header="Datum i vreme" Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*"/>

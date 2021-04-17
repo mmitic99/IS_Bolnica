@@ -42,7 +42,7 @@
     <TrajanjeTermina>1234</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2018-07-03T00:00:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2018-07-03T09:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
@@ -76,10 +76,10 @@
     <DatumIVremeTermina>2021-04-15T13:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>205</IdProstorije>
-    <JmbgLekara>4536</JmbgLekara>
+    <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/15/2021 1:00:00 PM</IDTermina>
-    <lekar>dr Miroslav Mi</lekar>
+    <lekar>dr Dunja Jovanovic</lekar>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -92,6 +92,57 @@
     <IDTermina>123460912/12/2021 11:30:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
     <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>0001-01-01T00:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>205</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678966671/1/0001 12:00:00 AM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T06:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <lekar>dr Milos Marinkovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
 </ArrayOfTermin>

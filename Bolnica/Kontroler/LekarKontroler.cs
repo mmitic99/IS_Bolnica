@@ -7,8 +7,22 @@ namespace Kontroler
 {
     public class LekarKontroler : KorisnikKontroler
     {
+        public static LekarKontroler instance = null;
+
+        public static LekarKontroler getInstance()
+        {
+            if(instance==null)
+            {
+                return new LekarKontroler();
+            }
+            else
+            {
+                return instance;
+            }
+        }
         public LekarKontroler()
         {
+            instance = this;
             lekarServis = new LekarServis();
         }
 
@@ -41,7 +55,7 @@ namespace Kontroler
 
         public List<Lekar> GetAll()
         {
-            return lekarServis.GetAll();
+            return LekarServis.getInstance().GetAll();
         }
 
         public void Save(Model.Lekar lekar)

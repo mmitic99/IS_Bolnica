@@ -22,7 +22,7 @@ using System.Windows;
 using Model.Enum;
 using System.Collections.ObjectModel;
 using Repozitorijum;
-
+using Bolnica.viewActions;
 
 namespace Bolnica.view
 {
@@ -67,14 +67,14 @@ namespace Bolnica.view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTermina(this.JmbgPacijenta);
-            s.Show();
+            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (prikazTermina1.SelectedIndex != -1 && ((Termin)prikazTermina1.SelectedItem).VrstaTermina != VrstaPregleda.Operacija)
             {
+              
                 var s = new IzmenaTermina(((Termin)prikazTermina1.SelectedItem).IDTermina);
                 s.Show();
             }

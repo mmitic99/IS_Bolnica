@@ -2,6 +2,7 @@
 <ArrayOfProstorija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Prvi</Sprat>
     <BrojSobe>101</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
@@ -13,6 +14,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Drugi</Sprat>
     <BrojSobe>202</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -24,6 +26,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Treci</Sprat>
     <BrojSobe>301</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -35,6 +38,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Prizemlje</Sprat>
     <BrojSobe>001</BrojSobe>
     <VrstaProstorije>Magacin</VrstaProstorije>
@@ -46,6 +50,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Prvi</Sprat>
     <BrojSobe>102</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -57,39 +62,31 @@
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Drugi</Sprat>
-    <BrojSobe>204</BrojSobe>
+    <BrojSobe>200</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
     <Sprat_>Drugi</Sprat_>
-    <BrojSobe_>204</BrojSobe_>
+    <BrojSobe_>200</BrojSobe_>
     <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
     <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>96</Kvadratura_>
   </Prostorija>
   <Prostorija>
     <termin />
-    <Sprat>Cetvrti</Sprat>
-    <BrojSobe>403</BrojSobe>
-    <VrstaProstorije>Operaciona_sala</VrstaProstorije>
-    <Sprat_>Cetvrti</Sprat_>
-    <BrojSobe_>403</BrojSobe_>
-    <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
-    <RenoviraSe_>true</RenoviraSe_>
-    <Kvadratura_>65</Kvadratura_>
-  </Prostorija>
-  <Prostorija>
-    <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Treci</Sprat>
     <BrojSobe>207</BrojSobe>
-    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
     <Sprat_>Treci</Sprat_>
     <BrojSobe_>207</BrojSobe_>
-    <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
+    <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
     <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>36</Kvadratura_>
   </Prostorija>
   <Prostorija>
     <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Cetvrti</Sprat>
     <BrojSobe>402</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
@@ -101,17 +98,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <Sprat>Cetvrti</Sprat>
-    <BrojSobe>405</BrojSobe>
-    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
-    <Sprat_>Cetvrti</Sprat_>
-    <BrojSobe_>405</BrojSobe_>
-    <VrstaProstorije_>Soba_za_preglede</VrstaProstorije_>
-    <RenoviraSe_>true</RenoviraSe_>
-    <Kvadratura_>37</Kvadratura_>
-  </Prostorija>
-  <Prostorija>
-    <termin />
+    <IdProstorije>0</IdProstorije>
     <Sprat>Drugi</Sprat>
     <BrojSobe>209</BrojSobe>
     <VrstaProstorije>Magacin</VrstaProstorije>

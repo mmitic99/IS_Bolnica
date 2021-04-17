@@ -6,6 +6,21 @@ namespace Servis
 {
     public class ObavestenjaServis
     {
+
+        public static ObavestenjaServis instance;
+
+        public static ObavestenjaServis getInstance()
+        {
+            if (instance == null)
+            {
+                return new ObavestenjaServis();
+            }
+            else
+            {
+                return instance;
+            }
+        }
+
         public ObavestenjaServis()
         {
             skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();

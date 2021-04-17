@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Bolnica.view.PacijentView.MoguciTermini"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             mc:Ignorable="d" 
+             d:DesignHeight="673" d:DesignWidth="804"
+             Background="#FFF1F7F9"
+             FontSize="15">
+    <Grid>
+        <StackPanel Height="673" Width="804">
+            <Label x:Name="la"></Label>
+
+            <Label Content="Odaberite termin:" FontSize="22" FontWeight="DemiBold"></Label>
+            <DataGrid x:Name="prikazMogucih" CanUserAddRows="False"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Height="500">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum"
+                                        Width="*"
+                                    Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy}}"/>
+                <DataGridTextColumn Header="Vreme"
+                                    Width="*"
+                                    Binding="{Binding DatumIVremeTermina, StringFormat={}{0:HH:mm}}"/>
+
+                    <DataGridTextColumn Header="Lekar"
+                                        Width="*"
+                                        Binding="{Binding lekar}"/>
+            </DataGrid.Columns>
+
+            </DataGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="402"/>
+                    <ColumnDefinition Width="402"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Nazad" Content="Nazad" Height="50"/>
+                <Button x:Name="Zakaži" Content="Zakažite termin" Height="50" Grid.Column="1" Click="Zakaži_Click"/>
+
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

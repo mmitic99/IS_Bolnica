@@ -8,6 +8,18 @@ namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
+        public static PacijentServis instance = null;
+        public static PacijentServis getInstance()
+        {
+            if(instance == null)
+            {
+                return new PacijentServis();
+            }
+            else
+            {
+                return instance;
+            }
+        }
         public PacijentServis()
         {
             skladistePacijenta = SkladistePacijenta.GetInstance();
@@ -126,6 +138,27 @@ namespace Servis
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
         {
             throw new NotImplementedException();
+        }
+
+        public bool DaLiJePacijentSlobodan(string jmbgPacijenta, DateTime datumVreme, int trajanjeMinute=30)
+        {
+            bool slobodan = true;
+            List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(jmbgPacijenta);
+            foreach (Termin t in terminiPacijenta)
+            {
+                if (datumVreme > t.DatumIVremeTermina && datumVreme < (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
+                    && (datumVreme.AddMinutes(trajanjeMinute)) > t.DatumIVremeTermina && (datumVreme.AddMinutes(trajanjeMinute)) < (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
+                {
+                    slobodan = false;
+                    break;
+                }
+                if (t.DatumIVremeTermina > datumVreme && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (datumVreme.AddMinutes(trajanjeMinute))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    slobodan = false;
+                    break;
+                }
+            }
+            return slobodan;
         }
 
         public List<Pacijent> GetAll()

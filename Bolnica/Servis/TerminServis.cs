@@ -8,14 +8,38 @@ namespace Servis
 {
     public class TerminServis
     {
+        public SkladisteZaTermine skladisteZaTermine;
+        public SkladisteZaObavestenja skladisteZaObavestenja;
+        public static TerminServis instance =null;
+
+        public static TerminServis getInstance()
+        {
+            if(instance == null)
+            {
+                return new TerminServis();
+            }
+            else
+            {
+                return instance;
+            }
+        }
+
+
+
         public TerminServis()
         {
+            instance = this;
             skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();
             skladisteZaTermine = new SkladisteZaTermine();
         }
 
         public bool ZakaziTermin(Model.Termin termin)
         {
+            if(termin.IdProstorije==null)
+            {
+                termin.IdProstorije = SkladisteZaProstorije.GetInstance().GetAll()[0].IdProstorije;
+                termin.IDTermina = termin.generateRandId();
+            }
             skladisteZaTermine.Save(termin);
 
             return true;
@@ -58,6 +82,104 @@ namespace Servis
 
             return uspesno;
         }
+
+        public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            if(prioritet == 0) //nema prioritet
+            {
+                moguciTermini = NadjiDesetTerminaIzBuducnosti(jmbgPacijenta, tegobe);
+            }
+            return moguciTermini;
+        }
+
+        public List<Termin> NadjiDesetTerminaIzBuducnosti(String jmbgPacijenta, String tegobe)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            int brNadjenihTermina = 0;
+            DateTime datum = new DateTime();
+            TimeSpan vreme = new TimeSpan(6, 0, 0);
+            datum = DateTime.Now;
+            datum = datum.AddDays(1);
+            datum = datum.Date + vreme;
+
+            while (brNadjenihTermina <10)
+            {
+                List<Termin> terminiZaTacnoVreme = nadjiTermineZaTacnoVreme(datum, 30);
+                if(terminiZaTacnoVreme.Count>0)
+                {
+                    foreach(Termin t in terminiZaTacnoVreme)
+                    {
+                        if(PacijentServis.getInstance().DaLiJePacijentSlobodan(jmbgPacijenta, t.DatumIVremeTermina))
+                        {
+                            t.JmbgPacijenta = jmbgPacijenta;
+                            t.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
+                            t.opisTegobe = tegobe;
+                            moguciTermini.Add(t);
+                            brNadjenihTermina++;
+                        }
+                        if(brNadjenihTermina==10)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                if(datum.Hour<19 || datum.Minute==0)
+                {
+                    datum = datum.AddMinutes(30);
+                }
+                else
+                {
+                    datum = datum.AddDays(1);
+                }
+
+            }
+            return moguciTermini;
+        }
+
+        public List<Termin> nadjiTermineZaTacnoVreme(DateTime vreme, int trajanje, Lekar l = null)
+        {
+            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Termin> terminiZaTacnoVreme = new List<Termin>();
+            if (l == null)
+            {
+                foreach (Lekar lekar in lekari)
+                {
+                    if(LekarServis.getInstance().DaLiJeLekarSlobodan(lekar.Jmbg, vreme, trajanje))
+                    {
+                        Termin t = new Termin()
+                        {
+                            JmbgLekara = lekar.Jmbg,
+                            DatumIVremeTermina = vreme,
+                            TrajanjeTermina = trajanje
+                        };
+                        terminiZaTacnoVreme.Add(t);
+                    }
+                }
+            
+            }
+            else
+            {
+                if (LekarServis.getInstance().DaLiJeLekarSlobodan(l.Jmbg, vreme, trajanje))
+                {
+                    Termin t = new Termin()
+                    {
+                        JmbgLekara = l.Jmbg,
+                        DatumIVremeTermina = vreme,
+                        TrajanjeTermina = trajanje
+                    };
+                    terminiZaTacnoVreme.Add(t);
+                }
+            }
+            return terminiZaTacnoVreme;
+      
+        }
+
+        public bool OdloziTermin(Termin termin)
+        {
+            return true;
+        }   
 
         public void RemoveByID(string iDTermina)
         {
@@ -104,8 +226,7 @@ namespace Servis
             // TODO: implement
         }
 
-        public SkladisteZaTermine skladisteZaTermine;
-        public SkladisteZaObavestenja skladisteZaObavestenja;
+
 
         internal IEnumerable GetBuduciTerminPacLekar()
         {

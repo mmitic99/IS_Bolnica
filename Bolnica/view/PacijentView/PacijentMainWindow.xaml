@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:viewActions="clr-namespace:Bolnica.viewActions"
         mc:Ignorable="d" MaxHeight="768" MaxWidth="1024"
-        Title="PacijentMainWindow" Height="600" WindowStyle="None" Width="914" UseLayoutRounding="False"
-        ResizeMode="NoResize" Background="Transparent">
+        Title="PacijentMainWindow" Height="768" WindowStyle="None" Width="1024" UseLayoutRounding="False"
+        ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
     
     <Border CornerRadius="6">
         <Border.Background>
@@ -82,8 +82,7 @@
 
             <ContentControl Grid.Row="1" 
                             x:Name="content"
-                            Grid.Column="1"
-                            Margin="10"
+                            Grid.Column="1"                 
                             Content="{Binding CurrentView}"/>
         </Grid>
     </Border>

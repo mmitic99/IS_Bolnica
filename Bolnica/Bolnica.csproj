@@ -110,9 +110,11 @@
     <Compile Include="Servis\TerminServis.cs" />
     <Compile Include="Servis\UpravnikServis.cs" />
     <Compile Include="viewActions\MainViewModel.cs" />
+    <Compile Include="viewActions\MoguciTerminiViewModel.cs" />
     <Compile Include="viewActions\ObavestenjaViewModel.cs" />
     <Compile Include="viewActions\ObseravableObject.cs" />
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
+    <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
     <Compile Include="view\AzurirajTerminWindow.xaml.cs">
       <DependentUpon>AzurirajTerminWindow.xaml</DependentUpon>
@@ -123,8 +125,14 @@
     <Compile Include="view\IzmenaProstorijeWindow.xaml.cs">
       <DependentUpon>IzmenaProstorijeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\IzmenaTermina.xaml.cs">
+    <Compile Include="view\PacijentView\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
+      <DependentUpon>MoguciTermini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\ZakazivanjeTerminaP.xaml.cs">
+      <DependentUpon>ZakazivanjeTerminaP.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\DodavanjeAlregena.xaml.cs">
       <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
@@ -150,16 +158,16 @@
     <Compile Include="view\LekarWindow.xaml.cs">
       <DependentUpon>LekarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Obavestenja.xaml.cs">
+    <Compile Include="view\PacijentView\Obavestenja.xaml.cs">
       <DependentUpon>Obavestenja.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentMainWindow.xaml.cs">
+    <Compile Include="view\PacijentView\PacijentMainWindow.xaml.cs">
       <DependentUpon>PacijentMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentWindow.xaml.cs">
+    <Compile Include="view\PacijentView\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentZakazaniTermini.xaml.cs">
+    <Compile Include="view\PacijentView\PacijentZakazaniTermini.xaml.cs">
       <DependentUpon>PacijentZakazaniTermini.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PregledWindow.xaml.cs">
@@ -180,7 +188,7 @@
     <Compile Include="view\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\ZakazivanjeTermina.xaml.cs">
+    <Compile Include="view\PacijentView\ZakazivanjeTermina.xaml.cs">
       <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml.cs">
@@ -205,6 +213,14 @@
     <Page Include="view\AzurirajTerminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\PacijentView\MoguciTermini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\ZakazivanjeTerminaP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\DodavanjeAlregena.xaml">
       <SubType>Designer</SubType>
@@ -238,7 +254,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\IzmenaTermina.xaml">
+    <Page Include="view\PacijentView\IzmenaTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,19 +266,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Obavestenja.xaml">
+    <Page Include="view\PacijentView\Obavestenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PacijentMainWindow.xaml">
+    <Page Include="view\PacijentView\PacijentMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PacijentWindow.xaml">
+    <Page Include="view\PacijentView\PacijentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PacijentZakazaniTermini.xaml">
+    <Page Include="view\PacijentView\PacijentZakazaniTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,7 +306,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\ZakazivanjeTermina.xaml">
+    <Page Include="view\PacijentView\ZakazivanjeTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,22 +382,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\odjavapacijent.png" />
+    <Resource Include="view\PacijentView\User-Interface-Logout-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\odjavapacijenta.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="view\User-Interface-Logout-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="view\image.jpg" />
+    <Resource Include="view\PacijentView\image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\patient.png" />
+    <Resource Include="view\PacijentView\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\Login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
