@@ -61,8 +61,12 @@ namespace Bolnica.view.PacijentView
             String jmbgPacijenta = this.p.Jmbg;
             String jmbgLekara = ((Lekar)izabraniLekar.SelectedItem).Jmbg;
             List<DateTime> datumi = new List<DateTime>(kalendar.SelectedDates);
-            TimeSpan pocetak = new TimeSpan();
-            TimeSpan kraj = new TimeSpan();
+            int satnicaZaKraj = satnicaKraj.SelectedIndex + 6;
+            int minutiZaKraj = minutKraj.SelectedIndex * 30;
+            int satnicaZaPocetak = satnicaPocetak.SelectedIndex + 6;
+            int minutiZaPocetak = minutPocetak.SelectedIndex * 30;
+            TimeSpan kraj = new TimeSpan(satnicaZaKraj, minutiZaKraj, 0);
+            TimeSpan pocetak = new TimeSpan(satnicaZaPocetak, minutiZaPocetak, 0);
             int prioritet;
             String opisTegobe = tegobe.Text;
             if ((bool)nema.IsChecked) {

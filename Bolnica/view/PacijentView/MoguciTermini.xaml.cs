@@ -37,5 +37,10 @@ namespace Bolnica.view.PacijentView
             TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
             MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
         }
+
+        private void Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
+        }
     }
 }

@@ -37,7 +37,7 @@
                     <ColumnDefinition Width="402"/>
                     <ColumnDefinition Width="402"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Nazad" Content="Nazad" Height="50"/>
+                <Button x:Name="Nazad" Content="Nazad" Height="50" Click="Nazad_Click"/>
                 <Button x:Name="Zakaži" Content="Zakažite termin" Height="50" Grid.Column="1" Click="Zakaži_Click"/>
 
             </Grid>

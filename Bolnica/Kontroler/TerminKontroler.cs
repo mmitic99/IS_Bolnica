@@ -46,22 +46,17 @@ namespace Kontroler
             return terminServis.IzmeniTermin(termin);
         }
 
-        public List<Termin> DobaviMoguceTerminePoLekaru(int idLekara)
+        public List<Termin> DobaviMoguceTerminePoLekaru(String jmbgLekara)
         {
             // TODO: implement
-            return terminServis.DobaviMoguceTerminePoLekaru(idLekara);
+            return terminServis.DobaviMoguceTerminePoLekaru(jmbgLekara);
         }
 
-        public List<Termin> DobaviTerminZaInterval(DateTime pocetak, DateTime kraj)
-        {
-            // TODO: implement
-            return terminServis.DobaviTerminZaInterval(pocetak,kraj);
-        }
 
-        public List<Termin> DobaviTerminPoLekaruZaInterval(int idLekara, DateTime pocetak, DateTime kraj)
+        public List<Termin> DobaviTerminPoLekaruZaInterval(String jmbgLekara, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj)
         {
             // TODO: implement
-            return terminServis.DobaviTerminPoLekaruZaInterval(idLekara,pocetak,kraj);
+            return terminServis.DobaviTerminPoLekaruZaInterval(jmbgLekara, dani ,pocetak, kraj);
         }
 
         public bool ProveriTermin(Model.Termin termin)
