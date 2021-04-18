@@ -215,4 +215,15 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-28T13:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/28/2021 1:30:00 PM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>

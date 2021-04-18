@@ -111,7 +111,9 @@ namespace Bolnica.view
                 else
                 {
                     var s = new LekarWindow(prijavljeniLekar);
+                    var s1 = new PregledWindow(prijavljeniLekar);
                     potvrdi = true;
+                    s1.Show();
                     this.Close();
                     s.Show();
                 }
