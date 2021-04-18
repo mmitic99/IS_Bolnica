@@ -1,4 +1,5 @@
 ﻿using Bolnica.view.SekretarView;
+using Bolnica.view.UpravnikView;
 using Kontroler;
 using Model;
 using Repozitorijum;

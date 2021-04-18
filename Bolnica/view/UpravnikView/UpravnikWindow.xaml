@@ -1,0 +1,143 @@
+﻿<Window x:Class="Bolnica.view.UpravnikView.UpravnikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.UpravnikView"
+        mc:Ignorable="d"
+        Title="UpravnikWindow" Height="720" Width="1280">
+    <TabControl>
+        <TabItem Header="Mihailo Majstorović" Background="DodgerBlue" FontSize="15" FontFamily="Yu Gothic Medium" Width="191" BorderBrush="DodgerBlue">
+        </TabItem>
+        <TabItem Header="POČETNA STRANA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="200" BorderBrush="DodgerBlue">
+        </TabItem>
+        <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue">
+            <TabControl TabStripPlacement="Left" >
+                <TabItem Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <DataGrid x:Name ="TabelaProstorija" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding ListaProstorija}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe_}"/>
+                                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije_}" Width="*"/>
+                                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat_}"/>
+                                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Kvadratura_}"/>
+                                <DataGridCheckBoxColumn Header="Renoviranje" Binding="{Binding RenoviraSe_}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBox x:Name="BrojProstorijeTextBox" HorizontalAlignment="Left" Height="30" Margin="263,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <TextBox x:Name="SpratTextBox" HorizontalAlignment="Left" Height="30" Margin="263,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <TextBox x:Name="KvadraturaTextBox" HorizontalAlignment="Left" Height="30" Margin="263,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <ComboBox x:Name="VrstaProstorijeComboBox" HorizontalAlignment="Left" Height="30" Margin="263,595,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBoxItem Content="Soba za preglede"/>
+                            <ComboBoxItem Content="Operaciona sala"/>
+                            <ComboBoxItem Content="Soba za bolesnike"/>
+                            <ComboBoxItem Content="Magacin"/>
+                        </ComboBox>
+                        
+
+
+                        <TextBlock x:Name="BrojProstorije" HorizontalAlignment="Left" Height="30" Margin="50,460,0,0" TextWrapping="Wrap" Text="Broj prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="VrstaProstorije" HorizontalAlignment="Left" Height="30" Margin="50,595,0,0" TextWrapping="Wrap" Text="Vrsta prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="Sprat" HorizontalAlignment="Left" Height="30" Margin="50,505,0,0" TextWrapping="Wrap" Text="Sprat*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="Kvadratura" HorizontalAlignment="Left" Height="30" Margin="50,550,0,0" TextWrapping="Wrap" Text="Kvadratura (m2)*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+
+                        <Button Background="WhiteSmoke" Content="Dodaj novu prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="552,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="DodajProstoriju" RenderTransformOrigin="0.493,0.347"/>
+                        <Button Background="WhiteSmoke" Content="Obriši prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="552,560,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="ObrisiProstoriju"/>
+                        <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
+                        <Image Margin="861,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="718*"/>
+                            <ColumnDefinition Width="353*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid x:Name ="TabelaProstorijaIzmeni" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding ListaProstorija}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="2" SelectionChanged="TabelaProstorijaIzmeni_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe_}"/>
+                                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije_}" Width="*"/>
+                                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat_}"/>
+                                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Kvadratura_}"/>
+                                <DataGridCheckBoxColumn Header="Renoviranje" Binding="{Binding RenoviraSe_}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBox x:Name="BrojProstorijeTextBoxIzmeni" HorizontalAlignment="Left" Height="30" Margin="263,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <TextBox x:Name="SpratTextBoxIzmeni" HorizontalAlignment="Left" Height="30" Margin="263,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <TextBox x:Name="KvadraturaTextBoxIzmeni" HorizontalAlignment="Left" Height="30" Margin="263,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16"/>
+                        <ComboBox x:Name="VrstaProstorijeComboBoxIzmeni" HorizontalAlignment="Left" Height="30" Margin="263,595,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBoxItem Content="Soba za preglede"/>
+                            <ComboBoxItem Content="Operaciona sala"/>
+                            <ComboBoxItem Content="Soba za bolesnike"/>
+                            <ComboBoxItem Content="Magacin"/>
+                        </ComboBox>
+
+                        <TextBlock x:Name="BrojProstorijeIzmeni" HorizontalAlignment="Left" Height="30" Margin="50,460,0,0" TextWrapping="Wrap" Text="Broj prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="VrstaProstorijeIzmeni" HorizontalAlignment="Left" Height="30" Margin="50,595,0,0" TextWrapping="Wrap" Text="Vrsta prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="SpratIzmeni" HorizontalAlignment="Left" Height="30" Margin="50,505,0,0" TextWrapping="Wrap" Text="Sprat*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="KvadraturaIzmeni" HorizontalAlignment="Left" Height="30" Margin="50,550,0,0" TextWrapping="Wrap" Text="Kvadratura (m2)*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+
+                        <Button Background="WhitesMOKE" Content="Izmeni prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="552,512,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="IzmeniProstoriju" Grid.ColumnSpan="2"/>
+                        <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
+                        <Image Margin="142.981,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="1"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="RENOVIRANJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                </TabItem>
+                <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                </TabItem>
+                <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                </TabItem>
+            </TabControl>
+        </TabItem>
+        <TabItem Header="ZAPOSLENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="160" BorderBrush="DodgerBlue">
+        </TabItem>
+        <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
+        </TabItem>
+        <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
+            <TabControl TabStripPlacement="Left" >
+                <TabItem Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="318*"/>
+                            <ColumnDefinition Width="218*"/>
+                            <ColumnDefinition Width="535*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid Grid.Column="0" x:Name ="TabelaStatickeMagacin" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding StacionarnaMagacin}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="30,87,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic Medium" Binding="{Binding TipStacionarneOpreme_}"  Width="*"/>
+                                <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic Medium" Binding="{Binding Kolicina_}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid Grid.Column="2" x:Name ="TabelaDinamickeMagacin" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding PotrosnaMagacin}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="29.849,87,0,0" VerticalAlignment="Top" Width="476">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic Medium" Binding="{Binding TipOpreme_}"  Width="*"/>
+                                <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic Medium" Binding="{Binding KolicinaOpreme_}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="MAGACIN" HorizontalAlignment="Left" FontFamily="Yu Gothic Medium" Margin="-203,300,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5" Height="80" FontSize="40">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                </TabItem>
+            </TabControl>
+        </TabItem>
+        <TabItem Header="PRAKSA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
+        </TabItem>
+        <TabItem Header="ODJAVA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
+        </TabItem>
+    </TabControl>
+</Window>
