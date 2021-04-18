@@ -35,11 +35,6 @@ namespace Servis
 
         public bool ZakaziTermin(Model.Termin termin)
         {
-            if(termin.IdProstorije==null)
-            {
-                termin.IdProstorije = SkladisteZaProstorije.GetInstance().GetAll()[0].IdProstorije;
-                termin.IDTermina = termin.generateRandId();
-            }
             skladisteZaTermine.Save(termin);
 
             return true;
@@ -115,6 +110,9 @@ namespace Servis
                             t.JmbgPacijenta = jmbgPacijenta;
                             t.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
                             t.opisTegobe = tegobe;
+                            t.IdProstorije = SkladisteZaProstorije.GetInstance().GetAll()[0].IdProstorije;
+                            t.IDTermina = t.generateRandId();
+                            
                             moguciTermini.Add(t);
                             brNadjenihTermina++;
                         }

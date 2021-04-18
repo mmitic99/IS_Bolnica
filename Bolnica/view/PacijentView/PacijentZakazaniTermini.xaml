@@ -21,7 +21,8 @@
             <DataGrid x:Name="prikazTermina1"
                        CanUserAddRows="false"
                       AutoGenerateColumns="False"
-                      IsReadOnly="True">
+                      IsReadOnly="True"
+                      SelectionMode="Single">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>

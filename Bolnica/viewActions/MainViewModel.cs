@@ -19,9 +19,11 @@ namespace Bolnica.viewActions
         public RelayCommand ObavestenjaCommand { get; set; }
         public RelayCommand PacijentZakaziTerminCommand { get; set; }
         public RelayCommand MoguciTerminiCommand { get; set; }
+        public RelayCommand IzmeniTerminCommand { get; set; }
+
         public PacijentTerminiModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
-
+        public IzmeniTerminPacijentViewmodel IzmenaTerminaVM { get; set; }
         public PacijentZakaziTermin PacijentZakaziVM { get; set; }
         public MoguciTerminiViewModel MoguciTerminiVM { get; set; }
 
@@ -60,6 +62,11 @@ namespace Bolnica.viewActions
             MoguciTerminiCommand = new RelayCommand(o =>
             {
                 CurrentView = MoguciTerminiVM;
+            });
+
+            IzmeniTerminCommand = new RelayCommand(o =>
+            {
+                CurrentView = IzmenaTerminaVM;
             });
         }
     }

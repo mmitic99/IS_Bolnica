@@ -90,6 +90,7 @@ namespace Bolnica.view
                             }
                             DateTime dt1 = new DateTime(dt.Year, dt.Month, dt.Day, hours, minutes, 0);
                             t.DatumIVremeTermina = dt1;
+                            t.opisTegobe = tegobe.Text;
                         }
                         else
                         {

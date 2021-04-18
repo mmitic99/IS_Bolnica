@@ -109,6 +109,7 @@
     <Compile Include="Servis\SekretarServis.cs" />
     <Compile Include="Servis\TerminServis.cs" />
     <Compile Include="Servis\UpravnikServis.cs" />
+    <Compile Include="viewActions\IzmeniTerminPacijentViewmodel.cs" />
     <Compile Include="viewActions\MainViewModel.cs" />
     <Compile Include="viewActions\MoguciTerminiViewModel.cs" />
     <Compile Include="viewActions\ObavestenjaViewModel.cs" />
@@ -127,6 +128,9 @@
     </Compile>
     <Compile Include="view\PacijentView\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\IzmeniTerminP.xaml.cs">
+      <DependentUpon>IzmeniTerminP.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
@@ -213,6 +217,10 @@
     <Page Include="view\AzurirajTerminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\PacijentView\IzmeniTerminP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\MoguciTermini.xaml">
       <SubType>Designer</SubType>

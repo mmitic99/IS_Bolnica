@@ -76,6 +76,11 @@ namespace Servis
                     slobodan = false;
                     break;
                 }
+                if(t.DatumIVremeTermina.Equals(datumVreme))
+                {
+                    slobodan = false;
+                    break;
+                }
             }
             return slobodan;
         }
