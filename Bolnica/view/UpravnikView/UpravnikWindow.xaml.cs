@@ -32,13 +32,11 @@ namespace Bolnica.view.UpravnikView
             instance = this;
             this.DataContext = this;
             ListaProstorija = new List<Prostorija>();
-            ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
             StacionarnaMagacin = new List<StacionarnaOprema>();
-            StacionarnaMagacin.Add(new StacionarnaOprema("Krevet", 10));
-            StacionarnaMagacin.Add(new StacionarnaOprema("Stolica", 20));
             PotrosnaMagacin = new List<PotrosnaOprema>();
-            PotrosnaMagacin.Add(new PotrosnaOprema("Zavoj", 100));
-            PotrosnaMagacin.Add(new PotrosnaOprema("Štapic za grlo", 79));
+            ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
+            StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
+            PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
         }
 
         // metoda za dodavanje nove prostorije
@@ -64,7 +62,7 @@ namespace Bolnica.view.UpravnikView
             }
             else
             {
-                MessageBox.Show("Označite prostoriju koju želite da izmenite !", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Označite prostoriju koju želite da izmenite !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -77,7 +75,7 @@ namespace Bolnica.view.UpravnikView
             }
             else
             {
-                MessageBox.Show("Označite prostoriju koju želite da obrišete !", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Označite prostoriju koju želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -106,6 +104,75 @@ namespace Bolnica.view.UpravnikView
                 {
                     VrstaProstorijeComboBoxIzmeni.Text = "Magacin";
                 }
+            }
+        }
+
+        private void ObrisiStatickuOpremuIzMagacina(object sender, RoutedEventArgs e)
+        {
+            if (TabelaStatickeMagacin.SelectedIndex != -1)
+            {
+                ProstorijeKontroler.GetInstance().IzbrisiStacionarnuOpremuIzMagacina(TabelaStatickeMagacin.SelectedIndex);
+            }
+            else
+                MessageBox.Show("Označite statičku opremu koju želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void DodajStatickuOpremuUMagacin(object sender, RoutedEventArgs e)
+        {
+            if (ProstorijeKontroler.GetInstance().ProveriValidnostOpreme(NazivStatickeOpreme.Text, KolicinaStatickeOpreme.Text))
+                ProstorijeKontroler.GetInstance().DodajStacionarnuOpremuUMagacin(NazivStatickeOpreme.Text, Int32.Parse(KolicinaStatickeOpreme.Text));
+        }
+
+        private void ObrisiPotrosnuOpremuIzMagacina(object sender, RoutedEventArgs e)
+        {
+            if (TabelaDinamickeMagacin.SelectedIndex != -1)
+            {
+                ProstorijeKontroler.GetInstance().IzbrisiPotrosnuOpremuIzMagacina(TabelaDinamickeMagacin.SelectedIndex);
+            }
+            else
+                MessageBox.Show("Označite potrošnu opremu koju želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void DodajPotrosnuOpremuUMagacin(object sender, RoutedEventArgs e)
+        {
+            if (ProstorijeKontroler.GetInstance().ProveriValidnostOpreme(NazivDinamickeOpreme.Text, KolicinaDinamickeOpreme.Text)) 
+                ProstorijeKontroler.GetInstance().DodajPotrosnuOpremuUMagacin(NazivDinamickeOpreme.Text, Int32.Parse(KolicinaDinamickeOpreme.Text));
+        }
+
+        private void IzmeniStatickuOpremuMagacin(object sender, RoutedEventArgs e)
+        {
+            if (TabelaStatickeMagacinIzmeni.SelectedIndex != -1)
+            {
+                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmenjeneOpreme(KolicinaStatickeOpremeIzmeni.Text))
+                    ProstorijeKontroler.GetInstance().IzmeniStacionarnuOpremuUMagacinu(TabelaStatickeMagacinIzmeni.SelectedIndex, Int32.Parse(KolicinaStatickeOpremeIzmeni.Text));
+            }
+        }
+
+        private void IzmeniPotrosnuOpremuMagacin(object sender, RoutedEventArgs e)
+        {
+            if (TabelaDinamickeMagacinIzmeni.SelectedIndex != -1)
+            {
+                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmenjeneOpreme(KolicinaDinamickeOpremeIzmeni.Text))
+                    ProstorijeKontroler.GetInstance().IzmeniDinamickuOpremuUMagacinu(TabelaDinamickeMagacinIzmeni.SelectedIndex, Int32.Parse(KolicinaDinamickeOpremeIzmeni.Text));
+            }
+        }
+        private void TabelaStatickeMagacinIzmeni_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (TabelaStatickeMagacinIzmeni.SelectedIndex != -1)
+            {
+                int indexSelektovaneOpreme = TabelaStatickeMagacinIzmeni.SelectedIndex;
+                NazivStatickeOpremeIzmeni.Text = StacionarnaMagacin[indexSelektovaneOpreme].TipStacionarneOpreme_;
+                KolicinaStatickeOpremeIzmeni.Text = StacionarnaMagacin[indexSelektovaneOpreme].Kolicina_.ToString();
+            }
+        }
+
+        private void TabelaDinamickeMagacinIzmeni_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (TabelaDinamickeMagacinIzmeni.SelectedIndex != -1)
+            {
+                int indexSelektovaneOpreme = TabelaDinamickeMagacinIzmeni.SelectedIndex;
+                NazivDinamickeOpremeIzmeni.Text = PotrosnaMagacin[indexSelektovaneOpreme].TipOpreme_;
+                KolicinaDinamickeOpremeIzmeni.Text = PotrosnaMagacin[indexSelektovaneOpreme].KolicinaOpreme_.ToString();
             }
         }
     }

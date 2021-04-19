@@ -10,9 +10,39 @@
     <BrojSobe_>001</BrojSobe_>
     <VrstaProstorije_>Magacin</VrstaProstorije_>
     <RenoviraSe_>false</RenoviraSe_>
-    <Kvadratura_>180</Kvadratura_>
-    <Staticka_ />
-    <Potrosna_ />
+    <Kvadratura_>170</Kvadratura_>
+    <Staticka_>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
+        <Kolicina_>15</Kolicina_>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
+        <Kolicina_>12</Kolicina_>
+      </StacionarnaOprema>
+    </Staticka_>
+    <Potrosna_>
+      <PotrosnaOprema>
+        <TipOpreme_>Štapic za grlo</TipOpreme_>
+        <KolicinaOpreme_>79</KolicinaOpreme_>
+      </PotrosnaOprema>
+      <PotrosnaOprema>
+        <TipOpreme_>Hanzaplast</TipOpreme_>
+        <KolicinaOpreme_>30</KolicinaOpreme_>
+      </PotrosnaOprema>
+      <PotrosnaOprema>
+        <TipOpreme_>Igla</TipOpreme_>
+        <KolicinaOpreme_>30</KolicinaOpreme_>
+      </PotrosnaOprema>
+      <PotrosnaOprema>
+        <TipOpreme_>Zavoj</TipOpreme_>
+        <KolicinaOpreme_>30</KolicinaOpreme_>
+      </PotrosnaOprema>
+      <PotrosnaOprema>
+        <TipOpreme_>Špric</TipOpreme_>
+        <KolicinaOpreme_>25</KolicinaOpreme_>
+      </PotrosnaOprema>
+    </Potrosna_>
     <IdProstorije_>0</IdProstorije_>
   </Prostorija>
   <Prostorija>
@@ -121,15 +151,18 @@
     <IdProstorije_>7</IdProstorije_>
   </Prostorija>
   <Prostorija>
+    <termin />
     <IdProstorije>8</IdProstorije>
     <Sprat>3</Sprat>
-    <BrojSobe>305</BrojSobe>
+    <BrojSobe>304</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
     <Sprat_>3</Sprat_>
-    <BrojSobe_>305</BrojSobe_>
+    <BrojSobe_>304</BrojSobe_>
     <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
     <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>54</Kvadratura_>
+    <Staticka_ />
+    <Potrosna_ />
     <IdProstorije_>8</IdProstorije_>
   </Prostorija>
 </ArrayOfProstorija>
