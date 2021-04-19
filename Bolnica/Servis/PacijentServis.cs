@@ -91,6 +91,20 @@ namespace Servis
             return null;
         }
 
+        public List<Recept> dobaviReceptePacijenta(string jmbg)
+        {
+            List<Recept> receptiPacijenta = new List<Recept>();
+            Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+            foreach(Izvestaj i in pacijent.zdravstveniKarton.izvestaji)
+            {
+                foreach(Recept r in i.recepti)
+                {
+                    receptiPacijenta.Add(r);
+                }
+            }
+            return receptiPacijenta;
+        }
+
         internal bool izmeniPacijenta(Pacijent stari, Pacijent novi)
         {
             bool uspesno = true;
@@ -140,7 +154,7 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public bool DaLiJePacijentSlobodan(string jmbgPacijenta, DateTime datumVreme, int trajanjeMinute=30)
+        public bool DaLiJePacijentSlobodan(string jmbgPacijenta, DateTime datumVreme, int trajanjeMinute = 30)
         {
             bool slobodan = true;
             List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(jmbgPacijenta);
@@ -157,13 +171,18 @@ namespace Servis
                     slobodan = false;
                     break;
                 }
-                if(datumVreme.Equals(t.DatumIVremeTermina))
+                if (datumVreme.Equals(t.DatumIVremeTermina))
                 {
                     slobodan = false;
                     break;
                 }
             }
             return slobodan;
+        }
+
+        public Pacijent GetByJmbg(string jmbg)
+        {
+            return skladistePacijenta.getByJmbg(jmbg);
         }
 
         public List<Pacijent> GetAll()
@@ -173,7 +192,7 @@ namespace Servis
 
         public void Save(Model.Pacijent pacijent)
         {
-            // TODO: implement
+            skladistePacijenta.Save(pacijent);
         }
 
         public void SaveAll(List<Pacijent> pacijenti)

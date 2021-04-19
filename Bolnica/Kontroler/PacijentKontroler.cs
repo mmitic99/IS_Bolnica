@@ -7,8 +7,21 @@ namespace Kontroler
 {
     public class PacijentKontroler : KorisnikKontroler
     {
+        public static PacijentKontroler instance = null;
+        public static PacijentKontroler getInstance()
+        {
+            if(instance == null)
+            {
+                return new PacijentKontroler();
+            }
+            else
+            {
+                return instance;
+            }
+        }
         public PacijentKontroler()
         {
+            instance = this;
             pacijentServis = new PacijentServis();
         }
 
@@ -74,6 +87,11 @@ namespace Kontroler
         public bool izmeniPacijenta(Pacijent stari, Pacijent novi)
         {
             return pacijentServis.izmeniPacijenta(stari, novi);
+        }
+
+        public List<Recept> dobaviRecepePacijenta(string jmbg)
+        {
+            return pacijentServis.dobaviReceptePacijenta(jmbg);
         }
 
         public PacijentServis pacijentServis;

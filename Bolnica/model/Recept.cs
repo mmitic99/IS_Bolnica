@@ -10,7 +10,7 @@ namespace Model
       public DateTime DatumIzdavanja { get; set; }
       public TimeSpan vremenskiPeriodUzimanja { get; set; }
       
-      public List<TimeSpan> terminiUzimanjaTokomDana { get; set;}
+      public List<int> terminiUzimanjaTokomDana { get; set;}
       private int BrojPutaPoDanu { get; set; }
 
       private DateTime DatumIVremePocetka;

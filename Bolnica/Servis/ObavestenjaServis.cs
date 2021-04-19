@@ -1,4 +1,4 @@
-using Bolnica.view;
+﻿using Bolnica.view;
 using Model;
 using Repozitorijum;
 using System;
@@ -31,38 +31,69 @@ namespace Servis
         public List<Obavestenje> GetAll()
         {
             // TODO: implement
-            return null;
+            return skladisteZaObavestenja.GetAll();
         }
 
         public void Save(Model.Obavestenje obavestenje)
         {
-            // TODO: implement
+            skladisteZaObavestenja.Save(obavestenje);
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
         {
-            // TODO: implement
+            skladisteZaObavestenja.SaveAll(obavestenje);
+        }
+
+        public List<Obavestenje> GetByJmbg(String jmbg)
+        {
+            return skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+        }
+
+        public List<Obavestenje> GetPodsetnici(String jmbg)
+        {
+            return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
+        }
+
+        public void napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        {
+            Pacijent pacijent = PacijentServis.getInstance().GetByJmbg(jmbgPacijenta);
+            //ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
+            Obavestenje obavestenje = new Obavestenje()
+            {
+                VremeObavestenja = DateTime.Now,
+                JmbgKorisnika = jmbgPacijenta,
+                Podsetnik = true,
+                Naslov = "Podsetnik o uzimanju leka -" + r.lek.NazivLeka,
+                Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Now.AddHours(1)).ToString("HH:mm") + 
+                " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
+            };
+            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
         }
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
             Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
-            p.zdravstveniKarton.izvestaji = new List<Izvestaj>();
-            Izvestaj i = new Izvestaj();
-            i.recepti = new List<Recept>();
-            List<TimeSpan> terminiUzimanja = new List<TimeSpan>();
-           /* List
-            Recept r = new Recept()
-            {
-                lek = new Lek()
-                {
-                    NazivLeka = "Brufen"
-                };
-                
-            };
-           */
-            return null;
+            /* p.zdravstveniKarton.izvestaji = new List<Izvestaj>();
+             Izvestaj i = new Izvestaj();
+             i.recepti = new List<Recept>();
+             TimeSpan ts1 = new TimeSpan(8, 0, 0);
+             TimeSpan ts2 = new TimeSpan(10, 0, 0);
+             TimeSpan ts3 = new TimeSpan(12, 0, 0);
+             List<int> terminiUzimanja = new List<int>();
+             terminiUzimanja.Add(7);
+             terminiUzimanja.Add(10);
+             terminiUzimanja.Add(13);
+             Recept r = new Recept();
+             r.lek = new Lek();
+             r.lek.NazivLeka = "Brufen";
+             r.terminiUzimanjaTokomDana = terminiUzimanja;
+             i.recepti.Add(r);
+             p.zdravstveniKarton.izvestaji.Add(i);
+             PacijentServis.getInstance().izmeniPacijenta(p, p);*/
+            return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
+
+
 
 
 

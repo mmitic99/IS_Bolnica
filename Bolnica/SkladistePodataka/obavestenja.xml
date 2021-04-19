@@ -5,59 +5,230 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 17.4.2021. 08:00:00 je pomeren na 27.4.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-09T18:03:38.8889834+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 17.4.2021. 08:00:00 je pomeren na 27.4.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-11T18:39:44.2561859+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 30.4.2021. 08:00:00 je pomeren na 30.4.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-11T18:39:44.3115426+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 30.4.2021. 08:00:00 je pomeren na 30.4.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:30:11.9286517+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:30:11.938616+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:37:39.8853238+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 8:30:00 AM je pomeren na 4/29/2021 8:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:37:39.9152752+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 8:30:00 AM je pomeren na 4/29/2021 8:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>4536</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:44:52.132421+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 12:00:00 PM je pomeren na 5/19/2021 12:00:00 PM.</Sadrzaj>
     <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-18T21:44:52.1354131+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 12:00:00 PM je pomeren na 5/19/2021 12:00:00 PM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:31.718542+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:33.7866926+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:35.8120238+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:37.8348425+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:39.8479844+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:41.8655264+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:43.8777446+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:45.8904359+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:47.9118098+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:49.9302789+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:51.9543422+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:14:53.9768418+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:14 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:20:35.9095751+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:20 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:22:26.0336857+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:22 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:24:33.8311252+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:24 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:41:41.347872+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:41 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:44:38.7225832+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:44 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:45:44.4107636+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:45 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:47:48.2912484+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:47 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T12:08:28.668419+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 13:08 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T12:09:23.2525232+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 13:09 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T12:09:48.3462275+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 13:09 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T12:12:15.4417731+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 13:12 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
   </Obavestenje>
 </ArrayOfObavestenje>

@@ -19,6 +19,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -43,6 +44,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -67,6 +69,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -91,6 +94,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -115,6 +119,7 @@
     <Adresa>Jovana Mikica 23/A</Adresa>
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>
@@ -141,6 +146,25 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <lek>
+                <VrstaLeka>Kapsula</VrstaLeka>
+                <NazivLeka>Brufen</NazivLeka>
+              </lek>
+              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
+              <vremenskiPeriodUzimanja />
+              <terminiUzimanjaTokomDana>
+                <int>7</int>
+                <int>10</int>
+                <int>13</int>
+              </terminiUzimanjaTokomDana>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+      </izvestaji>
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>

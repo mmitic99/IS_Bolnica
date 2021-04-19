@@ -8,6 +8,12 @@ namespace Model
         public String Naslov { get; set; }
         public String Sadrzaj { get; set; }
         public String JmbgKorisnika { get; set; }
+        public bool Podsetnik { get; set; }
+
+        public Obavestenje()
+        {
+            Podsetnik = false;
+        }
 
     }
 }
