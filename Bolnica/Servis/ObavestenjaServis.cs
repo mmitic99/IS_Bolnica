@@ -73,7 +73,7 @@ namespace Servis
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
             Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
-            /* p.zdravstveniKarton.izvestaji = new List<Izvestaj>();
+             p.zdravstveniKarton.izvestaji = new List<Izvestaj>();
              Izvestaj i = new Izvestaj();
              i.recepti = new List<Recept>();
              TimeSpan ts1 = new TimeSpan(8, 0, 0);
@@ -89,7 +89,7 @@ namespace Servis
              r.terminiUzimanjaTokomDana = terminiUzimanja;
              i.recepti.Add(r);
              p.zdravstveniKarton.izvestaji.Add(i);
-             PacijentServis.getInstance().izmeniPacijenta(p, p);*/
+             PacijentServis.getInstance().izmeniPacijenta(p, p);
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
 
