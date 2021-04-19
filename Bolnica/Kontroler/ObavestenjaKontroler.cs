@@ -27,6 +27,11 @@ namespace Kontroler
             // TODO: implement
         }
 
+        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
+        {
+            return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(jmbgPacijenta);
+        }
+
         public Servis.ObavestenjaServis obavestenjaServis;
 
     }

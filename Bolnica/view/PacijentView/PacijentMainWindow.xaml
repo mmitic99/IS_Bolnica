@@ -79,6 +79,22 @@
                     </Grid>
                 </StackPanel>
             </Button>
+            <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,70,0"
+                    Background="Transparent">
+                <StackPanel Width="70" Height="50">
+                    <Grid Width="70" Height="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Obaveštenja" Grid.Row="1" VerticalAlignment="Top"/>
+                        <Image x:Name="zvonce" Source="bell.png" Margin="0,0,0,0.4"/>
+                    </Grid>
+                </StackPanel>
+                
+            </Button>
 
             <ContentControl Grid.Row="1" 
                             x:Name="content"

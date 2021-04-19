@@ -1,5 +1,7 @@
+using Bolnica.view;
 using Model;
 using Repozitorijum;
+using System;
 using System.Collections.Generic;
 
 namespace Servis
@@ -41,6 +43,28 @@ namespace Servis
         {
             // TODO: implement
         }
+
+        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
+        {
+            Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
+            p.zdravstveniKarton.izvestaji = new List<Izvestaj>();
+            Izvestaj i = new Izvestaj();
+            i.recepti = new List<Recept>();
+            List<TimeSpan> terminiUzimanja = new List<TimeSpan>();
+           /* List
+            Recept r = new Recept()
+            {
+                lek = new Lek()
+                {
+                    NazivLeka = "Brufen"
+                };
+                
+            };
+           */
+            return null;
+        }
+
+
 
         public Repozitorijum.SkladisteZaObavestenja skladisteZaObavestenja;
 

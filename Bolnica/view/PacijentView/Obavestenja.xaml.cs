@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repozitorijum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Bolnica.view
         public Obavestenja()
         {
             InitializeComponent();
+            obavestenjaPacijenta.ItemsSource = SkladisteZaObavestenja.GetInstance().GetByKorisnickoIme(PacijentMainWindow.getInstance().pacijent.Jmbg);
+            
         }
     }
 }

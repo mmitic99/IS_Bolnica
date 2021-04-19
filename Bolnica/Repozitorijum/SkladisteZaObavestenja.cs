@@ -59,6 +59,20 @@ namespace Repozitorijum
             }
         }
 
+        public List<Obavestenje> GetByKorisnickoIme(String korisnickoIme)
+        {
+            List<Obavestenje> svaObavestenja = this.GetAll();
+            List<Obavestenje> odgovarajucaObavestanje = new List<Obavestenje>();
+            foreach(Obavestenje o in svaObavestenja)
+            {
+                if(o.JmbgKorisnika.Equals(korisnickoIme))
+                {
+                    odgovarajucaObavestanje.Add(o);
+                }
+            }
+            return odgovarajucaObavestanje;
+        }
+
         private String Lokacija;
         private static SkladisteZaObavestenja instance = null;
 
