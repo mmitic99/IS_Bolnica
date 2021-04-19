@@ -266,4 +266,11 @@
     <JmbgKorisnika>123456789</JmbgKorisnika>
     <Podsetnik>true</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T13:57:22.1011658+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Brufen</Naslov>
+    <Sadrzaj>Poštovani/a Jovana podsećamo vas da danas u 14:57 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

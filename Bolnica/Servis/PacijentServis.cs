@@ -95,7 +95,7 @@ namespace Servis
         {
             List<Recept> receptiPacijenta = new List<Recept>();
             Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
-            foreach(Izvestaj i in pacijent.zdravstveniKarton.izvestaji)
+            foreach(Izvestaj i in pacijent.zdravstveniKarton.izvestaj)
             {
                 foreach(Recept r in i.recepti)
                 {

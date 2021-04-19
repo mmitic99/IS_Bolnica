@@ -19,8 +19,8 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Sara Sarić</FullName>
@@ -44,8 +44,8 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mika Mikić</FullName>
@@ -69,8 +69,8 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Pera Perić</FullName>
@@ -94,8 +94,8 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
@@ -103,29 +103,27 @@
   <Pacijent>
     <Grad>
       <drzava />
-      <Naziv>Beograd</Naziv>
+      <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>1234</KorisnickoIme>
-      <Lozinka>Jovana</Lozinka>
+      <KorisnickoIme>12</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
     </Korisnik>
-    <Ime>Jovana</Ime>
-    <Prezime>Jovanovic</Prezime>
-    <Jmbg>1234</Jmbg>
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
     <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+    <Pol>Muski</Pol>
+    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
     <Email />
-    <Adresa>Jovana Mikica 23/A</Adresa>
+    <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji />
-      <Alergeni>
-        <string>Kamilica</string>
-      </Alergeni>
+      <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
-    <FullName>Jovana Jovanovic</FullName>
+    <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
   <Pacijent>
     <Grad>
@@ -146,7 +144,78 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <izvestaji>
+      <Alergeni />
+      <Izvestaji />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mihailo Majstorovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>4567891230987</KorisnickoIme>
+      <Lozinka>Sara</Lozinka>
+    </Korisnik>
+    <Ime>Sara</Ime>
+    <Prezime>Sarić</Prezime>
+    <Jmbg>4567891230987</Jmbg>
+    <BrojTelefona>1234564</BrojTelefona>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
+    <Email>asdsad@mail.com</Email>
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+      <Izvestaji>
+        <Izvestaj>
+          <recept>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Panklav</ImeLeka>
+              <SifraLeka>dsa</SifraLeka>
+              <DodatneNapomene>ads</DodatneNapomene>
+              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>23</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>10</int>
+                <int>12</int>
+                <int>20</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>asdsda</Dijagnoza>
+              <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
+            </Recept>
+          </recept>
+          <recepti />
+        </Izvestaj>
+      </Izvestaji>
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Sara Sarić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv>Beograd</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>1234</KorisnickoIme>
+      <Lozinka>Jovana</Lozinka>
+    </Korisnik>
+    <Ime>Jovana</Ime>
+    <Prezime>Jovanovic</Prezime>
+    <Jmbg>1234</Jmbg>
+    <BrojTelefona />
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Mikica 23/A</Adresa>
+    <zdravstveniKarton>
+      <izvestaj>
         <Izvestaj>
           <recepti>
             <Recept>
@@ -154,20 +223,24 @@
                 <VrstaLeka>Kapsula</VrstaLeka>
                 <NazivLeka>Brufen</NazivLeka>
               </lek>
-              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
-              <vremenskiPeriodUzimanja />
               <terminiUzimanjaTokomDana>
                 <int>7</int>
                 <int>10</int>
                 <int>13</int>
               </terminiUzimanjaTokomDana>
+              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
+              <BrojDana>0</BrojDana>
+              <Doza>0</Doza>
             </Recept>
           </recepti>
         </Izvestaj>
-      </izvestaji>
-      <Alergeni />
+      </izvestaj>
+      <Alergeni>
+        <string>Kamilica</string>
+      </Alergeni>
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
+    <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

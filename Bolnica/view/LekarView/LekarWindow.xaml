@@ -1,12 +1,14 @@
-﻿<Window x:Class="Bolnica.view.LekarWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bolnica.view.LekarWindow"
         mc:Ignorable="d"
         Title="LekarWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Frame x:Name="Frame1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="Frame2" Margin="0,70,0,0"  NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
