@@ -1,4 +1,5 @@
 ﻿using Bolnica.view.LekarView;
+using Kontroler;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,14 @@ namespace Bolnica.view.LekarView
     {
         private Recept recept;
         public Pacijent pacijent;
+        public Pacijent pacijent1;
+        public PacijentKontroler kontroler;
+
         public IzdavanjeReceptaPage()
         {   
             InitializeComponent();
            pacijent = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
+           pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
             txt3.Text = pacijent.DatumRodjenja.ToString();
@@ -65,7 +70,8 @@ namespace Bolnica.view.LekarView
             Izvestaj izvestaj = new Izvestaj(recepti);
             List<Izvestaj> izvestaji = new List<Izvestaj>();
             izvestaji.Add(izvestaj);
-            pacijent.zdravstveniKarton.Izvestaji = izvestaji;
+            pacijent1.zdravstveniKarton.Izvestaji = izvestaji;
+            PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
         }
     }

@@ -6,30 +6,6 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>4567891230987</KorisnickoIme>
-      <Lozinka>Sara</Lozinka>
-    </Korisnik>
-    <Ime>Sara</Ime>
-    <Prezime>Sarić</Prezime>
-    <Jmbg>4567891230987</Jmbg>
-    <BrojTelefona>1234564</BrojTelefona>
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
-    <Email>asdsad@mail.com</Email>
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Sara Sarić</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
       <KorisnickoIme>9876543210987</KorisnickoIme>
       <Lozinka>Mika</Lozinka>
     </Korisnik>
@@ -44,6 +20,7 @@
     <zdravstveniKarton>
       <izvestaj />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mika Mikić</FullName>
@@ -68,6 +45,7 @@
     <zdravstveniKarton>
       <izvestaj />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Pera Perić</FullName>
@@ -92,6 +70,7 @@
     <zdravstveniKarton>
       <izvestaj />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
@@ -116,6 +95,7 @@
     <zdravstveniKarton>
       <izvestaj />
       <Alergeni />
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
@@ -142,8 +122,54 @@
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>
+      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>4567891230987</KorisnickoIme>
+      <Lozinka>Sara</Lozinka>
+    </Korisnik>
+    <Ime>Sara</Ime>
+    <Prezime>Sarić</Prezime>
+    <Jmbg>4567891230987</Jmbg>
+    <BrojTelefona>1234564</BrojTelefona>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
+    <Email>asdsad@mail.com</Email>
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Alergeni />
+      <Izvestaji>
+        <Izvestaj>
+          <recept>
+            <Recept>
+              <ImeLeka>Panklav</ImeLeka>
+              <SifraLeka>dsa</SifraLeka>
+              <DodatneNapomene>ads</DodatneNapomene>
+              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>23</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>10</int>
+                <int>12</int>
+                <int>20</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>asdsda</Dijagnoza>
+              <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
+            </Recept>
+          </recept>
+        </Izvestaj>
+      </Izvestaji>
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Sara Sarić</FullName>
   </Pacijent>
 </ArrayOfPacijent>

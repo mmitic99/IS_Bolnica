@@ -7,9 +7,23 @@ namespace Kontroler
 {
     public class PacijentKontroler : KorisnikKontroler
     {
+        public static PacijentKontroler instance = null;
+
+        public static PacijentKontroler getInstance()
+        {
+            if (instance == null)
+            {
+                return new PacijentKontroler();
+            }
+            else
+            {
+                return instance;
+            }
+        }
         public PacijentKontroler()
         {
             pacijentServis = new PacijentServis();
+            instance = this;
         }
 
         public bool RegistrujPacijenta(Pacijent pacijent)
