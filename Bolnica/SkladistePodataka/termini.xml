@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTermin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Termin>
-    <DatumIVremeTermina>2000-07-07T00:00:00</DatumIVremeTermina>
-    <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678966677/7/2000 12:00:00 AM</IDTermina>
-    <lekar>dr Milos Marinkovic</lekar>
-    <TrajanjeTermina>323</TrajanjeTermina>
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>0008-08-08T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
     <IdProstorije>0</IdProstorije>
@@ -18,6 +8,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966678/8/0008 12:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>222</TrajanjeTermina>
   </Termin>
   <Termin>
@@ -28,6 +19,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/4/2021 7:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>303</TrajanjeTermina>
     <opisTegobe>boli</opisTegobe>
   </Termin>
@@ -39,6 +31,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673/3/0004 12:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>1234</TrajanjeTermina>
   </Termin>
   <Termin>
@@ -49,6 +42,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673.7.2018. 00:00:00</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
   <Termin>
@@ -59,6 +53,7 @@
     <JmbgPacijenta>9876543210987</JmbgPacijenta>
     <IDTermina>987654321098766674/30/2021 9:30:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mika Mikić</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -70,6 +65,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/4/2021 12:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>34</TrajanjeTermina>
   </Termin>
   <Termin>
@@ -80,28 +76,31 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 8:00:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-19T06:00:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
+    <DatumIVremeTermina>2021-04-19T06:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
     <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/19/2021 6:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-19T07:30:00+02:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2021-04-19T07:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/19/2021 7:30:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -113,6 +112,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/19/2021 8:30:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -124,6 +124,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/19/2021 9:00:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -135,6 +136,7 @@
     <JmbgPacijenta>1234</JmbgPacijenta>
     <IDTermina>12346094/19/2021 6:30:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>Boli</opisTegobe>
   </Termin>
@@ -146,6 +148,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/19/2021 7:00:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -157,6 +160,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -168,6 +172,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 10:30:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -179,6 +184,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/19/2021 11:30:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -190,6 +196,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 12:00:00 PM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -201,6 +208,7 @@
     <JmbgPacijenta>1234</JmbgPacijenta>
     <IDTermina>12346094/19/2021 10:00:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -212,6 +220,7 @@
     <JmbgPacijenta>1234</JmbgPacijenta>
     <IDTermina>123466674/19/2021 11:00:00 AM</IDTermina>
     <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -223,6 +232,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/28/2021 1:30:00 PM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>

@@ -36,16 +36,7 @@ namespace Repozitorijum
 
             return lekari;
         }
-
-        public void Save(Lekar lekar)
-        {
-            List<Lekar> lekari = GetAll();
-            lekari.Add(lekar);
-
-            SaveAll(lekari);
-        }
-
-        internal Lekar getByJmbg(string jmbgLekara)
+        public Lekar getByJmbg(String jmbg)
         {
             List<Lekar> lekari = this.GetAll();
             Lekar l1 = new Lekar();
@@ -53,7 +44,7 @@ namespace Repozitorijum
             {
                 if (l.Jmbg != null)
                 {
-                    if (l.Jmbg.Equals(jmbgLekara))
+                    if (l.Jmbg.Equals(jmbg))
                     {
                         l1 = l;
                         break;
@@ -62,6 +53,14 @@ namespace Repozitorijum
             }
             return l1;
         }
+        public void Save(Lekar lekar)
+        {
+            List<Lekar> lekari = GetAll();
+            lekari.Add(lekar);
+
+            SaveAll(lekari);
+        }
+
 
         public void SaveAll(List<Lekar> lekari)
         {

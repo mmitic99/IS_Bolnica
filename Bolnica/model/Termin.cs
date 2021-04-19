@@ -26,6 +26,18 @@ namespace Model
 
             }
         }
+       public String pacijent
+        {
+           get
+            {
+                Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(JmbgPacijenta);
+                return p.FullName;
+            }
+            set
+            {
+
+            }
+        }
 
         public double TrajanjeTermina { get; set; } //u satima
         public String opisTegobe { get; set; }

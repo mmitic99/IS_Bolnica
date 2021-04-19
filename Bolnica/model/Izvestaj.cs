@@ -1,21 +1,23 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Model
 {
    public class Izvestaj
    {
-      public System.Collections.ArrayList recept;
+      public List<Recept> recept;
       
       
-      public System.Collections.ArrayList GetRecept()
+      public List<Recept> GetRecept()
       {
          if (recept == null)
-            recept = new System.Collections.ArrayList();
+            recept = new List<Recept>();
          return recept;
       }
       
       
-      public void SetRecept(System.Collections.ArrayList newRecept)
+      public void SetRecept(List<Recept> newRecept)
       {
          RemoveAllRecept();
          foreach (Recept oRecept in newRecept)
@@ -28,7 +30,7 @@ namespace Model
          if (newRecept == null)
             return;
          if (this.recept == null)
-            this.recept = new System.Collections.ArrayList();
+            this.recept = new List<Recept>();
          if (!this.recept.Contains(newRecept))
             this.recept.Add(newRecept);
       }
@@ -51,6 +53,14 @@ namespace Model
       }
    
       private String Anamneza;
-   
-   }
+
+        public Izvestaj(List<Recept> recept)
+        {
+            this.recept = recept;
+        }
+
+        public Izvestaj()
+        {
+        }
+    }
 }

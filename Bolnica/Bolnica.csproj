@@ -117,14 +117,26 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
-    <Compile Include="view\AzurirajTerminWindow.xaml.cs">
-      <DependentUpon>AzurirajTerminWindow.xaml</DependentUpon>
+    <Compile Include="view\LekarView\KreirajTerminPage.xaml.cs">
+      <DependentUpon>KreirajTerminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\AzurirajTerminPage.xaml.cs">
+      <DependentUpon>AzurirajTerminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\DodavanjeProstorijeWindow.xaml.cs">
       <DependentUpon>DodavanjeProstorijeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\IzmenaProstorijeWindow.xaml.cs">
       <DependentUpon>IzmenaProstorijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
+      <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\TerminiPage.xaml.cs">
+      <DependentUpon>TerminiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\IzdavanjeReceptaPage.xaml.cs">
+      <DependentUpon>IzdavanjeReceptaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
@@ -156,12 +168,6 @@
     <Compile Include="view\SekretarView\IzmenaPacijenta.xaml.cs">
       <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\KreirajTerminWindow.xaml.cs">
-      <DependentUpon>KreirajTerminWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\LekarWindow.xaml.cs">
-      <DependentUpon>LekarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\PacijentView\Obavestenja.xaml.cs">
       <DependentUpon>Obavestenja.xaml</DependentUpon>
     </Compile>
@@ -174,8 +180,8 @@
     <Compile Include="view\PacijentView\PacijentZakazaniTermini.xaml.cs">
       <DependentUpon>PacijentZakazaniTermini.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PregledWindow.xaml.cs">
-      <DependentUpon>PregledWindow.xaml</DependentUpon>
+    <Compile Include="view\LekarView\LekarWindow.xaml.cs">
+      <DependentUpon>LekarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Prijavljivanje.xaml.cs">
       <DependentUpon>Prijavljivanje.xaml</DependentUpon>
@@ -214,9 +220,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\AzurirajTerminWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="view\LekarView\KreirajTerminPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\AzurirajTerminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\PacijentInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\TerminiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\IzdavanjeReceptaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\IzmeniTerminP.xaml">
       <SubType>Designer</SubType>
@@ -266,14 +288,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\KreirajTerminWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\LekarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="view\PacijentView\Obavestenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -290,7 +304,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PregledWindow.xaml">
+    <Page Include="view\LekarView\LekarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -404,6 +418,7 @@
   <ItemGroup>
     <Resource Include="view\PacijentView\Login.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

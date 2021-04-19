@@ -5,22 +5,22 @@ namespace Model
 {
     public class ZdravstveniKarton
     {
-        public System.Collections.ArrayList izvestaj;
+        public List<Izvestaj> izvestaj;
 
         public ZdravstveniKarton()
         {
-            izvestaj = new System.Collections.ArrayList();
+            izvestaj = new List<Izvestaj>();
             Alergeni = new List<string>();
         }
-        public System.Collections.ArrayList GetIzvestaj()
+        public List<Izvestaj> GetIzvestaj()
         {
             if (izvestaj == null)
-                izvestaj = new System.Collections.ArrayList();
+                izvestaj = new List<Izvestaj>();
             return izvestaj;
         }
 
 
-        public void SetIzvestaj(System.Collections.ArrayList newIzvestaj)
+        public void SetIzvestaj(List<Izvestaj> newIzvestaj)
         {
             RemoveAllIzvestaj();
             foreach (Izvestaj oIzvestaj in newIzvestaj)
@@ -30,12 +30,14 @@ namespace Model
 
         public void AddIzvestaj(Izvestaj newIzvestaj)
         {
-            if (newIzvestaj == null)
+            /*if (newIzvestaj == null)
                 return;
             if (this.izvestaj == null)
-                this.izvestaj = new System.Collections.ArrayList();
+                this.izvestaj = List<Izvestaj>();
             if (!this.izvestaj.Contains(newIzvestaj))
                 this.izvestaj.Add(newIzvestaj);
+            */
+
         }
 
 
@@ -56,6 +58,6 @@ namespace Model
         }
 
         public List<String> Alergeni { get; set; }
-
+        public List<Izvestaj> Izvestaji { get; set; }
     }
 }
