@@ -11,7 +11,6 @@ namespace Model
 
         public List<Recept> recepti { get; set; }
 
-        public List<Recept> recept;
       
       
      /* public List<Recept> GetRecept()

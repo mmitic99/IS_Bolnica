@@ -225,18 +225,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-20T07:00:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678966674/20/2021 7:00:00 AM</IDTermina>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-20T08:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
@@ -307,5 +295,17 @@
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-20T06:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/20/2021 6:30:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>Lose</opisTegobe>
   </Termin>
 </ArrayOfTermin>

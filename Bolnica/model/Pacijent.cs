@@ -40,6 +40,7 @@ namespace Model
             this.Grad.PostanskiBroj = "2300";
             this.Grad.drzava.Naziv = "Srbija";
             this.Grad.drzava.Oznaka = "SRB";
+            this.zdravstveniKarton = new ZdravstveniKarton();
         }
     }
 }

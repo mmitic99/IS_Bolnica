@@ -301,4 +301,284 @@
     <JmbgKorisnika>6667</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T19:24:54.129197+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 7:00:00 AM je pomeren na 4/23/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T19:24:54.1401326+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 7:00:00 AM je pomeren na 4/23/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T19:25:07.0170175+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 PM je pomeren na 4/20/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T19:25:07.0180148+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 PM je pomeren na 4/20/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:51.1785939+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:51.3498784+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:51.3598458+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:56.5266688+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:56.5373177+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:27:56.5502842+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:01.5550131+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:01.5659839+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:01.5749071+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:06.6909103+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:06.6948979+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:06.7008828+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:11.8100732+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:11.8211587+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:11.8399954+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:16.8970823+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:16.9071045+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:16.9180252+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:21.9923636+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:21.9983099+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:22.0052611+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:27.6043425+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:27.6079355+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:27.6129173+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:32.6349054+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:32.643887+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:32.6538537+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:37.8334495+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:37.849023+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:37.8599912+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:42.8972893+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:42.9102072+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:42.9211775+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:47.9420632+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:47.9480795+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 07:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T23:28:47.9520343+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 23:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

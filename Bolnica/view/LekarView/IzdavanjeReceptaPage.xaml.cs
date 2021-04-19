@@ -23,8 +23,8 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class IzdavanjeReceptaPage : Page
     {
-        private Recept recept;
-        public Pacijent pacijent;
+        public Recept recept { get; set; }
+        public Pacijent pacijent { get; set; }
         public Pacijent pacijent1;
         public PacijentKontroler kontroler;
 
@@ -65,6 +65,7 @@ namespace Bolnica.view.LekarView
             int doza = int.Parse(txt10.Text);
             recept = new Recept(imeLeka,sifraLeka,dodatneNapomene,datumIzdavanja,brojDana,doza,terminiInt,dijagonoza
                 ,LekarWindow.getInstance().lekar1.FullName);
+            recept.DatumIzdavanja = DateTime.Today;
             List<Recept> recepti = new List<Recept>();
             recepti.Add(recept);
             Izvestaj izvestaj = new Izvestaj(recepti);

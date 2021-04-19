@@ -106,56 +106,6 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>12</KorisnickoIme>
-      <Lozinka>Mihailo</Lozinka>
-    </Korisnik>
-    <Ime>Mihailo</Ime>
-    <Prezime>Majstorovic</Prezime>
-    <Jmbg>123456789</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>12</KorisnickoIme>
-      <Lozinka>Mihailo</Lozinka>
-    </Korisnik>
-    <Ime>Mihailo</Ime>
-    <Prezime>Majstorovic</Prezime>
-    <Jmbg>123456789</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
       <KorisnickoIme>4567891230987</KorisnickoIme>
       <Lozinka>Sara</Lozinka>
     </Korisnik>
@@ -172,24 +122,6 @@
       <Alergeni />
       <Izvestaji>
         <Izvestaj>
-          <recept>
-            <Recept>
-              <terminiUzimanjaTokomDana />
-              <ImeLeka>Panklav</ImeLeka>
-              <SifraLeka>dsa</SifraLeka>
-              <DodatneNapomene>ads</DodatneNapomene>
-              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>23</BrojDana>
-              <Doza>1</Doza>
-              <TerminiUzimanjaLeka>
-                <int>10</int>
-                <int>12</int>
-                <int>20</int>
-              </TerminiUzimanjaLeka>
-              <Dijagnoza>asdsda</Dijagnoza>
-              <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
-            </Recept>
-          </recept>
           <recepti />
         </Izvestaj>
       </Izvestaji>
@@ -222,6 +154,8 @@
               <lek>
                 <VrstaLeka>Kapsula</VrstaLeka>
                 <NazivLeka>Brufen</NazivLeka>
+                <KlasaLeka>Analgetici</KlasaLeka>
+                <IdLeka>0</IdLeka>
               </lek>
               <terminiUzimanjaTokomDana>
                 <int>7</int>
@@ -231,6 +165,7 @@
               <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
               <BrojDana>0</BrojDana>
               <Doza>0</Doza>
+              <TerminiUzimanjaLeka />
             </Recept>
           </recepti>
         </Izvestaj>
@@ -242,5 +177,50 @@
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>12</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
+    </Korisnik>
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <ImeLeka>Retinol</ImeLeka>
+              <SifraLeka>12</SifraLeka>
+              <DodatneNapomene>5</DodatneNapomene>
+              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>4</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>2</int>
+                <int>7</int>
+                <int>23</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+      </izvestaj>
+      <Alergeni />
+      <Izvestaji />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

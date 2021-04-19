@@ -74,7 +74,7 @@
                             <RowDefinition Height="30"></RowDefinition>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
-                        <Image Source="User-Interface-Logout-icon.png"/>
+                        <Image Source="User-Interface-Logout-icon.png" Margin="0,0,0,0.4"/>
                         <TextBlock Text="Odjavite se" Grid.Row="1"/>
                     </Grid>
                 </StackPanel>

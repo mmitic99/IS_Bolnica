@@ -63,8 +63,8 @@ namespace Servis
                 VremeObavestenja = DateTime.Now,
                 JmbgKorisnika = jmbgPacijenta,
                 Podsetnik = true,
-                Naslov = "Podsetnik o uzimanju leka -" + r.lek.NazivLeka,
-                Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Now.AddHours(1)).ToString("HH:mm") + 
+                Naslov = "Podsetnik o uzimanju leka -" + r.ImeLeka,
+                Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Today.AddHours(hours)).ToString("HH:mm") + 
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             SkladisteZaObavestenja.GetInstance().Save(obavestenje);
@@ -72,7 +72,7 @@ namespace Servis
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
-            Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
+            /*Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
              p.zdravstveniKarton.izvestaj = new List<Izvestaj>();
              Izvestaj i = new Izvestaj();
              i.recepti = new List<Recept>();
@@ -89,7 +89,7 @@ namespace Servis
              r.terminiUzimanjaTokomDana = terminiUzimanja;
              i.recepti.Add(r);
              p.zdravstveniKarton.izvestaj.Add(i);
-             PacijentServis.getInstance().izmeniPacijenta(p, p);
+             PacijentServis.getInstance().izmeniPacijenta(p, p);*/
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
 

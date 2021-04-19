@@ -8,7 +8,7 @@ namespace Repozitorijum
 {
     public class SkladisteZaObavestenja
     {
-        private SkladisteZaObavestenja()
+        public SkladisteZaObavestenja()
         {
             Lokacija = "..\\..\\SkladistePodataka\\obavestenja.xml";
         }
