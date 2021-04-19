@@ -1,11 +1,9 @@
+using Bolnica.viewActions;
+using Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
-using System.Linq;
-using Model;
-using Bolnica.model;
 
 namespace Repozitorijum
 {

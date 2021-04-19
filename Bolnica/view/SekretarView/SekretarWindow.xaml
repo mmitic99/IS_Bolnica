@@ -32,10 +32,9 @@
             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="103"/>
-                    <ColumnDefinition Width="271*"/>
-                    <ColumnDefinition Width="418*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" BorderBrush="LightGray" BorderThickness="1"/>
+                <Border Grid.Column="0"/>
                 <Border BorderBrush="LightGray" BorderThickness="1" Grid.ColumnSpan="2" Grid.Column="1"/>
 
                 <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,22,0,21" Height="62">
@@ -43,9 +42,34 @@
                     <Label x:Name="prezimeS" FontSize="16" HorizontalAlignment="Center">Prezime</Label>
                 </StackPanel>
 
-                <Button Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="120" Height="34" Click="Button_Click">
-                    <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="103"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Column="0" Width="Auto">
+                        <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="120" Height="34" Click="Button_Click">
+                            <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button>
+                    </Grid>
+
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Width="103" Margin="2">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="Button_Click_6">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label FontSize="13" Grid.Column="0" >Odjavi se</Label>
+                                <Image Grid.Column="1" Source="/Images/logout.png" Width="20"/>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                    
+                </Grid>
+                
+                
             </Grid>
 
             <TabControl x:Name="tabovi" TabStripPlacement="Left" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">

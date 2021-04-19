@@ -51,7 +51,7 @@ namespace Servis
         public bool IzmeniTermin(Termin termin)
         {
             bool uspesno = true;
-
+            Termin stariTermin = skladisteZaTermine.getById(termin.IDTermina);
             skladisteZaTermine.RemoveByID(termin.IDTermina);
             termin.IDTermina = termin.generateRandId();
 
@@ -59,7 +59,7 @@ namespace Servis
             {
                 JmbgKorisnika = termin.JmbgPacijenta,
                 Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.DatumIVremeTermina + "" +
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
                 " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now
             };
@@ -69,7 +69,7 @@ namespace Servis
             {
                 JmbgKorisnika = termin.JmbgLekara,
                 Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + termin.DatumIVremeTermina + "" +
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
                 " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now
             };

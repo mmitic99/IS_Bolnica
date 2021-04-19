@@ -1,7 +1,6 @@
-﻿using Bolnica.model;
+﻿using Bolnica.viewActions;
 using Kontroler;
 using Model;
-using Repozitorijum;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,8 +22,6 @@ namespace Bolnica.view.SekretarView
         public IzmenaTermina(DataGrid terminiPrikaz)
         {
             InitializeComponent();
-
-
 
             terminKontroler = new TerminKontroler();
             prostorijeKontroler = new ProstorijeKontroler();
@@ -79,6 +76,8 @@ namespace Bolnica.view.SekretarView
                 vremeT.Items.Add(vreme);
             }
             vremeT.SelectedItem = vreme;
+
+            sala.SelectedIndex = 0;
             sala.ItemsSource = prostorijeKontroler.GetAll();
             for (int i = 0; i < sala.Items.Count; i++)
             {
@@ -115,7 +114,7 @@ namespace Bolnica.view.SekretarView
             noviTermin.IDTermina = termin.termin.IDTermina;
 
             terminKontroler.IzmeniTermin(noviTermin);
-            
+
             terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
 
             this.Close();

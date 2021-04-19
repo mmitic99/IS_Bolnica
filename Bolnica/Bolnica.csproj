@@ -91,7 +91,7 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
-    <Compile Include="model\TerminPacijentLekar.cs" />
+    <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
@@ -403,6 +403,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\PacijentView\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

@@ -1,4 +1,4 @@
-﻿using Bolnica.model;
+﻿using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using System;
@@ -97,5 +97,11 @@ namespace Bolnica.view.SekretarView
             }
         }
 
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            var s = new Prijavljivanje("s");
+            this.Close();
+            s.Show();
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolnica.model
+namespace Bolnica.viewActions
 {
     public class TerminPacijentLekar
     {
