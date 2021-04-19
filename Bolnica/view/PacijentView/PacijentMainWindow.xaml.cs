@@ -54,7 +54,7 @@ namespace Bolnica.view
 
         public async void nabaviNoveRecepte()
         {
-            //ExecutionTime.Subtract(DateTime.Now).TotalMilliseconds)
+            /*//ExecutionTime.Subtract(DateTime.Now).TotalMilliseconds)
             List<Recept> recepti= PacijentKontroler.getInstance().dobaviRecepePacijenta(pacijent.Jmbg);
             List<DateTime> terminiUzimanja = new List<DateTime>();
             if(recepti.Count >0)
@@ -85,7 +85,7 @@ namespace Bolnica.view
 
             DateTime ponoc = DateTime.Today.AddDays(0);
             LoopThroughtNumbers((int)(ponoc-DateTime.Now).TotalMilliseconds); //u ponoc se dobavljaju nova obavestenja
-           // nabaviNoveRecepte();
+           // nabaviNoveRecepte();*/
         }
 
         private void Odjava(object sender, RoutedEventArgs e)

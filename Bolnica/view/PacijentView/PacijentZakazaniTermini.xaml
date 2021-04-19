@@ -42,10 +42,34 @@
 
             </DataGrid>
             <Button Content="Zakaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,67,25.2,408" Click="Button_Click"/>
-            <Button Content="Otkaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,330,25.2,145" Click="Button_Click_2"/>
-            <Button Content="Izmeni termin" Grid.Column="1" Width="120" Height="50" Margin="26,192,25.2,283" Click="Button_Click_1"/>
- 
-
+            <Button Content="Otkaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,330,25.2,145" Click="Button_Click_2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True" />
+                        <Setter Property="Opacity" Value="1" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=prikazTermina1}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="Opacity" Value="1" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Izmeni termin" Grid.Column="1" Width="120" Height="50" Margin="26,192,25.2,283" Click="Button_Click_1">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True" />
+                        <Setter Property="Opacity" Value="1" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=prikazTermina1}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="Opacity" Value="1" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
     </StackPanel>
 </UserControl>

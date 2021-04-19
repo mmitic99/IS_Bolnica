@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    class IzmeniTerminPacijentViewmodel
+    class PomeranjeTerminaViewModel
     {
+       
     }
 }

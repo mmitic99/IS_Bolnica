@@ -41,9 +41,9 @@ namespace Kontroler
             return terminServis.OtkaziTermin(termin);
         }
 
-        public bool IzmeniTermin(Termin termin)
+        public bool IzmeniTermin(Termin termin, string stariIdTermina = null)
         {
-            return terminServis.IzmeniTermin(termin);
+            return terminServis.IzmeniTermin(termin, stariIdTermina);
         }
 
         public List<Termin> DobaviMoguceTerminePoLekaru(String jmbgLekara)
@@ -98,6 +98,11 @@ namespace Kontroler
         public void RemoveByID(string iDTermina)
         {
             terminServis.RemoveByID(iDTermina);
+        }
+
+        public List<Termin> NadjiTermineZaParametrePomeranje(Termin termin,string jmbgLekara, List<DateTime> datumi, TimeSpan pocetak, TimeSpan kraj, int prioritet, string opisTegobe)
+        {
+            return TerminServis.getInstance().NadjiTermineZaParametrePomeranje(termin, jmbgLekara, datumi, pocetak, kraj, prioritet, opisTegobe);
         }
     }
 }

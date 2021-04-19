@@ -25,22 +25,40 @@ namespace Bolnica.view.PacijentView
     /// </summary>
     public partial class MoguciTermini : UserControl
     {
+        public List<Termin> moguciTermini;
         public MoguciTermini()
         {
             InitializeComponent();
-            prikazMogucih.ItemsSource = new ObservableCollection<Termin>(ZakazivanjeTerminaP.getInstance().moguciTermini);
+            prikazMogucih.ItemsSource = new ObservableCollection<Termin>(MainViewModel.getInstance().MoguciTerminiVM.terminiZaPrikazivanje);
 
         }
 
         private void Zakaži_Click(object sender, RoutedEventArgs e)
         {
-            TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+            if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
+            {
+                TerminKontroler.getInstance().IzmeniTermin((Termin)prikazMogucih.SelectedItem, ((Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem).IDTermina);
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+            }
+            else
+            {
+                TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+            }
+                
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
+            if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
+            {
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+
+            }
+            else
+            {
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
+            }
         }
     }
 }

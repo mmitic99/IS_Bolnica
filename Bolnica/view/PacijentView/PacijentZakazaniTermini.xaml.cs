@@ -23,6 +23,7 @@ using Model.Enum;
 using System.Collections.ObjectModel;
 using Repozitorijum;
 using Bolnica.viewActions;
+using Kontroler;
 
 namespace Bolnica.view
 {
@@ -74,9 +75,7 @@ namespace Bolnica.view
         {
             if (prikazTermina1.SelectedIndex != -1 && ((Termin)prikazTermina1.SelectedItem).VrstaTermina != VrstaPregleda.Operacija)
             {
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().IzmenaTerminaVM;
-                var s = new IzmenaTermina(((Termin)prikazTermina1.SelectedItem).IDTermina);
-                s.Show();
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
             }
         }
 
@@ -84,10 +83,7 @@ namespace Bolnica.view
         {
             if (prikazTermina1.SelectedIndex != -1)
             {
-                List<Termin> termini = SkladisteZaTermine.getInstance().GetAll();
-                termini.Remove((Termin)prikazTermina1.SelectedItem);
-                SkladisteZaTermine.getInstance().SaveAll(termini);
-                SkladisteZaTermine.getInstance().RemoveByID(((Termin)prikazTermina1.SelectedItem).IDTermina);
+                TerminKontroler.getInstance().RemoveByID(((Termin)prikazTermina1.SelectedItem).IDTermina);
                 prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(JmbgPacijenta));
             }
         }

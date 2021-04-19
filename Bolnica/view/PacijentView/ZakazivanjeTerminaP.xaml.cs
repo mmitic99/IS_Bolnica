@@ -81,6 +81,7 @@ namespace Bolnica.view.PacijentView
             this.moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, datumi, pocetak, kraj, prioritet, opisTegobe);
             if (moguciTermini.Count > 0)
             {
+                MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
             }
 

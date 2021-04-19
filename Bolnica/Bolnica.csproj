@@ -91,6 +91,7 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
@@ -109,7 +110,6 @@
     <Compile Include="Servis\SekretarServis.cs" />
     <Compile Include="Servis\TerminServis.cs" />
     <Compile Include="Servis\UpravnikServis.cs" />
-    <Compile Include="viewActions\IzmeniTerminPacijentViewmodel.cs" />
     <Compile Include="viewActions\MainViewModel.cs" />
     <Compile Include="viewActions\MoguciTerminiViewModel.cs" />
     <Compile Include="viewActions\ObavestenjaViewModel.cs" />
@@ -141,11 +141,11 @@
     <Compile Include="view\PacijentView\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentView\IzmeniTerminP.xaml.cs">
-      <DependentUpon>IzmeniTerminP.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\PomeranjeTermina.xaml.cs">
+      <DependentUpon>PomeranjeTermina.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\ZakazivanjeTerminaP.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaP.xaml</DependentUpon>
@@ -240,11 +240,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PacijentView\IzmeniTerminP.xaml">
+    <Page Include="view\PacijentView\MoguciTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\PacijentView\MoguciTermini.xaml">
+    <Page Include="view\PacijentView\PomeranjeTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
