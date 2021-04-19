@@ -6,6 +6,8 @@ namespace Model
     public class ZdravstveniKarton
     {
         public System.Collections.ArrayList izvestaj;
+        public List<Izvestaj> izvestaji { get; set; }
+
 
         public ZdravstveniKarton()
         {

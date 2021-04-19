@@ -19,6 +19,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -43,6 +44,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -67,6 +69,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
@@ -91,34 +94,11 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>12</KorisnickoIme>
-      <Lozinka>Mihailo</Lozinka>
-    </Korisnik>
-    <Ime>Mihailo</Ime>
-    <Prezime>Majstorovic</Prezime>
-    <Jmbg>123456789</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
   <Pacijent>
     <Grad>
@@ -139,11 +119,55 @@
     <Adresa>Jovana Mikica 23/A</Adresa>
     <zdravstveniKarton>
       <izvestaj />
+      <izvestaji />
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>12</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
+    </Korisnik>
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <izvestaji>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <lek>
+                <VrstaLeka>Kapsula</VrstaLeka>
+                <NazivLeka>Brufen</NazivLeka>
+              </lek>
+              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
+              <vremenskiPeriodUzimanja />
+              <terminiUzimanjaTokomDana>
+                <int>7</int>
+                <int>10</int>
+                <int>13</int>
+              </terminiUzimanjaTokomDana>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+      </izvestaji>
+      <Alergeni />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

@@ -5,9 +5,84 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bolnica.view"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="LightPink">
+             d:DesignHeight="673" d:DesignWidth="804"
+             Background="Transparent">
     <Grid>
-            
+        <StackPanel Height="673" Width="804" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="320"></RowDefinition >
+                    <RowDefinition Height="33"></RowDefinition>
+                    <RowDefinition Height="320"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="posetnikZaTerapiju"
+                            Height="320">
+                    <TextBlock Text="Podsetnik za terapiju"
+                               FontSize="25"
+                               FontWeight="Bold"></TextBlock>
+                    <DataGrid Height="295"
+                              x:Name="PodsetnikTerapija"
+                              HeadersVisibility="None"
+                              Background="Transparent"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}"/>
+
+                                            </Grid>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+                <TextBlock Text="Obaveštenja"
+                               FontSize="25"
+                               FontWeight="Bold"
+                           Grid.Row="1"></TextBlock>
+                <DataGrid Height="300"
+                              x:Name="obavestenjaPacijenta"
+                              HeadersVisibility="None"
+                              Background="Transparent"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              Grid.Row="2">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                     <StackPanel>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition Height="50"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" />
+                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}"/>
+
+                                            </Grid>
+                                    </StackPanel>
+                                        
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

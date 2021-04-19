@@ -8,7 +8,7 @@
         mc:Ignorable="d" MaxHeight="768" MaxWidth="1024"
         Title="PacijentMainWindow" Height="768" WindowStyle="None" Width="1024" UseLayoutRounding="False"
         ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
-    
+
     <Border CornerRadius="6">
         <Border.Background>
             <ImageBrush ImageSource="image.jpg"/>
@@ -78,6 +78,23 @@
                         <TextBlock Text="Odjavite se" Grid.Row="1"/>
                     </Grid>
                 </StackPanel>
+            </Button>
+            <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,70,0"
+                    Background="Transparent" Click="Button_Click">
+                <StackPanel Width="70" Height="50">
+                    <Grid Width="70" Height="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Obaveštenja" Margin="0,30,0,0" Grid.RowSpan="2" Height="16" VerticalAlignment="Top"/>
+                        <Image x:Name="zvonce" Source="bell.png" Margin="0,0,0,0.4"/>
+                        <Image x:Name="zvonceSaObevestenjem" Source="notification.png" Visibility="Hidden" />
+                    </Grid>
+                </StackPanel>
+
             </Button>
 
             <ContentControl Grid.Row="1" 

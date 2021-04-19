@@ -1,13 +1,19 @@
 using System;
+using System.Collections.Generic;
 
 namespace Model
 {
    public class Izvestaj
    {
       public System.Collections.ArrayList recept;
-      
-      
-      public System.Collections.ArrayList GetRecept()
+
+
+        public List<Recept> recepti { get; set; }
+
+
+
+
+        public System.Collections.ArrayList GetRecept()
       {
          if (recept == null)
             recept = new System.Collections.ArrayList();

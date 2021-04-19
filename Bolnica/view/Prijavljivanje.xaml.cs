@@ -132,8 +132,10 @@ namespace Bolnica.view
 
                     var s1 = new PacijentMainWindow(prijavljeniPacijent);
                     potvrdi = true;
-                    this.Close();
                     s1.Show();
+
+                    //s1.nabaviNoveRecepte();
+                    this.Close();
                 }
             }
         }

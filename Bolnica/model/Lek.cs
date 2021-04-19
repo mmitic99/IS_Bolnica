@@ -5,11 +5,11 @@ namespace Model
 {
    public class Lek
    {
-      private VrstaLeka VrstaLeka;
-      private double KolicinaLeka;
-      private String NazivLeka;
-      private KlasaLeka KlasaLeka;
-      private int IdLeka;
+      public VrstaLeka VrstaLeka { get; set; }
+      private double KolicinaLeka { get; set; }
+      public String NazivLeka { get; set; }
+      private KlasaLeka KlasaLeka { get; set; }
+      private int IdLeka { get; set; }
    
    }
 }

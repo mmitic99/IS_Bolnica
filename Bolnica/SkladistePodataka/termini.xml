@@ -73,17 +73,6 @@
     <TrajanjeTermina>34</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-19T08:00:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896094/19/2021 8:00:00 AM</IDTermina>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-19T06:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
@@ -139,34 +128,12 @@
     <opisTegobe>Boli</opisTegobe>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-19T07:00:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>4536</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678945364/19/2021 7:00:00 AM</IDTermina>
-    <lekar>dr Miroslav Mi</lekar>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-19T09:30:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-04-19T10:30:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896094/19/2021 10:30:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
@@ -234,6 +201,39 @@
     <JmbgPacijenta>231321315464</JmbgPacijenta>
     <IDTermina>231321315464453620.12.2021. 08:00:00</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T09:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>301</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-29T08:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>402</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/29/2021 8:30:00 AM</IDTermina>
+    <lekar>dr Miroslav Mi</lekar>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-19T12:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>101</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896095/19/2021 12:00:00 PM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>

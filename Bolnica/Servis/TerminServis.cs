@@ -61,7 +61,9 @@ namespace Servis
                 Naslov = "Izmena zakazanog termina",
                 Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
                 " je pomeren na " + termin.DatumIVremeTermina + ".",
-                VremeObavestenja = DateTime.Now
+                VremeObavestenja = DateTime.Now,
+                Podsetnik = false
+                
             };
             skladisteZaObavestenja.Save(obavestenjePacijent);
 

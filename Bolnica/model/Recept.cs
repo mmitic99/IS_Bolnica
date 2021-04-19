@@ -1,14 +1,18 @@
 using System;
+using System.Collections.Generic;
 
 namespace Model
 {
    public class Recept
    {
-      public Lek lek;
+      public Lek lek { get; set; }
    
-      private DateTime DatumIzdavanja;
-      private int BrojDana;
-      private int BrojPutaPoDanu;
+      public DateTime DatumIzdavanja { get; set; }
+      public TimeSpan vremenskiPeriodUzimanja { get; set; }
+      
+      public List<int> terminiUzimanjaTokomDana { get; set;}
+      private int BrojPutaPoDanu { get; set; }
+
       private DateTime DatumIVremePocetka;
    
    }
