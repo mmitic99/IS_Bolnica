@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,19 @@ namespace Bolnica.viewActions
 {
     class MoguciTerminiViewModel
     {
+        public List<Termin> terminiZaPrikazivanje;
+        public string pozivaoc { get; set; }
+        public MoguciTerminiViewModel(List<Termin> terminiZaPrikazivanje = null, string pocetna = null)
+        {
+            if(terminiZaPrikazivanje!=null)
+            {
+                this.terminiZaPrikazivanje = terminiZaPrikazivanje;
+            } 
+            else
+            {
+                this.terminiZaPrikazivanje = new List<Termin>();
+            }
+            this.pozivaoc = pocetna;
+        }
     }
 }

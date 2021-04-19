@@ -38,7 +38,20 @@
                     <ColumnDefinition Width="402"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Nazad" Content="Nazad" Height="50" Click="Nazad_Click"/>
-                <Button x:Name="Zakaži" Content="Zakažite termin" Height="50" Grid.Column="1" Click="Zakaži_Click"/>
+                <Button x:Name="Zakaži" Content="Zakažite termin" Height="50" Grid.Column="1" Click="Zakaži_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Setter Property="Opacity" Value="1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=prikazMogucih}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                    <Setter Property="Opacity" Value="1" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
             </Grid>
         </StackPanel>

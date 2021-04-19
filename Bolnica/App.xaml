@@ -27,8 +27,9 @@
                 <PacijentView:MoguciTermini/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewActions:IzmeniTerminPacijentViewmodel}">
-                <PacijentView:IzmeniTerminP/>
+
+            <DataTemplate DataType="{x:Type viewActions:PomeranjeTerminaViewModel}">
+                <PacijentView:PomeranjeTermina/>
             </DataTemplate>
 
         </ResourceDictionary>

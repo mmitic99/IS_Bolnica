@@ -19,13 +19,13 @@ namespace Bolnica.viewActions
         public RelayCommand ObavestenjaCommand { get; set; }
         public RelayCommand PacijentZakaziTerminCommand { get; set; }
         public RelayCommand MoguciTerminiCommand { get; set; }
-        public RelayCommand IzmeniTerminCommand { get; set; }
+        public RelayCommand PomeranjeTerminaCommand { get; set; }
 
         public PacijentTerminiModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
-        public IzmeniTerminPacijentViewmodel IzmenaTerminaVM { get; set; }
         public PacijentZakaziTermin PacijentZakaziVM { get; set; }
         public MoguciTerminiViewModel MoguciTerminiVM { get; set; }
+        public PomeranjeTerminaViewModel PomeranjeTerminaVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -42,6 +42,7 @@ namespace Bolnica.viewActions
             ObavestenjaVM = new ObavestenjaViewModel();
             PacijentZakaziVM = new PacijentZakaziTermin();
             MoguciTerminiVM = new MoguciTerminiViewModel();
+            PomeranjeTerminaVM = new PomeranjeTerminaViewModel();
             CurrentView = PacijentTerminiVM;
 
             PacijentTerminCommand = new RelayCommand(o => 
@@ -64,10 +65,11 @@ namespace Bolnica.viewActions
                 CurrentView = MoguciTerminiVM;
             });
 
-            IzmeniTerminCommand = new RelayCommand(o =>
+            PomeranjeTerminaCommand = new RelayCommand(o =>
             {
-                CurrentView = IzmenaTerminaVM;
-            });
+                CurrentView = PomeranjeTerminaVM;
+            }
+            );
         }
     }
 }
