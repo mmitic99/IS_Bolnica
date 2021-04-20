@@ -14,7 +14,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <Sprat>Drugi</Sprat>
     <BrojSobe>202</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -26,7 +26,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <Sprat>Treci</Sprat>
     <BrojSobe>301</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -38,7 +38,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <Sprat>Prizemlje</Sprat>
     <BrojSobe>001</BrojSobe>
     <VrstaProstorije>Magacin</VrstaProstorije>
@@ -50,7 +50,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>4</IdProstorije>
     <Sprat>Prvi</Sprat>
     <BrojSobe>102</BrojSobe>
     <VrstaProstorije>Operaciona_sala</VrstaProstorije>
@@ -62,7 +62,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>5</IdProstorije>
     <Sprat>Drugi</Sprat>
     <BrojSobe>200</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
@@ -74,7 +74,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>6</IdProstorije>
     <Sprat>Treci</Sprat>
     <BrojSobe>207</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
@@ -86,7 +86,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>7</IdProstorije>
     <Sprat>Cetvrti</Sprat>
     <BrojSobe>402</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
@@ -98,7 +98,7 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>8</IdProstorije>
     <Sprat>Drugi</Sprat>
     <BrojSobe>209</BrojSobe>
     <VrstaProstorije>Magacin</VrstaProstorije>

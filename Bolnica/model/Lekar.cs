@@ -6,7 +6,7 @@ namespace Model
     {
         public Specijalizacija specijalizacija;
         public System.Collections.ArrayList obavestenje;
-
+        
 
         public System.Collections.ArrayList GetObavestenje()
         {
@@ -62,6 +62,7 @@ namespace Model
 
             }
         }
+        public int IdOrdinacija { get; set; }
 
         public Lekar()
         {
@@ -84,7 +85,7 @@ namespace Model
             this.Korisnik = new Korisnik();
             this.Korisnik.KorisnickoIme = jmbg;
             this.Korisnik.Lozinka = im;
-
+            this.IdOrdinacija =1 ;
 
 
         }

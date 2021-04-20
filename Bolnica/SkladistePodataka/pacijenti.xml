@@ -19,11 +19,126 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze />
+      <Alergeni />
+      <Izvestaji>
+        <Izvestaj>
+          <recept>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Panklav</ImeLeka>
+              <SifraLeka>dsa</SifraLeka>
+              <DodatneNapomene>ads</DodatneNapomene>
+              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>23</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>10</int>
+                <int>12</int>
+                <int>20</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>asdsda</Dijagnoza>
+              <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
+            </Recept>
+          </recept>
+          <recepti />
+        </Izvestaj>
+      </Izvestaji>
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Sara Sarić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>12</KorisnickoIme>
+      <Lozinka>Mihailo</Lozinka>
+    </Korisnik>
+    <Ime>Mihailo</Ime>
+    <Prezime>Majstorovic</Prezime>
+    <Jmbg>123456789</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <DatumAnamneze>0001-01-01T00:00:00</DatumAnamneze>
+        </Anamneza>
+      </Anamneze>
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
-    <FullName>Sara Sarić</FullName>
+    <FullName>Mihailo Majstorovic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv>Beograd</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>1234</KorisnickoIme>
+      <Lozinka>Jovana</Lozinka>
+    </Korisnik>
+    <Ime>Jovana</Ime>
+    <Prezime>Jovanovic</Prezime>
+    <Jmbg>1234</Jmbg>
+    <BrojTelefona />
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Mikica 23/A</Adresa>
+    <zdravstveniKarton>
+      <izvestaj>
+        <Izvestaj>
+          <recept />
+          <recepti>
+            <Recept>
+              <lek>
+                <VrstaLeka>Kapsula</VrstaLeka>
+                <NazivLeka>Brufen</NazivLeka>
+              </lek>
+              <terminiUzimanjaTokomDana>
+                <int>7</int>
+                <int>10</int>
+                <int>13</int>
+              </terminiUzimanjaTokomDana>
+              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
+              <BrojDana>0</BrojDana>
+              <Doza>0</Doza>
+              <TerminiUzimanjaLeka />
+            </Recept>
+          </recepti>
+        </Izvestaj>
+      </izvestaj>
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent ima napad slepog creva.</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T17:11:13.2826159+02:00</DatumAnamneze>
+          <ImeLekara>dr Miroslav Mi</ImeLekara>
+          <IdAnamneze>dr Miroslav Mi4/20/2021 5:11:13 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent ima napad panike. Pacijent se plasi mene.</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T17:12:14.0594346+02:00</DatumAnamneze>
+          <ImeLekara>dr Milos Marinkovic</ImeLekara>
+          <IdAnamneze>dr Milos Marinkovic4/20/2021 5:12:14 PM</IdAnamneze>
+        </Anamneza>
+      </Anamneze>
+      <Alergeni>
+        <string>Kamilica</string>
+      </Alergeni>
+      <Izvestaji />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
   <Pacijent>
     <Grad>
@@ -44,6 +159,14 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent oseca vrtoglavicu i bol u glavi.                                                              Temperatura normalna.</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T16:15:01.1277758+02:00</DatumAnamneze>
+          <ImeLekara>dr Milos Marinkovic</ImeLekara>
+          <IdAnamneze>dr Milos Marinkovic4/20/2021 4:15:01 PM</IdAnamneze>
+        </Anamneza>
+      </Anamneze>
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
@@ -69,6 +192,14 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T18:38:39.3426378+02:00</DatumAnamneze>
+          <ImeLekara>dr Milos Marinkovic</ImeLekara>
+          <IdAnamneze>dr Milos Marinkovic4/20/2021 6:38:39 PM</IdAnamneze>
+        </Anamneza>
+      </Anamneze>
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
@@ -94,133 +225,14 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
-      <Alergeni />
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Nikola Nikolic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>4567891230987</KorisnickoIme>
-      <Lozinka>Sara</Lozinka>
-    </Korisnik>
-    <Ime>Sara</Ime>
-    <Prezime>Sarić</Prezime>
-    <Jmbg>4567891230987</Jmbg>
-    <BrojTelefona>1234564</BrojTelefona>
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
-    <Email>asdsad@mail.com</Email>
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Alergeni />
-      <Izvestaji>
-        <Izvestaj>
-          <recepti />
-        </Izvestaj>
-      </Izvestaji>
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Sara Sarić</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv>Beograd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>1234</KorisnickoIme>
-      <Lozinka>Jovana</Lozinka>
-    </Korisnik>
-    <Ime>Jovana</Ime>
-    <Prezime>Jovanovic</Prezime>
-    <Jmbg>1234</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Mikica 23/A</Adresa>
-    <zdravstveniKarton>
-      <izvestaj>
-        <Izvestaj>
-          <recepti>
-            <Recept>
-              <lek>
-                <VrstaLeka>Kapsula</VrstaLeka>
-                <NazivLeka>Brufen</NazivLeka>
-                <KlasaLeka>Analgetici</KlasaLeka>
-                <IdLeka>0</IdLeka>
-              </lek>
-              <terminiUzimanjaTokomDana>
-                <int>7</int>
-                <int>10</int>
-                <int>13</int>
-              </terminiUzimanjaTokomDana>
-              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
-              <BrojDana>0</BrojDana>
-              <Doza>0</Doza>
-              <TerminiUzimanjaLeka />
-            </Recept>
-          </recepti>
-        </Izvestaj>
-      </izvestaj>
+      <Anamneze />
       <Alergeni>
         <string>Kamilica</string>
+        <string>Polen</string>
       </Alergeni>
       <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
-    <FullName>Jovana Jovanovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>12</KorisnickoIme>
-      <Lozinka>Mihailo</Lozinka>
-    </Korisnik>
-    <Ime>Mihailo</Ime>
-    <Prezime>Majstorovic</Prezime>
-    <Jmbg>123456789</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj>
-        <Izvestaj>
-          <recepti>
-            <Recept>
-              <ImeLeka>Retinol</ImeLeka>
-              <SifraLeka>12</SifraLeka>
-              <DodatneNapomene>5</DodatneNapomene>
-              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>4</BrojDana>
-              <Doza>2</Doza>
-              <TerminiUzimanjaLeka>
-                <int>2</int>
-                <int>7</int>
-                <int>23</int>
-              </TerminiUzimanjaLeka>
-              <Dijagnoza />
-              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
-            </Recept>
-          </recepti>
-        </Izvestaj>
-      </izvestaj>
-      <Alergeni />
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mihailo Majstorovic</FullName>
+    <FullName>Nikola Nikolic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

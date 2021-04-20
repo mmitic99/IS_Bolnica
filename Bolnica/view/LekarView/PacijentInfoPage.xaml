@@ -15,40 +15,43 @@
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Termini" FontSize="20" />
+            <MenuItem Header="Termini" FontSize="20" Click="MenuItem_Click" />
             <MenuItem Header="Pacijenti" FontSize="20"/>
             <MenuItem Header="Obaveštenja" FontSize="20"/>
             <MenuItem Header="Profil" Width="60" FontSize="20"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2"/>
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_1"/>
         </Menu>
         <Image HorizontalAlignment="Left" Height="55" Margin="40,10,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
-        <ComboBox Text="Izaberi" Name="ComboBox1" HorizontalAlignment="Left" Margin="341,105,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
+        <ComboBox Text="Izaberi" Name="ComboBox1" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding FullName}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Label Content="Pacijent" HorizontalAlignment="Left" Margin="70,102,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Ime :" HorizontalAlignment="Left" Margin="70,137,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
-        <Label Content="Prezime :" HorizontalAlignment="Left" Margin="69,171,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Pol :" HorizontalAlignment="Left" Margin="109,197,0,0" VerticalAlignment="Top" Width="40"/>
-        <Label Content="Datum rodjenja :" HorizontalAlignment="Left" Margin="52,228,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label Content="Adresa stanovanja :" HorizontalAlignment="Left" Margin="40,259,0,0" VerticalAlignment="Top" Width="118"/>
-        <Label Content="Bračno stanje :" HorizontalAlignment="Left" Margin="52,299,0,0" VerticalAlignment="Top" Width="88"/>
-        <Label Content="Zanimanje :" HorizontalAlignment="Left" Margin="70,339,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Broj Telefona :" HorizontalAlignment="Left" Margin="62,370,0,0" VerticalAlignment="Top" Width="78"/>
-        <Label Content="Alergeni :" HorizontalAlignment="Left" Margin="62,401,0,0" VerticalAlignment="Top" Width="78"/>
-        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="19" Margin="164,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="19" Margin="163,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="19" Margin="164,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="25"/>
-        <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="19" Margin="164,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="19" Margin="163,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101"/>
-        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="19" Margin="164,303,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="txt7" HorizontalAlignment="Left" Height="19" Margin="163,339,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101"/>
-        <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="19" Margin="163,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101"/>
-        <TextBox x:Name="txt9" HorizontalAlignment="Left" Height="19" Margin="163,407,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101"/>
-        <Button Content="Izdaj recept" HorizontalAlignment="Left" Margin="461,303,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Ime :" HorizontalAlignment="Left" Margin="90,83,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+        <Label Content="Prezime :" HorizontalAlignment="Left" Margin="89,117,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Pol :" HorizontalAlignment="Left" Margin="129,143,0,0" VerticalAlignment="Top" Width="40"/>
+        <Label Content="Datum rodjenja :" HorizontalAlignment="Left" Margin="72,174,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="Adresa stanovanja :" HorizontalAlignment="Left" Margin="60,205,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label Content="Bračno stanje :" HorizontalAlignment="Left" Margin="72,245,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label Content="Zanimanje :" HorizontalAlignment="Left" Margin="90,285,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Broj Telefona :" HorizontalAlignment="Left" Margin="82,316,0,0" VerticalAlignment="Top" Width="78"/>
+        <Label Content="Alergeni :" HorizontalAlignment="Left" Margin="82,373,0,0" VerticalAlignment="Top" Width="78"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="19" Margin="183,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="19" Margin="183,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="19" Margin="183,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="25"/>
+        <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="19" Margin="183,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="19" Margin="183,213,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="19" Margin="183,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt7" HorizontalAlignment="Left" Height="19" Margin="183,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="19" Margin="183,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt9" HorizontalAlignment="Left" Height="67" Margin="153,354,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Izdaj recept" HorizontalAlignment="Left" Margin="358,140,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Anamneza :" HorizontalAlignment="Left" Margin="494,175,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AnamnezaTxt" HorizontalAlignment="Left" Height="81" Margin="586,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" />
+        <Button Content="Unesi anamnezu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="4.503,5.514" Margin="586,250,0,0" FontSize="10" Click="Button_Click_1"/>
+        <Button Content="Istorija anamneza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" RenderTransformOrigin="4.503,5.514" Margin="706,250,0,0" FontSize="10" Click="Button_Click_2"/>
 
     </Grid>
 </Page>

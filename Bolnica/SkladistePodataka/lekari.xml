@@ -20,6 +20,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <FullName>dr Milos Marinkovic</FullName>
+    <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
   <Lekar>
     <Grad>
@@ -41,6 +42,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <FullName>dr Miroslav Mi</FullName>
+    <IdOrdinacija>2</IdOrdinacija>
   </Lekar>
   <Lekar>
     <Grad>
@@ -62,5 +64,6 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <FullName>dr Dunja Jovanovic</FullName>
+    <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

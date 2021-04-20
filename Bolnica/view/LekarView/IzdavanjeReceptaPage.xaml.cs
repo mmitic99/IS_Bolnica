@@ -35,14 +35,15 @@ namespace Bolnica.view.LekarView
            pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
-            txt3.Text = pacijent.DatumRodjenja.ToString();
+
+            txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarWindow.getInstance().lekar1.FullName ;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
+           LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace Bolnica.view.LekarView
             izvestaji.Add(izvestaj);
             pacijent1.zdravstveniKarton.izvestaj = izvestaji;
             PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
     }
 }
