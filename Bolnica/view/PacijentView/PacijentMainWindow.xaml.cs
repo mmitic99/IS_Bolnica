@@ -40,15 +40,6 @@ namespace Bolnica.view
             this.pacijent = pacijent;
             Ime.DataContext = pacijent;
             DataContext = new MainViewModel();
-            //DataContext = pacijent;
-            /* if (pacijent.Pol == Model.Enum.Pol.Muski)
-             {
-                 fotPacijenta.Source = new BitmapImage(new Uri("...//...//Images//patient.png");
-             } else
-             {
-                 fotPacijenta.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/placeholder.png"));
-             }*/
-            //cekajObavestenja();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(nabaviNovePodsetnike);
             timer.Interval = new TimeSpan(0, 0, 5);
@@ -66,12 +57,12 @@ namespace Bolnica.view
                 foreach (Recept r in recepti)
                 {
                     DateTime dt = (r.DatumIzdavanja.AddDays(r.BrojDana)).Date;
-                    if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date >= DateTime.Today)
+                    if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date > DateTime.Today)
                     {
                         TimeSpan satVremena = new TimeSpan(1, 1, 0);
                          foreach(int i in r.TerminiUzimanjaLeka)
                         {
-                            if((DateTime.Now - DateTime.Today.AddHours(i)) < satVremena || 1==1 )
+                            if((DateTime.Today.AddHours(i)- DateTime.Today) < satVremena)
                             {
                                 ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i);
                                 brojNovihPodsetnika++;
@@ -82,7 +73,7 @@ namespace Bolnica.view
             }
             if(brojNovihPodsetnika>0)
             {
-                primiObavestenja();
+                primiObavestenja(brojNovihPodsetnika);
             }
         }
 
@@ -93,9 +84,12 @@ namespace Bolnica.view
             s.Show();
         }
 
-       public void primiObavestenja()
+       public void primiObavestenja(int brojPodsetnika)
         {
-                zvonceSaObevestenjem.Visibility = Visibility.Visible;
+            zvonceSaObevestenjem.Visibility = Visibility.Visible;
+            brojObavestenja.Visibility = Visibility.Visible;
+            brojObavestenja.Text = brojPodsetnika.ToString();
+            okvirZaBrojObavestenja.Visibility = Visibility.Visible;
             zvonce.Visibility = Visibility.Hidden;         
 
         }
@@ -105,6 +99,7 @@ namespace Bolnica.view
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             zvonceSaObevestenjem.Visibility = Visibility.Hidden;
+            okvirZaBrojObavestenja.Visibility = Visibility.Hidden;
             zvonce.Visibility = Visibility.Visible;
             MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().ObavestenjaVM;
         }

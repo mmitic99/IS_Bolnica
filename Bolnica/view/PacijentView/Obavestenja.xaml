@@ -26,7 +26,9 @@
                               Background="Transparent"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
-                              Grid.Row="1">
+                              Grid.Row="1"
+                              HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -36,9 +38,16 @@
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="40"></RowDefinition>
                                                     <RowDefinition Height="50"/>
+                                                    <RowDefinition Height="20"></RowDefinition>
                                                 </Grid.RowDefinitions>
-                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" />
-                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}"/>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="704"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Naslov}" FontWeight="Bold" Height="60" FontSize="17"/>
+                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15"/>
+                                                <Image Width="75" Height="75" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="medicine.png"/>
+                                                <TextBlock Grid.Row="2" Text="{Binding VremeObavestenja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                                             </Grid>
                                         </StackPanel>
@@ -59,21 +68,32 @@
                               Background="Transparent"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
-                              Grid.Row="2">
+                              Grid.Row="2"
+                          Grid.Column="1"
+                          HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                      <StackPanel>
+                                        <Border CornerRadius="7">
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="40"></RowDefinition>
                                                     <RowDefinition Height="50"/>
                                                 </Grid.RowDefinitions>
-                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" />
-                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}"/>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="704"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" FontSize="17"/>
+                                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15"/>
+                                                <Image Width="80" Height="75" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="email.png"/>
 
                                             </Grid>
+                                        </Border>
+
                                     </StackPanel>
                                         
                                     </DataTemplate>

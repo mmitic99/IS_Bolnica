@@ -91,7 +91,27 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="Obaveštenja" Margin="0,30,0,0" Grid.RowSpan="2" Height="16" VerticalAlignment="Top"/>
                         <Image x:Name="zvonce" Source="bell.png" Margin="0,0,0,0.4"/>
+
                         <Image x:Name="zvonceSaObevestenjem" Source="notification.png" Visibility="Hidden" />
+                        <Border CornerRadius="50"
+                                Width="12"
+                                Height="12"
+                                Visibility="Hidden"
+                            Background="#FFFF0D0D"
+                                Name="okvirZaBrojObavestenja"
+                            
+                             BorderThickness="0" Margin="36,0.2,22,18.4"
+                                Padding="0,0.2,0,0">
+                            <TextBlock x:Name="brojObavestenja"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="8"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Width="5"
+                                       Height="12" Margin="4,-0.2,3,0"
+                                       ></TextBlock>
+                        </Border>
                     </Grid>
                 </StackPanel>
 
