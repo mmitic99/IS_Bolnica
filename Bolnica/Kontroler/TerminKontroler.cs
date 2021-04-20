@@ -37,7 +37,6 @@ namespace Kontroler
 
         public bool OtkaziTermin(Model.Termin termin)
         {
-            // TODO: implement
             return terminServis.OtkaziTermin(termin);
         }
 

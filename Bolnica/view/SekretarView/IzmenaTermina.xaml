@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.SekretarView"
         mc:Ignorable="d"
-        Title="IzmenaTermina" Height="700" Width="500">
+        Title="IzmenaTermina" Height="700" Width="500" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -44,7 +45,11 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Pacijent:</Label>
                     <TextBox x:Name="pacijent" Grid.Column="1" IsReadOnly="True"/>
-                    <Button Grid.Column="2" IsEnabled="False">+</Button>
+                    <Button Grid.Column="2" IsEnabled="False" Padding="3"  Opacity="10" ToolTip="Dodaj pacijenta">
+                        <Grid>
+                            <Image Source="/Images/add.png" Stretch="Fill"/>
+                        </Grid>
+                    </Button>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -55,7 +60,11 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Lekar:</Label>
                     <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2"/>
-                    <Button Grid.Column="3" IsEnabled="False">+</Button>
+                    <Button Grid.Column="3" IsEnabled="False" Padding="3" Opacity="1" ToolTip="Dodaj pacijenta">
+                        <Grid>
+                            <Image Source="/Images/add.png" Stretch="Fill"/>
+                        </Grid>
+                    </Button>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
