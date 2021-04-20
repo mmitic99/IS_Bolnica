@@ -200,16 +200,16 @@
         <Izvestaj>
           <recepti>
             <Recept>
-              <ImeLeka>Retinol</ImeLeka>
-              <SifraLeka>12</SifraLeka>
-              <DodatneNapomene>5</DodatneNapomene>
-              <DatumIzdavanja>2021-04-19T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>4</BrojDana>
+              <ImeLeka>Diklofenat</ImeLeka>
+              <SifraLeka>177117</SifraLeka>
+              <DodatneNapomene>Samo pre spavanja.</DodatneNapomene>
+              <DatumIzdavanja>2021-04-20T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>2</BrojDana>
               <Doza>2</Doza>
               <TerminiUzimanjaLeka>
-                <int>2</int>
-                <int>7</int>
-                <int>23</int>
+                <int>20</int>
+                <int>21</int>
+                <int>22</int>
               </TerminiUzimanjaLeka>
               <Dijagnoza />
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>

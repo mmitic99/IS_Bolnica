@@ -71,7 +71,7 @@ namespace Bolnica.view.LekarView
             Izvestaj izvestaj = new Izvestaj(recepti);
             List<Izvestaj> izvestaji = new List<Izvestaj>();
             izvestaji.Add(izvestaj);
-            pacijent1.zdravstveniKarton.izvestaj = izvestaji;
+            pacijent1.zdravstveniKarton.izvestaj.Add(izvestaj);
             PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
         }

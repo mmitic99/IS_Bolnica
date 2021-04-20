@@ -25,10 +25,16 @@ namespace Bolnica.view
     public partial class Obavestenja : UserControl
     {
         public Pacijent pacijent;
+        public static Obavestenja instance = null;
+        public static Obavestenja getInstance()
+        {
+            return instance;
+        }
         public Obavestenja()
         {
             this.pacijent = PacijentMainWindow.getInstance().pacijent;
             InitializeComponent();
+            instance = this;
             obavestenjaPacijenta.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(PacijentMainWindow.getInstance().pacijent.Jmbg);
             PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
         }

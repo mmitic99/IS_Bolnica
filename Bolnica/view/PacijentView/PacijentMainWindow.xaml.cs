@@ -40,9 +40,10 @@ namespace Bolnica.view
             this.pacijent = pacijent;
             Ime.DataContext = pacijent;
             DataContext = new MainViewModel();
+            brojObavestenja.Text = "0";
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(nabaviNovePodsetnike);
-            timer.Interval = new TimeSpan(0, 0, 5);
+            timer.Interval = new TimeSpan(0, 0, 15);
             timer.Start();
 
         }
@@ -60,9 +61,10 @@ namespace Bolnica.view
                     if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date > DateTime.Today)
                     {
                         TimeSpan satVremena = new TimeSpan(1, 1, 0);
+                        TimeSpan nula = new TimeSpan(0, 0, 0);
                          foreach(int i in r.TerminiUzimanjaLeka)
                         {
-                            if((DateTime.Today.AddHours(i)- DateTime.Today) < satVremena)
+                            if((DateTime.Today.AddHours(i)- DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now)> nula)
                             {
                                 ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i);
                                 brojNovihPodsetnika++;
@@ -74,6 +76,11 @@ namespace Bolnica.view
             if(brojNovihPodsetnika>0)
             {
                 primiObavestenja(brojNovihPodsetnika);
+                if (MainViewModel.getInstance().CurrentView == MainViewModel.getInstance().ObavestenjaVM)
+                {
+                    view.Obavestenja.getInstance().PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+                }
+
             }
         }
 
@@ -84,13 +91,15 @@ namespace Bolnica.view
             s.Show();
         }
 
-       public void primiObavestenja(int brojPodsetnika)
+        public void primiObavestenja(int brojPodsetnika)
         {
+            int broj = Int32.Parse(brojObavestenja.Text);
             zvonceSaObevestenjem.Visibility = Visibility.Visible;
             brojObavestenja.Visibility = Visibility.Visible;
-            brojObavestenja.Text = brojPodsetnika.ToString();
+            broj += brojPodsetnika;
+            brojObavestenja.Text = broj.ToString();
             okvirZaBrojObavestenja.Visibility = Visibility.Visible;
-            zvonce.Visibility = Visibility.Hidden;         
+            zvonce.Visibility = Visibility.Hidden;
 
         }
 

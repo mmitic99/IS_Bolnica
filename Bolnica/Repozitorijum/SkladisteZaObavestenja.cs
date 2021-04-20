@@ -76,14 +76,22 @@ namespace Repozitorijum
         public List<Obavestenje> GetPodsetniciByJmbg(String jmbg)
         {
             List<Obavestenje> svaObavestenja = this.GetAll();
+            List<Obavestenje> svaObavestenjaFiltrirano = this.GetAll();
             List<Obavestenje> odgovarajucaObavestanje = new List<Obavestenje>();
+            bool remove = false;
             foreach (Obavestenje o in svaObavestenja)
             {
-                if (o.JmbgKorisnika.Equals(jmbg) && o.Podsetnik)
+                if (o.VremeObavestenja < DateTime.Today && o.Podsetnik)
+                {
+                    svaObavestenjaFiltrirano.Remove(o);
+                }
+                else if (o.JmbgKorisnika.Equals(jmbg) && o.Podsetnik)
                 {
                     odgovarajucaObavestanje.Add(o);
                 }
             }
+            
+            this.SaveAll(svaObavestenjaFiltrirano);
             return odgovarajucaObavestanje;
         }
         private String Lokacija;
