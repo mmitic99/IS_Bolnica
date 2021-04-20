@@ -1,4 +1,4 @@
-﻿using Bolnica.model;
+﻿
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -42,7 +42,8 @@ namespace Bolnica.view.LekarView
             int k = 0;
             Jmbg = jmbg;
             ComboBox1.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
-            if (jmbg != null) {
+            if (jmbg != null)
+            {
 
                 Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
                 ComboBox1.SelectedItem = pacijent.FullName;
@@ -61,20 +62,16 @@ namespace Bolnica.view.LekarView
                     txt3.Text = "M";
                 else
                     txt3.Text = "Ž";
-                txt4.Text = pacijent.DatumRodjenja.ToString();
+
+                txt4.Text = pacijent.DatumRodjenja.ToShortDateString();
                 txt5.Text = pacijent.Adresa;
                 txt6.Text = "Oženjen";
                 txt7.Text = "Posao";
                 txt8.Text = pacijent.BrojTelefona;
                 ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
-                for (int i = 0; i < alergeni.Count(); i++)
-                {
-                    if (alergeni[i] == "Alergeni")
-                        continue;
-
-                    txt9.Text += alergeni[i];
-                }
-        }
+                String alergeniString = String.Join(",", alergeni);
+                txt9.Text = alergeniString;
+            }
     }
 
 
@@ -98,7 +95,9 @@ namespace Bolnica.view.LekarView
             txt6.Text = "Oženjen";
             txt7.Text = "Posao";
             txt8.Text = pacijent.BrojTelefona;
-            txt9.Text = "Alergeni";
+            ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
+            String alergeniString = String.Join(",", alergeni);
+            txt9.Text = alergeniString;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -109,7 +108,7 @@ namespace Bolnica.view.LekarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             String dijalog = AnamnezaTxt.Text;
-            Anamneza anamneza = new Anamneza(dijalog, DateTime.Today, LekarWindow.getInstance().lekar1.FullName);
+            Anamneza anamneza = new Anamneza(dijalog, DateTime.Now, LekarWindow.getInstance().lekar1.FullName);
             Pacijent pacijent = (Pacijent)ComboBox1.SelectedItem;
             pacijent.zdravstveniKarton.Anamneze.Add(anamneza);
             Pacijent pacijent1 = pacijent;
@@ -121,6 +120,13 @@ namespace Bolnica.view.LekarView
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new AnamnezaPage(Jmbg);
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            var s = new Prijavljivanje("l");
+            LekarWindow.getInstance().Close();
+            s.Show();
         }
     }
 }

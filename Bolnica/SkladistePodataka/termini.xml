@@ -246,12 +246,12 @@
   <Termin>
     <DatumIVremeTermina>2021-12-20T08:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-<<<<<<< Updated upstream
     <IdProstorije>101</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>231321315464</JmbgPacijenta>
     <IDTermina>231321315464453620.12.2021. 08:00:00</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -263,6 +263,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -274,6 +275,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/29/2021 8:30:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -285,6 +287,7 @@
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896095/19/2021 12:00:00 PM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -292,17 +295,36 @@
     <DatumIVremeTermina>2021-04-30T10:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>101</IdProstorije>
-=======
-    <IdProstorije>8</IdProstorije>
->>>>>>> Stashed changes
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/30/2021 10:00:00 AM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
-    <TrajanjeTermina>0</TrajanjeTermina>
     <pacijent>Mihailo Majstorovic</pacijent>
-    <brojSobe>209</brojSobe>
-    <TrajanjeTermina>30</TrajanjeTermina>
+    <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-20T14:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>23132131546466674/20/2021 2:00:00 PM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <brojSobe>001</brojSobe>
+    <TrajanjeTermina>30</TrajanjeTermina>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-20T15:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>123456789012366674/20/2021 3:00:00 PM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <brojSobe>202</brojSobe>
+    <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
 </ArrayOfTermin>

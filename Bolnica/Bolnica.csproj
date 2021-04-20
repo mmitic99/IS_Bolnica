@@ -121,6 +121,9 @@
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
       <DependentUpon>AnamnezaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\LekarView\AzurirajAnamnezuPage.xaml.cs">
+      <DependentUpon>AzurirajAnamnezuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\KreirajTerminPage.xaml.cs">
       <DependentUpon>KreirajTerminPage.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\AnamnezaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\AzurirajAnamnezuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

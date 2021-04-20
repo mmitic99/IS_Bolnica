@@ -17,8 +17,8 @@
            
            
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"/>
-                <DataGridTextColumn Header="Vreme termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:HH:mm\}}" Width="*"/>
+                <DataGridTextColumn SortDirection="Ascending" Header="Datum termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"/>
+                <DataGridTextColumn SortDirection="Ascending" Header="Vreme termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:HH:mm\}}" Width="*"/>
                 <DataGridTextColumn Header="Ime pacijenta" Binding="{Binding pacijent}" Width="*"/>
                 <DataGridTextColumn Header="Trajanje termina (u minutima)" Binding="{Binding TrajanjeTermina}"/>
                 <DataGridTextColumn Header="Prostorija" Binding="{Binding brojSobe}"/>
@@ -35,7 +35,7 @@
             <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_1"/>
             <MenuItem Header="Obaveštenja" FontSize="20"/>
             <MenuItem Header="Profil" Width="60" FontSize="20"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2"/>
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click"/>
         </Menu>
         <Image HorizontalAlignment="Left" Height="55" Margin="40,10,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
         <DatePicker Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="564,380,0,0" VerticalAlignment="Top" Height="30" />

@@ -1,4 +1,4 @@
-﻿using Bolnica.model;
+﻿
 using Model;
 using Repozitorijum;
 using System;
@@ -15,15 +15,14 @@ namespace Bolnica.view.LekarView
     {
 
         public List<Anamneza> Anamneze { get; set; }
-        public ZdravstveniKarton Karton;
         public Pacijent pacijent;
         public AnamnezaPage(String jmbg)
         {
            
             InitializeComponent();
+            DataContext = this;
             Anamneze = new List<Anamneza>();
             pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
-            Karton = pacijent.zdravstveniKarton;
             Anamneze = pacijent.zdravstveniKarton.Anamneze;
 
             Console.WriteLine(jmbg);
@@ -32,6 +31,15 @@ namespace Bolnica.view.LekarView
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (Anamneza_Table.SelectedIndex != -1) {
+                Anamneza anamneza = pacijent.zdravstveniKarton.getAnamnezaById(((Anamneza)Anamneza_Table.SelectedItem).IdAnamneze);
+               LekarWindow.getInstance().Frame1.Content = new AzurirajAnamnezuPage(anamneza);
+            }
+               
         }
     }
 }

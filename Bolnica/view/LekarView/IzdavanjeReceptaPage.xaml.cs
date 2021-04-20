@@ -35,8 +35,8 @@ namespace Bolnica.view.LekarView
            pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
-            //DateTime datumrodj = pacijent.DatumRodjenja.Date;
-            txt3.Text = pacijent.DatumRodjenja.ToString();
+
+            txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarWindow.getInstance().lekar1.FullName ;
 
         }

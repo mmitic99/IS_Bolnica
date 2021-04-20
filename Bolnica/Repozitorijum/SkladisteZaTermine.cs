@@ -75,6 +75,19 @@ namespace Repozitorijum
             }
             return odgovTermini;
         }
+        public List<Termin> getByDateForLekar(DateTime datum,String jmbg)
+        {
+            List<Termin> odgovTermini = new List<Termin>();
+            List<Termin> sviTermini = this.GetAll();
+            foreach (Termin t in sviTermini)
+            {
+                if (t.JmbgLekara.Equals(jmbg) & t.DatumIVremeTermina.Date.Equals(datum.Date))
+                {
+                    odgovTermini.Add(t);
+                }
+            }
+            return odgovTermini;
+        }
         public List<Termin> getByJmbgLekar(String jmbg)
         {
             List<Termin> odgovTermini = new List<Termin>();

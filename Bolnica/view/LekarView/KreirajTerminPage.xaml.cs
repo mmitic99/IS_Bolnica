@@ -50,15 +50,16 @@ namespace Bolnica.view
         }
         public void UcitajPodatke()
         {
+            String datum= DatePicker1.Text;
             String vreme = txt1.Text;
             String trajanje = txt2.Text;
             Double trajanjeDou = Double.Parse(trajanje);
             VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
-            Pacijent pa = new Pacijent { Ime = "Mihailo", Prezime = "Majstorovic", Jmbg = "123456789" };
-            l = new Lekar("Milos", "Marinkovic", "6667");
+            Pacijent pa = (Pacijent)ComboBox3.SelectedItem;
+            l = LekarWindow.getInstance().lekar1;
             Prostorija p = (Prostorija)ComboBox2.SelectedItem;
 
-            var vremeDataTime = DateTime.Parse(vreme);
+            var vremeDataTime = DateTime.Parse(datum + " " + vreme);
             termin = new Termin { DatumIVremeTermina = vremeDataTime, IdProstorije = p.IdProstorije, TrajanjeTermina = trajanjeDou, VrstaTermina = pre, JmbgPacijenta = pa.Jmbg, JmbgLekara = l.Jmbg };
             termin.IDTermina = termin.generateRandId();
             SkladisteZaTermine.getInstance().Save(termin);
@@ -70,6 +71,7 @@ namespace Bolnica.view
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UcitajPodatke();
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
 
 
 

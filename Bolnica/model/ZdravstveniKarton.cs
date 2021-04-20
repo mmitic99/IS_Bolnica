@@ -1,4 +1,4 @@
-using Bolnica.model;
+
 using System;
 using System.Collections.Generic;
 
@@ -6,16 +6,16 @@ namespace Model
 {
     public class ZdravstveniKarton
     {
-<<<<<<< Updated upstream
+
 
         public List<Izvestaj> izvestaj { get; set; }
 
-=======
-        public List<Izvestaj> izvestaj;
+
+       
         public List<Anamneza> Anamneze { get; set; }
 
        
->>>>>>> Stashed changes
+
 
         public ZdravstveniKarton()
         {
@@ -73,5 +73,29 @@ namespace Model
         
 
         public List<Izvestaj> Izvestaji { get; set; }
+        public Anamneza getAnamnezaById(String Id)
+        {
+            List<Anamneza> anamneze = this.Anamneze;
+            Anamneza a1 = new Anamneza();
+            foreach (Anamneza a in anamneze)
+            {
+                if (a.IdAnamneze != null)
+                {
+                    if (a.IdAnamneze.Equals(Id))
+                    {
+                        a1 = a;
+                        break;
+                    }
+                }
+            }
+            return a1;
+        }
+        public Anamneza IzmenaAnamneze(String id,String dijalog)
+        {
+            
+            Anamneza anamneza = this.getAnamnezaById(id);
+            anamneza.AnamnezaDijalog = dijalog;
+            return anamneza;
+        }
     }
 }

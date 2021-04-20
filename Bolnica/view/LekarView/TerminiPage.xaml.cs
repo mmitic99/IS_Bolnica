@@ -38,7 +38,7 @@ namespace Bolnica.view.LekarView
         }
 
 
-        SkladisteZaTermine skladiste = new SkladisteZaTermine();
+        
 
 
         public TerminiPage(Lekar lekar)
@@ -46,7 +46,7 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Termini = skladiste.getByJmbgLekar(lekar.Jmbg);
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(DateTime.Now.Date,lekar.Jmbg);
            
             instance = this;
         }
@@ -99,13 +99,18 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            /*String datum = DatePicker1.SelectedDate.ToString();
-             var tbx = sender as DatePicker;
-             if(tbx != DatePicker1.SelectedDate.Date)
-             {
+            DateTime datum = DateTime.Parse(DatePicker1.Text);
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(datum.Date,LekarWindow.getInstance().lekar1.Jmbg);
+            LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(Termini);
 
-             }*/
-             
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Prijavljivanje("l");
+           LekarWindow.getInstance().Close();
+            s.Show();
         }
     }
 }
