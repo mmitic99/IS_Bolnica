@@ -1,6 +1,10 @@
-﻿using Kontroler;
+﻿using Bolnica.Kontroler;
+using Bolnica.model;
+using Bolnica.Repozitorijum;
+using Kontroler;
 using Model;
 using Repozitorijum;
+using Servis;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +23,7 @@ namespace Bolnica.view.UpravnikView
         public List<StacionarnaOprema> StacionarnaOpremaUKojuSeDodaje { get; set; }
         public List<PotrosnaOprema> PotrosnaMagacin { get; set; }
         public List<Prostorija> ListaProstorija { get; set; }
+        public List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme { get; set; }
 
         private static UpravnikWindow instance = null;
 
@@ -39,13 +44,15 @@ namespace Bolnica.view.UpravnikView
             PotrosnaMagacin = new List<PotrosnaOprema>();
             StacionarnaOpremaOdKojeSeUzima = new List<StacionarnaOprema>();
             StacionarnaOpremaUKojuSeDodaje = new List<StacionarnaOprema>();
+            PreraspodeleStatickeOpreme = new List<ZakazanaPreraspodelaStatickeOpreme>();
             ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
             StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
             PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
+            PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
         }
 
         // metoda za dodavanje nove prostorije
-        private void DodajProstoriju(object sender, RoutedEventArgs e) 
+        private void DodajProstoriju(object sender, RoutedEventArgs e)
         {
             if (ProstorijeKontroler.GetInstance().ProveriValidnostProstorije(BrojProstorijeTextBox.Text, SpratTextBox.Text, VrstaProstorijeComboBox.SelectedIndex, KvadraturaTextBox.Text))
             {
@@ -140,7 +147,7 @@ namespace Bolnica.view.UpravnikView
 
         private void DodajPotrosnuOpremuUMagacin(object sender, RoutedEventArgs e)
         {
-            if (ProstorijeKontroler.GetInstance().ProveriValidnostOpreme(NazivDinamickeOpreme.Text, KolicinaDinamickeOpreme.Text)) 
+            if (ProstorijeKontroler.GetInstance().ProveriValidnostOpreme(NazivDinamickeOpreme.Text, KolicinaDinamickeOpreme.Text))
                 ProstorijeKontroler.GetInstance().DodajPotrosnuOpremuUMagacin(NazivDinamickeOpreme.Text, Int32.Parse(KolicinaDinamickeOpreme.Text));
         }
 
@@ -206,12 +213,22 @@ namespace Bolnica.view.UpravnikView
 
         private void PrikaziProzorZaZakazivanjePrebacivanjaOpreme(object sender, RoutedEventArgs e)
         {
-
+            ZakazanaPrebacivanjaOpremeTab.IsEnabled = true;
+            ZakazanaPrebacivanjaOpremeTab.IsSelected = true;
+            ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text = ListaProstorija[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].BrojSobe_;
+            ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text = ListaProstorija[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe_;
         }
 
         private void RaspodelaOpremeTab_LostFocus(object sender, RoutedEventArgs e)
         {
-            RaspodelaOpremeTab.IsEnabled = false;
+            if (RaspodelaOpremeTab.IsSelected == false)
+            {
+                NazivOpremeSKojomSeRadi_Copy.Clear();
+                KolicinaOpremeSKojomSeRadi_Copy.Clear();
+                NazivOpremeSKojomSeRadi.Clear();
+                KolicinaOpremeSKojomSeRadi.Clear();
+                RaspodelaOpremeTab.IsEnabled = false;
+            }
         }
 
         private void PrebaciStatickuOpremuUProstoriju(object sender, RoutedEventArgs e)
@@ -256,7 +273,6 @@ namespace Bolnica.view.UpravnikView
             {
                 int indexSelektovaneOpreme = TabelaOpremeIzKojeSePrebacuje.SelectedIndex;
                 NazivOpremeSKojomSeRadi_Copy.Text = StacionarnaOpremaOdKojeSeUzima[indexSelektovaneOpreme].TipStacionarneOpreme_;
-               // KolicinaOpremeSKojomSeRadi_Copy.Text = StacionarnaOpremaOdKojeSeUzima[indexSelektovaneOpreme].Kolicina_.ToString();
             }
         }
 
@@ -266,7 +282,6 @@ namespace Bolnica.view.UpravnikView
             {
                 int indexSelektovaneOpreme = TabelaOpremeUKojuSePrebacuje.SelectedIndex;
                 NazivOpremeSKojomSeRadi.Text = StacionarnaOpremaUKojuSeDodaje[indexSelektovaneOpreme].TipStacionarneOpreme_;
-                //KolicinaOpremeSKojomSeRadi.Text = StacionarnaOpremaUKojuSeDodaje[indexSelektovaneOpreme].Kolicina_.ToString();
             }
         }
         private String VrstaProstorijeLepIspis(Model.Enum.VrstaProstorije vrsta)
@@ -276,9 +291,63 @@ namespace Bolnica.view.UpravnikView
             else if (vrsta == Model.Enum.VrstaProstorije.Operaciona_sala)
                 return "OPERACIONA SALA";
             else if (vrsta == Model.Enum.VrstaProstorije.Soba_za_bolesnike)
-                return "SOBA ZA BOLESNIKE"; 
+                return "SOBA ZA BOLESNIKE";
             else
                 return "SOBA ZA PREGLEDE";
+        }
+
+        private void VratiSeNazad_Click(object sender, RoutedEventArgs e)
+        {
+            RaspodelaOpremeTab.IsEnabled = true;
+            RaspodelaOpremeTab.IsSelected = true;
+        }
+
+        private void ZakazanaPrebacivanjaOpremeTab_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ZakazanaPrebacivanjaOpremeTab.IsEnabled = false;
+        }
+
+        private void ZakaziPrebacivanjeOpreme_Click(object sender, RoutedEventArgs e)
+        {
+            ZakazanaPreraspodelaStatickeOpreme preraspodela = new ZakazanaPreraspodelaStatickeOpreme();
+            if (DatumPreraspodele.SelectedDate != null)
+            {
+                DateTime datumVreme = (DateTime)DatumPreraspodele.SelectedDate;
+                int sati = (int)Sat.SelectedIndex + 6;
+                int minuti = 30;
+                if (Minut.SelectedIndex == 0)
+                {
+                    minuti = 0;
+                }
+                DateTime odabranDatumIVreme = new DateTime(datumVreme.Year, datumVreme.Month, datumVreme.Day, sati, minuti, 0);
+                int IdPrveProstorije = ProstorijeServis.GetInstance().GetIdProstorijeByBrojProstorije(ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text);
+                int IdDrugeProstorije = ProstorijeServis.GetInstance().GetIdProstorijeByBrojProstorije(ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text);
+                double trajanjePreraspodele = 60;
+                if ((ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdPrveProstorije, odabranDatumIVreme, trajanjePreraspodele)) &&
+                    ((ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdDrugeProstorije, odabranDatumIVreme, trajanjePreraspodele))))
+                {
+                    preraspodela = new ZakazanaPreraspodelaStatickeOpreme(ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text, ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text, odabranDatumIVreme, 60, InformacijeOPreraspodeli.Text);
+                    ZakazanaPreraspodelaStatickeOpremeKontroler.GetInstance().ZakaziPreraspodeluStatickeOpreme(preraspodela);
+                }
+                else if (ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdPrveProstorije, odabranDatumIVreme, trajanjePreraspodele))
+                {
+                    MessageBox.Show("Prostorija u koju želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                    MessageBox.Show("Prostorija iz koje želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show("Označite datum preraspodele opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void OtkaziPrebacivanjeOpreme_Click(object sender, RoutedEventArgs e)
+        {
+            if (TabelaZakazanihPrebacivanjaOpreme.SelectedIndex != -1)
+                ZakazanaPreraspodelaStatickeOpremeKontroler.GetInstance().OtkaziPreraspodeluStatickeOpreme(TabelaZakazanihPrebacivanjaOpreme.SelectedIndex);
+            else
+                MessageBox.Show("Označite preraspodelu iz tabele koju želite da otkažete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

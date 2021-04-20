@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfZakazanaPreraspodelaStatickeOpreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-04-23T11:30:00</DatumIVremePreraspodele>
+    <InformacijeOPreraspodeli>Stolica - 3</InformacijeOPreraspodeli>
+    <BrojProstorijeIzKojeSePrenosiOprema>101</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>001</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>3</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>0</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-04-23T12:30:00</DatumIVremePreraspodele>
+    <InformacijeOPreraspodeli>Sto - 2, Krevet - 2, Stolica - 4</InformacijeOPreraspodeli>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>304</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>8</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+</ArrayOfZakazanaPreraspodelaStatickeOpreme>

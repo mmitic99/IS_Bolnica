@@ -1,4 +1,6 @@
-﻿using Bolnica.view.UpravnikView;
+﻿using Bolnica.model;
+using Bolnica.Repozitorijum;
+using Bolnica.view.UpravnikView;
 using Model;
 using Repozitorijum;
 using System;
@@ -55,12 +57,78 @@ namespace Servis
             return null;
         }
 
-        public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime pocetakTermina, DateTime krajTermina)
+        public List<Termin> GetTerminiByIdProstorije(int id)
         {
-            // TODO: implement
-            return false;
+            List<Termin> TerminiProstorije = new List<Termin>();
+            List<Termin> SviTermini = SkladisteZaTermine.getInstance().GetAll();
+            foreach (Termin t in SviTermini)
+            {
+                if (t.IdProstorije.Equals(id))
+                {
+                    TerminiProstorije.Add(t);
+                }
+            }
+            return TerminiProstorije;
         }
 
+        public List<ZakazanaPreraspodelaStatickeOpreme> GetPreraspodeleByIdProstorije(int id)
+        {
+            List<ZakazanaPreraspodelaStatickeOpreme> svePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
+            List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = new List<ZakazanaPreraspodelaStatickeOpreme>();
+            foreach (ZakazanaPreraspodelaStatickeOpreme prer in svePreraspodele)
+            {
+                if (prer.IdProstorijeIzKojeSePrenosiOprema.Equals(id) || prer.IdProstorijeUKojUSePrenosiOprema.Equals(id))
+                {
+                    preraspodeleProstorije.Add(prer);
+                }
+            }
+            return preraspodeleProstorije;
+        }
+        
+        public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime datumIVremePreraspodele, double trajanje)
+        {
+            bool slobodan = true;
+            List<Termin> terminiProstorije = GetTerminiByIdProstorije(iDProstorije);
+            List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
+            foreach (Termin t in terminiProstorije)
+            {
+                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) > 0 && DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0) //da li pocetak upada) //da li kraj upada
+                {
+                    slobodan = false;
+                    break;
+                }
+                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), t.DatumIVremeTermina) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    slobodan = false;
+                    break;
+                }
+                if (DateTime.Compare(t.DatumIVremeTermina, datumIVremePreraspodele) == 0)
+                {
+                    slobodan = false;
+                    break;
+                }
+            }
+            foreach (ZakazanaPreraspodelaStatickeOpreme prer in preraspodeleProstorije)
+            {
+                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) > 0 && DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele.AddMinutes(prer.TrajanjePreraspodele)) < 0) //da li pocetak upada) //da li kraj upada
+                {
+                    slobodan = false;
+                    break;
+                }
+                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), prer.DatumIVremePreraspodele) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    slobodan = false;
+                    break;
+                }
+                if (DateTime.Compare(prer.DatumIVremePreraspodele, datumIVremePreraspodele) == 0)
+                {
+                    slobodan = false;
+                    break;
+                }
+            }   
+                return slobodan;
+        }
+        
         public List<Prostorija> GetAll()
         {
             return SkladisteZaProstorije.GetInstance().GetAll();
@@ -568,6 +636,18 @@ namespace Servis
             UpravnikWindow.GetInstance().KolicinaDinamickeOpremeIzmeni.Clear();
             UpravnikWindow.GetInstance().NazivDinamickeOpreme.Clear();
             UpravnikWindow.GetInstance().NazivDinamickeOpremeIzmeni.Clear();
+        }
+
+        public int GetIdProstorijeByBrojProstorije(String brojProstorije) 
+        {
+            List<Prostorija> prostorije = new List<Prostorija>();
+            prostorije = SkladisteZaProstorije.GetInstance().GetAll();
+            foreach (Prostorija p in prostorije)
+            {
+                if (p.BrojSobe_ == brojProstorije)
+                    return p.IdProstorije_;
+            }
+            return -1;
         }
 
         public SkladisteZaProstorije skladisteZaProstorije;

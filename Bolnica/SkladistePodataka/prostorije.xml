@@ -22,11 +22,11 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
-        <Kolicina_>24</Kolicina_>
+        <Kolicina_>23</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
-        <Kolicina_>12</Kolicina_>
+        <Kolicina_>11</Kolicina_>
       </StacionarnaOprema>
     </Staticka_>
     <Potrosna_>
@@ -97,6 +97,10 @@
         <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
         <Kolicina_>1</Kolicina_>
       </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
+        <Kolicina_>1</Kolicina_>
+      </StacionarnaOprema>
     </Staticka_>
     <Potrosna_ />
     <IdProstorije_>2</IdProstorije_>
@@ -115,7 +119,7 @@
     <Staticka_>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
-        <Kolicina_>4</Kolicina_>
+        <Kolicina_>5</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Respirator</TipStacionarneOpreme_>

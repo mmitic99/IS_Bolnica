@@ -52,10 +52,9 @@ namespace Kontroler
             return null;
         }
 
-        public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime pocetakTermina, DateTime krajTermina)
+        public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime pocetakTermina, double trajanje)
         {
-            // TODO: implement
-            return false;
+            return ProstorijeServis.GetInstance().DaLiJeSLobodnaProstorija(iDProstorije, pocetakTermina, trajanje);
         }
 
         public List<Prostorija> GetAll()

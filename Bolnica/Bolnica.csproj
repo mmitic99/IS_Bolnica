@@ -90,10 +90,12 @@
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
     <Compile Include="model\TerminPacijentLekar.cs" />
+    <Compile Include="model\ZakazanaPreraspodelaStatickeOpreme.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Repozitorijum\SkladisteZaProstorije.cs" />
     <Compile Include="Repozitorijum\SkladisteZaSpecijalizaciju.cs" />
     <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
     <Compile Include="Servis\KorisnikServis.cs" />
     <Compile Include="Servis\LekarServis.cs" />
     <Compile Include="Servis\ObavestenjaServis.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Servis\SekretarServis.cs" />
     <Compile Include="Servis\TerminServis.cs" />
     <Compile Include="Servis\UpravnikServis.cs" />
+    <Compile Include="Servis\ZakazanaPreraspodelaStatickeOpremeServis.cs" />
     <Compile Include="viewActions\MainViewModel.cs" />
     <Compile Include="viewActions\ObavestenjaViewModel.cs" />
     <Compile Include="viewActions\ObseravableObject.cs" />
