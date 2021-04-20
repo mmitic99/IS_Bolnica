@@ -25,6 +25,14 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <Button Content="Primeni" HorizontalAlignment="Left" Margin="358,382,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click"/>
+        <Label Content="Pacijent :" HorizontalAlignment="Left" Margin="268,82,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBox3" HorizontalAlignment="Left" Margin="395,85,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
     </Grid>
 </Page>

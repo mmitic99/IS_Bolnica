@@ -38,6 +38,18 @@ namespace Model
 
             }
         }
+        public String brojSobe
+        {
+            get
+            {
+                Prostorija p = SkladisteZaProstorije.GetInstance().getById(IdProstorije);
+                return p.BrojSobe_;
+            }
+            set
+            {
+
+            }
+        }
 
         public double TrajanjeTermina { get; set; } //u satima
         public String opisTegobe { get; set; }

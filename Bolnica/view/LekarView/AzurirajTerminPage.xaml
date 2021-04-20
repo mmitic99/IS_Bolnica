@@ -17,7 +17,7 @@
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="373,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
         <ComboBox x:Name="ComboBox1"   HorizontalAlignment="Left" Margin="373,285,0,0" VerticalAlignment="Top" Width="145" Text="Izaberi opciju" />
         <Label Content="AZURIRANJE TERMINA" HorizontalAlignment="Left" Margin="287,10,0,0" VerticalAlignment="Top" Width="222" Height="37" FontSize="20" RenderTransformOrigin="0.78,0.533"/>
-        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="373,97,0,0" VerticalAlignment="Top" Width="145" Text="Izaberi opciju" >
+        <ComboBox ItemsSource="{Binding Termini}" Name="ComboBox2" HorizontalAlignment="Left" Margin="373,97,0,0" VerticalAlignment="Top" Width="145" Text="Izaberi opciju" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding BrojSobe_}"/>

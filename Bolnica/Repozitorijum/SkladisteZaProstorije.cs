@@ -49,8 +49,25 @@ namespace Repozitorijum
             }
             return Prostorije;
         }
+        public Prostorija getById(int id)
+        {
+            List<Prostorija> prostorije = this.GetAll();
+            Prostorija p1 = new Prostorija();
+            foreach (Prostorija p in prostorije)
+            {
+                if (p.IdProstorije != null)
+                {
+                    if (p.IdProstorije.Equals(id))
+                    {
+                        p1 = p;
+                        break;
+                    }
+                }
+            }
+            return p1;
+        }
 
-        public void Save(Prostorija prostorija)
+            public void Save(Prostorija prostorija)
         {
             Prostorije = GetAll();
 

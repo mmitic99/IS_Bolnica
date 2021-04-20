@@ -6,6 +6,7 @@
       <Naziv />
     </Grad>
     <Korisnik>
+<<<<<<< Updated upstream
       <KorisnickoIme>4567891230987</KorisnickoIme>
       <Lozinka>Sara</Lozinka>
     </Korisnik>
@@ -56,6 +57,8 @@
       <Naziv />
     </Grad>
     <Korisnik>
+=======
+>>>>>>> Stashed changes
       <KorisnickoIme>1234567890123</KorisnickoIme>
       <Lozinka>Pera</Lozinka>
     </Korisnik>
@@ -69,6 +72,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze />
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
@@ -94,6 +98,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze />
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
@@ -119,6 +124,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze />
       <Alergeni />
       <Izvestaji />
     </zdravstveniKarton>
@@ -128,6 +134,7 @@
   <Pacijent>
     <Grad>
       <drzava />
+<<<<<<< Updated upstream
       <Naziv />
     </Grad>
     <Korisnik>
@@ -153,6 +160,8 @@
   <Pacijent>
     <Grad>
       <drzava />
+=======
+>>>>>>> Stashed changes
       <Naziv />
     </Grad>
     <Korisnik>
@@ -169,6 +178,7 @@
     <Adresa />
     <zdravstveniKarton>
       <izvestaj />
+      <Anamneze />
       <Alergeni />
       <Izvestaji>
         <Izvestaj>
@@ -200,6 +210,41 @@
   <Pacijent>
     <Grad>
       <drzava />
+<<<<<<< Updated upstream
+=======
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>9876543210987</KorisnickoIme>
+      <Lozinka>Mika</Lozinka>
+    </Korisnik>
+    <Ime>Mika</Ime>
+    <Prezime>Mikić</Prezime>
+    <Jmbg>9876543210987</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijenta boli glava</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T00:00:00+02:00</DatumAnamneze>
+          <ImeLekara>dr Milos Marinkovic</ImeLekara>
+        </Anamneza>
+      </Anamneze>
+      <Alergeni />
+      <Izvestaji />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mika Mikić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+>>>>>>> Stashed changes
       <Naziv>Beograd</Naziv>
     </Grad>
     <Korisnik>
@@ -215,6 +260,7 @@
     <Email />
     <Adresa>Jovana Mikica 23/A</Adresa>
     <zdravstveniKarton>
+<<<<<<< Updated upstream
       <izvestaj>
         <Izvestaj>
           <recepti>
@@ -235,6 +281,16 @@
           </recepti>
         </Izvestaj>
       </izvestaj>
+=======
+      <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent ima povišen pritisak</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T00:00:00+02:00</DatumAnamneze>
+          <ImeLekara>dr Miroslav Mi</ImeLekara>
+        </Anamneza>
+      </Anamneze>
+>>>>>>> Stashed changes
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>

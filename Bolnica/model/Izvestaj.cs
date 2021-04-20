@@ -57,7 +57,7 @@ namespace Model
             recept.Clear();
       }*/
    
-      private String Anamneza;
+    
 
         public Izvestaj(List<Recept> recept)
         {
@@ -67,5 +67,7 @@ namespace Model
         public Izvestaj()
         {
         }
+
+       
     }
 }

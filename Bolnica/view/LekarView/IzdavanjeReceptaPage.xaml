@@ -23,7 +23,7 @@
         <Label Content="Količina doze :" HorizontalAlignment="Left" Margin="438,177,0,0" VerticalAlignment="Top" Width="144"/>
         <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,49,0,0"/>
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,94,0,0"/>
-        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,140,0,0"/>
+        <TextBox x:Name="txt3"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,140,0,0"/>
         <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,244,0,0"/>
         <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,297,0,0"/>
         <TextBox x:Name="txt7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,49,0,0"/>

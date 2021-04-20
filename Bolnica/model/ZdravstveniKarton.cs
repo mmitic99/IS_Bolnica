@@ -1,3 +1,4 @@
+using Bolnica.model;
 using System;
 using System.Collections.Generic;
 
@@ -5,14 +6,22 @@ namespace Model
 {
     public class ZdravstveniKarton
     {
+<<<<<<< Updated upstream
 
         public List<Izvestaj> izvestaj { get; set; }
 
+=======
+        public List<Izvestaj> izvestaj;
+        public List<Anamneza> Anamneze { get; set; }
+
+       
+>>>>>>> Stashed changes
 
         public ZdravstveniKarton()
         {
             izvestaj = new List<Izvestaj>();
             Alergeni = new List<string>();
+            Anamneze = new List<Anamneza>();
         }
         public List<Izvestaj> GetIzvestaj()
         {
@@ -60,6 +69,9 @@ namespace Model
         }
 
         public List<String> Alergeni { get; set; }
+
+        
+
         public List<Izvestaj> Izvestaji { get; set; }
     }
 }

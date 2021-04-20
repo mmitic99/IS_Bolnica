@@ -24,6 +24,8 @@ namespace Bolnica.view.LekarView
     public partial class TerminiPage : Page
     {
         private static TerminiPage instance = null;
+        
+        
 
         public static TerminiPage getInstance()
         {
@@ -34,21 +36,22 @@ namespace Bolnica.view.LekarView
             get;
             set;
         }
-        
+
 
         SkladisteZaTermine skladiste = new SkladisteZaTermine();
-        
+
 
         public TerminiPage(Lekar lekar)
         {
             InitializeComponent();
+            DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
             Termini = skladiste.getByJmbgLekar(lekar.Jmbg);
-
+           
             instance = this;
         }
 
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -80,17 +83,29 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            //for
+            if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
+            {
+                String jmbg = ((Termin)Pregledi_Table.SelectedItem).JmbgPacijenta;
+                LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbg);
+            }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(null);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            /*String datum = DatePicker1.SelectedDate.ToString();
+             var tbx = sender as DatePicker;
+             if(tbx != DatePicker1.SelectedDate.Date)
+             {
+
+             }*/
+             
         }
     }
 }

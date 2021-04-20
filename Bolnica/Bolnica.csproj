@@ -88,6 +88,7 @@
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
@@ -117,6 +118,9 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
+    <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
+      <DependentUpon>AnamnezaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\KreirajTerminPage.xaml.cs">
       <DependentUpon>KreirajTerminPage.xaml</DependentUpon>
     </Compile>
@@ -217,6 +221,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="viewActions\TerminiPacjentTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\AnamnezaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

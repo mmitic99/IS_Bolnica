@@ -37,6 +37,7 @@ namespace Bolnica.view
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
             ComboBox1.SelectedItem = null;
             ComboBox1.Text = "---izaberi--";
+            ComboBox3.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
             List<Prostorija> prostorije = skladprod.GetAll();
             ComboBox2.ItemsSource = prostorije;
             this.DataContext = this;
