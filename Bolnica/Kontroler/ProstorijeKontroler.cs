@@ -137,14 +137,43 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().ProveriValidnostOpreme(NazivOpreme, Kolicina);
         }
 
-        public bool ProveriValidnostIzmenjeneOpreme(String Kolicina)
+        public bool ProveriValidnostKolicineOpreme(String Kolicina)
         {
-            return ProstorijeServis.GetInstance().ProveriValidnostIzmenjeneOpreme(Kolicina);
+            return ProstorijeServis.GetInstance().ProveriValidnostKolicineOpreme(Kolicina);
+        }
+
+        public bool ProveriValidnostKolicineOpremePriPrebacivanju(String Kolicina)
+        {
+            return ProstorijeServis.GetInstance().ProveriValidnostKolicineOpremePriPrebacivanju(Kolicina);
         }
 
         public Model.Enum.VrstaProstorije GetVrstuProstorije(int IndexSelektovaneVrsteProstorije)
         {
             return ProstorijeServis.GetInstance().GetVrstuProstorije(IndexSelektovaneVrsteProstorije);
+        }
+
+        public List<StacionarnaOprema> GetStacionarnaOpremaProstorije(int index) 
+        {
+            return ProstorijeServis.GetInstance().GetStacionarnaOpremaProstorije(index);
+        }
+
+        public void IzbrisiStacionarnuOpremuIzProstorije(int indexProstorije, int indexOpreme)
+        {
+            ProstorijeServis.GetInstance().IzbrisiStacionarnuOpremuIzProstorije(indexProstorije, indexOpreme); 
+        }
+
+        public void IzmeniStacionarnuOpremuProstorije(int indexProstorije, int indexOpreme, int kolicina)
+        {
+            ProstorijeServis.GetInstance().IzmeniStacionarnuOpremuProstorije(indexProstorije, indexOpreme, kolicina);
+        }
+
+        public bool ProveriValidnostPrebacivanjaOpreme(String kolicina)
+        {
+            return ProstorijeServis.GetInstance().ProveriValidnostKolicineOpreme(kolicina);
+        }
+        public void PrebaciStacionarnuOpremuUProstoriju(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina)
+        {
+            ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(indexIzKojeProstorije, indexUKojuProstoriju, nazivOpreme, kolicina);
         }
 
         public Servis.TerminServis terminServis;
