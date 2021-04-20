@@ -1,17 +1,19 @@
 using Model.Enum;
 using System;
+using System.Collections.Generic;
 
 namespace Model
 {
     public class Prostorija
     {
         public int IdProstorije { get; set; }
-        public Sprat Sprat { get; set; }
+        public int Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }
         private bool RenoviraSe = false;
         private double Kvadratura;
-
+        private List<StacionarnaOprema> Staticka { get; set; }
+        private List<PotrosnaOprema> Potrosna { get; set; }
 
         public void RenovirajProstoriju()
         {
@@ -27,12 +29,17 @@ namespace Model
         public System.Collections.ArrayList termin;
 
 
-        public Prostorija()
-        {
+        public Prostorija() {}
 
+        public Prostorija(String BrojProstorije, int Sprat, Model.Enum.VrstaProstorije Vrsta, double Kvadratura)
+        {
+            this.BrojSobe = BrojProstorije;
+            this.Sprat = Sprat;
+            this.VrstaProstorije = Vrsta;
+            this.Kvadratura = Kvadratura;
         }
 
-        public Prostorija(Sprat s, String brs)
+        public Prostorija(int s, String brs)
         {
             this.inventarZaProstorije = new InventarZaProstorije();
             this.termin = new System.Collections.ArrayList();
@@ -99,10 +106,7 @@ namespace Model
         }
 
 
-
-
-
-        public Sprat Sprat_
+        public int Sprat_
         {
             get
             {
@@ -173,6 +177,51 @@ namespace Model
                 if (value != Kvadratura)
                 {
                     Kvadratura = value;
+                }
+            }
+        }
+        
+        public List<StacionarnaOprema> Staticka_
+        {
+            get
+            {
+                return Staticka;
+            }
+            set
+            {
+                if (value != Staticka)
+                {
+                    Staticka = value;
+                }
+            }
+        }
+
+        public List<PotrosnaOprema> Potrosna_
+        {
+            get
+            {
+                return Potrosna;
+            }
+            set
+            {
+                if (value != Potrosna)
+                {
+                    Potrosna = value;
+                }
+            }
+        }
+
+        public int IdProstorije_
+        {
+            get
+            {
+                return IdProstorije;
+            }
+            set
+            {
+                if (value != IdProstorije)
+                {
+                    IdProstorije = value;
                 }
             }
         }
