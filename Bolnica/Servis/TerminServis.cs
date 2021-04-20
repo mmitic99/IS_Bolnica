@@ -44,8 +44,8 @@ namespace Servis
 
         public bool OtkaziTermin(Model.Termin termin)
         {
-            // TODO: implement
-            return false;
+            skladisteZaTermine.RemoveByID(termin.IDTermina);
+            return true;
         }
 
         public bool IzmeniTermin(Termin termin, string stariIdTermina = null)

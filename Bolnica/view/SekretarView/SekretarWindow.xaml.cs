@@ -75,7 +75,7 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz);
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null);
             s.Show();
         }
 
@@ -92,7 +92,7 @@ namespace Bolnica.view.SekretarView
         {
             if (terminiPrikaz.SelectedIndex != -1)
             {
-                terminKontroler.RemoveByID(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin.IDTermina);
+                terminKontroler.OtkaziTermin(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin);
                 terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             }
         }
@@ -101,6 +101,22 @@ namespace Bolnica.view.SekretarView
         {
             var s = new Prijavljivanje("s");
             this.Close();
+            s.Show();
+        }
+
+        private void pacijenti_Selected(object sender, RoutedEventArgs e)
+        {
+            pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+        }
+
+        private void termini_Selected(object sender, RoutedEventArgs e)
+        {
+            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem);
             s.Show();
         }
     }

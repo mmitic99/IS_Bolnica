@@ -18,7 +18,7 @@ namespace Bolnica.view.SekretarView
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz)
+        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent)
         {
             InitializeComponent();
 
@@ -28,6 +28,11 @@ namespace Bolnica.view.SekretarView
             this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
             termin = new Termin();
+            if(izabraniPacijent != null)
+            {
+                termin.pacijent = izabraniPacijent.Jmbg;
+                pacijent.Text = izabraniPacijent.Ime + " " + izabraniPacijent.Prezime;
+            }
 
             sala.ItemsSource = prostorijeKontroler.GetAll();
             sala.SelectedIndex = 0;
@@ -94,6 +99,39 @@ namespace Bolnica.view.SekretarView
         {
             var s = new DodavanjeLekaraTerminu(termin, lekar);
             s.Show();
+        }
+
+        private void azurirajVreme(object sender, EventArgs e)
+        {
+            if (hitanT.IsChecked == true)
+            {
+                
+            }
+            else
+            {
+                /*List<DateTime> datumi = new List<DateTime>();
+                if (datum == null)
+                {
+                    datumi.Add(DateTime.Now);
+                }
+                else
+                {
+                    datumi.Add((DateTime)datum.SelectedDate);
+                }
+                List<Termin> moguciTermini = new List<Termin>();
+                if (termin != null)
+                {
+                    moguciTermini = terminKontroler.NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, datumi, DateTime.Now.TimeOfDay, TimeSpan.FromTicks(DateTime.Now.Date.AddDays(1).AddTicks(-1).Ticks), 2, "");
+                }
+                List<string> vremeTermina = new List<string>();
+                foreach (Termin moguciTermin in moguciTermini)
+                {
+                    vremeTermina.Add(moguciTermin.DatumIVremeTermina.TimeOfDay.ToString());
+                }
+                if(vremeT != null)
+                    vremeT.ItemsSource = vremeTermina;*/
+                
+            }
         }
     }
 }
