@@ -250,6 +250,7 @@
         <Izvestaj>
           <recepti>
             <Recept>
+              <terminiUzimanjaTokomDana />
               <ImeLeka>Paracetamol</ImeLeka>
               <SifraLeka>828020290</SifraLeka>
               <DodatneNapomene />
@@ -260,6 +261,43 @@
                 <int>3</int>
                 <int>4</int>
                 <int>5</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Voltaren</ImeLeka>
+              <SifraLeka>382828</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-04-21T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>2</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>8</int>
+                <int>12</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <ImeLeka>C vitamin</ImeLeka>
+              <SifraLeka>saguyas</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-04-21T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>2</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>8</int>
+                <int>23</int>
               </TerminiUzimanjaLeka>
               <Dijagnoza />
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>

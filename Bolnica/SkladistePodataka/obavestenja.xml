@@ -98,4 +98,39 @@
     <JmbgKorisnika>123456789</JmbgKorisnika>
     <Podsetnik>true</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T03:09:58.7120637+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Paracetamol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 04:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T07:02:41.6802516+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Voltaren</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 08:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T07:09:08.9165996+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -C vitamin</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 08:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T07:10:29.5353128+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T07:10:29.5372905+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

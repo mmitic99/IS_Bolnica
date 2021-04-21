@@ -34,9 +34,9 @@ namespace Servis
             return skladisteZaObavestenja.GetAll();
         }
 
-        public void Save(Model.Obavestenje obavestenje)
+        public bool Save(Model.Obavestenje obavestenje)
         {
-            skladisteZaObavestenja.Save(obavestenje);
+            return skladisteZaObavestenja.Save(obavestenje);
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
@@ -54,7 +54,7 @@ namespace Servis
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
         }
 
-        public void napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
         {
             Pacijent pacijent = PacijentServis.getInstance().GetByJmbg(jmbgPacijenta);
             //ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
@@ -67,7 +67,7 @@ namespace Servis
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Today.AddHours(hours)).ToString("HH:mm") + 
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
-            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+            return SkladisteZaObavestenja.GetInstance().Save(obavestenje);
         }
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)

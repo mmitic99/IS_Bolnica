@@ -31,9 +31,9 @@ namespace Kontroler
             return obavestenjaServis.GetAll();
         }
 
-        public void Save(Obavestenje obavestenje)
+        public bool Save(Obavestenje obavestenje)
         {
-            obavestenjaServis.Save(obavestenje);
+            return obavestenjaServis.Save(obavestenje);
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
@@ -51,9 +51,9 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().GetPodsetnici(jmbg);
         }
 
-        public void napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
         {
-            ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
+            return ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
         }
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)

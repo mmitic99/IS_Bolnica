@@ -36,12 +36,26 @@ namespace Repozitorijum
             return obavestenja;
         }
 
-        public void Save(Obavestenje obavestenje)
+        public bool Save(Obavestenje obavestenje)
         {
             List<Obavestenje> obavestenja = GetAll();
-            obavestenja.Add(obavestenje);
+            bool sacuvaj = true;
+            foreach(Obavestenje o in obavestenja)
+            {
+                if(o.Sadrzaj.Equals(obavestenje.Sadrzaj) && o.Naslov.Equals(obavestenje.Naslov) && o.JmbgKorisnika.Equals(obavestenje.JmbgKorisnika) && obavestenje.Podsetnik)
+                {
+                    sacuvaj = false;
+                    break;
+                }
+            }
+            if(sacuvaj)
+            {
+                obavestenja.Add(obavestenje);
+
+            }
 
             SaveAll(obavestenja);
+            return sacuvaj;
         }
 
         public void SaveAll(List<Obavestenje> obavestenja)

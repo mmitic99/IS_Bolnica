@@ -104,7 +104,7 @@ namespace Bolnica.view
                         {
                             if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
                             {
-                                ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i);
+                                if( ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i))
                                 brojNovihPodsetnika++;
                             }
                         }
