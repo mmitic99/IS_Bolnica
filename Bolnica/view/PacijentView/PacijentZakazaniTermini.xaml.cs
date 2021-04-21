@@ -90,7 +90,7 @@ namespace Bolnica.view
 
         private void prikazTermina1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today && ((Termin)prikazTermina1.SelectedItem).VrstaTermina==VrstaPregleda.Operacija)
+            if(((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today || ((Termin)prikazTermina1.SelectedItem).VrstaTermina==VrstaPregleda.Operacija)
             {
                 otkaziButton.IsEnabled = false;
                 izmeniButton.IsEnabled = false;

@@ -42,11 +42,12 @@ namespace Bolnica.view
             Ime.DataContext = pacijent;
             DataContext = new MainViewModel();
             brojObavestenja.Text = "0";
+
+            nabaviNovePodsetnike1();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(nabaviNovePodsetnike);
-            timer.Interval = new TimeSpan(0, 0, 15);
+            timer.Interval = new TimeSpan(1, 0, 0);
             timer.Start();
-
         }
 
         public void nabaviNovePodsetnike(object sender, EventArgs e)
@@ -85,7 +86,43 @@ namespace Bolnica.view
             }
         }
 
-       private void Odjava(object sender, RoutedEventArgs e)
+        public void nabaviNovePodsetnike1()
+        {
+            List<Recept> recepti = PacijentKontroler.getInstance().dobaviRecepePacijenta(pacijent.Jmbg);
+            List<DateTime> terminiUzimanja = new List<DateTime>();
+            int brojNovihPodsetnika = 0;
+            if (recepti.Count > 0)
+            {
+                foreach (Recept r in recepti)
+                {
+                    DateTime dt = (r.DatumIzdavanja.AddDays(r.BrojDana)).Date;
+                    if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date > DateTime.Today)
+                    {
+                        TimeSpan satVremena = new TimeSpan(1, 1, 0);
+                        TimeSpan nula = new TimeSpan(0, 0, 0);
+                        foreach (int i in r.TerminiUzimanjaLeka)
+                        {
+                            if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
+                            {
+                                ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i);
+                                brojNovihPodsetnika++;
+                            }
+                        }
+                    }
+                }
+            }
+            if (brojNovihPodsetnika > 0)
+            {
+                primiObavestenja(brojNovihPodsetnika);
+                if (MainViewModel.getInstance().CurrentView == MainViewModel.getInstance().ObavestenjaVM)
+                {
+                    view.Obavestenja.getInstance().PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+                }
+
+            }
+        }
+
+        private void Odjava(object sender, RoutedEventArgs e)
         {
             var s = new Prijavljivanje("p");
             this.Close();
