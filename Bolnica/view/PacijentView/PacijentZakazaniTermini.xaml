@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bolnica.view"
              mc:Ignorable="d" 
-             d:DesignHeight="525" d:DesignWidth="714">
+             d:DesignHeight="525" d:DesignWidth="800">
     <StackPanel>
         <TextBlock x:Name="PanelTermini"
                     Text="Zakazani termini"
@@ -22,7 +22,7 @@
                        CanUserAddRows="false"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
-                      SelectionMode="Single">
+                      SelectionMode="Single" SelectionChanged="prikazTermina1_SelectionChanged">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -33,16 +33,16 @@
                     <DataGridTextColumn x:Name="atumIVremeTerminaD" Header="Datum i vreme" Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*"/>
                     <DataGridTextColumn x:Name="VrstaTermina" Header="Tip pregleda" Binding="{Binding VrstaTermina}" Width="70"/>
                     <DataGridTextColumn x:Name="LekaPrezime" Header="Lekar" Binding="{Binding lekar}" Width="*"/>
-                    <DataGridTextColumn x:Name="sprat" Header="Sprat" Binding="{Binding prostorija.Sprat}" Width="50"/>
-                    <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" Binding="{Binding prostorija.BrojSobe}" Width="60"/>
-                    <DataGridTextColumn x:Name="trajanje" Header="Trajanje" Binding="{Binding TrajanjeTermina}" Width="50"/>
+                    <DataGridTextColumn x:Name="sprat" Header="Sprat" Binding="{Binding sprat}" Width="50"/>
+                    <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" Binding="{Binding brojSobe}" Width="60"/>
+                    <DataGridTextColumn x:Name="trajanje" Header="Poslednji datum otkazivanja" Binding="{Binding poslednjiDatumOtkazivanja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*" Foreground="Red"/>
 
 
                 </DataGrid.Columns>
 
             </DataGrid>
             <Button Content="Zakaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,67,25.2,408" Click="Button_Click"/>
-            <Button Content="Otkaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,330,25.2,145" Click="Button_Click_2">
+            <Button x:Name="otkaziButton" Content="Otkaži termin" Grid.Column="1" Width="120" Height="50" Margin="26,330,25.2,145" Click="Button_Click_2">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="IsEnabled" Value="True" />
@@ -56,7 +56,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Content="Izmeni termin" Grid.Column="1" Width="120" Height="50" Margin="26,192,25.2,283" Click="Button_Click_1">
+            <Button x:Name="izmeniButton"  Content="Izmeni termin" Grid.Column="1" Width="120" Height="50" Margin="26,192,25.2,283" Click="Button_Click_1">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="IsEnabled" Value="True" />

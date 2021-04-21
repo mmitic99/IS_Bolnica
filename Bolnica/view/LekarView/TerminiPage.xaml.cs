@@ -24,6 +24,8 @@ namespace Bolnica.view.LekarView
     public partial class TerminiPage : Page
     {
         private static TerminiPage instance = null;
+        
+        
 
         public static TerminiPage getInstance()
         {
@@ -34,21 +36,22 @@ namespace Bolnica.view.LekarView
             get;
             set;
         }
+
+
         
 
-        SkladisteZaTermine skladiste = new SkladisteZaTermine();
-        
 
         public TerminiPage(Lekar lekar)
         {
             InitializeComponent();
+            DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Termini = skladiste.getByJmbgLekar(lekar.Jmbg);
-
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(DateTime.Now.Date,lekar.Jmbg);
+           
             instance = this;
         }
 
-        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -80,17 +83,34 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            //for
+            if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
+            {
+                String jmbg = ((Termin)Pregledi_Table.SelectedItem).JmbgPacijenta;
+                LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbg);
+            }
+        }
+
+
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(null);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            DateTime datum = DateTime.Parse(DatePicker1.Text);
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(datum.Date,LekarWindow.getInstance().lekar1.Jmbg);
+            LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(Termini);
+
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage();
+            var s = new Prijavljivanje("l");
+           LekarWindow.getInstance().Close();
+            s.Show();
         }
     }
 }

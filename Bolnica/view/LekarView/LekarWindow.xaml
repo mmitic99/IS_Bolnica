@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="LekarWindow" Height="450" Width="800">
     <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-    <Frame x:Name="Frame1" NavigationUIVisibility="Hidden"/>
-        <Frame x:Name="Frame2" Margin="0,70,0,0"  NavigationUIVisibility="Hidden" />
+        <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Height="450" Width="800"/>
+
     </Grid>
 </Window>

@@ -3,7 +3,7 @@
   <Termin>
     <DatumIVremeTermina>0008-08-08T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966678/8/0008 12:00:00 AM</IDTermina>
@@ -14,7 +14,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-04T07:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/4/2021 7:00:00 AM</IDTermina>
@@ -26,7 +26,7 @@
   <Termin>
     <DatumIVremeTermina>0004-03-03T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673/3/0004 12:00:00 AM</IDTermina>
@@ -37,7 +37,7 @@
   <Termin>
     <DatumIVremeTermina>2018-07-03T09:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966673.7.2018. 00:00:00</IDTermina>
@@ -48,7 +48,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-30T17:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>9876543210987</JmbgPacijenta>
     <IDTermina>987654321098766674/30/2021 9:30:00 AM</IDTermina>
@@ -60,7 +60,7 @@
   <Termin>
     <DatumIVremeTermina>2021-12-04T00:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>123456789666712/4/2021 12:00:00 AM</IDTermina>
@@ -69,9 +69,21 @@
     <TrajanjeTermina>34</TrajanjeTermina>
   </Termin>
   <Termin>
+    <DatumIVremeTermina>2021-04-19T08:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/19/2021 8:00:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
     <DatumIVremeTermina>2021-04-19T06:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/19/2021 6:00:00 AM</IDTermina>
@@ -83,7 +95,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-19T07:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/19/2021 7:30:00 AM</IDTermina>
@@ -95,7 +107,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-19T08:30:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945364/19/2021 8:30:00 AM</IDTermina>
@@ -105,9 +117,21 @@
     <opisTegobe />
   </Termin>
   <Termin>
+    <DatumIVremeTermina>2021-04-19T09:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>2</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/19/2021 9:00:00 AM</IDTermina>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
     <DatumIVremeTermina>2021-04-19T06:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>1234</JmbgPacijenta>
     <IDTermina>12346094/19/2021 6:30:00 AM</IDTermina>
@@ -117,9 +141,33 @@
     <opisTegobe>Boli</opisTegobe>
   </Termin>
   <Termin>
+    <DatumIVremeTermina>2021-04-19T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>2</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/19/2021 7:00:00 AM</IDTermina>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-19T09:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
     <DatumIVremeTermina>2021-04-19T10:30:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 10:30:00 AM</IDTermina>
@@ -129,9 +177,21 @@
     <opisTegobe />
   </Termin>
   <Termin>
+    <DatumIVremeTermina>2021-04-19T11:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678966674/19/2021 11:30:00 AM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
     <DatumIVremeTermina>2021-04-19T12:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 12:00:00 PM</IDTermina>
@@ -141,9 +201,21 @@
     <opisTegobe />
   </Termin>
   <Termin>
+    <DatumIVremeTermina>2021-04-19T10:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>1234</JmbgPacijenta>
+    <IDTermina>12346094/19/2021 10:00:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
     <DatumIVremeTermina>2021-04-19T11:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>1234</JmbgPacijenta>
     <IDTermina>123466674/19/2021 11:00:00 AM</IDTermina>
@@ -155,7 +227,7 @@
   <Termin>
     <DatumIVremeTermina>2021-12-20T08:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>101</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>231321315464</JmbgPacijenta>
     <IDTermina>231321315464453620.12.2021. 08:00:00</IDTermina>
@@ -167,7 +239,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-19T09:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>301</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896094/19/2021 9:30:00 AM</IDTermina>
@@ -179,7 +251,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-20T08:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/20/2021 8:00:00 AM</IDTermina>
@@ -191,7 +263,7 @@
   <Termin>
     <DatumIVremeTermina>2021-05-19T11:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678945365/19/2021 11:00:00 AM</IDTermina>
@@ -203,7 +275,7 @@
   <Termin>
     <DatumIVremeTermina>2021-04-20T08:30:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>1</IdProstorije>
     <JmbgLekara>6667</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>12345678966674/20/2021 8:30:00 AM</IDTermina>
@@ -215,55 +287,65 @@
   <Termin>
     <DatumIVremeTermina>2021-04-20T09:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678966674/20/2021 9:00:00 AM</IDTermina>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-04-23T16:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>2</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678945364/23/2021 4:00:00 PM</IDTermina>
+    <IDTermina>12345678945364/29/2021 8:30:00 AM</IDTermina>
     <lekar>dr Miroslav Mi</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
+    <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-19T19:00:00+02:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2021-05-19T12:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678966674/19/2021 7:00:00 PM</IDTermina>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-04-20T06:30:00+02:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896094/20/2021 6:30:00 AM</IDTermina>
+    <IDTermina>1234567896095/19/2021 12:00:00 PM</IDTermina>
     <lekar>dr Dunja Jovanovic</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-30T10:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896094/30/2021 10:00:00 AM</IDTermina>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-20T14:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>23132131546466674/20/2021 2:00:00 PM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe>Lose</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-20T15:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>123456789012366674/20/2021 3:00:00 PM</IDTermina>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
   <Termin>
     <DatumIVremeTermina>2021-07-24T12:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>101</IdProstorije>
+    <IdProstorije>3</IdProstorije>
     <JmbgLekara>609</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
     <IDTermina>1234567896097/24/2021 12:30:00 PM</IDTermina>

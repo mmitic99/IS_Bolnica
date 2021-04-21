@@ -71,9 +71,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -88,11 +90,17 @@
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
+    <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
+    <Compile Include="model\Izvestaj.cs" />
+    <Compile Include="model\Obavestenje.cs" />
+    <Compile Include="model\Recept.cs" />
+    <Compile Include="model\ZakazanaPreraspodelaStatickeOpreme.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />
     <Compile Include="Repozitorijum\SkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\SkladisteSekretara.cs" />
@@ -102,6 +110,7 @@
     <Compile Include="Repozitorijum\SkladisteZaProstorije.cs" />
     <Compile Include="Repozitorijum\SkladisteZaSpecijalizaciju.cs" />
     <Compile Include="Repozitorijum\SkladisteZaTermine.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
     <Compile Include="Servis\KorisnikServis.cs" />
     <Compile Include="Servis\LekarServis.cs" />
     <Compile Include="Servis\ObavestenjaServis.cs" />
@@ -110,6 +119,7 @@
     <Compile Include="Servis\SekretarServis.cs" />
     <Compile Include="Servis\TerminServis.cs" />
     <Compile Include="Servis\UpravnikServis.cs" />
+    <Compile Include="Servis\ZakazanaPreraspodelaStatickeOpremeServis.cs" />
     <Compile Include="viewActions\MainViewModel.cs" />
     <Compile Include="viewActions\MoguciTerminiViewModel.cs" />
     <Compile Include="viewActions\ObavestenjaViewModel.cs" />
@@ -117,17 +127,17 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
+    <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
+      <DependentUpon>AnamnezaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\AzurirajAnamnezuPage.xaml.cs">
+      <DependentUpon>AzurirajAnamnezuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\KreirajTerminPage.xaml.cs">
       <DependentUpon>KreirajTerminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\AzurirajTerminPage.xaml.cs">
       <DependentUpon>AzurirajTerminPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\DodavanjeProstorijeWindow.xaml.cs">
-      <DependentUpon>DodavanjeProstorijeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\IzmenaProstorijeWindow.xaml.cs">
-      <DependentUpon>IzmenaProstorijeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
       <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
@@ -192,7 +202,7 @@
     <Compile Include="view\SekretarView\SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\UpravnikWindow.xaml.cs">
+    <Compile Include="view\UpravnikView\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\Window1.xaml.cs">
@@ -217,6 +227,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="viewActions\TerminiPacjentTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\AnamnezaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\AzurirajAnamnezuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,10 +286,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\DodavanjeProstorijeWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="view\SekretarView\DodavanjePacijentaTerminu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -279,10 +293,6 @@
     <Page Include="view\SekretarView\IzmenaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\IzmenaProstorijeWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\PacijentView\IzmenaTermina.xaml">
       <SubType>Designer</SubType>
@@ -320,7 +330,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\UpravnikWindow.xaml">
+    <Page Include="view\UpravnikView\UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,6 +444,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="business-woman-icon-14.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

@@ -87,5 +87,19 @@ namespace Bolnica.view
                 prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(JmbgPacijenta));
             }
         }
+
+        private void prikazTermina1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today && ((Termin)prikazTermina1.SelectedItem).VrstaTermina==VrstaPregleda.Operacija)
+            {
+                otkaziButton.IsEnabled = false;
+                izmeniButton.IsEnabled = false;
+            }
+            else
+            {
+                izmeniButton.IsEnabled = true;
+                otkaziButton.IsEnabled = true;
+            }
+        }
     }
 }

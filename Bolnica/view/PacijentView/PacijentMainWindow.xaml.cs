@@ -27,6 +27,7 @@ namespace Bolnica.view
     {
         public static PacijentMainWindow instance = null;
 
+
         public static PacijentMainWindow getInstance()
         {
             return instance;

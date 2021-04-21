@@ -14,6 +14,38 @@ namespace Model
         public String JmbgLekara { get; set; }
         public String JmbgPacijenta { get; set; }
         public String IDTermina { get; set; }
+
+        public String brojSobe
+        {
+            get
+            {
+                return SkladisteZaProstorije.GetInstance().getById(this.IdProstorije).BrojSobe_;
+            }
+            set
+            {
+
+            }
+        }
+
+        public int sprat
+        {
+            get
+            {
+                return SkladisteZaProstorije.GetInstance().getById(this.IdProstorije).Sprat_;
+            }
+            set
+            {
+
+            }
+        }
+        public DateTime poslednjiDatumOtkazivanja
+        {
+            get
+            {
+                return DatumIVremeTermina.Date.AddSeconds(-1);
+            }
+            
+        }
         public String lekar
         {
             get
@@ -38,6 +70,7 @@ namespace Model
 
             }
         }
+
 
         public double TrajanjeTermina { get; set; } //u satima
         public String opisTegobe { get; set; }

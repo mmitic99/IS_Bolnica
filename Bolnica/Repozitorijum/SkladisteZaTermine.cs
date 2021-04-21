@@ -66,9 +66,26 @@ namespace Repozitorijum
         {
             List<Termin> odgovTermini = new List<Termin>();
             List<Termin> sviTermini = this.GetAll();
+            List<Termin> sviTerminiSaProstorijama = new List<Termin>();
             foreach (Termin t in sviTermini)
             {
+              //  t.IdProstorije = SkladisteZaLekara.GetInstance().getByJmbg(t.JmbgLekara).IdOrdinacija;
+              //  sviTerminiSaProstorijama.Add(t);
                 if (t.JmbgPacijenta.Equals(jmbg))
+                {
+                    odgovTermini.Add(t);
+                }
+            }
+           // this.SaveAll(sviTerminiSaProstorijama);
+            return odgovTermini;
+        }
+        public List<Termin> getByDateForLekar(DateTime datum,String jmbg)
+        {
+            List<Termin> odgovTermini = new List<Termin>();
+            List<Termin> sviTermini = this.GetAll();
+            foreach (Termin t in sviTermini)
+            {
+                if (t.JmbgLekara.Equals(jmbg) & t.DatumIVremeTermina.Date.Equals(datum.Date))
                 {
                     odgovTermini.Add(t);
                 }
