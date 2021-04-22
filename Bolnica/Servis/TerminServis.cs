@@ -95,6 +95,13 @@ namespace Servis
 
         public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe)
         {
+            if (pocetak.TotalMinutes % 30 != 0)
+            {
+                double dodaj = 30 - (pocetak.TotalMinutes % 30);
+                //konverzija da minuti termina pocinju uvek sa brojem koji je deljiv sa 30
+                pocetak += TimeSpan.FromMinutes(dodaj);
+            }
+         
             List<Termin> moguciTermini = new List<Termin>();
             if (prioritet == 0) //nema prioritet
             {
@@ -302,8 +309,9 @@ namespace Servis
             }
             else
             {
-                if (vreme > DateTime.Today.AddDays(1) 
-                    && LekarServis.getInstance().DaLiJeLekarSlobodan(jmbgLekara, vreme, trajanje))
+
+                //vreme > DateTime.Today.AddDays(1) &&        ??????
+                if (LekarServis.getInstance().DaLiJeLekarSlobodan(jmbgLekara, vreme, trajanje))
                 {
                     Termin t = new Termin()
                     {
