@@ -55,8 +55,7 @@
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="35"/>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="175"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Lekar:</Label>
@@ -95,7 +94,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Vreme:</Label>
-                    <ComboBox Grid.Column="1" x:Name="vremeT"></ComboBox>
+                    <ComboBox Grid.Column="1" x:Name="vremeT" GotFocus="vremeT_GotFocus"></ComboBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>

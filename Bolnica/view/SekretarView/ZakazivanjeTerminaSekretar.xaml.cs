@@ -1,6 +1,5 @@
 ﻿using Kontroler;
 using Model;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -28,7 +27,7 @@ namespace Bolnica.view.SekretarView
             this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
             termin = new Termin();
-            if(izabraniPacijent != null)
+            if (izabraniPacijent != null)
             {
                 termin.pacijent = izabraniPacijent.Jmbg;
                 pacijent.Text = izabraniPacijent.Ime + " " + izabraniPacijent.Prezime;
@@ -36,7 +35,7 @@ namespace Bolnica.view.SekretarView
 
             sala.ItemsSource = prostorijeKontroler.GetAll();
             sala.SelectedIndex = 0;
-            List<String> vremeTermina = new List<string>();
+            /*List<String> vremeTermina = new List<string>();
             vremeTermina.Add("08:00");
             vremeTermina.Add("08:30");
             vremeTermina.Add("09:00");
@@ -48,7 +47,7 @@ namespace Bolnica.view.SekretarView
             vremeTermina.Add("12:00");
             vremeTermina.Add("12:30");
             vremeT.ItemsSource = vremeTermina;
-            vremeT.SelectedIndex = 0;
+            vremeT.SelectedIndex = 0;*/
             datum.DisplayDateStart = DateTime.Now;
         }
 
@@ -103,35 +102,99 @@ namespace Bolnica.view.SekretarView
 
         private void azurirajVreme(object sender, EventArgs e)
         {
-            if (hitanT.IsChecked == true)
+            if (vremeT != null)
             {
-                
-            }
-            else
-            {
-                /*List<DateTime> datumi = new List<DateTime>();
-                if (datum == null)
+                if (hitanT.IsChecked == true && vremeT.Text.Equals(""))
                 {
-                    datumi.Add(DateTime.Now);
+                    List<String> vremena = new List<String>();
+
+                    TimeSpan pocetak = new TimeSpan(6, 0, 0);
+                    TimeSpan kraj = new TimeSpan(23, 59, 59);
+
+                    if (datum.SelectedDate == DateTime.Now)
+                    {
+                        pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
+                    }
+
+                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 0, "");
+
+
+                    foreach (Termin termin in moguciTermini)
+                    {
+                        String sati = termin.DatumIVremeTermina.Hour.ToString();
+                        String minuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                        if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
+                        {
+                            sati = "0" + sati;
+                        }
+
+                        if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
+                        {
+                            minuti = "0" + minuti;
+                        }
+
+                        vremena.Add(sati + ":" + minuti);
+                    }
+                    vremeT.ItemsSource = vremena;
                 }
                 else
                 {
-                    datumi.Add((DateTime)datum.SelectedDate);
+
+                    if (!pacijent.Text.Equals("") || sender.Equals(pacijent))
+                    {
+                        if (!lekar.Text.Equals("") || sender.Equals(lekar))
+                        {
+                            List<String> vremena = new List<String>();
+
+                            TimeSpan pocetak = new TimeSpan(6, 0, 0);
+                            TimeSpan kraj = new TimeSpan(23, 59, 59);
+
+                            if (datum.SelectedDate.Value.Month == DateTime.Now.Month && datum.SelectedDate.Value.Day == DateTime.Now.Day)
+                            {
+                                pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
+                            }
+
+                            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "");
+
+
+                            foreach (Termin termin in moguciTermini)
+                            {
+                                if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
+                                {
+
+                                    String sati = termin.DatumIVremeTermina.Hour.ToString();
+                                    String minuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                                    if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
+                                    {
+                                        sati = "0" + sati;
+                                    }
+
+                                    if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
+                                    {
+                                        minuti = "0" + minuti;
+                                    }
+
+                                    vremena.Add(sati + ":" + minuti);
+                                }
+                            }
+                            vremeT.ItemsSource = vremena;
+                        }
+                        else
+                        {
+
+                        }
+
+
+                    }
                 }
-                List<Termin> moguciTermini = new List<Termin>();
-                if (termin != null)
-                {
-                    moguciTermini = terminKontroler.NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, datumi, DateTime.Now.TimeOfDay, TimeSpan.FromTicks(DateTime.Now.Date.AddDays(1).AddTicks(-1).Ticks), 2, "");
-                }
-                List<string> vremeTermina = new List<string>();
-                foreach (Termin moguciTermin in moguciTermini)
-                {
-                    vremeTermina.Add(moguciTermin.DatumIVremeTermina.TimeOfDay.ToString());
-                }
-                if(vremeT != null)
-                    vremeT.ItemsSource = vremeTermina;*/
-                
             }
+        }
+
+        private void vremeT_GotFocus(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
