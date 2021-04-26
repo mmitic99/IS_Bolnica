@@ -41,6 +41,7 @@ namespace Bolnica.view.SekretarView
             lekar.Text = termin.lekar.Ime + " " + termin.lekar.Prezime;
 
             datum.SelectedDate = termin.termin.DatumIVremeTermina;
+            datum.DisplayDateStart = DateTime.Now;
             String sati = termin.termin.DatumIVremeTermina.Hour.ToString();
             String minuti = termin.termin.DatumIVremeTermina.Minute.ToString();
             String vreme;
