@@ -148,7 +148,7 @@ namespace Bolnica.view
             zvonceSaObevestenjem.Visibility = Visibility.Hidden;
             okvirZaBrojObavestenja.Visibility = Visibility.Hidden;
             zvonce.Visibility = Visibility.Visible;
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().ObavestenjaVM;
+            Obavestenja.IsChecked = true;
         }
     }
 }

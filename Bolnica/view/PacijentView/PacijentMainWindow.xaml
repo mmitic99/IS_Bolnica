@@ -82,7 +82,9 @@
             <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top"
                     HorizontalAlignment="Right"
                     Margin="0,0,70,0"
-                    Background="Transparent" Click="Button_Click">
+                    Background="Transparent"
+                    Command="{Binding ObavestenjaCommand}"
+                    Click="Button_Click">
                 <StackPanel Width="70" Height="50">
                     <Grid Width="70" Height="50">
                         <Grid.RowDefinitions>

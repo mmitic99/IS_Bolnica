@@ -35,7 +35,13 @@
                     <DataGridTextColumn x:Name="LekaPrezime" Header="Lekar" Binding="{Binding lekar}" Width="*"/>
                     <DataGridTextColumn x:Name="sprat" Header="Sprat" Binding="{Binding sprat}" Width="50"/>
                     <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" Binding="{Binding brojSobe}" Width="60"/>
-                    <DataGridTextColumn x:Name="trajanje" Header="Poslednji datum otkazivanja" Binding="{Binding poslednjiDatumOtkazivanja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*" Foreground="Red"/>
+                    <DataGridTextColumn x:Name="trajanje" Header="Poslednji datum otkazivanja" Binding="{Binding poslednjiDatumOtkazivanja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" Width="*" Foreground="Red">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
 
 
                 </DataGrid.Columns>

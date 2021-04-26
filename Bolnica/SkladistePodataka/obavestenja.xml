@@ -133,4 +133,25 @@
     <JmbgKorisnika>4536</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T09:55:32.0820546+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Aspirin</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 10:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T14:57:24.4256939+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Isosorb</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 15:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T15:16:59.338124+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Isosorb</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 16:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

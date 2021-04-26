@@ -289,6 +289,7 @@
         <Izvestaj>
           <recepti>
             <Recept>
+              <terminiUzimanjaTokomDana />
               <ImeLeka>C vitamin</ImeLeka>
               <SifraLeka>saguyas</SifraLeka>
               <DodatneNapomene />
@@ -298,6 +299,43 @@
               <TerminiUzimanjaLeka>
                 <int>8</int>
                 <int>23</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Aspirin</ImeLeka>
+              <SifraLeka>2728</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-04-21T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>5</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>10</int>
+                <int>11</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <ImeLeka>Isosorb</ImeLeka>
+              <SifraLeka>Isosorb</SifraLeka>
+              <DodatneNapomene>Jesti pre.</DodatneNapomene>
+              <DatumIzdavanja>2021-04-21T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>4</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>15</int>
+                <int>16</int>
               </TerminiUzimanjaLeka>
               <Dijagnoza />
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>

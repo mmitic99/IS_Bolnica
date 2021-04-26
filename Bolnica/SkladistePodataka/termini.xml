@@ -333,34 +333,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-05-19T12:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>3</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896095/19/2021 12:00:00 PM</IDTermina>
-    <brojSobe>101</brojSobe>
-    <sprat>1</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-04-30T10:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>3</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896094/30/2021 10:00:00 AM</IDTermina>
-    <brojSobe>101</brojSobe>
-    <sprat>1</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-20T14:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>1</IdProstorije>
@@ -387,31 +359,45 @@
     <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-07-24T12:30:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2021-06-24T07:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>3</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896097/24/2021 12:30:00 PM</IDTermina>
-    <brojSobe>101</brojSobe>
-    <sprat>1</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-19T08:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
+    <IdProstorije>0</IdProstorije>
     <JmbgLekara>4536</JmbgLekara>
     <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678945365/19/2021 8:00:00 AM</IDTermina>
-    <brojSobe>002</brojSobe>
+    <IDTermina>12345678945366/24/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Miroslav Mi</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>Pregled.</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-19T07:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945365/19/2021 7:30:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-22T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/22/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
 </ArrayOfTermin>

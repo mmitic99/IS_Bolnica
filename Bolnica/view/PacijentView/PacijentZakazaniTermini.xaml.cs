@@ -90,16 +90,24 @@ namespace Bolnica.view
 
         private void prikazTermina1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today || ((Termin)prikazTermina1.SelectedItem).VrstaTermina==VrstaPregleda.Operacija)
-            {
+
+                if (prikazTermina1.SelectedItem != null && (((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today || ((Termin)prikazTermina1.SelectedItem).VrstaTermina == VrstaPregleda.Operacija))
+                {
+                    otkaziButton.IsEnabled = false;
+                    izmeniButton.IsEnabled = false;
+                 } else if (prikazTermina1.SelectedItem == null)
+                {
                 otkaziButton.IsEnabled = false;
                 izmeniButton.IsEnabled = false;
+                 }
+                else
+                {
+                    izmeniButton.IsEnabled = true;
+                    otkaziButton.IsEnabled = true;
+
+
             }
-            else
-            {
-                izmeniButton.IsEnabled = true;
-                otkaziButton.IsEnabled = true;
-            }
+            
         }
     }
 }
