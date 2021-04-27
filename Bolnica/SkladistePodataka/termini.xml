@@ -428,4 +428,73 @@
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-27T13:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>207</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678966674/27/2021 1:00:00 PM</IDTermina>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>0</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-28T10:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>1234</JmbgPacijenta>
+    <IDTermina>12346094/28/2021 10:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-20T19:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945365/20/2021 7:00:00 PM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-28T07:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/28/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-27T19:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678966675/27/2021 7:00:00 PM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>

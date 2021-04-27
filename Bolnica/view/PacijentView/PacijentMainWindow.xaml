@@ -7,11 +7,11 @@
         xmlns:viewActions="clr-namespace:Bolnica.viewActions"
         mc:Ignorable="d" MaxHeight="768" MaxWidth="1024"
         Title="PacijentMainWindow" Height="768" WindowStyle="None" Width="1024" UseLayoutRounding="False"
-        ResizeMode="NoResize" Background="Transparent" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize" Background="#FF432121" WindowStartupLocation="CenterScreen">
 
     <Border CornerRadius="6">
         <Border.Background>
-            <ImageBrush ImageSource="image.jpg"/>
+            <ImageBrush ImageSource="background.jpg"/>
         </Border.Background>
         <Grid RenderTransformOrigin="0.515,0.401">
             <Grid.ColumnDefinitions>
@@ -23,7 +23,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Image Source="Login.png" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" OpacityMask="{x:Null}" Stretch="UniformToFill"/>
-            <StackPanel Margin="0,75,0,10" Grid.RowSpan="2" Background="#FFA4E2E0">
+            <StackPanel Margin="0,75,0,0" Grid.RowSpan="2" Background="#FFE5EAEE">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120"></RowDefinition>
@@ -46,6 +46,10 @@
                                FontSize="15" FontWeight="Bold"
                                Grid.Row="1"/>
                 </Grid>
+                <RadioButton x:Name="pocetnaStranica" Content="Početna"
+                             Height="50"
+                             FontSize="14"
+                            Style="{StaticResource TerminPacijentTheme}"/>
                 <RadioButton x:Name="Profil" Content="Profil"
                              Height="50"
                              FontSize="14"
@@ -65,8 +69,18 @@
                              Height="50"
                              FontSize="14"
                             Style="{StaticResource TerminPacijentTheme}"/>
+                
 
             </StackPanel>
+            <Border Grid.Column="1">
+                <Border.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFDADEE2" Offset="1"/>
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFDBDFE2" Offset="0.843"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+            </Border>
             <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent"  Click="Odjava">
                 <StackPanel Width="70" Height="50">
                     <Grid Width="70" Height="50">
