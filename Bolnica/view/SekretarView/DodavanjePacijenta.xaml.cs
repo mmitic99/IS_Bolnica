@@ -1,9 +1,6 @@
 ﻿using Kontroler;
 using Model;
-using Repozitorijum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,6 +16,7 @@ namespace Bolnica.view.SekretarView
         public DodavanjePacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
+            DataContext = new Pacijent();
             this.pacijentiPrikaz = pacijentiPrikaz;
             pacijentKontroler = new PacijentKontroler();
         }
@@ -76,7 +74,7 @@ namespace Bolnica.view.SekretarView
             }
             else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {
-                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -84,11 +82,6 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

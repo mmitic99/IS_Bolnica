@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:val="clr-namespace:Bolnica.Validacije"
         mc:Ignorable="d"
         Title="Dodavanje pacijenta" Height="400" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
@@ -14,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0" Margin="0,25,0,0">
@@ -25,7 +26,32 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1" />
+                    <TextBox x:Name="jmbg" Grid.Column="1" Height="26" VerticalAlignment="Bottom" >
+                        <TextBox.Text>
+                            <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:StringToIntValidationRule  ValidationStep="RawProposedValue"/>
+                                    <val:JmbgValidationRule ValidationStep="ConvertedProposedValue" Min="1000000000000" Max="9999999999999"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="jmbgValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
 
                 </Grid>
                 <Grid Margin="15">
@@ -74,7 +100,31 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Broj telefona:</Label>
-                    <TextBox x:Name="tel" Grid.Column="1"/>
+                    <TextBox x:Name="tel" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="BrojTelefona" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:StringToIntValidationRule  ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="TelValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -82,7 +132,31 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">E-mail adresa:</Label>
-                    <TextBox x:Name="email" Grid.Column="1"/>
+                    <TextBox x:Name="email" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:EmailValidationRule  ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="EmailBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -111,14 +185,29 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="1" Margin="5">
+        <Grid Grid.Column="0" Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="Button_Click">Sačuvaj</Button>
+            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="Button_Click">Potvrdi
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tel}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="1" Margin="5">
+        <Grid Grid.Column="1" Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>

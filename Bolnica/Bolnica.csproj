@@ -94,6 +94,9 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="Validacije\EmailValidationRule.cs" />
+    <Compile Include="Validacije\JmbgValidationRule.cs" />
+    <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
