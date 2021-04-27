@@ -17,37 +17,26 @@ namespace Bolnica.view.SekretarView
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent)
+        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan)
         {
             InitializeComponent();
 
             prostorijeKontroler = new ProstorijeKontroler(); ;
             terminKontroler = new TerminKontroler();
 
+            hitanT.IsChecked = hitan;
             this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
             termin = new Termin();
             if (izabraniPacijent != null)
             {
-                termin.pacijent = izabraniPacijent.Jmbg;
+                termin.JmbgPacijenta = izabraniPacijent.Jmbg;
                 pacijent.Text = izabraniPacijent.Ime + " " + izabraniPacijent.Prezime;
             }
 
             sala.ItemsSource = prostorijeKontroler.GetAll();
             sala.SelectedIndex = 0;
-            /*List<String> vremeTermina = new List<string>();
-            vremeTermina.Add("08:00");
-            vremeTermina.Add("08:30");
-            vremeTermina.Add("09:00");
-            vremeTermina.Add("09:30");
-            vremeTermina.Add("10:00");
-            vremeTermina.Add("10:30");
-            vremeTermina.Add("11:00");
-            vremeTermina.Add("11:30");
-            vremeTermina.Add("12:00");
-            vremeTermina.Add("12:30");
-            vremeT.ItemsSource = vremeTermina;
-            vremeT.SelectedIndex = 0;*/
+           
             datum.DisplayDateStart = DateTime.Now;
         }
 
@@ -75,6 +64,7 @@ namespace Bolnica.view.SekretarView
 
             termin.opisTegobe = tegobe.Text;
             termin.IDTermina = termin.generateRandId();
+            termin.TrajanjeTermina = 30;
 
             terminKontroler.ZakaziTermin(termin);
 
@@ -104,14 +94,14 @@ namespace Bolnica.view.SekretarView
         {
             if (vremeT != null)
             {
-                if (hitanT.IsChecked == true && vremeT.Text.Equals(""))
+                if (hitanT.IsChecked == true && vremeT.Text.Equals("") && termin != null)
                 {
-                    List<String> vremena = new List<String>();
+                    /*List<String> vremena = new List<String>();
 
                     TimeSpan pocetak = new TimeSpan(6, 0, 0);
                     TimeSpan kraj = new TimeSpan(23, 59, 59);
 
-                    if (datum.SelectedDate == DateTime.Now)
+                    if (datum.SelectedDate.Value.Month == DateTime.Now.Month && datum.SelectedDate.Value.Day == DateTime.Now.Day)
                     {
                         pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
                     }
@@ -136,7 +126,7 @@ namespace Bolnica.view.SekretarView
 
                         vremena.Add(sati + ":" + minuti);
                     }
-                    vremeT.ItemsSource = vremena;
+                    vremeT.ItemsSource = vremena;*/
                 }
                 else
                 {

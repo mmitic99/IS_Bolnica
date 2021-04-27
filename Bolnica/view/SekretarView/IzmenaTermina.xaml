@@ -24,7 +24,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="Hitan termin:"/>
-                    <CheckBox Grid.Column="1" VerticalAlignment="Center" IsEnabled="False">(označi ako je hitno)</CheckBox>
+                    <CheckBox x:Name="hitanT" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False">(označi ako je hitno)</CheckBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -86,7 +86,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Datum:</Label>
-                    <DatePicker Grid.Column="1" x:Name="datum"></DatePicker>
+                    <DatePicker Grid.Column="1" x:Name="datum"  SelectedDateChanged="azurirajVreme"></DatePicker>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>

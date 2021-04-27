@@ -2,6 +2,7 @@
 using Kontroler;
 using Model;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -62,20 +63,49 @@ namespace Bolnica.view.SekretarView
             {
                 vreme += minuti;
             }
-            vremeT.Items.Add("08:00");
-            vremeT.Items.Add("08:30");
-            vremeT.Items.Add("09:00");
-            vremeT.Items.Add("09:30");
-            vremeT.Items.Add("10:00");
-            vremeT.Items.Add("10:30");
-            vremeT.Items.Add("11:00");
-            vremeT.Items.Add("11:30");
-            vremeT.Items.Add("12:00");
-            vremeT.Items.Add("12:30");
-            if (!vremeT.Items.Contains(vreme))
+
+            List<String> vremena = new List<String>();
+
+            TimeSpan pocetak = new TimeSpan(6, 0, 0);
+            TimeSpan kraj = new TimeSpan(23, 59, 59);
+
+            if (datum.SelectedDate.Value.Month == DateTime.Now.Month && datum.SelectedDate.Value.Day == DateTime.Now.Day)
             {
-                vremeT.Items.Add(vreme);
+                pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
             }
+
+            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "");
+
+
+            foreach (Termin termin in moguciTermini)
+            {
+                if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
+                {
+
+                    String noviSati = termin.DatumIVremeTermina.Hour.ToString();
+                    String noviMinuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                    if (int.Parse(noviSati) >= 0 && int.Parse(noviSati) <= 9)
+                    {
+                        noviSati = "0" + noviSati;
+                    }
+
+                    if (int.Parse(noviMinuti) >= 0 && int.Parse(noviMinuti) <= 9)
+                    {
+                        noviMinuti = "0" + noviMinuti;
+                    }
+
+                    vremena.Add(noviSati + ":" + noviMinuti);
+                }
+            }
+
+
+            if (!vremena.Contains(vreme))
+            {
+                vremena.Add(vreme);
+            }
+            vremena.Sort();
+            vremeT.ItemsSource = vremena;
             vremeT.SelectedItem = vreme;
 
             sala.SelectedIndex = 0;
@@ -124,6 +154,98 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void azurirajVreme(object sender, EventArgs e)
+        {
+            if (vremeT != null)
+            {
+                if (hitanT.IsChecked == true && vremeT.Text.Equals(""))
+                {
+                    List<String> vremena = new List<String>();
+
+                    TimeSpan pocetak = new TimeSpan(6, 0, 0);
+                    TimeSpan kraj = new TimeSpan(23, 59, 59);
+
+                    if (datum.SelectedDate == DateTime.Now)
+                    {
+                        pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
+                    }
+
+                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 0, "");
+
+
+                    foreach (Termin termin in moguciTermini)
+                    {
+                        String sati = termin.DatumIVremeTermina.Hour.ToString();
+                        String minuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                        if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
+                        {
+                            sati = "0" + sati;
+                        }
+
+                        if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
+                        {
+                            minuti = "0" + minuti;
+                        }
+
+                        vremena.Add(sati + ":" + minuti);
+                    }
+                    vremeT.ItemsSource = vremena;
+                }
+                else
+                {
+
+                    if (!pacijent.Text.Equals("") || sender.Equals(pacijent))
+                    {
+                        if (!lekar.Text.Equals("") || sender.Equals(lekar))
+                        {
+                            List<String> vremena = new List<String>();
+
+                            TimeSpan pocetak = new TimeSpan(6, 0, 0);
+                            TimeSpan kraj = new TimeSpan(23, 59, 59);
+
+                            if (datum.SelectedDate.Value.Month == DateTime.Now.Month && datum.SelectedDate.Value.Day == DateTime.Now.Day)
+                            {
+                                pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
+                            }
+
+                            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "");
+
+
+                            foreach (Termin termin in moguciTermini)
+                            {
+                                if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
+                                {
+
+                                    String sati = termin.DatumIVremeTermina.Hour.ToString();
+                                    String minuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                                    if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
+                                    {
+                                        sati = "0" + sati;
+                                    }
+
+                                    if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
+                                    {
+                                        minuti = "0" + minuti;
+                                    }
+
+                                    vremena.Add(sati + ":" + minuti);
+                                }
+                            }
+                            vremeT.ItemsSource = vremena;
+                        }
+                        else
+                        {
+
+                        }
+
+
+                    }
+                }
+            }
         }
     }
 }

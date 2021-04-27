@@ -15,11 +15,13 @@ namespace Bolnica.view.SekretarView
     public partial class DodavanjeGostujucegPacijenta : Window
     {
         private DataGrid pacijentiPrikaz;
+        private DataGrid terminiPrikaz;
         private PacijentKontroler pacijentKontroler;
-        public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz)
+        public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz, DataGrid terminiPrikaz)
         {
             InitializeComponent();
             this.pacijentiPrikaz = pacijentiPrikaz;
+            this.terminiPrikaz = terminiPrikaz;
             pacijentKontroler = new PacijentKontroler();
         }
 
@@ -52,7 +54,16 @@ namespace Bolnica.view.SekretarView
                 if (uspesno)
                 {
                     pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Da li želite da zakažete hitan termin za ovog pacijenta?", "", System.Windows.Forms.MessageBoxButtons.YesNo);
+                    
+                    if(dialogResult == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, pacijent, true);
+                        s.Show();
+                    }
+                    
                     this.Close();
+
                 }
                 else
                 {

@@ -44,7 +44,7 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeGostujucegPacijenta(pacijentiPrikaz);
+            var s = new DodavanjeGostujucegPacijenta(pacijentiPrikaz, terminiPrikaz);
             s.Show();
         }
 
@@ -75,7 +75,7 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null);
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false);
             s.Show();
         }
 
@@ -116,7 +116,7 @@ namespace Bolnica.view.SekretarView
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem);
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem, false);
             s.Show();
         }
     }
