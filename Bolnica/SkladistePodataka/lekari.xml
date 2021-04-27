@@ -66,4 +66,26 @@
     <FullName>dr Dunja Jovanovic</FullName>
     <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
+ <Lekar>
+    <Grad>
+      <drzava>
+        <Naziv>Srbija</Naziv>
+        <Oznaka>SRB</Oznaka>
+      </drzava>
+      <Naziv>Zajecar</Naziv>
+      <PostanskiBroj>2300</PostanskiBroj>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>78</KorisnickoIme>
+      <Lozinka>Maja</Lozinka>
+    </Korisnik>
+    <Ime>Maja</Ime>
+    <Prezime>Balazevic</Prezime>
+    <Jmbg>7897611</Jmbg>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <FullName>dr Maja Balazevic</FullName>
+    <IdOrdinacija>3</IdOrdinacija>
+  </Lekar>
 </ArrayOfLekar>

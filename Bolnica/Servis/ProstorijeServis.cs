@@ -2,6 +2,7 @@
 using Bolnica.Repozitorijum;
 using Bolnica.view.UpravnikView;
 using Model;
+using Model.Enum;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,19 @@ namespace Servis
         public ProstorijeServis()
         {
             skladisteZaProstorije = new SkladisteZaProstorije();
+        }
+
+        internal int GetPrvaPogodna(Termin termin)
+        {
+            List<Prostorija> pogodneProsotije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(termin.VrstaTermina));
+            foreach(Prostorija p in pogodneProsotije)
+            {
+                if(DaLiJeSLobodnaProstorija(p.IdProstorije, termin.DatumIVremeTermina, termin.TrajanjeTermina))
+                {
+                    return p.IdProstorije;
+                }
+            }
+            return -1;
         }
 
         public void RenovirajProstoriju()
@@ -128,6 +142,20 @@ namespace Servis
             }   
                 return slobodan;
         }
+
+        public List<Prostorija> GetByVrstaProstorije(VrstaProstorije vrstaProstorije)
+        {
+            List<Prostorija> sveProstorije = GetAll();
+            List<Prostorija> odgovarajuceProstorije = new List<Prostorija>();
+            foreach(Prostorija p in sveProstorije)
+            {
+                if(p.VrstaProstorije == vrstaProstorije)
+                {
+                    odgovarajuceProstorije.Add(p);
+                }
+            }
+            return odgovarajuceProstorije;
+        }
         
         public List<Prostorija> GetAll()
         {
@@ -222,6 +250,28 @@ namespace Servis
                 else if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin && (prostorije[i].Staticka_[index].Kolicina_ + kolicina) < 0)
                     MessageBox.Show("Ne možete oduzeti više statičke opreme od onoliko koliko je ima u magacinu !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public bool PostojiSlobodnaProstorija(DateTime vreme, int trajanje, Model.Enum.VrstaPregleda vrstaPregleda)
+        {
+            bool postojiSlobodna = false;
+            List<Prostorija> pogodneProstorije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(vrstaPregleda));
+            foreach (Prostorija p in pogodneProstorije)
+            {
+                if (DaLiJeSLobodnaProstorija(p.IdProstorije, vreme, trajanje))
+                {
+                    postojiSlobodna = true;
+                    break;
+                }
+            }
+            return postojiSlobodna;
+        }
+
+        private VrstaProstorije GetPogodnaVrstaProstorije(VrstaPregleda vrstaPregleda)
+        {
+            if (vrstaPregleda == VrstaPregleda.Operacija)
+                return VrstaProstorije.Operaciona_sala;
+            else return VrstaProstorije.Soba_za_preglede;
         }
 
         public void IzmeniDinamickuOpremuUMagacinu(int index, int kolicina)

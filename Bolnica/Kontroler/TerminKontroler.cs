@@ -32,6 +32,7 @@ namespace Kontroler
 
         public bool ZakaziTermin(Termin termin)
         {
+            termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
             return terminServis.ZakaziTermin(termin);
         }
 

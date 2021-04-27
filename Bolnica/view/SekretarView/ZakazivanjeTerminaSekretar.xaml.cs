@@ -60,7 +60,7 @@ namespace Bolnica.view.SekretarView
             DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
 
             termin.DatumIVremeTermina = datumIVreme;
-            termin.IdProstorije = int.Parse(((Prostorija)sala.SelectedItem).BrojSobe);
+            termin.IdProstorije = ((Prostorija)sala.SelectedItem).IdProstorije;
 
             termin.opisTegobe = tegobe.Text;
             termin.IDTermina = termin.generateRandId();

@@ -1,5 +1,6 @@
 using Bolnica.viewActions;
 using Model;
+using Model.Enum;
 using Repozitorijum;
 using System;
 using System.Collections;
@@ -221,7 +222,7 @@ namespace Servis
         /*
          Funkcija koja nalazi sve termine slobodne u u prosledjeno vreme, ako je prosledjen lekar nalazi se termin samo za tog lekara, ako ne onda za sve lekare
          */
-        public List<Termin> nadjiTermineZaTacnoVreme(DateTime vreme, int trajanje, String jmbgLekara = null)
+        public List<Termin> nadjiTermineZaTacnoVreme(DateTime vreme, int trajanje, String jmbgLekara = null, VrstaPregleda vrstaPregleda = VrstaPregleda.Pregled)
         {
             List<Termin> terminiZaTacnoVreme = new List<Termin>();
             List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
@@ -229,6 +230,7 @@ namespace Servis
             {
                if(vreme > DateTime.Today.AddDays(1) 
                    && LekarServis.getInstance().DaLiJeLekarSlobodan(lekar.Jmbg, vreme, trajanje)
+                   && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(vreme, trajanje, vrstaPregleda)
                    && (jmbgLekara==null || lekar.Jmbg== jmbgLekara))
                {
                   Termin t = new Termin()
