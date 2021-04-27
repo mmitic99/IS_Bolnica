@@ -205,12 +205,6 @@
     <Compile Include="view\UpravnikView\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\PacijentView\ZakazivanjeTermina.xaml.cs">
-      <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaSekretar.xaml</DependentUpon>
     </Compile>
@@ -334,14 +328,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\PacijentView\ZakazivanjeTermina.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -447,6 +433,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="business-woman-icon-14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

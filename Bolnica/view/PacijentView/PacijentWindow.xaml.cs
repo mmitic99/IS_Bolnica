@@ -54,8 +54,8 @@ namespace Bolnica.view
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTermina(this.JmbgPacijenta);
-            s.Show();
+           // var s = new ZakazivanjeTermina(this.JmbgPacijenta);
+           // s.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -45,25 +45,6 @@ namespace Kontroler
             return terminServis.IzmeniTermin(termin, stariIdTermina);
         }
 
-        public List<Termin> DobaviMoguceTerminePoLekaru(String jmbgLekara)
-        {
-            // TODO: implement
-            return terminServis.DobaviMoguceTerminePoLekaru(jmbgLekara);
-        }
-
-
-        public List<Termin> DobaviTerminPoLekaruZaInterval(String jmbgLekara, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj)
-        {
-            // TODO: implement
-            return terminServis.DobaviTerminPoLekaruZaInterval(jmbgLekara, dani ,pocetak, kraj);
-        }
-
-        public bool ProveriTermin(Model.Termin termin)
-        {
-            // TODO: implement
-            return terminServis.ProveriTermin(termin);
-        }
-
         public List<Termin> GetAll()
         {
             // TODO: implement
@@ -82,9 +63,9 @@ namespace Kontroler
             terminServis.SaveAll(termini);
         }
 
-        public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe)
+        public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe, Termin termin = null)
         {
-            return TerminServis.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, dani, pocetak, kraj, prioritet, tegobe);
+            return TerminServis.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, dani, pocetak, kraj, prioritet, tegobe, termin);
         }
 
 
@@ -99,9 +80,5 @@ namespace Kontroler
             terminServis.RemoveByID(iDTermina);
         }
 
-        public List<Termin> NadjiTermineZaParametrePomeranje(Termin termin,string jmbgLekara, List<DateTime> datumi, TimeSpan pocetak, TimeSpan kraj, int prioritet, string opisTegobe)
-        {
-            return TerminServis.getInstance().NadjiTermineZaParametrePomeranje(termin, jmbgLekara, datumi, pocetak, kraj, prioritet, opisTegobe);
-        }
     }
 }

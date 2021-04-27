@@ -17,18 +17,22 @@
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                       Height="500"
-                      SelectionMode="Single">
+                      SelectionMode="Single"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
+                      >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum"
+                    <DataGridTextColumn Header="Lekar"
+                                        Width="*"
+                                        Binding="{Binding lekar}"/>
+                    <DataGridTextColumn Header="Datum"
                                         Width="*"
                                     Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy}}"/>
                 <DataGridTextColumn Header="Vreme"
                                     Width="*"
                                     Binding="{Binding DatumIVremeTermina, StringFormat={}{0:HH:mm}}"/>
 
-                    <DataGridTextColumn Header="Lekar"
-                                        Width="*"
-                                        Binding="{Binding lekar}"/>
+
             </DataGrid.Columns>
 
             </DataGrid>
