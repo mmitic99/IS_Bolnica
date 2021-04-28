@@ -1,4 +1,3 @@
-using Bolnica.viewActions;
 using Model;
 using Model.Enum;
 using Repozitorijum;
@@ -96,19 +95,19 @@ namespace Servis
 
         public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> izabraniDani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe, Termin termin = null)
         {
-            List<DateTime> dani = DobaviMoguceSveDaneZakazivanja(termin);
+            List<DateTime> sviMoguciDaniZakazivanja = DobaviMoguceSveDaneZakazivanja(termin);
             List<Termin> moguciTermini = new List<Termin>();
             pocetak = KonvertujMinute(pocetak);
 
             if (prioritet == 0) //nema prioritet
             {
-                moguciTermini = DobaviTermineZaInterval(dani, new TimeSpan(6,0,0), new TimeSpan(20,0,0), jmbgPacijenta, tegobe);
+                moguciTermini = DobaviTermineZaInterval(sviMoguciDaniZakazivanja, new TimeSpan(6,0,0), new TimeSpan(20,0,0), jmbgPacijenta, tegobe);
             }
             else if (prioritet == 1)
             {
                 moguciTermini = DobaviTermineZaInterval(izabraniDani, pocetak, kraj, jmbgPacijenta, tegobe, jmbgLekara);
                 if (moguciTermini.Count < 10)
-                    DodajJosTermina(moguciTermini, DobaviTermineZaInterval(dani, new TimeSpan(6, 0, 0), new TimeSpan(20, 0, 0), jmbgPacijenta, tegobe, jmbgLekara));
+                    DodajJosTermina(moguciTermini, DobaviTermineZaInterval(sviMoguciDaniZakazivanja, new TimeSpan(6, 0, 0), new TimeSpan(20, 0, 0), jmbgPacijenta, tegobe, jmbgLekara));
                 
             }
             else if (prioritet == 2)
