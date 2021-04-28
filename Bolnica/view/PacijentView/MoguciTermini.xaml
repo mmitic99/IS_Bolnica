@@ -16,12 +16,17 @@
             <DataGrid x:Name="prikazMogucih" CanUserAddRows="False"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
-                      Height="500"
+                      Height="565"
                       SelectionMode="Single"
                       CanUserResizeColumns="False"
                       CanUserResizeRows="False"
                       >
-            <DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="35"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
                     <DataGridTextColumn Header="Lekar"
                                         Width="*"
                                         Binding="{Binding lekar}"/>

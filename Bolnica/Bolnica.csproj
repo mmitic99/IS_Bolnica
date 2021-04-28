@@ -151,9 +151,6 @@
     <Compile Include="view\LekarView\IzdavanjeReceptaPage.xaml.cs">
       <DependentUpon>IzdavanjeReceptaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentView\IzmenaTermina.xaml.cs">
-      <DependentUpon>IzmenaTermina.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
     </Compile>
@@ -288,10 +285,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\IzmenaPacijenta.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\PacijentView\IzmenaTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

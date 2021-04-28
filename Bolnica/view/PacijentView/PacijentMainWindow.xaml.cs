@@ -46,7 +46,7 @@ namespace Bolnica.view
             nabaviNovePodsetnike1();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(nabaviNovePodsetnike);
-            timer.Interval = new TimeSpan(1, 0, 0);
+            timer.Interval = new TimeSpan(0, 1, 0);
             timer.Start();
         }
 
@@ -140,7 +140,6 @@ namespace Bolnica.view
             zvonce.Visibility = Visibility.Hidden;
 
         }
-
 
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -75,8 +75,8 @@ namespace Bolnica.view
         {
             if (prikazTermina.SelectedIndex != -1 && ((Termin)prikazTermina.SelectedItem).VrstaTermina!=VrstaPregleda.Operacija)
             {
-                var s = new IzmenaTermina(((Termin)prikazTermina.SelectedItem).IDTermina);
-                s.Show();
+               /* var s = new IzmenaTermina(((Termin)prikazTermina.SelectedItem).IDTermina);
+                s.Show();*/
             }
         }
 
