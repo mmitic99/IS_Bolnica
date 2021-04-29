@@ -3,6 +3,7 @@ using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace Servis
 {
@@ -46,7 +47,17 @@ namespace Servis
 
         public List<Obavestenje> GetByJmbg(String jmbg)
         {
-            return skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+            List<Obavestenje> obavestenja = skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+
+            foreach(Obavestenje obavestenje in skladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
+            {
+                if (!obavestenja.Contains(obavestenje))
+                {
+                    obavestenja.Add(obavestenje);
+                }
+            }
+
+            return obavestenja;
         }
 
         public List<Obavestenje> GetPodsetnici(String jmbg)
@@ -68,6 +79,28 @@ namespace Servis
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             return SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+        }
+
+        public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
+        {
+            obrisiObavestenje(staroObavestenje);
+            skladisteZaObavestenja.Save(novoObavestenje);
+            return true;
+        }
+
+        public bool obrisiObavestenje(Obavestenje obavestenje)
+        {
+            List<Obavestenje> obavestenja = skladisteZaObavestenja.GetAll();
+            foreach (Obavestenje obavestenje1 in obavestenja)
+            {
+                if (obavestenje1.Equals(obavestenje))
+                {
+                    obavestenja.Remove(obavestenje);
+                    skladisteZaObavestenja.SaveAll(obavestenja);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)

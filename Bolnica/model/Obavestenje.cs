@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 
 namespace Model
 {
@@ -15,5 +16,14 @@ namespace Model
             Podsetnik = false;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Obavestenje obavestenje &&
+                   VremeObavestenja == obavestenje.VremeObavestenja &&
+                   Naslov == obavestenje.Naslov &&
+                   Sadrzaj == obavestenje.Sadrzaj &&
+                   JmbgKorisnika == obavestenje.JmbgKorisnika &&
+                   Podsetnik == obavestenje.Podsetnik;
+        }
     }
 }

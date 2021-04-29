@@ -1,0 +1,42 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.Obavestenja.IzmenaObavestenja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView.Obavestenja"
+        mc:Ignorable="d"
+        Title="Izmena obavestenja" Height="400" Width="450"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10,10,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="top" FontSize="18">Naslov:</TextBlock>
+            <TextBox Grid.Column="1" Margin="5" x:Name="naslov" TextWrapping="Wrap"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" TextWrapping="Wrap">Tekst obaveštenja:</TextBlock>
+            <TextBox Grid.Column="1" Margin="5" x:Name="sadrzaj" TextWrapping="Wrap"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Width="100" Margin="10" x:Name="potvrdi" Click="potvrdi_Click">Potvrdi</Button>
+            <Button Grid.Column="2" Width="100" Margin="10" x:Name="otkazi" Click="otkazi_Click">Otkaži</Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,5 +1,6 @@
 using Model;
 using Servis;
+using System;
 using System.Collections.Generic;
 
 namespace Kontroler
@@ -61,9 +62,16 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(jmbgPacijenta);
         }
 
-       
+        public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
+        {
+            return obavestenjaServis.IzmeniObavestenje(staroObavestenje, novoObavestenje);
+        }
 
         public Servis.ObavestenjaServis obavestenjaServis;
 
+        public bool obrisiObavestenje(Obavestenje obavestenje)
+        {
+            return obavestenjaServis.obrisiObavestenje(obavestenje);
+        }
     }
 }
