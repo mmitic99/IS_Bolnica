@@ -128,9 +128,18 @@
                                 </Button>
                             </StackPanel>
 
-                            <DataGrid x:Name="obavestenja" Grid.Row="2" HeadersVisibility="None"
+                            <Button Grid.Row="1" HorizontalAlignment="Right" x:Name="pogledajObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,20,0" ToolTip="Pogledaj obaveštenje" Click="pogledajObavestenje_Click">
+                                <Image Source="/Images/eye.png"/>
+                            </Button>
+                            
+                            <DataGrid x:Name="obavestenjaPrikaz" Grid.Row="2" HeadersVisibility="None"
                               Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
                                       Margin="5" BorderThickness="0" GridLinesVisibility="None">
+                                <DataGrid.Resources>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="MouseDoubleClick" Handler="pogledajObavestenje_Click"/>
+                                    </Style>
+                                </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Width="*">
                                         <DataGridTemplateColumn.CellTemplate>
@@ -145,7 +154,6 @@
                                                                 </Grid.RowDefinitions>
                                                                 <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" FontSize="17" TextTrimming="CharacterEllipsis"/>
                                                                 <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15" TextTrimming="WordEllipsis" TextAlignment="Justify"/>
-
                                                             </Grid>
                                                         </Border>
                                                     </StackPanel>

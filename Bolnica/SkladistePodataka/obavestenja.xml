@@ -85,41 +85,6 @@
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-21T03:03:29.0389893+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Paracetamol</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 04:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T03:05:21.3094784+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Paracetamol</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 04:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T03:09:58.7120637+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Paracetamol</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 04:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T07:02:41.6802516+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Voltaren</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 08:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T07:09:08.9165996+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -C vitamin</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 08:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-21T07:10:29.5353128+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
@@ -132,34 +97,6 @@
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>4536</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T09:55:32.0820546+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Aspirin</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 10:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T14:57:24.4256939+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Isosorb</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 15:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T15:16:59.338124+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Isosorb</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 16:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-27T01:31:10.9473406+02:00</VremeObavestenja>
-    <Naslov>Podsetnik o uzimanju leka -Bromazepan</Naslov>
-    <Sadrzaj>Poštovani/a Jovana podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Podsetnik>true</Podsetnik>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-04-27T20:55:33.8149317+02:00</VremeObavestenja>
@@ -218,51 +155,37 @@
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
-    <Naslov>obavestenje </Naslov>
-    <Sadrzaj>obavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenje</Sadrzaj>
+    <VremeObavestenja>2021-04-29T16:47:42.0409374+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog zakazanog terminaIzmena</Naslov>
+    <Sadrzaj>pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Zdravo</Sadrzaj>
+    <VremeObavestenja>2021-04-29T16:48:12.3454784+02:00</VremeObavestenja>
+    <Naslov>Proba</Naslov>
+    <Sadrzaj>proba</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <VremeObavestenja>2021-04-29T16:48:23.424425+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog zakazanog terminaIzmena zakazanogzakazanog terminaIzmena zakazanogzakazanog terminaIzmena zakazanog</Naslov>
-    <Sadrzaj>:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Podsetnik>false</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog terminaIzmena zakazanog terminaIzmena zakazanog terminaIzmena zakazanog termina</Naslov>
+    <VremeObavestenja>2021-04-29T16:53:34.832825+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina Izmena zakazanog </Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-29T15:39:11.5062475+02:00</VremeObavestenja>
-    <Naslov>Proba</Naslov>
-    <Sadrzaj>Obavestenje Obavestenje Obavestenje Obavestenje Obavestenje </Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Podsetnik>false</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-29T15:41:59.9781934+02:00</VremeObavestenja>
-    <Naslov>proba</Naslov>
-    <Sadrzaj>proba</Sadrzaj>
+    <VremeObavestenja>2021-04-29T17:15:14.969572+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Pozdrav, zdravo.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>

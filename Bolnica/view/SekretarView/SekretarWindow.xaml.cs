@@ -16,6 +16,7 @@ namespace Bolnica.view.SekretarView
         private Sekretar sekretar;
         private PacijentKontroler pacijentKontroler;
         private TerminKontroler terminKontroler;
+        private ObavestenjaKontroler obavestenjaKontroler;
 
         public SekretarWindow(Sekretar sekretar)
         {
@@ -23,6 +24,7 @@ namespace Bolnica.view.SekretarView
 
             pacijentKontroler = new PacijentKontroler();
             terminKontroler = new TerminKontroler();
+            obavestenjaKontroler = new ObavestenjaKontroler();
 
             this.sekretar = sekretar;
 
@@ -39,7 +41,7 @@ namespace Bolnica.view.SekretarView
             timer.Start();
 
 
-            obavestenja.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+            obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
 
 
         }
@@ -128,23 +130,37 @@ namespace Bolnica.view.SekretarView
 
         private void pocetna_Selected(object sender, RoutedEventArgs e)
         {
-            obavestenja.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+            obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
         }
 
         private void dodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeObavestenja(obavestenja);
+            var s = new DodavanjeObavestenja(obavestenjaPrikaz);
             s.Show();
         }
 
         private void izmeniObavestenje_Click(object sender, RoutedEventArgs e)
         {
-
+            if (obavestenjaPrikaz.SelectedIndex != -1)
+            {
+                var s = new IzmenaObavestenja(obavestenjaPrikaz);
+                s.Show();
+            }
         }
 
         private void obrisiObavestenje_Click(object sender, RoutedEventArgs e)
         {
+            if(obavestenjaPrikaz.SelectedIndex != -1)
+            {
+                bool uspesno = obavestenjaKontroler.obrisiObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
+                obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+            }
+        }
 
+        private void pogledajObavestenje_Click(object sender, EventArgs e)
+        {
+            var s = new PogledajObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
+            s.Show();
         }
     }
 }
