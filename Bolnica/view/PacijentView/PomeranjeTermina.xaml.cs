@@ -1,4 +1,5 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.DTOs;
+using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using System;
@@ -19,79 +20,51 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for PomeranjeTermina.xaml
-    /// </summary>
-    public partial class PomeranjeTermina : UserControl
+
+
+public partial class PomeranjeTermina : UserControl
     {
-        public List<Termin> moguciTermini;
-        public Termin termin;
         public PomeranjeTermina()
         {
             InitializeComponent();
-            this.termin = (Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem;
-            DataContext = termin;
-            satnicaKraj.SelectedIndex = 13;
-            satnicaPocetak.SelectedIndex = 0;
-            minutKraj.SelectedIndex = 1;
-            minutPocetak.SelectedIndex = 0;
-            kalendar.DisplayDateStart = termin.DatumIVremeTermina.AddDays(-3);
-            kalendar.DisplayDateEnd = termin.DatumIVremeTermina.AddDays(3);
-            kalendar.SelectedDate = termin.DatumIVremeTermina;
-            izabraniLekar.ItemsSource = new ObservableCollection<Lekar>(LekarKontroler.getInstance().GetAll());
-            izabraniLekar.SelectedIndex = selectedDoc(LekarKontroler.getInstance().GetAll(), termin);
-
+            //this.termin = (Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem;
+            DataContext = PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem;
+            kalendar.DisplayDateStart = TerminKontroler.getInstance().PrviMoguciDanZakazivanja(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
+            kalendar.DisplayDateEnd = TerminKontroler.getInstance().PoslednjiMoguciDanZakazivanja(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
+            izabraniLekar.ItemsSource = LekarKontroler.getInstance().GetAll();
+            izabraniLekar.SelectedIndex = LekarKontroler.getInstance().DobaviIndeksSelektovanogLekara(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
         }
 
-        public int selectedDoc(List<Lekar> lekari, Termin t)
-        {
-            for (int i = 0; i < lekari.Count; i++)
-            {
-                if (lekari.ElementAt(i).Jmbg.Equals(t.JmbgLekara))
-                {
-                    return i;
-                }
-            }
-            return 0;
-        }
 
-            private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        private void Nazad_ButtonClick(object sender, RoutedEventArgs e)
         {
             MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String jmbgPacijenta = this.termin.JmbgPacijenta;
-            String jmbgLekara = ((Lekar)izabraniLekar.SelectedItem).Jmbg;
-            List<DateTime> datumi = new List<DateTime>();
-            datumi = new List<DateTime>(kalendar.SelectedDates);
-            int satnicaZaKraj = satnicaKraj.SelectedIndex + 6;
-            int minutiZaKraj = minutKraj.SelectedIndex * 30;
-            int satnicaZaPocetak = satnicaPocetak.SelectedIndex + 6;
-            int minutiZaPocetak = minutPocetak.SelectedIndex * 30;
-            TimeSpan kraj = new TimeSpan(satnicaZaKraj, minutiZaKraj, 0);
-            TimeSpan pocetak = new TimeSpan(satnicaZaPocetak, minutiZaPocetak, 0);
-            int prioritet;
-            String opisTegobe = tegobe.Text;
-            if ((bool)nema.IsChecked)
+            ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
             {
-                prioritet = 0;
-            }
-            else if ((bool)lekar.IsChecked)
-            {
-                prioritet = 1;
-            }
-            else
-            {
-                prioritet = 2;
-            }
-            moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, datumi, pocetak, kraj, prioritet, opisTegobe, termin);
-            if (moguciTermini.Count>0)
-            {
+                PrethodnoZakazaniTermin = PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem,
+                IzabraniDatumi = kalendar.SelectedDates,
+                IzabraniLekar = izabraniLekar.SelectedItem,
+                PocetnaSatnica = satnicaPocetak.SelectedIndex,
+                PocetakMinut = minutPocetak.SelectedIndex,
+                KrajnjaSatnica = satnicaKraj.SelectedIndex,
+                KrajnjiMinuti = minutKraj.SelectedIndex,
+                NemaPrioritet = nema.IsChecked,
+                OpisTegobe = tegobe.Text,
+                PrioritetLekar = lekar.IsChecked,
+                PriotitetVreme = vreme.IsChecked,
+                trajanjeUMinutama = 30,
+                vrstaTermina = 1
+                
+            };
+            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
                 MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
-            }
+            
         }
     }
 }

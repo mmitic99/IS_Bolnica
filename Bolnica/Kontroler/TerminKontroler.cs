@@ -1,11 +1,15 @@
+using Bolnica.DTOs;
+using Bolnica.view.PacijentView;
 using Model;
+using Model.Enum;
 using Servis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace Kontroler
-{
+namespace Kontroler { 
+
     public class TerminKontroler
     {
         public Servis.TerminServis terminServis;
@@ -14,7 +18,7 @@ namespace Kontroler
 
         public static TerminKontroler getInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 return new TerminKontroler();
             }
@@ -64,9 +68,33 @@ namespace Kontroler
             terminServis.SaveAll(termini);
         }
 
+        internal DateTime? PrviMoguciDanZakazivanja(Object prethodniTermin)
+        {
+            Termin prethodnTermin = (Termin)prethodniTermin;
+            return TerminServis.getInstance().DobaviPrviMoguciDanZakazivanja(prethodnTermin);
+        }
+
+        internal DateTime? PoslednjiMoguciDanZakazivanja(Object prethodniTermin)
+        {
+            Termin prethodnTermin = (Termin)prethodniTermin;
+            return TerminServis.getInstance().DobaviPPoslednjiMogiDanZakazivanja(prethodnTermin);
+        }
+
         public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe, Termin termin = null)
         {
-            return TerminServis.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, dani, pocetak, kraj, prioritet, tegobe, termin);
+            ParametriZaTrazenjeTerminaKlasifikovanoDTO paramet = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+            {
+                JmbgPacijenta = jmbgPacijenta,
+                JmbgLekara = jmbgLekara,
+                IzabraniDani = dani,
+                Pocetak = pocetak,
+                Kraj = kraj,
+                Prioritet = prioritet,
+                tegobe = tegobe,
+                PrethodnoZakazaniTermin = termin,
+                trajanjeUMinutama = 30
+            };
+            return TerminServis.getInstance().NadjiTermineZaParametre(paramet);
         }
 
 
@@ -79,6 +107,65 @@ namespace Kontroler
         public void RemoveByID(string iDTermina)
         {
             terminServis.RemoveByID(iDTermina);
+        }
+
+        public ParametriZaTrazenjeTerminaKlasifikovanoDTO KlasifikujUlazneParametre(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
+        {
+            ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriKlasifikovanoDTO = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+            {
+                JmbgLekara = ((Lekar)parametriDTO.IzabraniLekar).Jmbg,
+                PrethodnoZakazaniTermin = (Termin)parametriDTO.PrethodnoZakazaniTermin,
+                trajanjeUMinutama = (int)parametriDTO.trajanjeUMinutama,
+                tegobe = (String)parametriDTO.OpisTegobe
+            };
+
+            parametriKlasifikovanoDTO.IzabraniDani = new List<DateTime>((IEnumerable<DateTime>)parametriDTO.IzabraniDatumi);
+            parametriKlasifikovanoDTO.JmbgPacijenta = DobaviJmbgPacijentaPoUnosu(parametriDTO);
+            parametriKlasifikovanoDTO.Pocetak = new TimeSpan((int)parametriDTO.PocetnaSatnica + 6, (int)parametriDTO.PocetakMinut * 30, 0);
+            parametriKlasifikovanoDTO.Kraj = new TimeSpan((int)parametriDTO.KrajnjaSatnica + 6, (int)parametriDTO.KrajnjiMinuti * 30, 0);
+            parametriKlasifikovanoDTO.Prioritet = PronadjiPrioritet((bool)parametriDTO.NemaPrioritet, (bool)parametriDTO.PrioritetLekar);
+            parametriKlasifikovanoDTO.vrstaTermina = PronadjiVrstuTermina(parametriDTO.vrstaTermina);
+            if (parametriDTO.PrethodnoZakazaniTermin != null) 
+                parametriKlasifikovanoDTO.PrethodnoZakazaniTermin = (Termin)parametriDTO.PrethodnoZakazaniTermin;
+
+            return parametriKlasifikovanoDTO;
+        }
+
+        private VrstaPregleda PronadjiVrstuTermina(object zahtevaocTermina)
+        {
+            if ((int)zahtevaocTermina == 0)
+                return VrstaPregleda.Pregled;
+            else
+                return VrstaPregleda.Operacija;
+        }
+
+        private string DobaviJmbgPacijentaPoUnosu(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
+        {
+            if (parametriDTO.PrethodnoZakazaniTermin == null)
+                return (String)parametriDTO.Pacijent;
+            else
+            {
+                return ((Termin)parametriDTO.PrethodnoZakazaniTermin).JmbgPacijenta;
+            }
+        }
+
+        internal object GetAllPossibleApointmentsDates(object selectedItem)
+        {
+            return TerminServis.getInstance().DobaviMoguceSveDaneZakazivanja((Termin)selectedItem);
+        }
+
+
+        private int PronadjiPrioritet(bool nemaPrioritet, bool prioritetLekar)
+        {
+           int prioritet;
+            if (nemaPrioritet) return 0;
+            else if (prioritetLekar) return 1;
+            else return 2;
+        }
+
+        public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
+        {
+            return TerminServis.getInstance().NadjiTermineZaParametre(KlasifikujUlazneParametre(parametriDTO));
         }
 
     }

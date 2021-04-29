@@ -1,4 +1,5 @@
-﻿using Bolnica.model;
+﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Bolnica.view.UpravnikView;
 using Model;
@@ -252,13 +253,13 @@ namespace Servis
             }
         }
 
-        public bool PostojiSlobodnaProstorija(DateTime vreme, int trajanje, Model.Enum.VrstaPregleda vrstaPregleda)
+        public bool PostojiSlobodnaProstorija(ParamsToCheckAvailabilityOfRoomDTO parameters)
         {
             bool postojiSlobodna = false;
-            List<Prostorija> pogodneProstorije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(vrstaPregleda));
+            List<Prostorija> pogodneProstorije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(parameters.InterventionType));
             foreach (Prostorija p in pogodneProstorije)
             {
-                if (DaLiJeSLobodnaProstorija(p.IdProstorije, vreme, trajanje))
+                if (DaLiJeSLobodnaProstorija(p.IdProstorije, parameters.startTime, parameters.durationInMinutes))
                 {
                     postojiSlobodna = true;
                     break;

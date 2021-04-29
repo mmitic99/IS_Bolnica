@@ -217,4 +217,18 @@
     <JmbgKorisnika>4536</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-29T12:32:34.665724+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/12/2021 5:30:00 PM je pomeren na 5/9/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-29T12:32:34.6756976+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/12/2021 5:30:00 PM je pomeren na 5/9/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

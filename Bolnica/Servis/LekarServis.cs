@@ -1,3 +1,4 @@
+using Bolnica.DTOs;
 using Model;
 using Repozitorijum;
 using System;
@@ -59,30 +60,43 @@ namespace Servis
             return null;
         }
 
-        public bool DaLiJeLekarSlobodan(String JmbgLekara, DateTime datumVreme, int trajanjeMinute)
+        public bool DaLiJeLekarSlobodan(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
             bool slobodan = true;
-            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(JmbgLekara);
+            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
             foreach(Termin t in terminiLekara)
             {
-                if(datumVreme> t.DatumIVremeTermina && datumVreme<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
-                    && (datumVreme.AddMinutes(trajanjeMinute))>t.DatumIVremeTermina && (datumVreme.AddMinutes(trajanjeMinute))<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
+                if(parametri.startTime > t.DatumIVremeTermina && parametri.startTime<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
+                    && (parametri.startTime.AddMinutes(parametri.durationInMinutes))>t.DatumIVremeTermina && (parametri.startTime.AddMinutes(parametri.durationInMinutes))<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
                 {
                     slobodan = false;
                     break;
                 }
-                if(t.DatumIVremeTermina> datumVreme && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (datumVreme.AddMinutes(trajanjeMinute))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                if(t.DatumIVremeTermina> parametri.startTime && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (parametri.startTime.AddMinutes(parametri.durationInMinutes))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
                 {
                     slobodan = false;
                     break;
                 }
-                if(t.DatumIVremeTermina.Equals(datumVreme))
+                if(t.DatumIVremeTermina.Equals(parametri.startTime))
                 {
                     slobodan = false;
                     break;
                 }
             }
             return slobodan;
+        }
+
+        internal int DobaviIndeksSelectovanogLekara(Termin termin)
+        {
+            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            for (int i = 0; i < lekari.Count; i++)
+            {
+                if (lekari[i].Jmbg.Equals(termin.JmbgLekara))
+                {
+                    return i;
+                }
+            }
+            return 0;        
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)

@@ -596,20 +596,6 @@
     <opisTegobe>Krvarenje</opisTegobe>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-05-12T17:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>1234567896095/12/2021 5:30:00 PM</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-29T09:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>1</IdProstorije>
@@ -620,6 +606,90 @@
     <sprat>0</sprat>
     <lekar>dr Maja Balazevic</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-09T07:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>1234567896095/9/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>Frlaal</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-30T08:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678978976114/30/2021 8:30:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-30T08:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945364/30/2021 8:00:00 AM</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-30T08:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>7</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>1234</JmbgPacijenta>
+    <IDTermina>123478976114/30/2021 8:00:00 AM</IDTermina>
+    <brojSobe>302</brojSobe>
+    <sprat>3</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-04-30T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678978976114/30/2021 7:00:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-19T11:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>1234</JmbgPacijenta>
+    <IDTermina>123445365/19/2021 11:00:00 AM</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>

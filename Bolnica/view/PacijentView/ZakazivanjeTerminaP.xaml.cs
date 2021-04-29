@@ -1,4 +1,5 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.DTOs;
+using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -58,27 +59,24 @@ namespace Bolnica.view.PacijentView
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String jmbgPacijenta = this.p.Jmbg;
-            String jmbgLekara = ((Lekar)izabraniLekar.SelectedItem).Jmbg;
-            List<DateTime> datumi = new List<DateTime>(kalendar.SelectedDates);
-            int satnicaZaKraj = satnicaKraj.SelectedIndex + 6;
-            int minutiZaKraj = minutKraj.SelectedIndex * 30;
-            int satnicaZaPocetak = satnicaPocetak.SelectedIndex + 6;
-            int minutiZaPocetak = minutPocetak.SelectedIndex * 30;
-            TimeSpan kraj = new TimeSpan(satnicaZaKraj, minutiZaKraj, 0);
-            TimeSpan pocetak = new TimeSpan(satnicaZaPocetak, minutiZaPocetak, 0);
-            int prioritet;
-            String opisTegobe = tegobe.Text;
-            if ((bool)nema.IsChecked) {
-                prioritet = 0;
-            } 
-            else if((bool)lekar.IsChecked) {
-                prioritet = 1;
-            } else
+            ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
             {
-                prioritet = 2;
-            }
-            this.moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(jmbgLekara, jmbgPacijenta, datumi, pocetak, kraj, prioritet, opisTegobe);
+                Pacijent = p.Jmbg,
+                IzabraniDatumi = kalendar.SelectedDates,
+                IzabraniLekar = izabraniLekar.SelectedItem,
+                PocetnaSatnica = satnicaPocetak.SelectedIndex,
+                PocetakMinut = minutPocetak.SelectedIndex,
+                KrajnjaSatnica = satnicaKraj.SelectedIndex,
+                KrajnjiMinuti = minutKraj.SelectedIndex,
+                NemaPrioritet = nema.IsChecked,
+                OpisTegobe = tegobe.Text,
+                PrioritetLekar = lekar.IsChecked,
+                PriotitetVreme = vreme.IsChecked,
+                trajanjeUMinutama = 30,
+                vrstaTermina = 0
+
+            };
+            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             if (moguciTermini.Count > 0)
             {
                 MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini);

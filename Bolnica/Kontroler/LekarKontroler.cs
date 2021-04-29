@@ -1,3 +1,4 @@
+using Bolnica.view.PacijentView;
 using Model;
 using Servis;
 using System;
@@ -70,5 +71,9 @@ namespace Kontroler
 
         public Servis.LekarServis lekarServis;
 
+        internal int DobaviIndeksSelektovanogLekara(Object termin)
+        {
+            return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
+        }
     }
 }

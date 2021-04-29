@@ -27,9 +27,8 @@ using Kontroler;
 
 namespace Bolnica.view
 {
-    /// <summary>
-    /// Interaction logic for PacijentZakazaniTermini.xaml
-    /// </summary>
+
+
     public partial class PacijentZakazaniTermini : UserControl
     {
         Pacijent pacijent { get; set; }

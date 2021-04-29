@@ -49,7 +49,10 @@
                               FontSize="15" />
                 </Viewbox>
                 <Label Content="Odaberite interval vremena:" HorizontalAlignment="Right" Grid.Row="3"/>
-                <ComboBox Name="satnicaPocetak" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                <ComboBox Name="satnicaPocetak" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" 
+                          VerticalAlignment="Top"
+                          Margin="10,0,0,0"
+                          SelectedIndex="0">
                     <ComboBoxItem>
                         06
                     </ComboBoxItem>
@@ -95,7 +98,8 @@
 
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="56,0,0,0"/>
-                <ComboBox Name="minutPocetak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="70,0,0,0" >
+                <ComboBox Name="minutPocetak" 
+                          SelectedIndex="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="70,0,0,0" >
                     <ComboBoxItem>
                         00
                     </ComboBoxItem>
@@ -103,8 +107,11 @@
                         30
                     </ComboBoxItem>
                 </ComboBox>
-                <Label Content="do" Grid.Row="3" Grid.Column="1" HorizontalContentAlignment="Left" Margin="120,0,0,0"/>
-                <ComboBox Name="satnicaKraj" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,0,0,0">
+                <Label Content="do" Grid.Row="3"
+                       Grid.Column="1" HorizontalContentAlignment="Left" Margin="120,0,0,0"/>
+                <ComboBox Name="satnicaKraj"
+                          SelectedIndex="14"
+                          Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,0,0,0">
                     <ComboBoxItem>
                         06
                     </ComboBoxItem>
@@ -152,7 +159,9 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="196,0,0,0"/>
-                <ComboBox Name="minutKraj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="210,0,0,0" >
+                <ComboBox Name="minutKraj"
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="210,0,0,0" >
                     <ComboBoxItem>
                         00
                     </ComboBoxItem>
@@ -171,6 +180,6 @@
         </StackPanel>
 
         <Button Content="Prikaži termine" HorizontalAlignment="Left" Height="46" Margin="447,627,0,-0.2" VerticalAlignment="Top" Width="265" Click="Button_Click"/>
-        <Button Content="Izađi" HorizontalAlignment="Left" Height="46" Margin="89,627,0,-0.2" VerticalAlignment="Top" Width="265" Click="Button_Click_1"/>
+        <Button Content="Izađi" HorizontalAlignment="Left" Height="46" Margin="89,627,0,-0.2" VerticalAlignment="Top" Width="265" Click="Nazad_ButtonClick"/>
     </Grid>
 </UserControl>

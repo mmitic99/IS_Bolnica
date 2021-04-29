@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Bolnica.DTOs;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -154,24 +155,24 @@ namespace Servis
             throw new NotImplementedException();
         }
 
-        public bool DaLiJePacijentSlobodan(string jmbgPacijenta, DateTime datumVreme, int trajanjeMinute = 30)
+        public bool DaLiJePacijentSlobodan(ParamsToCheckAvailabilityOfPatientDTO parametri)
         {
             bool slobodan = true;
-            List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(jmbgPacijenta);
+            List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(parametri.Id);
             foreach (Termin t in terminiPacijenta)
             {
-                if (datumVreme >= t.DatumIVremeTermina && datumVreme <= (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
-                    && (datumVreme.AddMinutes(trajanjeMinute)) > t.DatumIVremeTermina && (datumVreme.AddMinutes(trajanjeMinute)) < (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
+                if (parametri.startTime >= t.DatumIVremeTermina && parametri.startTime <= (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
+                    && (parametri.startTime.AddMinutes(parametri.durationInMinutes)) > t.DatumIVremeTermina && (parametri.startTime.AddMinutes(parametri.durationInMinutes)) < (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
                 {
                     slobodan = false;
                     break;
                 }
-                if (t.DatumIVremeTermina > datumVreme && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (datumVreme.AddMinutes(trajanjeMinute))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                if (t.DatumIVremeTermina > parametri.startTime && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (parametri.startTime.AddMinutes(parametri.durationInMinutes))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
                 {
                     slobodan = false;
                     break;
                 }
-                if (datumVreme.Equals(t.DatumIVremeTermina))
+                if (parametri.startTime.Equals(t.DatumIVremeTermina))
                 {
                     slobodan = false;
                     break;

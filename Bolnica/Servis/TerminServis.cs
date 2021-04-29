@@ -1,3 +1,5 @@
+using Bolnica.DTOs;
+using Kontroler;
 using Model;
 using Model.Enum;
 using Repozitorijum;
@@ -92,34 +94,194 @@ namespace Servis
 
             return uspesno;
         }
-
-        public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> izabraniDani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe, Termin termin = null)
+        internal List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
-            List<DateTime> sviMoguciDaniZakazivanja = DobaviMoguceSveDaneZakazivanja(termin);
-            List<Termin> moguciTermini = new List<Termin>();
-            pocetak = KonvertujMinute(pocetak);
+            parametri.Pocetak = KonvertujMinute(parametri.Pocetak);
+            parametri.SviMoguciDaniZakazivanja = DobaviMoguceSveDaneZakazivanja(parametri.PrethodnoZakazaniTermin);
+            return nadjiTerminePoPriritetu(parametri);
+        }
 
-            if (prioritet == 0) //nema prioritet
+        public List<Termin> nadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            if (parametri.Prioritet == 0) //nema prioritet
             {
-                moguciTermini = DobaviTermineZaInterval(sviMoguciDaniZakazivanja, new TimeSpan(6,0,0), new TimeSpan(20,0,0), jmbgPacijenta, tegobe);
+                moguciTermini = NadjiSveTermineBezPriotiteta(parametri);
             }
-            else if (prioritet == 1)
+            else if (parametri.Prioritet == 1)
             {
-                moguciTermini = DobaviTermineZaInterval(izabraniDani, pocetak, kraj, jmbgPacijenta, tegobe, jmbgLekara);
-                if (moguciTermini.Count < 10)
-                    DodajJosTermina(moguciTermini, DobaviTermineZaInterval(sviMoguciDaniZakazivanja, new TimeSpan(6, 0, 0), new TimeSpan(20, 0, 0), jmbgPacijenta, tegobe, jmbgLekara));
-                
+                moguciTermini = NadjiSveTermineSaPriritetomIzabranogLekara(parametri);
             }
-            else if (prioritet == 2)
+            else if (parametri.Prioritet == 2)
             {
-                    moguciTermini = DobaviTermineZaInterval(izabraniDani, pocetak, kraj, jmbgPacijenta, tegobe, jmbgLekara); //sa lekarom
-                    if (moguciTermini.Count < 10)
-                    DodajJosTermina(moguciTermini, DobaviTermineZaInterval(izabraniDani, pocetak, kraj, jmbgPacijenta, tegobe));                
+                moguciTermini = NadjiSveTermineSaPriritetomIzabranogVremena(parametri);
             }
             return moguciTermini;
         }
 
-        private void DodajJosTermina(List<Termin> moguciTermini, List<Termin> dodatniTermini)
+        public List<Termin> NadjiSveTermineBezPriotiteta(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            ParametriZaTermineUIntervaluDTO parametriZaPotraguTerminaUNekomIntervalu = new ParametriZaTermineUIntervaluDTO
+            {
+                jmbgPacijenta = parametri.JmbgPacijenta,
+                OpisTegobe = parametri.tegobe,
+                Pocetak = PocetakRadnogVremena(),
+                Kraj = KrajRadnogVremena(),
+                Trajanje = parametri.trajanjeUMinutama,
+                vrstaPregleda = parametri.vrstaTermina,
+                SviDani = parametri.SviMoguciDaniZakazivanja
+            };
+            moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
+
+
+            return moguciTermini;
+        }
+
+        public List<Termin> NadjiSveTermineSaPriritetomIzabranogLekara(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            ParametriZaTermineUIntervaluDTO parametriZaPotraguTerminaUNekomIntervalu = new ParametriZaTermineUIntervaluDTO()
+            {
+                jmbgPacijenta = parametri.JmbgPacijenta,
+                jmbgLekara = parametri.JmbgLekara,
+                OpisTegobe = parametri.tegobe,
+                Pocetak = parametri.Pocetak,
+                vrstaPregleda = parametri.vrstaTermina,
+                Kraj = parametri.Kraj,
+                SviDani = parametri.IzabraniDani,
+                Trajanje = parametri.trajanjeUMinutama
+
+            };
+            moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
+            if (moguciTermini.Count < MAX_BR_TERMINA_PRIKAZ) //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
+            {
+                parametriZaPotraguTerminaUNekomIntervalu.Pocetak = PocetakRadnogVremena();
+                parametriZaPotraguTerminaUNekomIntervalu.Kraj = KrajRadnogVremena();
+                parametriZaPotraguTerminaUNekomIntervalu.SviDani = parametri.SviMoguciDaniZakazivanja;
+                DodajJosTermina(moguciTermini, DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu));
+            }
+
+            return moguciTermini;
+        }
+
+        public List<Termin> NadjiSveTermineSaPriritetomIzabranogVremena(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            ParametriZaTermineUIntervaluDTO parametriZaPotraguTerminaUNekomIntervalu = new ParametriZaTermineUIntervaluDTO()
+            {
+                jmbgPacijenta = parametri.JmbgPacijenta,
+                jmbgLekara = parametri.JmbgLekara,
+                OpisTegobe = parametri.tegobe,
+                vrstaPregleda = parametri.vrstaTermina,
+                Pocetak = parametri.Pocetak,
+                Kraj = parametri.Kraj,
+                SviDani = parametri.IzabraniDani,
+                Trajanje = parametri.trajanjeUMinutama
+            };
+            moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu); //sa lekarom
+            if (moguciTermini.Count < MAX_BR_TERMINA_PRIKAZ) //ako nema dovoljno termina za izabranom lekaru za taj interval dodaje se jos termina bez lekara
+            {
+                parametriZaPotraguTerminaUNekomIntervalu.jmbgLekara = null;
+                DodajJosTermina(moguciTermini, DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu));
+
+            }
+            return moguciTermini;
+        }
+
+        /*
+    * Funkcija koja dobavlja sve moguce termine pregleda u prosledjenom intervalu, za ili ne za prosledjenog lekara
+    */
+        private List<Termin> DobaviTermineZaInterval(ParametriZaTermineUIntervaluDTO parametri)
+        {
+            ParametriZaNalazenjeTerminaZaTacnoVreme parametriTacnoVreme = new ParametriZaNalazenjeTerminaZaTacnoVreme();
+            parametriTacnoVreme.JmbgLekara = parametri.jmbgLekara;
+            parametriTacnoVreme.trajanjeUMinutama = parametri.Trajanje;
+            parametriTacnoVreme.vrstaPregleda = parametri.vrstaPregleda;
+            List<Termin> moguciBuduciTermini = new List<Termin>();
+            foreach (DateTime dan in parametri.SviDani)
+            {
+                DateTime danMinVreme = dan.Date + parametri.Pocetak;
+                DateTime danMaxVreme = dan.Date + parametri.Kraj;
+                while (danMinVreme.AddMinutes(parametri.Trajanje) <= danMaxVreme
+                    && moguciBuduciTermini.Count < MAX_BR_TERMINA_PRIKAZ)
+                {
+                    parametriTacnoVreme.TacnoVreme = danMinVreme;
+                    ParamsToPickAppointmentsAppropriateForSpecificPatientDTO parametriZaPacijenta = new ParamsToPickAppointmentsAppropriateForSpecificPatientDTO(
+                        parametri.jmbgPacijenta, parametri.vrstaPregleda, nadjiTermineZaTacnoVreme(parametriTacnoVreme), parametri.OpisTegobe);
+                    moguciBuduciTermini.AddRange(napraviPredlogePacijentu(parametriZaPacijenta));
+                    danMinVreme = dobaviSledeciMoguciTajming(danMinVreme);
+                }
+                if (moguciBuduciTermini.Count >= MAX_BR_TERMINA_PRIKAZ) break;
+            }
+            return moguciBuduciTermini;
+        }
+
+       /*
+        Funkcija koja nalazi sve termine slobodne u u prosledjeno vreme, ako je prosledjen lekar nalazi se termin samo za tog lekara, ako ne onda za sve lekare
+        */
+        public List<Termin> nadjiTermineZaTacnoVreme(ParametriZaNalazenjeTerminaZaTacnoVreme parametri)
+        {
+            List<Termin> terminiZaTacnoVreme = new List<Termin>();
+            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            foreach (Lekar lekar in lekari)
+            {
+                if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
+                    && (parametri.JmbgLekara == null || lekar.Jmbg == parametri.JmbgLekara)
+                    && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(parametri.JmbgLekara, parametri.TacnoVreme, parametri.trajanjeUMinutama))
+                    && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama))                  )
+                {
+                    Termin t = new Termin()
+                    {
+                        JmbgLekara = lekar.Jmbg,
+                        DatumIVremeTermina = parametri.TacnoVreme,
+                        TrajanjeTermina = parametri.trajanjeUMinutama
+                    };
+                    terminiZaTacnoVreme.Add(t);
+                }
+            }
+            return terminiZaTacnoVreme;
+        }
+
+         /*
+         * Personalizovani termini, dodat je pacijent, tip pregleda, id i trajanje
+         * u slucaju da imamo pacijenta kome trazimo pregled, pretrazujemo da li je on slobodan i filtriramo nadjen termine za njega
+         */
+        public List<Termin> napraviPredlogePacijentu(ParamsToPickAppointmentsAppropriateForSpecificPatientDTO parametri)
+        {
+            if (parametri.Id != null)
+            {
+                List<Termin> personalizovaniPredlozeniTermini = new List<Termin>();
+                foreach (Termin termin in parametri.PossibleAppointmentsTimings)
+                {
+                    if (PacijentServis.getInstance().DaLiJePacijentSlobodan(new ParamsToCheckAvailabilityOfPatientDTO(parametri.Id, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina)))
+                    {
+                        termin.JmbgPacijenta = parametri.Id;
+                        termin.opisTegobe = parametri.SymptomsOfIllness;
+                        termin.VrstaTermina = parametri.AppointmentKind;
+                        termin.IDTermina = termin.generateRandId();
+                        personalizovaniPredlozeniTermini.Add(termin);
+                    }
+                }
+                return personalizovaniPredlozeniTermini;
+            }
+            else
+            {
+                return parametri.PossibleAppointmentsTimings;
+            }
+
+        }
+        public TimeSpan PocetakRadnogVremena()
+        {
+            return new TimeSpan(6, 0, 0);
+        }
+
+        public TimeSpan KrajRadnogVremena()
+        {
+            return new TimeSpan(20, 0, 0);
+        }
+
+    private void DodajJosTermina(List<Termin> moguciTermini, List<Termin> dodatniTermini)
         {
             int i = 0;
             while (moguciTermini.Count < 10 && i < dodatniTermini.Count)
@@ -141,7 +303,18 @@ namespace Servis
             return pocetak;
         }
 
-        private List<DateTime> DobaviMoguceSveDaneZakazivanja(Termin termin)
+        public DateTime? DobaviPrviMoguciDanZakazivanja(Termin termin)
+        {
+            return DobaviMoguceSveDaneZakazivanja(termin)[0];
+        }
+
+        public DateTime? DobaviPPoslednjiMogiDanZakazivanja(Termin termin)
+        {
+            List < DateTime> sviMoguciDani = DobaviMoguceSveDaneZakazivanja(termin);
+            return sviMoguciDani[sviMoguciDani.Count - 1];
+        }
+
+        public List<DateTime> DobaviMoguceSveDaneZakazivanja(Termin termin)
         {
             List<DateTime> dani = new List<DateTime>();
             if (termin == null)
@@ -218,31 +391,6 @@ namespace Servis
             }
             return datumVreme;
         }
-        /*
-         Funkcija koja nalazi sve termine slobodne u u prosledjeno vreme, ako je prosledjen lekar nalazi se termin samo za tog lekara, ako ne onda za sve lekare
-         */
-        public List<Termin> nadjiTermineZaTacnoVreme(DateTime vreme, int trajanje, String jmbgLekara = null, VrstaPregleda vrstaPregleda = VrstaPregleda.Pregled)
-        {
-            List<Termin> terminiZaTacnoVreme = new List<Termin>();
-            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
-            foreach (Lekar lekar in lekari)
-            {
-               if(vreme > DateTime.Today.AddDays(1) 
-                   && LekarServis.getInstance().DaLiJeLekarSlobodan(lekar.Jmbg, vreme, trajanje)
-                   && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(vreme, trajanje, vrstaPregleda)
-                   && (jmbgLekara==null || lekar.Jmbg== jmbgLekara))
-               {
-                  Termin t = new Termin()
-                  {
-                      JmbgLekara = lekar.Jmbg,
-                      DatumIVremeTermina = vreme,
-                      TrajanjeTermina = trajanje
-                  };
-                      terminiZaTacnoVreme.Add(t);
-                    }
-                }
-            return terminiZaTacnoVreme;     
-        }
 
         public bool OdloziTermin(Termin termin)
         {
@@ -252,58 +400,6 @@ namespace Servis
         public void RemoveByID(string iDTermina)
         {
             skladisteZaTermine.RemoveByID(iDTermina);
-        }
-
-        /*
-         * Funkcija koja dobavlja sve moguce termine pregleda u prosledjenom intervalu, za ili ne za prosledjenog lekara
-         */
-        public List<Termin> DobaviTermineZaInterval( List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, String jmbgPacijenta = null, String tegobe = null, String jmbgLekara = null)
-        {
-            List<Termin> moguciBuduciTermini = new List<Termin>();
-            foreach(DateTime dan in dani)
-             {
-                DateTime danMinVreme = dan.Date + pocetak;
-                DateTime danMaxVreme = dan.Date + kraj;
-                while(danMinVreme.AddMinutes(30) <= danMaxVreme
-                    && moguciBuduciTermini.Count<MAX_BR_TERMINA_PRIKAZ)
-                { 
-                    moguciBuduciTermini.AddRange(napraviPredlogePacijentu(nadjiTermineZaTacnoVreme(danMinVreme, 30, jmbgLekara), jmbgPacijenta, tegobe));
-                    danMinVreme = dobaviSledeciMoguciTajming(danMinVreme);
-                }
-                if (moguciBuduciTermini.Count >= 10) break;
-             }
-            return moguciBuduciTermini;
-        }
-
- 
-
-        /*
-         * Personalizovani termini, dodat je pacijent, tip pregleda, id i trajanje
-         * u slucaju da imamo pacijenta kome trazimo pregled, pretrazujemo da li je on slobodan i filtriramo nadjen termine za njega
-         */
-        public List<Termin> napraviPredlogePacijentu(List<Termin> tajminzi, String jmbgPacijenta, String tegobe)
-        {
-            if (jmbgPacijenta != null)
-            {
-                List<Termin> personalizovaniPredlozeniTermini = new List<Termin>();
-                foreach (Termin termin in tajminzi)
-                {
-                    if (PacijentServis.getInstance().DaLiJePacijentSlobodan(jmbgPacijenta, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina))
-                    {
-                        termin.JmbgPacijenta = jmbgPacijenta;
-                        termin.opisTegobe = tegobe;
-                        termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
-                        termin.IDTermina = termin.generateRandId();
-                        personalizovaniPredlozeniTermini.Add(termin);
-                    }
-                }
-                return personalizovaniPredlozeniTermini;
-            }
-            else
-            {
-                return tajminzi;
-            }
-
         }
 
         public bool ProveriTermin(Model.Termin termin)
