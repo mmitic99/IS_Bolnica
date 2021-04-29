@@ -217,4 +217,53 @@
     <JmbgKorisnika>4536</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>obavestenje </Naslov>
+    <Sadrzaj>obavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenjeobavestenje</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Zdravo</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog zakazanog terminaIzmena zakazanogzakazanog terminaIzmena zakazanogzakazanog terminaIzmena zakazanog</Naslov>
+    <Sadrzaj>:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog terminaIzmena zakazanog terminaIzmena zakazanog terminaIzmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-29T15:39:11.5062475+02:00</VremeObavestenja>
+    <Naslov>Proba</Naslov>
+    <Sadrzaj>Obavestenje Obavestenje Obavestenje Obavestenje Obavestenje </Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-29T15:41:59.9781934+02:00</VremeObavestenja>
+    <Naslov>proba</Naslov>
+    <Sadrzaj>proba</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
 </ArrayOfObavestenje>

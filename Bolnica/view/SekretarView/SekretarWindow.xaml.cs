@@ -1,4 +1,5 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.view.SekretarView.Obavestenja;
+using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using System;
@@ -36,6 +37,11 @@ namespace Bolnica.view.SekretarView
             timer.Interval = TimeSpan.FromSeconds(0.5);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+
+            obavestenja.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+
+
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -118,6 +124,27 @@ namespace Bolnica.view.SekretarView
         {
             var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem, false);
             s.Show();
+        }
+
+        private void pocetna_Selected(object sender, RoutedEventArgs e)
+        {
+            obavestenja.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+        }
+
+        private void dodajObavestenje_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new DodavanjeObavestenja(obavestenja);
+            s.Show();
+        }
+
+        private void izmeniObavestenje_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void obrisiObavestenje_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

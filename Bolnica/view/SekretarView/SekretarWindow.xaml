@@ -74,7 +74,7 @@
                     </StackPanel>
                     
                 </Grid>
-                
+
                 
             </Grid>
 
@@ -95,10 +95,73 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem x:Name="pocetna" Width="100">
+                <TabItem x:Name="pocetna" Width="100" Selector.Selected="pocetna_Selected">
                     <TabItem.Header>
                         <TextBlock Text="Početna" FontSize="20"></TextBlock>
                     </TabItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.4*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" FontSize="25" FontWeight="SemiBold" VerticalContentAlignment="Center">OBAVEŠTENJA:</Label>
+                            
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="3">
+                                <Button x:Name="dodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Click="dodajObavestenje_Click">
+                                    <Image Source="/Images/add.png"/>
+                                </Button>
+                                <Button x:Name="izmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="izmeniObavestenje_Click">
+                                    <Image Source="/Images/draw.png"/>
+                                </Button>
+                                <Button x:Name="obrisiObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Obriši obaveštenje" Click="obrisiObavestenje_Click">
+                                    <Image Source="/Images/minus.png"/>
+                                </Button>
+                            </StackPanel>
+
+                            <DataGrid x:Name="obavestenja" Grid.Row="2" HeadersVisibility="None"
+                              Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
+                                      Margin="5" BorderThickness="0" GridLinesVisibility="None">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border BorderThickness="0">
+                                                    <StackPanel Margin="5">
+                                                        <Border BorderBrush="LightGray" BorderThickness="2" Padding="5">
+                                                            <Grid>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="40"/>
+                                                                    <RowDefinition Height="80"/>
+                                                                </Grid.RowDefinitions>
+                                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" FontSize="17" TextTrimming="CharacterEllipsis"/>
+                                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15" TextTrimming="WordEllipsis" TextAlignment="Justify"/>
+
+                                                            </Grid>
+                                                        </Border>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+
+
+                        </Grid>
+
+                    </Grid>
+                    
                 </TabItem>
                 <TabItem  x:Name="pacijenti" Width="100" Selector.Selected="pacijenti_Selected">
                     <TabItem.Header>

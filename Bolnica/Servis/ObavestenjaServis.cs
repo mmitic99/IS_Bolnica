@@ -46,7 +46,17 @@ namespace Servis
 
         public List<Obavestenje> GetByJmbg(String jmbg)
         {
-            return skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+            List<Obavestenje> obavestenja = skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+
+            foreach(Obavestenje obavestenje in skladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
+            {
+                if (!obavestenja.Contains(obavestenje))
+                {
+                    obavestenja.Add(obavestenje);
+                }
+            }
+
+            return obavestenja;
         }
 
         public List<Obavestenje> GetPodsetnici(String jmbg)
