@@ -32,6 +32,10 @@
                 <PacijentView:PomeranjeTermina/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewActions:PrikazJednogObavestenjaPacijentaViewModel}">
+                <PacijentView:PrikazObavestenja/>
+            </DataTemplate>
+
             <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="ContentTemplate">
                     <Setter.Value>

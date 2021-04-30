@@ -26,6 +26,7 @@ namespace Bolnica.viewActions
         public PacijentZakaziTermin PacijentZakaziVM { get; set; }
         public MoguciTerminiViewModel MoguciTerminiVM { get; set; }
         public PomeranjeTerminaViewModel PomeranjeTerminaVM { get; set; }
+        public PrikazJednogObavestenjaPacijentaViewModel PrikazObavestenjaVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -43,6 +44,7 @@ namespace Bolnica.viewActions
             PacijentZakaziVM = new PacijentZakaziTermin();
             MoguciTerminiVM = new MoguciTerminiViewModel();
             PomeranjeTerminaVM = new PomeranjeTerminaViewModel();
+            PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
             CurrentView = PacijentTerminiVM;
 
             PacijentTerminCommand = new RelayCommand(o => 

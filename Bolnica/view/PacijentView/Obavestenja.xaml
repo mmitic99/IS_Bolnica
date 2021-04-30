@@ -44,8 +44,8 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="704"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Naslov}" FontWeight="Bold" Height="60" FontSize="17"/>
-                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15"/>
+                                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Naslov}" FontWeight="Bold" TextTrimming="WordEllipsis" Height="60" FontSize="17"/>
+                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="15"/>
                                                 <Image Width="75" Height="75" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="medicine.png"/>
                                                 <TextBlock Grid.Row="2" Text="{Binding VremeObavestenja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
@@ -71,7 +71,7 @@
                               Grid.Row="2"
                           Grid.Column="1"
                           HorizontalScrollBarVisibility="Hidden"
-                              VerticalScrollBarVisibility="Hidden">
+                              VerticalScrollBarVisibility="Hidden" SelectionChanged="obavestenjaPacijenta_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -87,8 +87,8 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="704"/>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" Height="60" FontSize="17"/>
-                                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15"/>
+                                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" TextTrimming="WordEllipsis"  FontWeight="Bold" Height="60" FontSize="17"/>
+                                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="15"/>
                                                 <Image Width="80" Height="75" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="email.png"/>
 
                                             </Grid>

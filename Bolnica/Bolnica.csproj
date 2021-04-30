@@ -106,6 +106,7 @@
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
+    <Compile Include="viewActions\PrikazJednogObavestenjaPacijentaViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
     <Compile Include="model\ZakazanaPreraspodelaStatickeOpreme.cs" />
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="view\PacijentView\PomeranjeTermina.xaml.cs">
       <DependentUpon>PomeranjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\PrikazObavestenja.xaml.cs">
+      <DependentUpon>PrikazObavestenja.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\Upozorenje.xaml.cs">
       <DependentUpon>Upozorenje.xaml</DependentUpon>
@@ -277,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\PomeranjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\PrikazObavestenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

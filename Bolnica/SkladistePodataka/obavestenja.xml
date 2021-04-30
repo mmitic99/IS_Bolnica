@@ -169,13 +169,6 @@
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-29T16:48:12.3454784+02:00</VremeObavestenja>
-    <Naslov>Proba</Naslov>
-    <Sadrzaj>proba</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Podsetnik>false</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-29T16:48:23.424425+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
@@ -186,13 +179,6 @@
     <VremeObavestenja>2021-04-29T16:53:34.832825+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina Izmena zakazanog </Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AMPoštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Podsetnik>false</Podsetnik>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-29T17:15:14.969572+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Pozdrav, zdravo.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
@@ -286,5 +272,26 @@
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 11:30:00 AM je pomeren na 5/1/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-30T14:26:40.6013941+02:00</VremeObavestenja>
+    <Naslov>Proba</Naslov>
+    <Sadrzaj>Zavod za zdravstvenu zaštitu radnika Zdravo Med od oktobra 2019. posluje u okviru MediGroup-a - najvećeg privatnog zdravstvenog sistema u Srbiji i regionu. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem I</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-30T14:36:53.0572044+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Rapidol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 15:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-30T14:59:22.1072257+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Rapidol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 16:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
   </Obavestenje>
 </ArrayOfObavestenje>

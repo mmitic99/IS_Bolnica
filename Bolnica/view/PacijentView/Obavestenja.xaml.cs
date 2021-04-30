@@ -1,4 +1,5 @@
-﻿using Kontroler;
+﻿using Bolnica.viewActions;
+using Kontroler;
 using Model;
 using Repozitorijum;
 using System;
@@ -45,6 +46,15 @@ namespace Bolnica.view
             Task WaitTask = Task.Delay((int)ExecutionTime.Subtract(DateTime.Now).TotalMilliseconds);
             WaitTask.ContinueWith(_ => action);
             WaitTask.Start();
+        }
+
+        private void obavestenjaPacijenta_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (obavestenjaPacijenta.SelectedIndex != -1)
+            {
+                MainViewModel.getInstance().PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel(obavestenjaPacijenta.SelectedItem);
+                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PrikazObavestenjaVM;
+            }
         }
     }
 }
