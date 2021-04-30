@@ -39,11 +39,19 @@ namespace Bolnica.view.PacijentView
             {
                 TerminKontroler.getInstance().IzmeniTermin((Termin)prikazMogucih.SelectedItem, ((Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem).IDTermina);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(PacijentMainWindow.getInstance().pacijent.Jmbg);
             }
             else
             {
+                if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojZakazanihPregledaUBuducnosti(PacijentMainWindow.getInstance().pacijent.Jmbg)>=4)
+                {
+                    var s = new UpozorenjePredBan();
+                    s.Owner = PacijentMainWindow.getInstance();
+                    s.ShowDialog();
+                }
                 TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
             }
                 
         }

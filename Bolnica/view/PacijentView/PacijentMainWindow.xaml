@@ -7,7 +7,7 @@
         xmlns:viewActions="clr-namespace:Bolnica.viewActions"
         mc:Ignorable="d" MaxHeight="768" MaxWidth="1024"
         Title="PacijentMainWindow" Height="768" WindowStyle="None" Width="1024" UseLayoutRounding="False"
-        ResizeMode="NoResize" Background="#FF432121" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Border CornerRadius="6">
         <Border.Background>

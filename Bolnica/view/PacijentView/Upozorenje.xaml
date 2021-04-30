@@ -1,0 +1,50 @@
+﻿<Window x:Class="Bolnica.view.PacijentView.Upozorenje"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+        mc:Ignorable="d"
+        Title="Upozorenje" Height="320" Width="505"
+        Background="Transparent"
+        FontSize="15" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None"
+        >
+    <Border CornerRadius="8" Background="#FFDADEE2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Border Background="#FF407294"/>
+            <Image Source="sad.png"
+                   Width="120"/>
+            <TextBlock Text="Zap na je trenutno nemate mozda da pokusate nekada kasnije bla bla bla bla bladkjekskjs prava izvšiti željenu aktivnostkkykĆ"
+                       Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"/>
+
+                <Border Width="100" 
+                        Height="45"
+                        VerticalAlignment="Top"
+                        CornerRadius="30" 
+                        Background="#FF407294"
+                        Grid.Row="2">
+                <Button 
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Width="100"
+                    Content="OK"
+                    FontWeight="DemiBold" Click="Button_Click">
+
+                </Button>
+            </Border>
+                
+
+                   
+                    
+        </Grid>
+    </Border>
+</Window>

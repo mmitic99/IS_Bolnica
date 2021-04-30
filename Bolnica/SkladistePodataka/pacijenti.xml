@@ -6,7 +6,7 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>4567891230987</KorisnickoIme>
+      <KorisnickoIme>Sara</KorisnickoIme>
       <Lozinka>Sara</Lozinka>
     </Korisnik>
     <Ime>Sara</Ime>
@@ -36,7 +36,7 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>9876543210987</KorisnickoIme>
+      <KorisnickoIme>Mika</KorisnickoIme>
       <Lozinka>Mika</Lozinka>
     </Korisnik>
     <Ime>Mika</Ime>

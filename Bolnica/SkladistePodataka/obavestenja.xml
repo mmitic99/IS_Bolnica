@@ -166,10 +166,6 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/12/2021 5:30:00 PM je pomeren na 5/9/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <VremeObavestenja>2021-04-29T16:47:42.0409374+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog zakazanog terminaIzmena</Naslov>
-    <Sadrzaj>pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
   </Obavestenje>
   <Obavestenje>
@@ -199,5 +195,12 @@
     <Sadrzaj>Pozdrav, zdravo.</Sadrzaj>
     <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-30T01:01:48.463139+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Bromazepan</Naslov>
+    <Sadrzaj>Poštovani/a Jovana podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
   </Obavestenje>
 </ArrayOfObavestenje>

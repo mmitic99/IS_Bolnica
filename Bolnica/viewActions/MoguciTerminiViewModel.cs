@@ -11,8 +11,10 @@ namespace Bolnica.viewActions
     {
         public List<Termin> terminiZaPrikazivanje;
         public string pozivaoc { get; set; }
-        public MoguciTerminiViewModel(List<Termin> terminiZaPrikazivanje = null, string pocetna = null)
+        public string jmbg { get; set; }
+        public MoguciTerminiViewModel(List<Termin> terminiZaPrikazivanje = null, string pocetna = null, string jmbg = null)
         {
+            this.jmbg = jmbg;
             if(terminiZaPrikazivanje!=null)
             {
                 this.terminiZaPrikazivanje = terminiZaPrikazivanje;

@@ -5,73 +5,153 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
+using Model;
 using Model.Enum;
+using Repozitorijum;
 
 namespace Servis
 {
    public class KorisnickeAktivnostiPacijentaServis
    {
-      public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
+        private static KorisnickeAktivnostiPacijentaServis instance = null;
+
+        public static KorisnickeAktivnostiPacijentaServis GetInstance()
+        {
+            if (instance == null)
+            {
+                return new KorisnickeAktivnostiPacijentaServis();
+            }
+            else
+                return instance;
+        }
+
+        public KorisnickeAktivnostiPacijentaServis()
+        {
+            instance = this;
+        }
+
+        public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
       {
-         // TODO: implement
-         return null;
-      }
+            KorisnickeAktivnostiNaAplikaciji aktivnosti = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgKorisnika);
+            if (aktivnosti == null)
+            {
+                aktivnosti = NapraviNoveKorisnickeAktivnosti(jmbgKorisnika);
+                SkladisteZaKorisnickeAktivnosti.GetInstance().Save(aktivnosti);
+            }
+            return aktivnosti;
+        }
       
       public Model.Enum.VrstaKorisnikaAplikacije GetRangKorisnika(String jmbgKorisnika)
       {
-         // TODO: implement
-         return VrstaKorisnikaAplikacije.Normalan;
+
+            return GetByJmbg(jmbgKorisnika).TrenutnoSeTretiraKao;
       }
       
       public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
       {
-         // TODO: implement
-         return 0;
+            List<Termin> sviTerminiKorisnika = SkladisteZaTermine.getInstance().getByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
+            List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
+            foreach(Termin t in sviTerminiKorisnika)
+            {
+                if(t.DatumIVremeTermina>DateTime.Now)
+                {
+                    sviTerminiKorisnikaIzBuducnosti.Add(t);
+                }
+            }
+
+         return sviTerminiKorisnikaIzBuducnosti.Count;
       }
       
       public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
       {
-         // TODO: implement
-         return 0;
+            List<KorisnickaAktivnost> aktivnostiKorisnika = GetByJmbg(jmbgKorisnika).AktivnostiKorisnika;
+         return IzracunajBrojOdlaganja(aktivnostiKorisnika);
       }
-      
-      public void NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
+
+      private int IzracunajBrojOdlaganja(List<KorisnickaAktivnost> aktivnostiKorisnika)
+        {
+            int brojOdlaganja = 0;
+            foreach (KorisnickaAktivnost aktivnost in aktivnostiKorisnika)
+            {
+                if (DateTime.Today.AddMonths(-1) < aktivnost.DatumIVreme
+                    && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
+                {
+                    brojOdlaganja++;
+                }
+            }
+            return brojOdlaganja;
+        }
+
+        public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
       {
-         // TODO: implement
+            KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
+            SkladisteZaKorisnickeAktivnosti.GetInstance().Save(noveAktivnosti);
+            return noveAktivnosti;
+        }
+
+        public Boolean DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
+        {
+            VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgKorisnika);
+            if (rangKorisnika == VrstaKorisnikaAplikacije.HalfSpam || rangKorisnika == VrstaKorisnikaAplikacije.Spam) 
+                return false;
+            else 
+                return true;
       }
-      
-      public Boolean DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
+
+        public Boolean DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
+        {
+            VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgPacijenta);
+            if (rangKorisnika == VrstaKorisnikaAplikacije.Spam)
+                return false;
+            else
+                return true;
+        }
+
+        public void DodajZakazivanje(String jmbgPacijenta)
       {
-         // TODO: implement
-         return true;
-      }
-      
-      public void DodajZakazivanje(String jmbgPacijenta)
-      {
-         // TODO: implement
+            KorisnickaAktivnost zakazivanje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.ZakazivanjePregleda, DateTime.Now);
+            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgPacijenta);
+            sveAktivnostiKorisnika.AktivnostiKorisnika.Add(zakazivanje);
+            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
       
       public void DodajOdlaganje(String jmbgPacijenta)
       {
-         // TODO: implement
+            KorisnickaAktivnost odlaganje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.OdlaganjePregleda, DateTime.Now);
+            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgPacijenta);
+            sveAktivnostiKorisnika.AktivnostiKorisnika.Add(odlaganje);
+            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
+            AzurirajRang(sveAktivnostiKorisnika);
+            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
       
       public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
       {
-         // TODO: implement
-         return false;
+            List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  SkladisteZaKorisnickeAktivnosti.GetInstance().GetAll();
+            for(int i=0; i<aktivnostiSvihKorisnika.Count; i++)
+            {
+                if(aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
+                {
+                    aktivnostiSvihKorisnika[i] = korisnickaAktivnost;
+                    break;
+                }
+            }
+            SkladisteZaKorisnickeAktivnosti.GetInstance().SaveAll(aktivnostiSvihKorisnika);
+            return true;
       }
       
-      public void AzurirajRang(Model.KorisnickaAktivnost korisnickaAktivnost)
+      public void AzurirajRang(KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
       {
-         // TODO: implement
+            if (IzracunajBrojOdlaganja(korisnickaAktivnost.AktivnostiKorisnika) > 2)
+                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Spam;
+            else if (DobaviBrojZakazanihPregledaUBuducnosti(korisnickaAktivnost.JmbgKorisnika) > 4)
+                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.HalfSpam;
+            else
+                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Normalan;
       }
       
-      public Boolean DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
-      {
-         // TODO: implement
-         return true;
-      }
+
    
       public Repozitorijum.SkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
    

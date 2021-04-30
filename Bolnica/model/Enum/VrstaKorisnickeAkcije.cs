@@ -11,8 +11,7 @@ namespace Model.Enum
    public enum VrstaKorisnickeAkcije
    {
       ZakazivanjePregleda,
-      OtkazivanjePregleda,
-      PomeranjePregleda
+      OdlaganjePregleda
    
    }
 }

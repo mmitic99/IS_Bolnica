@@ -79,7 +79,7 @@ namespace Bolnica.view.PacijentView
             List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             if (moguciTermini.Count > 0)
             {
-                MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini);
+                MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,PacijentMainWindow.getInstance().pacijent.Jmbg);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
             }
 

@@ -1,17 +1,21 @@
-/***********************************************************************
- * Module:  KorisnickaAktivnost.cs
- * Author:  PC
- * Purpose: Definition of the Class Model.KorisnickaAktivnost
- ***********************************************************************/
-
+using Model.Enum;
 using System;
 
 namespace Model
 {
    public class KorisnickaAktivnost
    {
-      private Model.Enum.VrstaKorisnickeAkcije VrstaAktivnosti;
-      private DateTime DatumIVreme;
+      public Model.Enum.VrstaKorisnickeAkcije VrstaAktivnosti { get; set; }
+      public DateTime DatumIVreme { get; set; }
+        public KorisnickaAktivnost()
+        {
+
+        }
+        public KorisnickaAktivnost(VrstaKorisnickeAkcije vrsta, DateTime datum)
+        {
+            this.VrstaAktivnosti = vrsta;
+            this.DatumIVreme = datum;
+        }
    
    }
 }
