@@ -16,14 +16,16 @@ namespace Bolnica.view.SekretarView
         private DataGrid terminiPrikaz;
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
+        private SpecijalizacijaKontroler specijalizacijaKontroler;
 
         public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
 
-            prostorijeKontroler = new ProstorijeKontroler(); ;
+            prostorijeKontroler = new ProstorijeKontroler();
             terminKontroler = new TerminKontroler();
+            specijalizacijaKontroler = new SpecijalizacijaKontroler();
 
             hitanT.IsChecked = hitan;
             this.terminiPrikaz = terminiPrikaz;
@@ -39,6 +41,9 @@ namespace Bolnica.view.SekretarView
             sala.SelectedIndex = 0;
            
             datum.DisplayDateStart = DateTime.Now;
+
+            vrstaSpec.ItemsSource = specijalizacijaKontroler.GetAll();
+
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
@@ -193,6 +198,24 @@ namespace Bolnica.view.SekretarView
         private void vremeT_GotFocus(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void hitanT_Checked(object sender, RoutedEventArgs e)
+        {
+            lekarLabela.Visibility = Visibility.Hidden;
+            lekar.Visibility = Visibility.Hidden;
+            lekarButton.Visibility = Visibility.Hidden;
+            vrstaSpec.Visibility = Visibility.Visible;
+            vrstaSpecLabela.Visibility = Visibility.Visible;
+        }
+
+        private void hitanT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lekarLabela.Visibility = Visibility.Visible;
+            lekar.Visibility = Visibility.Visible;
+            lekarButton.Visibility = Visibility.Visible;
+            vrstaSpec.Visibility = Visibility.Hidden;
+            vrstaSpecLabela.Visibility = Visibility.Hidden;
         }
     }
 }

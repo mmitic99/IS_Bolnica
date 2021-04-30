@@ -181,9 +181,9 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjePacijenta_Click"/>
-                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjePacijenta_Click"/>
+                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -197,7 +197,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjePacijenta_Click">
+                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjePacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -256,9 +256,9 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="zakazivanjeTermina_Click"/>
-                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmeniTer_Click">
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="zakazivanjeTermina_Click"/>
+                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="izmeniTer_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -272,7 +272,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Oktaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="otkakazivanjeTermina_Click">
+                            <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="otkakazivanjeTermina_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />

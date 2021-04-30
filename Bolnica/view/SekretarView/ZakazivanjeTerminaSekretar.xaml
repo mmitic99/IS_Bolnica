@@ -25,7 +25,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="Hitan termin:"/>
-                    <CheckBox x:Name="hitanT" Grid.Column="1" VerticalAlignment="Center" Checked="azurirajVreme" Unchecked="azurirajVreme">(označi ako je hitno)</CheckBox>
+                    <CheckBox x:Name="hitanT" Grid.Column="1" VerticalAlignment="Center" Checked="hitanT_Checked" Unchecked="hitanT_Unchecked">(označi ako je hitno)</CheckBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -58,13 +58,21 @@
                         <ColumnDefinition Width="175"/>
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Lekar:</Label>
+                    <Label Grid.Column="0" x:Name="lekarLabela">Lekar:</Label>
                     <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2"  TextChanged="azurirajVreme"/>
-                    <Button Grid.Column="3" Click="dodajLekaraT_Click" Padding="3"  ToolTip="Dodaj lekara">
+                    <Button x:Name="lekarButton" Grid.Column="2" Click="dodajLekaraT_Click" Padding="3" ToolTip="Dodaj lekara">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
                         </Grid>
                     </Button>
+                    <ComboBox x:Name="vrstaSpec" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding VrstaSpecijalizacije}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label Grid.Column="0" Visibility="Hidden" x:Name="vrstaSpecLabela">Vrsta spcijalizacije lekara:</Label>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>

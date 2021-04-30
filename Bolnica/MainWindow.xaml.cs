@@ -1,6 +1,7 @@
 ﻿using Bolnica.view;
 using Model;
 using Repozitorijum;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace Bolnica
@@ -19,6 +20,20 @@ namespace Bolnica
             SkladisteSekretara.GetInstance().Save(sekretar);
             Lekar lekar = new Lekar { Korisnik = new Korisnik { KorisnickoIme = "lekar", Lozinka = "lekar" } };
             SkladisteZaLekara.GetInstance().Save(lekar);*/
+
+            /*SkladisteZaSpecijalizaciju skladisteZaSpecijalizaciju = new SkladisteZaSpecijalizaciju();
+            List<Specijalizacija> specijalizacije = new List<Specijalizacija>();
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "opšta medicina" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "interna medicina" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "pedijatrija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "kardiohirurgija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "neurohirurgija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "otorinolaringologija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "oftalmologija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "imunologija" });
+            specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "epidemiologija" });
+            skladisteZaSpecijalizaciju.SaveAll(specijalizacije);*/
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

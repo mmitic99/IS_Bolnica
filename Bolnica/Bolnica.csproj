@@ -90,6 +90,7 @@
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
+    <Compile Include="Kontroler\SpecijalizacijaKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
     <Compile Include="model\Anamneza.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="model\Recept.cs" />
     <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
+    <Compile Include="Servis\SpecijalizacijaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
@@ -359,11 +361,9 @@
     <Compile Include="model\Drzava.cs" />
     <Compile Include="model\Enum\KlasaLeka.cs" />
     <Compile Include="model\Enum\Pol.cs" />
-    <Compile Include="model\Enum\Sprat.cs" />
     <Compile Include="model\Enum\VrstaLeka.cs" />
     <Compile Include="model\Enum\VrstaPregleda.cs" />
     <Compile Include="model\Enum\VrstaProstorije.cs" />
-    <Compile Include="model\Enum\VrstaSpecijalizacije.cs" />
     <Compile Include="model\Grad.cs" />
     <Compile Include="model\InventarZaProstorije.cs" />
     <Compile Include="model\Korisnik.cs" />
