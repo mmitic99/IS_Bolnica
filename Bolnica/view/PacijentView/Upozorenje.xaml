@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.PacijentView"
         mc:Ignorable="d"
-        Title="Upozorenje" Height="320" Width="505"
+        Title="Upozorenje" Height="320" Width="555"
         Background="Transparent"
         FontSize="15" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None"
         >
@@ -18,8 +18,17 @@
             </Grid.RowDefinitions>
             <Border Background="#FF407294"/>
             <Image Source="sad.png"
-                   Width="120"/>
-            <TextBlock Text="Zap na je trenutno nemate mozda da pokusate nekada kasnije bla bla bla bla bladkjekskjs prava izvšiti željenu aktivnostkkykĆ"
+                   Width="120"
+                   Margin="0,0,0,20"/>
+            <TextBlock Text="Žao nam je, trenutno nemate prava da izvršite željenu aktivnost."
+                       FontWeight="DemiBold"
+                       Margin="0,0,0,10"
+                       FontSize="17"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"/>
+            <TextBlock 
+                x:Name="opisZabrane"
+                Text="Zap na je trenutno nemate mozda da pokusate nekada kasnije"
                        Grid.Row="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"

@@ -73,8 +73,13 @@ namespace Kontroler
          // TODO: implement
          return KorisnickeAktivnostiPacijentaServis.GetInstance().DaLiJeMoguceOdlozitiZakazaniTermin(jmbgPacijenta);
       }
-         
-      /// <pdGenerated>default getter</pdGenerated>
-   
-   }
+
+        internal string DobaviPorukuZabrane(string jmbgPacijenta)
+        {
+            return KorisnickeAktivnostiPacijentaServis.GetInstance().DobaviPorukuZabrane(jmbgPacijenta);
+        }
+
+        /// <pdGenerated>default getter</pdGenerated>
+
+    }
 }

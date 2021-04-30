@@ -917,4 +917,116 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-07-13T10:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678966677/13/2021 10:00:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-13T06:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678945365/13/2021 6:30:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-18T07:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678978976115/18/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-01T08:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678978976115/1/2021 8:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-03T19:30:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>123456789</JmbgPacijenta>
+    <IDTermina>12345678978976115/3/2021 7:30:00 PM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-27T08:30:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>23132131546478976115/27/2021 8:30:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>Bol u grlu.</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-26T09:00:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>23132131546466675/26/2021 9:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-01T07:00:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>0</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>231321315464</JmbgPacijenta>
+    <IDTermina>23132131546466675/1/2021 7:00:00 AM</IDTermina>
+    <brojSobe>001</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>

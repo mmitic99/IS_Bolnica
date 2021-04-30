@@ -19,9 +19,10 @@ namespace Bolnica.view.PacijentView
     /// </summary>
     public partial class Upozorenje : Window
     {
-        public Upozorenje()
+        public Upozorenje(String opis)
         {
             InitializeComponent();
+            opisZabrane.Text = opis;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

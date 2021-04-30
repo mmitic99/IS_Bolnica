@@ -97,6 +97,7 @@ namespace Kontroler
 
         public PacijentServis pacijentServis;
 
+
         internal bool obrisiPacijentaNaIndeksu(int selectedIndex)
         {
             return pacijentServis.obrisiPacijentaNaIndeksu(selectedIndex);

@@ -83,6 +83,23 @@ namespace Servis
             return brojOdlaganja;
         }
 
+        internal string DobaviPorukuZabrane(string jmbgPacijenta)
+        {
+            VrstaKorisnikaAplikacije tretiraSeKao = GetRangKorisnika(jmbgPacijenta);
+            String povratna = "";
+            if(tretiraSeKao == VrstaKorisnikaAplikacije.HalfSpam)
+            {
+                povratna+="Premašili ste dozvoljeni broj zakazanih termina. Pokušajte ponovo kada prethodno zakazani budu završeni ili nas kontaktirajte putem telefona +381218381071781."
+                    + "\r\n"+"Molimo Vas da smanjite bespotrebna zakazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
+            }
+            else if(tretiraSeKao == VrstaKorisnikaAplikacije.Spam)
+            {
+                povratna += "Premašili ste dozvoljeni broj odlaganja termina. Pokušajte ponovo uskoro ili nas kontaktirajte putem telefona +381218381071781."
+                    + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja i otkazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
+            }
+            return povratna;
+        }
+
         public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
       {
             KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
@@ -122,12 +139,11 @@ namespace Servis
             KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgPacijenta);
             sveAktivnostiKorisnika.AktivnostiKorisnika.Add(odlaganje);
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
-            AzurirajRang(sveAktivnostiKorisnika);
-            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
       
       public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
       {
+            AzurirajRang(korisnickaAktivnost);
             List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  SkladisteZaKorisnickeAktivnosti.GetInstance().GetAll();
             for(int i=0; i<aktivnostiSvihKorisnika.Count; i++)
             {

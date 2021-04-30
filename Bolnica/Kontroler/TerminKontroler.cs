@@ -45,9 +45,9 @@ namespace Kontroler {
             return terminServis.OtkaziTermin(termin);
         }
 
-        public bool IzmeniTermin(Termin termin, string stariIdTermina = null)
+        public bool IzmeniTermin(Object termin, Object stariIdTermina = null)
         {
-            return terminServis.IzmeniTermin(termin, stariIdTermina);
+            return terminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
         }
 
         public List<Termin> GetAll()
@@ -66,6 +66,12 @@ namespace Kontroler {
         {
             // TODO: implement
             terminServis.SaveAll(termini);
+        }
+
+        internal List<Termin> GetByJmbg(string jmbg)
+        {
+
+            return TerminServis.getInstance().getByJmbgPacijenta(jmbg);
         }
 
         internal DateTime? PrviMoguciDanZakazivanja(Object prethodniTermin)

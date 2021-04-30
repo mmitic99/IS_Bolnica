@@ -58,7 +58,7 @@ public partial class PomeranjeTermina : UserControl
                 PrioritetLekar = lekar.IsChecked,
                 PriotitetVreme = vreme.IsChecked,
                 trajanjeUMinutama = 30,
-                vrstaTermina = 1
+                vrstaTermina = 0
                 
             };
             List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);

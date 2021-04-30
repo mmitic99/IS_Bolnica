@@ -26,9 +26,17 @@ namespace Bolnica.view.PacijentView
     public partial class MoguciTermini : UserControl
     {
         public List<Termin> moguciTermini;
+
+        public static MoguciTermini instance = null;
+
+        public static MoguciTermini GetInstance()
+        {
+            return instance;
+        }
         public MoguciTermini()
         {
             InitializeComponent();
+            instance = this;
             prikazMogucih.ItemsSource = new ObservableCollection<Termin>(MainViewModel.getInstance().MoguciTerminiVM.terminiZaPrikazivanje);
 
         }
@@ -37,7 +45,7 @@ namespace Bolnica.view.PacijentView
         {
             if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
             {
-                TerminKontroler.getInstance().IzmeniTermin((Termin)prikazMogucih.SelectedItem, ((Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem).IDTermina);
+                TerminKontroler.getInstance().IzmeniTermin(prikazMogucih.SelectedItem, PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
                 KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(PacijentMainWindow.getInstance().pacijent.Jmbg);
             }
@@ -45,13 +53,17 @@ namespace Bolnica.view.PacijentView
             {
                 if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojZakazanihPregledaUBuducnosti(PacijentMainWindow.getInstance().pacijent.Jmbg)>=4)
                 {
-                    var s = new UpozorenjePredBan();
+                    var s = new UpozorenjePredBan("z");
                     s.Owner = PacijentMainWindow.getInstance();
                     s.ShowDialog();
                 }
-                TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                else
+                {
+                    TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
+                    MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                }
+
             }
                 
         }

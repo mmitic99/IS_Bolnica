@@ -72,7 +72,7 @@ namespace Bolnica.view
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
             else
             {
-                var DijalogUpozorenja = new Upozorenje();
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta));
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }    
@@ -82,11 +82,23 @@ namespace Bolnica.view
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DaLiJeMoguceOdlozitiZakazaniTermin(JmbgPacijenta))
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+                if(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojOtkazivanjaUProteklihMesecDana(JmbgPacijenta)>=2)
+                {
+                    var DijjalogPredBan = new UpozorenjePredBan("p");
+                    DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
+                    DijjalogPredBan.ShowDialog();
+                }
+                else
+                {
+                    MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+
+                }
             else
             {
-                var DijalogUpozorenja = new Upozorenje();
-                DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta))
+                {
+                    Owner = PacijentMainWindow.getInstance()
+                };
                 DijalogUpozorenja.ShowDialog();
             }
 
@@ -98,19 +110,20 @@ namespace Bolnica.view
             {
                 if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojOtkazivanjaUProteklihMesecDana(JmbgPacijenta) >= 2)
                 {
-                    var DijjalogPredBan = new UpozorenjePredBan();
+                    var DijjalogPredBan = new UpozorenjePredBan("o");
                     DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
                     DijjalogPredBan.ShowDialog();
+                } 
+                else
+                {
+                    TerminKontroler.getInstance().RemoveByID(((Termin)prikazTermina1.SelectedItem).IDTermina);
+                    prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(JmbgPacijenta));
+                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(JmbgPacijenta);
                 }
-
-                TerminKontroler.getInstance().RemoveByID(((Termin)prikazTermina1.SelectedItem).IDTermina);
-                prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(JmbgPacijenta));
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(JmbgPacijenta);
-                
             }
             else
             {
-                var DijalogUpozorenja = new Upozorenje();
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta));
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }

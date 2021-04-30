@@ -94,6 +94,12 @@ namespace Servis
 
             return uspesno;
         }
+
+        internal List<Termin> getByJmbgPacijenta(string jmbg)
+        {
+            return SkladisteZaTermine.getInstance().getByJmbg(jmbg);
+        }
+
         internal List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
             parametri.Pocetak = KonvertujMinute(parametri.Pocetak);
