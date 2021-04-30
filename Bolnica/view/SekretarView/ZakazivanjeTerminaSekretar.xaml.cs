@@ -41,51 +41,58 @@ namespace Bolnica.view.SekretarView
             datum.DisplayDateStart = DateTime.Now;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            if (vrstaT.SelectedIndex == 0)
+            if (!pacijent.Text.Equals("") && vremeT.SelectedIndex == -1)
             {
-                termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
+                if (vrstaT.SelectedIndex == 0)
+                {
+                    termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
+                }
+                else
+                {
+                    termin.VrstaTermina = Model.Enum.VrstaPregleda.Operacija;
+                }
+                termin.IdProstorije = int.Parse(((Prostorija)sala.SelectedItem).BrojSobe);
+                DateTime selDate = (DateTime)datum.SelectedDate;
+
+                string[] vreme = ((string)vremeT.SelectedItem).Split(':');
+                int sati = int.Parse(vreme[0]);
+                int minuti = int.Parse(vreme[1]);
+
+                DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
+
+                termin.DatumIVremeTermina = datumIVreme;
+                termin.IdProstorije = ((Prostorija)sala.SelectedItem).IdProstorije;
+
+                termin.opisTegobe = tegobe.Text;
+                termin.IDTermina = termin.generateRandId();
+                termin.TrajanjeTermina = 30;
+
+                terminKontroler.ZakaziTermin(termin);
+
+                terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+
+                this.Close();
             }
             else
             {
-                termin.VrstaTermina = Model.Enum.VrstaPregleda.Operacija;
+                MessageBox.Show("Morate izabrati pacijenta i vreme termina.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            termin.IdProstorije = int.Parse(((Prostorija)sala.SelectedItem).BrojSobe);
-            DateTime selDate = (DateTime)datum.SelectedDate;
-
-            string[] vreme = ((string)vremeT.SelectedItem).Split(':');
-            int sati = int.Parse(vreme[0]);
-            int minuti = int.Parse(vreme[1]);
-
-            DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
-
-            termin.DatumIVremeTermina = datumIVreme;
-            termin.IdProstorije = ((Prostorija)sala.SelectedItem).IdProstorije;
-
-            termin.opisTegobe = tegobe.Text;
-            termin.IDTermina = termin.generateRandId();
-            termin.TrajanjeTermina = 30;
-
-            terminKontroler.ZakaziTermin(termin);
-
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-
-            this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void dodajPacijentaT_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjePacijentaTerminu(termin, pacijent);
             s.ShowDialog();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void dodajLekaraT_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeLekaraTerminu(termin, lekar);
             s.ShowDialog();

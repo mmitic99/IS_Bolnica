@@ -189,7 +189,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="Button_Click">Potvrdi
+            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="potvrdi_Click">Potvrdi
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="IsEnabled" Value="False"/>
@@ -211,7 +211,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="1" Click="Button_Click_1">Otkaži</Button>
+            <Button Width="100" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
         </Grid>
 
     </Grid>

@@ -26,7 +26,7 @@ namespace Bolnica.view.SekretarView
             this.Owner = App.Current.MainWindow;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             Pacijent pacijent = new Pacijent
             {
@@ -79,7 +79,7 @@ namespace Bolnica.view.SekretarView
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

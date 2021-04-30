@@ -50,18 +50,18 @@
 
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
-                                Width="120" Height="40" Click="Button_Click">
+                                Width="120" Height="40" Click="dodavanjeGostujuceg_Click">
                             <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button>
                         <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
-                                Width="120" Height="40" Click="Button_Click_4">
+                                Width="120" Height="40" Click="zakazivanjeTermina_Click">
                             Zakaži termin
                         </Button>
 
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Orientation="Vertical" Width="103" Margin="2">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="Button_Click_6">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="prijavljivanje_Click">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -182,8 +182,8 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_1"/>
-                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2">
+                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjePacijenta_Click"/>
+                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -197,7 +197,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_3">
+                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjePacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -233,7 +233,7 @@
                                 <DataGridTemplateColumn Width="20">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Click="Button_Click_7" Width="20" Background="Transparent" ToolTip="Zakaži termin za pacijenta">
+                                            <Button Click="zakazivanjeTerminaZaOdabranogPacijenta_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin za pacijenta">
                                                 <Grid>
                                                     <Image Source="/Images/add_event.png"/>
                                                 </Grid>
@@ -257,7 +257,7 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_4"/>
+                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="zakazivanjeTermina_Click"/>
                             <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmeniTer_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
@@ -272,7 +272,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Oktaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_5">
+                            <Button Content="Oktaži termin" HorizontalAlignment="Left" Margin="30,21,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="otkakazivanjeTermina_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />

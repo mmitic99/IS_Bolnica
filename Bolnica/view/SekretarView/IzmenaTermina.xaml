@@ -138,8 +138,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="Button_Click">Sačuvaj</Button>
-            <Button Width="100" Grid.Column="1" Click="Button_Click_1">Otkaži</Button>
+            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click">Sačuvaj</Button>
+            <Button Width="100" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
         </Grid>
 
     </Grid>

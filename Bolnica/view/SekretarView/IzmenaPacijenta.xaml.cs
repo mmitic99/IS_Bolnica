@@ -53,7 +53,7 @@ namespace Bolnica.view.SekretarView
             alergeniList.ItemsSource = alergeni;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
             Pacijent noviPacijent = new Pacijent
             {
@@ -111,7 +111,7 @@ namespace Bolnica.view.SekretarView
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -127,6 +127,10 @@ namespace Bolnica.view.SekretarView
             if(alergeniList.SelectedIndex != -1)
             {
                 alergeni.RemoveAt(alergeniList.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati alergen koji želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
