@@ -19,6 +19,7 @@ namespace Bolnica.view.SekretarView
             DataContext = new Pacijent();
             this.pacijentiPrikaz = pacijentiPrikaz;
             pacijentKontroler = new PacijentKontroler();
+            this.Owner = App.Current.MainWindow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

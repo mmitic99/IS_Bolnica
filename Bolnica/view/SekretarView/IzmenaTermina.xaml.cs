@@ -23,6 +23,7 @@ namespace Bolnica.view.SekretarView
         public IzmenaTermina(DataGrid terminiPrikaz)
         {
             InitializeComponent();
+            this.Owner = App.Current.MainWindow;
 
             terminKontroler = new TerminKontroler();
             prostorijeKontroler = new ProstorijeKontroler();

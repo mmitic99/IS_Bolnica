@@ -22,6 +22,7 @@ namespace Bolnica.view.SekretarView
         public IzmenaPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
+            this.Owner = App.Current.MainWindow;
             pacijentKontroler = new PacijentKontroler();
 
             this.pacijentiPrikaz = pacijentiPrikaz;
@@ -118,7 +119,7 @@ namespace Bolnica.view.SekretarView
         private void dodajA_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeAlregena(alergeni);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void obrisiA_Click(object sender, RoutedEventArgs e)

@@ -20,6 +20,7 @@ namespace Bolnica.view.SekretarView
         public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan)
         {
             InitializeComponent();
+            this.Owner = App.Current.MainWindow;
 
             prostorijeKontroler = new ProstorijeKontroler(); ;
             terminKontroler = new TerminKontroler();
@@ -81,13 +82,13 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjePacijentaTerminu(termin, pacijent);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeLekaraTerminu(termin, lekar);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void azurirajVreme(object sender, EventArgs e)

@@ -23,6 +23,7 @@ namespace Bolnica.view.SekretarView
             this.pacijentiPrikaz = pacijentiPrikaz;
             this.terminiPrikaz = terminiPrikaz;
             pacijentKontroler = new PacijentKontroler();
+            this.Owner = App.Current.MainWindow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

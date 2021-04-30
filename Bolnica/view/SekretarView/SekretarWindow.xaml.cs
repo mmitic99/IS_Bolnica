@@ -53,13 +53,13 @@ namespace Bolnica.view.SekretarView
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeGostujucegPacijenta(pacijentiPrikaz, terminiPrikaz);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjePacijenta(pacijentiPrikaz);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -67,7 +67,7 @@ namespace Bolnica.view.SekretarView
             if (pacijentiPrikaz.SelectedIndex != -1)
             {
                 var s = new IzmenaPacijenta(pacijentiPrikaz);
-                s.Show();
+                s.ShowDialog();
             }
         }
 
@@ -84,7 +84,7 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void izmeniTer_Click(object sender, RoutedEventArgs e)
@@ -92,7 +92,7 @@ namespace Bolnica.view.SekretarView
             if (terminiPrikaz.SelectedIndex != -1)
             {
                 var s = new IzmenaTermina(terminiPrikaz);
-                s.Show();
+                s.ShowDialog();
             }
         }
 
@@ -125,7 +125,7 @@ namespace Bolnica.view.SekretarView
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
             var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem, false);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void pocetna_Selected(object sender, RoutedEventArgs e)
@@ -136,7 +136,7 @@ namespace Bolnica.view.SekretarView
         private void dodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeObavestenja(obavestenjaPrikaz);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void izmeniObavestenje_Click(object sender, RoutedEventArgs e)
@@ -144,7 +144,7 @@ namespace Bolnica.view.SekretarView
             if (obavestenjaPrikaz.SelectedIndex != -1)
             {
                 var s = new IzmenaObavestenja(obavestenjaPrikaz);
-                s.Show();
+                s.ShowDialog();
             }
         }
 
