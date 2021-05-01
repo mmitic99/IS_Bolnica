@@ -16,13 +16,20 @@ namespace Bolnica.view.SekretarView
         private DataGrid terminiPrikaz;
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
+        private SpecijalizacijaKontroler specijalizacijaKontroler;
+        private LekarKontroler lekarKontroler;
+
+        private List<Termin> moguciTermini = new List<Termin>();
 
         public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan)
         {
             InitializeComponent();
+            this.Owner = App.Current.MainWindow;
 
-            prostorijeKontroler = new ProstorijeKontroler(); ;
+            prostorijeKontroler = new ProstorijeKontroler();
             terminKontroler = new TerminKontroler();
+            specijalizacijaKontroler = new SpecijalizacijaKontroler();
+            lekarKontroler = new LekarKontroler();
 
             hitanT.IsChecked = hitan;
             this.terminiPrikaz = terminiPrikaz;
@@ -36,106 +43,104 @@ namespace Bolnica.view.SekretarView
 
             sala.ItemsSource = prostorijeKontroler.GetAll();
             sala.SelectedIndex = 0;
-           
+
             datum.DisplayDateStart = DateTime.Now;
+
+            vrstaSpec.ItemsSource = specijalizacijaKontroler.GetAll();
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            if (vrstaT.SelectedIndex == 0)
+            if (!pacijent.Text.Equals("") && vremeT.SelectedIndex != -1)
             {
-                termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
+                if (vrstaT.SelectedIndex == 0)
+                {
+                    termin.VrstaTermina = Model.Enum.VrstaPregleda.Pregled;
+                }
+                else
+                {
+                    termin.VrstaTermina = Model.Enum.VrstaPregleda.Operacija;
+                }
+                termin.IdProstorije = int.Parse(((Prostorija)sala.SelectedItem).BrojSobe);
+                DateTime selDate = (DateTime)datum.SelectedDate;
+
+                string vremeTermina = ((string)vremeT.SelectedItem).Substring(0, 5);
+
+                string[] vreme = vremeTermina.Split(':');
+                int sati = int.Parse(vreme[0]);
+                int minuti = int.Parse(vreme[1]);
+
+                DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
+
+                termin.DatumIVremeTermina = datumIVreme;
+                termin.IdProstorije = ((Prostorija)sala.SelectedItem).IdProstorije;
+
+                termin.opisTegobe = tegobe.Text;
+                termin.IDTermina = termin.generateRandId();
+                termin.TrajanjeTermina = 30;
+
+                if (moguciTermini[vremeT.SelectedIndex].JmbgPacijenta != null)
+                {
+                    Termin noviTermin = terminKontroler.GetById(moguciTermini[vremeT.SelectedIndex].IDTermina);
+                    if (termin.JmbgLekara.Equals(noviTermin.JmbgLekara))
+                    {
+                        while (terminKontroler.GetTerminZaDatumILekara(noviTermin.DatumIVremeTermina, noviTermin.JmbgLekara) != null)
+                        {
+                            noviTermin.DatumIVremeTermina = noviTermin.DatumIVremeTermina.AddDays(1);
+                        }
+                        terminKontroler.IzmeniTermin(noviTermin);
+                    }
+                }
+
+                terminKontroler.ZakaziTermin(termin);
+
+                terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+
+                this.Close();
             }
             else
             {
-                termin.VrstaTermina = Model.Enum.VrstaPregleda.Operacija;
+                MessageBox.Show("Morate izabrati pacijenta i vreme termina.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            termin.IdProstorije = int.Parse(((Prostorija)sala.SelectedItem).BrojSobe);
-            DateTime selDate = (DateTime)datum.SelectedDate;
-
-            string[] vreme = ((string)vremeT.SelectedItem).Split(':');
-            int sati = int.Parse(vreme[0]);
-            int minuti = int.Parse(vreme[1]);
-
-            DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
-
-            termin.DatumIVremeTermina = datumIVreme;
-            termin.IdProstorije = ((Prostorija)sala.SelectedItem).IdProstorije;
-
-            termin.opisTegobe = tegobe.Text;
-            termin.IDTermina = termin.generateRandId();
-            termin.TrajanjeTermina = 30;
-
-            terminKontroler.ZakaziTermin(termin);
-
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-
-            this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void dodajPacijentaT_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjePacijentaTerminu(termin, pacijent);
-            s.Show();
+            s.ShowDialog();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void dodajLekaraT_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeLekaraTerminu(termin, lekar);
-            s.Show();
+            s.ShowDialog();
         }
 
         private void azurirajVreme(object sender, EventArgs e)
         {
-            if (vremeT != null)
+
+            if (hitanT.IsChecked == true)
             {
-                if (hitanT.IsChecked == true && vremeT.Text.Equals("") && termin != null)
+                if (vremeT != null && !pacijent.Text.Equals("") && vrstaSpec.SelectedIndex != -1)
                 {
-                    /*List<String> vremena = new List<String>();
-
-                    TimeSpan pocetak = new TimeSpan(6, 0, 0);
-                    TimeSpan kraj = new TimeSpan(23, 59, 59);
-
-                    if (datum.SelectedDate.Value.Month == DateTime.Now.Month && datum.SelectedDate.Value.Day == DateTime.Now.Day)
-                    {
-                        pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
-                    }
-
-                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 0, "");
-
-
-                    foreach (Termin termin in moguciTermini)
-                    {
-                        String sati = termin.DatumIVremeTermina.Hour.ToString();
-                        String minuti = termin.DatumIVremeTermina.Minute.ToString();
-
-                        if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
-                        {
-                            sati = "0" + sati;
-                        }
-
-                        if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
-                        {
-                            minuti = "0" + minuti;
-                        }
-
-                        vremena.Add(sati + ":" + minuti);
-                    }
-                    vremeT.ItemsSource = vremena;*/
+                    moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(termin.JmbgPacijenta, ((Specijalizacija)vrstaSpec.SelectedItem).VrstaSpecijalizacije);
+                    vremeT.ItemsSource = GenerisiVremena(moguciTermini);
                 }
-                else
+            }
+            else
+            {
+                if (vremeT != null)
                 {
-
                     if (!pacijent.Text.Equals("") || sender.Equals(pacijent))
                     {
                         if (!lekar.Text.Equals("") || sender.Equals(lekar))
                         {
-                            List<String> vremena = new List<String>();
 
                             TimeSpan pocetak = new TimeSpan(6, 0, 0);
                             TimeSpan kraj = new TimeSpan(23, 59, 59);
@@ -145,46 +150,93 @@ namespace Bolnica.view.SekretarView
                                 pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
                             }
 
-                            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "");
-
-
-                            foreach (Termin termin in moguciTermini)
-                            {
-                                if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
-                                {
-
-                                    String sati = termin.DatumIVremeTermina.Hour.ToString();
-                                    String minuti = termin.DatumIVremeTermina.Minute.ToString();
-
-                                    if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
-                                    {
-                                        sati = "0" + sati;
-                                    }
-
-                                    if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
-                                    {
-                                        minuti = "0" + minuti;
-                                    }
-
-                                    vremena.Add(sati + ":" + minuti);
-                                }
-                            }
-                            vremeT.ItemsSource = vremena;
+                            moguciTermini = terminKontroler.NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "", null, true);
+                            vremeT.ItemsSource = GenerisiVremena(moguciTermini);
                         }
-                        else
-                        {
-
-                        }
-
-
                     }
                 }
             }
         }
 
+        private List<string> GenerisiVremena(List<Termin> moguciTermini)
+        {
+            List<String> vremena = new List<String>();
+            foreach (Termin termin in moguciTermini)
+            {
+                if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
+                {
+
+                    String sati = termin.DatumIVremeTermina.Hour.ToString();
+                    String minuti = termin.DatumIVremeTermina.Minute.ToString();
+
+                    if (int.Parse(sati) >= 0 && int.Parse(sati) <= 9)
+                    {
+                        sati = "0" + sati;
+                    }
+
+                    if (int.Parse(minuti) >= 0 && int.Parse(minuti) <= 9)
+                    {
+                        minuti = "0" + minuti;
+                    }
+
+                    string prikazVremena = sati + ":" + minuti;
+
+                    if (hitanT.IsChecked == true)
+                    {
+                        Lekar lekarUTerminu = lekarKontroler.GetByJmbg(termin.JmbgLekara);
+                        prikazVremena += " lekar: " + lekarUTerminu.Ime + " " + lekarUTerminu.Prezime;
+                        prikazVremena += " sala: " + termin.brojSobe;
+                    }
+
+                    vremena.Add(prikazVremena);
+                }
+            }
+
+            return vremena;
+        }
+
         private void vremeT_GotFocus(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void hitanT_Checked(object sender, RoutedEventArgs e)
+        {
+            lekarLabela.Visibility = Visibility.Hidden;
+            lekar.Visibility = Visibility.Hidden;
+            lekarButton.Visibility = Visibility.Hidden;
+            sala.Visibility = Visibility.Hidden;
+            salaText.Visibility = Visibility.Visible;
+            vrstaSpec.Visibility = Visibility.Visible;
+            vrstaSpecLabela.Visibility = Visibility.Visible;
+            termin.lekar = null;
+            lekar.Text = "";
+            vrstaSpec.SelectedIndex = -1;
+            datum.IsEnabled = false;
+        }
+
+        private void hitanT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lekarLabela.Visibility = Visibility.Visible;
+            lekar.Visibility = Visibility.Visible;
+            lekarButton.Visibility = Visibility.Visible;
+            sala.Visibility = Visibility.Visible;
+            salaText.Visibility = Visibility.Hidden;
+            vrstaSpec.Visibility = Visibility.Hidden;
+            vrstaSpecLabela.Visibility = Visibility.Hidden;
+            termin.lekar = null;
+            lekar.Text = "";
+            vrstaSpec.SelectedIndex = -1;
+            datum.IsEnabled = true;
+        }
+
+        private void vremeT_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (vrstaSpec != null && vremeT.SelectedIndex != -1 && moguciTermini.Count > 0)
+            {
+                termin.JmbgLekara = moguciTermini[vremeT.SelectedIndex].JmbgLekara;
+                termin.brojSobe = moguciTermini[vremeT.SelectedIndex].brojSobe;
+            }
         }
     }
 }

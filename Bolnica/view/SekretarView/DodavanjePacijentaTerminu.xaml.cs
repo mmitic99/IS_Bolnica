@@ -24,7 +24,7 @@ namespace Bolnica.view.SekretarView
             this.pacijent = pacijent;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
             if (DodavanjePacijentaTerminuPrikaz.SelectedIndex != -1)
             {
@@ -33,9 +33,13 @@ namespace Bolnica.view.SekretarView
                 pacijent.Text = selPac.Ime + " " + selPac.Prezime;
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Morate izabrati pacijenta koga želite da dodate.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

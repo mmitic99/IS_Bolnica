@@ -39,19 +39,19 @@ namespace Repozitorijum
         public Lekar getByJmbg(String jmbg)
         {
             List<Lekar> lekari = this.GetAll();
-            Lekar l1 = new Lekar();
-            foreach (Lekar l in lekari)
+            Lekar lekar1 = new Lekar();
+            foreach (Lekar lekar in lekari)
             {
-                if (l.Jmbg != null)
+                if (lekar.Jmbg != null)
                 {
-                    if (l.Jmbg.Equals(jmbg))
+                    if (lekar.Jmbg.Equals(jmbg))
                     {
-                        l1 = l;
+                        lekar1 = lekar;
                         break;
                     }
                 }
             }
-            return l1;
+            return lekar1;
         }
         public void Save(Lekar lekar)
         {

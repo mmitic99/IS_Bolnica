@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSpecijalizacija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Specijalizacija>
+    <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>interna medicina</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>pedijatrija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>kardiohirurgija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>neurohirurgija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>otorinolaringologija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>oftalmologija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>imunologija</VrstaSpecijalizacije>
+  </Specijalizacija>
+  <Specijalizacija>
+    <VrstaSpecijalizacije>epidemiologija</VrstaSpecijalizacije>
+  </Specijalizacija>
+</ArrayOfSpecijalizacija>

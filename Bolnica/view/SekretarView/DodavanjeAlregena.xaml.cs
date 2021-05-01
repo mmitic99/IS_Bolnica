@@ -35,6 +35,10 @@ namespace Bolnica.view.SekretarView
                 alergeni.Add(alergen.Text);
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Polje za unos alergena ne može biti prazno.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void otkazi_Click(object sender, RoutedEventArgs e)

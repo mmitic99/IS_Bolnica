@@ -35,8 +35,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Width="100" Height="25" Click="Button_Click">Potvrdi</Button>
-                <Button Grid.Column="1" Width="100" Height="25" Click="Button_Click_1">Otkaži</Button>
+                <Button Grid.Column="0" Width="100" Height="35" Click="Button_Click">Potvrdi</Button>
+                <Button Grid.Column="1" Width="100" Height="35" Click="Button_Click_1">Otkaži</Button>
             </Grid>
 
         </StackPanel>

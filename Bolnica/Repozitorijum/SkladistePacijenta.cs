@@ -40,19 +40,19 @@ namespace Repozitorijum
         public Pacijent getByJmbg(String jmbg)
         {
             List<Pacijent> pacijenti = this.GetAll();
-            Pacijent p1 = new Pacijent();
-            foreach (Pacijent p in pacijenti)
+            Pacijent pacijent1 = new Pacijent();
+            foreach (Pacijent pacijent in pacijenti)
             {
-                if (p.Jmbg != null)
+                if (pacijent.Jmbg != null)
                 {
-                    if (p.Jmbg.Equals(jmbg))
+                    if (pacijent.Jmbg.Equals(jmbg))
                     {
-                        p1 = p;
+                        pacijent1 = pacijent;
                         break;
                     }
                 }
             }
-            return p1;
+            return pacijent1;
         }
 
         public void Save(Pacijent pacijent)

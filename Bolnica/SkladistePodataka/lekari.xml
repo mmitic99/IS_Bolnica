@@ -18,7 +18,11 @@
     <Jmbg>6667</Jmbg>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <obavestenje />
     <FullName>dr Milos Marinkovic</FullName>
     <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
@@ -40,7 +44,11 @@
     <Jmbg>4536</Jmbg>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <obavestenje />
     <FullName>dr Miroslav Mi</FullName>
     <IdOrdinacija>2</IdOrdinacija>
   </Lekar>
@@ -62,11 +70,15 @@
     <Jmbg>609</Jmbg>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <obavestenje />
     <FullName>dr Dunja Jovanovic</FullName>
     <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
- <Lekar>
+  <Lekar>
     <Grad>
       <drzava>
         <Naziv>Srbija</Naziv>
@@ -84,7 +96,11 @@
     <Jmbg>7897611</Jmbg>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <obavestenje />
     <FullName>dr Maja Balazevic</FullName>
     <IdOrdinacija>3</IdOrdinacija>
   </Lekar>

@@ -27,6 +27,7 @@ namespace Bolnica.view.SekretarView.Obavestenja
         public IzmenaObavestenja(DataGrid obavestenjaPrikaz)
         {
             InitializeComponent();
+            this.Owner = App.Current.MainWindow;
             this.obavestenjaPrikaz = obavestenjaPrikaz;
             obavestenje = (Obavestenje)obavestenjaPrikaz.SelectedItem;
             naslov.Text = obavestenje.Naslov;

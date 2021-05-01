@@ -75,5 +75,9 @@ namespace Kontroler
         {
             return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
         }
+        public Lekar GetByJmbg(string jmbg)
+        {
+            return lekarServis.GetByJmbg(jmbg);
+        }
     }
 }
