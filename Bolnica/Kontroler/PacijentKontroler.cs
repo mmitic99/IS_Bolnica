@@ -101,5 +101,10 @@ namespace Kontroler
         {
             return pacijentServis.obrisiPacijentaNaIndeksu(selectedIndex);
         }
+
+        public Pacijent GetByJmbg(string jmbg)
+        {
+            return pacijentServis.GetByJmbg(jmbg);
+        }
     }
 }

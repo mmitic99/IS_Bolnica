@@ -123,6 +123,10 @@ namespace Servis
         {
             // TODO: implement
         }
+        public Lekar GetByJmbg(string jmbg)
+        {
+            return skladisteZaLekara.getByJmbg(jmbg);
+        }
 
         public SkladisteZaLekara skladisteZaLekara;
     }

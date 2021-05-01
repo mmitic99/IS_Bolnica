@@ -22,6 +22,7 @@ namespace Bolnica.DTOs
         public String jmbgLekara { get; set; }
         public int Trajanje { get; set; }
         public VrstaPregleda vrstaPregleda { get; set; }
+        public bool sekretar { get; set; }
     }
 
     public class ParametriZaNalazenjeTerminaZaTacnoVreme
@@ -89,6 +90,7 @@ namespace Bolnica.DTOs
         public Termin PrethodnoZakazaniTermin { get; set; }
         public int trajanjeUMinutama { get; set; }
         public VrstaPregleda vrstaTermina { get; set; }
+        public bool sekretar { get; set; }
     }
 
     public class ParamsToPickAppointmentsAppropriateForSpecificPatientDTO

@@ -1,7 +1,5 @@
 using Bolnica.DTOs;
-using Kontroler;
 using Model;
-using Model.Enum;
 using Repozitorijum;
 using System;
 using System.Collections;
@@ -13,12 +11,13 @@ namespace Servis
     {
         public SkladisteZaTermine skladisteZaTermine;
         public SkladisteZaObavestenja skladisteZaObavestenja;
-        public static TerminServis instance =null;
-        public const int MAX_BR_TERMINA_PRIKAZ =10;
+        public static TerminServis instance = null;
+        public const int MAX_BR_TERMINA_PRIKAZ = 10;
+        public const int MAX_BR_TERMINA_PRIKAZ_SEKRETAR = 50;
 
         public static TerminServis getInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 return new TerminServis();
             }
@@ -53,7 +52,7 @@ namespace Servis
         public bool IzmeniTermin(Termin termin, string stariIdTermina = null)
         {
             Termin stariTermin;
-            if(stariIdTermina!=null)
+            if (stariIdTermina != null)
             {
                 stariTermin = SkladisteZaTermine.getInstance().getById(stariIdTermina);
                 skladisteZaTermine.RemoveByID(stariIdTermina);
@@ -65,7 +64,7 @@ namespace Servis
                 skladisteZaTermine.RemoveByID(termin.IDTermina);
             }
             bool uspesno = true;
-            
+
             termin.IDTermina = termin.generateRandId();
 
             Obavestenje obavestenjePacijent = new Obavestenje
@@ -76,7 +75,7 @@ namespace Servis
                 " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now,
                 Podsetnik = false
-                
+
             };
             skladisteZaObavestenja.Save(obavestenjePacijent);
 
@@ -99,6 +98,11 @@ namespace Servis
             parametri.Pocetak = KonvertujMinute(parametri.Pocetak);
             parametri.SviMoguciDaniZakazivanja = DobaviMoguceSveDaneZakazivanja(parametri.PrethodnoZakazaniTermin);
             return nadjiTerminePoPriritetu(parametri);
+        }
+
+        public Termin GetById(string idTermina)
+        {
+            return skladisteZaTermine.getById(idTermina);
         }
 
         public List<Termin> nadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
@@ -150,11 +154,12 @@ namespace Servis
                 vrstaPregleda = parametri.vrstaTermina,
                 Kraj = parametri.Kraj,
                 SviDani = parametri.IzabraniDani,
-                Trajanje = parametri.trajanjeUMinutama
+                Trajanje = parametri.trajanjeUMinutama,
+                sekretar = parametri.sekretar
 
             };
             moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
-            if (moguciTermini.Count < MAX_BR_TERMINA_PRIKAZ) //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
+            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
             {
                 parametriZaPotraguTerminaUNekomIntervalu.Pocetak = PocetakRadnogVremena();
                 parametriZaPotraguTerminaUNekomIntervalu.Kraj = KrajRadnogVremena();
@@ -163,6 +168,80 @@ namespace Servis
             }
 
             return moguciTermini;
+        }
+
+        public List<Termin> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
+        {
+            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Termin> moguciTermini = new List<Termin>();
+            List<DateTime> vremena = DobaviVremeZaHitanTermin();
+
+            foreach (DateTime datumIVreme in vremena)
+            {
+                foreach (Lekar lekar in lekari)
+                {
+                    if (lekar.specijalizacija != null && lekar.specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije))
+                    {
+                        Termin termin = new Termin
+                        {
+                            DatumIVremeTermina = datumIVreme,
+                            JmbgLekara = lekar.Jmbg,
+                            brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
+                            JmbgPacijenta = null
+                        };
+
+                        Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
+
+                        if (terminDatumVreme != null)
+                        {
+                            termin.JmbgPacijenta = terminDatumVreme.JmbgPacijenta;
+                            termin.IDTermina = terminDatumVreme.IDTermina;
+                        }
+
+                        moguciTermini.Add(termin);
+                    }
+                }
+            }
+            List<Termin> sortiraniTermini = new List<Termin>();
+            List<Termin> terminiSaPomeranjem = new List<Termin>();
+
+            foreach (Termin termin in moguciTermini)
+            {
+                if (termin.JmbgPacijenta == null)
+                {
+                    sortiraniTermini.Add(termin);
+                }
+                else
+                {
+                    terminiSaPomeranjem.Add(termin);
+                }
+            }
+            foreach (Termin termin in terminiSaPomeranjem)
+            {
+                sortiraniTermini.Add(termin);
+            }
+            return sortiraniTermini;
+        }
+
+        private static List<DateTime> DobaviVremeZaHitanTermin()
+        {
+            List<DateTime> vremena = new List<DateTime>();
+
+            if (DateTime.Now.Minute % 30 == 0)
+            {
+                vremena.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0));
+                vremena.Add(DateTime.Now.AddMinutes(30));
+            }
+            else
+            {
+                double dodaj = 30 - (DateTime.Now.Minute % 30);
+                DateTime pocetak = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0);
+                pocetak = pocetak.AddMinutes(dodaj);
+                vremena.Add(pocetak);
+                vremena.Add(pocetak.AddMinutes(30));
+            }
+
+            return vremena;
         }
 
         public List<Termin> NadjiSveTermineSaPriritetomIzabranogVremena(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
@@ -177,10 +256,11 @@ namespace Servis
                 Pocetak = parametri.Pocetak,
                 Kraj = parametri.Kraj,
                 SviDani = parametri.IzabraniDani,
-                Trajanje = parametri.trajanjeUMinutama
+                Trajanje = parametri.trajanjeUMinutama,
+                sekretar = parametri.sekretar
             };
             moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu); //sa lekarom
-            if (moguciTermini.Count < MAX_BR_TERMINA_PRIKAZ) //ako nema dovoljno termina za izabranom lekaru za taj interval dodaje se jos termina bez lekara
+            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) //ako nema dovoljno termina za izabranom lekaru za taj interval dodaje se jos termina bez lekara
             {
                 parametriZaPotraguTerminaUNekomIntervalu.jmbgLekara = null;
                 DodajJosTermina(moguciTermini, DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu));
@@ -204,7 +284,7 @@ namespace Servis
                 DateTime danMinVreme = dan.Date + parametri.Pocetak;
                 DateTime danMaxVreme = dan.Date + parametri.Kraj;
                 while (danMinVreme.AddMinutes(parametri.Trajanje) <= danMaxVreme
-                    && moguciBuduciTermini.Count < MAX_BR_TERMINA_PRIKAZ)
+                    && moguciBuduciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ))
                 {
                     parametriTacnoVreme.TacnoVreme = danMinVreme;
                     ParamsToPickAppointmentsAppropriateForSpecificPatientDTO parametriZaPacijenta = new ParamsToPickAppointmentsAppropriateForSpecificPatientDTO(
@@ -212,14 +292,14 @@ namespace Servis
                     moguciBuduciTermini.AddRange(napraviPredlogePacijentu(parametriZaPacijenta));
                     danMinVreme = dobaviSledeciMoguciTajming(danMinVreme);
                 }
-                if (moguciBuduciTermini.Count >= MAX_BR_TERMINA_PRIKAZ) break;
+                if (moguciBuduciTermini.Count >= (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) break;
             }
             return moguciBuduciTermini;
         }
 
-       /*
-        Funkcija koja nalazi sve termine slobodne u u prosledjeno vreme, ako je prosledjen lekar nalazi se termin samo za tog lekara, ako ne onda za sve lekare
-        */
+        /*
+         Funkcija koja nalazi sve termine slobodne u u prosledjeno vreme, ako je prosledjen lekar nalazi se termin samo za tog lekara, ako ne onda za sve lekare
+         */
         public List<Termin> nadjiTermineZaTacnoVreme(ParametriZaNalazenjeTerminaZaTacnoVreme parametri)
         {
             List<Termin> terminiZaTacnoVreme = new List<Termin>();
@@ -229,7 +309,7 @@ namespace Servis
                 if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
                     && (parametri.JmbgLekara == null || lekar.Jmbg == parametri.JmbgLekara)
                     && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(parametri.JmbgLekara, parametri.TacnoVreme, parametri.trajanjeUMinutama))
-                    && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama))                  )
+                    && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama)))
                 {
                     Termin t = new Termin()
                     {
@@ -243,10 +323,10 @@ namespace Servis
             return terminiZaTacnoVreme;
         }
 
-         /*
-         * Personalizovani termini, dodat je pacijent, tip pregleda, id i trajanje
-         * u slucaju da imamo pacijenta kome trazimo pregled, pretrazujemo da li je on slobodan i filtriramo nadjen termine za njega
-         */
+        /*
+        * Personalizovani termini, dodat je pacijent, tip pregleda, id i trajanje
+        * u slucaju da imamo pacijenta kome trazimo pregled, pretrazujemo da li je on slobodan i filtriramo nadjen termine za njega
+        */
         public List<Termin> napraviPredlogePacijentu(ParamsToPickAppointmentsAppropriateForSpecificPatientDTO parametri)
         {
             if (parametri.Id != null)
@@ -281,7 +361,7 @@ namespace Servis
             return new TimeSpan(20, 0, 0);
         }
 
-    private void DodajJosTermina(List<Termin> moguciTermini, List<Termin> dodatniTermini)
+        private void DodajJosTermina(List<Termin> moguciTermini, List<Termin> dodatniTermini)
         {
             int i = 0;
             while (moguciTermini.Count < 10 && i < dodatniTermini.Count)
@@ -310,7 +390,7 @@ namespace Servis
 
         public DateTime? DobaviPPoslednjiMogiDanZakazivanja(Termin termin)
         {
-            List < DateTime> sviMoguciDani = DobaviMoguceSveDaneZakazivanja(termin);
+            List<DateTime> sviMoguciDani = DobaviMoguceSveDaneZakazivanja(termin);
             return sviMoguciDani[sviMoguciDani.Count - 1];
         }
 
@@ -334,12 +414,12 @@ namespace Servis
             datumIVremeTermina = datumIVremeTermina.Date;
             DateTime prvi = datumIVremeTermina.AddDays(-3);
             DateTime poslednji = datumIVremeTermina.AddDays(3);
-            while(prvi<poslednji || prvi.Equals(poslednji))
+            while (prvi < poslednji || prvi.Equals(poslednji))
             {
-                if (prvi > DateTime.Today) 
+                if (prvi > DateTime.Today)
                 {
                     moguciDaniPomeranja.Add(prvi);
-                 }
+                }
                 prvi = prvi.AddDays(1);
             }
             return moguciDaniPomeranja;
@@ -349,7 +429,7 @@ namespace Servis
         {
             List<DateTime> moguciDaniZakazivanja = new List<DateTime>();
             DateTime moguciDatum = dobaviSutrasnjiDan();
-            while(moguciDatum < dobaviSutrasnjiDan().AddMonths(3))
+            while (moguciDatum < dobaviSutrasnjiDan().AddMonths(3))
             {
                 moguciDaniZakazivanja.Add(moguciDatum);
                 moguciDatum = moguciDatum.AddDays(1);
@@ -360,9 +440,9 @@ namespace Servis
         private bool terminNijeUListi(List<Termin> moguciTermini, Termin termin)
         {
             bool nijeUListi = true;
-            foreach(Termin t in moguciTermini)
+            foreach (Termin t in moguciTermini)
             {
-                if(t.IDTermina.Equals(termin.IDTermina))
+                if (t.IDTermina.Equals(termin.IDTermina))
                 {
                     nijeUListi = false;
                     break;
@@ -373,7 +453,7 @@ namespace Servis
 
         private DateTime dobaviSutrasnjiDan()
         {
-            DateTime datum = DateTime.Today + new TimeSpan(6,0,0);
+            DateTime datum = DateTime.Today + new TimeSpan(6, 0, 0);
             datum = datum.AddDays(1);
             return datum;
         }
@@ -395,17 +475,23 @@ namespace Servis
         public bool OdloziTermin(Termin termin)
         {
             return true;
-        }   
+        }
 
         public void RemoveByID(string iDTermina)
         {
             skladisteZaTermine.RemoveByID(iDTermina);
         }
 
-        public bool ProveriTermin(Model.Termin termin)
+        public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)
         {
-            // TODO: implement
-            return false;
+            foreach (Termin termin in skladisteZaTermine.GetAll())
+            {
+                if (termin.DatumIVremeTermina.Equals(datumIVreme) && termin.JmbgLekara.Equals(jmbgLekara))
+                {
+                    return termin;
+                }
+            }
+            return null;
         }
 
         public List<Termin> GetAll()

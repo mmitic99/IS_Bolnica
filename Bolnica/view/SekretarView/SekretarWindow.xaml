@@ -317,7 +317,7 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="prostorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.IdProstorije}"/>
+                                <DataGridTextColumn x:Name="prostorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.brojSobe}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

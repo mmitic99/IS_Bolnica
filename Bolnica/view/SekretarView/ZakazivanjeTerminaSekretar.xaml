@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         mc:Ignorable="d"
-        Title="ZakazivanjeTerminaSekretar" Height="700" Width="500"
+        Title="Zakazivanje termina" Height="700" Width="500"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -59,13 +59,13 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" x:Name="lekarLabela">Lekar:</Label>
-                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2"  TextChanged="azurirajVreme"/>
+                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" TextChanged="azurirajVreme"/>
                     <Button x:Name="lekarButton" Grid.Column="2" Click="dodajLekaraT_Click" Padding="3" ToolTip="Dodaj lekara">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
                         </Grid>
                     </Button>
-                    <ComboBox x:Name="vrstaSpec" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden">
+                    <ComboBox x:Name="vrstaSpec" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden" SelectionChanged="azurirajVreme">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding VrstaSpecijalizacije}"/>
@@ -87,6 +87,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
+                    <TextBox x:Name="salaText" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" Visibility="Hidden"/>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -102,7 +103,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Vreme:</Label>
-                    <ComboBox Grid.Column="1" x:Name="vremeT" GotFocus="vremeT_GotFocus"></ComboBox>
+                    <ComboBox Grid.Column="1" x:Name="vremeT" GotFocus="vremeT_GotFocus" SelectionChanged="vremeT_SelectionChanged"></ComboBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
