@@ -25,14 +25,19 @@ namespace Kontroler
             prostorijeServis = new ProstorijeServis();
         }
 
-        public void RenovirajProstoriju()
+        public void RenovirajProstoriju(String BrojProstorije, DateTime PocetakRenoviranja, DateTime KrajRenoviranja)
         {
-            // TODO: implement
+            ProstorijeServis.GetInstance().RenovirajProstoriju(BrojProstorije, PocetakRenoviranja, KrajRenoviranja);
         }
 
-        public void ZavrsiRenoviranje()
+        public void ZavrsiRenoviranje(int index)
         {
-            // TODO: implement
+            ProstorijeServis.GetInstance().ZavrsiRenoviranje(index);
+        }
+
+        public void AzurirajRenoviranjaProstorija()
+        {
+            ProstorijeServis.GetInstance().AzurirajRenoviranjaProstorija();
         }
 
         public void IzmeniKolicinuLeka(int idLeka, double kolicina, int izProstorije, int uProstoriju)
@@ -174,6 +179,27 @@ namespace Kontroler
         {
             ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(indexIzKojeProstorije, indexUKojuProstoriju, nazivOpreme, kolicina);
         }
+
+        public int GetIdProstorijeByBrojProstorije(String brojProstorije)
+        {
+            return ProstorijeServis.GetInstance().GetIdProstorijeByBrojProstorije(brojProstorije);
+        }
+
+        public Model.Enum.VrstaProstorije GetVrstaProstorijeByBrojProstorije(String brojProstorije)
+        {
+            return ProstorijeServis.GetInstance().GetVrstaProstorijeByBrojProstorije(brojProstorije);
+        }
+
+        public int GetSpratProstorijeByBrojProstorije(String brojProstorije)
+        {
+            return ProstorijeServis.GetInstance().GetSpratProstorijeByBrojProstorije(brojProstorije);
+        }
+
+        public void AzurirajStanjeOpremeAkoJeBiloPrebacivanja()
+        {
+            ProstorijeServis.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
+        }
+
 
         public Servis.TerminServis terminServis;
         public Servis.ProstorijeServis prostorijeServis;
