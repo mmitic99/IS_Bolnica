@@ -51,18 +51,17 @@ namespace Servis
 
         public List<Upravnik> GetAll()
         {
-            // TODO: implement
-            return null;
+            return SkladisteUpravnik.GetInstance().GetAll();
         }
 
         public void Save(Model.Upravnik upravnik)
         {
-            // TODO: implement
+            SkladisteUpravnik.GetInstance().Save(upravnik);
         }
 
-        public void SaveAll(List<Pacijent> upravnici)
+        public void SaveAll(List<Upravnik> upravnici)
         {
-            // TODO: implement
+            SkladisteUpravnik.GetInstance().SaveAll(upravnici);
         }
 
         public SkladisteUpravnik skladisteUpravnik;

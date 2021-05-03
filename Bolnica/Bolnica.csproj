@@ -82,18 +82,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DTO\LekDTO.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\LekKontroler.cs" />
     <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="Kontroler\VerifikacijaLekaKontroler.cs" />
     <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="model\Renoviranje.cs" />
+    <Compile Include="model\VerifikacijaLeka.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaRenoviranja.cs" />
+    <Compile Include="Servis\LekServis.cs" />
+    <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />

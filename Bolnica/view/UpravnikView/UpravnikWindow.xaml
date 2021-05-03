@@ -81,10 +81,45 @@
 
                         <Button Background="WhitesMOKE" Content="Izmeni prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="104.236,512,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="IzmeniProstoriju" Grid.ColumnSpan="2" Grid.Column="1"/>
                         <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <Image Margin="263.472,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="2"/>
+                        <Image Margin="280.472,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="2"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="RENOVIRANJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue"/>
+                <TabItem Header="RENOVIRANJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <DataGrid x:Name ="TabelaRenoviranja" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding SvaRenoviranja}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojProstorije}"/>
+                                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
+                                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}"/>
+                                <DataGridTextColumn Header="Datum početka renoviranja" Binding="{Binding DatumPocetkaRenoviranja}"/>
+                                <DataGridTextColumn Header="Datum završetka renoviranja" Binding="{Binding DatumZavrsetkaRenoviranja}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <ComboBox x:Name="BrojProstorijeRenoviranje" HorizontalAlignment="Left"  Height="33" Margin="277,460,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BrojSobe_}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
+
+                        <TextBlock HorizontalAlignment="Left" Height="33" Margin="50,460,0,0" TextWrapping="Wrap" Text="Broj prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Height="33" Margin="50,599,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum završetka"/><Run Text="*"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Height="33" Margin="50,530,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum početka"/><Run Text="*"/></TextBlock>
+
+                        <Button Background="WhiteSmoke" Content="Zakaži renoviranje" FontSize="15" HorizontalAlignment="Left" Margin="552,470,0,0" VerticalAlignment="Top" Width="175" Height="60" RenderTransformOrigin="0.493,0.347" Click="ZakaziRenoviranje_Button_Click"/>
+                        <Button Background="WhiteSmoke" Content="Otkaži renoviranje" FontSize="15" HorizontalAlignment="Left" Margin="552,560,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="OtkaziRenoviranje_Button_Click"/>
+                        <Label Content="ZAKAZANA RENOVIRANJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
+                        <Image Margin="861,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill"/>
+                        <DatePicker x:Name="DatumPocetkaRenoviranja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,526,0,0" Width="206" Height="40"/>
+                        <DatePicker x:Name="DatumZavrsetkaRenoviranja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,595,0,0" Width="206" Height="40"/>
+                    </Grid>
+                </TabItem>
+
                 <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid x:Name="ProstorijeSelektujOpremu" Background="DodgerBlue">
                         <Grid.ColumnDefinitions>
@@ -110,10 +145,10 @@
                         <Button Background="WhiteSmoke" Content="Pogledaj/Prebaci statičku opremu" FontSize="15" HorizontalAlignment="Left" Margin="295,509,0,0" VerticalAlignment="Top" Width="367" Height="60" Click="PrikaziProzorZaSelektovanuProstoriju" RenderTransformOrigin="0.493,0.347" Grid.ColumnSpan="2"/>
                         <Label Content="Selektujte prostoriju iz koje želite da prebacite opremu:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,43,0,0" Height="39" Width="454" FontFamily="Yu Gothic Medium" FontSize="17" FontWeight="Bold"/>
                         <Label Content="Selektujte prostoriju u koju želite da prebacite opremu:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41.755,43,0,0" Height="39" Width="454" FontFamily="Yu Gothic Medium" FontSize="17" FontWeight="Bold" Grid.Column="1"/>
-                        <Image Margin="307.849,475,51.302,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="1"/>
+                        <Image Margin="324.849,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="1"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue"/>
+                <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue" Height="37" VerticalAlignment="Bottom"/>
                 <TabItem x:Name="RaspodelaOpremeTab" LostFocus="RaspodelaOpremeTab_LostFocus" Header="RASPODELA OPREME" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue" IsEnabled="False">
                     <Grid x:Name="PrebacivanjeOpremeIzMagacinaUSelektovanuProstoriju" Background="DodgerBlue">
                         <Grid.ColumnDefinitions>
@@ -161,9 +196,10 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Iz prostorije" Binding="{Binding BrojProstorijeIzKojeSePrenosiOprema}"/>
                                 <DataGridTextColumn Header="U prostoriju" Binding="{Binding BrojProstorijeUKojuSePrenosiOprema}"/>
-                                <DataGridTextColumn Header="Datum i Vreme" Binding="{Binding DatumIVremePreraspodele}"/>
+                                <DataGridTextColumn Header="Datum i Vreme" Binding="{Binding DatumIVremePreraspodele}" Width="*"/>
                                 <DataGridTextColumn Header="Trajanje" Binding="{Binding TrajanjePreraspodele}"/>
-                                <DataGridTextColumn Header="Informacije o preraspodeli" Binding="{Binding InformacijeOPreraspodeli}" Width="*"/>
+                                <DataGridTextColumn Header="Tip opreme" Binding="{Binding NazivOpreme}" Width="*"/>
+                                <DataGridTextColumn Header="Količina opreme" Binding="{Binding KolicinaOpreme}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <TextBox x:Name="ZakazivanjeProstorijaKojaGubiOpremuTextBox" HorizontalAlignment="Left" Height="28" Margin="345,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="16" IsEnabled="False"/>
@@ -172,13 +208,12 @@
                         <Button Background="WhitesMOKE" Content="Otkaži prebacivanje opreme" FontSize="15" HorizontalAlignment="Left" Margin="812,568,0,0" VerticalAlignment="Top" Width="209" Height="60" Click="OtkaziPrebacivanjeOpreme_Click"/>
                         <Label Content="PREGLED SVIH ZAKAZANIH PREBACIVANJA STATIČKE OPREME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="221,24,0,0" Height="58" Width="800" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
                         <DatePicker x:Name="DatumPreraspodele" HorizontalAlignment="Left" Margin="305,592,0,0" VerticalAlignment="Top" Width="169" Height="36"/>
-                        <Label Content="Prostorija iz koje se prebacuje*" HorizontalAlignment="Left" Margin="50,450,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="40"/>
-                        <Label Content="Prostorija u koju se prebacuje*" HorizontalAlignment="Left" Margin="50,499,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="35"/>
+                        <Label Content="Prostorija iz koje se prebacuje" HorizontalAlignment="Left" Margin="50,450,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="40"/>
+                        <Label Content="Prostorija u koju se prebacuje" HorizontalAlignment="Left" Margin="50,499,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="35"/>
                         <Label Content="Datum prebacivanja*" HorizontalAlignment="Left" Margin="50,590,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="43"/>
-                        <Label Content="Navedite tipove i količinu opreme:" HorizontalAlignment="Left" Margin="479,466,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="46" Width="294"/>
+                        <Label Content="Tip i količina opreme:" HorizontalAlignment="Left" Margin="526,462,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="46" Width="211"/>
                         <Image HorizontalAlignment="Left" Height="100" Margin="73,42,0,0" VerticalAlignment="Top" Width="100"/>
                         <Button Background="WhitesMOKE" Content="Vrati se nazad" FontSize="15" HorizontalAlignment="Left" Margin="50,29,0,0" VerticalAlignment="Top" Width="131" Height="38" Click="VratiSeNazad_Click"/>
-                        <TextBox x:Name="InformacijeOPreraspodeli" HorizontalAlignment="Left" Height="105" Margin="479,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299"/>
                         <ComboBox Name="Sat" HorizontalAlignment="Left" Height="28" Margin="307,548,0,0" VerticalAlignment="Top" Width="60">
                             <ComboBoxItem>
                                 06
@@ -236,32 +271,182 @@
                         </ComboBox>
                         <Label Content=":" HorizontalAlignment="Left" Margin="368,541,0,0" VerticalAlignment="Top" Height="31" Width="17"/>
                         <Label Content="Vreme prebacivanja*" HorizontalAlignment="Left" Margin="50,543,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Medium" Height="43"/>
+                        <TextBox x:Name="NazivOpremeZakazivanje" HorizontalAlignment="Left" Height="30" Margin="526,512,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="16" IsEnabled="False"/>
+                        <TextBox x:Name="KolicinaOpremeZakazivanje" HorizontalAlignment="Left" Height="30" Margin="526,568,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="16" IsEnabled="False"/>
                     </Grid>
                 </TabItem>
             </TabControl>
         </TabItem>
         <TabItem Header="ZAPOSLENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="160" BorderBrush="DodgerBlue"/>
-        <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue"/>
+        <TabItem Header="LEKOVI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
+            <TabControl TabStripPlacement="Left">
+                <TabItem Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <Label Content="MAGACIN" HorizontalAlignment="Left" FontFamily="Yu Gothic Medium" Margin="-203,300,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5" Height="80" FontSize="40">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                        <Button Content="Pošalji lek na proveru" HorizontalAlignment="Left" Margin="814,467,0,0" VerticalAlignment="Top" Width="185" Height="41"/>
+                        <Button  Content="Dodaj lek" HorizontalAlignment="Left" Margin="814,524,0,0" VerticalAlignment="Top" Width="185" Height="41" Click="DodajLek"/>
+                        <Button Content="Obriši lek" HorizontalAlignment="Left" Margin="814,582,0,0" VerticalAlignment="Top" Width="185" Height="41" Click="ObrisiLek"/>
+                        <DataGrid x:Name ="TabelaLekova" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding SviLekovi}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="522" Margin="33,87,0,0" VerticalAlignment="Top" Width="699">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv leka" FontFamily="Yu Gothic Medium" Binding="{Binding NazivLeka}"/>
+                                <DataGridTextColumn Header="Vrsta leka" FontFamily="Yu Gothic Medium" Binding="{Binding VrstaLeka}"/>
+                                <DataGridTextColumn Header="Klasa leka" FontFamily="Yu Gothic Medium" Binding="{Binding KlasaLeka}"/>
+                                <DataGridTextColumn Header="Količina" FontFamily="Yu Gothic Medium" Binding="{Binding KolicinaLeka}"/>
+                                <DataGridTextColumn Header="Jačina(mg)" FontFamily="Yu Gothic Medium" Binding="{Binding JacinaLeka}"/>
+                                <DataGridTextColumn Header="Zamenski lek" FontFamily="Yu Gothic Medium" Binding="{Binding ZamenskiLek}"/>
+                                <DataGridTextColumn Header="Sastav" FontFamily="Yu Gothic Medium" Binding="{Binding SastavLeka}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="PREGLED SVIH LEKOVA" VerticalAlignment="Top" Margin="53,24,650.396,0" Height="58" Width="368" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBox x:Name="NazivLeka" HorizontalAlignment="Left" Height="30" Margin="900,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+                        <TextBox x:Name="JacinaLeka" HorizontalAlignment="Left" Height="30" Margin="900,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+                        <TextBox x:Name="KolicinaLeka" HorizontalAlignment="Left" Height="30" Margin="900,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+                        <TextBox x:Name="ZamenskiLek" HorizontalAlignment="Left" Height="30" Margin="900,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+                        <TextBox x:Name="SastavLeka" HorizontalAlignment="Left" Height="79" Margin="900,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+                        <ComboBox x:Name="VrstaLeka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="900,87,0,0" Height="30">
+                            <ComboBoxItem Content="Kapsula"/>
+                            <ComboBoxItem Content="Tableta"/>
+                            <ComboBoxItem Content="Sirup"/>
+                            <ComboBoxItem Content="Sprej"/>
+                            <ComboBoxItem Content="Gel"/>
+                            <ComboBoxItem Content="Šumeća tableta"/>
+                        </ComboBox>
+                        <ComboBox x:Name="LekariLekovi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="900,331,0,0" Height="30">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FullName}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox x:Name="KlasaLeka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="900,134,0,0" Height="30">
+                            <ComboBoxItem Content="Analgetik"/>
+                            <ComboBoxItem Content="Antipiretik"/>
+                            <ComboBoxItem Content="Antimalarijski lek"/>
+                            <ComboBoxItem Content="Antibiotik"/>
+                            <ComboBoxItem Content="Antiseptik"/>
+                            <ComboBoxItem Content="Stablizator raspoloženja"/>
+                            <ComboBoxItem Content="Hormonska zamena"/>
+                            <ComboBoxItem Content="Oralni kontraceptiv"/>
+                            <ComboBoxItem Content="Stimulant"/>
+                            <ComboBoxItem Content="Trankvilajzer"/>
+                            <ComboBoxItem Content="Statin"/>
+                        </ComboBox>
+                        <Label Content="Naziv leka*" HorizontalAlignment="Left" Margin="754,33,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Vrsta leka*" HorizontalAlignment="Left" Margin="754,81,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Klasa leka*" HorizontalAlignment="Left" Margin="754,128,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="754,176,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Jačina(mg)*" HorizontalAlignment="Left" Margin="754,225,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Zamenski lek" HorizontalAlignment="Left" Margin="754,276,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Lekar*" HorizontalAlignment="Left" Margin="754,326,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+                        <Label Content="Sastav*" HorizontalAlignment="Left" Margin="754,377,0,0" VerticalAlignment="Top" Height="40" Width="108"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="17*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="MAGACIN" HorizontalAlignment="Left" FontFamily="Yu Gothic Medium" Margin="-203,300,0,0" VerticalAlignment="Top" Width="202" RenderTransformOrigin="0.5,0.5" Height="80" FontSize="40">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                        <Button  Content="Izmeni lek" HorizontalAlignment="Left" Margin="542.472,524,0,0" VerticalAlignment="Top" Width="185" Height="41" Grid.Column="1" Click="IzmeniLek"/>
+                        <DataGrid x:Name ="TabelaLekovaIzmeni" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding SviLekovi}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="522" Margin="33,87,0,0" VerticalAlignment="Top" Width="699" Grid.ColumnSpan="2" SelectionChanged="TabelaLekovaIzmeni_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv leka" FontFamily="Yu Gothic Medium" Binding="{Binding NazivLeka}"/>
+                                <DataGridTextColumn Header="Vrsta leka" FontFamily="Yu Gothic Medium" Binding="{Binding VrstaLeka}"/>
+                                <DataGridTextColumn Header="Klasa leka" FontFamily="Yu Gothic Medium" Binding="{Binding KlasaLeka}"/>
+                                <DataGridTextColumn Header="Količina" FontFamily="Yu Gothic Medium" Binding="{Binding KolicinaLeka}"/>
+                                <DataGridTextColumn Header="Jačina(mg)" FontFamily="Yu Gothic Medium" Binding="{Binding JacinaLeka}"/>
+                                <DataGridTextColumn Header="Zamenski lek" FontFamily="Yu Gothic Medium" Binding="{Binding ZamenskiLek}"/>
+                                <DataGridTextColumn Header="Sastav" FontFamily="Yu Gothic Medium" Binding="{Binding SastavLeka}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="PREGLED SVIH LEKOVA" VerticalAlignment="Top" Margin="53,24,650.396,0" Height="58" Width="368" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="NazivLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="630.472,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+                        <TextBox x:Name="JacinaLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="630.472,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+                        <TextBox x:Name="KolicinaLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="630.472,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+                        <TextBox x:Name="ZamenskiLekIzmeni" HorizontalAlignment="Left" Height="30" Margin="630.472,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+                        <TextBox x:Name="SastavLekaIzmeni" HorizontalAlignment="Left" Height="79" Margin="630.472,377,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+                        <ComboBox x:Name="VrstaLekaIzmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="630.472,87,0,0" Height="30" Grid.Column="1" DataContext="">
+                            <ComboBoxItem Content="Kapsula"/>
+                            <ComboBoxItem Content="Tableta"/>
+                            <ComboBoxItem Content="Sirup"/>
+                            <ComboBoxItem Content="Sprej"/>
+                            <ComboBoxItem Content="Gel"/>
+                            <ComboBoxItem Content="Šumeća tableta"/>
+                        </ComboBox>
+                        <ComboBox x:Name="LekariLekoviIzmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="630.472,331,0,0" Height="30" Grid.Column="1">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FullName}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox x:Name="KlasaLekaIzmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="630.472,134,0,0" Height="30" Grid.Column="1">
+                            <ComboBoxItem Content="Analgetik"/>
+                            <ComboBoxItem Content="Antipiretik"/>
+                            <ComboBoxItem Content="Antimalarijski lek"/>
+                            <ComboBoxItem Content="Antibiotik"/>
+                            <ComboBoxItem Content="Antiseptik"/>
+                            <ComboBoxItem Content="Stablizator raspoloženja"/>
+                            <ComboBoxItem Content="Hormonska zamena"/>
+                            <ComboBoxItem Content="Oralni kontraceptiv"/>
+                            <ComboBoxItem Content="Stimulant"/>
+                            <ComboBoxItem Content="Trankvilajzer"/>
+                            <ComboBoxItem Content="Statin"/>
+                        </ComboBox>
+                        <Label Content="Naziv leka*" HorizontalAlignment="Left" Margin="484.472,33,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Vrsta leka*" HorizontalAlignment="Left" Margin="484.472,81,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Klasa leka*" HorizontalAlignment="Left" Margin="484.472,128,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="484.472,176,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Jačina(mg)*" HorizontalAlignment="Left" Margin="484.472,225,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Zamenski lek" HorizontalAlignment="Left" Margin="484.472,276,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Lekar*" HorizontalAlignment="Left" Margin="484.472,326,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Sastav*" HorizontalAlignment="Left" Margin="484.472,377,0,0" VerticalAlignment="Top" Height="40" Width="108" Grid.Column="1"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </TabItem>
         <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="140" BorderBrush="DodgerBlue">
-            <TabControl TabStripPlacement="Left" >
+            <TabControl TabStripPlacement="Left">
                 <TabItem Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid Background="DodgerBlue">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="274*"/>
                             <ColumnDefinition Width="44*"/>
-                            <ColumnDefinition Width="218*"/>
+                            <ColumnDefinition Width="146*"/>
+                            <ColumnDefinition Width="73*"/>
                             <ColumnDefinition Width="446*"/>
                             <ColumnDefinition Width="89*"/>
                         </Grid.ColumnDefinitions>
                         <DataGrid Grid.Column="0" x:Name ="TabelaStatickeMagacin" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding StacionarnaMagacin}" AutoGenerateColumns="False"  IsReadOnly="True" 
-                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="30,87,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="3">
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="30,87,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="4">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic Medium" Binding="{Binding TipStacionarneOpreme_}"  Width="*"/>
                                 <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic Medium" Binding="{Binding Kolicina_}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <DataGrid Grid.Column="3" x:Name ="TabelaDinamickeMagacin" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding PotrosnaMagacin}" AutoGenerateColumns="False"  IsReadOnly="True" 
-                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="30.304,87,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="2">
+                        <DataGrid Grid.Column="4" x:Name ="TabelaDinamickeMagacin" FontSize="15" CanUserSortColumns="False" Background="LightGray" ItemsSource="{Binding PotrosnaMagacin}" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="30.305,87,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="2">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic Medium" Binding="{Binding TipOpreme_}"  Width="*"/>
                                 <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic Medium" Binding="{Binding KolicinaOpreme_}" Width="*"/>
@@ -277,19 +462,19 @@
                                 </TransformGroup>
                             </Label.RenderTransform>
                         </Label>
-                        <Label Content="PREGLED STATIČKE OPREME" VerticalAlignment="Top" Margin="85,29,83.696,0" Height="58" Width="368" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
-                        <Label Content="PREGLED POTROŠNE OPREME" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="72.304,29,73.941,0" Height="58" Width="389" FontFamily="Yu Gothic Medium" FontSize="25" Grid.Column="3" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Label Content="PREGLED STATIČKE OPREME" VerticalAlignment="Top" Margin="85,29,10.981,0" Height="58" Width="368" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+                        <Label Content="PREGLED POTROŠNE OPREME" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="72.305,29,73.941,0" Height="58" Width="389" FontFamily="Yu Gothic Medium" FontSize="25" Grid.Column="4" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="NazivStatickeOpreme" HorizontalAlignment="Left" Height="30" Margin="3.585,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
                         <TextBox x:Name="KolicinaStatickeOpreme" HorizontalAlignment="Left" Height="30" Margin="4.585,519,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <TextBox x:Name="NazivDinamickeOpreme" HorizontalAlignment="Left" Height="30" Margin="277.304,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="3" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="KolicinaDinamickeOpreme" HorizontalAlignment="Left" Height="30" Margin="277.304,519,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="3" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="NazivDinamickeOpreme" HorizontalAlignment="Left" Height="30" Margin="277.305,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="4" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="KolicinaDinamickeOpreme" HorizontalAlignment="Left" Height="30" Margin="277.305,519,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="4" Grid.ColumnSpan="2"/>
                         <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="76,458,0,0" VerticalAlignment="Top" Height="35" Width="175"/>
                         <Label Content="Količina*" HorizontalAlignment="Left" Margin="76,514,0,0" VerticalAlignment="Top" Width="175"/>
-                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="78.304,458,0,0" VerticalAlignment="Top" Grid.Column="3" RenderTransformOrigin="0.499,0.277" Width="175"/>
-                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="78.304,514,0,0" VerticalAlignment="Top" Grid.Column="3" Width="175"/>
+                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="78.305,458,0,0" VerticalAlignment="Top" Grid.Column="4" RenderTransformOrigin="0.499,0.277" Width="175"/>
+                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="78.305,514,0,0" VerticalAlignment="Top" Grid.Column="4" Width="175"/>
                         <Button Grid.ColumnSpan="2" Content="Dodaj opremu" HorizontalAlignment="Left" Margin="4.585,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="1" Click="DodajStatickuOpremuUMagacin"/>
-                        <Button Grid.ColumnSpan="2" Content="Dodaj opremu" HorizontalAlignment="Left" Margin="277.304,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="3" Click="DodajPotrosnuOpremuUMagacin"/>
-                        <Button Content="Obriši opremu" HorizontalAlignment="Left" Margin="78.304,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="3" Click="ObrisiPotrosnuOpremuIzMagacina"/>
+                        <Button Grid.ColumnSpan="2" Content="Dodaj opremu" HorizontalAlignment="Left" Margin="277.305,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="4" Click="DodajPotrosnuOpremuUMagacin"/>
+                        <Button Content="Obriši opremu" HorizontalAlignment="Left" Margin="78.305,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="4" Click="ObrisiPotrosnuOpremuIzMagacina"/>
                         <Button Content="Obriši opremu" HorizontalAlignment="Left" Margin="76,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Click="ObrisiStatickuOpremuIzMagacina"/>
                     </Grid>
                 </TabItem>

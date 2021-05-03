@@ -17,7 +17,7 @@
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="396,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBox1"   HorizontalAlignment="Left" Margin="395,335,0,0" VerticalAlignment="Top" Width="120" Text="Izaberi opciju" />
         <Label Content="KREIRANJE NOVOG TERMINA" HorizontalAlignment="Left" Margin="289,22,0,0" VerticalAlignment="Top" Width="272" Height="60" FontSize="20" RenderTransformOrigin="0.78,0.533"/>
-        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="395,127,0,0" VerticalAlignment="Top" Width="120" >
+        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Margin="395,127,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding BrojSobe_}"/>

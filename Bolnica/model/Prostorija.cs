@@ -10,7 +10,7 @@ namespace Model
         public int Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }
-        private bool RenoviraSe = false;
+        private bool RenoviraSe;
         private double Kvadratura;
         private List<StacionarnaOprema> Staticka { get; set; }
         private List<PotrosnaOprema> Potrosna { get; set; }
