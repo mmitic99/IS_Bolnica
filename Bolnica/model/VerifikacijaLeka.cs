@@ -11,17 +11,19 @@ namespace Bolnica.model
         public DateTime VremeSlanjaZahteva { get; set; }
         public String Naslov { get; set; }
         public String Sadrzaj { get; set; }
-        public String JmbgLekara { get; set; }
-        public String ImeLekara { get; set; }
-        public String JmbgUpravnika { get; set; }
-        public String ImeUpravnika { get; set; }
-        public VerifikacijaLeka(DateTime vremeSlanja, String naslov, String sadrzaj, String jmbgLekara, String jmbgUpravnika)
+        public String JmbgPrimaoca { get; set; }
+        public String JmbgPosiljaoca { get; set; }
+        public String Napomena { get; set; }
+        public String IdVerifikacijeLeka { get; set; }
+        public VerifikacijaLeka(DateTime vremeSlanja, String naslov, String sadrzaj, String jmbgPosiljaoca, String jmbgPrimaoca, String napomena)
         {
+            IdVerifikacijeLeka = vremeSlanja.ToString() + jmbgPosiljaoca + jmbgPrimaoca;
             VremeSlanjaZahteva = vremeSlanja;
             Naslov = naslov;
             Sadrzaj = sadrzaj;
-            JmbgLekara = jmbgLekara;
-            JmbgUpravnika = jmbgUpravnika;
+            JmbgPrimaoca = jmbgPrimaoca;
+            JmbgPosiljaoca = jmbgPosiljaoca;
+            Napomena = napomena;
         }
     }
 }
