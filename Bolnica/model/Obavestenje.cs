@@ -1,3 +1,4 @@
+using Bolnica.model;
 using System;
 using System.Windows;
 
@@ -10,6 +11,8 @@ namespace Model
         public String Sadrzaj { get; set; }
         public String JmbgKorisnika { get; set; }
         public bool Podsetnik { get; set; }
+        public DateTime kvartalnaAnketa {get; set;}
+        public bool Vidjeno { get; set; }
 
         public Obavestenje()
         {

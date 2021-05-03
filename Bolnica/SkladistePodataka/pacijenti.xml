@@ -21,11 +21,6 @@
       <izvestaj />
       <Anamneze />
       <Alergeni />
-      <Izvestaji>
-        <Izvestaj>
-          <recepti />
-        </Izvestaj>
-      </Izvestaji>
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Sara Sarić</FullName>
@@ -68,6 +63,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
       </izvestaj>
       <Anamneze>
@@ -79,10 +75,44 @@
         </Anamneza>
       </Anamneze>
       <Alergeni />
-      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mika Mikić</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>Nikola</KorisnickoIme>
+      <Lozinka>Nikola</Lozinka>
+    </Korisnik>
+    <Ime>Nikola</Ime>
+    <Prezime>Nikolic</Prezime>
+    <Jmbg>231321315464</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-04-11T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj />
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-04-27T01:36:14.4998186+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic4/27/2021 1:36:14 AM</IdAnamneze>
+        </Anamneza>
+      </Anamneze>
+      <Alergeni>
+        <string>Kamilica</string>
+        <string>Polen</string>
+      </Alergeni>
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Nikola Nikolic</FullName>
   </Pacijent>
   <Pacijent>
     <Grad>
@@ -102,7 +132,28 @@
     <Email />
     <Adresa />
     <zdravstveniKarton>
-      <izvestaj />
+      <izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>ImunoForte</ImeLeka>
+              <SifraLeka>1234</SifraLeka>
+              <DodatneNapomene>Jesti</DodatneNapomene>
+              <DatumIzdavanja>2021-05-02T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>3</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>6</int>
+                <int>7</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>dhiaiaidj</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+      </izvestaj>
       <Anamneze>
         <Anamneza>
           <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
@@ -110,9 +161,74 @@
           <ImeLekara>dr Milos Marinkovic</ImeLekara>
           <IdAnamneze>dr Milos Marinkovic4/20/2021 6:38:39 PM</IdAnamneze>
         </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:36:58.9503261+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:36:58 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:36:59.9263477+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:36:59 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:00.9029803+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:00 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:01.1722294+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:01 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:01.3339207+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:01 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:02.8778096+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:02 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:03.2537554+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:03 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:03.4048585+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:03 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:03.5729628+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:03 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog />
+          <DatumAnamneze>2021-05-02T14:37:03.7504779+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:03 PM</IdAnamneze>
+        </Anamneza>
+        <Anamneza>
+          <AnamnezaDijalog>Povisena telesna temperatura.</AnamnezaDijalog>
+          <DatumAnamneze>2021-05-02T14:37:17.0762731+02:00</DatumAnamneze>
+          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
+          <IdAnamneze>dr Dunja Jovanovic5/2/2021 2:37:17 PM</IdAnamneze>
+        </Anamneza>
       </Anamneze>
       <Alergeni />
-      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Pera Perić</FullName>
@@ -156,6 +272,7 @@
               <TerminiUzimanjaLeka />
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -176,6 +293,87 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Isosorb </ImeLeka>
+              <SifraLeka>667</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-05-03T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>5</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>7</int>
+                <int>8</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Upala pluca</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Probiotic forte</ImeLeka>
+              <SifraLeka>84884</SifraLeka>
+              <DodatneNapomene>Ako se lek zaboravi, ne uzeti duplu dozu kasnije.</DodatneNapomene>
+              <DatumIzdavanja>2021-05-03T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>4</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>8</int>
+                <int>13</int>
+                <int>15</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Zapaljenje creva.</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>magbet</ImeLeka>
+              <SifraLeka>jjdj</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-05-03T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>1</BrojDana>
+              <Doza>3</Doza>
+              <TerminiUzimanjaLeka>
+                <int>12</int>
+                <int>16</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Glavobolja</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Nostril kapi</ImeLeka>
+              <SifraLeka>2</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-05-03T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>10</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>12</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Zapaljenje usnog kanala</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
       </izvestaj>
       <Anamneze>
@@ -195,46 +393,9 @@
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>
-      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>Nikola</KorisnickoIme>
-      <Lozinka>Nikola</Lozinka>
-    </Korisnik>
-    <Ime>Nikola</Ime>
-    <Prezime>Nikolic</Prezime>
-    <Jmbg>231321315464</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-04-11T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj />
-      <Anamneze>
-        <Anamneza>
-          <AnamnezaDijalog />
-          <DatumAnamneze>2021-04-27T01:36:14.4998186+02:00</DatumAnamneze>
-          <ImeLekara>dr Dunja Jovanovic</ImeLekara>
-          <IdAnamneze>dr Dunja Jovanovic4/27/2021 1:36:14 AM</IdAnamneze>
-        </Anamneza>
-      </Anamneze>
-      <Alergeni>
-        <string>Kamilica</string>
-        <string>Polen</string>
-      </Alergeni>
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Nikola Nikolic</FullName>
   </Pacijent>
   <Pacijent>
     <Grad>
@@ -273,6 +434,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -293,6 +455,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -312,6 +475,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -331,6 +495,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -350,6 +515,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -369,10 +535,12 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
             <Recept>
+              <terminiUzimanjaTokomDana />
               <ImeLeka>Rapidol</ImeLeka>
               <SifraLeka>zeeze</SifraLeka>
               <DodatneNapomene>Jesti pre uzimanja leka.</DodatneNapomene>
@@ -388,6 +556,48 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Prospan sirup</ImeLeka>
+              <SifraLeka>dsfs</SifraLeka>
+              <DodatneNapomene>Nema.</DodatneNapomene>
+              <DatumIzdavanja>2021-05-04T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>7</BrojDana>
+              <Doza>4</Doza>
+              <TerminiUzimanjaLeka>
+                <int>1</int>
+                <int>8</int>
+                <int>15</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Suv kasalj,</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <ImeLeka>Hisatril</ImeLeka>
+              <SifraLeka>fnmdfm</SifraLeka>
+              <DodatneNapomene />
+              <DatumIzdavanja>2021-05-04T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>2</BrojDana>
+              <Doza>1</Doza>
+              <TerminiUzimanjaLeka>
+                <int>1</int>
+                <int>5</int>
+                <int>12</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>Suve oci</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
       </izvestaj>
       <Anamneze>
@@ -396,7 +606,6 @@
         </Anamneza>
       </Anamneze>
       <Alergeni />
-      <Izvestaji />
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>

@@ -57,8 +57,13 @@ namespace Kontroler
          // TODO: implement
          return KorisnickeAktivnostiPacijentaServis.GetInstance().DaLiJeMoguceZakazatiNoviTermin(jmbgKorisnika);
       }
-      
-      public void DodajZakazivanje(string jmbg)
+
+        internal void OdblokirajKorisnike()
+        {
+            KorisnickeAktivnostiPacijentaServis.GetInstance().OdblokirajKorisnika();
+        }
+
+        public void DodajZakazivanje(string jmbg)
       {
             KorisnickeAktivnostiPacijentaServis.GetInstance().DodajZakazivanje(jmbg);
       }

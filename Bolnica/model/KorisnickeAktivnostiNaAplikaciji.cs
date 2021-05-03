@@ -27,14 +27,16 @@ namespace Model
         }
         public bool BlokirajKorisnika()
         {
-            // TODO: implement
-            return false;
+            TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Spam;
+            ++BrojPutaBlokiranja;
+            BlokiranDo = DateTime.Today.AddDays(BrojPutaBlokiranja * 14);
+            return true;
         }
 
         public bool OdblokirajKorisnika()
         {
-            // TODO: implement
-            return false;
+            TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Normalan;
+            return true;
         }
 
         public bool OznaciDaJeZakazaoPrevisePregledaUnapred()

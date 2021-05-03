@@ -36,6 +36,14 @@
                 <PacijentView:PrikazObavestenja/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewActions:ZdravstveniKartonViewModel}">
+                <PacijentView:ZdravstveniKarton/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewActions:PrikazKvartalneAnketeViewModel}">
+                <PacijentView:PrikazKvartalneAnkete/>
+            </DataTemplate>
+
             <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="ContentTemplate">
                     <Setter.Value>

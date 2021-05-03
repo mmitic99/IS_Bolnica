@@ -62,8 +62,34 @@ namespace Servis
 
          return sviTerminiKorisnikaIzBuducnosti.Count;
       }
-      
-      public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
+
+        internal void OdblokirajKorisnika()
+        {
+            List<KorisnickeAktivnostiNaAplikaciji> aktivnosti = SkladisteZaKorisnickeAktivnosti.GetInstance().GetAll();
+            foreach (KorisnickeAktivnostiNaAplikaciji aktivnost in aktivnosti)
+            {
+                if (aktivnost.TrenutnoSeTretiraKao == VrstaKorisnikaAplikacije.Spam &&
+                    (aktivnost.BlokiranDo.Equals(DateTime.Now) || aktivnost.BlokiranDo < DateTime.Now))
+                {
+                    LogickiObrisiOdlaganja(aktivnost);
+                    aktivnost.OdblokirajKorisnika();
+                }
+            }
+        }
+
+        private void LogickiObrisiOdlaganja(KorisnickeAktivnostiNaAplikaciji aktivnost)
+        {
+            foreach(KorisnickaAktivnost akt in aktivnost.AktivnostiKorisnika)
+            {
+                if(akt.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
+                {
+                    akt.logickiObrisan = true;
+                }
+            }
+            IzmenaKorisnickeAktivnosti(aktivnost);
+        }
+
+        public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
       {
             List<KorisnickaAktivnost> aktivnostiKorisnika = GetByJmbg(jmbgKorisnika).AktivnostiKorisnika;
          return IzracunajBrojOdlaganja(aktivnostiKorisnika);
@@ -75,7 +101,8 @@ namespace Servis
             foreach (KorisnickaAktivnost aktivnost in aktivnostiKorisnika)
             {
                 if (DateTime.Today.AddMonths(-1) < aktivnost.DatumIVreme
-                    && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
+                    && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda
+                    && !aktivnost.logickiObrisan)
                 {
                     brojOdlaganja++;
                 }
@@ -160,7 +187,9 @@ namespace Servis
       public void AzurirajRang(KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
       {
             if (IzracunajBrojOdlaganja(korisnickaAktivnost.AktivnostiKorisnika) > 2)
-                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Spam;
+            {
+                korisnickaAktivnost.BlokirajKorisnika();
+            }
             else if (DobaviBrojZakazanihPregledaUBuducnosti(korisnickaAktivnost.JmbgKorisnika) > 4)
                 korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.HalfSpam;
             else

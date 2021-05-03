@@ -2,67 +2,95 @@
 <ArrayOfKorisnickeAktivnostiNaAplikaciji xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>123456789</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>HalfSpam</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T00:04:13.7975417+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T10:51:24.6718541+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T10:52:29.7810846+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T10:52:38.1118483+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T10:56:34.0010826+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:21:31.3892432+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:22:00.4746156+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:22:43.6424615+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-05-04T00:55:03.987839+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-05-04T00:55:16.4047999+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-05-04T00:55:55.417138+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
-    <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
-    <BrojPutaBlokiranja>0</BrojPutaBlokiranja>
+    <BlokiranDo>2021-05-03T00:00:00+02:00</BlokiranDo>
+    <BrojPutaBlokiranja>1</BrojPutaBlokiranja>
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>1234</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>HalfSpam</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:01:53.8362321+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:02:30.7614275+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:04:09.8437239+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:04:24.1306836+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:05:45.9621856+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
@@ -70,55 +98,67 @@
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>9876543210987</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T00:09:50.7060131+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T00:09:57.8893674+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T00:12:46.5799732+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:06:46.336654+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:09:15.3357417+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:15:36.792307+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:15:42.5489175+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:15:54.3524603+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:16:17.2116946+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:16:38.5908621+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:17:06.1192862+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:18:00.1436054+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
@@ -126,51 +166,62 @@
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>4567891230987</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:22:57.4262931+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:23:16.9420172+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:36:31.9005677+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:39:28.5714257+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:39:33.9846396+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:39:39.531532+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:39:48.6108402+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:39:54.3762557+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:40:07.8542391+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:40:13.877924+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T01:40:18.320504+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
@@ -185,31 +236,37 @@
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>231321315464</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:50:52.0806559+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:51:16.3887911+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:51:46.4442227+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:51:57.0862215+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:52:13.3585013+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-04-30T11:52:48.7326475+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>

@@ -82,7 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
+    <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
     <Compile Include="model\Anamneza.cs" />
+    <Compile Include="model\AnketaKvartalna.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Izvestaj.cs" />
@@ -101,14 +104,18 @@
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaKvartalneAnkete.cs" />
     <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
+    <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
+    <Compile Include="viewActions\PregledViewModel.cs" />
     <Compile Include="viewActions\PrikazJednogObavestenjaPacijentaViewModel.cs" />
+    <Compile Include="viewActions\PrikazKvartalneAnketeViewModel.cs" />
     <Compile Include="viewActions\TerminPacijentLekar.cs" />
     <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
     <Compile Include="model\ZakazanaPreraspodelaStatickeOpreme.cs" />
@@ -138,6 +145,7 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
+    <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
       <DependentUpon>AnamnezaPage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +173,9 @@
     <Compile Include="view\PacijentView\PomeranjeTermina.xaml.cs">
       <DependentUpon>PomeranjeTermina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\PacijentView\PrikazKvartalneAnkete.xaml.cs">
+      <DependentUpon>PrikazKvartalneAnkete.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\PacijentView\PrikazObavestenja.xaml.cs">
       <DependentUpon>PrikazObavestenja.xaml</DependentUpon>
     </Compile>
@@ -176,6 +187,9 @@
     </Compile>
     <Compile Include="view\PacijentView\ZakazivanjeTerminaP.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\ZdravstveniKarton.xaml.cs">
+      <DependentUpon>ZdravstveniKarton.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\DodavanjeAlregena.xaml.cs">
       <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
@@ -286,6 +300,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\PacijentView\PrikazKvartalneAnkete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\PacijentView\PrikazObavestenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,6 +317,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\ZakazivanjeTerminaP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\ZdravstveniKarton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -495,6 +517,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\PacijentView\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\survey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

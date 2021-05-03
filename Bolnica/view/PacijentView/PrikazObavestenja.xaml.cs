@@ -1,4 +1,6 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.Kontroler;
+using Bolnica.model;
+using Bolnica.viewActions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,42 @@ namespace Bolnica.view.PacijentView
             InitializeComponent();
             NaslovObavestenja.Text = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.Naslov;
             TekstObavestenja.Text = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.Sadrzaj;
+          /*  KvartalnaAnketaDugme.Visibility = Visibility.Visible;
+            MainViewModel.getInstance().PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa);
+
+            KvartalnaAnketaDugme.Command = MainViewModel.getInstance().KvartalnaAnketaCommand;*/
+
+
+            Nazad.Command = MainViewModel.getInstance().ObavestenjaCommand;            
+            if (MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa != null)
+            {
+                KvartalnaAnketaDugme.Visibility = Visibility.Visible;
+                KvartalnaAnketa anketa = AnketeKontroler.GetInstance().GetByDate(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa);
+                MainViewModel.getInstance().PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(anketa);
+
+            }
+        }
+
+        private void KvartalnaAnketaDugme_Click(object sender, RoutedEventArgs e)
+        {
+            if (!AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(PacijentMainWindow.getInstance().pacijent, MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa)
+                && !AnketeKontroler.GetInstance().DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            {
+                KvartalnaAnketaDugme.Command = MainViewModel.getInstance().KvartalnaAnketaCommand;
+            }
+            else if(AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(PacijentMainWindow.getInstance().pacijent, MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            {
+                var s = new Upozorenje("Već ste popunili anketu!");
+                s.Owner = PacijentMainWindow.getInstance();
+                s.ShowDialog();
+            }
+            else if (AnketeKontroler.GetInstance().DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            {
+                var s = new Upozorenje("Vreme za popunjavanje ove ankete je isteklo!");
+                s.Owner = PacijentMainWindow.getInstance();
+                s.ShowDialog();
+            }
+            
         }
     }
 }

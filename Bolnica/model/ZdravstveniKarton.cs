@@ -8,10 +8,7 @@ namespace Model
     {
 
 
-        public List<Izvestaj> izvestaj { get; set; }
-
-
-       
+        public List<Izvestaj> izvestaj { get; set; }      
         public List<Anamneza> Anamneze { get; set; }
 
        
@@ -26,9 +23,6 @@ namespace Model
 
         public List<String> Alergeni { get; set; }
 
-        
-
-        public List<Izvestaj> Izvestaji { get; set; }
         public Anamneza getAnamnezaById(String Id)
         {
             List<Anamneza> anamneze = this.Anamneze;

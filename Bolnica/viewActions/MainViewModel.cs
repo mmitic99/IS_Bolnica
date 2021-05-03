@@ -20,6 +20,9 @@ namespace Bolnica.viewActions
         public RelayCommand PacijentZakaziTerminCommand { get; set; }
         public RelayCommand MoguciTerminiCommand { get; set; }
         public RelayCommand PomeranjeTerminaCommand { get; set; }
+        public RelayCommand ZdravstevniKartonCommand { get; set; }
+        public RelayCommand KvartalnaAnketaCommand { get; set; }
+        public RelayCommand PrikazObavestenjaCommand { get; set; }
 
         public PacijentTerminiModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
@@ -27,6 +30,8 @@ namespace Bolnica.viewActions
         public MoguciTerminiViewModel MoguciTerminiVM { get; set; }
         public PomeranjeTerminaViewModel PomeranjeTerminaVM { get; set; }
         public PrikazJednogObavestenjaPacijentaViewModel PrikazObavestenjaVM { get; set; }
+        public ZdravstveniKartonViewModel ZdravstveniKartonVM { get; set; }
+        public PrikazKvartalneAnketeViewModel PrikazKvartalneAnketeVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -45,6 +50,8 @@ namespace Bolnica.viewActions
             MoguciTerminiVM = new MoguciTerminiViewModel();
             PomeranjeTerminaVM = new PomeranjeTerminaViewModel();
             PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
+            PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel();
+
             CurrentView = PacijentTerminiVM;
 
             PacijentTerminCommand = new RelayCommand(o => 
@@ -70,6 +77,24 @@ namespace Bolnica.viewActions
             PomeranjeTerminaCommand = new RelayCommand(o =>
             {
                 CurrentView = PomeranjeTerminaVM;
+            }
+            );
+
+            ZdravstevniKartonCommand = new RelayCommand(o =>
+            {
+                CurrentView = ZdravstveniKartonVM;
+            }
+            );
+
+            KvartalnaAnketaCommand = new RelayCommand(o =>
+            {
+                CurrentView = PrikazKvartalneAnketeVM;
+            }
+            );
+
+            PrikazObavestenjaCommand = new RelayCommand(o =>
+            {
+                CurrentView = PrikazObavestenjaVM;
             }
             );
         }

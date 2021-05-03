@@ -26,6 +26,8 @@ namespace Kontroler
             obavestenjaServis = new ObavestenjaServis();
         }
 
+
+
         public List<Obavestenje> GetAll()
         {
             // TODO: implement
@@ -72,6 +74,11 @@ namespace Kontroler
         public bool obrisiObavestenje(Obavestenje obavestenje)
         {
             return obavestenjaServis.obrisiObavestenje(obavestenje);
+        }
+
+        internal void PosaljiKvartalnuAnketu()
+        {
+            ObavestenjaServis.getInstance().PosaljiKvartalnuAnketu();
         }
     }
 }

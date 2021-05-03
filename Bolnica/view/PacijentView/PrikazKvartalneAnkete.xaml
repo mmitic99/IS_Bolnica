@@ -1,0 +1,317 @@
+﻿<UserControl x:Class="Bolnica.view.PacijentView.PrikazKvartalneAnkete"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             mc:Ignorable="d" 
+             FontSize="15"
+             d:DesignWidth="804" Background="#FFF1F7F9">
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Margin="10"  Height="Auto">
+        <StackPanel>
+            <Label Content="Kvartalna anketa" FontSize="25" Margin="35,19,0,0"></Label>
+            <TextBlock TextWrapping="Wrap"
+                       Width="790"
+                       TextAlignment="Left"
+                Text="  Poštovani, u cilju unapređenja rada naše bolnice zamolili bismo Vas da ispunite predstojeću anketu. Hvala Vam na poverenju." FontSize="15" Height="48"></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="315"/>
+                    <ColumnDefinition Width="450"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="14" Text="Uopšte nisam zadovoljan" TextWrapping="Wrap"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock FontSize="14" Text="Veoma slabo" TextWrapping="Wrap" Grid.Column="1"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock FontSize="14" Text="Neutralan" TextWrapping="Wrap" Grid.Column="2"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock FontSize="14" Text="Zadovoljan sam, ali ima mesta za napredak" TextWrapping="Wrap" Grid.Column="3"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock FontSize="14" Text="Savršeno sam zadovoljan" TextWrapping="Wrap" Grid.Column="4"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+
+                </Grid>
+            </Grid>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Koliko ste zadovoljni stručnoću našeg medicnskog osoblja?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="strucnostOsoblja">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="2" Text="Koliko ste zadovoljni ljubaznošću našeg medicinskog osoblja?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="ljubaznostMedicinskog">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="3" Text="Koliko ste zadovoljni ljubaznošću našeg nemedicnskog osoblja?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="ljubaznostNemedicinskog">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="4" Text="Koliko ste zadovoljni zakazivanjem pregleda putem telefona? (Uzmite u obzir faktore kao što su: dužina čekanja dok se naše osoblje ne javi, ljubaznost našeg osoblja i sl.)" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="zakazivanjeTelefon">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="5" Text="Koliko ste zadovoljni zakazivanjem pregleda preko aplikacije?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="zakazivanjeAplikacija">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="6" Text="Koliko ste zadovoljni dostupnošću termina prilikom zakazivanje? Ukoliko želite da zakažete pregled, da li postoje termini u razumnom roku po vašim željama." TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="dostupnostTermina">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="7" Text="U slučaju odlaganja termina, blagovremeno ste bili obavešteni da je termin odložen" TextWrapping="Wrap" Margin="10"  Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" Name="obavestenjaOtkazivanje">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="8" Text="Koliko ste zadovoljni dostupnošću medicinskog osoblja u vreme radnih sati? U slučaju da ste morali nešto hitno da se konsultujete preko kontakt telefona." TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="dostupnostRadno">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal"  >
+                <TextBlock Grid.Row="9" Text="Koliko ste zadovoljni dostupnošću medicinskog osoblja u vreme neradnih sati? U slučaju da ste morali nešto hitno da se konsultujete preko kontakt telefona." TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="dostupnostNeradno">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="10" Text="Koliko ste zadovoljni vremenom čekanja na rezultate odrađenih analiza?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="rezultatiAnaliza">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="11" Text="Koliko ste zadovoljni unutrašnjim izgledom naše bolnice?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="izgledBolnice">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Grid.Row="11" Text="Ocenite opremljenost naše bolnice. Tokom pružanja usluga, da li je naše osoblje imalo svu potrebnu opremu za izvršavanje pregleda?" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="opremljenostBolnice">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal"  >
+                <TextBlock Grid.Row="12" Text="Vaš celokupni utisak o našoj bolnici." TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal" Width="450" x:Name="opstiUtisak">
+                    <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                    <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+
+                </StackPanel>
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Grid.Row="13" TextWrapping="Wrap" Margin="10" Width="300" HorizontalAlignment="Left"><Run Text="Ostavite komentar"/><Run Text=":"/></TextBlock>
+                <TextBox  x:Name="komentar" Width="450" Height="92" Margin="10"></TextBox>
+
+            </StackPanel>
+            <Border Width="Auto" Height="1" Margin="2" Background="Black"/>
+            <StackPanel Orientation="Horizontal">
+            <Button x:Name="Nazad" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="205" Height="93"
+                Background="Transparent" BorderThickness="0" Grid.RowSpan="2">
+                <Grid Width="205" Height="93">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="145"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="previous.png"></Image>
+                    <Label Content="Nazad" Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Margin="10,0,0,0"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold">
+                    </Label>
+                </Grid>
+            </Button>
+            <Button x:Name="SacuvajAnketu" 
+                   
+                    HorizontalAlignment="Left"
+                Visibility="Visible" Background="Transparent" BorderThickness="0" Margin="100,0,0,0" Height="83" Click="SacuvajAnketu_Click">
+                <Border Width="300" Height="82" CornerRadius="19" Background="#FF407294">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="survey.png" Height="60"/>
+                        <Label Content="Sačuvajte anketu" Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Margin="10.2,22,-37,22.6"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold" Width="178">
+                        </Label>
+                    </Grid>
+                </Border>
+            </Button>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

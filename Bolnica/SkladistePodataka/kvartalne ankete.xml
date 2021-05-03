@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKvartalnaAnketa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <KvartalnaAnketa>
+    <datum>0001-01-01T00:00:00</datum>
+    <BrojAnketiranih>4</BrojAnketiranih>
+    <StrucnostMedicinskogOsoboljaProsecnaOcena>2</StrucnostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>1.75</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>2</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>2</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>1.75</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>2</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>1.75</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>1.75</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>2</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>1.75</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>1.5</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>1.5</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>1.75</CelokupniUtisak>
+    <komentari>
+      <string>uzas</string>
+      <string />
+      <string>0</string>
+      <string />
+    </komentari>
+    <anketuPopunili>
+      <string>123456789</string>
+      <string>123456789</string>
+      <string>123456789</string>
+      <string>123456789</string>
+    </anketuPopunili>
+  </KvartalnaAnketa>
+  <KvartalnaAnketa>
+    <datum>2021-04-03T00:00:00+02:00</datum>
+    <BrojAnketiranih>3</BrojAnketiranih>
+    <StrucnostMedicinskogOsoboljaProsecnaOcena>3.6666666666666665</StrucnostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>4</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>3.6666666666666665</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>4</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>3.6666666666666665</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>4</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>3.6666666666666665</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>4</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>4.666666666666667</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>4.666666666666667</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>2.6666666666666665</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>4.333333333333333</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>4.666666666666667</CelokupniUtisak>
+    <komentari>
+      <string>Veoma dobro.</string>
+      <string>Zadovoljan sam sa svim uslugama.</string>
+      <string>Mogli biste da renovirate čekaonicu.</string>
+    </komentari>
+    <anketuPopunili>
+      <string>123456789</string>
+      <string>123456789</string>
+      <string>1234</string>
+    </anketuPopunili>
+  </KvartalnaAnketa>
+  <KvartalnaAnketa>
+    <datum>2021-05-03T00:00:00+02:00</datum>
+    <BrojAnketiranih>3</BrojAnketiranih>
+    <StrucnostMedicinskogOsoboljaProsecnaOcena>3</StrucnostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>2.6666666666666665</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>4</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>4.333333333333333</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>4</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>4.333333333333333</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>4</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>4.333333333333333</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>4</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>4.666666666666667</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>4.666666666666667</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>5</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>4</CelokupniUtisak>
+    <komentari>
+      <string>Veoma sam zadovoljna.</string>
+      <string>Super ste</string>
+      <string>Lekari nisu bas ljubazni.</string>
+    </komentari>
+    <anketuPopunili>
+      <string>4567891230987</string>
+      <string>1234</string>
+      <string>123456789</string>
+    </anketuPopunili>
+  </KvartalnaAnketa>
+</ArrayOfKvartalnaAnketa>

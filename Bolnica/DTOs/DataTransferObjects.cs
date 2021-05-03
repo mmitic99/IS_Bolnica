@@ -129,4 +129,44 @@ namespace Bolnica.DTOs
         public Object brojTermina { get; set; }
     }
 
+    public class PopunjenaKvartalnaAnketaDTO
+    {
+        public DateTime datumAnkete { get; set; }
+        public String JmbgKorisnika { get; set; }
+        public String KomentarKorisnika { get; set; }
+        public double StrucnostMedicinskogOsobolja { get; set; }
+        public double LjubaznostMedicinskogOsobolja { get; set; }
+        public double LjubaznostNemedicnskogOsoblja { get; set; }
+        public double JednostavnostZakazivanjaTerminaPrekoAplikacije { get; set; }
+        public double JednostavnostZakazivanjaTerminaPrekoTelefona { get; set; }
+        public double DostupnostTerminaURazumnomRoku { get; set; }
+        public double InformacijeOOdlozenomTerminu { get; set; }
+        public double DostupnostLekaraKadaJeBolnicaZatvorena { get; set; }
+        public double DostupnostLekaraUTokuRadnihSatiLekara { get; set; }
+        public double RezultatiTestovaDostupniURazumnoVreme { get; set; }
+        public double IzgledNaseBolnice { get; set; }
+        public double OpremljenostBolnice { get; set; }
+        public double CelokupniUtisak { get; set; }
+    }
+
+    public class KvartalnaAnketaDTO
+    {
+        public DateTime datumAnkete { get; set; }
+        public Object JmbgKorisnika { get; set; }
+        public Object KomentarKorisnika { get; set; }
+        public Object StrucnostMedicinskogOsobolja { get; set; }
+        public Object LjubaznostMedicinskogOsobolja { get; set; }
+        public Object LjubaznostNemedicnskogOsoblja { get; set; }
+        public Object JednostavnostZakazivanjaTerminaPrekoAplikacije { get; set; }
+        public Object JednostavnostZakazivanjaTerminaPrekoTelefona { get; set; }
+        public Object DostupnostTerminaURazumnomRoku { get; set; }
+        public Object InformacijeOOdlozenomTerminu { get; set; }
+        public Object DostupnostLekaraKadaJeBolnicaZatvorena { get; set; }
+        public Object DostupnostLekaraUTokuRadnihSatiLekara { get; set; }
+        public Object RezultatiTestovaDostupniURazumnoVreme { get; set; }
+        public Object IzgledNaseBolnice { get; set; }
+        public Object OpremljenostBolnice { get; set; }
+        public Object CelokupniUtisak { get; set; }
+    }
+
 }

@@ -7,6 +7,7 @@ namespace Model
    {
       public Model.Enum.VrstaKorisnickeAkcije VrstaAktivnosti { get; set; }
       public DateTime DatumIVreme { get; set; }
+      public bool logickiObrisan { get; set; }
         public KorisnickaAktivnost()
         {
 
@@ -15,6 +16,7 @@ namespace Model
         {
             this.VrstaAktivnosti = vrsta;
             this.DatumIVreme = datum;
+            this.logickiObrisan = false;
         }
    
    }

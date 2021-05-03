@@ -1,4 +1,5 @@
-﻿using Bolnica.view;
+﻿using Bolnica.Servis;
+using Bolnica.view;
 using Model;
 using Repozitorijum;
 using System;
@@ -79,6 +80,39 @@ namespace Servis
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             return SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+        }
+
+        internal void PosaljiKvartalnuAnketu()
+        {
+            AnketeServis.GetInstance().GetKvartalnaAnketa(DateTime.Today);
+            Obavestenje obavestenje = new Obavestenje()
+            {
+                VremeObavestenja = DateTime.Now,
+                JmbgKorisnika = "-1",
+                Podsetnik=false,
+                Naslov = "Aktivna "+GetNazivMesec(DateTime.Now.Month)+" anketa",
+                Sadrzaj = "Poštovani pacijenti," +"\r\n\n"+"obaveštavamo vas da je do "+DateTime.Now.Date.AddDays(15).ToString("d.M.yyyy")+" aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije." +
+                "\r\n\n"+"Sve najbolje Vam želi ZDRAVO bolnica.",
+                kvartalnaAnketa = DateTime.Today,
+                Vidjeno = false
+            };
+            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+        }
+
+        private string GetNazivMesec(int month)
+        {
+            if (month == 1) return "januarska";
+            else if (month == 2) return "februarska";
+            else if (month == 3) return "martovska";
+            else if (month == 4) return "aprilska";
+            else if (month == 5) return "majska";
+            else if (month == 6) return "junska";
+            else if (month == 7) return "julska";
+            else if (month == 8) return "avgustovska";
+            else if (month == 9) return "septemvarska";
+            else if (month == 10) return "oktobarska";
+            else if (month == 11) return "novembarska";
+            else return "decembarska";
         }
 
         public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)

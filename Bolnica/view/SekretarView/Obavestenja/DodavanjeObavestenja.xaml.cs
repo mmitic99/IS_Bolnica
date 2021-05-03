@@ -40,7 +40,8 @@ namespace Bolnica.view.SekretarView.Obavestenja
                     Naslov = naslov.Text,
                     Sadrzaj = sadrzaj.Text,
                     Podsetnik = false,
-                    VremeObavestenja = DateTime.Now
+                    VremeObavestenja = DateTime.Now,
+                    Vidjeno = false
                 };
                 bool uspesno = obavestenjaKontroler.Save(obavestenje);
 

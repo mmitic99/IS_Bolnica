@@ -1,4 +1,5 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.Kontroler;
+using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -40,14 +41,36 @@ namespace Bolnica.view
             instance = this;
             this.pacijent = pacijent;
             Ime.DataContext = pacijent;
-            DataContext = new MainViewModel();
+            MainViewModel mVM = new MainViewModel();
+            mVM.ZdravstveniKartonVM = new ZdravstveniKartonViewModel(pacijent);
+            DataContext = mVM;
             brojObavestenja.Text = "0";
 
-            nabaviNovePodsetnike1();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(nabaviNovePodsetnike);
-            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Tick += new EventHandler(posaljiKvartalneAnkete);
+            timer.Tick += new EventHandler(odblokirajKorisnike);
+            timer.Interval = new TimeSpan(0, 0, 1);
             timer.Start();
+        }
+
+        private void odblokirajKorisnike(object sender, EventArgs e)
+        {
+            KorisnickeAktivnostiPacijentaKontroler.GetInstance().OdblokirajKorisnike();
+        }
+
+        private void posaljiKvartalneAnkete(object sender, EventArgs e)
+        {
+            if (((DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(3)) //anketa prvog kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(6)) //anketa drugog kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(9)) //anketa treceg kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(12))) //anketa cetvrtog kvartala
+                && !AnketeKontroler.GetInstance().DaLiJePoslataKvartalnaAnketa(DateTime.Today))
+            {
+                ObavestenjaKontroler.getInstance().PosaljiKvartalnuAnketu();
+                primiObavestenja(1);
+            }
+                
         }
 
         public void nabaviNovePodsetnike(object sender, EventArgs e)
@@ -68,7 +91,7 @@ namespace Bolnica.view
                         {
                             if((DateTime.Today.AddHours(i)- DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now)> nula)
                             {
-                                ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i);
+                                if(ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i))
                                 brojNovihPodsetnika++;
                             }
                         }
