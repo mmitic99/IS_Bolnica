@@ -1,3 +1,4 @@
+using Bolnica.view;
 using Bolnica.view.PacijentView;
 using Model;
 using Servis;
@@ -74,6 +75,19 @@ namespace Kontroler
         internal int DobaviIndeksSelektovanogLekara(Object termin)
         {
             return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
+        }
+        public void izdajRecept(string imeLeka, string sifraLeka, string dodatneNapomene, DateTime datumIzdavanja, int brojDana, int doza, List<int> terminiUzimanjaLeka, string dijagnoza, string imeDoktora, Pacijent p, Pacijent p1)
+        {
+            Recept recept = new Recept(imeLeka, sifraLeka, dodatneNapomene, datumIzdavanja, brojDana, doza, terminiUzimanjaLeka, dijagnoza
+                  , LekarWindow.getInstance().lekar1.FullName);
+            recept.DatumIzdavanja = DateTime.Today;
+            List<Recept> recepti = new List<Recept>();
+            recepti.Add(recept);
+            Izvestaj izvestaj = new Izvestaj(recepti);
+            List<Izvestaj> izvestaji = new List<Izvestaj>();
+            izvestaji.Add(izvestaj);
+            p1.zdravstveniKarton.izvestaj.Add(izvestaj);
+            PacijentKontroler.getInstance().izmeniPacijenta(p, p1);
         }
     }
 }

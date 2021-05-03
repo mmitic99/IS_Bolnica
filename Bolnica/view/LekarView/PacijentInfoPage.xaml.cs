@@ -128,5 +128,10 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Close();
             s.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new ZakazivanjeTerminaPage(Jmbg);
+        }
     }
 }

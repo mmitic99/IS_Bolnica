@@ -19,7 +19,11 @@
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <specijalizacija>
+	<VrstaSpecijalizacije>Kardiolog</VrstaSpecijalizacije>
+    </specijalizacija>
     <FullName>dr Milos Marinkovic</FullName>
+    <ImeiSpecijalizacija>dr Milos Marinkovic- Kardiolog</ImeiSpecijalizacija>
     <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
   <Lekar>
@@ -41,7 +45,11 @@
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <specijalizacija>
+	<VrstaSpecijalizacije>Urolog</VrstaSpecijalizacije>
+    </specijalizacija>
     <FullName>dr Miroslav Mi</FullName>
+    <ImeiSpecijalizacija>dr Miroslav Mi- Urolog</ImeiSpecijalizacija>
     <IdOrdinacija>2</IdOrdinacija>
   </Lekar>
   <Lekar>
@@ -64,6 +72,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <FullName>dr Dunja Jovanovic</FullName>
+    <ImeiSpecijalizacija>dr Dunja Jovanovic- Lekar opšte medicine</ImeiSpecijalizacija>
     <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
  <Lekar>
@@ -86,6 +95,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <FullName>dr Maja Balazevic</FullName>
-    <IdOrdinacija>3</IdOrdinacija>
+    <ImeiSpecijalizacija>dr Maja Balazevic- Lekar opšte medicine</ImeiSpecijalizacija>
+    <IdOrdinacija>4</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

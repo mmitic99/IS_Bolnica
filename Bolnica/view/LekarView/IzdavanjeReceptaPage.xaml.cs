@@ -53,7 +53,9 @@ namespace Bolnica.view.LekarView
             DateTime datumIzdavanja = Datum.DisplayDate;
             String dijagonoza = txt12.Text;
             String sifraLeka = txt7.Text;
-            
+            String dodatneNapomene = txt11.Text;
+            int doza = int.Parse(txt10.Text);
+
             String[] termini = txt8.Text.Split(',');
             List<int> terminiInt = new List<int>();
             for(int i = 0; i < termini.Length; i++)
@@ -62,18 +64,8 @@ namespace Bolnica.view.LekarView
                 terminiInt.Add(int.Parse(k));
 
             }
-            String dodatneNapomene = txt11.Text;
-            int doza = int.Parse(txt10.Text);
-            recept = new Recept(imeLeka,sifraLeka,dodatneNapomene,datumIzdavanja,brojDana,doza,terminiInt,dijagonoza
-                ,LekarWindow.getInstance().lekar1.FullName);
-            recept.DatumIzdavanja = DateTime.Today;
-            List<Recept> recepti = new List<Recept>();
-            recepti.Add(recept);
-            Izvestaj izvestaj = new Izvestaj(recepti);
-            List<Izvestaj> izvestaji = new List<Izvestaj>();
-            izvestaji.Add(izvestaj);
-            pacijent1.zdravstveniKarton.izvestaj.Add(izvestaj);
-            PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
+            
+            LekarKontroler.getInstance().izdajRecept(imeLeka, sifraLeka, dodatneNapomene, datumIzdavanja, brojDana, doza, terminiInt, dijagonoza, LekarWindow.getInstance().lekar1.FullName, pacijent, pacijent1);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
     }

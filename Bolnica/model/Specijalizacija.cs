@@ -5,7 +5,9 @@ namespace Model
 {
    public class Specijalizacija
    {
-      private VrstaSpecijalizacije VrstaSpecijalizacije;
+      public String VrstaSpecijalizacije { get; set; }
+
+
    
    }
 }

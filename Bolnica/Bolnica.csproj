@@ -150,11 +150,17 @@
     <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
       <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\LekarView\PrikazDostupnihTermina.xaml.cs">
+      <DependentUpon>PrikazDostupnihTermina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\TerminiPage.xaml.cs">
       <DependentUpon>TerminiPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\IzdavanjeReceptaPage.xaml.cs">
       <DependentUpon>IzdavanjeReceptaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\ZakazivanjeTerminaPage.xaml.cs">
+      <DependentUpon>ZakazivanjeTerminaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
@@ -258,11 +264,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\LekarView\PrikazDostupnihTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\LekarView\TerminiPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\IzdavanjeReceptaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\ZakazivanjeTerminaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

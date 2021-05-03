@@ -21,7 +21,7 @@
             <MenuItem Header="Profil" Width="60" FontSize="20"/>
             <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_1"/>
         </Menu>
-        <Image HorizontalAlignment="Left" Height="55" Margin="40,10,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="40,0,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
         <ComboBox Text="Izaberi" Name="ComboBox1" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -52,6 +52,8 @@
         <TextBox x:Name="AnamnezaTxt" HorizontalAlignment="Left" Height="81" Margin="586,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" />
         <Button Content="Unesi anamnezu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="4.503,5.514" Margin="586,250,0,0" FontSize="10" Click="Button_Click_1"/>
         <Button Content="Istorija anamneza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" RenderTransformOrigin="4.503,5.514" Margin="706,250,0,0" FontSize="10" Click="Button_Click_2"/>
+        <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="358,167,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        
 
     </Grid>
 </Page>

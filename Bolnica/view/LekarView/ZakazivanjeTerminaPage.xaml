@@ -1,0 +1,49 @@
+﻿<Page x:Class="Bolnica.view.LekarView.ZakazivanjeTerminaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.LekarView"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ZakazivanjeTerminaPage">
+
+    <Grid>
+        <Label Content="Zakazivanje termina" HorizontalAlignment="Left" Margin="357,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ime lekara :" HorizontalAlignment="Left" Margin="301,169,0,0" VerticalAlignment="Top"/>
+        <Label Content="Datum termina :" HorizontalAlignment="Left" Margin="301,269,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prostorija :" HorizontalAlignment="Left" Margin="301,200,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vrsta termina :" HorizontalAlignment="Left" Margin="301,231,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Hitan termin" HorizontalAlignment="Left" Margin="368,49,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="56" Margin="403,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Name="DatumPicker" HorizontalAlignment="Left" Margin="403,271,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="LekariBox" HorizontalAlignment="Left" Margin="403,172,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="LekariBox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding ImeiSpecijalizacija}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox  x:Name="TerminBox" HorizontalAlignment="Left" Margin="404,235,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" >
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-2.816"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.551"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <Label Content="Napomene :" HorizontalAlignment="Left" Margin="295,107,0,0" VerticalAlignment="Top"/>
+        <Button Content="Prikazi termine" HorizontalAlignment="Left" Margin="476,345,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click"/>
+        <Button Content="Otkaži" HorizontalAlignment="Left" Margin="322,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="ProstorijaBox" HorizontalAlignment="Left" Margin="403,203,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding BrojSobe}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+    </Grid>
+</Page>
