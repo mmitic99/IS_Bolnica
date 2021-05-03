@@ -1,7 +1,9 @@
-﻿using Bolnica.model;
+﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Bolnica.view.UpravnikView;
 using Model;
+using Model.Enum;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -31,6 +33,55 @@ namespace Servis
         public ProstorijeServis()
         {
             skladisteZaProstorije = new SkladisteZaProstorije();
+        }
+
+        public List<Prostorija> GetByVrstaProstorije(VrstaProstorije vrstaProstorije)
+        {
+            List<Prostorija> sveProstorije = GetAll();
+            List<Prostorija> odgovarajuceProstorije = new List<Prostorija>();
+            foreach (Prostorija p in sveProstorije)
+            {
+                if (p.VrstaProstorije == vrstaProstorije)
+                {
+                    odgovarajuceProstorije.Add(p);
+                }
+            }
+            return odgovarajuceProstorije;
+        }
+
+        private VrstaProstorije GetPogodnaVrstaProstorije(VrstaPregleda vrstaPregleda)
+        {
+            if (vrstaPregleda == VrstaPregleda.Operacija)
+                return VrstaProstorije.Operaciona_sala;
+            else return VrstaProstorije.Soba_za_preglede;
+        }
+
+        internal int GetPrvaPogodna(Termin termin)
+        {
+            List<Prostorija> pogodneProsotije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(termin.VrstaTermina));
+            foreach (Prostorija p in pogodneProsotije)
+            {
+                if (DaLiJeSLobodnaProstorija(p.IdProstorije, termin.DatumIVremeTermina, termin.TrajanjeTermina))
+                {
+                    return p.IdProstorije;
+                }
+            }
+            return -1;
+        }
+
+        public bool PostojiSlobodnaProstorija(ParamsToCheckAvailabilityOfRoomDTO parameters)
+        {
+            bool postojiSlobodna = false;
+            List<Prostorija> pogodneProstorije = GetByVrstaProstorije(GetPogodnaVrstaProstorije(parameters.InterventionType));
+            foreach (Prostorija p in pogodneProstorije)
+            {
+                if (DaLiJeSLobodnaProstorija(p.IdProstorije, parameters.startTime, parameters.durationInMinutes))
+                {
+                    postojiSlobodna = true;
+                    break;
+                }
+            }
+            return postojiSlobodna;
         }
 
         public void RenovirajProstoriju(String BrojProstorije, DateTime PocetakRenoviranja, DateTime KrajRenoviranja)

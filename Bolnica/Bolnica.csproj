@@ -83,15 +83,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTOs\DataTransferObjects.cs" />
+    <Compile Include="DTO\LekDTO.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\LekKontroler.cs" />
     <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="Kontroler\VerifikacijaLekaKontroler.cs" />
     <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
@@ -100,8 +103,14 @@
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="model\Renoviranje.cs" />
+    <Compile Include="model\VerifikacijaLeka.cs" />
     <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaRenoviranja.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
+    <Compile Include="Servis\LekServis.cs" />
+    <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
