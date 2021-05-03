@@ -112,5 +112,10 @@ namespace Bolnica.view.LekarView
            LekarWindow.getInstance().Close();
             s.Show();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekoviPage();
+        }
     }
 }

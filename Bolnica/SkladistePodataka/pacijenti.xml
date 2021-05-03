@@ -284,23 +284,6 @@
       <izvestaj>
         <Izvestaj>
           <recepti>
-            <Recept>
-              <lek>
-                <VrstaLeka>Kapsula</VrstaLeka>
-                <NazivLeka>Brufen</NazivLeka>
-                <KlasaLeka>Analgetici</KlasaLeka>
-                <IdLeka>0</IdLeka>
-              </lek>
-              <terminiUzimanjaTokomDana>
-                <int>7</int>
-                <int>10</int>
-                <int>13</int>
-              </terminiUzimanjaTokomDana>
-              <DatumIzdavanja>0001-01-01T00:00:00</DatumIzdavanja>
-              <BrojDana>0</BrojDana>
-              <Doza>0</Doza>
-              <TerminiUzimanjaLeka />
-            </Recept>
           </recepti>
         </Izvestaj>
         <Izvestaj>

@@ -9,13 +9,13 @@
       Title="TerminiPage">
 
     <Grid>
-        <Button Content="Kreiraj termin" HorizontalAlignment="Left" Margin="19,380,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Button_Click" />
-        <Button Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="146,380,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Button_Click_1"/>
-        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="276,380,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Button_Click_2" />
+        <Button Content="Kreiraj termin" HorizontalAlignment="Left" Margin="19,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click" />
+        <Button Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="148,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_1"/>
+        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="279,380,0,0" VerticalAlignment="Top" Width="102" Height="30" Click="Button_Click_2" />
         <DataGrid x:Name="Pregledi_Table" ItemsSource ="{Binding Termini}" AutoGenerateColumns="False" HorizontalAlignment="Right" 
-            Height="300" VerticalAlignment="Top" Width="773" Margin="0,73,20,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
-           
-           
+            Height="300" VerticalAlignment="Top" Width="783" Margin="0,73,10,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
+
+
             <DataGrid.Columns>
                 <DataGridTextColumn SortDirection="Ascending" Header="Datum termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"/>
                 <DataGridTextColumn SortDirection="Ascending" Header="Vreme termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:HH:mm\}}" Width="*"/>
@@ -25,22 +25,23 @@
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding VrstaTermina}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Menu HorizontalAlignment="Left" Height="65" Margin="102,0,0,0" VerticalAlignment="Top" Width="682" Background="White">
+        <Image HorizontalAlignment="Left" Height="55" Margin="27,0,0,0" VerticalAlignment="Top" Width="58" x:Name="doctor" Source="doctor.png"/>
+        <DatePicker Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="571,380,0,0" VerticalAlignment="Top" Height="30" Width="103" />
+        <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="696,380,0,0" Height="30" Click="Button_Click_3"/>
+        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="411,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_4" />
+        <Menu HorizontalAlignment="Left" Height="65" Margin="90,0,0,0" VerticalAlignment="Top" Width="710" Background="White">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Termini" FontSize="20"  />
+            <MenuItem Header="Termini" FontSize="20" />
             <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_1"/>
-            <MenuItem Header="Obaveštenja" FontSize="20"/>
-            <MenuItem Header="Profil" Width="60" FontSize="20"/>
+            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_2"/>
+            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2"/>
+            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
             <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click"/>
         </Menu>
-        <Image HorizontalAlignment="Left" Height="55" Margin="40,10,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
-        <DatePicker Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="564,380,0,0" VerticalAlignment="Top" Height="30" />
-        <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="687,380,0,0" Height="30" Click="Button_Click_3"/>
-        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="406,380,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Button_Click_4" />
 
 
     </Grid>

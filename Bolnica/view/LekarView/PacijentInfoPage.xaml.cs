@@ -133,5 +133,7 @@ namespace Bolnica.view.LekarView
         {
             LekarWindow.getInstance().Frame1.Content = new ZakazivanjeTerminaPage(Jmbg);
         }
+
+     
     }
 }

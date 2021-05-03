@@ -157,6 +157,9 @@
     <Compile Include="view\LekarView\AzurirajTerminPage.xaml.cs">
       <DependentUpon>AzurirajTerminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\LekarView\LekoviPage.xaml.cs">
+      <DependentUpon>LekoviPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
       <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
     </Compile>
@@ -267,6 +270,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\AzurirajTerminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\LekoviPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
