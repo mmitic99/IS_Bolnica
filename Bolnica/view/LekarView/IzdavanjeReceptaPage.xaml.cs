@@ -31,20 +31,20 @@ namespace Bolnica.view.LekarView
         public PacijentKontroler kontroler;
 
         public IzdavanjeReceptaPage()
-        {   
+        {
             InitializeComponent();
             pacijent = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
-            txt5.Text = LekarWindow.getInstance().lekar1.FullName ;
+            txt5.Text = LekarWindow.getInstance().lekar1.FullName;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -57,21 +57,6 @@ namespace Bolnica.view.LekarView
                 terminiInt.Add(int.Parse(k));
 
             }
-
-            String dodatneNapomene = txt11.Text;
-            int doza = int.Parse(txt10.Text);
-            recept = new Recept(imeLeka,sifraLeka,dodatneNapomene,datumIzdavanja,brojDana,doza,terminiInt,dijagonoza
-                ,LekarWindow.getInstance().lekar1.FullName);
-            recept.DatumIzdavanja = DateTime.Today;
-            List<Recept> recepti = new List<Recept>();
-            recepti.Add(recept);
-            Izvestaj izvestaj = new Izvestaj(recepti);
-            List<Izvestaj> izvestaji = new List<Izvestaj>();
-            izvestaji.Add(izvestaj);
-            pacijent1.zdravstveniKarton.izvestaj.Add(izvestaj);
-            PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
-            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
-
             ReceptiDTO parametri = new ReceptiDTO()
             {
                 terminiUzimanjaTokomDana = terminiInt,
@@ -86,14 +71,14 @@ namespace Bolnica.view.LekarView
                 p = pacijent,
                 p1 = pacijent1
             };
-            
-           
 
+
+
+            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
 
             LekarKontroler.getInstance().izdajRecept(parametri);
-
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
-             }
+        }
 
         private void txtImeLeka_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -111,5 +96,5 @@ namespace Bolnica.view.LekarView
                 PotvrdiBtn.IsEnabled = true;
         }
     }
-    }
+}
 

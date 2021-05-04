@@ -50,7 +50,7 @@ namespace Servis
       
       public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
       {
-         return TerminServis.getInstance()NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
+         return TerminServis.getInstance().NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
       }
 
         private object NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)

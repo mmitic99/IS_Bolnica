@@ -13,4 +13,15 @@
       <string>2313213154646095/4/2021 6:04:37 PM</string>
     </ispunjeneAnkete>
   </AnketaLekar>
+  <AnketaLekar>
+    <JmbgLekara>6667</JmbgLekara>
+    <ProsecnaOcena>1</ProsecnaOcena>
+    <Komentari>
+      <string>Super</string>
+    </Komentari>
+    <BrojAnketa>1</BrojAnketa>
+    <ispunjeneAnkete>
+      <string>123456789012366675/5/2021 1:14:54 AM</string>
+    </ispunjeneAnkete>
+  </AnketaLekar>
 </ArrayOfAnketaLekar>

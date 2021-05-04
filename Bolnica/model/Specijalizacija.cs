@@ -8,12 +8,6 @@ namespace Model
         public string VrstaSpecijalizacije { get; set; }
     }
 
-   public class Specijalizacija
-   {
-      public String VrstaSpecijalizacije { get; set; }
 
-
-   
-   }
 
 }
