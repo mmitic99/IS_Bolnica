@@ -37,7 +37,7 @@ namespace Servis
             if (aktivnosti == null)
             {
                 aktivnosti = NapraviNoveKorisnickeAktivnosti(jmbgKorisnika);
-                SkladisteZaKorisnickeAktivnosti.GetInstance().Save(aktivnosti);
+               // SkladisteZaKorisnickeAktivnosti.GetInstance().Save(aktivnosti);
             }
             return aktivnosti;
         }
@@ -50,18 +50,13 @@ namespace Servis
       
       public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
       {
-            List<Termin> sviTerminiKorisnika = SkladisteZaTermine.getInstance().getByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
-            List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
-            foreach(Termin t in sviTerminiKorisnika)
-            {
-                if(t.DatumIVremeTermina>DateTime.Now)
-                {
-                    sviTerminiKorisnikaIzBuducnosti.Add(t);
-                }
-            }
-
-         return sviTerminiKorisnikaIzBuducnosti.Count;
+         return TerminServis.getInstance()NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
       }
+
+        private object NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
+        {
+            throw new NotImplementedException();
+        }
 
         internal void OdblokirajKorisnika()
         {

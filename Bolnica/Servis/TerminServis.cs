@@ -38,6 +38,7 @@ namespace Servis
 
         public bool ZakaziTermin(Model.Termin termin)
         {
+            termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
             skladisteZaTermine.Save(termin);
 
             return true;
@@ -92,6 +93,20 @@ namespace Servis
             skladisteZaTermine.Save(termin);
 
             return uspesno;
+        }
+
+        internal List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
+        {
+            List<Termin> sviTerminiKorisnika = SkladisteZaTermine.getInstance().getByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
+            List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
+            foreach (Termin t in sviTerminiKorisnika)
+            {
+                if (t.DatumIVremeTermina > DateTime.Now)
+                {
+                    sviTerminiKorisnikaIzBuducnosti.Add(t);
+                }
+            }
+            return sviTerminiKorisnikaIzBuducnosti;
         }
 
         internal List<Termin> getByJmbgPacijenta(string jmbg)
