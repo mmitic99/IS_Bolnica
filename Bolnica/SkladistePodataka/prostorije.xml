@@ -14,19 +14,19 @@
     <Staticka_>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
-        <Kolicina_>36</Kolicina_>
+        <Kolicina_>33</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
-        <Kolicina_>21</Kolicina_>
+        <Kolicina_>22</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
-        <Kolicina_>16</Kolicina_>
+        <Kolicina_>14</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
-        <Kolicina_>7</Kolicina_>
+        <Kolicina_>6</Kolicina_>
       </StacionarnaOprema>
     </Staticka_>
     <Potrosna_>
@@ -73,6 +73,10 @@
         <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
         <Kolicina_>5</Kolicina_>
       </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
+        <Kolicina_>2</Kolicina_>
+      </StacionarnaOprema>
     </Staticka_>
     <Potrosna_ />
     <IdProstorije_>1</IdProstorije_>
@@ -111,10 +115,6 @@
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Respirator</TipStacionarneOpreme_>
         <Kolicina_>2</Kolicina_>
-      </StacionarnaOprema>
-      <StacionarnaOprema>
-        <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
-        <Kolicina_>0</Kolicina_>
       </StacionarnaOprema>
     </Staticka_>
     <Potrosna_ />
@@ -162,7 +162,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
-        <Kolicina_>1</Kolicina_>
+        <Kolicina_>2</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
@@ -231,7 +231,16 @@
     <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
     <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>54</Kvadratura_>
-    <Staticka_ />
+    <Staticka_>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Stolica</TipStacionarneOpreme_>
+        <Kolicina_>2</Kolicina_>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
+        <Kolicina_>2</Kolicina_>
+      </StacionarnaOprema>
+    </Staticka_>
     <Potrosna_ />
     <IdProstorije_>8</IdProstorije_>
   </Prostorija>
@@ -249,7 +258,11 @@
     <Staticka_>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
-        <Kolicina_>4</Kolicina_>
+        <Kolicina_>1</Kolicina_>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
+        <Kolicina_>1</Kolicina_>
       </StacionarnaOprema>
     </Staticka_>
     <Potrosna_ />

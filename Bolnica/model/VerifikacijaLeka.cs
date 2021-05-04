@@ -25,7 +25,9 @@ namespace Bolnica.model
             JmbgPosiljaoca = jmbgPosiljaoca;
             Napomena = napomena;
         }
+
         public VerifikacijaLeka() { }
         
+
     }
 }

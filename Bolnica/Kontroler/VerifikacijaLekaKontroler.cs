@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bolnica.model;
+using Bolnica.Servis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,28 @@ namespace Bolnica.Kontroler
             }
             return instance;
         }
-        public void PosaljiVerifikacijuLeka(VerifikacijaLeka vL) {
-             VerifikacijaLekaServis.GetInstance().PosaljiVerifikacijuLeka(vL);
+
+
+        public void PosaljiVerifikacijuLeka(VerifikacijaLeka verifikacijaLeka)
+        {
+            VerifikacijaLekaServis.GetInstance().PosaljiVerifikacijuLeka(verifikacijaLeka);
         }
+
         public void ObrisiVerifikacijuLeka() { }
+
+        public List<VerifikacijaLeka> GetAll()
+        {
+            return VerifikacijaLekaServis.GetInstance().GetAll();
+        }
+
+        public void Save(VerifikacijaLeka verifikacija)
+        {
+            VerifikacijaLekaServis.GetInstance().Save(verifikacija);
+        }
+
+        public void SaveAll(List<VerifikacijaLeka> verifikacije)
+        {
+            VerifikacijaLekaServis.GetInstance().SaveAll(verifikacije);
+        }
     }
 }
