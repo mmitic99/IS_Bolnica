@@ -1,4 +1,5 @@
-﻿using Bolnica.Kontroler;
+﻿using Bolnica.DTOs;
+using Bolnica.Kontroler;
 using Bolnica.model;
 using Bolnica.viewActions;
 using System;
@@ -35,12 +36,19 @@ namespace Bolnica.view.PacijentView
 
 
             Nazad.Command = MainViewModel.getInstance().ObavestenjaCommand;            
-            if (MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa != null)
+            if (MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa != new DateTime(0))
             {
                 KvartalnaAnketaDugme.Visibility = Visibility.Visible;
                 KvartalnaAnketa anketa = AnketeKontroler.GetInstance().GetByDate(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa);
                 MainViewModel.getInstance().PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(anketa);
 
+            }
+            else if(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru!=null)
+            {
+                AnketaLekarDugme.Visibility = Visibility.Visible;
+                AnketeKontroler.GetInstance().GrtAnketaOLekaruByJmbg(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru.JmbgLekara);
+                PrikacenaAnketaPoslePregledaDTO anketa = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru;
+                MainViewModel.getInstance().AnketaOLekaruVM = new AnketaOLekaruViewModel(anketa);
             }
         }
 
@@ -64,6 +72,20 @@ namespace Bolnica.view.PacijentView
                 s.ShowDialog();
             }
             
+        }
+
+        private void AnketaLekarDugme_Click(object sender, RoutedEventArgs e)
+        {
+            if (!AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru))
+            {
+                AnketaLekarDugme.Command = MainViewModel.getInstance().AnketaOLekaruCommand;
+            }
+            else
+            {
+                var s = new Upozorenje("Već ste popunili anketu!");
+                s.Owner = PacijentMainWindow.getInstance();
+                s.ShowDialog();
+            }
         }
     }
 }

@@ -169,4 +169,26 @@ namespace Bolnica.DTOs
         public Object CelokupniUtisak { get; set; }
     }
 
+    public class PopunjenaAnketaPoslePregledaDTO
+    {
+        public String JmbgLekara { get; set; }
+        public double Ocena { get; set; }
+        public String Komentar { get; set; }
+        public String IDAnkete { get; set; }
+    }
+
+    public class PopunjenaAnketaPoslePregledaObjectDTO
+    {
+        public String JmbgLekara { get; set; }
+        public Object Ocena { get; set; }
+        public Object Komentar { get; set; }
+        public Object IDAnkete { get; set; }
+    }
+
+    public class PrikacenaAnketaPoslePregledaDTO
+    {
+        public String IDAnkete { get; set; }
+        public String JmbgLekara { get; set; }
+    }
+
 }

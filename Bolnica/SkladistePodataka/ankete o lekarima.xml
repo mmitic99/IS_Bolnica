@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnketaLekar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AnketaLekar>
+    <JmbgLekara>609</JmbgLekara>
+    <ProsecnaOcena>3.5</ProsecnaOcena>
+    <Komentari>
+      <string>Uzas</string>
+      <string>Jako ljubazna</string>
+    </Komentari>
+    <BrojAnketa>2</BrojAnketa>
+    <ispunjeneAnkete>
+      <string>2313213154646095/4/2021 6:06:54 PM</string>
+      <string>2313213154646095/4/2021 6:04:37 PM</string>
+    </ispunjeneAnkete>
+  </AnketaLekar>
+</ArrayOfAnketaLekar>

@@ -607,4 +607,81 @@ Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
     <Vidjeno>false</Vidjeno>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T11:57:27.4875511+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Hisatril</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T12:26:33.8055633+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T12:26:33.8055633+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T12:27:26.6008683+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Probiotic forte</Naslov>
+    <Sadrzaj>Poštovani/a Jovana podsećamo vas da danas u 13:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T15:15:46.5717414+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Rapidol</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 16:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T18:04:37.1146605+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Nikola
+nedavno ste bili na pregledu kod dr Dunja Jovanovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>231321315464</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>2313213154646095/4/2021 6:04:37 PM</IDAnkete>
+      <JmbgLekara>609</JmbgLekara>
+    </anketaOLekaru>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T18:07:03.9417127+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Nikola
+nedavno ste bili na pregledu kod dr Dunja Jovanovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>231321315464</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>2313213154646095/4/2021 6:06:54 PM</IDAnkete>
+      <JmbgLekara>609</JmbgLekara>
+    </anketaOLekaru>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
 </ArrayOfObavestenje>

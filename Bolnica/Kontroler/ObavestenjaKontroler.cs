@@ -80,5 +80,10 @@ namespace Kontroler
         {
             ObavestenjaServis.getInstance().PosaljiKvartalnuAnketu();
         }
+
+        internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
+        {
+            ObavestenjaServis.getInstance().PosaljiAnketuOLekaru(JmbgPacijenta, JmbgLekara);
+        }
     }
 }

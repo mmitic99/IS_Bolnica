@@ -1,6 +1,7 @@
 using Bolnica.model;
 using System;
 using System.Windows;
+using Bolnica.DTOs;
 
 namespace Model
 {
@@ -11,7 +12,8 @@ namespace Model
         public String Sadrzaj { get; set; }
         public String JmbgKorisnika { get; set; }
         public bool Podsetnik { get; set; }
-        public DateTime kvartalnaAnketa {get; set;}
+        public DateTime kvartalnaAnketa { get; set; }
+        public PrikacenaAnketaPoslePregledaDTO anketaOLekaru {get; set;}
         public bool Vidjeno { get; set; }
 
         public Obavestenje()

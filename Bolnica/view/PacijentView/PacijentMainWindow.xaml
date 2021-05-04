@@ -82,7 +82,9 @@
                     </RadialGradientBrush>
                 </Border.Background>
             </Border>
-            <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent"  Click="Odjava">
+            <Button Grid.Column="1" Width="70"
+                    BorderThickness="0"
+                    Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent"  Click="Odjava">
                 <StackPanel Width="70" Height="50">
                     <Grid Width="70" Height="50">
                         <Grid.RowDefinitions>
@@ -98,6 +100,7 @@
                     HorizontalAlignment="Right"
                     Margin="0,0,70,0"
                     Background="Transparent"
+                    BorderThickness="0"
                     Command="{Binding ObavestenjaCommand}"
                     Click="Button_Click">
                 <StackPanel Width="70" Height="50">

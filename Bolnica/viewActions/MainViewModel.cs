@@ -23,6 +23,7 @@ namespace Bolnica.viewActions
         public RelayCommand ZdravstevniKartonCommand { get; set; }
         public RelayCommand KvartalnaAnketaCommand { get; set; }
         public RelayCommand PrikazObavestenjaCommand { get; set; }
+        public RelayCommand AnketaOLekaruCommand { get; set; }
 
         public PacijentTerminiModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
@@ -32,6 +33,7 @@ namespace Bolnica.viewActions
         public PrikazJednogObavestenjaPacijentaViewModel PrikazObavestenjaVM { get; set; }
         public ZdravstveniKartonViewModel ZdravstveniKartonVM { get; set; }
         public PrikazKvartalneAnketeViewModel PrikazKvartalneAnketeVM { get; set; }
+        public AnketaOLekaruViewModel AnketaOLekaruVM { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -51,6 +53,7 @@ namespace Bolnica.viewActions
             PomeranjeTerminaVM = new PomeranjeTerminaViewModel();
             PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
             PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel();
+            AnketaOLekaruVM = new AnketaOLekaruViewModel();
 
             CurrentView = PacijentTerminiVM;
 
@@ -91,6 +94,13 @@ namespace Bolnica.viewActions
                 CurrentView = PrikazKvartalneAnketeVM;
             }
             );
+
+            AnketaOLekaruCommand = new RelayCommand(o =>
+            {
+                CurrentView = AnketaOLekaruVM;
+            }
+            );
+
 
             PrikazObavestenjaCommand = new RelayCommand(o =>
             {
