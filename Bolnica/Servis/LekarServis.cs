@@ -1,8 +1,10 @@
 using Bolnica.DTOs;
+using Kontroler;
 using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using static Bolnica.DTO.ReceptDTO;
 
 namespace Servis
 {
@@ -66,18 +68,17 @@ namespace Servis
             List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
             foreach(Termin t in terminiLekara)
             {
-                if(parametri.startTime > t.DatumIVremeTermina && parametri.startTime<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
-                    && (parametri.startTime.AddMinutes(parametri.durationInMinutes))>t.DatumIVremeTermina && (parametri.startTime.AddMinutes(parametri.durationInMinutes))<(t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
+                if(DateTime.Compare(parametri.startTime ,t.DatumIVremeTermina)>0 && DateTime.Compare(parametri.startTime, t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0) 
                 {
                     slobodan = false;
                     break;
                 }
-                if(t.DatumIVremeTermina> parametri.startTime && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (parametri.startTime.AddMinutes(parametri.durationInMinutes))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                if(DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) < 0 && DateTime.Compare(parametri.startTime.AddMinutes(t.TrajanjeTermina), t.DatumIVremeTermina) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
                 {
                     slobodan = false;
                     break;
                 }
-                if(t.DatumIVremeTermina.Equals(parametri.startTime))
+                if(DateTime.Compare(t.DatumIVremeTermina,parametri.startTime)==0)
                 {
                     slobodan = false;
                     break;
@@ -129,5 +130,16 @@ namespace Servis
         }
 
         public SkladisteZaLekara skladisteZaLekara;
+        public void izdajRecept(ReceptiDTO parametri)
+        {
+            Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka,parametri.DodatneNapomene, parametri.DatumIzdavanja,parametri.BrojDana, parametri.Doza,parametri.terminiUzimanjaTokomDana,parametri.Dijagnoza,parametri.ImeDoktora);
+            List<Recept> recepti = new List<Recept>();
+            recepti.Add(Recept);
+            Izvestaj izvestaj = new Izvestaj(recepti);
+            List<Izvestaj> izvestaji = new List<Izvestaj>();
+            izvestaji.Add(izvestaj);
+            parametri.p1.zdravstveniKarton.izvestaj.Add(izvestaj);
+            PacijentKontroler.getInstance().izmeniPacijenta(parametri.p, parametri.p1);
+        }
     }
 }

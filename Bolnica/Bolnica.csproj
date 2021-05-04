@@ -85,9 +85,12 @@
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />
+    <Compile Include="DTO\LekDTO.cs" />
+    <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
+    <Compile Include="Kontroler\LekKontroler.cs" />
     <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Kontroler\SpecijalizacijaKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
     <Compile Include="Kontroler\UpravnikKontroler.cs" />
+    <Compile Include="Kontroler\VerifikacijaLekaKontroler.cs" />
     <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\AnketaKvartalna.cs" />
     <Compile Include="model\AnketaLekar.cs" />
@@ -111,6 +115,15 @@
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
+    <Compile Include="model\Renoviranje.cs" />
+    <Compile Include="model\VerifikacijaLeka.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaRenoviranja.cs" />
+    <Compile Include="Repozitorijum\SkladisteZaVerifikacijuLeka.cs" />
+    <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
+    <Compile Include="Servis\LekServis.cs" />
+    <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
@@ -161,14 +174,23 @@
     <Compile Include="view\LekarView\AzurirajTerminPage.xaml.cs">
       <DependentUpon>AzurirajTerminPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\LekarView\LekoviPage.xaml.cs">
+      <DependentUpon>LekoviPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
       <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\PrikazDostupnihTermina.xaml.cs">
+      <DependentUpon>PrikazDostupnihTermina.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\TerminiPage.xaml.cs">
       <DependentUpon>TerminiPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\IzdavanjeReceptaPage.xaml.cs">
       <DependentUpon>IzdavanjeReceptaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\ZakazivanjeTerminaPage.xaml.cs">
+      <DependentUpon>ZakazivanjeTerminaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
@@ -286,7 +308,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\LekarView\LekoviPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\LekarView\PacijentInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\PrikazDostupnihTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\IzdavanjeReceptaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\ZakazivanjeTerminaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

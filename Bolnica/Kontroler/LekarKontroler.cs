@@ -1,8 +1,11 @@
+using Bolnica.DTO;
+using Bolnica.view;
 using Bolnica.view.PacijentView;
 using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using static Bolnica.DTO.ReceptDTO;
 
 namespace Kontroler
 {
@@ -73,7 +76,11 @@ namespace Kontroler
 
         internal int DobaviIndeksSelektovanogLekara(Object termin)
         {
-            return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
+           return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
+        }
+        public void izdajRecept(ReceptiDTO parametri)
+        {
+            LekarServis.getInstance().izdajRecept(parametri);
         }
         public Lekar GetByJmbg(string jmbg)
         {

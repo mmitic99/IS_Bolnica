@@ -402,6 +402,7 @@ namespace Servis
                 pocetak += TimeSpan.FromMinutes(dodaj);
             }
             return pocetak;
+            
         }
 
         public DateTime? DobaviPrviMoguciDanZakazivanja(Termin termin)

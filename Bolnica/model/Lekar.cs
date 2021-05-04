@@ -62,6 +62,21 @@ namespace Model
 
             }
         }
+        public String ImeiSpecijalizacija
+        {
+            get 
+            {
+                if (specijalizacija == null)
+                {
+                    return this.FullName + "-  Lekar opšte medicine";
+                }
+                return this.FullName + "- " + this.specijalizacija.VrstaSpecijalizacije;            
+            }
+            set
+            {
+
+            }
+        }
         public int IdOrdinacija { get; set; }
 
         public Lekar()
@@ -93,6 +108,10 @@ namespace Model
         public String getFullName()
         {
             return this.Ime + " " + this.Prezime;
+        }
+        public String getImeiSpecijalizacija()
+        {
+            return this.FullName + " " + this.specijalizacija;
         }
     }
 }

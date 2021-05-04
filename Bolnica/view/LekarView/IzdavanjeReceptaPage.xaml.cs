@@ -1,4 +1,5 @@
-﻿using Bolnica.view.LekarView;
+﻿using Bolnica.DTO;
+using Bolnica.view.LekarView;
 using Kontroler;
 using Model;
 using System;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Bolnica.DTO.ReceptDTO;
 
 namespace Bolnica.view.LekarView
 {
@@ -31,11 +33,10 @@ namespace Bolnica.view.LekarView
         public IzdavanjeReceptaPage()
         {   
             InitializeComponent();
-           pacijent = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
-           pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
+            pacijent = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
+            pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
-
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarWindow.getInstance().lekar1.FullName ;
 
@@ -47,21 +48,16 @@ namespace Bolnica.view.LekarView
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        { 
-            String imeLeka = txt9.Text;
-            int brojDana = int.Parse(txt4.Text);
-            DateTime datumIzdavanja = Datum.DisplayDate;
-            String dijagonoza = txt12.Text;
-            String sifraLeka = txt7.Text;
-            
+        {
             String[] termini = txt8.Text.Split(',');
             List<int> terminiInt = new List<int>();
-            for(int i = 0; i < termini.Length; i++)
+            for (int i = 0; i < termini.Length; i++)
             {
-               String k = termini[i];
+                String k = termini[i];
                 terminiInt.Add(int.Parse(k));
 
             }
+
             String dodatneNapomene = txt11.Text;
             int doza = int.Parse(txt10.Text);
             recept = new Recept(imeLeka,sifraLeka,dodatneNapomene,datumIzdavanja,brojDana,doza,terminiInt,dijagonoza
@@ -75,7 +71,45 @@ namespace Bolnica.view.LekarView
             pacijent1.zdravstveniKarton.izvestaj.Add(izvestaj);
             PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
             ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
+
+            ReceptiDTO parametri = new ReceptiDTO()
+            {
+                terminiUzimanjaTokomDana = terminiInt,
+                ImeLeka = txtImeLeka.Text,
+                SifraLeka = txt7.Text,
+                DodatneNapomene = txt11.Text,
+                DatumIzdavanja = Datum.DisplayDate,
+                BrojDana = int.Parse(txt4.Text),
+                Doza = int.Parse(txt10.Text),
+                Dijagnoza = txt12.Text,
+                ImeDoktora = LekarWindow.getInstance().lekar1.FullName,
+                p = pacijent,
+                p1 = pacijent1
+            };
+            
+           
+
+
+            LekarKontroler.getInstance().izdajRecept(parametri);
+
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+             }
+
+        private void txtImeLeka_LostFocus(object sender, RoutedEventArgs e)
+        {
+            bool daLiJeAlergican = false;
+            foreach (String alergen in pacijent.zdravstveniKarton.Alergeni)
+                if (txtImeLeka.Text.ToLower().Equals(alergen.ToLower()))
+                    daLiJeAlergican = true;
+
+            if (daLiJeAlergican)
+            {
+                MessageBox.Show("Pacijent alergican na uneti lek, unesi drugi lek!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                PotvrdiBtn.IsEnabled = false;
+            }
+            else
+                PotvrdiBtn.IsEnabled = true;
         }
     }
-}
+    }
+

@@ -128,6 +128,18 @@ namespace Bolnica.DTOs
         public Object vrstaTermina { get; set; }
         public Object brojTermina { get; set; }
     }
+        public class ParametriZaMoguceTermineLekaraDTO
+    {
+        public String JmbgLekara { get ; set; }
+        public String JmbgPacijenta { get ; set; }
+        public DateTime DatumTermina { get; set; }
+        public TimeSpan VremeskaDuzinaPrikaza { get; set; }
+        public int TrajanjeUMinutama { get; set; }
+        public VrstaPregleda VrstaTermina { get; set; }
+        public String DodatneNapomene { get; set; }
+        public String BrojSobe { get; set; }
+        public bool HitnostTermina { get; set; }
+    }
 
     public class PopunjenaKvartalnaAnketaDTO
     {

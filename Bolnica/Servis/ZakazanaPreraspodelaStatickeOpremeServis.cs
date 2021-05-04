@@ -29,7 +29,6 @@ namespace Bolnica.Servis
             SvePreraspodele.Add(preraspodela);
             UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme = SvePreraspodele;
             SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().SaveAll(SvePreraspodele);
-            OcistiTextPoljaPreraspodeleOpreme();
             OsveziPrikazPreraspodeleOpreme();
         }
 
@@ -64,11 +63,6 @@ namespace Bolnica.Servis
                 return true;
             else
                 return false;
-        }
-
-        private void OcistiTextPoljaPreraspodeleOpreme()
-        {
-            UpravnikWindow.GetInstance().InformacijeOPreraspodeli.Clear();
         }
 
     }

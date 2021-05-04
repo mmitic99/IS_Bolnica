@@ -13,7 +13,9 @@ namespace Bolnica.model
     {
         public DateTime DatumIVremePreraspodele { get; set; }
 
-        public String InformacijeOPreraspodeli { get; set; }
+        public String NazivOpreme { get; set; }
+
+        public int KolicinaOpreme { get; set; }
 
         public String BrojProstorijeIzKojeSePrenosiOprema { get; set; }
 
@@ -27,13 +29,14 @@ namespace Bolnica.model
 
         public ZakazanaPreraspodelaStatickeOpreme() {}
 
-        public ZakazanaPreraspodelaStatickeOpreme(String brojSobeIz, String brojSobeU, DateTime datumIVreme, double trajanje, String info)
+        public ZakazanaPreraspodelaStatickeOpreme(String brojSobeIz, String brojSobeU, DateTime datumIVreme, double trajanje, String nazivOpreme, int kolicina)
         {
             BrojProstorijeIzKojeSePrenosiOprema = brojSobeIz;
             BrojProstorijeUKojuSePrenosiOprema = brojSobeU;
             DatumIVremePreraspodele = datumIVreme;
             TrajanjePreraspodele = trajanje;
-            InformacijeOPreraspodeli = info;
+            NazivOpreme = nazivOpreme;
+            KolicinaOpreme = kolicina;
             IdProstorijeIzKojeSePrenosiOprema = ProstorijeServis.GetInstance().GetIdProstorijeByBrojProstorije(brojSobeIz);
             IdProstorijeUKojUSePrenosiOprema = ProstorijeServis.GetInstance().GetIdProstorijeByBrojProstorije(brojSobeU);
         }

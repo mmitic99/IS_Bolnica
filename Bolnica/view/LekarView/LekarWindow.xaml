@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bolnica.view.LekarWindow"
         mc:Ignorable="d"
-        Title="LekarWindow" Height="450" Width="800">
+        Title="LekarWindow" Height="550" Width="800">
     <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Height="450" Width="800"/>
 

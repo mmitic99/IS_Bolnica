@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lek>
+    <VrstaLeka>Tableta</VrstaLeka>
+    <KolicinaLeka>19</KolicinaLeka>
+    <NazivLeka>Brufen</NazivLeka>
+    <KlasaLeka>Analgetik</KlasaLeka>
+    <IdLeka>0</IdLeka>
+    <JacinaLeka>490</JacinaLeka>
+    <ZamenskiLek>BlokMax</ZamenskiLek>
+    <SastavLeka>ibuprofen, secer</SastavLeka>
+  </Lek>
+  <Lek>
+    <VrstaLeka>Gel</VrstaLeka>
+    <KolicinaLeka>200</KolicinaLeka>
+    <NazivLeka>Prospan</NazivLeka>
+    <KlasaLeka>Antiseptik</KlasaLeka>
+    <IdLeka>1</IdLeka>
+    <JacinaLeka>100</JacinaLeka>
+    <ZamenskiLek>Mukodina</ZamenskiLek>
+    <SastavLeka>sirup</SastavLeka>
+  </Lek>
+</ArrayOfLek>
