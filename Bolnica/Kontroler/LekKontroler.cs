@@ -30,6 +30,10 @@ namespace Bolnica.Kontroler
         {
             LekServis.GetInstance().IzmeniLek(index, lek);
         }
+        public void IzmeniLekLekar(int index, Lek lek)
+        {
+            LekServis.GetInstance().IzmeniLekLekar(index, lek);
+        }
 
         public void IzbrisiLek(int index)
         {

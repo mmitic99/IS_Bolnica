@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.model;
+using Bolnica.Servis;
 
 namespace Bolnica.Kontroler
 {
@@ -17,7 +19,9 @@ namespace Bolnica.Kontroler
             }
             return instance;
         }
-        public void PosaljiVerifikacijuLeka() { }
+        public void PosaljiVerifikacijuLeka(VerifikacijaLeka vL) {
+             VerifikacijaLekaServis.GetInstance().PosaljiVerifikacijuLeka(vL);
+        }
         public void ObrisiVerifikacijuLeka() { }
     }
 }

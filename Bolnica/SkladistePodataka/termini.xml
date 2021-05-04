@@ -693,4 +693,18 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-05T06:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>123456789012366675/5/2021 6:30:00 AM</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>60</TrajanjeTermina>
+    <opisTegobe>HIperventlira</opisTegobe>
+  </Termin>
 </ArrayOfTermin>

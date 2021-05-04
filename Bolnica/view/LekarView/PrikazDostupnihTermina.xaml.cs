@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Bolnica.DTOs;
+using Bolnica.viewActions;
+using Kontroler;
+using Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +25,26 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class PrikazDostupnihTermina : Page
     {
-        public PrikazDostupnihTermina()
+        public PrikazDostupnihTermina(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
         {
             InitializeComponent();
+            this.DataContext = this;
+            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
+            prikazMogucih.ItemsSource = new ObservableCollection<Termin>(moguciTermini);
+
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((Termin)prikazMogucih.SelectedItem).JmbgPacijenta);
+        }
+
+        
     }
 }

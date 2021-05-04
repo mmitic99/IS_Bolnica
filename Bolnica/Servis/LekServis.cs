@@ -1,5 +1,6 @@
 ﻿using Bolnica.DTO;
 using Bolnica.Repozitorijum;
+using Bolnica.view.LekarView;
 using Bolnica.view.UpravnikView;
 using Model;
 using System;
@@ -45,6 +46,14 @@ namespace Bolnica.Servis
             SkladisteZaLekove.GetInstance().SaveAll(UpravnikWindow.GetInstance().SviLekovi);
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
+        }
+        public void IzmeniLekLekar(int index,Lek lek)
+        {
+            int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;
+            LekoviPage.getInstance().Lekovi[index] = lek;
+            LekoviPage.getInstance().Lekovi[index].IdLeka = StariIdLeka;
+            SkladisteZaLekove.GetInstance().SaveAll(LekoviPage.getInstance().Lekovi);
+            LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(LekoviPage.getInstance().Lekovi);
         }
 
         public void IzbrisiLek(int index)

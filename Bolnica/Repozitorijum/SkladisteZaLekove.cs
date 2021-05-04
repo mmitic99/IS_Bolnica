@@ -72,5 +72,22 @@ namespace Bolnica.Repozitorijum
             serializer.Serialize(writer, lekovi);
             writer.Close();
         }
+        public Lek getById(int id)
+        {
+            List<Lek> lekovi = this.GetAll();
+           Lek l1 = new Lek();
+            foreach (Lek l in lekovi)
+            {
+                if (l.IdLeka == null)
+                {
+                    if (l.IdLeka.Equals(id))
+                    {
+                        l1 = l;
+                        break;
+                    }
+                }
+            }
+            return l1;
+        }
     }
 }

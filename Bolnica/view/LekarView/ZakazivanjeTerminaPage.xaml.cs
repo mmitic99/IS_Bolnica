@@ -35,6 +35,7 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             instance = this;
             LekariBox.ItemsSource = new ObservableCollection<Lekar>(LekarKontroler.getInstance().GetAll());
+            LekariBox.SelectedIndex = 0;
             jmbgPacijenta = jmbg;
             ProstorijaBox.ItemsSource = new ObservableCollection<Prostorija>(ProstorijeKontroler.GetInstance().GetAll());
             TerminBox.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
@@ -64,37 +65,53 @@ namespace Bolnica.view.LekarView
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+            
         {
+
+            
             if (TerminBox.SelectedItem.Equals(VrstaPregleda.Pregled))
             {
-                ParametriZaMoguceTermineLekaraDTO parametriDTO = new ParametriZaMoguceTermineLekaraDTO()
+                ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
                 {
-                    JmbgLekara = LekarWindow.getInstance().lekar1.Jmbg,
-                    JmbgPacijenta = jmbgPacijenta,
-                    DatumTermina = DatumPicker.SelectedDate.Value,
-                    VremeskaDuzinaPrikaza = new TimeSpan(5, 0, 0),
-                    TrajanjeUMinutama = 60,
-                    VrstaTermina = (VrstaPregleda)TerminBox.SelectedItem,
-                    DodatneNapomene = txt1.Text,
-                    BrojSobe = ((Prostorija)ProstorijaBox.SelectedItem).BrojSobe,
-                    HitnostTermina = false
+                    Pacijent = jmbgPacijenta,
+                    IzabraniDatumi =Kalendar.SelectedDates,
+                    IzabraniLekar = LekariBox.SelectedItem,
+                    PocetnaSatnica = 6,
+                    PocetakMinut = 0,
+                    KrajnjaSatnica = 20,
+                    KrajnjiMinuti = 0,
+                    NemaPrioritet = false,
+                    OpisTegobe = txt1.Text,
+                    PrioritetLekar = true,
+                    PriotitetVreme = false,
+                    trajanjeUMinutama = 30,
+                    vrstaTermina = 0
+
                 };
+                LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
             }
             else
             {
-                ParametriZaMoguceTermineLekaraDTO parametriDTO = new ParametriZaMoguceTermineLekaraDTO()
+                ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
                 {
-                    JmbgLekara = LekarWindow.getInstance().lekar1.Jmbg,
-                    JmbgPacijenta = jmbgPacijenta,
-                    DatumTermina = DatumPicker.SelectedDate.Value,
-                    VremeskaDuzinaPrikaza = new TimeSpan(5, 0, 0),
-                    TrajanjeUMinutama = 30,
-                    VrstaTermina = (VrstaPregleda)TerminBox.SelectedItem,
-                    DodatneNapomene = txt1.Text,
-                    BrojSobe = ((Prostorija)ProstorijaBox.SelectedItem).BrojSobe,
-                    HitnostTermina = false
+                    Pacijent = jmbgPacijenta,
+                    IzabraniDatumi = Kalendar.SelectedDates,
+                    IzabraniLekar = LekariBox.SelectedItem,
+                    PocetnaSatnica = 6,
+                    PocetakMinut = 0,
+                    KrajnjaSatnica = 20,
+                    KrajnjiMinuti = 0,
+                    NemaPrioritet = false,
+                    OpisTegobe = txt1.Text,
+                    PrioritetLekar = true,
+                    PriotitetVreme = false,
+                    trajanjeUMinutama = 60,
+                    vrstaTermina = 1
+
                 };
+                LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
             }
+           
 
         }
 

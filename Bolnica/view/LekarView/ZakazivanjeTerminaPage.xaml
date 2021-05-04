@@ -10,21 +10,19 @@
 
     <Grid>
         <Label Content="Zakazivanje termina" HorizontalAlignment="Left" Margin="357,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ime lekara :" HorizontalAlignment="Left" Margin="301,169,0,0" VerticalAlignment="Top"/>
-        <Label Content="Datum termina :" HorizontalAlignment="Left" Margin="301,269,0,0" VerticalAlignment="Top"/>
-        <Label Content="Prostorija :" HorizontalAlignment="Left" Margin="301,200,0,0" VerticalAlignment="Top"/>
-        <Label Content="Vrsta termina :" HorizontalAlignment="Left" Margin="301,231,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Hitan termin" HorizontalAlignment="Left" Margin="368,49,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="56" Margin="403,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DatePicker Name="DatumPicker" HorizontalAlignment="Left" Margin="403,271,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="LekariBox" HorizontalAlignment="Left" Margin="403,172,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="LekariBox_SelectionChanged">
+        <Label Content="Ime lekara :" HorizontalAlignment="Left" Margin="301,129,0,0" VerticalAlignment="Top"/>
+        <Label Content="Datum termina :" HorizontalAlignment="Left" Margin="221,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.296,2.078"/>
+        <Label Content="Prostorija :" HorizontalAlignment="Left" Margin="301,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vrsta termina :" HorizontalAlignment="Left" Margin="301,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="56" Margin="403,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="LekariBox" HorizontalAlignment="Left" Margin="403,132,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="LekariBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding ImeiSpecijalizacija}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox  x:Name="TerminBox" HorizontalAlignment="Left" Margin="404,235,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" >
+        <ComboBox  x:Name="TerminBox" HorizontalAlignment="Left" Margin="404,195,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" >
             <ComboBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,16 +32,17 @@
                 </TransformGroup>
             </ComboBox.RenderTransform>
         </ComboBox>
-        <Label Content="Napomene :" HorizontalAlignment="Left" Margin="295,107,0,0" VerticalAlignment="Top"/>
-        <Button Content="Prikazi termine" HorizontalAlignment="Left" Margin="476,345,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click"/>
-        <Button Content="Otkaži" HorizontalAlignment="Left" Margin="322,345,0,0" VerticalAlignment="Top" Width="75"/>
-        <ComboBox x:Name="ProstorijaBox" HorizontalAlignment="Left" Margin="403,203,0,0" VerticalAlignment="Top" Width="120">
+        <Label Content="Napomene :" HorizontalAlignment="Left" Margin="295,67,0,0" VerticalAlignment="Top"/>
+        <Button Content="Prikazi termine" HorizontalAlignment="Left" Margin="462,420,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click"/>
+        <Button Content="Otkaži" HorizontalAlignment="Left" Margin="301,420,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="ProstorijaBox" HorizontalAlignment="Left" Margin="403,163,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding BrojSobe}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Calendar x:Name="Kalendar" HorizontalAlignment="Left" Margin="345,236,0,0" VerticalAlignment="Top" SelectionMode="MultipleRange" />
 
     </Grid>
 </Page>

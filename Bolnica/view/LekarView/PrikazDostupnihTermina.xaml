@@ -9,6 +9,24 @@
       Title="PrikazDostupnihTermina">
 
     <Grid>
-        
+        <Label Content="Odaberite termin :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
+        <DataGrid x:Name="prikazMogucih" HorizontalAlignment="Left" Height="354" Margin="42,53,0,0" VerticalAlignment="Top" Width="686" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Lekar"
+                                        Width="*"
+                                        Binding="{Binding lekar}"/>
+                <DataGridTextColumn Header="Datum"
+                                        Width="*"
+                                    Binding="{Binding DatumIVremeTermina, StringFormat={}{0:dd.MM.yyyy}}"/>
+                <DataGridTextColumn Header="Vreme"
+                                    Width="*"
+                                    Binding="{Binding DatumIVremeTermina, StringFormat={}{0:HH:mm}}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Nazad" HorizontalAlignment="Left" Margin="108,420,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Zakaži" HorizontalAlignment="Left" Margin="594,420,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+
     </Grid>
 </Page>

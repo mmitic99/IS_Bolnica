@@ -10,27 +10,60 @@
 
     <Grid>
         <Image HorizontalAlignment="Left" Height="55" Margin="27,0,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
-        <TabControl Margin="0,70,10,-0.4" TabStripPlacement="Left">
+        <TabControl Margin="0,65,10,4.6" TabStripPlacement="Left">
             <TabItem x:Name="VerifikacijaTab" Header="Verifikacija lekova"  Margin="-2,-2,-0.4,-2" Width="108" >
                 <Grid>
-                    <TextBox HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Margin="384,41,0,0" />
+                    <TextBox x:Name="SastavTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Margin="413,41,0,0" IsReadOnly="True"/>
 
-                    <DataGrid Margin="26,10,313.2,34.4">
+                    <DataGrid x:Name="TabelaVerifikacija" ItemsSource="{Binding VerifikacijaLekova}" Margin="26,10,267.2,34.4" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Vreme slanja"/>
-                            <DataGridTextColumn Header="Ime leka"/>
-                            <DataGridTextColumn Header="Ime upravnika"/>
-                            <DataGridTextColumn Header="Napomena"/>
+                            <DataGridTextColumn Header="Vreme slanja" Binding="{ Binding VremeSlanjaZahteva}"/>
+                            <DataGridTextColumn Header="Ime leka" Binding="{ Binding Naslov}"/>
+                            <DataGridTextColumn Header="Ime upravnika" Binding="{ Binding VremeSlanjaZahteva}"/>
+                            <DataGridTextColumn Header="Napomena" Binding="{ Binding Napomena}" Width="*"/>
 
                         </DataGrid.Columns>
+
                     </DataGrid>
-                    <TextBox HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Margin="384,200,0,0" />
-                    <Label Content="Sastav:" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Napomena:" HorizontalAlignment="Left" Margin="384,174,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Pošalji" HorizontalAlignment="Left" Margin="477,333,0,0" VerticalAlignment="Top" Width="104"/>
+                    <TextBox x:Name="NapomenaTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Margin="413,200,0,0" />
+                    <Label Content="Sastav:" HorizontalAlignment="Left" Margin="413,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.101,0.563"/>
+                    <Label Content="Napomena:" HorizontalAlignment="Left" Margin="413,174,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Pošalji" HorizontalAlignment="Left" Margin="477,333,0,0" VerticalAlignment="Top" Width="104" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="PrikazLekovaTab" Header="Prikaz lekova" Height="24" VerticalAlignment="Bottom"/>
+            <TabItem x:Name="PrikazLekovaTab" Header="Prikaz lekova" Height="24" VerticalAlignment="Bottom">
+
+                <Grid Margin="0,0,184.2,0" Height="357" VerticalAlignment="Top">
+                    <Button Margin="554,318,-134,9" RenderTransformOrigin="0.5,0.503" Content="Izmeni" Click="Button_Click"/>
+                    <DataGrid  x:Name ="TabelaLekova" Margin="0,0,-15,2" ItemsSource="{Binding Lekovi}"  AutoGenerateColumns="False" SelectionChanged="TabelaLekova_SelectionChanged" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv leka" FontFamily="Yu Gothic Medium" Binding="{Binding NazivLeka}"/>
+                            <DataGridTextColumn Header="Vrsta leka" FontFamily="Yu Gothic Medium" Binding="{Binding VrstaLeka}"/>
+                            <DataGridTextColumn Header="Klasa leka" FontFamily="Yu Gothic Medium" Binding="{Binding KlasaLeka}"/>
+                            <DataGridTextColumn Header="Količina" FontFamily="Yu Gothic Medium" Binding="{Binding KolicinaLeka}"/>
+                            <DataGridTextColumn Header="Jačina(mg)" FontFamily="Yu Gothic Medium" Binding="{Binding JacinaLeka}"/>
+                            <DataGridTextColumn Header="Zamenski lek" FontFamily="Yu Gothic Medium" Binding="{Binding ZamenskiLek}"/>
+                            <DataGridTextColumn Header="Sastav" FontFamily="Yu Gothic Medium" Binding="{Binding SastavLeka}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Naziv leka:" HorizontalAlignment="Left" Margin="511,23,-90,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Vrsta leka :" HorizontalAlignment="Left" Margin="511,61,-90,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Klasa leka :" HorizontalAlignment="Left" Margin="511,92,-90,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Jačina :" HorizontalAlignment="Left" Margin="511,123,-90,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Zamenski lek :" HorizontalAlignment="Left" Margin="511,154,-106,0" VerticalAlignment="Top" Width="86"/>
+                    <Label Content="Sastav :" HorizontalAlignment="Left" Margin="511,185,-106,0" VerticalAlignment="Top" Width="86"/>
+                    <TextBox  x:Name="txt1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Margin="586,26,-174,0"/>
+                    <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Margin="586,123,-174,0"/>
+                    <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Margin="586,156,-174,0"/>
+                    <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="102" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Margin="511,211,-174,0"/>
+                    <ComboBox x:Name="VrstaCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="586,64,-178,0"/>
+                    <ComboBox x:Name="KlasaCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="586,96,-178,0"/>
+
+                </Grid>
+
+            </TabItem>
+
+
 
         </TabControl>
         <Menu HorizontalAlignment="Left" Height="65" Margin="89,0,0,0" VerticalAlignment="Top" Width="701" Background="White">
@@ -46,6 +79,7 @@
             <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
             <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2"/>
         </Menu>
+
 
     </Grid>
 </Page>
