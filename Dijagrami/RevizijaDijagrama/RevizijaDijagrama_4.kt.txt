@@ -4,3 +4,11 @@ Mihajlo - revizija dijagrama aktivnosti za pacijenta
  - Umesto opcije za proveru broja zakazanih da je veći od 4, dodao bih rekurzivnu poruku za proveru.
  - Dodao bih opciju za zakazivanje termina posle provere da li je brojZakazanih veći od 4.
 _________________________________________________________________________________________________________________________________
+Andrea - revizija dijagrama aktivnosti sekretara - zakazivanje hitnih termina
+-U složenij aktivnosti ,,Pravljenje gostujućeg naloga" sa kraja bih izbacila prikaz forme za zakazivanje, umesto tamo bih to ubacila na glavni dijagram posle ,,Pacijent Izabran".
+-Pomeranje prethodno zakazanog termina bih malo opširnije opisala, treba naglasiti na koji način se pomera, da li se lekar menja pa se taj pacijent dodeljuje drugom lekaru ili lekar ostaje isti samo se nalazi prvi slobodan termin tog lekara nekad kasnije
+-Unos tegobe bih stavila ranije
+-Slanje obaveštenja pacijentu kome je izmenjen termin bih stavila da se šalje u isto vreme kao i kada se čuva termin (paralelno) ili odmah jedno za drugim, jer ne treba da se pošalje to obaveštenje pre nego što je drugi termin stvarno zakazan
+- Šta se dešava, ako je taj termin koji pokušava da pomeri isto hitan da li se i onda pomera već zakazani hitan termin
+-treba negde naglasiti koja se vremena termina sve prikazuju, npr. prikazuju se termini danas do kraja dana ili termini u roku od 3 sata
+_______________________________________________________________________________________________________________________________________
