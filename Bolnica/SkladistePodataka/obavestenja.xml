@@ -707,4 +707,20 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
     <Vidjeno>false</Vidjeno>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-05T01:43:56.6124532+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678966675/5/2021 1:43:56 AM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
 </ArrayOfObavestenje>

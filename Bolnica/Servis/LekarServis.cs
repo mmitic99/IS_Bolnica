@@ -141,5 +141,17 @@ namespace Servis
             parametri.p1.zdravstveniKarton.izvestaj.Add(izvestaj);
             PacijentKontroler.getInstance().izmeniPacijenta(parametri.p, parametri.p1);
         }
+        public List<int> dobijTerminePijenja(String terminiPijenja)
+        {
+            String[] termini = terminiPijenja.Split(',');
+            List<int> terminiInt = new List<int>();
+            for (int i = 0; i < termini.Length; i++)
+            {
+                String k = termini[i];
+                terminiInt.Add(int.Parse(k));
+
+            }
+            return terminiInt;
+        }
     }
 }

@@ -86,5 +86,9 @@ namespace Kontroler
         {
             return lekarServis.GetByJmbg(jmbg);
         }
+        public List<int> dobijTerminePijenja(String terminiPijenja)
+        {
+            return LekarServis.getInstance().dobijTerminePijenja(terminiPijenja);
+        }
     }
 }

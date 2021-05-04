@@ -49,14 +49,7 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            String[] termini = txt8.Text.Split(',');
-            List<int> terminiInt = new List<int>();
-            for (int i = 0; i < termini.Length; i++)
-            {
-                String k = termini[i];
-                terminiInt.Add(int.Parse(k));
-
-            }
+            List<int> terminiInt = LekarKontroler.getInstance().dobijTerminePijenja(txt8.Text);
             ReceptiDTO parametri = new ReceptiDTO()
             {
                 terminiUzimanjaTokomDana = terminiInt,
