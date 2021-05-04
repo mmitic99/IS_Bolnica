@@ -63,6 +63,43 @@ namespace Bolnica.Kontroler
             return popunjenaAnketa;
         }
 
+
+
+        internal bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        {
+            if(uneteSveOceneLekarAnketa(popunjena))
+            {
+                PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = KlasifikujParametrePopunjeneAnketeOLekaru(popunjena);
+                return AnketeServis.GetInstance().SacuvajAnketuOLekaru(popunjenaAnketa);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool uneteSveOceneLekarAnketa(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        {
+            return true;
+        }
+
+        private PopunjenaAnketaPoslePregledaDTO KlasifikujParametrePopunjeneAnketeOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        {
+            PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = new PopunjenaAnketaPoslePregledaDTO()
+            {
+                IDAnkete = (String)popunjena.IDAnkete,
+                JmbgLekara = (String)popunjena.JmbgLekara,
+                Komentar = (String)popunjena.Komentar,
+                Ocena = Double.Parse((String)popunjena.Ocena)
+            };
+            return popunjenaAnketa;
+        }
+
+        internal AnketaLekar GrtAnketaOLekaruByJmbg(string jmbgLekara)
+        {
+            return AnketeServis.GetInstance().GetAnketaOLekaru(jmbgLekara);
+        }
+
         internal KvartalnaAnketa GetByDate(DateTime kvartalnaAnketa)
         {
             return AnketeServis.GetInstance().GetKvartalnaAnketa(kvartalnaAnketa);
@@ -76,6 +113,11 @@ namespace Bolnica.Kontroler
         internal bool DaLiJePoslataKvartalnaAnketa(DateTime today)
         {
             return AnketeServis.GetInstance().DaLiJePoslataKvartalnaAnketa(today);
+        }
+
+        internal bool DaLiJeKorisnikPopunioAnketu(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
+        {
+            return AnketeServis.GetInstance().DaLiJeKorisnikPopunioAnketu(anketaOLekaru);
         }
 
         private bool uneteSveOcene(KvartalnaAnketaDTO kvartalnaAnketa)

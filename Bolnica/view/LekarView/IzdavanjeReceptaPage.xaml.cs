@@ -74,6 +74,7 @@ namespace Bolnica.view.LekarView
             izvestaji.Add(izvestaj);
             pacijent1.zdravstveniKarton.izvestaj.Add(izvestaj);
             PacijentKontroler.getInstance().izmeniPacijenta(pacijent,pacijent1);
+            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
     }

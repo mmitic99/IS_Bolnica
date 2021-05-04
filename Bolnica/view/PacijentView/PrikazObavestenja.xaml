@@ -78,6 +78,26 @@
                 </Grid>
             </Border>
         </Button>
+        <Button x:Name="AnketaLekarDugme" 
+                Click="AnketaLekarDugme_Click"
+                Visibility="Hidden" Grid.Row="1" Background="Transparent" BorderThickness="0" Margin="375,0.6,125,18" >
+            <Border Width="300" Height="82" CornerRadius="19" Background="#FF407294">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="survey.png" Height="60"/>
+                    <Label Content="Popunite anketu" Grid.Column="1"
+                       HorizontalAlignment="Left"
+                       Margin="10.2,22,-37,22.6"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold" Width="178">
+                    </Label>
+                </Grid>
+            </Border>
+        </Button>
 
     </Grid>
 </UserControl>

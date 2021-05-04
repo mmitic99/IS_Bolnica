@@ -1,4 +1,5 @@
-﻿using Bolnica.Servis;
+﻿using Bolnica.DTOs;
+using Bolnica.Servis;
 using Bolnica.view;
 using Model;
 using Repozitorijum;
@@ -80,6 +81,31 @@ namespace Servis
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             return SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+        }
+
+        internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
+        {
+            Pacijent pacijent = PacijentServis.getInstance().GetByJmbg(JmbgPacijenta);
+            Lekar lekar = LekarServis.getInstance().GetByJmbg(JmbgLekara);
+            AnketeServis.GetInstance().GetAnketaOLekaru(JmbgLekara);
+            PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
+            {
+                IDAnkete = JmbgPacijenta + JmbgLekara + DateTime.Now.ToString(),
+                JmbgLekara = JmbgLekara
+            };
+            Obavestenje obavestenje = new Obavestenje()
+            {
+                VremeObavestenja = DateTime.Now,
+                JmbgKorisnika = JmbgPacijenta,
+                Podsetnik = false,
+                Naslov = "Anketa o nedavnom pregledu",
+                Sadrzaj = "Poštovani/a " + pacijent.Ime + "\r\n" + "nedavno ste bili na pregledu kod " + lekar.FullName + ". Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža." +
+                "Hvala Vam na izdvojenom vremenu." + "\r\n\n" + "Prijatan dan Vam želi ZDRAVO bolnica.",
+                Vidjeno = false,
+                anketaOLekaru = anketaOLekaru
+                
+            };
+            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
         }
 
         internal void PosaljiKvartalnuAnketu()

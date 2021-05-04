@@ -87,10 +87,59 @@ namespace Bolnica.Servis
             return false;
         }
 
+        internal AnketaLekar GetAnketaOLekaru(string jmbgLekara)
+        {
+            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaru.GetInstance().GetAll();
+            foreach(AnketaLekar anketa in sveAnkete)
+            {
+                if (anketa.JmbgLekara.Equals(jmbgLekara))
+                    return anketa;
+            }
+            return kreirajNovuAnketuOLekaru(jmbgLekara);
+        }
+
+        private AnketaLekar kreirajNovuAnketuOLekaru(string jmbgLekara)
+        {
+            AnketaLekar anketaOLekaru = new AnketaLekar(jmbgLekara);
+            SkladisteZaAnketeOLekaru.GetInstance().Save(anketaOLekaru);
+            return anketaOLekaru;
+        }
+
+        internal bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaDTO popunjenaAnketa)
+        {
+            AnketaLekar anketaOLekaru = GetAnketaOLekaru(popunjenaAnketa.JmbgLekara);
+            anketaOLekaru.DodajPopunjenuAnketu(popunjenaAnketa);
+            return SacuvajIzmenjenuAnketuOLekaru(anketaOLekaru);
+        }
+
+        private bool SacuvajIzmenjenuAnketuOLekaru(AnketaLekar anketaOLekaru)
+        {
+            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaru.GetInstance().GetAll();
+            for (int i = 0; i < ankete.Count; i++)
+            {
+                if (ankete[i].JmbgLekara.Equals(anketaOLekaru.JmbgLekara))
+                {
+                    ankete[i] = anketaOLekaru;
+                    break;
+                }
+            }
+            SkladisteZaAnketeOLekaru.GetInstance().SaveAll(ankete);
+            return true;
+        }
+
         internal bool DaLiJeIstekloVremeZaPopunjavanjeAnkete(DateTime datum)
         {
             if (DateTime.Now < datum.Date.AddDays(15)) return false;
             else return true;
+        }
+
+        internal bool DaLiJeKorisnikPopunioAnketu(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
+        {
+            AnketaLekar anketa = GetAnketaOLekaru(anketaOLekaru.JmbgLekara);
+            foreach (String ID in anketa.ispunjeneAnkete)
+                if (ID.Equals(anketaOLekaru.IDAnkete))
+                    return true;
+            return false;
         }
     }
 }

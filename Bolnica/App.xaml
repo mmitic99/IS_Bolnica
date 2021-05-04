@@ -44,6 +44,10 @@
                 <PacijentView:PrikazKvartalneAnkete/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewActions:AnketaOLekaruViewModel}">
+                <PacijentView:PrikazAnketeOLekaru/>
+            </DataTemplate>
+
             <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="ContentTemplate">
                     <Setter.Value>
