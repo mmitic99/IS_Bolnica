@@ -28,6 +28,7 @@ namespace Bolnica.view.LekarView
         private static PacijentInfoPage instance = null;
         public ZdravstveniKarton Karton;
         public String Jmbg;
+        public Pacijent pacijent;
 
         public static PacijentInfoPage getInstance()
         {
@@ -45,7 +46,7 @@ namespace Bolnica.view.LekarView
             if (jmbg != null)
             {
 
-                Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+                 pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
                 ComboBox1.SelectedItem = pacijent.FullName;
                 foreach (Pacijent p in SkladistePacijenta.GetInstance().GetAll())
                 {
@@ -82,7 +83,7 @@ namespace Bolnica.view.LekarView
 
         private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Pacijent pacijent = (Pacijent)ComboBox1.SelectedItem;
+             pacijent = (Pacijent)ComboBox1.SelectedItem;
             Jmbg = pacijent.Jmbg;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
@@ -134,6 +135,9 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new ZakazivanjeTerminaPage(Jmbg);
         }
 
-     
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekoviPage();
+        }
     }
 }

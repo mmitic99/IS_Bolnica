@@ -28,10 +28,10 @@
         <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="228,297,0,0"/>
         <TextBox x:Name="txt7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,49,0,0"/>
         <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,96,0,0"/>
-        <TextBox x:Name="txt9" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,134,0,0"/>
+        <TextBox x:Name="txtImeLeka" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,134,0,0" LostFocus="txtImeLeka_LostFocus"/>
         <TextBox x:Name="txt10" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="573,181,0,0"/>
         <TextBox x:Name="txt11" HorizontalAlignment="Left" Height="110" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Margin="582,276,0,0"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="438,392,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button x:Name="PotvrdiBtn" Content="Potvrdi" HorizontalAlignment="Left" Margin="438,392,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="228,392,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <DatePicker Name="Datum" HorizontalAlignment="Left" Margin="228,193,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Duracija uzimanja leka :" HorizontalAlignment="Left" Margin="429,228,0,0" VerticalAlignment="Top" Width="144"/>

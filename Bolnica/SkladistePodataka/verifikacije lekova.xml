@@ -54,4 +54,13 @@
     <Napomena>Pa ovaj put je malo bolje</Napomena>
     <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
   </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
+    <Naslov>Lekic</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
+    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
+    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
+    <Napomena>Nije dobro, promeni zamenski lek.</Napomena>
+    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

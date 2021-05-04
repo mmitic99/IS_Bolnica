@@ -36,7 +36,7 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            LekarWindow.getInstance().Frame1.Content = new ZakazivanjeTerminaPage(PacijentInfoPage.getInstance().pacijent.Jmbg);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

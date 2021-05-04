@@ -84,6 +84,7 @@
     </ApplicationDefinition>
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="DTO\LekDTO.cs" />
+    <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />

@@ -104,5 +104,23 @@ namespace Bolnica.view.LekarView
             SastavTxt.Text = verifikacijaLeka.Sadrzaj;
 
         }
+
+        private void MenuItem_Click_Termini(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
+        }
+
+        private void MenuItem_Click_Pacijenti(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(null);
+        }
+
+
+        private void MenuItem_Click_LogOut(object sender, RoutedEventArgs e)
+        {
+            var s = new Prijavljivanje("l");
+            LekarWindow.getInstance().Close();
+            s.Show();
+        }
     }
 }

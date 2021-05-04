@@ -11,13 +11,13 @@
     <SastavLeka>ibuprofen, secer</SastavLeka>
   </Lek>
   <Lek>
-    <VrstaLeka>Sprej</VrstaLeka>
+    <VrstaLeka>Gel</VrstaLeka>
     <KolicinaLeka>200</KolicinaLeka>
     <NazivLeka>Prospan</NazivLeka>
     <KlasaLeka>Antiseptik</KlasaLeka>
     <IdLeka>1</IdLeka>
     <JacinaLeka>100</JacinaLeka>
-    <ZamenskiLek>Mukodin</ZamenskiLek>
+    <ZamenskiLek>Mukodina</ZamenskiLek>
     <SastavLeka>sirup</SastavLeka>
   </Lek>
 </ArrayOfLek>

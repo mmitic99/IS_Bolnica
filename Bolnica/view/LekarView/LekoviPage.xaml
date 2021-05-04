@@ -72,12 +72,12 @@
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Termini" FontSize="20"  />
-            <MenuItem Header="Pacijenti" FontSize="20" />
-            <MenuItem Header="Lekovi" FontSize="20"/>
-            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2"/>
-            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2"/>
+            <MenuItem Header="Termini" FontSize="20" Click="MenuItem_Click_Termini"  />
+            <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_Pacijenti" />
+            <MenuItem Header="Lekovi" FontSize="20" />
+            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" />
+            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2" />
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut"/>
         </Menu>
 
 

@@ -36,60 +36,6 @@
       <Naziv />
     </Grad>
     <Korisnik>
-      <KorisnickoIme>9876543210987</KorisnickoIme>
-      <Lozinka>Mika</Lozinka>
-    </Korisnik>
-    <Ime>Mika</Ime>
-    <Prezime>Mikić</Prezime>
-    <Jmbg>9876543210987</Jmbg>
-    <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
-    <Email />
-    <Adresa />
-    <zdravstveniKarton>
-      <izvestaj>
-        <Izvestaj>
-          <recepti>
-            <Recept>
-              <terminiUzimanjaTokomDana />
-              <ImeLeka>Diklofenat</ImeLeka>
-              <SifraLeka>177117</SifraLeka>
-              <DodatneNapomene>Samo pre spavanja.</DodatneNapomene>
-              <DatumIzdavanja>2021-04-20T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>2</BrojDana>
-              <Doza>2</Doza>
-              <TerminiUzimanjaLeka>
-                <int>20</int>
-                <int>21</int>
-                <int>22</int>
-              </TerminiUzimanjaLeka>
-              <Dijagnoza />
-              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
-            </Recept>
-          </recepti>
-        </Izvestaj>
-      </izvestaj>
-      <Anamneze>
-        <Anamneza>
-          <AnamnezaDijalog>Pacijent oseca vrtoglavicu i bol u glavi.                                                              Temperatura normalna.</AnamnezaDijalog>
-          <DatumAnamneze>2021-04-20T16:15:01.1277758+02:00</DatumAnamneze>
-          <ImeLekara>dr Milos Marinkovic</ImeLekara>
-          <IdAnamneze>dr Milos Marinkovic4/20/2021 4:15:01 PM</IdAnamneze>
-        </Anamneza>
-      </Anamneze>
-      <Alergeni />
-      <Izvestaji />
-    </zdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Mika Mikić</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
-      <Naziv />
-    </Grad>
-    <Korisnik>
       <KorisnickoIme>1234567890123</KorisnickoIme>
       <Lozinka>Pera</Lozinka>
     </Korisnik>
@@ -283,8 +229,7 @@
     <zdravstveniKarton>
       <izvestaj>
         <Izvestaj>
-          <recepti>
-          </recepti>
+          <recepti />
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -364,5 +309,78 @@
     </zdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
+  </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>9876543210987</KorisnickoIme>
+      <Lozinka>Mika</Lozinka>
+    </Korisnik>
+    <Ime>Mika</Ime>
+    <Prezime>Mikić</Prezime>
+    <Jmbg>9876543210987</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <zdravstveniKarton>
+      <izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <ImeLeka>Diklofenat</ImeLeka>
+              <SifraLeka>177117</SifraLeka>
+              <DodatneNapomene>Samo pre spavanja.</DodatneNapomene>
+              <DatumIzdavanja>2021-04-20T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>2</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>20</int>
+                <int>21</int>
+                <int>22</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza />
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <ImeLeka>Lekic</ImeLeka>
+              <SifraLeka>123</SifraLeka>
+              <DodatneNapomene>dsffds</DodatneNapomene>
+              <DatumIzdavanja>2021-05-04T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>60</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>2</int>
+                <int>3</int>
+                <int>4</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>dsaasd</Dijagnoza>
+              <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
+            </Recept>
+          </recepti>
+        </Izvestaj>
+      </izvestaj>
+      <Anamneze>
+        <Anamneza>
+          <AnamnezaDijalog>Pacijent oseca vrtoglavicu i bol u glavi.                                                              Temperatura normalna.</AnamnezaDijalog>
+          <DatumAnamneze>2021-04-20T16:15:01.1277758+02:00</DatumAnamneze>
+          <ImeLekara>dr Milos Marinkovic</ImeLekara>
+          <IdAnamneze>dr Milos Marinkovic4/20/2021 4:15:01 PM</IdAnamneze>
+        </Anamneza>
+      </Anamneze>
+      <Alergeni />
+      <Izvestaji />
+    </zdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Mika Mikić</FullName>
   </Pacijent>
 </ArrayOfPacijent>
