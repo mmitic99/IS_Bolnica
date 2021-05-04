@@ -200,6 +200,15 @@ namespace Kontroler
             ProstorijeServis.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
         }
 
+        public bool ProveriValidnostPretrage(String naziv, String kolicina, int index)
+        {
+            return ProstorijeServis.GetInstance().ProveriValidnostPretrage(naziv, kolicina, index);
+        }
+
+        public List<Prostorija> PretraziProstorijePoOpremi(String naziv, String kolicina, int index)
+        {
+            return ProstorijeServis.GetInstance().PretraziProstorijePoOpremi(naziv, kolicina, index);
+        }
 
         public Servis.TerminServis terminServis;
         public Servis.ProstorijeServis prostorijeServis;

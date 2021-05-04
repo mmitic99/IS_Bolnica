@@ -26,8 +26,10 @@ namespace Bolnica.view.UpravnikView
         public List<Prostorija> ListaProstorija { get; set; }
         public List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme { get; set; }
         public List<Lek> SviLekovi { get; set; }
+        public List<VerifikacijaLeka> SveVerifikacijeLekova { get; set; }
 
         public List<Renoviranje> SvaRenoviranja { get; set; }
+        public List<Prostorija> PretrazeneProstorije { get; set; }
 
         private static UpravnikWindow instance = null;
 
@@ -44,6 +46,7 @@ namespace Bolnica.view.UpravnikView
             instance = this;
             this.DataContext = this;
             ListaProstorija = new List<Prostorija>();
+            PretrazeneProstorije = new List<Prostorija>();
             StacionarnaMagacin = new List<StacionarnaOprema>();
             PotrosnaMagacin = new List<PotrosnaOprema>();
             StacionarnaOpremaOdKojeSeUzima = new List<StacionarnaOprema>();
@@ -51,15 +54,18 @@ namespace Bolnica.view.UpravnikView
             PreraspodeleStatickeOpreme = new List<ZakazanaPreraspodelaStatickeOpreme>();
             SvaRenoviranja = new List<Renoviranje>();
             SviLekovi = new List<Lek>();
-            ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
+            SveVerifikacijeLekova = new List<VerifikacijaLeka>();            
+            ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
             StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
             PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
             PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
             SvaRenoviranja = SkladisteZaRenoviranja.GetInstance().GetAll();
             SviLekovi = SkladisteZaLekove.GetInstance().GetAll();
+            SveVerifikacijeLekova = SkladisteZaVerifikacijuLeka.GetInstance().GetObavestenjaByJmbg("1903999772025");
             BrojProstorijeRenoviranje.ItemsSource = ListaProstorija;
             LekariLekovi.ItemsSource = SkladisteZaLekara.GetInstance().GetAll();
             LekariLekoviIzmeni.ItemsSource = SkladisteZaLekara.GetInstance().GetAll();
+
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
             ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
@@ -531,6 +537,68 @@ namespace Bolnica.view.UpravnikView
             {
                 KlasaLekaIzmeni.Text = "Trankvilajzer";
             }
+        }
+        private void PosaljiLekNaProveru(object sender, RoutedEventArgs e)
+        {
+            LekDTO lekZaValidaciju = new LekDTO(VrstaLeka.SelectedIndex, KolicinaLeka.Text, NazivLeka.Text, KlasaLeka.SelectedIndex, JacinaLeka.Text, ZamenskiLek.Text, SastavLeka.Text);
+            if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj"))
+            {
+                String infoOLeku = "Vrsta:" + VrstaLekaLepIspis(lekZaValidaciju.VrstaLeka) + " Jačina:" + lekZaValidaciju.JacinaLeka + " mg" + 
+                                   " Zamenski lek:" + lekZaValidaciju.ZamenskiLek + " Sastav:" + lekZaValidaciju.SastavLeka;
+                VerifikacijaLeka verifikacija = new VerifikacijaLeka(DateTime.Now, lekZaValidaciju.NazivLeka, infoOLeku, "1903999772025", GetJmbgLekaraZaValidaciju(LekariLekovi.SelectedIndex), Napomena.Text);
+                VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(verifikacija);
+                OsveziPrikazVerifikacijaLeka();
+            }
+        }
+
+        private String VrstaLekaLepIspis(int index)
+        {
+            if (index == 0)
+                return "kapsula";
+            else if (index == 1)
+                return "tableta";
+            else if (index == 2)
+                return "sirup";
+            else if (index == 3)
+                return "sprej";
+            else if (index == 4)
+                return "gel";
+            else
+                return "šumeća tableta";
+        }
+
+        private String GetJmbgLekaraZaValidaciju(int index)
+        {
+            List<Lekar> lekari = LekarKontroler.getInstance().GetAll();
+            return lekari[index].Jmbg;
+        }
+
+        private void TabelaVerifikacija_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Sadrzaj.Text = SveVerifikacijeLekova[TabelaVerifikacija.SelectedIndex].Sadrzaj;
+        }
+
+        private void OsveziPrikazVerifikacijaLeka()
+        {
+            TabelaVerifikacija.ItemsSource = new ObservableCollection<VerifikacijaLeka>(SveVerifikacijeLekova);
+        }
+
+        private void PretraziOpremu(object sender, RoutedEventArgs e)
+        {
+            if (ProstorijeKontroler.GetInstance().ProveriValidnostPretrage(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex))
+            {
+                PretrazeneProstorije = ProstorijeKontroler.GetInstance().PretraziProstorijePoOpremi(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex);
+                TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(PretrazeneProstorije);
+                TabelaProstorijaIzKojeSePrebacujeOprema.IsEnabled = false;
+            }
+        }
+
+        private void ResetujPretraguOpreme(object sender, RoutedEventArgs e)
+        {
+            TabelaProstorijaIzKojeSePrebacujeOprema.IsEnabled = true;
+            NazivPretraga.Text = "";
+            KolicinaPretraga.Text = "";
+            TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(ListaProstorija);
         }
     }
 }

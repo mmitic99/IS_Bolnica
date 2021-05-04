@@ -64,7 +64,7 @@ namespace Bolnica.Servis
             bool checkZamenskiLek = false;
             bool checkSastav = false;
 
-            Regex sablon = new Regex(@"^[0-9a-zA-Z]+$");
+            Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
             if (sablon.IsMatch(lek.NazivLeka))
             {
 
@@ -108,7 +108,7 @@ namespace Bolnica.Servis
                 checkKolicina = true;
             else
             {
-                MessageBox.Show("Neispravno uneta količina !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Neispravno uneta količina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -121,7 +121,7 @@ namespace Bolnica.Servis
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9a-zA-Z]+$");
+            sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
             if (sablon.IsMatch(lek.ZamenskiLek))
                 checkZamenskiLek = true;
             else
@@ -130,12 +130,12 @@ namespace Bolnica.Servis
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9a-zA-Z]*$");
+            sablon = new Regex(@"^[0-9a-zA-Z,\s]+$");
             if (sablon.IsMatch(lek.SastavLeka))
                 checkSastav = true;
             else
             {
-                MessageBox.Show("Neispravno uneta jačina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Neispravno unet sastav leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             if (DodajIliIzmeni.Equals("dodaj"))
