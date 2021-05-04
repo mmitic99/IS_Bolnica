@@ -151,7 +151,7 @@ namespace Bolnica.view.SekretarView
 
                 noviTermin.IDTermina = termin.termin.IDTermina;
 
-                terminKontroler.IzmeniTermin(noviTermin);
+                terminKontroler.IzmeniTermin(noviTermin, noviTermin);
 
                 terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
 

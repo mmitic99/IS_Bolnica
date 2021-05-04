@@ -90,6 +90,7 @@
                                                 <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" TextTrimming="WordEllipsis"  FontWeight="Bold" Height="60" FontSize="17"/>
                                                 <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="15"/>
                                                 <Image Width="80" Height="75" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="email.png"/>
+                                                <TextBlock Grid.Row="2" Text="{Binding VremeObavestenja, StringFormat={}{0:dd.MM.yyyy. HH:mm}}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 
                                             </Grid>
                                         </Border>
