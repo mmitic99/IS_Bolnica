@@ -198,8 +198,15 @@ namespace Bolnica.view.SekretarView
 
         private void pogledajObavestenje_Click(object sender, EventArgs e)
         {
-            var s = new PogledajObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
-            s.Show();
+            if (obavestenjaPrikaz.SelectedIndex != -1)
+            {
+                var s = new PogledajObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
+                s.Show();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da pogledate.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

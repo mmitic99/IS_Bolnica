@@ -21,7 +21,7 @@ namespace Bolnica.view.SekretarView
 
         private List<Termin> moguciTermini = new List<Termin>();
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan)
+        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan = false)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
@@ -209,7 +209,10 @@ namespace Bolnica.view.SekretarView
             salaText.Visibility = Visibility.Visible;
             vrstaSpec.Visibility = Visibility.Visible;
             vrstaSpecLabela.Visibility = Visibility.Visible;
-            termin.lekar = null;
+            if (termin != null)
+            {
+                termin.lekar = null;
+            }
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;
             datum.IsEnabled = false;
@@ -224,7 +227,10 @@ namespace Bolnica.view.SekretarView
             salaText.Visibility = Visibility.Hidden;
             vrstaSpec.Visibility = Visibility.Hidden;
             vrstaSpecLabela.Visibility = Visibility.Hidden;
-            termin.lekar = null;
+            if (termin != null)
+            {
+                termin.lekar = null;
+            }
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;
             datum.IsEnabled = true;
