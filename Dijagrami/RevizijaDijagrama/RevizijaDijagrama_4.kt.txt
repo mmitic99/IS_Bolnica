@@ -1,4 +1,4 @@
-Mihajlo - revizija dijagrama aktivnosti za pacijenta
+Mihajlo - revizija dijagrama sekvenci za pacijenta
 
  - Sve poruke povratnih vrednosti do poruke "PrikaziFormuZaOdabiranjeParametaraZaZakazivanje" bih stavio pre alternativnog toka za proveravanje ranga korisnika.
  - Umesto opcije za proveru broja zakazanih da je veći od 4, dodao bih rekurzivnu poruku za proveru.
