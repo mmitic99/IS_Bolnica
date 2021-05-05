@@ -1,4 +1,5 @@
-﻿using Bolnica.viewActions;
+﻿using Bolnica.DTOs;
+using Bolnica.viewActions;
 using Kontroler;
 using Model;
 using System;
@@ -74,7 +75,21 @@ namespace Bolnica.view.SekretarView
                 pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
             }
 
-            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "", null, true);
+            ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+            {
+                JmbgPacijenta = termin.termin.JmbgPacijenta,
+                JmbgLekara = termin.termin.JmbgLekara,
+                IzabraniDani = new List<DateTime> { (DateTime)datum.SelectedDate },
+                Pocetak = pocetak,
+                Kraj = kraj,
+                Prioritet = 1,
+                tegobe = "",
+                PrethodnoZakazaniTermin = null,
+                trajanjeUMinutama = 30,
+                sekretar = true
+            };
+
+            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
             List<string> vremena = GenerisiVremena(moguciTermini);
 
             if (!vremena.Contains(vreme))
@@ -183,7 +198,21 @@ namespace Bolnica.view.SekretarView
                         pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
                     }
 
-                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 0, "", null, true);
+                    ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+                    {
+                        JmbgPacijenta = termin.termin.JmbgPacijenta,
+                        JmbgLekara = termin.termin.JmbgLekara,
+                        IzabraniDani = new List<DateTime> { (DateTime)datum.SelectedDate },
+                        Pocetak = pocetak,
+                        Kraj = kraj,
+                        Prioritet = 0,
+                        tegobe = "",
+                        PrethodnoZakazaniTermin = null,
+                        trajanjeUMinutama = 30,
+                        sekretar = true
+                    };
+
+                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
 
 
                     List<String> vremena = GenerisiVremena(moguciTermini);
@@ -204,8 +233,21 @@ namespace Bolnica.view.SekretarView
                             {
                                 pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
                             }
+                            ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+                            {
+                                JmbgPacijenta = termin.termin.JmbgPacijenta,
+                                JmbgLekara = termin.termin.JmbgLekara,
+                                IzabraniDani = new List<DateTime> { (DateTime)datum.SelectedDate },
+                                Pocetak = pocetak,
+                                Kraj = kraj,
+                                Prioritet = 1,
+                                tegobe = "",
+                                PrethodnoZakazaniTermin = null,
+                                trajanjeUMinutama = 30,
+                                sekretar = true
+                            };
 
-                            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(termin.termin.JmbgLekara, termin.termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "", null, true);
+                            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
 
 
                             List<String> vremena = GenerisiVremena(moguciTermini);

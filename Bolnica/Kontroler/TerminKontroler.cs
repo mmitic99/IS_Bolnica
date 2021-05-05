@@ -181,6 +181,10 @@ namespace Kontroler
         {
             return TerminServis.getInstance().NadjiTermineZaParametre(KlasifikujUlazneParametre(parametriDTO));
         }
+        public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
+        {
+            return TerminServis.getInstance().NadjiTermineZaParametre(parametriDTO);
+        }
 
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)
         {

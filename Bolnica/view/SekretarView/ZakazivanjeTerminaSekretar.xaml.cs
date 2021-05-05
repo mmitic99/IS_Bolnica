@@ -1,4 +1,5 @@
-﻿using Kontroler;
+﻿using Bolnica.DTOs;
+using Kontroler;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -149,8 +150,20 @@ namespace Bolnica.view.SekretarView
                             {
                                 pocetak = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, 0);
                             }
-
-                            moguciTermini = terminKontroler.NadjiTermineZaParametre(termin.JmbgLekara, termin.JmbgPacijenta, new List<DateTime> { (DateTime)datum.SelectedDate }, pocetak, kraj, 1, "", null, true);
+                            ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+                            {
+                                JmbgPacijenta = termin.JmbgPacijenta,
+                                JmbgLekara = termin.JmbgLekara,
+                                IzabraniDani = new List<DateTime> { (DateTime)datum.SelectedDate },
+                                Pocetak = pocetak,
+                                Kraj = kraj,
+                                Prioritet = 1,
+                                tegobe = "",
+                                PrethodnoZakazaniTermin = null,
+                                trajanjeUMinutama = 30,
+                                sekretar = true
+                            };
+                            moguciTermini = terminKontroler.NadjiTermineZaParametre(parametri);
                             vremeT.ItemsSource = GenerisiVremena(moguciTermini);
                         }
                     }
