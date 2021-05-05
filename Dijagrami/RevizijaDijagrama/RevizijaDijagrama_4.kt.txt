@@ -20,3 +20,11 @@ Mihailo - revizija dijagrama sekvenci za lekara
 	- clean code
 - Napravi funckiju u kontroleru za pravljenje liste termina za uzimanje leka, umesto da se to desava u izdavanjeReceptaPage-u
 _______________________________________________________________________________________________________________________________________
+Miloš - revizija dijagrama aktivnosti za upravnika
+
+- Dijagram prilično jednostavan sa dosta sličnih provera
+- Možda su mogle biti izostavljene akcije poruka greške
+	- clean code
+- Neke funkcije za proveru zauzetosti su prilično detaljne i dalje
+- Mapiranje datuma, sati i minuta za preraspodelu je možda moglo ići u posebnu funkciju
+_______________________________________________________________________________________________________________________________________

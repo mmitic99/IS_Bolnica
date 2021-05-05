@@ -220,57 +220,75 @@ namespace Servis
             return null;
         }
 
+        public bool ProveriTermine(bool slobodan, DateTime datumIVremePreraspodele, List<Termin> terminiProstorije, double trajanje)
+        {
+            foreach (Termin t in terminiProstorije)
+            {
+                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) > 0 && DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0) //da li pocetak upada) //da li kraj upada
+                {
+                    return false;
+                }
+                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), t.DatumIVremeTermina) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    return false;
+                }
+                if (DateTime.Compare(t.DatumIVremeTermina, datumIVremePreraspodele) == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool ProveriPreraspodeleOpreme(DateTime datumIVremePreraspodele, List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije, double trajanje)
+        {
+            foreach (ZakazanaPreraspodelaStatickeOpreme prer in preraspodeleProstorije)
+            {
+                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) > 0 && DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele.AddMinutes(prer.TrajanjePreraspodele)) < 0) //da li pocetak upada) //da li kraj upada
+                {
+                    return false;
+                }
+                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), prer.DatumIVremePreraspodele) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                {
+                    return false;
+                }
+                if (DateTime.Compare(prer.DatumIVremePreraspodele, datumIVremePreraspodele) == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool ProveriRenoviranje(Renoviranje renoviranjeZaProstoriju, DateTime datumIVremePreraspodele)
+        {
+            if (renoviranjeZaProstoriju != null)
+            {
+                DateTime pomerenZbogPonoci = renoviranjeZaProstoriju.DatumZavrsetkaRenoviranja.AddHours(23);
+                if (DateTime.Compare(renoviranjeZaProstoriju.DatumPocetkaRenoviranja, datumIVremePreraspodele) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremePreraspodele) >= 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime datumIVremePreraspodele, double trajanje)
         {
             bool slobodan = true;
             List<Termin> terminiProstorije = GetTerminiByIdProstorije(iDProstorije);
             List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
             Renoviranje renoviranjeZaProstoriju = GetRenoviranjeByIdProstorije(iDProstorije);
-            foreach (Termin t in terminiProstorije)
-            {
-                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) > 0 && DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0) //da li pocetak upada) //da li kraj upada
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (DateTime.Compare(datumIVremePreraspodele, t.DatumIVremeTermina) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), t.DatumIVremeTermina) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (DateTime.Compare(t.DatumIVremeTermina, datumIVremePreraspodele) == 0)
-                {
-                    slobodan = false;
-                    break;
-                }
-            }
-            foreach (ZakazanaPreraspodelaStatickeOpreme prer in preraspodeleProstorije)
-            {
-                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) > 0 && DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele.AddMinutes(prer.TrajanjePreraspodele)) < 0) //da li pocetak upada) //da li kraj upada
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (DateTime.Compare(datumIVremePreraspodele, prer.DatumIVremePreraspodele) < 0 && DateTime.Compare(datumIVremePreraspodele.AddMinutes(trajanje), prer.DatumIVremePreraspodele) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (DateTime.Compare(prer.DatumIVremePreraspodele, datumIVremePreraspodele) == 0)
-                {
-                    slobodan = false;
-                    break;
-                }
-            }
-            if (renoviranjeZaProstoriju != null)
-            {
-                DateTime pomerenZbogPonoci = renoviranjeZaProstoriju.DatumZavrsetkaRenoviranja.AddHours(23);
-                if (DateTime.Compare(renoviranjeZaProstoriju.DatumPocetkaRenoviranja, datumIVremePreraspodele) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremePreraspodele) >= 0)
-                {
-                    slobodan = false;
-                }
-            }
-            return slobodan;
+            slobodan = ProveriTermine(slobodan, datumIVremePreraspodele, terminiProstorije, trajanje);
+            if (slobodan == false)
+                return false;
+            slobodan = ProveriPreraspodeleOpreme(datumIVremePreraspodele, preraspodeleProstorije, trajanje);
+            if (slobodan == false)
+                return false;
+            slobodan = ProveriRenoviranje(renoviranjeZaProstoriju, datumIVremePreraspodele);
+            if (slobodan == false)
+                return false;
+            return true;
         }
 
         public bool DaLiJeSLobodnaProstorijaZaRenoviranje(int iDProstorije, DateTime DatumPocetka, DateTime DatumKraja)
@@ -564,7 +582,7 @@ namespace Servis
         }
 
 
-public void PrebaciZakazanuStacionarnuOpremuUProstoriju(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina)
+        public void PrebaciZakazanuStacionarnuOpremuUProstoriju(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina)
         {
             List<Prostorija> prostorije = SkladisteZaProstorije.GetInstance().GetAll();
             bool nazivOpremeVecPrisutan = false;
@@ -985,7 +1003,7 @@ public void PrebaciZakazanuStacionarnuOpremuUProstoriju(int indexIzKojeProstorij
             }
         }
 
-public void AzurirajPreraspodeleOpreme()
+        public void AzurirajPreraspodeleOpreme()
         {
             List<int> IdIzKojeProstorije = new List<int>();
             List<int> IdUKojuProstoriju = new List<int>();
@@ -1073,7 +1091,7 @@ public void AzurirajPreraspodeleOpreme()
                         }
                     }
                 }
-                if (pronadjenaOprema == false && index == 1 && kolicinaOpreme > 0) 
+                if (pronadjenaOprema == false && index == 1 && kolicinaOpreme > 0)
                 {
                     pronadjeneProstorije.Add(p);
                 }
@@ -1081,7 +1099,7 @@ public void AzurirajPreraspodeleOpreme()
                 {
                     MessageBox.Show("Nevalidna pretraga !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
-                } 
+                }
             }
             return pronadjeneProstorije;
         }
