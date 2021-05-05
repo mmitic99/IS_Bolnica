@@ -12,3 +12,11 @@ Andrea - revizija dijagrama aktivnosti sekretara - zakazivanje hitnih termina
 - Šta se dešava, ako je taj termin koji pokušava da pomeri isto hitan da li se i onda pomera već zakazani hitan termin
 -treba negde naglasiti koja se vremena termina sve prikazuju, npr. prikazuju se termini danas do kraja dana ili termini u roku od 3 sata
 _______________________________________________________________________________________________________________________________________
+Mihailo - revizija dijagrama sekvenci za lekara
+
+- Nema validacija unosa
+- Mozda postoji lepsi nacin da se pomere termini koji upadaju u hitan termin, poput obavestavanja sekretara pa da ih on izmeni
+- Po meni mozda bi bilo okej da se obavestenja paralelno salju kada se i cuva sam termin
+	- clean code
+- Napravi funckiju u kontroleru za pravljenje liste termina za uzimanje leka, umesto da se to desava u izdavanjeReceptaPage-u
+_______________________________________________________________________________________________________________________________________

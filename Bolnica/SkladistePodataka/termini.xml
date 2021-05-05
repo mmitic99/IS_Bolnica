@@ -54,20 +54,6 @@
     <TrajanjeTermina>30</TrajanjeTermina>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-30T17:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>9876543210987</JmbgPacijenta>
-    <IDTermina>987654321098766674/30/2021 9:30:00 AM</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mika Mikić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-19T08:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>3</IdProstorije>
@@ -513,20 +499,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-05-05T06:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>2</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>9876543210987</JmbgPacijenta>
-    <IDTermina>98765432109876095/5/2021 6:00:00 AM</IDTermina>
-    <brojSobe>004</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Mika Mikić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-06-22T19:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>5</IdProstorije>
@@ -649,20 +621,6 @@
     <sprat>1</sprat>
     <lekar>dr Miroslav Mi</lekar>
     <pacijent>Jovana Jovanovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-06T10:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>7897611</JmbgLekara>
-    <JmbgPacijenta>9876543210987</JmbgPacijenta>
-    <IDTermina>987654321098778976116.5.2021. 10:00:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Mika Mikić</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -817,34 +775,6 @@
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
     <pacijent>Nikola Nikolic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-01T14:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>9876543210987</JmbgPacijenta>
-    <IDTermina>987654321098766671.5.2021. 14:30:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mika Mikić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-01T14:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>2</IdProstorije>
-    <JmbgLekara>4536</JmbgLekara>
-    <JmbgPacijenta>9876543210987</JmbgPacijenta>
-    <IDTermina>987654321098745361.5.2021. 14:30:00</IDTermina>
-    <brojSobe>004</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Mika Mikić</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
