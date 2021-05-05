@@ -46,7 +46,12 @@ namespace Kontroler
 
         public bool IzmeniTermin(Object termin, Object stariIdTermina = null)
         {
-            return terminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
+            if (stariIdTermina != null)
+            {
+                return terminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
+            }
+            return terminServis.IzmeniTermin((Termin)termin, null);
+
         }
 
         public List<Termin> GetAll()
