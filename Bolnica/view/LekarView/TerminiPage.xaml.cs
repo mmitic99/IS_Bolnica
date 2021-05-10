@@ -24,8 +24,8 @@ namespace Bolnica.view.LekarView
     public partial class TerminiPage : Page
     {
         private static TerminiPage instance = null;
-        
-        
+        public String FullIme;
+
 
         public static TerminiPage getInstance()
         {
@@ -38,7 +38,7 @@ namespace Bolnica.view.LekarView
         }
 
 
-        
+
 
 
         public TerminiPage(Lekar lekar)
@@ -46,19 +46,14 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(DateTime.Now.Date,lekar.Jmbg);
-           
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
+            ImeDoktora.DataContext = lekar;
             instance = this;
         }
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-            LekarWindow.getInstance().Frame1.Content = new KreirajTerminPage(this);
-
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -72,7 +67,7 @@ namespace Bolnica.view.LekarView
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
             {
                 SkladisteZaTermine.getInstance().RemoveByID(((Termin)Pregledi_Table.SelectedItem).IDTermina);
-                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
+                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByDateForLekar(DatePicker1.SelectedDate.Value, ((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
 
 
             }
@@ -92,7 +87,7 @@ namespace Bolnica.view.LekarView
 
 
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Pacijenti(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(null);
         }
@@ -100,22 +95,32 @@ namespace Bolnica.view.LekarView
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             DateTime datum = DateTime.Parse(DatePicker1.Text);
-            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(datum.Date,LekarWindow.getInstance().lekar1.Jmbg);
+            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(datum.Date, LekarWindow.getInstance().lekar1.Jmbg);
             LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(Termini);
-
+            //TerminiPage.getInstance().DatumTermina.SortDirection = 0;
+            TerminiPage.getInstance().VremeTermina.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
 
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_LogOut(object sender, RoutedEventArgs e)
         {
             var s = new Prijavljivanje("l");
-           LekarWindow.getInstance().Close();
+            LekarWindow.getInstance().Close();
             s.Show();
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Lekovi(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new LekoviPage();
         }
+
+        private void MenuItem_Click_Obavestenja(object sender, RoutedEventArgs e)
+
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekarObavestenjaPage();
+        }
+
+
     }
+       
 }

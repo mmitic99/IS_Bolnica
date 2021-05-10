@@ -42,6 +42,7 @@ namespace Bolnica.view.LekarView
             instance = this;
             int k = 0;
             Jmbg = jmbg;
+            ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
             ComboBox1.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
             if (jmbg != null)
             {
@@ -101,7 +102,7 @@ namespace Bolnica.view.LekarView
             txt9.Text = alergeniString;
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Termini(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
         }
@@ -123,7 +124,7 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new AnamnezaPage(Jmbg);
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_LogOut(object sender, RoutedEventArgs e)
         {
             var s = new Prijavljivanje("l");
             LekarWindow.getInstance().Close();
@@ -135,9 +136,16 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new ZakazivanjeTerminaPage(Jmbg);
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Lekovi(object sender, RoutedEventArgs e)
         {
             LekarWindow.getInstance().Frame1.Content = new LekoviPage();
         }
+
+        private void MenuItem_Click_Obavestenja(object sender, RoutedEventArgs e)
+
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekarObavestenjaPage();
+        }
+
     }
 }

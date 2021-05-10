@@ -49,6 +49,7 @@ namespace Bolnica.view.LekarView
             Lekovi = SkladisteZaLekove.GetInstance().GetAll();
             VerifikacijaLekova = new List<VerifikacijaLeka>();
             VerifikacijaLekova = SkladisteZaVerifikacijuLeka.GetInstance().GetObavestenjaByJmbg(LekarWindow.getInstance().lekar1.Jmbg);
+            ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
             instance = this;
 
 
@@ -122,5 +123,11 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Close();
             s.Show();
         }
+        private void MenuItem_Click_Obavestenja(object sender, RoutedEventArgs e)
+
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekarObavestenjaPage();
+        }
+
     }
 }

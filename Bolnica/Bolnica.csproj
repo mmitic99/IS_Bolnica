@@ -168,11 +168,11 @@
     <Compile Include="view\LekarView\AzurirajAnamnezuPage.xaml.cs">
       <DependentUpon>AzurirajAnamnezuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\LekarView\KreirajTerminPage.xaml.cs">
-      <DependentUpon>KreirajTerminPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\LekarView\AzurirajTerminPage.xaml.cs">
       <DependentUpon>AzurirajTerminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\LekarObavestenjaPage.xaml.cs">
+      <DependentUpon>LekarObavestenjaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
@@ -300,11 +300,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\LekarView\KreirajTerminPage.xaml">
+    <Page Include="view\LekarView\AzurirajTerminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\LekarView\AzurirajTerminPage.xaml">
+    <Page Include="view\LekarView\LekarObavestenjaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -570,6 +570,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\PacijentView\doctor %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\LekarView\doctor1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

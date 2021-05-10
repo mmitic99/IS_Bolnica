@@ -9,11 +9,11 @@
       Title="AzurirajAnamnezuPage">
 
     <Grid HorizontalAlignment="Right" Margin="0,0,0,9.6" Width="800" Height="440" VerticalAlignment="Bottom">
-        <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="82,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="106,210,0,0" VerticalAlignment="Top"/>
         <Label Content="Ažuriranje anamneze" HorizontalAlignment="Left" Margin="280,33,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="151" Margin="194,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="381"/>
-        <Button Content="Povratak" HorizontalAlignment="Left" Margin="194,256,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="500,256,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="240" Margin="194,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="381"/>
+        <Button Content="Povratak" HorizontalAlignment="Left" Margin="194,344,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="500,344,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
 
     </Grid>

@@ -402,19 +402,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-04-27T13:00:00</DatumIVremeTermina>
-    <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>207</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>123456789</JmbgPacijenta>
-    <IDTermina>12345678966674/27/2021 1:00:00 PM</IDTermina>
-    <sprat>0</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-04-28T10:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
@@ -1071,20 +1058,6 @@
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>120</TrajanjeTermina>
     <opisTegobe>dssd</opisTegobe>
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-06T10:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>231321315464</JmbgPacijenta>
-    <IDTermina>23132131546466675/6/2021 10:00:00 AM</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Nikola Nikolic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe>dasdsa</opisTegobe>
   </Termin>
   <Termin>
     <DatumIVremeTermina>2021-05-06T06:30:00+02:00</DatumIVremeTermina>
