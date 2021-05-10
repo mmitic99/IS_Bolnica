@@ -1,0 +1,5 @@
+Kada pokrenete aplikaciju videcete 4  kvadrata sa imenom uloga.
+Za login lekara mozete koristiti : username: 6667, sifra :Milos
+za upravnika: username: upravnik, sifra: upravnik
+za sekretara: username: sekretar, sifra: sekretar
+za pacijenta: username: 1234567890123, sifra : Pera

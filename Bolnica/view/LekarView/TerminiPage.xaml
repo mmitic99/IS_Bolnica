@@ -9,39 +9,43 @@
       Title="TerminiPage">
 
     <Grid>
-        <Button Content="Kreiraj termin" HorizontalAlignment="Left" Margin="19,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click" />
-        <Button Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="148,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_1"/>
-        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="279,380,0,0" VerticalAlignment="Top" Width="102" Height="30" Click="Button_Click_2" />
+        <Button Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="27,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_1" BorderBrush="Aquamarine"/>
+        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="149,380,0,0" VerticalAlignment="Top" Width="102" Height="30" Click="Button_Click_2" />
         <DataGrid x:Name="Pregledi_Table" ItemsSource ="{Binding Termini}" AutoGenerateColumns="False" HorizontalAlignment="Right" 
-            Height="300" VerticalAlignment="Top" Width="783" Margin="0,73,10,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
+            Height="290" VerticalAlignment="Top" Width="783" Margin="0,83,10,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"
+                  AlternatingRowBackground="#F0DBD7" Background="#F0DBD7" ScrollViewer.CanContentScroll="True" >
+            
 
-
-            <DataGrid.Columns>
-                <DataGridTextColumn SortDirection="Ascending" Header="Datum termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"/>
-                <DataGridTextColumn SortDirection="Ascending" Header="Vreme termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:HH:mm\}}" Width="*"/>
+                    <DataGrid.Columns>
+                <DataGridTextColumn x:Name="DatumTermina" SortDirection="Ascending" Header="Datum termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"/>
+                <DataGridTextColumn x:Name="VremeTermina" SortDirection="Ascending" Header="Vreme termina" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:HH:mm\}}" Width="*"/>
                 <DataGridTextColumn Header="Ime pacijenta" Binding="{Binding pacijent}" Width="*"/>
                 <DataGridTextColumn Header="Trajanje termina (u minutima)" Binding="{Binding TrajanjeTermina}"/>
                 <DataGridTextColumn Header="Prostorija" Binding="{Binding brojSobe}"/>
                 <DataGridTextColumn Header="Tip termina" Binding="{Binding VrstaTermina}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Image HorizontalAlignment="Left" Height="55" Margin="27,0,0,0" VerticalAlignment="Top" Width="58" x:Name="doctor" Source="doctor.png"/>
         <DatePicker Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="571,380,0,0" VerticalAlignment="Top" Height="30" Width="103" />
         <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="696,380,0,0" Height="30" Click="Button_Click_3"/>
-        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="411,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_4" />
-        <Menu HorizontalAlignment="Left" Height="65" Margin="90,0,0,0" VerticalAlignment="Top" Width="710" Background="White">
+        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="277,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_4" RenderTransformOrigin="-0.75,0.48" />
+        <Menu HorizontalAlignment="Left" Height="65" Margin="90,0,0,0" VerticalAlignment="Top" Width="700" Background="#F0DBD7" Cursor="Hand">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="Termini" FontSize="20" />
-            <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_1"/>
-            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_2"/>
-            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2"/>
+            <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_Pacijenti"/>
+            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_Lekovi"/>
+            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Obavestenja"/>
             <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click"/>
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut"/>
         </Menu>
+        <Image HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="61" Source="doctor1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" >
+
+        </Image>
+        <TextBlock x:Name="ImeDoktora"  Text ="{Binding FullName}" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="89" FontSize="10"/>
+
 
 
     </Grid>

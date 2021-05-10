@@ -9,7 +9,6 @@
       Title="PacijentInfoPage">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="55" Margin="27,0,0,0" VerticalAlignment="Top" Width="57" x:Name="doctor" Source="doctor.png"/>
         <ComboBox Text="Izaberi" Name="ComboBox1" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -41,19 +40,21 @@
         <Button Content="Unesi anamnezu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="4.503,5.514" Margin="586,250,0,0" FontSize="10" Click="Button_Click_1"/>
         <Button Content="Istorija anamneza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" RenderTransformOrigin="4.503,5.514" Margin="706,250,0,0" FontSize="10" Click="Button_Click_2"/>
         <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="358,167,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
-        <Menu HorizontalAlignment="Left" Height="65" Margin="89,0,0,0" VerticalAlignment="Top" Width="701" Background="White">
+        <Menu HorizontalAlignment="Left" Height="65" Margin="89,0,0,0" VerticalAlignment="Top" Width="701" Background="#F0DBD7" Cursor="Hand">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Termini" FontSize="20" Click="MenuItem_Click"  />
-            <MenuItem Header="Pacijenti" FontSize="20" />
-            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_2"/>
-            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2"/>
+            <MenuItem Header="Termini" FontSize="20" Click="MenuItem_Click_Termini"  />
+            <MenuItem Header="Pacijenti" FontSize="20"  />
+            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_Lekovi"/>
+            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Obavestenja"/>
             <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_1"/>
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut"/>
         </Menu>
+        <Image HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="61" Source="doctor1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+        <TextBlock x:Name="ImeDoktora"  Text ="{Binding FullName}" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="89" FontSize="10"/>
 
 
     </Grid>
