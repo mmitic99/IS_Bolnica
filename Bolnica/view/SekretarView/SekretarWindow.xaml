@@ -362,6 +362,21 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
+                            
+                            <Button Content="Radno vreme lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="radnoVremeLekara_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="LekariPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRadnoVreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RadnoVreme>
+    <IdRadnogVremena>Radi789761114.5.2021. 16:50:45</IdRadnogVremena>
+    <JmbgLekara>7897611</JmbgLekara>
+    <DatumIVremePocetka>2021-05-14T16:50:45.1880494+02:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-19T16:50:45.1880494+02:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>Radi</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>Radi60914.5.2021. 17:21:56</IdRadnogVremena>
+    <JmbgLekara>609</JmbgLekara>
+    <DatumIVremePocetka>2021-05-14T17:21:56.7212097+02:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-19T17:21:56.7212097+02:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>Radi</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>Radi453614.5.2021. 17:26:19</IdRadnogVremena>
+    <JmbgLekara>4536</JmbgLekara>
+    <DatumIVremePocetka>2021-05-14T17:26:19.692959+02:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-19T17:26:19.692959+02:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>Radi</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>SlobodanDan6095.5.2021. 00:00:00</IdRadnogVremena>
+    <JmbgLekara>609</JmbgLekara>
+    <DatumIVremePocetka>2021-05-05T00:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-06T00:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>SlobodanDan</StatusRadnogVremena>
+  </RadnoVreme>
+</ArrayOfRadnoVreme>

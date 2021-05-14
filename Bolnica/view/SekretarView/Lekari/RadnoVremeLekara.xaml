@@ -1,0 +1,53 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.Lekari.RadnoVremeLekara"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView.Lekari"
+        mc:Ignorable="d"
+        Title="RadnoVremeLekara" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="dodaj_Click"/>
+            <Button Content="Obriši" x:Name="obrisi" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Obrisi_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True" />
+                        <Setter Property="Opacity" Value="1" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=RadnoVremePrikaz}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="Opacity" Value="1" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        
+        <DataGrid Grid.Row="1" Name="RadnoVremePrikaz" CanUserAddRows="false" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                  CanUserResizeRows="False" Margin="5">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Status" Header="Status" Binding="{Binding StatusRadnogVremena}" Width="100"/>
+                <DataGridTextColumn x:Name="DatumVremePocetka" Header="Datum i vreme početka" Binding="{Binding DatumIVremePocetka, StringFormat=dd.MM.yyyy   HH:mm}" Width="*"/>
+                <DataGridTextColumn x:Name="DatumVremeKraja" Header="Datum i vreme kraja" Binding="{Binding DatumIVremeZavrsetka, StringFormat=dd.MM.yyyy   HH:mm}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

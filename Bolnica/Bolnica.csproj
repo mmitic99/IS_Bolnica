@@ -94,6 +94,7 @@
     <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
+    <Compile Include="Kontroler\RadnoVremeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
     <Compile Include="Kontroler\SpecijalizacijaKontroler.cs" />
     <Compile Include="Kontroler\TerminKontroler.cs" />
@@ -102,18 +103,22 @@
     <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\AnketaKvartalna.cs" />
     <Compile Include="model\AnketaLekar.cs" />
+    <Compile Include="model\Enum\StatusRadnogVremena.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\KorisnickaAktivnost.cs" />
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
     <Compile Include="model\Obavestenje.cs" />
+    <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="Repozitorijum\SkladisteRadnihVremena.cs" />
     <Compile Include="Repozitorijum\SkladisteZaAnketeOLekaru.cs" />
     <Compile Include="Repozitorijum\SkladisteZaKvartalneAnkete.cs" />
     <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
+    <Compile Include="Servis\RadnoVremeServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
     <Compile Include="model\Renoviranje.cs" />
     <Compile Include="model\VerifikacijaLeka.cs" />
@@ -217,11 +222,17 @@
     <Compile Include="view\PacijentView\ZdravstveniKarton.xaml.cs">
       <DependentUpon>ZdravstveniKarton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\SekretarView\Lekari\DodajRadnoVreme.xaml.cs">
+      <DependentUpon>DodajRadnoVreme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\SekretarView\Lekari\DodavanjeLekara.xaml.cs">
       <DependentUpon>DodavanjeLekara.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Lekari\IzmenaLekara.xaml.cs">
       <DependentUpon>IzmenaLekara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\Lekari\RadnoVremeLekara.xaml.cs">
+      <DependentUpon>RadnoVremeLekara.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeAlregena.xaml.cs">
       <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
@@ -372,11 +383,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\SekretarView\Lekari\DodajRadnoVreme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\SekretarView\Lekari\DodavanjeLekara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\Lekari\IzmenaLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\Lekari\RadnoVremeLekara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

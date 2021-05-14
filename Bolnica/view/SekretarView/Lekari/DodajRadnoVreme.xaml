@@ -1,0 +1,57 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.Lekari.DodajRadnoVreme"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView.Lekari"
+        mc:Ignorable="d"
+        Title="DodajRadnoVreme" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Status:</Label>
+                <ComboBox x:Name="Status" Grid.Column="1" SelectedIndex="0">
+                    <ComboBoxItem>Radi</ComboBoxItem>
+                    <ComboBoxItem>Odmor</ComboBoxItem>
+                    <ComboBoxItem>Slobodan dan</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Datum i vreme početka:</Label>
+                <DatePicker x:Name="DatumPocetka" Grid.Column="1"/>
+                <ComboBox Grid.Column="2" x:Name="VremePocetka" Margin="15,0,0,0"></ComboBox>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Datum i vreme kraja:</Label>
+                <DatePicker x:Name="DatumKraja" Grid.Column="1"/>
+                <ComboBox Grid.Column="2" x:Name="VremeKraja" Margin="15,0,0,0"></ComboBox>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_OnClickdi_Click" Width="85">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_OnClickzi_Click" Width="85">Otkaži</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

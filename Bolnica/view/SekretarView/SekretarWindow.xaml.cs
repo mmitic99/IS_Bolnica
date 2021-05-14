@@ -258,13 +258,19 @@ namespace Bolnica.view.SekretarView
             }
             else
             {
-                MessageBox.Show("Morate izabrati pacijenta koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Morate izabrati lekara koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
         {
             var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false, (Lekar)LekariPrikaz.SelectedItem);
+            s.ShowDialog();
+        }
+
+        private void radnoVremeLekara_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new RadnoVremeLekara(((Lekar)LekariPrikaz.SelectedItem).Jmbg);
             s.ShowDialog();
         }
     }
