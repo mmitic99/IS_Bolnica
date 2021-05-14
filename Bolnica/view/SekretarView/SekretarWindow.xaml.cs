@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Threading;
 using Bolnica.view.SekretarView.Lekari;
 using Bolnica.view.SekretarView.Pacijenti;
+using Bolnica.view.SekretarView.Termini;
 
 namespace Bolnica.view.SekretarView
 {

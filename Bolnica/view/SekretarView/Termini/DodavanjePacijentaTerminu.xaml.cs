@@ -1,10 +1,9 @@
-﻿using Kontroler;
-using Model;
-using Repozitorijum;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using Kontroler;
+using Model;
 
-namespace Bolnica.view.SekretarView
+namespace Bolnica.view.SekretarView.Termini
 {
     /// <summary>
     /// Interaction logic for DodavanjePacijentaTerminu.xaml

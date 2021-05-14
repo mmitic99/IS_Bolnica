@@ -229,13 +229,13 @@
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarView\DodavanjeLekaraTerminu.xaml.cs">
+    <Compile Include="view\SekretarView\Termini\DodavanjeLekaraTerminu.xaml.cs">
       <DependentUpon>DodavanjeLekaraTerminu.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Pacijenti\DodavanjePacijenta.xaml.cs">
       <DependentUpon>DodavanjePacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarView\DodavanjePacijentaTerminu.xaml.cs">
+    <Compile Include="view\SekretarView\Termini\DodavanjePacijentaTerminu.xaml.cs">
       <DependentUpon>DodavanjePacijentaTerminu.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Pacijenti\IzmenaPacijenta.xaml.cs">
@@ -259,7 +259,7 @@
     <Compile Include="view\Prijavljivanje.xaml.cs">
       <DependentUpon>Prijavljivanje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarView\IzmenaTermina.xaml.cs">
+    <Compile Include="view\SekretarView\Termini\IzmenaTermina.xaml.cs">
       <DependentUpon>IzmenaTermina.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Obavestenja\DodavanjeObavestenja.xaml.cs">
@@ -277,7 +277,7 @@
     <Compile Include="view\UpravnikView\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml.cs">
+    <Compile Include="view\SekretarView\Termini\ZakazivanjeTerminaSekretar.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaSekretar.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -388,7 +388,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarView\DodavanjeLekaraTerminu.xaml">
+    <Page Include="view\SekretarView\Termini\DodavanjeLekaraTerminu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -396,7 +396,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarView\DodavanjePacijentaTerminu.xaml">
+    <Page Include="view\SekretarView\Termini\DodavanjePacijentaTerminu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -428,7 +428,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarView\IzmenaTermina.xaml">
+    <Page Include="view\SekretarView\Termini\IzmenaTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -452,7 +452,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarView\ZakazivanjeTerminaSekretar.xaml">
+    <Page Include="view\SekretarView\Termini\ZakazivanjeTerminaSekretar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

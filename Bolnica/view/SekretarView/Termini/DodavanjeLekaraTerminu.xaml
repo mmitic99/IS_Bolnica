@@ -1,11 +1,11 @@
-﻿<Window x:Class="Bolnica.view.SekretarView.DodavanjePacijentaTerminu"
+﻿<Window x:Class="Bolnica.view.SekretarView.Termini.DodavanjeLekaraTerminu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.SekretarView"
         mc:Ignorable="d"
-        Title="DodavanjePacijentaTerminu" Height="400" Width="450"
+        Title="DodavanjeLekaraTerminu" Height="400" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,11 +13,11 @@
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="1" Name="DodavanjePacijentaTerminuPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
+        <DataGrid Grid.Row="1" Name="DodavanjeLekaraTerminuPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="jmbgP" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
-                <DataGridTextColumn x:Name="imeP" Header="Ime" Binding="{Binding Ime}" Width="*"/>
-                <DataGridTextColumn x:Name="prezimeP" Header="Prezime" Binding="{Binding Prezime}" Width="*"/>
+                <DataGridTextColumn x:Name="jmbgL" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
+                <DataGridTextColumn x:Name="imeL" Header="Ime" Binding="{Binding Ime}" Width="*"/>
+                <DataGridTextColumn x:Name="prezimeL" Header="Prezime" Binding="{Binding Prezime}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Margin="15" Grid.Row="2">

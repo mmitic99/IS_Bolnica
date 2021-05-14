@@ -1073,4 +1073,18 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-05-20T09:30:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>1234</JmbgPacijenta>
+    <IDTermina>1234789761120.5.2021. 09:30:00</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>
