@@ -220,6 +220,9 @@
     <Compile Include="view\SekretarView\Lekari\DodavanjeLekara.xaml.cs">
       <DependentUpon>DodavanjeLekara.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\SekretarView\Lekari\IzmenaLekara.xaml.cs">
+      <DependentUpon>IzmenaLekara.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeAlregena.xaml.cs">
       <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
     </Compile>
@@ -370,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\Lekari\DodavanjeLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\Lekari\IzmenaLekara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

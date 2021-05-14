@@ -215,7 +215,7 @@
                         <DataGrid Grid.Row="1" Name="pacijentiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="14">
+                                  VerticalContentAlignment="Center" FontSize="14" CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="FontSize" Value="15"/>
@@ -290,7 +290,7 @@
                         <DataGrid Grid.Row="1" Name="terminiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="14">
+                                  VerticalContentAlignment="Center" FontSize="14"  CanUserResizeRows="False">
 
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -334,13 +334,13 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
                             <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjeLekara_Click"/>
-                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
+                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaLekara_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=pacijentiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -348,13 +348,13 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjePacijenta_Click">
+                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjeLekara_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=pacijentiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -366,7 +366,8 @@
                         <DataGrid Grid.Row="1" Name="LekariPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2">
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                                  CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="FontSize" Value="15"/>
@@ -384,11 +385,10 @@
                                 <DataGridTemplateColumn Width="20">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Click="zakazivanjeTerminaZaOdabranogPacijenta_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin">
+                                            <Button Click="zakazivanjeTerminaZaOdabranogLekara_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin">
                                                 <Grid>
                                                     <Image Source="/Images/add_event.png"/>
                                                 </Grid>
-
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -398,9 +398,6 @@
                     </Grid>
                 </TabItem>
             </TabControl>
-
-
-
         </Grid>
     </DockPanel>
 </Window>

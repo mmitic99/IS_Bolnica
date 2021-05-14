@@ -89,5 +89,10 @@ namespace Kontroler
         {
             return LekarServis.getInstance().dobijTerminePijenja(terminiPijenja);
         }
+
+        public bool ObrisiLekara(string jmbg)
+        {
+            return lekarServis.ObrisiLekara(jmbg);
+        }
     }
 }

@@ -104,6 +104,22 @@ namespace Servis
             return slobodan;
         }
 
+        public bool ObrisiLekara(string jmbg)
+        {
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
+            bool uspesno = false;
+            foreach (Lekar lekar in lekari)
+            {
+                if (lekar.Jmbg.Equals(jmbg))
+                {
+                    uspesno = lekari.Remove(lekar);
+                    break;
+                }
+            }
+            skladisteZaLekara.SaveAll(lekari);
+            return uspesno;
+        }
+
         internal int DobaviIndeksSelectovanogLekara(Termin termin)
         {
             List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();

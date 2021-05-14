@@ -88,7 +88,7 @@ namespace Bolnica.view.SekretarView
 
                 if (izbor == MessageBoxResult.Yes)
                 {
-                    bool uspesno = pacijentKontroler.obrisiPacijentaNaIndeksu(pacijentiPrikaz.SelectedIndex);
+                    bool uspesno = pacijentKontroler.obrisiPacijenta(((Pacijent)pacijentiPrikaz.SelectedItem).Jmbg);
 
                     pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
                 }
@@ -223,6 +223,43 @@ namespace Bolnica.view.SekretarView
         {
             var s = new DodavanjeLekara(LekariPrikaz);
             s.ShowDialog();
+        }
+
+        private void izmenaLekara_Click(object sender, RoutedEventArgs e)
+        {
+            if (LekariPrikaz.SelectedIndex != -1)
+            {
+                var s = new IzmenaLekara(LekariPrikaz);
+                s.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati lekara koga želite da izmenite.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void brisanjeLekara_Click(object sender, RoutedEventArgs e)
+        {
+            if (LekariPrikaz.SelectedIndex != -1)
+            {
+                MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete odabranog lekara?", "Brisanje lekara", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (izbor == MessageBoxResult.Yes)
+                {
+                    bool uspesno = lekarKontroler.ObrisiLekara(((Lekar)LekariPrikaz.SelectedItem).Jmbg);
+
+                    LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati pacijenta koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void zakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

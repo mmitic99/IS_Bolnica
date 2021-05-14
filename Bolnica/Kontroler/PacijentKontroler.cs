@@ -97,15 +97,14 @@ namespace Kontroler
 
         public PacijentServis pacijentServis;
 
-
-        internal bool obrisiPacijentaNaIndeksu(int selectedIndex)
-        {
-            return pacijentServis.obrisiPacijentaNaIndeksu(selectedIndex);
-        }
-
         public Pacijent GetByJmbg(string jmbg)
         {
             return pacijentServis.GetByJmbg(jmbg);
+        }
+
+        public bool obrisiPacijenta(string jmbg)
+        {
+            return pacijentServis.ObrisiPacijenta(jmbg);
         }
     }
 }

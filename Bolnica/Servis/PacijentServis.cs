@@ -106,7 +106,23 @@ namespace Servis
             return receptiPacijenta;
         }
 
-        internal bool izmeniPacijenta(Pacijent stari, Pacijent novi)
+        public bool ObrisiPacijenta(string jmbg)
+        {
+            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
+            bool uspesno = false;
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.Jmbg.Equals(jmbg))
+                {
+                    uspesno = pacijenti.Remove(pacijent);
+                    break;
+                }
+            }
+            skladistePacijenta.SaveAll(pacijenti);
+            return uspesno;
+        }
+
+        public bool izmeniPacijenta(Pacijent stari, Pacijent novi)
         {
             bool uspesno = true;
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
@@ -135,14 +151,6 @@ namespace Servis
             }
 
             return uspesno;
-        }
-
-        public bool obrisiPacijentaNaIndeksu(int selectedIndex)
-        {
-            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
-            pacijenti.RemoveAt(selectedIndex);
-            skladistePacijenta.SaveAll(pacijenti);
-            return true;
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
