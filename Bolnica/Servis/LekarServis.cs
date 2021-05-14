@@ -4,6 +4,7 @@ using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using static Bolnica.DTO.ReceptDTO;
 
 namespace Servis
@@ -32,8 +33,24 @@ namespace Servis
 
         public bool RegistrujLekara(Lekar lekar)
         {
-            // TODO: implement
-            return false;
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
+            bool uspesno = true;
+
+            for (int i = 0; i < lekari.Count; i++)
+            {
+                if (lekari.ElementAt(i).Jmbg.Equals(lekar.Jmbg))
+                {
+                    uspesno = false;
+                    return uspesno;
+                }
+            }
+
+            if (uspesno)
+            {
+                skladisteZaLekara.Save(lekar);
+            }
+
+            return uspesno;
         }
 
         public bool DodajObavestenje(Model.Obavestenje obavestenje)

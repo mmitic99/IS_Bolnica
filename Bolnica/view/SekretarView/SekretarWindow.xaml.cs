@@ -5,6 +5,7 @@ using Model;
 using System;
 using System.Windows;
 using System.Windows.Threading;
+using Bolnica.view.SekretarView.Lekari;
 using Bolnica.view.SekretarView.Pacijenti;
 
 namespace Bolnica.view.SekretarView
@@ -216,6 +217,12 @@ namespace Bolnica.view.SekretarView
         private void Lekari_OnSelected(object sender, RoutedEventArgs e)
         {
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+        }
+
+        private void dodavanjeLekara_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new DodavanjeLekara(LekariPrikaz);
+            s.ShowDialog();
         }
     }
 }

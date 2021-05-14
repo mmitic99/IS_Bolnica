@@ -333,7 +333,7 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
-                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjePacijenta_Click"/>
+                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjeLekara_Click"/>
                             <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">

@@ -32,8 +32,7 @@ namespace Kontroler
 
         public bool RegistrujLekara(Lekar lekar)
         {
-            // TODO: implement
-            return false;
+            return lekarServis.RegistrujLekara(lekar);
         }
 
         public bool DodajObavestenje(Obavestenje obavestenje)

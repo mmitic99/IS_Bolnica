@@ -117,7 +117,6 @@
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
     <Compile Include="model\Renoviranje.cs" />
     <Compile Include="model\VerifikacijaLeka.cs" />
-    <Compile Include="Repozitorijum\SkladisteZaKorisnickeAktivnosti.cs" />
     <Compile Include="Repozitorijum\SkladisteZaLekove.cs" />
     <Compile Include="Repozitorijum\SkladisteZaRenoviranja.cs" />
     <Compile Include="Repozitorijum\SkladisteZaVerifikacijuLeka.cs" />
@@ -217,6 +216,9 @@
     </Compile>
     <Compile Include="view\PacijentView\ZdravstveniKarton.xaml.cs">
       <DependentUpon>ZdravstveniKarton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\Lekari\DodavanjeLekara.xaml.cs">
+      <DependentUpon>DodavanjeLekara.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeAlregena.xaml.cs">
       <DependentUpon>DodavanjeAlregena.xaml</DependentUpon>
@@ -364,6 +366,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\ZdravstveniKarton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\Lekari\DodavanjeLekara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,17 +16,19 @@
     <Ime>Milos</Ime>
     <Prezime>Marinkovic</Prezime>
     <Jmbg>6667</Jmbg>
-	<BrojTelefona>123321</BrojTelefona>
+    <BrojTelefona>123321</BrojTelefona>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email>mail</Email>
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <obavestenje />
     <FullName>dr Milos Marinkovic</FullName>
-    <ImeiSpecijalizacija>dr Milos Marinkovic- Kardiolog</ImeiSpecijalizacija>
+    <ImeiSpecijalizacija>dr Milos Marinkovic- opšta medicina</ImeiSpecijalizacija>
     <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
   <Lekar>
@@ -45,17 +47,19 @@
     <Ime>Miroslav</Ime>
     <Prezime>Mi</Prezime>
     <Jmbg>4536</Jmbg>
-	<BrojTelefona />
+    <BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <obavestenje />
     <FullName>dr Miroslav Mi</FullName>
-    <ImeiSpecijalizacija>dr Miroslav Mi- Urolog</ImeiSpecijalizacija>
+    <ImeiSpecijalizacija>dr Miroslav Mi- opšta medicina</ImeiSpecijalizacija>
     <IdOrdinacija>2</IdOrdinacija>
   </Lekar>
   <Lekar>
@@ -74,17 +78,19 @@
     <Ime>Dunja</Ime>
     <Prezime>Jovanovic</Prezime>
     <Jmbg>609</Jmbg>
-	<BrojTelefona />
+    <BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <obavestenje />
     <FullName>dr Dunja Jovanovic</FullName>
-    <ImeiSpecijalizacija>dr Dunja Jovanovic- Lekar opšte medicine</ImeiSpecijalizacija>
+    <ImeiSpecijalizacija>dr Dunja Jovanovic- opšta medicina</ImeiSpecijalizacija>
     <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
   <Lekar>
@@ -103,17 +109,19 @@
     <Ime>Maja</Ime>
     <Prezime>Balazevic</Prezime>
     <Jmbg>7897611</Jmbg>
-	<BrojTelefona />
+    <BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <obavestenje />
     <FullName>dr Maja Balazevic</FullName>
-    <ImeiSpecijalizacija>dr Maja Balazevic- Lekar opšte medicine</ImeiSpecijalizacija>
+    <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
     <IdOrdinacija>4</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>
