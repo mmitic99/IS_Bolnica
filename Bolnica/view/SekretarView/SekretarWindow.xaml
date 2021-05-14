@@ -385,7 +385,7 @@
                                 <DataGridTemplateColumn Width="20">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Click="zakazivanjeTerminaZaOdabranogLekara_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin">
+                                            <Button Click="ZakazivanjeTerminaZaOdabranogLekara_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin">
                                                 <Grid>
                                                     <Image Source="/Images/add_event.png"/>
                                                 </Grid>

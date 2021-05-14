@@ -247,8 +247,12 @@ namespace Bolnica.view.SekretarView
                 if (izbor == MessageBoxResult.Yes)
                 {
                     bool uspesno = lekarKontroler.ObrisiLekara(((Lekar)LekariPrikaz.SelectedItem).Jmbg);
-
-                    LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                    if(uspesno)
+                        LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                    else
+                    {
+                        MessageBox.Show("Lekar nije uspešno obrisan.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             else
@@ -257,9 +261,10 @@ namespace Bolnica.view.SekretarView
             }
         }
 
-        private void zakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
+        private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
         {
-            
+            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false, (Lekar)LekariPrikaz.SelectedItem);
+            s.ShowDialog();
         }
     }
 }

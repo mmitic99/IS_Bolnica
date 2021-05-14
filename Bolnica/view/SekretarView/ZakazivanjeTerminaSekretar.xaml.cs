@@ -22,7 +22,7 @@ namespace Bolnica.view.SekretarView
 
         private List<Termin> moguciTermini = new List<Termin>();
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan = false)
+        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan = false, Lekar izabraniLekar = null)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
@@ -40,6 +40,12 @@ namespace Bolnica.view.SekretarView
             {
                 termin.JmbgPacijenta = izabraniPacijent.Jmbg;
                 pacijent.Text = izabraniPacijent.Ime + " " + izabraniPacijent.Prezime;
+            }
+
+            if (izabraniLekar != null)
+            {
+                termin.JmbgLekara = izabraniLekar.Jmbg;
+                lekar.Text = izabraniLekar.Ime + " " + izabraniLekar.Prezime;
             }
 
             sala.ItemsSource = prostorijeKontroler.GetAll();
