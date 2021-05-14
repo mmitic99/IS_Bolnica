@@ -1,12 +1,11 @@
-﻿using Kontroler;
-using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
+using Kontroler;
+using Model;
 
-namespace Bolnica.view.SekretarView
+namespace Bolnica.view.SekretarView.Pacijenti
 {
     /// <summary>
     /// Interaction logic for DodavanjePacijenta.xaml

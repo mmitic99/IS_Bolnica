@@ -5,6 +5,7 @@ using Model;
 using System;
 using System.Windows;
 using System.Windows.Threading;
+using Bolnica.view.SekretarView.Pacijenti;
 
 namespace Bolnica.view.SekretarView
 {
@@ -17,6 +18,7 @@ namespace Bolnica.view.SekretarView
         private PacijentKontroler pacijentKontroler;
         private TerminKontroler terminKontroler;
         private ObavestenjaKontroler obavestenjaKontroler;
+        private LekarKontroler lekarKontroler;
 
         public SekretarWindow(Sekretar sekretar)
         {
@@ -25,6 +27,7 @@ namespace Bolnica.view.SekretarView
             pacijentKontroler = new PacijentKontroler();
             terminKontroler = new TerminKontroler();
             obavestenjaKontroler = new ObavestenjaKontroler();
+            lekarKontroler = new LekarKontroler();
 
             this.sekretar = sekretar;
 
@@ -33,7 +36,8 @@ namespace Bolnica.view.SekretarView
 
             pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
             terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-
+            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+            
             statusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(0.5);
@@ -207,6 +211,11 @@ namespace Bolnica.view.SekretarView
             {
                 MessageBox.Show("Morate izabrati obaveštenje koje želite da pogledate.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Lekari_OnSelected(object sender, RoutedEventArgs e)
+        {
+            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
         }
     }
 }

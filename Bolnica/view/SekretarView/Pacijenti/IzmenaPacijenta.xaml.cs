@@ -1,14 +1,12 @@
-﻿using Kontroler;
-using Model;
-using Repozitorijum;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Kontroler;
+using Model;
 
-namespace Bolnica.view.SekretarView
+namespace Bolnica.view.SekretarView.Pacijenti
 {
     /// <summary>
     /// Interaction logic for IzmenaPacijenta.xaml

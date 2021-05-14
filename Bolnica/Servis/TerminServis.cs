@@ -201,7 +201,7 @@ namespace Servis
             {
                 foreach (Lekar lekar in lekari)
                 {
-                    if (lekar.specijalizacija != null && lekar.specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije))
+                    if (lekar.Specijalizacija != null && lekar.Specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije))
                     {
                         Termin termin = new Termin
                         {

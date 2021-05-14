@@ -16,16 +16,15 @@
     <Ime>Milos</Ime>
     <Prezime>Marinkovic</Prezime>
     <Jmbg>6667</Jmbg>
+	<BrojTelefona>123321</BrojTelefona>
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <specijalizacija>
+    <Email>mail</Email>
+    <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </specijalizacija>
+    </Specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <obavestenje />
-    <specijalizacija>
-	<VrstaSpecijalizacije>Kardiolog</VrstaSpecijalizacije>
-    </specijalizacija>
     <FullName>dr Milos Marinkovic</FullName>
     <ImeiSpecijalizacija>dr Milos Marinkovic- Kardiolog</ImeiSpecijalizacija>
     <IdOrdinacija>1</IdOrdinacija>
@@ -46,16 +45,15 @@
     <Ime>Miroslav</Ime>
     <Prezime>Mi</Prezime>
     <Jmbg>4536</Jmbg>
+	<BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <specijalizacija>
+    <Email />
+    <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </specijalizacija>
+    </Specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <obavestenje />
-    <specijalizacija>
-	<VrstaSpecijalizacije>Urolog</VrstaSpecijalizacije>
-    </specijalizacija>
     <FullName>dr Miroslav Mi</FullName>
     <ImeiSpecijalizacija>dr Miroslav Mi- Urolog</ImeiSpecijalizacija>
     <IdOrdinacija>2</IdOrdinacija>
@@ -76,11 +74,13 @@
     <Ime>Dunja</Ime>
     <Prezime>Jovanovic</Prezime>
     <Jmbg>609</Jmbg>
+	<BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <specijalizacija>
+    <Email />
+    <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </specijalizacija>
+    </Specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <obavestenje />
     <FullName>dr Dunja Jovanovic</FullName>
@@ -103,11 +103,13 @@
     <Ime>Maja</Ime>
     <Prezime>Balazevic</Prezime>
     <Jmbg>7897611</Jmbg>
+	<BrojTelefona />
     <Pol>Zenski</Pol>
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <specijalizacija>
+    <Email />
+    <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </specijalizacija>
+    </Specijalizacija>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
     <obavestenje />
     <FullName>dr Maja Balazevic</FullName>

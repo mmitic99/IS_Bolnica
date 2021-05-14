@@ -4,7 +4,7 @@ namespace Model
 {
     public class Lekar : Radnik
     {
-        public Specijalizacija specijalizacija;
+        public Specijalizacija Specijalizacija { get; set; }
         public System.Collections.ArrayList obavestenje;
         
 
@@ -66,11 +66,11 @@ namespace Model
         {
             get 
             {
-                if (specijalizacija == null)
+                if (Specijalizacija == null)
                 {
                     return this.FullName + "-  Lekar opšte medicine";
                 }
-                return this.FullName + "- " + this.specijalizacija.VrstaSpecijalizacije;            
+                return this.FullName + "- " + this.Specijalizacija.VrstaSpecijalizacije;            
             }
             set
             {
@@ -111,7 +111,7 @@ namespace Model
         }
         public String getImeiSpecijalizacija()
         {
-            return this.FullName + " " + this.specijalizacija;
+            return this.FullName + " " + this.Specijalizacija;
         }
     }
 }
