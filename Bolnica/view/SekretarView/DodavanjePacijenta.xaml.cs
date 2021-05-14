@@ -1,8 +1,10 @@
 ﻿using Kontroler;
 using Model;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Bolnica.view.SekretarView
 {
@@ -13,6 +15,9 @@ namespace Bolnica.view.SekretarView
     {
         private DataGrid pacijentiPrikaz;
         private PacijentKontroler pacijentKontroler;
+        private List<String> bracnoStanjeMuskarac = new List<string> {"neoženjen", "oženjen", "udovac", "razveden", "ostalo"};
+        private List<String> bracnoStanjeZena = new List<string> {"neudata", "udata", "udovica", "razvedena", "ostalo"};
+
         public DodavanjePacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
@@ -20,6 +25,11 @@ namespace Bolnica.view.SekretarView
             this.pacijentiPrikaz = pacijentiPrikaz;
             pacijentKontroler = new PacijentKontroler();
             this.Owner = App.Current.MainWindow;
+
+            
+            BracnoStanje.ItemsSource = bracnoStanjeMuskarac;
+            BracnoStanje.SelectedIndex = 0;
+
         }
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
@@ -32,24 +42,14 @@ namespace Bolnica.view.SekretarView
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad { Naziv = grad.Text },
+                Grad = new Grad {Naziv = grad.Text},
                 zdravstveniKarton = new ZdravstveniKarton(),
-                Korisnik = new Korisnik
-                {
-                    KorisnickoIme = jmbg.Text,
-                    Lozinka = ime.Text
-                }
-
+                Korisnik = new Korisnik {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
+                BracnoStanje = (string) BracnoStanje.SelectedItem,
+                Zanimanje = (string) Zanimanje.Text,
+                Pol = Pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski
             };
 
-            if (pol.SelectedIndex == 0)
-            {
-                pacijent.Pol = Model.Enum.Pol.Muski;
-            }
-            else
-            {
-                pacijent.Pol = Model.Enum.Pol.Zenski;
-            }
             if (datum.SelectedDate != null)
             {
                 pacijent.DatumRodjenja = (DateTime)datum.SelectedDate;
@@ -83,6 +83,23 @@ namespace Bolnica.view.SekretarView
         private void otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Pol_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BracnoStanje != null)
+            {
+                if (Pol.SelectedIndex == 0)
+                {
+                    BracnoStanje.ItemsSource = bracnoStanjeMuskarac;
+                    BracnoStanje.SelectedIndex = 0;
+                }
+                else
+                {
+                    BracnoStanje.ItemsSource = bracnoStanjeZena;
+                    BracnoStanje.SelectedIndex = 0;
+                }
+            }
         }
     }
 }

@@ -35,7 +35,7 @@
 
                     <Grid Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Grid.ColumnSpan="2">
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -43,7 +43,7 @@
                                 <Label Grid.Column="0">JMBG*:</Label>
                                 <TextBox x:Name="jmbg" Grid.Column="1" />
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -51,7 +51,7 @@
                                 <Label Grid.Column="0">Ime*:</Label>
                                 <TextBox x:Name="ime" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -59,7 +59,7 @@
                                 <Label Grid.Column="0">Prezime:</Label>
                                 <TextBox x:Name="prezime" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -70,7 +70,7 @@
                                     <ComboBoxItem>Ženski</ComboBoxItem>
                                 </ComboBox>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 50">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -78,7 +78,16 @@
                                 <Label Grid.Column="0">Datum rođenja:</Label>
                                 <DatePicker x:Name="datum" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 0">
+                            <Grid Margin="15,15,15,30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Bračno stanje:</Label>
+                                <ComboBox x:Name="BracnoStanje" Grid.Column="1"/>
+                            </Grid>
+                            <Separator/>
+                            <Grid Margin="15, 30, 15, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -91,7 +100,15 @@
 
                     <Grid Grid.Row="0" Grid.Column="2" Margin="0,20,0,0">
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="160"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Zanimanje:</Label>
+                                <TextBox x:Name="Zanimanje" Grid.Column="1"/>
+                            </Grid>
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -99,7 +116,7 @@
                                 <Label Grid.Column="0">Broj telefona:</Label>
                                 <TextBox x:Name="tel" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -107,7 +124,7 @@
                                 <Label Grid.Column="0">E-mail adresa:</Label>
                                 <TextBox x:Name="email" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -115,7 +132,7 @@
                                 <Label Grid.Column="0">Adresa stanovanja:</Label>
                                 <TextBox x:Name="adresa" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 25">
+                            <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -123,7 +140,7 @@
                                 <Label Grid.Column="0">Grad:</Label>
                                 <TextBox x:Name="grad" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 50">
+                            <Grid Margin="15, 15, 15, 30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
@@ -131,7 +148,8 @@
                                 <Label Grid.Column="0">Država:</Label>
                                 <TextBox x:Name="drzava" Grid.Column="1"/>
                             </Grid>
-                            <Grid Margin="15, 15, 15, 0">
+                            <Separator/>
+                            <Grid Margin="15, 30, 15, 0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>

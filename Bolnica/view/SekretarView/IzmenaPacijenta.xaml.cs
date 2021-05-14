@@ -18,7 +18,10 @@ namespace Bolnica.view.SekretarView
         private DataGrid pacijentiPrikaz;
         private Pacijent pacijent;
         private ObservableCollection<String> alergeni;
-        private PacijentKontroler pacijentKontroler;
+        private PacijentKontroler pacijentKontroler; 
+        private List<String> bracnoStanjeMuskarac = new List<string> { "neoženjen", "oženjen", "udovac", "razveden", "ostalo" };
+        private List<String> bracnoStanjeZena = new List<string> { "neudata", "udata", "udovica", "razvedena", "ostalo" };
+
         public IzmenaPacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
@@ -43,14 +46,27 @@ namespace Bolnica.view.SekretarView
             }
             if (pacijent.Pol == Model.Enum.Pol.Muski)
             {
+                BracnoStanje.ItemsSource = bracnoStanjeMuskarac;
                 pol.SelectedIndex = 0;
+                if (bracnoStanjeMuskarac.Contains(pacijent.BracnoStanje))
+                {
+                    BracnoStanje.SelectedItem = pacijent.BracnoStanje;
+                }
             }
             else
             {
+                BracnoStanje.ItemsSource = bracnoStanjeZena;
                 pol.SelectedIndex = 1;
+                if (bracnoStanjeZena.Contains(pacijent.BracnoStanje))
+                {
+                    BracnoStanje.SelectedItem = pacijent.BracnoStanje;
+                }
             }
+
+            Zanimanje.Text = pacijent.Zanimanje;
             alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
             alergeniList.ItemsSource = alergeni;
+
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
@@ -69,7 +85,9 @@ namespace Bolnica.view.SekretarView
                     KorisnickoIme = korIme.Text,
                     Lozinka = lozinka.Password
                 },
-                zdravstveniKarton = pacijent.zdravstveniKarton
+                zdravstveniKarton = pacijent.zdravstveniKarton,
+                BracnoStanje = (string)BracnoStanje.SelectedItem,
+                Zanimanje = (string)Zanimanje.Text
             };
             noviPacijent.zdravstveniKarton.Alergeni = new List<string>(alergeni);
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:val="clr-namespace:Bolnica.Validacije"
         mc:Ignorable="d"
-        Title="Dodavanje pacijenta" Height="400" Width="800"
+        Title="Dodavanje pacijenta" Height="460" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Pol:</Label>
-                    <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0">
+                    <ComboBox x:Name="Pol" Grid.Column="1" SelectedIndex="0" SelectionChanged="Pol_OnSelectionChanged">
                         <ComboBoxItem>Muški</ComboBoxItem>
                         <ComboBoxItem>Ženski</ComboBoxItem>
                     </ComboBox>
@@ -89,11 +89,27 @@
                     <Label Grid.Column="0">Datum rođenja:</Label>
                     <DatePicker x:Name="datum" Grid.Column="1"/>
                 </Grid>
+                <Grid Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="160"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0">Bračno stanje:</Label>
+                    <ComboBox x:Name="BracnoStanje" Grid.Column="1"/>
+                </Grid>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="1" Margin="0,25,0,0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
+                <Grid Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="160"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0">Zanimanje:</Label>
+                    <TextBox x:Name="Zanimanje" Grid.Column="1"/>
+                </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="120"/>

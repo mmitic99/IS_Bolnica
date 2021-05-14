@@ -45,8 +45,9 @@ namespace Bolnica.view.SekretarView
                     KorisnickoIme = jmbg.Text,
                     Lozinka = ime.Text
                 },
-                zdravstveniKarton = new ZdravstveniKarton()
-
+                zdravstveniKarton = new ZdravstveniKarton(),
+                BracnoStanje = "",
+                Zanimanje = ""
             };
 
             if (!pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals("") && !pacijent.Prezime.Trim().Equals(""))

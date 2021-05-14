@@ -17,6 +17,8 @@
     <DatumRodjenja>1989-07-11T00:00:00</DatumRodjenja>
     <Email>asdsad@mail.com</Email>
     <Adresa />
+    <BracnoStanje>neudata</BracnoStanje>
+    <Zanimanje />
     <zdravstveniKarton>
       <izvestaj />
       <Anamneze />
@@ -42,6 +44,8 @@
     <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
     <Email />
     <Adresa />
+    <BracnoStanje>udovac</BracnoStanje>
+    <Zanimanje />
     <zdravstveniKarton>
       <izvestaj />
       <Anamneze>
@@ -74,6 +78,8 @@
     <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
     <Email />
     <Adresa>Jovana Mikica 23/A</Adresa>
+    <BracnoStanje>udata</BracnoStanje>
+    <Zanimanje />
     <zdravstveniKarton>
       <izvestaj>
         <Izvestaj>
@@ -140,6 +146,8 @@
     <DatumRodjenja>2021-04-11T00:00:00+02:00</DatumRodjenja>
     <Email />
     <Adresa />
+    <BracnoStanje>oženjen</BracnoStanje>
+    <Zanimanje />
     <zdravstveniKarton>
       <izvestaj />
       <Anamneze>
@@ -175,6 +183,8 @@
     <DatumRodjenja>1999-01-01T00:00:00</DatumRodjenja>
     <Email />
     <Adresa />
+    <BracnoStanje>razveden</BracnoStanje>
+    <Zanimanje />
     <zdravstveniKarton>
       <izvestaj>
         <Izvestaj>
@@ -301,6 +311,7 @@
         <Izvestaj>
           <recepti>
             <Recept>
+              <terminiUzimanjaTokomDana />
               <ImeLeka>Dioklecijan</ImeLeka>
               <SifraLeka>ewq</SifraLeka>
               <DodatneNapomene>sd</DodatneNapomene>

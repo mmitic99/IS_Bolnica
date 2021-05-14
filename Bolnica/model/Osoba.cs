@@ -16,6 +16,8 @@ namespace Model
         public DateTime DatumRodjenja { get; set; }
         public String Email { get; set; }
         public String Adresa { get; set; }
+        public String BracnoStanje { get; set; }
+        public String Zanimanje { get; set; }
 
     }
 }

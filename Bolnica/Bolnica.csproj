@@ -121,7 +121,6 @@
     <Compile Include="Repozitorijum\SkladisteZaLekove.cs" />
     <Compile Include="Repozitorijum\SkladisteZaRenoviranja.cs" />
     <Compile Include="Repozitorijum\SkladisteZaVerifikacijuLeka.cs" />
-    <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\LekServis.cs" />
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
