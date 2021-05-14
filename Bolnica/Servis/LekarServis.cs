@@ -1,4 +1,6 @@
 using Bolnica.DTOs;
+using Bolnica.model;
+using Bolnica.Servis;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -15,7 +17,7 @@ namespace Servis
 
         public static LekarServis getInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 return new LekarServis();
             }
@@ -76,31 +78,58 @@ namespace Servis
                     }
                 }
             }
+
             return null;
         }
 
         public bool DaLiJeLekarSlobodan(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
-            bool slobodan = true;
-            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
-            foreach(Termin t in terminiLekara)
+
+            bool slobodan = false;
+
+            foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(parametri.IDDoctor))
             {
-                if(DateTime.Compare(parametri.startTime ,t.DatumIVremeTermina)>0 && DateTime.Compare(parametri.startTime, t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0) 
+                if (parametri.startTime.Date >= radnoVreme.DatumIVremePocetka.Date &&
+                    parametri.startTime.AddMinutes(parametri.durationInMinutes).Date <=
+                    radnoVreme.DatumIVremeZavrsetka.Date &&
+                    parametri.startTime.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
+                    parametri.startTime.AddMinutes(parametri.durationInMinutes).TimeOfDay <=
+                    radnoVreme.DatumIVremeZavrsetka.TimeOfDay)
                 {
-                    slobodan = false;
-                    break;
-                }
-                if(DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) < 0 && DateTime.Compare(parametri.startTime.AddMinutes(t.TrajanjeTermina), t.DatumIVremeTermina) > 0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
-                {
-                    slobodan = false;
-                    break;
-                }
-                if(DateTime.Compare(t.DatumIVremeTermina,parametri.startTime)==0)
-                {
-                    slobodan = false;
+                    slobodan = true;
                     break;
                 }
             }
+
+            if (slobodan)
+            {
+
+                List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
+                foreach (Termin t in terminiLekara)
+                {
+                    if (DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) > 0 && DateTime.Compare(parametri.startTime,
+                        t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0)
+                    {
+                        slobodan = false;
+                        break;
+                    }
+
+                    if (DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) < 0 &&
+                        DateTime.Compare(parametri.startTime.AddMinutes(t.TrajanjeTermina), t.DatumIVremeTermina) >
+                        0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
+                    {
+                        slobodan = false;
+                        break;
+                    }
+
+                    if (DateTime.Compare(t.DatumIVremeTermina, parametri.startTime) == 0)
+                    {
+                        slobodan = false;
+                        break;
+                    }
+                }
+            }
+
             return slobodan;
         }
 
@@ -130,7 +159,7 @@ namespace Servis
                     return i;
                 }
             }
-            return 0;        
+            return 0;
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -165,7 +194,7 @@ namespace Servis
         public SkladisteZaLekara skladisteZaLekara;
         public void izdajRecept(ReceptiDTO parametri)
         {
-            Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka,parametri.DodatneNapomene, parametri.DatumIzdavanja,parametri.BrojDana, parametri.Doza,parametri.terminiUzimanjaTokomDana,parametri.Dijagnoza,parametri.ImeDoktora);
+            Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka, parametri.DodatneNapomene, parametri.DatumIzdavanja, parametri.BrojDana, parametri.Doza, parametri.terminiUzimanjaTokomDana, parametri.Dijagnoza, parametri.ImeDoktora);
             List<Recept> recepti = new List<Recept>();
             recepti.Add(Recept);
             Izvestaj izvestaj = new Izvestaj(recepti);
@@ -186,5 +215,7 @@ namespace Servis
             }
             return terminiInt;
         }
+
+        private RadnoVremeServis radnoVremeServis = new RadnoVremeServis();
     }
 }

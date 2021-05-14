@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bolnica.model;
+using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
 
 namespace Bolnica.Servis
@@ -25,6 +26,13 @@ namespace Bolnica.Servis
         public bool Save(RadnoVreme moguceRadnoVreme)
         {
             bool sacuvaj = false;
+
+            List<RadnoVreme> radnoVremeLekara = (List<RadnoVreme>) GetByJmbg(moguceRadnoVreme.JmbgLekara);
+
+            if (radnoVremeLekara.Count == 0)
+            {
+                sacuvaj = true;
+            }
 
             foreach (RadnoVreme radnoVreme in GetByJmbg(moguceRadnoVreme.JmbgLekara))
             {
@@ -86,6 +94,21 @@ namespace Bolnica.Servis
             }
             SaveAll(radnaVremena);
             return uspesno;
+        }
+
+        public IEnumerable<RadnoVreme> GetByJmbgAkoRadi(string jmbgLekara)
+        {
+            List<RadnoVreme> svaRadnaVremena = (List<RadnoVreme>) GetAll();
+            List<RadnoVreme> radnaVremena = new List<RadnoVreme>();
+            foreach (RadnoVreme radnoVreme in svaRadnaVremena)
+            {
+                if (radnoVreme.JmbgLekara.Equals(jmbgLekara) && radnoVreme.StatusRadnogVremena == StatusRadnogVremena.Radi)
+                {
+                    radnaVremena.Add(radnoVreme);
+                }
+            }
+
+            return radnaVremena;
         }
     }
 }

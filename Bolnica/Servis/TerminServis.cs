@@ -4,6 +4,8 @@ using Repozitorijum;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bolnica.model;
+using Bolnica.Servis;
 
 namespace Servis
 {
@@ -203,23 +205,26 @@ namespace Servis
                 {
                     if (lekar.Specijalizacija != null && lekar.Specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije))
                     {
-                        Termin termin = new Termin
+                        if (LekarRadi(lekar.Jmbg, datumIVreme))
                         {
-                            DatumIVremeTermina = datumIVreme,
-                            JmbgLekara = lekar.Jmbg,
-                            brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
-                            JmbgPacijenta = null
-                        };
+                            Termin termin = new Termin
+                            {
+                                DatumIVremeTermina = datumIVreme,
+                                JmbgLekara = lekar.Jmbg,
+                                brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
+                                JmbgPacijenta = null
+                            };
 
-                        Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
+                            Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
 
-                        if (terminDatumVreme != null)
-                        {
-                            termin.JmbgPacijenta = terminDatumVreme.JmbgPacijenta;
-                            termin.IDTermina = terminDatumVreme.IDTermina;
+                            if (terminDatumVreme != null)
+                            {
+                                termin.JmbgPacijenta = terminDatumVreme.JmbgPacijenta;
+                                termin.IDTermina = terminDatumVreme.IDTermina;
+                            }
+
+                            moguciTermini.Add(termin);
                         }
-
-                        moguciTermini.Add(termin);
                     }
                 }
             }
@@ -516,6 +521,26 @@ namespace Servis
             return null;
         }
 
+        private bool LekarRadi(string jmbgLekara, DateTime datumIVreme)
+        {
+            bool radi = false;
+            foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(jmbgLekara))
+            {
+                if (datumIVreme.Date >= radnoVreme.DatumIVremePocetka.Date &&
+                    datumIVreme.AddMinutes(30).Date <=
+                    radnoVreme.DatumIVremeZavrsetka.Date &&
+                    datumIVreme.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
+                    datumIVreme.AddMinutes(30).TimeOfDay <=
+                    radnoVreme.DatumIVremeZavrsetka.TimeOfDay)
+                {
+                    radi = true;
+                    break;
+                }
+            }
+
+            return radi;
+        }
+
         public List<Termin> GetAll()
         {
             // TODO: implement
@@ -538,5 +563,8 @@ namespace Servis
         {
             return skladisteZaTermine.GetBuduciTerminPacLekar();
         }
+
+
+        private RadnoVremeServis radnoVremeServis = new RadnoVremeServis();
     }
 }
