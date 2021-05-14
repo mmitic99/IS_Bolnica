@@ -38,6 +38,7 @@ namespace Bolnica.Servis
                      radnoVreme.DatumIVremeZavrsetka <= moguceRadnoVreme.DatumIVremeZavrsetka)
                     )
                 {
+                    sacuvaj = false;
                     break;
                 }
 
