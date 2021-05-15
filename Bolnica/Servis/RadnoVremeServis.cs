@@ -4,19 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Bolnica.model;
 using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
+using Kontroler;
+using Model;
+using Repozitorijum;
+using Servis;
 
 namespace Bolnica.Servis
 {
     public class RadnoVremeServis
     {
         private SkladisteRadnihVremena skladisteRadnihVremena;
-
+        private SkladisteZaLekara skladisteZaLekara;
         public RadnoVremeServis()
         {
             skladisteRadnihVremena = new SkladisteRadnihVremena();
+            skladisteZaLekara = SkladisteZaLekara.GetInstance();
         }
         public List<RadnoVreme> GetAll()
         {
@@ -26,6 +32,24 @@ namespace Bolnica.Servis
         public bool Save(RadnoVreme moguceRadnoVreme)
         {
             bool sacuvaj = false;
+
+            if (moguceRadnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru)
+            {
+                Lekar lekar = skladisteZaLekara.getByJmbg(moguceRadnoVreme.JmbgLekara);
+                int brojDanaZaOdmor = (int)Math.Ceiling((moguceRadnoVreme.DatumIVremeZavrsetka - moguceRadnoVreme.DatumIVremePocetka).TotalDays);
+                if (brojDanaZaOdmor > lekar.BrojSlobodnihDana)
+                {
+                    return false;
+                }
+                else
+                {
+                    lekar.BrojSlobodnihDana -= brojDanaZaOdmor;
+
+                    skladisteZaLekara.IzmeniLekara(moguceRadnoVreme.JmbgLekara, lekar);
+
+                }
+            }
+
 
             List<RadnoVreme> radnoVremeLekara = (List<RadnoVreme>) GetByJmbg(moguceRadnoVreme.JmbgLekara);
 

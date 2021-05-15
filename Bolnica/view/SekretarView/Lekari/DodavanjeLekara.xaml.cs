@@ -51,7 +51,8 @@ namespace Bolnica.view.SekretarView.Lekari
                 Grad = new Grad {Naziv = grad.Text},
                 Korisnik = new Korisnik {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
                 Pol = Pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
-                Specijalizacija = (Specijalizacija)Specijalizacija.SelectedItem
+                Specijalizacija = (Specijalizacija)Specijalizacija.SelectedItem,
+                BrojSlobodnihDana = 25
                 
 
             };

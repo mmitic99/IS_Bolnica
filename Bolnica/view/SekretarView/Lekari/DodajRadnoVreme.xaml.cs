@@ -27,7 +27,9 @@ namespace Bolnica.view.SekretarView.Lekari
         private DataGrid radnoVremePrikaz;
         private string jmbgLekara;
         private RadnoVremeKontroler radnoVremeKontroler;
-        public DodajRadnoVreme(DataGrid radnoVremePrikaz, string jmbgLekara)
+        private LekarKontroler lekarKontroler;
+        private Label odmorLabela;
+        public DodajRadnoVreme(DataGrid radnoVremePrikaz, string jmbgLekara, Label odmorLabela)
         {
             InitializeComponent();
             VremePocetka.ItemsSource = Enumerable.Range(00, 24).Select(i => (DateTime.MinValue.AddHours(i)).ToString("HH:mm"));
@@ -35,9 +37,11 @@ namespace Bolnica.view.SekretarView.Lekari
             VremePocetka.SelectedIndex = 0;
             VremeKraja.SelectedIndex = 0;
 
+            this.odmorLabela = odmorLabela;
             this.radnoVremePrikaz = radnoVremePrikaz;
             this.jmbgLekara = jmbgLekara;
             radnoVremeKontroler = new RadnoVremeKontroler();
+            lekarKontroler = new LekarKontroler();
         }
 
         private void Potvrdi_OnClickdi_Click(object sender, RoutedEventArgs e)
@@ -84,6 +88,7 @@ namespace Bolnica.view.SekretarView.Lekari
                         {
                             this.Close();
                             radnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
+                            odmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;
                         }
                         else
                         {

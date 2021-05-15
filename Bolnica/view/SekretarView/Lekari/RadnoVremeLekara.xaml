@@ -29,6 +29,9 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <Label VerticalAlignment="Center" Margin="50,0,0,0">Broj preostalih dana za odmor: </Label>
+            <Label x:Name="OdmorLabela" VerticalAlignment="Center"></Label>
+            <Button Background="Transparent" VerticalAlignment="Center" BorderThickness="0" Click="dodajSlobodneDane_Click">+</Button>
         </StackPanel>
         
         <DataGrid Grid.Row="1" Name="RadnoVremePrikaz" CanUserAddRows="false" 

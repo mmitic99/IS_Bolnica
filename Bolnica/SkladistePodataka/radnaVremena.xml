@@ -15,13 +15,6 @@
     <StatusRadnogVremena>Radi</StatusRadnogVremena>
   </RadnoVreme>
   <RadnoVreme>
-    <IdRadnogVremena>NaOdmoru453620.5.2021. 00:00:00</IdRadnogVremena>
-    <JmbgLekara>4536</JmbgLekara>
-    <DatumIVremePocetka>2021-05-20T00:00:00</DatumIVremePocetka>
-    <DatumIVremeZavrsetka>2021-05-31T00:00:00</DatumIVremeZavrsetka>
-    <StatusRadnogVremena>NaOdmoru</StatusRadnogVremena>
-  </RadnoVreme>
-  <RadnoVreme>
     <IdRadnogVremena>Radi453615.5.2021. 12:00:00</IdRadnogVremena>
     <JmbgLekara>4536</JmbgLekara>
     <DatumIVremePocetka>2021-05-15T12:00:00</DatumIVremePocetka>
@@ -55,5 +48,26 @@
     <DatumIVremePocetka>2021-05-20T08:00:00</DatumIVremePocetka>
     <DatumIVremeZavrsetka>2021-05-23T16:00:00</DatumIVremeZavrsetka>
     <StatusRadnogVremena>Radi</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>NaOdmoru78976113.5.2021. 00:00:00</IdRadnogVremena>
+    <JmbgLekara>7897611</JmbgLekara>
+    <DatumIVremePocetka>2021-05-03T00:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-10T00:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>NaOdmoru</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>NaOdmoru453624.5.2021. 00:00:00</IdRadnogVremena>
+    <JmbgLekara>4536</JmbgLekara>
+    <DatumIVremePocetka>2021-05-24T00:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-28T00:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>NaOdmoru</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>NaOdmoru6095.7.2021. 00:00:00</IdRadnogVremena>
+    <JmbgLekara>609</JmbgLekara>
+    <DatumIVremePocetka>2021-07-05T00:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-07-12T00:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>NaOdmoru</StatusRadnogVremena>
   </RadnoVreme>
 </ArrayOfRadnoVreme>

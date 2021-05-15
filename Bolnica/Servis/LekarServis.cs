@@ -7,6 +7,7 @@ using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using static Bolnica.DTO.ReceptDTO;
 
 namespace Servis
@@ -30,6 +31,7 @@ namespace Servis
         public LekarServis()
         {
             skladisteZaLekara = SkladisteZaLekara.GetInstance();
+            radnoVremeServis = new RadnoVremeServis();
             instance = this;
         }
 
@@ -59,6 +61,12 @@ namespace Servis
         {
             // TODO: implement
             return false;
+        }
+
+        public void IzmeniLekara(string jmbg, Lekar lekar)
+        {
+            ObrisiLekara(jmbg);
+            Save(lekar);
         }
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
@@ -179,7 +187,7 @@ namespace Servis
 
         public void Save(Lekar lekar)
         {
-            // TODO: implement
+            skladisteZaLekara.Save(lekar);
         }
 
         public void SaveAll(List<Lekar> lekari)
@@ -216,6 +224,6 @@ namespace Servis
             return terminiInt;
         }
 
-        private RadnoVremeServis radnoVremeServis = new RadnoVremeServis();
+        private RadnoVremeServis radnoVremeServis;
     }
 }

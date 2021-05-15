@@ -2,12 +2,35 @@
 <ArrayOfLekar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Lekar>
     <Grad>
-      <drzava>
-        <Naziv>Srbija</Naziv>
-        <Oznaka>SRB</Oznaka>
-      </drzava>
+      <drzava />
       <Naziv>Beograd</Naziv>
-      <PostanskiBroj>2300</PostanskiBroj>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>609</KorisnickoIme>
+      <Lozinka>Dunja</Lozinka>
+    </Korisnik>
+    <Ime>Dunja</Ime>
+    <Prezime>Jovanovic</Prezime>
+    <Jmbg>609</Jmbg>
+    <BrojTelefona>123123</BrojTelefona>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>25</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
+    <Specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </Specijalizacija>
+    <FullName>dr Dunja Jovanovic</FullName>
+    <ImeiSpecijalizacija>dr Dunja Jovanovic- opšta medicina</ImeiSpecijalizacija>
+    <IdOrdinacija>0</IdOrdinacija>
+  </Lekar>
+  <Lekar>
+    <Grad>
+      <drzava />
+      <Naziv>Beograd</Naziv>
     </Grad>
     <Korisnik>
       <KorisnickoIme>6667</KorisnickoIme>
@@ -21,7 +44,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email>mail</Email>
     <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <BrojSlobodnihDana>25</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
     <obavestenje />
     <Specijalizacija>
@@ -29,16 +52,39 @@
     </Specijalizacija>
     <FullName>dr Milos Marinkovic</FullName>
     <ImeiSpecijalizacija>dr Milos Marinkovic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>1</IdOrdinacija>
+    <IdOrdinacija>0</IdOrdinacija>
   </Lekar>
   <Lekar>
     <Grad>
-      <drzava>
-        <Naziv>Srbija</Naziv>
-        <Oznaka>SRB</Oznaka>
-      </drzava>
+      <drzava />
+      <Naziv>Zajecar</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>7897611</KorisnickoIme>
+      <Lozinka>Maja</Lozinka>
+    </Korisnik>
+    <Ime>Maja</Ime>
+    <Prezime>Balazevic</Prezime>
+    <Jmbg>7897611</Jmbg>
+    <BrojTelefona />
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>25</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
+    <Specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </Specijalizacija>
+    <FullName>dr Maja Balazevic</FullName>
+    <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
+    <IdOrdinacija>0</IdOrdinacija>
+  </Lekar>
+  <Lekar>
+    <Grad>
+      <drzava />
       <Naziv>Beograd</Naziv>
-      <PostanskiBroj>2300</PostanskiBroj>
     </Grad>
     <Korisnik>
       <KorisnickoIme>4536</KorisnickoIme>
@@ -52,76 +98,13 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
     <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <BrojSlobodnihDana>30</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
-    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>
     <FullName>dr Miroslav Mi</FullName>
     <ImeiSpecijalizacija>dr Miroslav Mi- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>2</IdOrdinacija>
-  </Lekar>
-  <Lekar>
-    <Grad>
-      <drzava>
-        <Naziv>Srbija</Naziv>
-        <Oznaka>SRB</Oznaka>
-      </drzava>
-      <Naziv>Beograd</Naziv>
-      <PostanskiBroj>2300</PostanskiBroj>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>609</KorisnickoIme>
-      <Lozinka>Dunja</Lozinka>
-    </Korisnik>
-    <Ime>Dunja</Ime>
-    <Prezime>Jovanovic</Prezime>
-    <Jmbg>609</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>0</BrojSlobodnihDana>
-    <NaOdmoru>false</NaOdmoru>
-    <obavestenje />
-    <Specijalizacija>
-      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </Specijalizacija>
-    <FullName>dr Dunja Jovanovic</FullName>
-    <ImeiSpecijalizacija>dr Dunja Jovanovic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>3</IdOrdinacija>
-  </Lekar>
-  <Lekar>
-    <Grad>
-      <drzava>
-        <Naziv>Srbija</Naziv>
-        <Oznaka>SRB</Oznaka>
-      </drzava>
-      <Naziv>Zajecar</Naziv>
-      <PostanskiBroj>2300</PostanskiBroj>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>78</KorisnickoIme>
-      <Lozinka>Maja</Lozinka>
-    </Korisnik>
-    <Ime>Maja</Ime>
-    <Prezime>Balazevic</Prezime>
-    <Jmbg>7897611</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>0</BrojSlobodnihDana>
-    <NaOdmoru>false</NaOdmoru>
-    <obavestenje />
-    <Specijalizacija>
-      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </Specijalizacija>
-    <FullName>dr Maja Balazevic</FullName>
-    <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>4</IdOrdinacija>
+    <IdOrdinacija>0</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

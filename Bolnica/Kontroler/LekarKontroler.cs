@@ -94,5 +94,11 @@ namespace Kontroler
         {
             return lekarServis.ObrisiLekara(jmbg);
         }
+
+        public bool IzmeniLekara(string jmbgLekara, Lekar lekar)
+        {
+            lekarServis.IzmeniLekara(jmbgLekara, lekar);
+            return true;
+        }
     }
 }

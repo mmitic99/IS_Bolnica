@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Bolnica.Kontroler;
 using Bolnica.model;
 using Bolnica.model.Enum;
+using Kontroler;
+using Model;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -23,6 +25,7 @@ namespace Bolnica.view.SekretarView.Lekari
     public partial class RadnoVremeLekara : Window
     {
         private RadnoVremeKontroler radnoVremeKontroler;
+        private LekarKontroler lekarKontroler;
         private string jmbgLekara;
         public RadnoVremeLekara(string jmbgLekara)
         {
@@ -30,13 +33,15 @@ namespace Bolnica.view.SekretarView.Lekari
             this.Owner = App.Current.MainWindow;
             this.jmbgLekara = jmbgLekara;
             radnoVremeKontroler = new RadnoVremeKontroler();
+            lekarKontroler = new LekarKontroler();
 
             RadnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
+            OdmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;
         }
 
         private void dodaj_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodajRadnoVreme(RadnoVremePrikaz, jmbgLekara);
+            var s = new DodajRadnoVreme(RadnoVremePrikaz, jmbgLekara, OdmorLabela);
             s.ShowDialog();
         }
 
@@ -62,6 +67,14 @@ namespace Bolnica.view.SekretarView.Lekari
                 MessageBox.Show("Morate izabrati radno vreme koje želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
+        }
+
+        private void dodajSlobodneDane_Click(object sender, RoutedEventArgs e)
+        {
+            Lekar lekar = lekarKontroler.GetByJmbg(jmbgLekara);
+            lekar.BrojSlobodnihDana += 1;
+            lekarKontroler.IzmeniLekara(jmbgLekara, lekar);
+            OdmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;
         }
     }
 }

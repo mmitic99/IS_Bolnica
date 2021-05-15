@@ -53,6 +53,22 @@ namespace Repozitorijum
             }
             return lekar1;
         }
+
+        public void IzmeniLekara(string jmbgLekara, Lekar lekar)
+        {
+            List<Lekar> lekari = GetAll();
+            foreach (Lekar lekar1 in lekari)
+            {
+                if (lekar1.Jmbg.Equals(jmbgLekara))
+                {
+                    lekari.Remove(lekar1);
+                    lekari.Add(lekar);
+                    break;
+                }
+            }
+            SaveAll(lekari);
+        }
+
         public void Save(Lekar lekar)
         {
             List<Lekar> lekari = GetAll();

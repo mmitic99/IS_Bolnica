@@ -33,7 +33,7 @@ namespace Bolnica.view.SekretarView.Lekari
             specijalizacijaKontroler = new SpecijalizacijaKontroler();
 
             this.lekariPrikaz = lekariPrikaz;
-            this.lekar = (Lekar)lekariPrikaz.SelectedItem;
+            this.lekar = lekarKontroler.GetByJmbg(((Lekar) lekariPrikaz.SelectedItem).Jmbg);
             jmbg.Text = lekar.Jmbg;
             ime.Text = lekar.Ime;
             prezime.Text = lekar.Prezime;
@@ -65,7 +65,49 @@ namespace Bolnica.view.SekretarView.Lekari
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Lekar noviLekar = new Lekar()
+            {
+                Ime = ime.Text,
+                Prezime = prezime.Text,
+                Jmbg = jmbg.Text,
+                Adresa = adresa.Text,
+                BrojTelefona = tel.Text,
+                Email = email.Text,
+                Grad = new Grad { Naziv = grad.Text },
+                Korisnik = new Korisnik { KorisnickoIme = jmbg.Text, Lozinka = ime.Text },
+                Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
+                Specijalizacija = (Specijalizacija)Specijalizacija.SelectedItem,
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana
+
+            };
+            if (datum.SelectedDate != null)
+            {
+                noviLekar.DatumRodjenja = (DateTime)datum.SelectedDate;
+            }
+            else
+            {
+                noviLekar.DatumRodjenja = DateTime.Now;
+            }
+
+
+            if (!noviLekar.Jmbg.Trim().Equals("") && !noviLekar.Ime.Trim().Equals("") && !noviLekar.Prezime.Trim().Equals(""))
+            {
+                bool uspesno = lekarKontroler.IzmeniLekara(lekar.Jmbg, noviLekar);
+                if (uspesno)
+                {
+                    lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    jmbg.Focus();
+                }
+            }
+            else if (noviLekar.Jmbg.Trim().Equals("") || noviLekar.Ime.Trim().Equals("") || noviLekar.Prezime.Trim().Equals(""))
+            {
+                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void otkazi_Click(object sender, RoutedEventArgs e)
