@@ -39,7 +39,7 @@ namespace Bolnica.view.LekarView
         {
             InitializeComponent();
             instance = this;
-            LekariBox.ItemsSource = new ObservableCollection<Lekar>(LekarKontroler.getInstance().GetAll());
+            LekariBox.ItemsSource = new ObservableCollection<LekarDTO>(LekarKontroler.getInstance().GetAll());
             LekariBox.SelectedIndex = 0;
             jmbgPacijenta = jmbg;
             TerminBox.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));

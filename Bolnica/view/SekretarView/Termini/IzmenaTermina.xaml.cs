@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Bolnica.DTOs;
@@ -169,6 +170,7 @@ namespace Bolnica.view.SekretarView.Termini
                 terminKontroler.IzmeniTermin(noviTermin, noviTermin);
 
                 terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+                SekretarWindow.SortirajDataGrid(terminiPrikaz, 0, ListSortDirection.Ascending);
 
                 this.Close();
             }

@@ -2,6 +2,7 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Bolnica.DTOs;
 
 namespace Kontroler
 {
@@ -20,7 +21,15 @@ namespace Kontroler
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            return sekretarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            Sekretar sekretar = (Sekretar)sekretarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            return new SekretarDTO()
+            {
+                Jmbg = sekretar.Jmbg, Ime = sekretar.Ime, Prezime = sekretar.Prezime,
+                BracnoStanje = sekretar.BracnoStanje, Adresa = sekretar.Adresa,
+                BrojSlobodnihDana = sekretar.BrojSlobodnihDana, Pol = sekretar.Pol,
+                BrojTelefona = sekretar.BrojTelefona, DatumRodjenja = sekretar.DatumRodjenja, Email = sekretar.Email,
+                Grad = sekretar.Grad, Korisnik = sekretar.Korisnik
+            };
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)

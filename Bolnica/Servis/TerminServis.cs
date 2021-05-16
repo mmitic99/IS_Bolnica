@@ -46,9 +46,9 @@ namespace Servis
             return true;
         }
 
-        public bool OtkaziTermin(Model.Termin termin)
+        public bool OtkaziTermin(String IdTermina)
         {
-            skladisteZaTermine.RemoveByID(termin.IDTermina);
+            skladisteZaTermine.RemoveByID(IdTermina);
             return true;
         }
 
@@ -59,42 +59,40 @@ namespace Servis
             {
                 stariTermin = SkladisteZaTermine.getInstance().getById(stariIdTermina);
                 skladisteZaTermine.RemoveByID(stariIdTermina);
-
             }
             else
             {
                 stariTermin = skladisteZaTermine.getById(termin.IDTermina);
                 skladisteZaTermine.RemoveByID(termin.IDTermina);
             }
-            bool uspesno = true;
-
             termin.IDTermina = termin.generateRandId();
+            skladisteZaTermine.Save(termin);
 
-            Obavestenje obavestenjePacijent = new Obavestenje
+            GenerisiObavestenjaZaIzmenuTermina(termin, stariTermin);
+            return true;
+        }
+
+        private void GenerisiObavestenjaZaIzmenuTermina(Termin termin, Termin stariTermin)
+        {
+            skladisteZaObavestenja.Save(new Obavestenje
             {
                 JmbgKorisnika = termin.JmbgPacijenta,
                 Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
-                " je pomeren na " + termin.DatumIVremeTermina + ".",
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " +
+                          stariTermin.DatumIVremeTermina + "" +
+                          " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now,
                 Podsetnik = false
+            });
 
-            };
-            skladisteZaObavestenja.Save(obavestenjePacijent);
-
-            Obavestenje obavestenjeLekar = new Obavestenje
+            skladisteZaObavestenja.Save(new Obavestenje
             {
                 JmbgKorisnika = termin.JmbgLekara,
                 Naslov = "Izmena zakazanog termina",
                 Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
-                " je pomeren na " + termin.DatumIVremeTermina + ".",
+                          " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now
-            };
-            skladisteZaObavestenja.Save(obavestenjeLekar);
-
-            skladisteZaTermine.Save(termin);
-
-            return uspesno;
+            });
         }
 
         internal List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
@@ -131,17 +129,17 @@ namespace Servis
         public List<Termin> nadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
             List<Termin> moguciTermini = new List<Termin>();
-            if (parametri.Prioritet == 0) //nema prioritet
+            switch (parametri.Prioritet)
             {
-                moguciTermini = NadjiSveTermineBezPriotiteta(parametri);
-            }
-            else if (parametri.Prioritet == 1)
-            {
-                moguciTermini = NadjiSveTermineSaPriritetomIzabranogLekara(parametri);
-            }
-            else if (parametri.Prioritet == 2)
-            {
-                moguciTermini = NadjiSveTermineSaPriritetomIzabranogVremena(parametri);
+                case 0:
+                    moguciTermini = NadjiSveTermineBezPriotiteta(parametri);
+                    break;
+                case 1:
+                    moguciTermini = NadjiSveTermineSaPriritetomIzabranogLekara(parametri);
+                    break;
+                case 2:
+                    moguciTermini = NadjiSveTermineSaPriritetomIzabranogVremena(parametri);
+                    break;
             }
             return moguciTermini;
         }
@@ -360,7 +358,7 @@ namespace Servis
                 List<Termin> personalizovaniPredlozeniTermini = new List<Termin>();
                 foreach (Termin termin in parametri.PossibleAppointmentsTimings)
                 {
-                    if (PacijentServis.getInstance().DaLiJePacijentSlobodan(new ParamsToCheckAvailabilityOfPatientDTO(parametri.Id, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina)))
+                    if (PacijentServis.GetInstance().DaLiJePacijentSlobodan(new ParamsToCheckAvailabilityOfPatientDTO(parametri.Id, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina)))
                     {
                         termin.JmbgPacijenta = parametri.Id;
                         termin.opisTegobe = parametri.SymptomsOfIllness;

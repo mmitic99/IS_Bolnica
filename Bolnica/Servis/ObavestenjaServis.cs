@@ -69,7 +69,7 @@ namespace Servis
 
         public bool napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
         {
-            Pacijent pacijent = PacijentServis.getInstance().GetByJmbg(jmbgPacijenta);
+            Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(jmbgPacijenta);
             //ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
             Obavestenje obavestenje = new Obavestenje()
             {
@@ -85,7 +85,7 @@ namespace Servis
 
         internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
         {
-            Pacijent pacijent = PacijentServis.getInstance().GetByJmbg(JmbgPacijenta);
+            Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(JmbgPacijenta);
             Lekar lekar = LekarServis.getInstance().GetByJmbg(JmbgLekara);
             AnketeServis.GetInstance().GetAnketaOLekaru(JmbgLekara);
             PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
@@ -182,7 +182,7 @@ namespace Servis
              r.terminiUzimanjaTokomDana = terminiUzimanja;
              i.recepti.Add(r);
              p.zdravstveniKarton.izvestaj.Add(i);
-             PacijentServis.getInstance().izmeniPacijenta(p, p);*/
+             PacijentServis.getInstance().IzmeniPacijenta(p, p);*/
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
 

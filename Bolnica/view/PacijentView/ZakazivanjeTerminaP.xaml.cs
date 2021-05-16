@@ -45,7 +45,7 @@ namespace Bolnica.view.PacijentView
         {
             InitializeComponent();
             instance = this;
-            izabraniLekar.ItemsSource = new ObservableCollection<Lekar>( LekarKontroler.getInstance().GetAll());
+            izabraniLekar.ItemsSource = new ObservableCollection<LekarDTO>( LekarKontroler.getInstance().GetAll());
             izabraniLekar.SelectedIndex = 0;
             kalendar.DisplayDateStart = DateTime.Today.AddDays(1);
             kalendar.DisplayDateEnd = DateTime.Today.AddMonths(3); //moze se unapred zakazati termin 3 meseca

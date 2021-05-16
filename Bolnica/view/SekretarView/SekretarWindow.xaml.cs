@@ -1,13 +1,15 @@
 ﻿using Bolnica.view.SekretarView.Obavestenja;
 using Bolnica.viewActions;
 using Kontroler;
-using Model;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Threading;
 using Bolnica.view.SekretarView.Lekari;
 using Bolnica.view.SekretarView.Pacijenti;
 using Bolnica.view.SekretarView.Termini;
+using System.Windows.Controls;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView
 {
@@ -16,13 +18,13 @@ namespace Bolnica.view.SekretarView
     /// </summary>
     public partial class SekretarWindow : Window
     {
-        private Sekretar sekretar;
+        private SekretarDTO sekretar;
         private PacijentKontroler pacijentKontroler;
         private TerminKontroler terminKontroler;
         private ObavestenjaKontroler obavestenjaKontroler;
         private LekarKontroler lekarKontroler;
 
-        public SekretarWindow(Sekretar sekretar)
+        public SekretarWindow(SekretarDTO sekretar)
         {
             InitializeComponent();
 
@@ -32,108 +34,110 @@ namespace Bolnica.view.SekretarView
             lekarKontroler = new LekarKontroler();
 
             this.sekretar = sekretar;
+            ImeS.Content = sekretar.Ime;
+            PrezimeS.Content = sekretar.Prezime;
 
-            imeS.Content = sekretar.Ime;
-            prezimeS.Content = sekretar.Prezime;
-
-            pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+            PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-            
-            statusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(0.5);
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+
+            StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
+            DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
             timer.Tick += Timer_Tick;
             timer.Start();
-
-
-            obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
-
-
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            statusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
+            StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
         }
 
-        private void dodavanjeGostujuceg_Click(object sender, RoutedEventArgs e)
+        private void DodavanjeGostujuceg_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeGostujucegPacijenta(pacijentiPrikaz, terminiPrikaz);
+            var s = new DodavanjeGostujucegPacijenta(PacijentiPrikaz, TerminiPrikaz);
             s.ShowDialog();
         }
 
-        private void dodavanjePacijenta_Click(object sender, RoutedEventArgs e)
+        private void DodavanjePacijenta_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjePacijenta(pacijentiPrikaz);
+            var s = new DodavanjePacijenta(PacijentiPrikaz);
             s.ShowDialog();
         }
 
-        private void izmenaPacijenta_Click(object sender, RoutedEventArgs e)
+        private void IzmenaPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            if (pacijentiPrikaz.SelectedIndex != -1)
+            if (PacijentiPrikaz.SelectedIndex == -1)
             {
-                var s = new IzmenaPacijenta(pacijentiPrikaz);
-                s.ShowDialog();
+                MessageBox.Show("Morate izabrati pacijenta koga želite da izmenite.", "Greška", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati pacijenta koga želite da izmenite.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var s = new IzmenaPacijenta(PacijentiPrikaz);
+            s.ShowDialog();
+            
         }
 
-        private void brisanjePacijenta_Click(object sender, RoutedEventArgs e)
+        private void BrisanjePacijenta_Click(object sender, RoutedEventArgs e)
         {
-            if (pacijentiPrikaz.SelectedIndex != -1)
+            if (PacijentiPrikaz.SelectedIndex == -1)
             {
-                MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete odabranog pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBox.Show("Morate izabrati pacijenta koga želite da obrišete.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
 
-                if (izbor == MessageBoxResult.Yes)
+            var izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete odabranog pacijenta?",
+                "Brisanje pacijenta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (izbor == MessageBoxResult.Yes)
+            {
+                bool uspesno = pacijentKontroler.ObrisiPacijenta(((PacijentDTO) PacijentiPrikaz.SelectedItem).Jmbg);
+                if(uspesno)
                 {
-                    bool uspesno = pacijentKontroler.obrisiPacijenta(((Pacijent)pacijentiPrikaz.SelectedItem).Jmbg);
-
-                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    SekretarWindow.SortirajDataGrid(PacijentiPrikaz, 0, ListSortDirection.Ascending);
+                }
+                else
+                {
+                    MessageBox.Show("Brisanje nije uspešno.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati pacijenta koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
 
-        private void zakazivanjeTermina_Click(object sender, RoutedEventArgs e)
+        private void ZakazivanjeTermina_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false);
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null);
             s.ShowDialog();
         }
 
-        private void izmeniTermin_Click(object sender, RoutedEventArgs e)
+        private void IzmeniTermin_Click(object sender, RoutedEventArgs e)
         {
-            if (terminiPrikaz.SelectedIndex != -1)
+            if (TerminiPrikaz.SelectedIndex == -1)
             {
-                var s = new IzmenaTermina(terminiPrikaz);
-                s.ShowDialog();
+                MessageBox.Show("Morate izabrati termin koji želite da izmenite.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati termin koji želite da izmenite.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
+            var s = new IzmenaTermina(TerminiPrikaz);
+            s.ShowDialog();
         }
 
-        private void otkakazivanjeTermina_Click(object sender, RoutedEventArgs e)
+        private void OtkakazivanjeTermina_Click(object sender, RoutedEventArgs e)
         {
-            if (terminiPrikaz.SelectedIndex != -1)
-            {
-                MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?", "Otkazivanje termina", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (izbor == MessageBoxResult.Yes)
-                {
-                    terminKontroler.OtkaziTermin(((TerminPacijentLekar)terminiPrikaz.SelectedItem).termin);
-                    terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-                }
-            }
-            else
+            if (TerminiPrikaz.SelectedIndex == -1)
             {
                 MessageBox.Show("Morate izabrati termin koji želite da otkažete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?",
+                "Otkazivanje termina", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (izbor == MessageBoxResult.Yes)
+            {
+                terminKontroler.OtkaziTermin(((TerminPacijentLekar) TerminiPrikaz.SelectedItem).termin);
+                TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
 
@@ -144,134 +148,155 @@ namespace Bolnica.view.SekretarView
             s.Show();
         }
 
-        private void pacijenti_Selected(object sender, RoutedEventArgs e)
+        private void ZakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-        }
-
-        private void termini_Selected(object sender, RoutedEventArgs e)
-        {
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-        }
-
-        private void zakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, (Pacijent)pacijentiPrikaz.SelectedItem, false);
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, (PacijentDTO)PacijentiPrikaz.SelectedItem);
             s.ShowDialog();
         }
 
-        private void pocetna_Selected(object sender, RoutedEventArgs e)
-        {
-            obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
-        }
 
-        private void dodajObavestenje_Click(object sender, RoutedEventArgs e)
+        private void DodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeObavestenja(obavestenjaPrikaz);
+            var s = new DodavanjeObavestenja(ObavestenjaPrikaz);
             s.ShowDialog();
         }
 
-        private void izmeniObavestenje_Click(object sender, RoutedEventArgs e)
+        private void IzmeniObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            if (obavestenjaPrikaz.SelectedIndex != -1)
+            if (ObavestenjaPrikaz.SelectedIndex == -1)
             {
-                var s = new IzmenaObavestenja(obavestenjaPrikaz);
-                s.ShowDialog();
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da izmenite.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati obaveštenje koje želite da izmenite.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var s = new IzmenaObavestenja(ObavestenjaPrikaz);
+            s.ShowDialog();
         }
 
-        private void obrisiObavestenje_Click(object sender, RoutedEventArgs e)
+        private void ObrisiObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            if(obavestenjaPrikaz.SelectedIndex != -1)
+            if (ObavestenjaPrikaz.SelectedIndex == -1)
             {
-                MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrano obaveštenje?", "Brisanje obaveštenja", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da obrišete.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
 
-                if (izbor == MessageBoxResult.Yes)
+            MessageBoxResult izbor =
+                MessageBox.Show("Da li ste sigurni da želite da obrišete izabrano obaveštenje?",
+                    "Brisanje obaveštenja", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (izbor == MessageBoxResult.Yes)
+            {
+                bool uspesno = obavestenjaKontroler.obrisiObavestenje((ObavestenjeDTO) ObavestenjaPrikaz.SelectedItem);
+                if (!uspesno)
                 {
-                    bool uspesno = obavestenjaKontroler.obrisiObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
-                obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+                    MessageBox.Show("Brisanje obaveštenja nije uspešno.", "Greška", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Morate izabrati obaveštenje koje želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+                ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
             }
         }
 
-        private void pogledajObavestenje_Click(object sender, EventArgs e)
+        private void PogledajObavestenje_Click(object sender, EventArgs e)
         {
-            if (obavestenjaPrikaz.SelectedIndex != -1)
+            if (ObavestenjaPrikaz.SelectedIndex == -1)
             {
-                var s = new PogledajObavestenje((Obavestenje)obavestenjaPrikaz.SelectedItem);
-                s.Show();
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da pogledate.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati obaveštenje koje želite da pogledate.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var s = new PogledajObavestenje((ObavestenjeDTO) ObavestenjaPrikaz.SelectedItem);
+            s.Show();
         }
 
-        private void Lekari_OnSelected(object sender, RoutedEventArgs e)
-        {
-            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-        }
-
-        private void dodavanjeLekara_Click(object sender, RoutedEventArgs e)
+        private void DodavanjeLekara_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeLekara(LekariPrikaz);
             s.ShowDialog();
         }
 
-        private void izmenaLekara_Click(object sender, RoutedEventArgs e)
+        private void IzmenaLekara_Click(object sender, RoutedEventArgs e)
         {
-            if (LekariPrikaz.SelectedIndex != -1)
+            if (LekariPrikaz.SelectedIndex == -1)
             {
-                var s = new IzmenaLekara(LekariPrikaz);
-                s.ShowDialog();
+                MessageBox.Show("Morate izabrati lekara koga želite da izmenite.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati lekara koga želite da izmenite.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var s = new IzmenaLekara(LekariPrikaz);
+            s.ShowDialog();
         }
 
-        private void brisanjeLekara_Click(object sender, RoutedEventArgs e)
+        private void BrisanjeLekara_Click(object sender, RoutedEventArgs e)
         {
-            if (LekariPrikaz.SelectedIndex != -1)
-            {
-                MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete odabranog lekara?", "Brisanje lekara", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (izbor == MessageBoxResult.Yes)
-                {
-                    bool uspesno = lekarKontroler.ObrisiLekara(((Lekar)LekariPrikaz.SelectedItem).Jmbg);
-                    if(uspesno)
-                        LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-                    else
-                    {
-                        MessageBox.Show("Lekar nije uspešno obrisan.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-            }
-            else
+            if (LekariPrikaz.SelectedIndex == -1)
             {
                 MessageBox.Show("Morate izabrati lekara koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da obrišete odabranog lekara?",
+                "Brisanje lekara", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (izbor == MessageBoxResult.Yes)
+            {
+                bool uspesno = lekarKontroler.ObrisiLekara(((LekarDTO) LekariPrikaz.SelectedItem).Jmbg);
+                if (!uspesno)
+                {
+                    MessageBox.Show("Lekar nije uspešno obrisan.", "Greška", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                    return;
+                }
+                LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
             }
         }
 
         private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, null, false, (Lekar)LekariPrikaz.SelectedItem);
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null, false, (LekarDTO)LekariPrikaz.SelectedItem);
             s.ShowDialog();
         }
 
-        private void radnoVremeLekara_Click(object sender, RoutedEventArgs e)
+        private void RadnoVremeLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new RadnoVremeLekara(((Lekar)LekariPrikaz.SelectedItem).Jmbg);
+            var s = new RadnoVremeLekara(((LekarDTO)LekariPrikaz.SelectedItem).Jmbg);
             s.ShowDialog();
+        }
+        private void Pocetna_Selected(object sender, RoutedEventArgs e)
+        {
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+        }
+
+        private void Pacijenti_Selected(object sender, RoutedEventArgs e)
+        {
+            PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+            SortirajDataGrid(PacijentiPrikaz, 0, ListSortDirection.Ascending);
+        }
+
+        private void Termini_Selected(object sender, RoutedEventArgs e)
+        {
+            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+            SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+        }
+        private void Lekari_Selected(object sender, RoutedEventArgs e)
+        {
+            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+            SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
+        }
+        public static void SortirajDataGrid(DataGrid dataGrid, int kolona, ListSortDirection sortDirection)
+        {
+            var column = dataGrid.Columns[kolona];
+            dataGrid.Items.SortDescriptions.Clear();
+            dataGrid.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, sortDirection));
+            foreach (var col in dataGrid.Columns)
+            {
+                col.SortDirection = null;
+            }
+            column.SortDirection = sortDirection;
+            dataGrid.Items.Refresh();
         }
     }
 }

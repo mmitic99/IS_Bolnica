@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Servis;
 
 namespace Bolnica.view.LekarView
 {
@@ -114,7 +115,7 @@ namespace Bolnica.view.LekarView
             Pacijent pacijent = (Pacijent)ComboBox1.SelectedItem;
             pacijent.zdravstveniKarton.Anamneze.Add(anamneza);
             Pacijent pacijent1 = pacijent;
-            PacijentKontroler.getInstance().izmeniPacijenta(pacijent, pacijent1);
+            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
             AnamnezaTxt.Clear();
 
         }

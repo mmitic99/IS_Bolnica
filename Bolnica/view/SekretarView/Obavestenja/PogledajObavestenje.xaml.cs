@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView.Obavestenja
 {
@@ -20,7 +21,7 @@ namespace Bolnica.view.SekretarView.Obavestenja
     /// </summary>
     public partial class PogledajObavestenje : Window
     {
-        public PogledajObavestenje(Obavestenje obavestenje)
+        public PogledajObavestenje(ObavestenjeDTO obavestenje)
         {
             InitializeComponent();
             datumIVremeObavestenja.Content += " " + obavestenje.VremeObavestenja.ToString("dd.MM.yyyy HH:mm");

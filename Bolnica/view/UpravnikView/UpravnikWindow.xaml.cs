@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -569,7 +570,7 @@ namespace Bolnica.view.UpravnikView
 
         private String GetJmbgLekaraZaValidaciju(int index)
         {
-            List<Lekar> lekari = LekarKontroler.getInstance().GetAll();
+            List<LekarDTO> lekari = LekarKontroler.getInstance().GetAll();
             return lekari[index].Jmbg;
         }
 

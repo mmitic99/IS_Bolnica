@@ -41,7 +41,7 @@ namespace Kontroler
 
         public bool OtkaziTermin(Model.Termin termin)
         {
-            return terminServis.OtkaziTermin(termin);
+            return terminServis.OtkaziTermin(termin.IDTermina);
         }
 
         public bool IzmeniTermin(Object termin, Object stariIdTermina = null)

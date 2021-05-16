@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Bolnica.DTOs;
@@ -22,7 +23,7 @@ namespace Bolnica.view.SekretarView.Termini
 
         private List<Termin> moguciTermini = new List<Termin>();
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, Pacijent izabraniPacijent, bool hitan = false, Lekar izabraniLekar = null)
+        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, PacijentDTO izabraniPacijent, bool hitan = false, LekarDTO izabraniLekar = null)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
@@ -103,6 +104,7 @@ namespace Bolnica.view.SekretarView.Termini
                 terminKontroler.ZakaziTermin(termin);
 
                 terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+                SekretarWindow.SortirajDataGrid(terminiPrikaz, 0, ListSortDirection.Ascending);
 
                 this.Close();
             }

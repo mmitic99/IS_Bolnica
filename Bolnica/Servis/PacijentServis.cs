@@ -10,7 +10,7 @@ namespace Servis
     public class PacijentServis : KorisnikServis
     {
         public static PacijentServis instance = null;
-        public static PacijentServis getInstance()
+        public static PacijentServis GetInstance()
         {
             if(instance == null)
             {
@@ -29,23 +29,16 @@ namespace Servis
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
-            bool uspesno = true;
 
             for (int i = 0; i < pacijenti.Count; i++)
             {
                 if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
                 {
-                    uspesno = false;
-                    return uspesno;
+                    return false;
                 }
             }
-
-            if (uspesno)
-            {
-                skladistePacijenta.Save(pacijent);
-            }
-
-            return uspesno;
+            skladistePacijenta.Save(pacijent);
+            return true;
         }
 
         public bool DodajAlergen(String alergen)
@@ -75,24 +68,17 @@ namespace Servis
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
-
-            Pacijent pacijent = new Pacijent();
-
-            foreach (Pacijent pacijent1 in pacijenti)
+            foreach (Pacijent pacijent in pacijenti)
             {
-                if (pacijent1.Korisnik.KorisnickoIme.Equals(korisnickoIme))
+                if (pacijent.Korisnik.KorisnickoIme.Equals(korisnickoIme) && pacijent.Korisnik.Lozinka.Equals(lozinka))
                 {
-                    pacijent = pacijent1;
-                    if (pacijent1.Korisnik.Lozinka.Equals(lozinka))
-                    {
-                        return pacijent;
-                    }
+                    return pacijent;
                 }
             }
             return null;
         }
 
-        public List<Recept> dobaviReceptePacijenta(string jmbg)
+        public List<Recept> DobaviReceptePacijenta(string jmbg)
         {
             List<Recept> receptiPacijenta = new List<Recept>();
             Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
@@ -115,41 +101,21 @@ namespace Servis
                 if (pacijent.Jmbg.Equals(jmbg))
                 {
                     uspesno = pacijenti.Remove(pacijent);
+                    skladistePacijenta.SaveAll(pacijenti);
                     break;
                 }
             }
-            skladistePacijenta.SaveAll(pacijenti);
             return uspesno;
         }
 
-        public bool izmeniPacijenta(Pacijent stari, Pacijent novi)
+        public bool IzmeniPacijenta(Pacijent stari, Pacijent novi)
         {
-            bool uspesno = true;
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
-
-            for (int i = 0; i < pacijenti.Count; i++)
-            {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(stari.Jmbg))
-                {
-                    pacijenti.RemoveAt(i);
-                    break;
-                }
-            }
-            for (int i = 0; i < pacijenti.Count; i++)
-            {
-                if (pacijenti.ElementAt(i).Jmbg.Equals(novi.Jmbg))
-                {
-                    uspesno = false;
-                    return uspesno;
-                }
-            }
-
+            bool uspesno = ObrisiPacijenta(stari.Jmbg);
             if (uspesno)
             {
-                pacijenti.Add(novi);
-                skladistePacijenta.SaveAll(pacijenti);
+                uspesno = RegistrujPacijenta(novi);
             }
-
             return uspesno;
         }
 
@@ -165,28 +131,49 @@ namespace Servis
 
         public bool DaLiJePacijentSlobodan(ParamsToCheckAvailabilityOfPatientDTO parametri)
         {
-            bool slobodan = true;
             List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(parametri.Id);
-            foreach (Termin t in terminiPacijenta)
+            foreach (Termin termin in terminiPacijenta)
             {
-                if (parametri.startTime >= t.DatumIVremeTermina && parametri.startTime <= (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) //da li pocetak upada
-                    && (parametri.startTime.AddMinutes(parametri.durationInMinutes)) > t.DatumIVremeTermina && (parametri.startTime.AddMinutes(parametri.durationInMinutes)) < (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina))) //da li kraj upada
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (t.DatumIVremeTermina > parametri.startTime && (t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < (parametri.startTime.AddMinutes(parametri.durationInMinutes))) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
-                {
-                    slobodan = false;
-                    break;
-                }
-                if (parametri.startTime.Equals(t.DatumIVremeTermina))
-                {
-                    slobodan = false;
-                    break;
-                }
+                if (DaLiPocetakIliKrajTerminaUpadaju(parametri, termin)) return false;
+
+                if (DaLiJeZakazaniTerminUnutarNovogTermina(parametri, termin)) return false;
+
+                if (DaLiSuTerminiJednaki(parametri, termin)) return false;
             }
-            return slobodan;
+            return true;
+        }
+
+        private static bool DaLiPocetakIliKrajTerminaUpadaju(ParamsToCheckAvailabilityOfPatientDTO parametri, Termin termin)
+        {
+            if (parametri.startTime >= termin.DatumIVremeTermina && parametri.startTime <=(termin.DatumIVremeTermina.AddMinutes(termin.TrajanjeTermina)) //da li pocetak upada
+                && (parametri.startTime.AddMinutes(parametri.durationInMinutes)) > termin.DatumIVremeTermina &&
+                (parametri.startTime.AddMinutes(parametri.durationInMinutes)) < (termin.DatumIVremeTermina.AddMinutes(termin.TrajanjeTermina))) //da li kraj upada
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool DaLiJeZakazaniTerminUnutarNovogTermina(ParamsToCheckAvailabilityOfPatientDTO parametri,
+            Termin termin)
+        {
+            if (termin.DatumIVremeTermina > parametri.startTime && (termin.DatumIVremeTermina.AddMinutes(termin.TrajanjeTermina)) <
+                (parametri.startTime.AddMinutes(parametri.durationInMinutes))) 
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool DaLiSuTerminiJednaki(ParamsToCheckAvailabilityOfPatientDTO parametri, Termin termin)
+        {
+            if (parametri.startTime.Equals(termin.DatumIVremeTermina))
+            {
+                return true;
+            }
+            return false;
         }
 
         public Pacijent GetByJmbg(string jmbg)

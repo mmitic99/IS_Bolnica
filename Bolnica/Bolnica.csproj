@@ -85,6 +85,10 @@
     <Compile Include="Commands\SekretarCommands.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
+    <Compile Include="DTOs\LekarDTO.cs" />
+    <Compile Include="DTOs\ObavestenjeDTO.cs" />
+    <Compile Include="DTOs\PacijentDTO.cs" />
+    <Compile Include="DTOs\SekretarDTO.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="DTO\LekDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,7 @@ namespace Bolnica.view.SekretarView.Lekari
                 if (uspesno)
                 {
                     lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                    SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
                     this.Close();
                 }
                 else

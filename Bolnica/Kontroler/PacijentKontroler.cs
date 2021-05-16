@@ -2,22 +2,23 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Bolnica.DTOs;
 
 namespace Kontroler
 {
     public class PacijentKontroler : KorisnikKontroler
     {
+        public PacijentServis pacijentServis;
         public static PacijentKontroler instance = null;
-        public static PacijentKontroler getInstance()
+
+        public static PacijentKontroler GetInstance()
         {
             if (instance == null)
             {
                 return new PacijentKontroler();
             }
-            else
-            {
-                return instance;
-            }
+
+            return instance;
         }
         public PacijentKontroler()
         {
@@ -26,9 +27,24 @@ namespace Kontroler
             instance = this;
         }
 
-        public bool RegistrujPacijenta(Pacijent pacijent)
+        public bool RegistrujPacijenta(PacijentDTO pacijent)
         {
-            return pacijentServis.RegistrujPacijenta(pacijent);
+            return pacijentServis.RegistrujPacijenta(new Pacijent(){
+                Ime = pacijent.Ime,
+                Prezime = pacijent.Prezime,
+                BracnoStanje = pacijent.BracnoStanje,
+                Adresa = pacijent.Adresa,
+                Jmbg = pacijent.Jmbg,
+                Zanimanje = pacijent.Zanimanje,
+                Pol = pacijent.Pol,
+                DatumRodjenja = pacijent.DatumRodjenja,
+                BrojTelefona = pacijent.BrojTelefona,
+                Email = pacijent.Email,
+                Grad = pacijent.Grad,
+                Korisnik = pacijent.Korisnik,
+                Registrovan = pacijent.Registrovan,
+                zdravstveniKarton = pacijent.zdravstveniKarton
+            });
         }
 
         public bool DodajAlergen(String alergen)
@@ -70,9 +86,23 @@ namespace Kontroler
             throw new NotImplementedException();
         }
 
-        public List<Pacijent> GetAll()
+        public List<PacijentDTO> GetAll()
         {
-            return pacijentServis.GetAll();
+            List<Pacijent> pacijenti = pacijentServis.GetAll();
+            List<PacijentDTO> pacijentiDto = new List<PacijentDTO>();
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                pacijentiDto.Add(new PacijentDTO()
+                {
+                    Ime = pacijent.Ime, Prezime = pacijent.Prezime, BracnoStanje = pacijent.BracnoStanje,
+                    Adresa = pacijent.Adresa, Jmbg = pacijent.Jmbg, Zanimanje = pacijent.Zanimanje, Pol = pacijent.Pol,
+                    DatumRodjenja = pacijent.DatumRodjenja, BrojTelefona = pacijent.BrojTelefona,
+                    Email = pacijent.Email, Grad = pacijent.Grad, Korisnik = pacijent.Korisnik,
+                    Registrovan = pacijent.Registrovan, zdravstveniKarton = pacijent.zdravstveniKarton
+                });
+            }
+
+            return pacijentiDto;
         }
 
         public void Save(Pacijent pacijent)
@@ -85,24 +115,54 @@ namespace Kontroler
             // TODO: implement
         }
 
-        public bool izmeniPacijenta(Pacijent stari, Pacijent novi)
+        public bool IzmeniPacijenta(PacijentDTO stariPacijent, PacijentDTO noviPacijent)
         {
-            return pacijentServis.izmeniPacijenta(stari, novi);
+            return pacijentServis.IzmeniPacijenta(new Pacijent()
+            {
+                Ime = stariPacijent.Ime,
+                Prezime = stariPacijent.Prezime,
+                BracnoStanje = stariPacijent.BracnoStanje,
+                Adresa = stariPacijent.Adresa,
+                Jmbg = stariPacijent.Jmbg,
+                Zanimanje = stariPacijent.Zanimanje,
+                Pol = stariPacijent.Pol,
+                DatumRodjenja = stariPacijent.DatumRodjenja,
+                BrojTelefona = stariPacijent.BrojTelefona,
+                Email = stariPacijent.Email,
+                Grad = stariPacijent.Grad,
+                Korisnik = stariPacijent.Korisnik,
+                Registrovan = stariPacijent.Registrovan,
+                zdravstveniKarton = stariPacijent.zdravstveniKarton
+            }, new Pacijent()
+            {
+                Ime = noviPacijent.Ime,
+                Prezime = noviPacijent.Prezime,
+                BracnoStanje = noviPacijent.BracnoStanje,
+                Adresa = noviPacijent.Adresa,
+                Jmbg = noviPacijent.Jmbg,
+                Zanimanje = noviPacijent.Zanimanje,
+                Pol = noviPacijent.Pol,
+                DatumRodjenja = noviPacijent.DatumRodjenja,
+                BrojTelefona = noviPacijent.BrojTelefona,
+                Email = noviPacijent.Email,
+                Grad = noviPacijent.Grad,
+                Korisnik = noviPacijent.Korisnik,
+                Registrovan = noviPacijent.Registrovan,
+                zdravstveniKarton = noviPacijent.zdravstveniKarton
+            });
         }
 
-        public List<Recept> dobaviRecepePacijenta(string jmbg)
+        public List<Recept> DobaviRecepePacijenta(string jmbg)
         {
-            return pacijentServis.dobaviReceptePacijenta(jmbg);
+            return pacijentServis.DobaviReceptePacijenta(jmbg);
         }
-
-        public PacijentServis pacijentServis;
 
         public Pacijent GetByJmbg(string jmbg)
         {
             return pacijentServis.GetByJmbg(jmbg);
         }
 
-        public bool obrisiPacijenta(string jmbg)
+        public bool ObrisiPacijenta(string jmbg)
         {
             return pacijentServis.ObrisiPacijenta(jmbg);
         }

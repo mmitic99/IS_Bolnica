@@ -2,6 +2,7 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Bolnica.DTOs;
 
 namespace Kontroler
 {
@@ -44,9 +45,25 @@ namespace Kontroler
             obavestenjaServis.SaveAll(obavestenje);
         }
 
-        public List<Obavestenje> GetByJmbg(string jmbg)
+        public List<ObavestenjeDTO> GetByJmbg(string jmbg)
         {
-            return obavestenjaServis.GetByJmbg(jmbg);
+            List<Obavestenje> obavestenja = obavestenjaServis.GetByJmbg(jmbg);
+            List<ObavestenjeDTO> obavestenjaDto = new List<ObavestenjeDTO>();
+            foreach (Obavestenje obavestenje in obavestenja)
+            {
+                obavestenjaDto.Add(new ObavestenjeDTO(){
+                    JmbgKorisnika = obavestenje.JmbgKorisnika,
+                    Naslov = obavestenje.Naslov,
+                    Podsetnik = obavestenje.Podsetnik,
+                    Sadrzaj = obavestenje.Sadrzaj,
+                    Vidjeno = obavestenje.Vidjeno,
+                    VremeObavestenja = obavestenje.VremeObavestenja,
+                    anketaOLekaru = obavestenje.anketaOLekaru,
+                    kvartalnaAnketa = obavestenje.kvartalnaAnketa
+                });
+            }
+
+            return obavestenjaDto;
         }
 
         public List<Obavestenje> GetPodsetnici(string jmbg)
@@ -71,9 +88,15 @@ namespace Kontroler
 
         public Servis.ObavestenjaServis obavestenjaServis;
 
-        public bool obrisiObavestenje(Obavestenje obavestenje)
+        public bool obrisiObavestenje(ObavestenjeDTO obavestenje)
         {
-            return obavestenjaServis.obrisiObavestenje(obavestenje);
+            return obavestenjaServis.obrisiObavestenje(new Obavestenje()
+            {
+                JmbgKorisnika = obavestenje.JmbgKorisnika, Naslov = obavestenje.Naslov,
+                Podsetnik = obavestenje.Podsetnik, Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,
+                VremeObavestenja = obavestenje.VremeObavestenja, anketaOLekaru = obavestenje.anketaOLekaru,
+                kvartalnaAnketa = obavestenje.kvartalnaAnketa
+            });
         }
 
         internal void PosaljiKvartalnuAnketu()

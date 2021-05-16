@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Servis;
 
 namespace Bolnica.view.LekarView
 {
@@ -45,7 +46,7 @@ namespace Bolnica.view.LekarView
             Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(PacijentInfoPage.getInstance().Jmbg);
             Pacijent p1 = pacijent;
             pacijent.zdravstveniKarton.IzmenaAnamneze(anamneza1.IdAnamneze, txt1.Text);
-            PacijentKontroler.getInstance().izmeniPacijenta(pacijent, p1);
+            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, p1);
             //LekarWindow.getInstance().Frame1.Content = new AnamnezaPage(pacijent.Jmbg);
         }
     }

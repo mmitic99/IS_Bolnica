@@ -5,6 +5,7 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Bolnica.DTOs;
 using static Bolnica.DTO.ReceptDTO;
 
 namespace Kontroler
@@ -56,9 +57,33 @@ namespace Kontroler
             throw new NotImplementedException();
         }
 
-        public List<Lekar> GetAll()
+        public List<LekarDTO> GetAll()
         {
-            return LekarServis.getInstance().GetAll();
+            List<Lekar> lekari = lekarServis.GetAll();
+            List<LekarDTO> lekariDto = new List<LekarDTO>();
+            foreach (Lekar lekar in lekari)
+            {
+                lekariDto.Add(new LekarDTO()
+                {
+                    Ime = lekar.Ime,
+                    Prezime = lekar.Prezime,
+                    BracnoStanje = lekar.BracnoStanje,
+                    Adresa = lekar.Adresa,
+                    Jmbg = lekar.Jmbg,
+                    Zanimanje = lekar.Zanimanje,
+                    Pol = lekar.Pol,
+                    DatumRodjenja = lekar.DatumRodjenja,
+                    BrojTelefona = lekar.BrojTelefona,
+                    Email = lekar.Email,
+                    Grad = lekar.Grad,
+                    Korisnik = lekar.Korisnik,
+                    Specijalizacija = lekar.Specijalizacija,
+                    BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                    IdOrdinacija = lekar.IdOrdinacija
+                });
+            }
+
+            return lekariDto;
         }
 
         public void Save(Model.Lekar lekar)

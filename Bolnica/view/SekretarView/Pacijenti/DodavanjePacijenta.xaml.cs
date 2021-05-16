@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -20,12 +22,11 @@ namespace Bolnica.view.SekretarView.Pacijenti
         public DodavanjePacijenta(DataGrid pacijentiPrikaz)
         {
             InitializeComponent();
-            DataContext = new Pacijent();
+            DataContext = new PacijentDTO();
             this.pacijentiPrikaz = pacijentiPrikaz;
             pacijentKontroler = new PacijentKontroler();
             this.Owner = App.Current.MainWindow;
 
-            
             BracnoStanje.ItemsSource = bracnoStanjeMuskarac;
             BracnoStanje.SelectedIndex = 0;
 
@@ -33,7 +34,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = new Pacijent
+            PacijentDTO pacijent = new PacijentDTO
             {
                 Ime = ime.Text,
                 Prezime = prezime.Text,
@@ -64,6 +65,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 if (uspesno)
                 {
                     pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                    SekretarWindow.SortirajDataGrid(pacijentiPrikaz, 0, ListSortDirection.Ascending);
                     this.Close();
                 }
                 else

@@ -75,7 +75,7 @@ namespace Bolnica.view
 
         public void nabaviNovePodsetnike(object sender, EventArgs e)
         {
-            List<Recept> recepti= PacijentKontroler.getInstance().dobaviRecepePacijenta(pacijent.Jmbg);
+            List<Recept> recepti= PacijentKontroler.GetInstance().DobaviRecepePacijenta(pacijent.Jmbg);
             List<DateTime> terminiUzimanja = new List<DateTime>();
             int brojNovihPodsetnika = 0;
             if (recepti.Count > 0)
@@ -111,7 +111,7 @@ namespace Bolnica.view
 
         public void nabaviNovePodsetnike1()
         {
-            List<Recept> recepti = PacijentKontroler.getInstance().dobaviRecepePacijenta(pacijent.Jmbg);
+            List<Recept> recepti = PacijentKontroler.GetInstance().DobaviRecepePacijenta(pacijent.Jmbg);
             List<DateTime> terminiUzimanja = new List<DateTime>();
             int brojNovihPodsetnika = 0;
             if (recepti.Count > 0)

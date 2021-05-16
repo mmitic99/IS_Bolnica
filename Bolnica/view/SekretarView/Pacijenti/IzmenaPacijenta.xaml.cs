@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -14,7 +16,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
     public partial class IzmenaPacijenta : Window
     {
         private DataGrid pacijentiPrikaz;
-        private Pacijent pacijent;
+        private PacijentDTO pacijent;
         private ObservableCollection<String> alergeni;
         private PacijentKontroler pacijentKontroler; 
         private List<String> bracnoStanjeMuskarac = new List<string> { "neoženjen", "oženjen", "udovac", "razveden", "ostalo" };
@@ -27,7 +29,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
             pacijentKontroler = new PacijentKontroler();
 
             this.pacijentiPrikaz = pacijentiPrikaz;
-            this.pacijent = (Pacijent)pacijentiPrikaz.SelectedItem;
+            this.pacijent = (PacijentDTO)pacijentiPrikaz.SelectedItem;
             jmbg.Text = pacijent.Jmbg;
             ime.Text = pacijent.Ime;
             prezime.Text = pacijent.Prezime;
@@ -69,7 +71,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent noviPacijent = new Pacijent
+            PacijentDTO noviPacijent = new PacijentDTO
             {
                 Ime = ime.Text,
                 Prezime = prezime.Text,
@@ -109,17 +111,18 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
             if (!noviPacijent.Jmbg.Trim().Equals("") && !noviPacijent.Ime.Trim().Equals("") && !noviPacijent.Prezime.Trim().Equals(""))
             {
-                bool uspesno = pacijentKontroler.izmeniPacijenta(pacijent, noviPacijent);
-                if (uspesno)
+                bool uspesno = pacijentKontroler.IzmeniPacijenta(pacijent, noviPacijent);
+                if (!uspesno)
                 {
-                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     jmbg.Focus();
+                    return;
                 }
+
+                pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                SekretarWindow.SortirajDataGrid(pacijentiPrikaz, 0, ListSortDirection.Ascending);
+                this.Close();
             }
             else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {
@@ -140,14 +143,13 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
         private void obrisiA_Click(object sender, RoutedEventArgs e)
         {
-            if(alergeniList.SelectedIndex != -1)
+            if (alergeniList.SelectedIndex == -1)
             {
-                alergeni.RemoveAt(alergeniList.SelectedIndex);
+                MessageBox.Show("Morate izabrati alergen koji želite da obrišete.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Morate izabrati alergen koji želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            alergeni.RemoveAt(alergeniList.SelectedIndex);
         }
     }
 }

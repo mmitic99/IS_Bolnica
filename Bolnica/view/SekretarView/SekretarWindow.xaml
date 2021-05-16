@@ -12,23 +12,23 @@
         <RoutedUICommand x:Key="OdjavaCommand" Text="Ctrl+Alt+O"/>
     </Window.Resources>
     <Window.CommandBindings>
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="dodajObavestenje_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="dodavanjePacijenta_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}" Executed="dodavanjeGostujuceg_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminCommand}" Executed="zakazivanjeTermina_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajLekaraCommand}" Executed="dodavanjeLekara_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminPacijentuCommand}" Executed="zakazivanjeTerminaZaOdabranogPacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="DodajObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="DodavanjePacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}" Executed="DodavanjeGostujuceg_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminCommand}" Executed="ZakazivanjeTermina_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajLekaraCommand}" Executed="DodavanjeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminPacijentuCommand}" Executed="ZakazivanjeTerminaZaOdabranogPacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminLekaruCommand}" Executed="ZakazivanjeTerminaZaOdabranogLekara_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniObavestenjeCommand}" Executed="izmeniObavestenje_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}" Executed="izmenaPacijenta_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}" Executed="izmeniTermin_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniLekaraCommand}" Executed="izmenaLekara_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiObavestenjeCommand}" Executed="obrisiObavestenje_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiPacijentaCommand}" Executed="brisanjePacijenta_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}" Executed="otkakazivanjeTermina_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="brisanjeLekara_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="pogledajObavestenje_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="radnoVremeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniObavestenjeCommand}" Executed="IzmeniObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}" Executed="IzmenaPacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}" Executed="IzmeniTermin_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniLekaraCommand}" Executed="IzmenaLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiObavestenjeCommand}" Executed="ObrisiObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiPacijentaCommand}" Executed="BrisanjePacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}" Executed="OtkakazivanjeTermina_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="BrisanjeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="PogledajObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="RadnoVremeLekara_Click" />
         <CommandBinding Command="{StaticResource OdjavaCommand}" Executed="Odjava_Click"/>
     </Window.CommandBindings>
     <Window.InputBindings>
@@ -56,7 +56,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem HorizontalAlignment="Right">
-                <TextBlock x:Name="statusBar"/>
+                <TextBlock x:Name="StatusBar"/>
             </StatusBarItem>
         </StatusBar>
 
@@ -76,11 +76,11 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0"/>
-                <Border BorderBrush="LightGray" BorderThickness="1" Grid.ColumnSpan="2" Grid.Column="1"/>
+                <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="1"/>
 
                 <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,22,0,21" Height="62">
-                    <Label x:Name="imeS" FontSize="16" HorizontalAlignment="Center">Ime</Label>
-                    <Label x:Name="prezimeS" FontSize="16" HorizontalAlignment="Center">Prezime</Label>
+                    <Label x:Name="ImeS" FontSize="16" HorizontalAlignment="Center">Ime</Label>
+                    <Label x:Name="PrezimeS" FontSize="16" HorizontalAlignment="Center">Prezime</Label>
                 </StackPanel>
 
                 <Grid Grid.Column="1">
@@ -91,11 +91,11 @@
 
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
-                                Width="120" Height="40" Click="dodavanjeGostujuceg_Click">
+                                Width="120" Height="40" Click="DodavanjeGostujuceg_Click">
                             <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button>
                         <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
-                                Width="120" Height="40" Click="zakazivanjeTermina_Click">
+                                Width="120" Height="40" Click="ZakazivanjeTermina_Click">
                             Zakaži termin
                         </Button>
 
@@ -119,7 +119,7 @@
 
             </Grid>
 
-            <TabControl x:Name="tabovi" TabStripPlacement="Left" Grid.Row="1" Grid.Column="0" 
+            <TabControl x:Name="Tabovi" TabStripPlacement="Left" Grid.Row="1" Grid.Column="0" 
                         Grid.ColumnSpan="2">
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
@@ -136,7 +136,7 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem x:Name="pocetna" Width="100" Selector.Selected="pocetna_Selected">
+                <TabItem x:Name="Pocetna" Width="100" Selector.Selected="Pocetna_Selected">
                     <TabItem.Header>
                         <TextBlock Text="Početna" FontSize="20"></TextBlock>
                     </TabItem.Header>
@@ -158,27 +158,27 @@
                             <Label Grid.Row="0" FontSize="25" FontWeight="SemiBold" VerticalContentAlignment="Center">OBAVEŠTENJA:</Label>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="3">
-                                <Button x:Name="dodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Click="dodajObavestenje_Click">
+                                <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Click="DodajObavestenje_Click">
                                     <Image Source="/Images/add.png"/>
                                 </Button>
-                                <Button x:Name="izmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="izmeniObavestenje_Click">
+                                <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="IzmeniObavestenje_Click">
                                     <Image Source="/Images/draw.png"/>
                                 </Button>
-                                <Button x:Name="obrisiObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Obriši obaveštenje" Click="obrisiObavestenje_Click">
+                                <Button x:Name="ObrisiObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Obriši obaveštenje" Click="ObrisiObavestenje_Click">
                                     <Image Source="/Images/minus.png"/>
                                 </Button>
                             </StackPanel>
 
-                            <Button Grid.Row="1" HorizontalAlignment="Right" x:Name="pogledajObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,20,0" ToolTip="Pogledaj obaveštenje" Click="pogledajObavestenje_Click">
+                            <Button Grid.Row="1" HorizontalAlignment="Right" x:Name="PogledajObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,20,0" ToolTip="Pogledaj obaveštenje" Click="PogledajObavestenje_Click">
                                 <Image Source="/Images/eye.png"/>
                             </Button>
 
-                            <DataGrid x:Name="obavestenjaPrikaz" Grid.Row="2" HeadersVisibility="None"
+                            <DataGrid x:Name="ObavestenjaPrikaz" Grid.Row="2" HeadersVisibility="None"
                               Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
                                       Margin="5" BorderThickness="0" GridLinesVisibility="None">
                                 <DataGrid.Resources>
                                     <Style TargetType="DataGridRow">
-                                        <EventSetter Event="MouseDoubleClick" Handler="pogledajObavestenje_Click"/>
+                                        <EventSetter Event="MouseDoubleClick" Handler="PogledajObavestenje_Click"/>
                                     </Style>
                                 </DataGrid.Resources>
                                 <DataGrid.Columns>
@@ -212,7 +212,7 @@
                     </Grid>
 
                 </TabItem>
-                <TabItem  x:Name="pacijenti" Width="100" Selector.Selected="pacijenti_Selected">
+                <TabItem  x:Name="Pacijenti" Width="100" Selector.Selected="Pacijenti_Selected">
                     <TabItem.Header>
                         <TextBlock Text="Pacijenti" FontSize="20"></TextBlock>
                     </TabItem.Header>
@@ -223,14 +223,14 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
-                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjePacijenta_Click"/>
-                            <Button Content="Izmeni pacijenta" x:Name="izmeniPac" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaPacijenta_Click">
+                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="DodavanjePacijenta_Click"/>
+                            <Button Content="Izmeni pacijenta" x:Name="IzmeniPacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="IzmenaPacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=pacijentiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=PacijentiPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -238,13 +238,13 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjePacijenta_Click">
+                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="BrisanjePacijenta_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=pacijentiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=PacijentiPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -253,7 +253,7 @@
                                 </Button.Style>
                             </Button>
                         </StackPanel>
-                        <DataGrid Grid.Row="1" Name="pacijentiPrikaz" CanUserAddRows="false" 
+                        <DataGrid Grid.Row="1" Name="PacijentiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                                   VerticalContentAlignment="Center" FontSize="14" CanUserResizeRows="False">
@@ -265,16 +265,16 @@
                             </DataGrid.ColumnHeaderStyle>
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="jmbgP" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
-                                <DataGridTextColumn x:Name="imeP" Header="Ime" Binding="{Binding Ime}" Width="*"/>
-                                <DataGridTextColumn x:Name="prezimeP" Header="Prezime" Binding="{Binding Prezime}" Width="*"/>
-                                <DataGridTextColumn x:Name="datumRodjP" Header="Datum rođenja" Binding="{Binding DatumRodjenja, StringFormat={}{0:dd.MM.yyyy}}" Width="Auto"/>
-                                <DataGridTextColumn x:Name="polP" Header="Pol" Binding="{Binding Pol}" Width="*"/>
-                                <DataGridTextColumn x:Name="brTelP" Header="Broj telefona" Binding="{Binding BrojTelefona}" Width="*"/>
+                                <DataGridTextColumn x:Name="JmbgP" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
+                                <DataGridTextColumn x:Name="ImeP" Header="Ime" Binding="{Binding Ime}" Width="*"/>
+                                <DataGridTextColumn x:Name="PrezimeP" Header="Prezime" Binding="{Binding Prezime}" Width="*"/>
+                                <DataGridTextColumn x:Name="DatumRodjP" Header="Datum rođenja" Binding="{Binding DatumRodjenja, StringFormat={}{0:dd.MM.yyyy}}" Width="Auto"/>
+                                <DataGridTextColumn x:Name="PolP" Header="Pol" Binding="{Binding Pol}" Width="*"/>
+                                <DataGridTextColumn x:Name="BrTelP" Header="Broj telefona" Binding="{Binding BrojTelefona}" Width="*"/>
                                 <DataGridTemplateColumn Width="20">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Click="zakazivanjeTerminaZaOdabranogPacijenta_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin za pacijenta">
+                                            <Button Click="ZakazivanjeTerminaZaOdabranogPacijenta_Click" Width="20" Background="Transparent" ToolTip="Zakaži termin za pacijenta">
                                                 <Grid>
                                                     <Image Source="/Images/add_event.png"/>
                                                 </Grid>
@@ -287,7 +287,7 @@
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="termini" Width="100" Selector.Selected="termini_Selected">
+                <TabItem  x:Name="Termini" Width="100" Selector.Selected="Termini_Selected">
                     <TabItem.Header>
                         <TextBlock Text="Termini" FontSize="20"></TextBlock>
                     </TabItem.Header>
@@ -298,14 +298,14 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
-                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="zakazivanjeTermina_Click"/>
-                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="izmeniTermin_Click">
+                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="ZakazivanjeTermina_Click"/>
+                            <Button Content="Izmeni termin" x:Name="IzmeniTermin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="IzmeniTermin_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=terminiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=TerminiPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -313,13 +313,13 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="otkakazivanjeTermina_Click">
+                            <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="OtkakazivanjeTermina_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
                                         <Setter Property="Opacity" Value="1" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=terminiPrikaz}" Value="{x:Null}">
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=TerminiPrikaz}" Value="{x:Null}">
                                                 <Setter Property="IsEnabled" Value="False" />
                                                 <Setter Property="Opacity" Value="1" />
                                             </DataTrigger>
@@ -328,7 +328,7 @@
                                 </Button.Style>
                             </Button>
                         </StackPanel>
-                        <DataGrid Grid.Row="1" Name="terminiPrikaz" CanUserAddRows="false" 
+                        <DataGrid Grid.Row="1" Name="TerminiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                                   VerticalContentAlignment="Center" FontSize="14"  CanUserResizeRows="False">
@@ -340,9 +340,9 @@
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="datVrT" Header="Datum i vreme početka" Width="Auto" Binding="{Binding termin.DatumIVremeTermina, StringFormat=dd.MM.yyyy   HH:mm}"/>
-                                <DataGridTextColumn x:Name="vrstaT" Header="Vrsta" Width="70" Binding="{Binding termin.VrstaTermina}"/>
-                                <DataGridTextColumn x:Name="pacijentT" Header="Pacijent" Width="*">
+                                <DataGridTextColumn x:Name="DatVrT" Header="Datum i vreme početka" Width="Auto" Binding="{Binding termin.DatumIVremeTermina, StringFormat=dd.MM.yyyy   HH:mm}"/>
+                                <DataGridTextColumn x:Name="VrstaT" Header="Vrsta" Width="70" Binding="{Binding termin.VrstaTermina}"/>
+                                <DataGridTextColumn x:Name="PacijentT" Header="Pacijent" Width="*">
                                     <DataGridTextColumn.Binding>
                                         <MultiBinding StringFormat="{}{0} {1}">
                                             <Binding Path="pacijent.Ime"/>
@@ -350,7 +350,7 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="lekarT" Header="Lekar" Width="*">
+                                <DataGridTextColumn x:Name="LekarT" Header="Lekar" Width="*">
                                     <DataGridTextColumn.Binding>
                                         <MultiBinding StringFormat="{}{0} {1}">
                                             <Binding Path="lekar.Ime"/>
@@ -358,12 +358,12 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="prostorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.brojSobe}"/>
+                                <DataGridTextColumn x:Name="ProstorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.brojSobe}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="Lekari" Width="100" Selector.Selected="Lekari_OnSelected">
+                <TabItem  x:Name="Lekari" Width="100" Selector.Selected="Lekari_Selected">
                     <TabItem.Header>
                         <TextBlock Text="Lekari" FontSize="20"></TextBlock>
                     </TabItem.Header>
@@ -374,8 +374,8 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
-                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="dodavanjeLekara_Click"/>
-                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="izmenaLekara_Click">
+                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="DodavanjeLekara_Click"/>
+                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="IzmenaLekara_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -389,7 +389,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="brisanjeLekara_Click">
+                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="BrisanjeLekara_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
@@ -404,7 +404,7 @@
                                 </Button.Style>
                             </Button>
                             
-                            <Button Content="Radno vreme lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="radnoVremeLekara_Click">
+                            <Button Content="Radno vreme lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="RadnoVremeLekara_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />

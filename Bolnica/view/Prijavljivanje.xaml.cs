@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 
 namespace Bolnica.view
 {
@@ -85,7 +86,7 @@ namespace Bolnica.view
             }
             else if (uloga.Equals("s"))
             {
-                Sekretar prijavljeniSekretar = (Sekretar)sekretarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
+                SekretarDTO prijavljeniSekretar = (SekretarDTO)sekretarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
                 if (prijavljeniSekretar == null)
                 {

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 using Bolnica.view.SekretarView.Termini;
 using Kontroler;
 using Model;
@@ -26,7 +28,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = new Pacijent
+            PacijentDTO pacijent = new PacijentDTO
             {
                 Ime = ime.Text,
                 Prezime = prezime.Text,
@@ -51,25 +53,27 @@ namespace Bolnica.view.SekretarView.Pacijenti
             if (!pacijent.Jmbg.Trim().Equals("") && !pacijent.Ime.Trim().Equals("") && !pacijent.Prezime.Trim().Equals(""))
             {
                 bool uspesno = pacijentKontroler.RegistrujPacijenta(pacijent);
-                if (uspesno)
+                if (!uspesno)
                 {
-                    pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-                    System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Da li želite da zakažete hitan termin za ovog pacijenta?", "", System.Windows.Forms.MessageBoxButtons.YesNo);
-                    
-                    if(dialogResult == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, pacijent, true);
-                        s.Show();
-                    }
-                    
-                    this.Close();
-
-                }
-                else
-                {
-                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     jmbg.Focus();
+                    return;
                 }
+
+                pacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                SekretarWindow.SortirajDataGrid(pacijentiPrikaz, 0, ListSortDirection.Ascending);
+                System.Windows.Forms.DialogResult dialogResult =
+                    System.Windows.Forms.MessageBox.Show("Da li želite da zakažete hitan termin za ovog pacijenta?",
+                        "", System.Windows.Forms.MessageBoxButtons.YesNo);
+
+                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, pacijent, true);
+                    s.Show();
+                }
+
+                this.Close();
             }
             else if (pacijent.Jmbg.Trim().Equals("") || pacijent.Ime.Trim().Equals("") || pacijent.Prezime.Trim().Equals(""))
             {

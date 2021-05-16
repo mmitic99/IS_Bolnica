@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -27,7 +28,7 @@ namespace Bolnica.view.SekretarView.Termini
         {
             if (DodavanjePacijentaTerminuPrikaz.SelectedIndex != -1)
             {
-                Pacijent selPac = (Pacijent)DodavanjePacijentaTerminuPrikaz.SelectedItem;
+                PacijentDTO selPac = (PacijentDTO)DodavanjePacijentaTerminuPrikaz.SelectedItem;
                 termin.JmbgPacijenta = selPac.Jmbg;
                 pacijent.Text = selPac.Ime + " " + selPac.Prezime;
                 this.Close();

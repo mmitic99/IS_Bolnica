@@ -209,7 +209,7 @@ namespace Servis
             List<Izvestaj> izvestaji = new List<Izvestaj>();
             izvestaji.Add(izvestaj);
             parametri.p1.zdravstveniKarton.izvestaj.Add(izvestaj);
-            PacijentKontroler.getInstance().izmeniPacijenta(parametri.p, parametri.p1);
+            PacijentServis.GetInstance().IzmeniPacijenta(parametri.p, parametri.p1);
         }
         public List<int> dobijTerminePijenja(String terminiPijenja)
         {
