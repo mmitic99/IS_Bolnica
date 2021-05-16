@@ -106,7 +106,7 @@ namespace Bolnica.view.SekretarView
             s.ShowDialog();
         }
 
-        private void izmeniTer_Click(object sender, RoutedEventArgs e)
+        private void izmeniTermin_Click(object sender, RoutedEventArgs e)
         {
             if (terminiPrikaz.SelectedIndex != -1)
             {

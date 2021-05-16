@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="450"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <RoutedUICommand x:Key="UpravnikCommand" Text="Upravnik" />
+        <RoutedUICommand x:Key="SekretarCommand" Text="Sekretar" />
+        <RoutedUICommand x:Key="LekarCommand" Text="Lekar" />
+        <RoutedUICommand x:Key="PacijentCommand" Text="Pacijent" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource UpravnikCommand}" Executed="Button_Click" />
+        <CommandBinding Command="{StaticResource SekretarCommand}" Executed="Button_Click_1" />
+        <CommandBinding Command="{StaticResource LekarCommand}" Executed="Button_Click_2" />
+        <CommandBinding Command="{StaticResource PacijentCommand}" Executed="Button_Click_3" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource UpravnikCommand}" Key="U"/>
+        <KeyBinding Command="{StaticResource SekretarCommand}" Key="S"/>
+        <KeyBinding Command="{StaticResource LekarCommand}" Key="L"/>
+        <KeyBinding Command="{StaticResource PacijentCommand}" Key="P"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -82,6 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SekretarCommands.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />

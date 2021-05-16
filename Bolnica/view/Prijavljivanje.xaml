@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="Prijavljivanje" Height="400" Width="450" Closing="Window_Closing" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />
+        <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource PotvrdiCommand}" Executed="Button_Click" />
+        <CommandBinding Command="{StaticResource OtkaziCommand}" Executed="Button_Click_1" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource PotvrdiCommand}" Key="Enter"/>
+        <KeyBinding Command="{StaticResource OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
+
     <Grid Background="AliceBlue">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Ellipse  Width="200" Height="90" Margin="30">

@@ -4,9 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
         Title="SekretarWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="dodajObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="dodavanjePacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}" Executed="dodavanjeGostujuceg_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminCommand}" Executed="zakazivanjeTermina_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajLekaraCommand}" Executed="dodavanjeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminPacijentuCommand}" Executed="zakazivanjeTerminaZaOdabranogPacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminLekaruCommand}" Executed="ZakazivanjeTerminaZaOdabranogLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniObavestenjeCommand}" Executed="izmeniObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}" Executed="izmenaPacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}" Executed="izmeniTermin_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniLekaraCommand}" Executed="izmenaLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiObavestenjeCommand}" Executed="obrisiObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiPacijentaCommand}" Executed="brisanjePacijenta_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}" Executed="otkakazivanjeTermina_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="brisanjeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="pogledajObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="radnoVremeLekara_Click" />
+    </Window.CommandBindings>
+
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="22" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <MenuItem Header="File">
@@ -258,7 +279,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
                             <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="zakazivanjeTermina_Click"/>
-                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="izmeniTer_Click">
+                            <Button Content="Izmeni termin" x:Name="izmeniTer" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="izmeniTermin_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True" />
