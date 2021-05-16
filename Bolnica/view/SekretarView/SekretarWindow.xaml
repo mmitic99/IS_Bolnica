@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="SekretarWindow" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <RoutedUICommand x:Key="OdjavaCommand" Text="Ctrl+Alt+O"/>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="dodajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="dodavanjePacijenta_Click" />
@@ -26,12 +29,29 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="brisanjeLekara_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="pogledajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="radnoVremeLekara_Click" />
+        <CommandBinding Command="{StaticResource OdjavaCommand}" Executed="Odjava_Click"/>
     </Window.CommandBindings>
-
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource OdjavaCommand}" Gesture="Ctrl+Alt+O"/>
+    </Window.InputBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="22" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <MenuItem Header="File">
-                <MenuItem Header="Close"/>
+                <MenuItem Header="Odjavi se" Command="{StaticResource OdjavaCommand}" InputGestureText="Ctrl+Alt+O"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Dodaj pacijenta" Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}"/>
+                <MenuItem Header="Dodaj gostujućeg pacijenta" Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}"/>
+                <MenuItem Header="Izmeni pacijenta" Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}"/>
+                <MenuItem Header="Obriši pacijenta" Command="{x:Static commands:SekretarCommands.ObrisiPacijentaCommand}"/>
+                <Separator/>
+                <MenuItem Header="Zakaži termin" Command="{x:Static commands:SekretarCommands.DodajTerminCommand}"/>
+                <MenuItem Header="Izmeni termin" Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}"/>
+                <MenuItem Header="Otkaži termin" Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Profil">
+                <MenuItem Header="Izmeni profil"/>
+                <MenuItem Header="Izmeni lozinku"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
@@ -82,7 +102,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Orientation="Vertical" Width="103" Margin="2">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="prijavljivanje_Click">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="Odjava_Click">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>

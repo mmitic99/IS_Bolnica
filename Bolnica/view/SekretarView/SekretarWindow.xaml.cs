@@ -137,7 +137,7 @@ namespace Bolnica.view.SekretarView
             }
         }
 
-        private void prijavljivanje_Click(object sender, RoutedEventArgs e)
+        private void Odjava_Click(object sender, RoutedEventArgs e)
         {
             var s = new Prijavljivanje("s");
             this.Close();

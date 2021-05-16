@@ -25,19 +25,35 @@
         <KeyBinding Command="{StaticResource LekarCommand}" Key="L"/>
         <KeyBinding Command="{StaticResource PacijentCommand}" Key="P"/>
     </Window.InputBindings>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.45*"/>
+            <RowDefinition Height="0.55*"/>
         </Grid.RowDefinitions>
-        <Button Content="Upravnik" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click"/>
-        <Button Content="Sekretar" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_1"/>
-        <Button Content="Lekar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_2"/>
-        <Button Content="Pacijent" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_3"/>
 
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="20">
+            <Ellipse  Width="200" Height="80" Margin="5">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Images/Login.png"/>
+                </Ellipse.Fill>
+            </Ellipse><Label FontSize="20" HorizontalAlignment="Center" Margin="0">Želite da se prijavite kao:</Label>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Content="Upravnik" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click"/>
+            <Button Content="Sekretar" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_1"/>
+            <Button Content="Lekar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_2"/>
+            <Button Content="Pacijent" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_3"/>
+
+        </Grid>
     </Grid>
 </Window>
