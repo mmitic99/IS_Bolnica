@@ -70,4 +70,11 @@
     <DatumIVremeZavrsetka>2021-07-12T00:00:00</DatumIVremeZavrsetka>
     <StatusRadnogVremena>NaOdmoru</StatusRadnogVremena>
   </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>SlobodanDan789761111.5.2021. 00:00:00</IdRadnogVremena>
+    <JmbgLekara>7897611</JmbgLekara>
+    <DatumIVremePocetka>2021-05-11T00:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-05-12T00:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>SlobodanDan</StatusRadnogVremena>
+  </RadnoVreme>
 </ArrayOfRadnoVreme>

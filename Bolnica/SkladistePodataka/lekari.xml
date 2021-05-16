@@ -71,7 +71,7 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
     <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>25</BrojSlobodnihDana>
+    <BrojSlobodnihDana>18</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
     <obavestenje />
     <Specijalizacija>
@@ -98,8 +98,9 @@
     <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
     <Email />
     <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>30</BrojSlobodnihDana>
+    <BrojSlobodnihDana>51</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
     </Specijalizacija>

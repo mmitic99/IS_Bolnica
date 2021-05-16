@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0">Status:</Label>
-                <ComboBox x:Name="Status" Grid.Column="1" SelectedIndex="0">
+                <ComboBox x:Name="Status" Grid.Column="1" SelectedIndex="0" SelectionChanged="Status_OnSelectionChanged">
                     <ComboBoxItem>Radi</ComboBoxItem>
                     <ComboBoxItem>Odmor</ComboBoxItem>
                     <ComboBoxItem>Slobodan dan</ComboBoxItem>
@@ -32,7 +32,9 @@
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0">Datum i vreme početka:</Label>
+                <Label Grid.Column="0" x:Name="datumVremePLabela">Datum i vreme početka:</Label>
+                <Label Grid.Column="0" x:Name="datumPLabela" Visibility="Hidden">Datum početka:</Label>
+                <Label Grid.Column="0" x:Name="datumLabela" Visibility="Hidden">Datum:</Label>
                 <DatePicker x:Name="DatumPocetka" Grid.Column="1"/>
                 <ComboBox Grid.Column="2" x:Name="VremePocetka" Margin="15,0,0,0"></ComboBox>
             </Grid>
@@ -42,7 +44,8 @@
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0">Datum i vreme kraja:</Label>
+                <Label Grid.Column="0" x:Name="datumVremeZLabela">Datum i vreme završetka:</Label>
+                <Label Grid.Column="0" x:Name="datumZLabela" Visibility="Hidden">Datum završetka:</Label>
                 <DatePicker x:Name="DatumKraja" Grid.Column="1"/>
                 <ComboBox Grid.Column="2" x:Name="VremeKraja" Margin="15,0,0,0"></ComboBox>
             </Grid>

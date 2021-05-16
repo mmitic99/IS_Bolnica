@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Bolnica.Kontroler;
+﻿using Bolnica.Kontroler;
 using Bolnica.model;
 using Bolnica.model.Enum;
-using Bolnica.Validacije;
 using Kontroler;
+using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -90,9 +80,15 @@ namespace Bolnica.view.SekretarView.Lekari
                             radnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
                             odmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;
                         }
+                        else if (radnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru &&
+                                 (radnoVreme.DatumIVremeZavrsetka - radnoVreme.DatumIVremePocetka).TotalDays > lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana
+                                 )
+                        {
+                            MessageBox.Show("Broj dana za odmor mora biti manji od " + odmorLabela.Content + " .", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                         else
                         {
-                            MessageBox.Show("Izabrani raspon vremena vec postoji u bazi.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Izabrani raspon vremena je zauzet.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
 
                     }
@@ -120,7 +116,7 @@ namespace Bolnica.view.SekretarView.Lekari
                 }
                 else
                 {
-                    MessageBox.Show("Izabrani raspon vremena vec postoji u bazi.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Izabrani datum je zauzet.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -132,6 +128,44 @@ namespace Bolnica.view.SekretarView.Lekari
         private void Otkazi_OnClickzi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Status_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Status.SelectedIndex == 0)
+            {
+                if (DatumPocetka != null) DatumPocetka.Visibility = Visibility.Visible;
+                if (VremePocetka != null) VremePocetka.Visibility = Visibility.Visible;
+                if (DatumKraja != null) DatumKraja.Visibility = Visibility.Visible;
+                if (VremeKraja != null) VremeKraja.Visibility = Visibility.Visible;
+                if (datumVremePLabela != null) datumVremePLabela.Visibility = Visibility.Visible;
+                if (datumVremeZLabela != null) datumVremeZLabela.Visibility = Visibility.Visible;
+                if (datumPLabela != null) datumPLabela.Visibility = Visibility.Hidden;
+                if (datumZLabela != null) datumZLabela.Visibility = Visibility.Hidden;
+            }
+            else if (Status.SelectedIndex == 1)
+            {
+                DatumPocetka.Visibility = Visibility.Visible;
+                VremePocetka.Visibility = Visibility.Hidden;
+                DatumKraja.Visibility = Visibility.Visible;
+                VremeKraja.Visibility = Visibility.Hidden;
+                datumVremePLabela.Visibility = Visibility.Hidden;
+                datumVremeZLabela.Visibility = Visibility.Hidden;
+                datumPLabela.Visibility = Visibility.Visible;
+                datumZLabela.Visibility = Visibility.Visible;
+            }
+            else if (Status.SelectedIndex == 2)
+            {
+                DatumPocetka.Visibility = Visibility.Visible;
+                VremePocetka.Visibility = Visibility.Hidden;
+                DatumKraja.Visibility = Visibility.Hidden;
+                VremeKraja.Visibility = Visibility.Hidden;
+                datumVremePLabela.Visibility = Visibility.Hidden;
+                datumVremeZLabela.Visibility = Visibility.Hidden;
+                datumPLabela.Visibility = Visibility.Hidden;
+                datumZLabela.Visibility = Visibility.Hidden;
+                datumLabela.Visibility = Visibility.Visible;
+            }
         }
     }
 }
