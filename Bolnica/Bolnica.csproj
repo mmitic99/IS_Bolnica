@@ -140,7 +140,7 @@
     <Compile Include="viewActions\PregledViewModel.cs" />
     <Compile Include="viewActions\PrikazJednogObavestenjaPacijentaViewModel.cs" />
     <Compile Include="viewActions\PrikazKvartalneAnketeViewModel.cs" />
-    <Compile Include="viewActions\TerminPacijentLekar.cs" />
+    <Compile Include="DTOs\TerminPacijentLekarDTO.cs" />
     <Compile Include="Kontroler\ZakazanaPreraspodelaStatickeOpremeKontroler.cs" />
     <Compile Include="model\ZakazanaPreraspodelaStatickeOpreme.cs" />
     <Compile Include="model\ZdravstveniKarton.cs" />

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -23,7 +24,7 @@ namespace Bolnica.view.SekretarView.Lekari
     public partial class IzmenaLekara : Window
     {
         private DataGrid lekariPrikaz;
-        private Lekar lekar;
+        private LekarDTO lekar;
         private LekarKontroler lekarKontroler;
         private SpecijalizacijaKontroler specijalizacijaKontroler;
         public IzmenaLekara(DataGrid lekariPrikaz)
@@ -34,7 +35,7 @@ namespace Bolnica.view.SekretarView.Lekari
             specijalizacijaKontroler = new SpecijalizacijaKontroler();
 
             this.lekariPrikaz = lekariPrikaz;
-            this.lekar = lekarKontroler.GetByJmbg(((Lekar) lekariPrikaz.SelectedItem).Jmbg);
+            this.lekar = lekarKontroler.GetByJmbg(((LekarDTO) lekariPrikaz.SelectedItem).Jmbg);
             jmbg.Text = lekar.Jmbg;
             ime.Text = lekar.Ime;
             prezime.Text = lekar.Prezime;
@@ -66,7 +67,7 @@ namespace Bolnica.view.SekretarView.Lekari
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            Lekar noviLekar = new Lekar()
+            LekarDTO noviLekar = new LekarDTO()
             {
                 Ime = ime.Text,
                 Prezime = prezime.Text,

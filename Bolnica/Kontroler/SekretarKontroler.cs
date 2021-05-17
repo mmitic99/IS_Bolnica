@@ -22,14 +22,17 @@ namespace Kontroler
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             Sekretar sekretar = (Sekretar)sekretarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
-            return new SekretarDTO()
-            {
-                Jmbg = sekretar.Jmbg, Ime = sekretar.Ime, Prezime = sekretar.Prezime,
-                BracnoStanje = sekretar.BracnoStanje, Adresa = sekretar.Adresa,
-                BrojSlobodnihDana = sekretar.BrojSlobodnihDana, Pol = sekretar.Pol,
-                BrojTelefona = sekretar.BrojTelefona, DatumRodjenja = sekretar.DatumRodjenja, Email = sekretar.Email,
-                Grad = sekretar.Grad, Korisnik = sekretar.Korisnik
-            };
+            if (sekretar != null)
+                return new SekretarDTO()
+                {
+                    Jmbg = sekretar.Jmbg, Ime = sekretar.Ime, Prezime = sekretar.Prezime,
+                    BracnoStanje = sekretar.BracnoStanje, Adresa = sekretar.Adresa,
+                    BrojSlobodnihDana = sekretar.BrojSlobodnihDana, Pol = sekretar.Pol,
+                    BrojTelefona = sekretar.BrojTelefona, DatumRodjenja = sekretar.DatumRodjenja,
+                    Email = sekretar.Email,
+                    Grad = sekretar.Grad, Korisnik = sekretar.Korisnik
+                };
+            return null;
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)

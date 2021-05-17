@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -29,7 +30,7 @@ namespace Bolnica.view.SekretarView.Lekari
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
-            DataContext = new Lekar();
+            DataContext = new LekarDTO();
 
             specijalizacijaKontroler = new SpecijalizacijaKontroler();
             lekarKontroler = new LekarKontroler();
@@ -41,7 +42,7 @@ namespace Bolnica.view.SekretarView.Lekari
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Lekar lekar = new Lekar()
+            LekarDTO lekar = new LekarDTO()
             {
                 Ime = ime.Text,
                 Prezime = prezime.Text,

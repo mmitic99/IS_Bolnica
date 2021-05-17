@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView.Obavestenja
 {
@@ -34,7 +35,7 @@ namespace Bolnica.view.SekretarView.Obavestenja
         {
             if(!naslov.Text.Equals("") || !sadrzaj.Text.Equals(""))
             {
-                Obavestenje obavestenje = new Obavestenje
+                ObavestenjeDTO obavestenje = new ObavestenjeDTO
                 {
                     JmbgKorisnika = "-1",
                     Naslov = naslov.Text,

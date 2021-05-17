@@ -87,26 +87,12 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 },
                 zdravstveniKarton = pacijent.zdravstveniKarton,
                 BracnoStanje = (string)BracnoStanje.SelectedItem,
-                Zanimanje = (string)Zanimanje.Text
+                Zanimanje = Zanimanje.Text
             };
             noviPacijent.zdravstveniKarton.Alergeni = new List<string>(alergeni);
 
-            if (pol.SelectedIndex == 0)
-            {
-                noviPacijent.Pol = Model.Enum.Pol.Muski;
-            }
-            else
-            {
-                noviPacijent.Pol = Model.Enum.Pol.Zenski;
-            }
-            if (datum.SelectedDate != null)
-            {
-                noviPacijent.DatumRodjenja = (DateTime)datum.SelectedDate;
-            }
-            else
-            {
-                noviPacijent.DatumRodjenja = DateTime.Now;
-            }
+            noviPacijent.Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski;
+            noviPacijent.DatumRodjenja = datum.SelectedDate != null ? (DateTime) datum.SelectedDate : DateTime.Now;
 
 
             if (!noviPacijent.Jmbg.Trim().Equals("") && !noviPacijent.Ime.Trim().Equals("") && !noviPacijent.Prezime.Trim().Equals(""))

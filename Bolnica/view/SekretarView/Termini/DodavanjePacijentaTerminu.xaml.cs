@@ -28,9 +28,9 @@ namespace Bolnica.view.SekretarView.Termini
         {
             if (DodavanjePacijentaTerminuPrikaz.SelectedIndex != -1)
             {
-                PacijentDTO selPac = (PacijentDTO)DodavanjePacijentaTerminuPrikaz.SelectedItem;
-                termin.JmbgPacijenta = selPac.Jmbg;
-                pacijent.Text = selPac.Ime + " " + selPac.Prezime;
+                PacijentDTO izabraniPacijent = (PacijentDTO)DodavanjePacijentaTerminuPrikaz.SelectedItem;
+                termin.JmbgPacijenta = izabraniPacijent.Jmbg;
+                pacijent.Text = izabraniPacijent.Ime + " " + izabraniPacijent.Prezime;
                 this.Close();
             }
             else

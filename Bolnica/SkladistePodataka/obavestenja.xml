@@ -217,15 +217,6 @@
     <Vidjeno>false</Vidjeno>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T11:40:33.5919121+02:00</VremeObavestenja>
-    <Naslov>Doniranje krvi</Naslov>
-    <Sadrzaj>Obaveštavamo vas da će 06.06.2020. biti organizovana akcija dobrovoljnog davanja krvi.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Podsetnik>false</Podsetnik>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-    <Vidjeno>false</Vidjeno>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T11:40:53.3836568+02:00</VremeObavestenja>
     <Naslov>Doniranje krvi</Naslov>
     <Sadrzaj>Obaveštavamo vas da će 26.06.2020. biti organizovana akcija dobrovoljnog davanja krvi.</Sadrzaj>
@@ -737,6 +728,15 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 09:30:00 je pomeren na 27.5.2021. 15:30:00.</Sadrzaj>
     <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-17T12:31:43.423497+02:00</VremeObavestenja>
+    <Naslov>Doniranje krvi</Naslov>
+    <Sadrzaj>Obaveštavamo vas da će 06.06.2020. biti organizovana akcija dobrovoljnog davanja krvi.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
     <Podsetnik>false</Podsetnik>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
     <Vidjeno>false</Vidjeno>

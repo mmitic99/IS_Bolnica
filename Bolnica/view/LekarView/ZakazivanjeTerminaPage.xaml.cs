@@ -49,7 +49,7 @@ namespace Bolnica.view.LekarView
 
         private void LekariBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Lekar l = (Lekar)LekariBox.SelectedItem;
+            LekarDTO l = (LekarDTO)LekariBox.SelectedItem;
 
         }
 

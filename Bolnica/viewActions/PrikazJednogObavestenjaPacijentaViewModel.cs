@@ -4,27 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.DTOs;
 
 namespace Bolnica.viewActions
 {
     class PrikazJednogObavestenjaPacijentaViewModel
     {
 
-        public Obavestenje obavestenje { get; set; }
+        public ObavestenjeDTO obavestenje { get; set; }
 
         public PrikazJednogObavestenjaPacijentaViewModel()
         {
 
         }
 
-        public PrikazJednogObavestenjaPacijentaViewModel(Obavestenje o)
+        public PrikazJednogObavestenjaPacijentaViewModel(ObavestenjeDTO o)
         {
             obavestenje = o;
         }
 
         public PrikazJednogObavestenjaPacijentaViewModel(object selectedItem)
         {
-            obavestenje = (Obavestenje)selectedItem;
+            obavestenje = (ObavestenjeDTO)selectedItem;
         }
     }
 }

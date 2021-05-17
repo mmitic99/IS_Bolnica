@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 using Bolnica.Kontroler;
 using Bolnica.model;
 using Bolnica.model.Enum;
@@ -71,7 +72,7 @@ namespace Bolnica.view.SekretarView.Lekari
 
         private void dodajSlobodneDane_Click(object sender, RoutedEventArgs e)
         {
-            Lekar lekar = lekarKontroler.GetByJmbg(jmbgLekara);
+            LekarDTO lekar = lekarKontroler.GetByJmbg(jmbgLekara);
             lekar.BrojSlobodnihDana += 1;
             lekarKontroler.IzmeniLekara(jmbgLekara, lekar);
             OdmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;

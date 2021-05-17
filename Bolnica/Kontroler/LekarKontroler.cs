@@ -31,9 +31,27 @@ namespace Kontroler
             lekarServis = new LekarServis();
         }
 
-        public bool RegistrujLekara(Lekar lekar)
+        public bool RegistrujLekara(LekarDTO lekar)
         {
-            return lekarServis.RegistrujLekara(lekar);
+            return lekarServis.RegistrujLekara(new Lekar()
+            {
+                Ime = lekar.Ime,
+                Prezime = lekar.Prezime,
+                BracnoStanje = lekar.BracnoStanje,
+                Adresa = lekar.Adresa,
+                Jmbg = lekar.Jmbg,
+                Zanimanje = lekar.Zanimanje,
+                Pol = lekar.Pol,
+                DatumRodjenja = lekar.DatumRodjenja,
+                BrojTelefona = lekar.BrojTelefona,
+                Email = lekar.Email,
+                Grad = lekar.Grad,
+                Korisnik = lekar.Korisnik,
+                Specijalizacija = lekar.Specijalizacija,
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                IdOrdinacija = lekar.IdOrdinacija,
+                FullName = lekar.FullName
+            });
         }
 
         public bool DodajObavestenje(Obavestenje obavestenje)
@@ -79,7 +97,8 @@ namespace Kontroler
                     Korisnik = lekar.Korisnik,
                     Specijalizacija = lekar.Specijalizacija,
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
-                    IdOrdinacija = lekar.IdOrdinacija
+                    IdOrdinacija = lekar.IdOrdinacija,
+                    FullName = lekar.FullName
                 });
             }
 
@@ -106,9 +125,28 @@ namespace Kontroler
         {
             LekarServis.getInstance().izdajRecept(parametri);
         }
-        public Lekar GetByJmbg(string jmbg)
+        public LekarDTO GetByJmbg(string jmbg)
         {
-            return lekarServis.GetByJmbg(jmbg);
+            Lekar lekar = lekarServis.GetByJmbg(jmbg);
+            return new LekarDTO()
+            {
+                Ime = lekar.Ime,
+                Prezime = lekar.Prezime,
+                BracnoStanje = lekar.BracnoStanje,
+                Adresa = lekar.Adresa,
+                Jmbg = lekar.Jmbg,
+                Zanimanje = lekar.Zanimanje,
+                Pol = lekar.Pol,
+                DatumRodjenja = lekar.DatumRodjenja,
+                BrojTelefona = lekar.BrojTelefona,
+                Email = lekar.Email,
+                Grad = lekar.Grad,
+                Korisnik = lekar.Korisnik,
+                Specijalizacija = lekar.Specijalizacija,
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                IdOrdinacija = lekar.IdOrdinacija,
+                FullName = lekar.FullName
+            };
         }
         public List<int> dobijTerminePijenja(String terminiPijenja)
         {
@@ -120,9 +158,27 @@ namespace Kontroler
             return lekarServis.ObrisiLekara(jmbg);
         }
 
-        public bool IzmeniLekara(string jmbgLekara, Lekar lekar)
+        public bool IzmeniLekara(string jmbgLekara, LekarDTO lekar)
         {
-            lekarServis.IzmeniLekara(jmbgLekara, lekar);
+            lekarServis.IzmeniLekara(jmbgLekara, new Lekar()
+            {
+                Ime = lekar.Ime,
+                Prezime = lekar.Prezime,
+                BracnoStanje = lekar.BracnoStanje,
+                Adresa = lekar.Adresa,
+                Jmbg = lekar.Jmbg,
+                Zanimanje = lekar.Zanimanje,
+                Pol = lekar.Pol,
+                DatumRodjenja = lekar.DatumRodjenja,
+                BrojTelefona = lekar.BrojTelefona,
+                Email = lekar.Email,
+                Grad = lekar.Grad,
+                Korisnik = lekar.Korisnik,
+                Specijalizacija = lekar.Specijalizacija,
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                IdOrdinacija = lekar.IdOrdinacija,
+                FullName = lekar.FullName
+            });
             return true;
         }
     }

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView.Obavestenja
 {
@@ -22,21 +23,21 @@ namespace Bolnica.view.SekretarView.Obavestenja
     public partial class IzmenaObavestenja : Window
     {
         private DataGrid obavestenjaPrikaz;
-        private Obavestenje obavestenje;
+        private ObavestenjeDTO obavestenje;
         private ObavestenjaKontroler obavestenjaKontroler = new ObavestenjaKontroler();
         public IzmenaObavestenja(DataGrid obavestenjaPrikaz)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
             this.obavestenjaPrikaz = obavestenjaPrikaz;
-            obavestenje = (Obavestenje)obavestenjaPrikaz.SelectedItem;
+            obavestenje = (ObavestenjeDTO)obavestenjaPrikaz.SelectedItem;
             naslov.Text = obavestenje.Naslov;
             sadrzaj.Text = obavestenje.Sadrzaj;
         }
 
         private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Obavestenje novoObavestenje = new Obavestenje
+            ObavestenjeDTO novoObavestenje = new ObavestenjeDTO
             {
                 Naslov = naslov.Text,
                 Sadrzaj = sadrzaj.Text,

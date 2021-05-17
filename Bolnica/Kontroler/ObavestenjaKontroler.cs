@@ -35,9 +35,19 @@ namespace Kontroler
             return obavestenjaServis.GetAll();
         }
 
-        public bool Save(Obavestenje obavestenje)
+        public bool Save(ObavestenjeDTO obavestenje)
         {
-            return obavestenjaServis.Save(obavestenje);
+            return obavestenjaServis.Save(new Obavestenje()
+            {
+                JmbgKorisnika = obavestenje.JmbgKorisnika,
+                Naslov = obavestenje.Naslov,
+                Podsetnik = obavestenje.Podsetnik,
+                Sadrzaj = obavestenje.Sadrzaj,
+                Vidjeno = obavestenje.Vidjeno,
+                VremeObavestenja = obavestenje.VremeObavestenja,
+                anketaOLekaru = obavestenje.anketaOLekaru,
+                kvartalnaAnketa = obavestenje.kvartalnaAnketa
+            });
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
@@ -81,9 +91,29 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(jmbgPacijenta);
         }
 
-        public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
+        public bool IzmeniObavestenje(ObavestenjeDTO staroObavestenje, ObavestenjeDTO novoObavestenje)
         {
-            return obavestenjaServis.IzmeniObavestenje(staroObavestenje, novoObavestenje);
+            return obavestenjaServis.IzmeniObavestenje(new Obavestenje()
+            {
+                JmbgKorisnika = staroObavestenje.JmbgKorisnika,
+                Naslov = staroObavestenje.Naslov,
+                Podsetnik = staroObavestenje.Podsetnik,
+                Sadrzaj = staroObavestenje.Sadrzaj,
+                Vidjeno = staroObavestenje.Vidjeno,
+                VremeObavestenja = staroObavestenje.VremeObavestenja,
+                anketaOLekaru = staroObavestenje.anketaOLekaru,
+                kvartalnaAnketa = staroObavestenje.kvartalnaAnketa
+            }, new Obavestenje()
+            {
+                JmbgKorisnika = novoObavestenje.JmbgKorisnika,
+                Naslov = novoObavestenje.Naslov,
+                Podsetnik = novoObavestenje.Podsetnik,
+                Sadrzaj = novoObavestenje.Sadrzaj,
+                Vidjeno = novoObavestenje.Vidjeno,
+                VremeObavestenja = novoObavestenje.VremeObavestenja,
+                anketaOLekaru = novoObavestenje.anketaOLekaru,
+                kvartalnaAnketa = novoObavestenje.kvartalnaAnketa
+            });
         }
 
         public Servis.ObavestenjaServis obavestenjaServis;

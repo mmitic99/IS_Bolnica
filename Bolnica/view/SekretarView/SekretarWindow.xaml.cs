@@ -92,15 +92,14 @@ namespace Bolnica.view.SekretarView
             if (izbor == MessageBoxResult.Yes)
             {
                 bool uspesno = pacijentKontroler.ObrisiPacijenta(((PacijentDTO) PacijentiPrikaz.SelectedItem).Jmbg);
-                if(uspesno)
-                {
-                    PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-                    SekretarWindow.SortirajDataGrid(PacijentiPrikaz, 0, ListSortDirection.Ascending);
-                }
-                else
+                if (!uspesno)
                 {
                     MessageBox.Show("Brisanje nije uspešno.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
+
+                PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+                SekretarWindow.SortirajDataGrid(PacijentiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
 
@@ -135,7 +134,7 @@ namespace Bolnica.view.SekretarView
 
             if (izbor == MessageBoxResult.Yes)
             {
-                terminKontroler.OtkaziTermin(((TerminPacijentLekar) TerminiPrikaz.SelectedItem).termin);
+                terminKontroler.OtkaziTermin(((TerminPacijentLekarDTO) TerminiPrikaz.SelectedItem).termin);
                 TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }

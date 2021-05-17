@@ -15,7 +15,7 @@ namespace Bolnica.view.SekretarView.Termini
     /// </summary>
     public partial class IzmenaTermina : Window
     {
-        private TerminPacijentLekar termin;
+        private TerminPacijentLekarDTO termin;
         private DataGrid terminiPrikaz;
 
         private TerminKontroler terminKontroler;
@@ -32,7 +32,7 @@ namespace Bolnica.view.SekretarView.Termini
             obavestenjaKontroler = new ObavestenjaKontroler();
 
             this.terminiPrikaz = terminiPrikaz;
-            this.termin = (TerminPacijentLekar)terminiPrikaz.SelectedItem;
+            this.termin = (TerminPacijentLekarDTO)terminiPrikaz.SelectedItem;
             if (termin.termin.VrstaTermina == Model.Enum.VrstaPregleda.Pregled)
             {
                 vrstaT.SelectedIndex = 0;

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Bolnica.DTOs;
 
 namespace Repozitorijum
 {
@@ -45,15 +46,15 @@ namespace Repozitorijum
             return termini;
         }
 
-        public List<TerminPacijentLekar> GetBuduciTerminPacLekar()
+        public List<TerminPacijentLekarDTO> GetBuduciTerminPacLekar()
         {
 
-            List<TerminPacijentLekar> termini = new List<TerminPacijentLekar>();
+            List<TerminPacijentLekarDTO> termini = new List<TerminPacijentLekarDTO>();
             foreach (Termin termin in SkladisteZaTermine.getInstance().GetAll())
             {
                 if (termin.DatumIVremeTermina >= DateTime.Now)
                 {
-                    TerminPacijentLekar t = new TerminPacijentLekar { termin = termin, pacijent = SkladistePacijenta.GetInstance().getByJmbg(termin.JmbgPacijenta), lekar = SkladisteZaLekara.GetInstance().getByJmbg(termin.JmbgLekara) };
+                    TerminPacijentLekarDTO t = new TerminPacijentLekarDTO { termin = termin, pacijent = SkladistePacijenta.GetInstance().getByJmbg(termin.JmbgPacijenta), lekar = SkladisteZaLekara.GetInstance().getByJmbg(termin.JmbgLekara) };
                     termini.Add(t);
                 }
             }

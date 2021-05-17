@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 using Kontroler;
 using Model;
 
@@ -26,9 +27,9 @@ namespace Bolnica.view.SekretarView.Termini
         {
             if (DodavanjeLekaraTerminuPrikaz.SelectedIndex != -1)
             {
-                Lekar selLek = (Lekar)DodavanjeLekaraTerminuPrikaz.SelectedItem;
-                termin.JmbgLekara = selLek.Jmbg;
-                lekar.Text = selLek.Ime + " " + selLek.Prezime;
+                LekarDTO izabraniLekar = (LekarDTO)DodavanjeLekaraTerminuPrikaz.SelectedItem;
+                termin.JmbgLekara = izabraniLekar.Jmbg;
+                lekar.Text = izabraniLekar.Ime + " " + izabraniLekar.Prezime;
                 this.Close();
             }
             else

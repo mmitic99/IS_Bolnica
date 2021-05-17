@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="Vrsta termina:"/>
-                    <ComboBox x:Name="vrstaT" Grid.Column="1" SelectedIndex="0" SelectionChanged="azurirajVreme">
+                    <ComboBox x:Name="vrstaT" Grid.Column="1" SelectedIndex="0" SelectionChanged="AzurirajVreme">
                         <ComboBoxItem>Pregled</ComboBoxItem>
                         <ComboBoxItem>Operacija</ComboBoxItem>
                     </ComboBox>
@@ -45,7 +45,7 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Pacijent:</Label>
-                    <TextBox x:Name="pacijent" Grid.Column="1" IsReadOnly="True" TextChanged="azurirajVreme"/>
+                    <TextBox x:Name="pacijent" Grid.Column="1" IsReadOnly="True" TextChanged="AzurirajVreme"/>
                     <Button Grid.Column="2" Click="dodajPacijentaT_Click" Padding="3" ToolTip="Dodaj pacijenta">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
@@ -59,13 +59,13 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" x:Name="lekarLabela">Lekar:</Label>
-                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" TextChanged="azurirajVreme"/>
+                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" TextChanged="AzurirajVreme"/>
                     <Button x:Name="lekarButton" Grid.Column="2" Click="dodajLekaraT_Click" Padding="3" ToolTip="Dodaj lekara">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
                         </Grid>
                     </Button>
-                    <ComboBox x:Name="vrstaSpec" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden" SelectionChanged="azurirajVreme">
+                    <ComboBox x:Name="vrstaSpec" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden" SelectionChanged="AzurirajVreme">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding VrstaSpecijalizacije}"/>
@@ -95,7 +95,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Datum:</Label>
-                    <DatePicker Grid.Column="1" x:Name="datum" SelectedDateChanged="azurirajVreme" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
+                    <DatePicker Grid.Column="1" x:Name="datum" SelectedDateChanged="AzurirajVreme" SelectedDate="{x:Static sys:DateTime.Now}"></DatePicker>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -103,7 +103,7 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Vreme:</Label>
-                    <ComboBox Grid.Column="1" x:Name="vremeT" GotFocus="vremeT_GotFocus" SelectionChanged="vremeT_SelectionChanged"></ComboBox>
+                    <ComboBox Grid.Column="1" x:Name="vremeT" SelectionChanged="vremeT_SelectionChanged"></ComboBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
