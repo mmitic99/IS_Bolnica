@@ -58,29 +58,21 @@ namespace Bolnica.view.SekretarView.Lekari
                 
 
             };
-            if (datum.SelectedDate != null)
-            {
-                lekar.DatumRodjenja = (DateTime)datum.SelectedDate;
-            }
-            else
-            {
-                lekar.DatumRodjenja = DateTime.Now;
-            }
+            lekar.DatumRodjenja = datum.SelectedDate ?? DateTime.Now;
 
             if (!lekar.Jmbg.Trim().Equals("") && !lekar.Ime.Trim().Equals("") && !lekar.Prezime.Trim().Equals(""))
             {
                 bool uspesno = lekarKontroler.RegistrujLekara(lekar);
-                if (uspesno)
+                if (!uspesno)
                 {
-                    lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-                    SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     jmbg.Focus();
+                    return;
                 }
+                lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
+                this.Close();
             }
             else if (lekar.Jmbg.Trim().Equals("") || lekar.Ime.Trim().Equals("") || lekar.Prezime.Trim().Equals(""))
             {

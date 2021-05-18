@@ -53,16 +53,21 @@ namespace Bolnica.view.SekretarView.Lekari
 
             Specijalizacija.ItemsSource = specijalizacije;
 
+            IzaberiSpecijalizaciju(specijalizacije);
+
+
+        }
+
+        private void IzaberiSpecijalizaciju(List<Specijalizacija> specijalizacije)
+        {
             for (int i = 0; i < specijalizacije.Count; i++)
             {
                 if (specijalizacije[i].VrstaSpecijalizacije.Equals(lekar.Specijalizacija.VrstaSpecijalizacije))
                 {
                     Specijalizacija.SelectedIndex = i;
-                    break;
+                    return;
                 }
             }
-
-
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
@@ -82,30 +87,23 @@ namespace Bolnica.view.SekretarView.Lekari
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana
 
             };
-            if (datum.SelectedDate != null)
-            {
-                noviLekar.DatumRodjenja = (DateTime)datum.SelectedDate;
-            }
-            else
-            {
-                noviLekar.DatumRodjenja = DateTime.Now;
-            }
+            noviLekar.DatumRodjenja = datum.SelectedDate != null ? (DateTime) datum.SelectedDate : DateTime.Now;
 
 
             if (!noviLekar.Jmbg.Trim().Equals("") && !noviLekar.Ime.Trim().Equals("") && !noviLekar.Prezime.Trim().Equals(""))
             {
                 bool uspesno = lekarKontroler.IzmeniLekara(lekar.Jmbg, noviLekar);
-                if (uspesno)
+                if (!uspesno)
                 {
-                    lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-                    SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     jmbg.Focus();
+                    return;
                 }
+
+                lekariPrikaz.ItemsSource = lekarKontroler.GetAll(); 
+                SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
+                this.Close();
             }
             else if (noviLekar.Jmbg.Trim().Equals("") || noviLekar.Ime.Trim().Equals("") || noviLekar.Prezime.Trim().Equals(""))
             {

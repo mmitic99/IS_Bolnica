@@ -53,7 +53,6 @@ namespace Repozitorijum
                 obavestenja.Add(obavestenje);
 
             }
-
             SaveAll(obavestenja);
             return sacuvaj;
         }

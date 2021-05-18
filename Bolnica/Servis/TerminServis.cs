@@ -234,7 +234,7 @@ namespace Servis
             foreach (Lekar lekar in lekari)
             {
                 if (lekar.Specijalizacija != null && lekar.Specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije)
-                                                  && LekarRadi(lekar.Jmbg, datumIVreme))
+                                                  && DaLiLekarRadi(lekar.Jmbg, datumIVreme))
                 {
                     moguciTermini.Add(DobaviHitanTerminZaLekara(datumIVreme, lekar));
                 }
@@ -531,30 +531,30 @@ namespace Servis
             return null;
         }
 
-        private bool LekarRadi(string jmbgLekara, DateTime datumIVreme)
+        private bool DaLiLekarRadi(string jmbgLekara, DateTime datumIVreme)
         {
-            bool radi = false;
             foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(jmbgLekara))
             {
-                if (datumIVreme.Date >= radnoVreme.DatumIVremePocetka.Date &&
-                    datumIVreme.AddMinutes(30).Date <=
-                    radnoVreme.DatumIVremeZavrsetka.Date &&
-                    datumIVreme.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
-                    datumIVreme.AddMinutes(30).TimeOfDay <=
-                    radnoVreme.DatumIVremeZavrsetka.TimeOfDay)
+                if (LekarRadi(datumIVreme, radnoVreme))
                 {
-                    radi = true;
-                    break;
+                    return true;
                 }
             }
 
-            return radi;
+            return false;
+        }
+
+        private static bool LekarRadi(DateTime datumIVreme, RadnoVreme radnoVreme)
+        {
+            return datumIVreme.Date >= radnoVreme.DatumIVremePocetka.Date &&
+                   datumIVreme.AddMinutes(30).Date <= radnoVreme.DatumIVremeZavrsetka.Date &&
+                   datumIVreme.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
+                   datumIVreme.AddMinutes(30).TimeOfDay <= radnoVreme.DatumIVremeZavrsetka.TimeOfDay;
         }
 
         public List<Termin> GetAll()
         {
-            // TODO: implement
-            return null;
+            return skladisteZaTermine.GetAll();
         }
 
         public void Save(Termin termin)

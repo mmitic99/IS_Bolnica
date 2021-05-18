@@ -49,7 +49,7 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            List<int> terminiInt = LekarKontroler.getInstance().dobijTerminePijenja(txt8.Text);
+            List<int> terminiInt = LekarKontroler.getInstance().DobijTerminePijenja(txt8.Text);
             ReceptiDTO parametri = new ReceptiDTO()
             {
                 terminiUzimanjaTokomDana = terminiInt,
@@ -69,7 +69,7 @@ namespace Bolnica.view.LekarView
 
             ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
 
-            LekarKontroler.getInstance().izdajRecept(parametri);
+            LekarKontroler.getInstance().IzdajRecept(parametri);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
 

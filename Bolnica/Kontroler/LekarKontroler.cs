@@ -121,7 +121,7 @@ namespace Kontroler
         {
            return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
         }
-        public void izdajRecept(ReceptiDTO parametri)
+        public void IzdajRecept(ReceptiDTO parametri)
         {
             LekarServis.getInstance().izdajRecept(parametri);
         }
@@ -148,7 +148,7 @@ namespace Kontroler
                 FullName = lekar.FullName
             };
         }
-        public List<int> dobijTerminePijenja(String terminiPijenja)
+        public List<int> DobijTerminePijenja(String terminiPijenja)
         {
             return LekarServis.getInstance().dobijTerminePijenja(terminiPijenja);
         }

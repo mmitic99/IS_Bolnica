@@ -193,7 +193,7 @@ namespace Bolnica.view.SekretarView
 
             if (izbor == MessageBoxResult.Yes)
             {
-                bool uspesno = obavestenjaKontroler.obrisiObavestenje((ObavestenjeDTO) ObavestenjaPrikaz.SelectedItem);
+                bool uspesno = obavestenjaKontroler.ObrisiObavestenje((ObavestenjeDTO) ObavestenjaPrikaz.SelectedItem);
                 if (!uspesno)
                 {
                     MessageBox.Show("Brisanje obaveštenja nije uspešno.", "Greška", MessageBoxButton.OK,

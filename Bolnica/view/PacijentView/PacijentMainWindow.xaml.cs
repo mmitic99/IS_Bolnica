@@ -91,7 +91,7 @@ namespace Bolnica.view
                         {
                             if((DateTime.Today.AddHours(i)- DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now)> nula)
                             {
-                                if(ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i))
+                                if(ObavestenjaKontroler.getInstance().NapraviPodsetnik(pacijent.Jmbg, r, i))
                                 brojNovihPodsetnika++;
                             }
                         }
@@ -127,7 +127,7 @@ namespace Bolnica.view
                         {
                             if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
                             {
-                                if( ObavestenjaKontroler.getInstance().napraviPodsetnik(pacijent.Jmbg, r, i))
+                                if( ObavestenjaKontroler.getInstance().NapraviPodsetnik(pacijent.Jmbg, r, i))
                                 brojNovihPodsetnika++;
                             }
                         }

@@ -31,7 +31,6 @@ namespace Kontroler
 
         public List<Obavestenje> GetAll()
         {
-            // TODO: implement
             return obavestenjaServis.GetAll();
         }
 
@@ -81,9 +80,9 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().GetPodsetnici(jmbg);
         }
 
-        public bool napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool NapraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
         {
-            return ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
+            return ObavestenjaServis.getInstance().NapraviPodsetnik(jmbgPacijenta, r, hours);
         }
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
@@ -118,9 +117,9 @@ namespace Kontroler
 
         public Servis.ObavestenjaServis obavestenjaServis;
 
-        public bool obrisiObavestenje(ObavestenjeDTO obavestenje)
+        public bool ObrisiObavestenje(ObavestenjeDTO obavestenje)
         {
-            return obavestenjaServis.obrisiObavestenje(new Obavestenje()
+            return obavestenjaServis.ObrisiObavestenje(new Obavestenje()
             {
                 JmbgKorisnika = obavestenje.JmbgKorisnika, Naslov = obavestenje.Naslov,
                 Podsetnik = obavestenje.Podsetnik, Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,

@@ -38,23 +38,16 @@ namespace Servis
         public bool RegistrujLekara(Lekar lekar)
         {
             List<Lekar> lekari = skladisteZaLekara.GetAll();
-            bool uspesno = true;
 
             for (int i = 0; i < lekari.Count; i++)
             {
                 if (lekari.ElementAt(i).Jmbg.Equals(lekar.Jmbg))
                 {
-                    uspesno = false;
-                    return uspesno;
+                    return false;
                 }
             }
-
-            if (uspesno)
-            {
-                skladisteZaLekara.Save(lekar);
-            }
-
-            return uspesno;
+            skladisteZaLekara.Save(lekar);
+            return true;
         }
 
         public bool DodajObavestenje(Model.Obavestenje obavestenje)
@@ -72,73 +65,81 @@ namespace Servis
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             List<Lekar> lekari = skladisteZaLekara.GetAll();
-
-            Lekar lekar = new Lekar();
-
             foreach (Lekar lekar1 in lekari)
             {
-                if (lekar1.Korisnik.KorisnickoIme.Equals(korisnickoIme))
+                if (lekar1.Korisnik.KorisnickoIme.Equals(korisnickoIme) && lekar1.Korisnik.Lozinka.Equals(lozinka))
                 {
-                    lekar = lekar1;
-                    if (lekar1.Korisnik.Lozinka.Equals(lozinka))
-                    {
-                        return lekar;
-                    }
+                    return lekar1;
                 }
             }
-
             return null;
         }
 
         public bool DaLiJeLekarSlobodan(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
-
-            bool slobodan = false;
-
-            foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(parametri.IDDoctor))
-            {
-                if (parametri.startTime.Date >= radnoVreme.DatumIVremePocetka.Date &&
-                    parametri.startTime.AddMinutes(parametri.durationInMinutes).Date <=
-                    radnoVreme.DatumIVremeZavrsetka.Date &&
-                    parametri.startTime.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
-                    parametri.startTime.AddMinutes(parametri.durationInMinutes).TimeOfDay <=
-                    radnoVreme.DatumIVremeZavrsetka.TimeOfDay)
-                {
-                    slobodan = true;
-                    break;
-                }
-            }
+            bool slobodan = DaLiLekarRadi(parametri);
 
             if (slobodan)
             {
-
-                List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
-                foreach (Termin t in terminiLekara)
-                {
-                    if (DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) > 0 && DateTime.Compare(parametri.startTime,
-                        t.DatumIVremeTermina.AddMinutes(t.TrajanjeTermina)) < 0)
-                    {
-                        slobodan = false;
-                        break;
-                    }
-
-                    if (DateTime.Compare(parametri.startTime, t.DatumIVremeTermina) < 0 &&
-                        DateTime.Compare(parametri.startTime.AddMinutes(t.TrajanjeTermina), t.DatumIVremeTermina) >
-                        0) //da li je mozda taj vez zakazani termin unutar potencijalnog termina
-                    {
-                        slobodan = false;
-                        break;
-                    }
-
-                    if (DateTime.Compare(t.DatumIVremeTermina, parametri.startTime) == 0)
-                    {
-                        slobodan = false;
-                        break;
-                    }
-                }
+                slobodan = ProveriTermineLekara(parametri);
             }
 
             return slobodan;
+        }
+
+        private static bool ProveriTermineLekara(ParamsToCheckAvailabilityOfDoctorDTO parametri)
+        {
+            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
+            foreach (Termin termin in terminiLekara)
+            {
+                if (NoviTerminUnutarStarogTermina(parametri, termin) || 
+                    StariTerminUnutarNovogTermina(parametri, termin) ||
+                    TerminiSePoklapaju(parametri, termin))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static bool TerminiSePoklapaju(ParamsToCheckAvailabilityOfDoctorDTO parametri, Termin termin)
+        {
+            return DateTime.Compare(termin.DatumIVremeTermina, parametri.startTime) == 0;
+        }
+
+        private static bool StariTerminUnutarNovogTermina(ParamsToCheckAvailabilityOfDoctorDTO parametri, Termin termin)
+        {
+            return DateTime.Compare(parametri.startTime, termin.DatumIVremeTermina) < 0 &&
+                   DateTime.Compare(parametri.startTime.AddMinutes(termin.TrajanjeTermina), termin.DatumIVremeTermina) >
+                   0;
+        }
+
+        private static bool NoviTerminUnutarStarogTermina(ParamsToCheckAvailabilityOfDoctorDTO parametri, Termin termin)
+        {
+            return DateTime.Compare(parametri.startTime, termin.DatumIVremeTermina) > 0 && DateTime.Compare(parametri.startTime,
+                termin.DatumIVremeTermina.AddMinutes(termin.TrajanjeTermina)) < 0;
+        }
+
+        private bool DaLiLekarRadi(ParamsToCheckAvailabilityOfDoctorDTO parametri)
+        {
+            foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(parametri.IDDoctor))
+            {
+                if (LekarRadi(parametri, radnoVreme))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool LekarRadi(ParamsToCheckAvailabilityOfDoctorDTO parametri, RadnoVreme radnoVreme)
+        {
+            return parametri.startTime.Date >= radnoVreme.DatumIVremePocetka.Date &&
+                   parametri.startTime.AddMinutes(parametri.durationInMinutes).Date <= radnoVreme.DatumIVremeZavrsetka.Date &&
+                   parametri.startTime.TimeOfDay >= radnoVreme.DatumIVremePocetka.TimeOfDay &&
+                   parametri.startTime.AddMinutes(parametri.durationInMinutes).TimeOfDay <=  radnoVreme.DatumIVremeZavrsetka.TimeOfDay;
         }
 
         public bool ObrisiLekara(string jmbg)

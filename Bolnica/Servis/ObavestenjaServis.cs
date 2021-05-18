@@ -33,7 +33,6 @@ namespace Servis
 
         public List<Obavestenje> GetAll()
         {
-            // TODO: implement
             return skladisteZaObavestenja.GetAll();
         }
 
@@ -67,10 +66,10 @@ namespace Servis
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
         }
 
-        public bool napraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool NapraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
         {
             Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(jmbgPacijenta);
-            //ObavestenjaServis.getInstance().napraviPodsetnik(jmbgPacijenta, r, hours);
+            //ObavestenjaServis.getInstance().NapraviPodsetnik(jmbgPacijenta, r, hours);
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -143,12 +142,12 @@ namespace Servis
 
         public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
         {
-            obrisiObavestenje(staroObavestenje);
+            ObrisiObavestenje(staroObavestenje);
             skladisteZaObavestenja.Save(novoObavestenje);
             return true;
         }
 
-        public bool obrisiObavestenje(Obavestenje obavestenje)
+        public bool ObrisiObavestenje(Obavestenje obavestenje)
         {
             List<Obavestenje> obavestenja = skladisteZaObavestenja.GetAll();
             foreach (Obavestenje obavestenje1 in obavestenja)
@@ -185,10 +184,6 @@ namespace Servis
              PacijentServis.getInstance().IzmeniPacijenta(p, p);*/
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
-
-
-
-
 
         public Repozitorijum.SkladisteZaObavestenja skladisteZaObavestenja;
 
