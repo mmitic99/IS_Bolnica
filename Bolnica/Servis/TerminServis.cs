@@ -42,7 +42,6 @@ namespace Servis
         {
             termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
             skladisteZaTermine.Save(termin);
-
             return true;
         }
 
@@ -95,7 +94,7 @@ namespace Servis
             });
         }
 
-        internal List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
+        public List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
         {
             List<Termin> sviTerminiKorisnika = SkladisteZaTermine.getInstance().getByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
             List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
@@ -109,16 +108,16 @@ namespace Servis
             return sviTerminiKorisnikaIzBuducnosti;
         }
 
-        internal List<Termin> getByJmbgPacijenta(string jmbg)
+        public List<Termin> GetByJmbgPacijenta(string jmbg)
         {
             return SkladisteZaTermine.getInstance().getByJmbg(jmbg);
         }
 
-        internal List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
-            parametri.Pocetak = KonvertujMinute(parametri.Pocetak);
+            parametri.Pocetak = KonvertujMinuteNaBrojDeljivSa30(parametri.Pocetak);
             parametri.SviMoguciDaniZakazivanja = DobaviMoguceSveDaneZakazivanja(parametri.PrethodnoZakazaniTermin);
-            return nadjiTerminePoPriritetu(parametri);
+            return NadjiTerminePoPriritetu(parametri);
         }
 
         public Termin GetById(string idTermina)
@@ -126,7 +125,7 @@ namespace Servis
             return skladisteZaTermine.getById(idTermina);
         }
 
-        public List<Termin> nadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
+        public List<Termin> NadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
             List<Termin> moguciTermini = new List<Termin>();
             switch (parametri.Prioritet)
@@ -193,42 +192,15 @@ namespace Servis
 
         public List<Termin> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
         {
-            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
-            List<Termin> moguciTermini = new List<Termin>();
-            List<DateTime> vremena = DobaviVremeZaHitanTermin();
+            List<Termin> moguciTermini = DobaviMoguceHitneTermine(vrstaSpecijalizacije);
+            List<Termin> sortiraniTermini = SortirajHitneTermine(moguciTermini);
+            return sortiraniTermini;
+        }
 
-            foreach (DateTime datumIVreme in vremena)
-            {
-                foreach (Lekar lekar in lekari)
-                {
-                    if (lekar.Specijalizacija != null && lekar.Specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije))
-                    {
-                        if (LekarRadi(lekar.Jmbg, datumIVreme))
-                        {
-                            Termin termin = new Termin
-                            {
-                                DatumIVremeTermina = datumIVreme,
-                                JmbgLekara = lekar.Jmbg,
-                                brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
-                                JmbgPacijenta = null
-                            };
-
-                            Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
-
-                            if (terminDatumVreme != null)
-                            {
-                                termin.JmbgPacijenta = terminDatumVreme.JmbgPacijenta;
-                                termin.IDTermina = terminDatumVreme.IDTermina;
-                            }
-
-                            moguciTermini.Add(termin);
-                        }
-                    }
-                }
-            }
+        private List<Termin> SortirajHitneTermine(List<Termin> moguciTermini)
+        {
             List<Termin> sortiraniTermini = new List<Termin>();
             List<Termin> terminiSaPomeranjem = new List<Termin>();
-
             foreach (Termin termin in moguciTermini)
             {
                 if (termin.JmbgPacijenta == null)
@@ -240,14 +212,54 @@ namespace Servis
                     terminiSaPomeranjem.Add(termin);
                 }
             }
-            foreach (Termin termin in terminiSaPomeranjem)
-            {
-                sortiraniTermini.Add(termin);
-            }
+            sortiraniTermini.AddRange(terminiSaPomeranjem);
             return sortiraniTermini;
         }
 
-        private static List<DateTime> DobaviVremeZaHitanTermin()
+        private List<Termin> DobaviMoguceHitneTermine(string vrstaSpecijalizacije)
+        {
+            List<Termin> moguciTermini = new List<Termin>();
+            List<DateTime> vremena = DobaviVremenaZaHitneTermine();
+            foreach (DateTime datumIVreme in vremena)
+            {
+                moguciTermini.AddRange(DobaviHitneTermineZaSveLekare(vrstaSpecijalizacije, datumIVreme));
+            }
+            return moguciTermini;
+        }
+
+        private IEnumerable<Termin> DobaviHitneTermineZaSveLekare(string vrstaSpecijalizacije, DateTime datumIVreme)
+        {
+            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Termin> moguciTermini = new List<Termin>();
+            foreach (Lekar lekar in lekari)
+            {
+                if (lekar.Specijalizacija != null && lekar.Specijalizacija.VrstaSpecijalizacije.Equals(vrstaSpecijalizacije)
+                                                  && LekarRadi(lekar.Jmbg, datumIVreme))
+                {
+                    moguciTermini.Add(DobaviHitanTerminZaLekara(datumIVreme, lekar));
+                }
+            }
+            return moguciTermini;
+        }
+
+        private Termin DobaviHitanTerminZaLekara(DateTime datumIVreme, Lekar lekar)
+        {
+            Termin termin = new Termin
+            {
+                DatumIVremeTermina = datumIVreme,
+                JmbgLekara = lekar.Jmbg,
+                brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
+                JmbgPacijenta = null
+            };
+            Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
+            if (terminDatumVreme == null) return termin;
+
+            termin.JmbgPacijenta = terminDatumVreme.JmbgPacijenta;
+            termin.IDTermina = terminDatumVreme.IDTermina;
+            return termin;
+        }
+
+        private static List<DateTime> DobaviVremenaZaHitneTermine()
         {
             List<DateTime> vremena = new List<DateTime>();
 
@@ -396,12 +408,11 @@ namespace Servis
             }
         }
 
-        private TimeSpan KonvertujMinute(TimeSpan pocetak)
+        private TimeSpan KonvertujMinuteNaBrojDeljivSa30(TimeSpan pocetak)
         {
             if (pocetak.TotalMinutes % 30 != 0)
             {
                 double dodaj = 30 - (pocetak.TotalMinutes % 30);
-                //konverzija da minuti termina pocinju uvek sa brojem koji je deljiv sa 30
                 pocetak += TimeSpan.FromMinutes(dodaj);
             }
             return pocetak;
@@ -499,6 +510,7 @@ namespace Servis
 
         public bool OdloziTermin(Termin termin)
         {
+            // TODO: implement
             return true;
         }
 
@@ -555,9 +567,7 @@ namespace Servis
             // TODO: implement
         }
 
-
-
-        internal IEnumerable GetBuduciTerminPacLekar()
+        public IEnumerable GetBuduciTerminPacLekar()
         {
             return skladisteZaTermine.GetBuduciTerminPacLekar();
         }

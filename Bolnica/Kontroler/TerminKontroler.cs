@@ -56,26 +56,22 @@ namespace Kontroler
 
         public List<Termin> GetAll()
         {
-            // TODO: implement
             return terminServis.GetAll();
         }
 
         public void Save(Termin termin)
         {
-            // TODO: implement
             terminServis.Save(termin);
         }
 
         public void SaveAll(List<Termin> termini)
         {
-            // TODO: implement
             terminServis.SaveAll(termini);
         }
 
-        internal List<Termin> GetByJmbg(string jmbg)
+        public List<Termin> GetByJmbg(string jmbg)
         {
-
-            return TerminServis.getInstance().getByJmbgPacijenta(jmbg);
+            return TerminServis.getInstance().GetByJmbgPacijenta(jmbg);
         }
 
         internal DateTime? PrviMoguciDanZakazivanja(Object prethodniTermin)

@@ -109,6 +109,18 @@ namespace Bolnica.view.SekretarView
             s.ShowDialog();
         }
 
+        private void ZakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, (PacijentDTO)PacijentiPrikaz.SelectedItem);
+            s.ShowDialog();
+        }
+
+        private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null, false, (LekarDTO)LekariPrikaz.SelectedItem);
+            s.ShowDialog();
+        }
+
         private void IzmeniTermin_Click(object sender, RoutedEventArgs e)
         {
             if (TerminiPrikaz.SelectedIndex == -1)
@@ -145,12 +157,6 @@ namespace Bolnica.view.SekretarView
             var s = new Prijavljivanje("s");
             this.Close();
             s.Show();
-        }
-
-        private void ZakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, (PacijentDTO)PacijentiPrikaz.SelectedItem);
-            s.ShowDialog();
         }
 
 
@@ -197,7 +203,6 @@ namespace Bolnica.view.SekretarView
                 ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
             }
         }
-
         private void PogledajObavestenje_Click(object sender, EventArgs e)
         {
             if (ObavestenjaPrikaz.SelectedIndex == -1)
@@ -251,12 +256,6 @@ namespace Bolnica.view.SekretarView
                 LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
                 SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
             }
-        }
-
-        private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null, false, (LekarDTO)LekariPrikaz.SelectedItem);
-            s.ShowDialog();
         }
 
         private void RadnoVremeLekara_Click(object sender, RoutedEventArgs e)

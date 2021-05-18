@@ -184,11 +184,11 @@ namespace Bolnica.view.SekretarView.Termini
             return vremena;
         }
 
-        private string AzurirajPrikazVremenaZaHitanTermin(Termin termin, string prikazVremena)
+        private string AzurirajPrikazVremenaZaHitanTermin(Termin hitanTermin, string prikazVremena)
         {
-            LekarDTO lekarUTerminu = lekarKontroler.GetByJmbg(termin.JmbgLekara);
+            LekarDTO lekarUTerminu = lekarKontroler.GetByJmbg(hitanTermin.JmbgLekara);
             prikazVremena += " lekar: " + lekarUTerminu.Ime + " " + lekarUTerminu.Prezime;
-            prikazVremena += " sala: " + termin.brojSobe;
+            prikazVremena += " sala: " + hitanTermin.brojSobe;
             return prikazVremena;
         }
 
