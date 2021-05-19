@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.LekarView
 {
@@ -22,7 +23,7 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             DataContext = this;
             Anamneze = new List<Anamneza>();
-            pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+            pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbg);
             Anamneze = pacijent.ZdravstveniKarton.Anamneze;
 
             Console.WriteLine(jmbg);

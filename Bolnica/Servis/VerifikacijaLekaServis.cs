@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.Repozitorijum;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
     public class VerifikacijaLekaServis
     {
         private static VerifikacijaLekaServis instance = null;
+        public ISkladisteZaVerifikacijuLeka skladisteZaVerifikacijuLeka;
         public static VerifikacijaLekaServis GetInstance()
         {
             if (instance == null)
@@ -20,26 +22,31 @@ namespace Bolnica.Servis
             return instance;
         }
 
+        public VerifikacijaLekaServis()
+        {
+            skladisteZaVerifikacijuLeka = new SkladisteZaVerifikacijuLekaXml();
+        }
+
         public void PosaljiVerifikacijuLeka(VerifikacijaLeka verifikacijaLeka)
         {
-            List<VerifikacijaLeka> SveVerifikacijeLeka = SkladisteZaVerifikacijuLeka.GetInstance().GetAll();
+            List<VerifikacijaLeka> SveVerifikacijeLeka = skladisteZaVerifikacijuLeka.GetAll();
             SveVerifikacijeLeka.Add(verifikacijaLeka);
-            SkladisteZaVerifikacijuLeka.GetInstance().SaveAll(SveVerifikacijeLeka);
+            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka);
         }
         public void ObrisiVerifikacijuLeka() { }
         public List<VerifikacijaLeka> GetAll()
         {
-            return SkladisteZaVerifikacijuLeka.GetInstance().GetAll();
+            return skladisteZaVerifikacijuLeka.GetAll();
         }
 
         public void Save(VerifikacijaLeka verifikacija)
         {
-            SkladisteZaVerifikacijuLeka.GetInstance().Save(verifikacija);
+            skladisteZaVerifikacijuLeka.Save(verifikacija);
         }
 
         public void SaveAll(List<VerifikacijaLeka> verifikacije)
         {
-            SkladisteZaVerifikacijuLeka.GetInstance().SaveAll(verifikacije);
+            skladisteZaVerifikacijuLeka.SaveAll(verifikacije);
         }
     }
 }

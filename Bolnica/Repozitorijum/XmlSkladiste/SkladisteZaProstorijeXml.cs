@@ -1,23 +1,22 @@
-using Model;
-using Model.Enum;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
+using Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladisteZaProstorije
+    public class SkladisteZaProstorijeXml : ISkladisteZaProstorije
     {
         public String Lokacija { get; set; }
-        private static SkladisteZaProstorije instance = null;
+        private static SkladisteZaProstorijeXml instance = null;
 
-        public static SkladisteZaProstorije GetInstance()
+        public static SkladisteZaProstorijeXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladisteZaProstorije();
+                instance = new SkladisteZaProstorijeXml();
             }
             return instance;
         }
@@ -29,7 +28,7 @@ namespace Repozitorijum
             set;
         }
 
-        public SkladisteZaProstorije()
+        public SkladisteZaProstorijeXml()
         {
             Prostorije = new List<Prostorija>();
             Lokacija = "..\\..\\SkladistePodataka\\prostorije.xml";
@@ -49,7 +48,7 @@ namespace Repozitorijum
             }
             return Prostorije;
         }
-        public Prostorija getById(int id)
+        public Prostorija GetById(int id)
         {
             List<Prostorija> prostorije = this.GetAll();
             Prostorija p1 = new Prostorija();
@@ -67,7 +66,7 @@ namespace Repozitorijum
             return p1;
         }
 
-            public void Save(Prostorija prostorija)
+        public void Save(Prostorija prostorija)
         {
             Prostorije = GetAll();
 

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.LekarView
 {
@@ -47,7 +48,7 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
+            Termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
             ImeDoktora.DataContext = lekar;
             instance = this;
         }
@@ -67,8 +68,8 @@ namespace Bolnica.view.LekarView
         {
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
             {
-                SkladisteZaTermine.getInstance().RemoveByID(((Termin)Pregledi_Table.SelectedItem).IDTermina);
-                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByDateForLekar(DatePicker1.SelectedDate.Value, ((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
+                SkladisteZaTermineXml.getInstance().RemoveById(((Termin)Pregledi_Table.SelectedItem).IDTermina);
+                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByDateForLekar(DatePicker1.SelectedDate.Value, ((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
 
 
             }
@@ -96,7 +97,7 @@ namespace Bolnica.view.LekarView
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             DateTime datum = DateTime.Parse(DatePicker1.Text);
-            Termini = SkladisteZaTermine.getInstance().getByDateForLekar(datum.Date, LekarWindow.getInstance().lekar1.Jmbg);
+            Termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum.Date, LekarWindow.getInstance().lekar1.Jmbg);
             LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(Termini);
             //TerminiPage.getInstance().DatumTermina.SortDirection = 0;
             TerminiPage.getInstance().VremeTermina.SortDirection = System.ComponentModel.ListSortDirection.Ascending;

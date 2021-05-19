@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.LekarView
 {
@@ -46,9 +47,9 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             this.DataContext = this;
             Lekovi = new List<Lek>();
-            Lekovi = SkladisteZaLekove.GetInstance().GetAll();
+            Lekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             VerifikacijaLekova = new List<VerifikacijaLeka>();
-            VerifikacijaLekova = SkladisteZaVerifikacijuLeka.GetInstance().GetObavestenjaByJmbg(LekarWindow.getInstance().lekar1.Jmbg);
+            VerifikacijaLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg(LekarWindow.getInstance().lekar1.Jmbg);
             ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
             instance = this;
 
@@ -88,7 +89,7 @@ namespace Bolnica.view.LekarView
             {
                 MessageBox.Show("Označite lek koji želite da izmenite !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekove.GetInstance().GetAll());
+            //LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekoveXml.GetInstance().GetAll());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

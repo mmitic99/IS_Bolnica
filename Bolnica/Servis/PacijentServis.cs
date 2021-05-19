@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bolnica.model;
+using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis
 {
@@ -24,7 +26,8 @@ namespace Servis
         }
         public PacijentServis()
         {
-            skladistePacijenta = SkladistePacijenta.GetInstance();
+            skladistePacijenta = SkladistePacijentaXml.GetInstance();
+            skladisteZaTermine = new SkladisteZaTermineXml();
         }
 
         public bool RegistrujPacijenta(Pacijent pacijent)
@@ -82,7 +85,7 @@ namespace Servis
         public List<Recept> DobaviReceptePacijenta(string jmbg)
         {
             List<Recept> receptiPacijenta = new List<Recept>();
-            Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+            Pacijent pacijent = skladistePacijenta.GetByJmbg(jmbg);
             foreach(Izvestaj i in pacijent.ZdravstveniKarton.Izvestaj)
             {
                 foreach(Recept r in i.recepti)
@@ -132,7 +135,7 @@ namespace Servis
 
         public bool DaLiJePacijentSlobodan(ParamsToCheckAvailabilityOfPatientDTO parametri)
         {
-            List<Termin> terminiPacijenta = SkladisteZaTermine.getInstance().getByJmbg(parametri.Id);
+            List<Termin> terminiPacijenta = skladisteZaTermine.GetByJmbg(parametri.Id);
             foreach (Termin termin in terminiPacijenta)
             {
                 if (DaLiPocetakIliKrajTerminaUpadaju(parametri, termin)) return false;
@@ -179,7 +182,7 @@ namespace Servis
 
         public Pacijent GetByJmbg(string jmbg)
         {
-            return skladistePacijenta.getByJmbg(jmbg);
+            return skladistePacijenta.GetByJmbg(jmbg);
         }
 
         public List<Pacijent> GetAll()
@@ -197,7 +200,8 @@ namespace Servis
             // TODO: implement
         }
 
-        public SkladistePacijenta skladistePacijenta;
+        public ISkladistePacijenta skladistePacijenta;
+        public ISkladisteZaTermine skladisteZaTermine;
 
     }
 }

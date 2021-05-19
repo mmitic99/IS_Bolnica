@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
 
 namespace Bolnica.view.LekarView
@@ -43,7 +44,7 @@ namespace Bolnica.view.LekarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             
-            Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(PacijentInfoPage.getInstance().Jmbg);
+            Pacijent pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(PacijentInfoPage.getInstance().Jmbg);
             Pacijent p1 = pacijent;
             pacijent.ZdravstveniKarton.IzmenaAnamneze(anamneza1.IdAnamneze, txt1.Text);
             PacijentServis.GetInstance().IzmeniPacijenta(pacijent, p1);

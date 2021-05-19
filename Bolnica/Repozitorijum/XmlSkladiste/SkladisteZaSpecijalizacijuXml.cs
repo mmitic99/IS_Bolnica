@@ -1,14 +1,15 @@
-using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
+using Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladisteZaSpecijalizaciju
+    public class SkladisteZaSpecijalizacijuXml : ISkladisteZaSpecijalizaciju
     {
-        public SkladisteZaSpecijalizaciju()
+        public SkladisteZaSpecijalizacijuXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\specijalizacije.xml";
         }

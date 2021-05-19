@@ -8,6 +8,7 @@ using System.Windows;
 using Bolnica.model;
 using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
 using Model;
 using Repozitorijum;
@@ -17,12 +18,12 @@ namespace Bolnica.Servis
 {
     public class RadnoVremeServis
     {
-        private SkladisteRadnihVremena skladisteRadnihVremena;
-        private SkladisteZaLekara skladisteZaLekara;
+        private ISkladisteRadnihVremena skladisteRadnihVremena;
+        private ISkladisteZaLekara skladisteZaLekara;
         public RadnoVremeServis()
         {
-            skladisteRadnihVremena = new SkladisteRadnihVremena();
-            skladisteZaLekara = SkladisteZaLekara.GetInstance();
+            skladisteRadnihVremena = new SkladisteRadnihVremenaXml();
+            skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
         }
         public List<RadnoVreme> GetAll()
         {

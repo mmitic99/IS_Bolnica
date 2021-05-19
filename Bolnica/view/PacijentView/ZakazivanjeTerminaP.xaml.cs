@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.PacijentView
 {
@@ -91,7 +92,7 @@ namespace Bolnica.view.PacijentView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
       
-            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(p.Jmbg));
+            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbg(p.Jmbg));
             MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM; 
 
         }

@@ -1,24 +1,21 @@
-﻿using Bolnica.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Bolnica.model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladisteZaVerifikacijuLeka
+    public class SkladisteZaVerifikacijuLekaXml : ISkladisteZaVerifikacijuLeka
     {
         public String Lokacija { get; set; }
-        private static SkladisteZaVerifikacijuLeka instance = null;
+        private static SkladisteZaVerifikacijuLekaXml instance = null;
 
-        public static SkladisteZaVerifikacijuLeka GetInstance()
+        public static SkladisteZaVerifikacijuLekaXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladisteZaVerifikacijuLeka();
+                instance = new SkladisteZaVerifikacijuLekaXml();
             }
             return instance;
         }
@@ -30,7 +27,7 @@ namespace Bolnica.Repozitorijum
             set;
         }
 
-        public SkladisteZaVerifikacijuLeka()
+        public SkladisteZaVerifikacijuLekaXml()
         {
             VerifikacijeLeka = new List<VerifikacijaLeka>();
             Lokacija = "..\\..\\SkladistePodataka\\verifikacije lekova.xml";

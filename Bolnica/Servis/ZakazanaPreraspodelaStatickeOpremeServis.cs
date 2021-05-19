@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
     public class ZakazanaPreraspodelaStatickeOpremeServis
     {
         private static ZakazanaPreraspodelaStatickeOpremeServis instance = null;
+        public ISkladisteZaZakazanuPreraspodeluStatickeOpreme skladisteZaZakazanuPreraspodeluStatickeOpreme;
 
         public static ZakazanaPreraspodelaStatickeOpremeServis GetInstance()
         {
@@ -22,13 +24,18 @@ namespace Bolnica.Servis
             return instance;
         }
 
+        public ZakazanaPreraspodelaStatickeOpremeServis()
+        {
+            skladisteZaZakazanuPreraspodeluStatickeOpreme = new SkladisteZaZakazanuPreraspodeluStatickeOpremeXml();
+        }
+
         public void ZakaziPreraspodeluStatickeOpreme(ZakazanaPreraspodelaStatickeOpreme preraspodela)
         {
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = new List<ZakazanaPreraspodelaStatickeOpreme>();
-            SvePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
+            SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.Add(preraspodela);
             UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme = SvePreraspodele;
-            SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().SaveAll(SvePreraspodele);
+            skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
             OsveziPrikazPreraspodeleOpreme();
         }
 
@@ -40,10 +47,10 @@ namespace Bolnica.Servis
         public void OtkaziPreraspodeluStatickeOpreme(int index) 
         {
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = new List<ZakazanaPreraspodelaStatickeOpreme>();
-            SvePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
+            SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.RemoveAt(index);
             UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme = SvePreraspodele;
-            SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().SaveAll(SvePreraspodele);
+            skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
             OsveziPrikazPreraspodeleOpreme();
         }
 

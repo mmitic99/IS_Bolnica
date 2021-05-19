@@ -1,22 +1,23 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
+using Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladisteZaObavestenja
+    public class SkladisteZaObavestenjaXml : ISkladisteZaObavestenja
     {
-        public SkladisteZaObavestenja()
+        public SkladisteZaObavestenjaXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\obavestenja.xml";
         }
-        public static SkladisteZaObavestenja GetInstance()
+        public static SkladisteZaObavestenjaXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladisteZaObavestenja();
+                instance = new SkladisteZaObavestenjaXml();
             }
             return instance;
         }
@@ -36,7 +37,7 @@ namespace Repozitorijum
             return obavestenja;
         }
 
-        public bool Save(Obavestenje obavestenje)
+        public void Save(Obavestenje obavestenje)
         {
             List<Obavestenje> obavestenja = GetAll();
             bool sacuvaj = true;
@@ -54,7 +55,7 @@ namespace Repozitorijum
 
             }
             SaveAll(obavestenja);
-            return sacuvaj;
+            return;
         }
 
         public void SaveAll(List<Obavestenje> obavestenja)
@@ -108,7 +109,7 @@ namespace Repozitorijum
             return odgovarajucaObavestanje;
         }
         private String Lokacija;
-        private static SkladisteZaObavestenja instance = null;
+        private static SkladisteZaObavestenjaXml instance = null;
 
     }
 }

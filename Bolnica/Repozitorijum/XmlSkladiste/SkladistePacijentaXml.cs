@@ -1,23 +1,23 @@
-using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladistePacijenta
+    public class SkladistePacijentaXml : ISkladistePacijenta
     {
-        private SkladistePacijenta()
+        private SkladistePacijentaXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\pacijenti.xml";
         }
 
-        public static SkladistePacijenta GetInstance()
+        public static SkladistePacijentaXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladistePacijenta();
+                instance = new SkladistePacijentaXml();
             }
             return instance;
         }
@@ -37,7 +37,7 @@ namespace Repozitorijum
             return pacijenti;
         }
 
-        public Pacijent getByJmbg(String jmbg)
+        public Pacijent GetByJmbg(String jmbg)
         {
             List<Pacijent> pacijenti = this.GetAll();
             Pacijent pacijent1 = new Pacijent();
@@ -79,6 +79,6 @@ namespace Repozitorijum
         }
 
         private String Lokacija;
-        private static SkladistePacijenta instance = null;
+        private static SkladistePacijentaXml instance = null;
     }
 }

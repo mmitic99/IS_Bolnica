@@ -5,14 +5,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Servis;
 
 namespace Servis
 {
     public class TerminServis
     {
-        public SkladisteZaTermine skladisteZaTermine;
-        public SkladisteZaObavestenja skladisteZaObavestenja;
+        public ISkladisteZaTermine skladisteZaTermine;
+        public ISkladisteZaObavestenja skladisteZaObavestenja;
+        public ISkladisteZaProstorije skladisteZaProstorije;
+        public ISkladisteZaLekara skladisteZaLekara;
         public static TerminServis instance = null;
         public const int MAX_BR_TERMINA_PRIKAZ = 10;
         public const int MAX_BR_TERMINA_PRIKAZ_SEKRETAR = 50;
@@ -29,13 +32,13 @@ namespace Servis
             }
         }
 
-
-
         public TerminServis()
         {
             instance = this;
-            skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();
-            skladisteZaTermine = new SkladisteZaTermine();
+            skladisteZaObavestenja = SkladisteZaObavestenjaXml.GetInstance();
+            skladisteZaTermine = new SkladisteZaTermineXml();
+            skladisteZaProstorije = new SkladisteZaProstorijeXml();
+            skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
         }
 
         public bool ZakaziTermin(Termin termin)
@@ -47,7 +50,7 @@ namespace Servis
 
         public bool OtkaziTermin(String IdTermina)
         {
-            skladisteZaTermine.RemoveByID(IdTermina);
+            skladisteZaTermine.RemoveById(IdTermina);
             return true;
         }
 
@@ -56,13 +59,13 @@ namespace Servis
             Termin stariTermin;
             if (stariIdTermina != null)
             {
-                stariTermin = SkladisteZaTermine.getInstance().getById(stariIdTermina);
-                skladisteZaTermine.RemoveByID(stariIdTermina);
+                stariTermin = skladisteZaTermine.GetById(stariIdTermina);
+                skladisteZaTermine.RemoveById(stariIdTermina);
             }
             else
             {
-                stariTermin = skladisteZaTermine.getById(termin.IDTermina);
-                skladisteZaTermine.RemoveByID(termin.IDTermina);
+                stariTermin = skladisteZaTermine.GetById(termin.IDTermina);
+                skladisteZaTermine.RemoveById(termin.IDTermina);
             }
             termin.IDTermina = termin.generateRandId();
             skladisteZaTermine.Save(termin);
@@ -96,7 +99,7 @@ namespace Servis
 
         public List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
         {
-            List<Termin> sviTerminiKorisnika = SkladisteZaTermine.getInstance().getByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
+            List<Termin> sviTerminiKorisnika = skladisteZaTermine.GetByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
             List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
             foreach (Termin t in sviTerminiKorisnika)
             {
@@ -110,7 +113,7 @@ namespace Servis
 
         public List<Termin> GetByJmbgPacijenta(string jmbg)
         {
-            return SkladisteZaTermine.getInstance().getByJmbg(jmbg);
+            return skladisteZaTermine.GetByJmbg(jmbg);
         }
 
         public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
@@ -122,7 +125,7 @@ namespace Servis
 
         public Termin GetById(string idTermina)
         {
-            return skladisteZaTermine.getById(idTermina);
+            return skladisteZaTermine.GetById(idTermina);
         }
 
         public List<Termin> NadjiTerminePoPriritetu(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
@@ -229,7 +232,7 @@ namespace Servis
 
         private IEnumerable<Termin> DobaviHitneTermineZaSveLekare(string vrstaSpecijalizacije, DateTime datumIVreme)
         {
-            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
             List<Termin> moguciTermini = new List<Termin>();
             foreach (Lekar lekar in lekari)
             {
@@ -248,7 +251,7 @@ namespace Servis
             {
                 DatumIVremeTermina = datumIVreme,
                 JmbgLekara = lekar.Jmbg,
-                brojSobe = (SkladisteZaProstorije.GetInstance().getById(lekar.IdOrdinacija)).BrojSobe,
+                brojSobe = (skladisteZaProstorije.GetById(lekar.IdOrdinacija)).BrojSobe,
                 JmbgPacijenta = null
             };
             Termin terminDatumVreme = GetTerminZaDatumILekara(datumIVreme, lekar.Jmbg);
@@ -339,7 +342,7 @@ namespace Servis
         public List<Termin> nadjiTermineZaTacnoVreme(ParametriZaNalazenjeTerminaZaTacnoVreme parametri)
         {
             List<Termin> terminiZaTacnoVreme = new List<Termin>();
-            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
             foreach (Lekar lekar in lekari)
             {
                 if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
@@ -516,7 +519,7 @@ namespace Servis
 
         public void RemoveByID(string iDTermina)
         {
-            skladisteZaTermine.RemoveByID(iDTermina);
+            skladisteZaTermine.RemoveById(iDTermina);
         }
 
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)

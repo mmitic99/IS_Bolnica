@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Bolnica.DTOs;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -60,17 +61,17 @@ namespace Bolnica.view.UpravnikView
             //ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
             StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
             PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
-            PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();
-            SvaRenoviranja = SkladisteZaRenoviranja.GetInstance().GetAll();
-            SviLekovi = SkladisteZaLekove.GetInstance().GetAll();
-            SveVerifikacijeLekova = SkladisteZaVerifikacijuLeka.GetInstance().GetObavestenjaByJmbg("1903999772025");
+            PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            SveVerifikacijeLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg("1903999772025");
             BrojProstorijeRenoviranje.ItemsSource = ListaProstorija;
-            LekariLekovi.ItemsSource = SkladisteZaLekara.GetInstance().GetAll();
-            LekariLekoviIzmeni.ItemsSource = SkladisteZaLekara.GetInstance().GetAll();
+            LekariLekovi.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
+            LekariLekoviIzmeni.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
 
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
-            ListaProstorija = SkladisteZaProstorije.GetInstance().GetAll();
+            ListaProstorija = SkladisteZaProstorijeXml.GetInstance().GetAll();
         }
 
         // metoda za dodavanje nove prostorije

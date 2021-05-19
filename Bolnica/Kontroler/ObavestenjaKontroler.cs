@@ -36,7 +36,7 @@ namespace Kontroler
 
         public bool Save(ObavestenjeDTO obavestenje)
         {
-            return obavestenjaServis.Save(new Obavestenje()
+            obavestenjaServis.Save(new Obavestenje()
             {
                 JmbgKorisnika = obavestenje.JmbgKorisnika,
                 Naslov = obavestenje.Naslov,
@@ -47,6 +47,7 @@ namespace Kontroler
                 anketaOLekaru = obavestenje.anketaOLekaru,
                 kvartalnaAnketa = obavestenje.kvartalnaAnketa
             });
+            return true;
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)

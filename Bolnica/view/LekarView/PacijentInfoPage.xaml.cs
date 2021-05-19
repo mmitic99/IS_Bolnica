@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
 
 namespace Bolnica.view.LekarView
@@ -44,13 +45,13 @@ namespace Bolnica.view.LekarView
             int k = 0;
             Jmbg = jmbg;
             ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
-            ComboBox1.ItemsSource = SkladistePacijenta.GetInstance().GetAll();
+            ComboBox1.ItemsSource = SkladistePacijentaXml.GetInstance().GetAll();
             if (jmbg != null)
             {
 
-                 pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
+                 pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbg);
                 ComboBox1.SelectedItem = pacijent.FullName;
-                foreach (Pacijent p in SkladistePacijenta.GetInstance().GetAll())
+                foreach (Pacijent p in SkladistePacijentaXml.GetInstance().GetAll())
                 {
                     if (p.Jmbg.Equals(jmbg))
                     {

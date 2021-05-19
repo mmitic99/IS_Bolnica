@@ -5,6 +5,7 @@ using System.Windows;
 using Model.Enum;
 using System.Collections.ObjectModel;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Repozitorijum;
 
 namespace Bolnica.view
@@ -31,16 +32,16 @@ namespace Bolnica.view
             this.pacijent = pacijent;
             
           // Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
-           // SkladistePacijenta.GetInstance().Save(p);
+           // SkladistePacijentaXml.GetInstance().Save(p);
            /* Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
             Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
             List<Termin> termins = new List<Termin>();
             termins.Add(t);
-           SkladisteZaTermine.getInstance().SaveAll(termins);
+           SkladisteZaTermineXml.getInstance().SaveAll(termins);
             */
-            DataContext = SkladistePacijenta.GetInstance().getByJmbg(pacijent.Jmbg);
+            DataContext = SkladistePacijentaXml.GetInstance().GetByJmbg(pacijent.Jmbg);
 
-            List<Termin> termins = SkladisteZaTermine.getInstance().getByJmbg(pacijent.Jmbg);
+            List<Termin> termins = SkladisteZaTermineXml.getInstance().GetByJmbg(pacijent.Jmbg);
             prikazTermina.ItemsSource = termins;
             this.JmbgPacijenta = pacijent.Jmbg;
             DataContext = pacijent;
@@ -63,11 +64,11 @@ namespace Bolnica.view
         {
             if (prikazTermina.SelectedIndex != -1)
             {
-                List<Termin> termini = SkladisteZaTermine.getInstance().GetAll();
+                List<Termin> termini = SkladisteZaTermineXml.getInstance().GetAll();
                 termini.Remove((Termin)prikazTermina.SelectedItem);
-                SkladisteZaTermine.getInstance().SaveAll(termini);
-                SkladisteZaTermine.getInstance().RemoveByID(((Termin)prikazTermina.SelectedItem).IDTermina);
-                prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbg(JmbgPacijenta));
+                SkladisteZaTermineXml.getInstance().SaveAll(termini);
+                SkladisteZaTermineXml.getInstance().RemoveById(((Termin)prikazTermina.SelectedItem).IDTermina);
+                prikazTermina.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbg(JmbgPacijenta));
             }
 
         }

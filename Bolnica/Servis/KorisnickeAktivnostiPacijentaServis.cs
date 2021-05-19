@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
 using Model.Enum;
 using Repozitorijum;
@@ -15,6 +16,7 @@ namespace Servis
    public class KorisnickeAktivnostiPacijentaServis
    {
         private static KorisnickeAktivnostiPacijentaServis instance = null;
+        public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
 
         public static KorisnickeAktivnostiPacijentaServis GetInstance()
         {
@@ -29,15 +31,16 @@ namespace Servis
         public KorisnickeAktivnostiPacijentaServis()
         {
             instance = this;
+            skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
         }
 
         public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
       {
-            KorisnickeAktivnostiNaAplikaciji aktivnosti = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgKorisnika);
+            KorisnickeAktivnostiNaAplikaciji aktivnosti = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgKorisnika);
             if (aktivnosti == null)
             {
                 aktivnosti = NapraviNoveKorisnickeAktivnosti(jmbgKorisnika);
-               // SkladisteZaKorisnickeAktivnosti.GetInstance().Save(aktivnosti);
+               // skladisteZaKorisnickeAktivnosti.Save(aktivnosti);
             }
             return aktivnosti;
         }
@@ -60,7 +63,7 @@ namespace Servis
 
         internal void OdblokirajKorisnika()
         {
-            List<KorisnickeAktivnostiNaAplikaciji> aktivnosti = SkladisteZaKorisnickeAktivnosti.GetInstance().GetAll();
+            List<KorisnickeAktivnostiNaAplikaciji> aktivnosti = skladisteZaKorisnickeAktivnosti.GetAll();
             foreach (KorisnickeAktivnostiNaAplikaciji aktivnost in aktivnosti)
             {
                 if (aktivnost.TrenutnoSeTretiraKao == VrstaKorisnikaAplikacije.Spam &&
@@ -125,7 +128,7 @@ namespace Servis
         public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
       {
             KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
-            SkladisteZaKorisnickeAktivnosti.GetInstance().Save(noveAktivnosti);
+            skladisteZaKorisnickeAktivnosti.Save(noveAktivnosti);
             return noveAktivnosti;
         }
 
@@ -150,7 +153,7 @@ namespace Servis
         public void DodajZakazivanje(String jmbgPacijenta)
       {
             KorisnickaAktivnost zakazivanje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.ZakazivanjePregleda, DateTime.Now);
-            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgPacijenta);
+            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
             sveAktivnostiKorisnika.AktivnostiKorisnika.Add(zakazivanje);
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
@@ -158,7 +161,7 @@ namespace Servis
       public void DodajOdlaganje(String jmbgPacijenta)
       {
             KorisnickaAktivnost odlaganje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.OdlaganjePregleda, DateTime.Now);
-            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = SkladisteZaKorisnickeAktivnosti.GetInstance().GetByJmbg(jmbgPacijenta);
+            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
             sveAktivnostiKorisnika.AktivnostiKorisnika.Add(odlaganje);
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
@@ -166,7 +169,7 @@ namespace Servis
       public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
       {
             AzurirajRang(korisnickaAktivnost);
-            List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  SkladisteZaKorisnickeAktivnosti.GetInstance().GetAll();
+            List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  skladisteZaKorisnickeAktivnosti.GetAll();
             for(int i=0; i<aktivnostiSvihKorisnika.Count; i++)
             {
                 if(aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
@@ -175,7 +178,7 @@ namespace Servis
                     break;
                 }
             }
-            SkladisteZaKorisnickeAktivnosti.GetInstance().SaveAll(aktivnostiSvihKorisnika);
+            skladisteZaKorisnickeAktivnosti.SaveAll(aktivnostiSvihKorisnika);
             return true;
       }
       
@@ -190,10 +193,6 @@ namespace Servis
             else
                 korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Normalan;
       }
-      
 
-   
-      public Repozitorijum.SkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
-   
    }
 }

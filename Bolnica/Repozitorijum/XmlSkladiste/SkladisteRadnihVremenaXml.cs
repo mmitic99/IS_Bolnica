@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Bolnica.model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    class SkladisteRadnihVremena
+    class SkladisteRadnihVremenaXml : ISkladisteRadnihVremena
     {
-        public SkladisteRadnihVremena()
+        public SkladisteRadnihVremenaXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\radnaVremena.xml";
         }

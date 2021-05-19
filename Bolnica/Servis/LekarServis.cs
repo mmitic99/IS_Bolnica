@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using static Bolnica.DTO.ReceptDTO;
 
 namespace Servis
@@ -30,7 +31,8 @@ namespace Servis
 
         public LekarServis()
         {
-            skladisteZaLekara = SkladisteZaLekara.GetInstance();
+            skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
+            skladisteZaTermine = new SkladisteZaTermineXml();
             radnoVremeServis = new RadnoVremeServis();
             instance = this;
         }
@@ -87,9 +89,9 @@ namespace Servis
             return slobodan;
         }
 
-        private static bool ProveriTermineLekara(ParamsToCheckAvailabilityOfDoctorDTO parametri)
+        private bool ProveriTermineLekara(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
-            List<Termin> terminiLekara = SkladisteZaTermine.getInstance().getByJmbgLekar(parametri.IDDoctor);
+            List<Termin> terminiLekara = skladisteZaTermine.GetByJmbgLekar(parametri.IDDoctor);
             foreach (Termin termin in terminiLekara)
             {
                 if (NoviTerminUnutarStarogTermina(parametri, termin) || 
@@ -160,7 +162,7 @@ namespace Servis
 
         internal int DobaviIndeksSelectovanogLekara(Termin termin)
         {
-            List<Lekar> lekari = SkladisteZaLekara.GetInstance().GetAll();
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
             for (int i = 0; i < lekari.Count; i++)
             {
                 if (lekari[i].Jmbg.Equals(termin.JmbgLekara))
@@ -183,7 +185,7 @@ namespace Servis
 
         public List<Lekar> GetAll()
         {
-            return SkladisteZaLekara.GetInstance().GetAll();
+            return skladisteZaLekara.GetAll();
         }
 
         public void Save(Lekar lekar)
@@ -200,7 +202,8 @@ namespace Servis
             return skladisteZaLekara.getByJmbg(jmbg);
         }
 
-        public SkladisteZaLekara skladisteZaLekara;
+        public ISkladisteZaLekara skladisteZaLekara;
+        public ISkladisteZaTermine skladisteZaTermine;
         public void izdajRecept(ReceptiDTO parametri)
         {
             Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka, parametri.DodatneNapomene, parametri.DatumIzdavanja, parametri.BrojDana, parametri.Doza, parametri.terminiUzimanjaTokomDana, parametri.Dijagnoza, parametri.ImeDoktora);

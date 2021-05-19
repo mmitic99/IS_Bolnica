@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
     class AnketeServis
     {
         public static AnketeServis instance;
+        public ISkladisteZaKvartalneAnkete skladisteZaKvartalneAnkete;
         public static AnketeServis GetInstance()
         {
             if (instance == null) return new AnketeServis();
@@ -21,6 +23,7 @@ namespace Bolnica.Servis
         public AnketeServis()
         {
             instance = this;
+            skladisteZaKvartalneAnkete = new SkladisteZaKvartalneAnketeXml();
         }
 
         public bool DaLiJeKorisnikPopunioAnketu(string jmbg, KvartalnaAnketa anketa)
@@ -43,7 +46,7 @@ namespace Bolnica.Servis
 
         private bool SacuvajIzmenjenuKvartalnuAnketu(KvartalnaAnketa kvartalnaAnketa)
         {
-            List<KvartalnaAnketa> ankete = SkladisteZaKvartalneAnkete.GetInstance().GetAll();
+            List<KvartalnaAnketa> ankete = skladisteZaKvartalneAnkete.GetAll();
             for(int i=0; i<ankete.Count; i++)
             {
                 if(ankete[i].datum.Equals(kvartalnaAnketa.datum))
@@ -52,13 +55,13 @@ namespace Bolnica.Servis
                     break;
                 }
             }
-            SkladisteZaKvartalneAnkete.GetInstance().SaveAll(ankete);
+            skladisteZaKvartalneAnkete.SaveAll(ankete);
             return true;
         }
 
         public KvartalnaAnketa GetKvartalnaAnketa(DateTime datumAnkete)
         {
-            List<KvartalnaAnketa> sveAnkete = SkladisteZaKvartalneAnkete.GetInstance().GetAll();
+            List<KvartalnaAnketa> sveAnkete = skladisteZaKvartalneAnkete.GetAll();
             foreach (KvartalnaAnketa anketa in sveAnkete)
             {
                 if (anketa.datum.Equals(datumAnkete))
@@ -70,13 +73,13 @@ namespace Bolnica.Servis
         private KvartalnaAnketa kreirajNovuKvartalnuAnketu(DateTime datumAnkete)
         {
             KvartalnaAnketa kvartalnaAnketa = new KvartalnaAnketa(datumAnkete);
-            SkladisteZaKvartalneAnkete.GetInstance().Save(kvartalnaAnketa);
+            skladisteZaKvartalneAnkete.Save(kvartalnaAnketa);
             return kvartalnaAnketa;
         }
 
         internal bool DaLiJePoslataKvartalnaAnketa(DateTime today)
         {
-            List<KvartalnaAnketa> sveAnkete = SkladisteZaKvartalneAnkete.GetInstance().GetAll();
+            List<KvartalnaAnketa> sveAnkete = skladisteZaKvartalneAnkete.GetAll();
             foreach (KvartalnaAnketa anketa in sveAnkete)
             {
                 if (anketa.datum.Date.Equals(today.Date))
@@ -89,7 +92,7 @@ namespace Bolnica.Servis
 
         internal AnketaLekar GetAnketaOLekaru(string jmbgLekara)
         {
-            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaru.GetInstance().GetAll();
+            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaruXml.GetInstance().GetAll();
             foreach(AnketaLekar anketa in sveAnkete)
             {
                 if (anketa.JmbgLekara.Equals(jmbgLekara))
@@ -101,7 +104,7 @@ namespace Bolnica.Servis
         private AnketaLekar kreirajNovuAnketuOLekaru(string jmbgLekara)
         {
             AnketaLekar anketaOLekaru = new AnketaLekar(jmbgLekara);
-            SkladisteZaAnketeOLekaru.GetInstance().Save(anketaOLekaru);
+            SkladisteZaAnketeOLekaruXml.GetInstance().Save(anketaOLekaru);
             return anketaOLekaru;
         }
 
@@ -114,7 +117,7 @@ namespace Bolnica.Servis
 
         private bool SacuvajIzmenjenuAnketuOLekaru(AnketaLekar anketaOLekaru)
         {
-            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaru.GetInstance().GetAll();
+            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaruXml.GetInstance().GetAll();
             for (int i = 0; i < ankete.Count; i++)
             {
                 if (ankete[i].JmbgLekara.Equals(anketaOLekaru.JmbgLekara))
@@ -123,7 +126,7 @@ namespace Bolnica.Servis
                     break;
                 }
             }
-            SkladisteZaAnketeOLekaru.GetInstance().SaveAll(ankete);
+            SkladisteZaAnketeOLekaruXml.GetInstance().SaveAll(ankete);
             return true;
         }
 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
@@ -18,6 +19,7 @@ namespace Bolnica.Servis
     {
         private static LekServis instance = null;
         public int IdLekaGenerator = 0;
+        public ISkladisteZaLekove skladisteZaLekove;
         public static LekServis GetInstance()
         {
             if (instance == null)
@@ -27,13 +29,18 @@ namespace Bolnica.Servis
             return instance;
         }
 
+        public LekServis()
+        {
+            skladisteZaLekove = new SkladisteZaLekoveXml();
+        }
+
         public void DodajLek(Lek lek)
         {
             int indexPoslednjegLeka = UpravnikWindow.GetInstance().SviLekovi.Count - 1;
             IdLekaGenerator = UpravnikWindow.GetInstance().SviLekovi[indexPoslednjegLeka].IdLeka;
             lek.IdLeka = ++IdLekaGenerator;
             UpravnikWindow.GetInstance().SviLekovi.Add(lek);
-            SkladisteZaLekove.GetInstance().SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
         }
@@ -43,7 +50,7 @@ namespace Bolnica.Servis
             int StariIdLeka = UpravnikWindow.GetInstance().SviLekovi[index].IdLeka;
             UpravnikWindow.GetInstance().SviLekovi[index] = lek;
             UpravnikWindow.GetInstance().SviLekovi[index].IdLeka = StariIdLeka;
-            SkladisteZaLekove.GetInstance().SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
         }
@@ -52,14 +59,14 @@ namespace Bolnica.Servis
             int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;
             LekoviPage.getInstance().Lekovi[index] = lek;
             LekoviPage.getInstance().Lekovi[index].IdLeka = StariIdLeka;
-            SkladisteZaLekove.GetInstance().SaveAll(LekoviPage.getInstance().Lekovi);
+            skladisteZaLekove.SaveAll(LekoviPage.getInstance().Lekovi);
             LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(LekoviPage.getInstance().Lekovi);
         }
 
         public void IzbrisiLek(int index)
         {
             UpravnikWindow.GetInstance().SviLekovi.RemoveAt(index);
-            SkladisteZaLekove.GetInstance().SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
             OsveziPrikazLekova();
         }
 

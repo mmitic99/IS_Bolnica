@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using Model.Enum;
 using Repozitorijum;
 
@@ -23,7 +24,7 @@ namespace Bolnica.DTOs
         {
             get
             {
-                return SkladisteZaLekara.GetInstance().getByJmbg(JmbgLekara).FullName;
+                return SkladisteZaLekaraXml.GetInstance().getByJmbg(JmbgLekara).FullName;
             }
             set
             {

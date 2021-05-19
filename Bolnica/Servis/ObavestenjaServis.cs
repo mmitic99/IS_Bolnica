@@ -6,6 +6,7 @@ using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis
 {
@@ -28,7 +29,7 @@ namespace Servis
 
         public ObavestenjaServis()
         {
-            skladisteZaObavestenja = SkladisteZaObavestenja.GetInstance();
+            skladisteZaObavestenja = SkladisteZaObavestenjaXml.GetInstance();
         }
 
         public List<Obavestenje> GetAll()
@@ -36,9 +37,9 @@ namespace Servis
             return skladisteZaObavestenja.GetAll();
         }
 
-        public bool Save(Model.Obavestenje obavestenje)
+        public void Save(Model.Obavestenje obavestenje)
         {
-            return skladisteZaObavestenja.Save(obavestenje);
+            skladisteZaObavestenja.Save(obavestenje);
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
@@ -79,7 +80,8 @@ namespace Servis
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Today.AddHours(hours)).ToString("HH:mm") + 
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
-            return SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+            skladisteZaObavestenja.Save(obavestenje);
+            return true;
         }
 
         internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
@@ -104,7 +106,7 @@ namespace Servis
                 anketaOLekaru = anketaOLekaru
                 
             };
-            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+            SkladisteZaObavestenjaXml.GetInstance().Save(obavestenje);
         }
 
         internal void PosaljiKvartalnuAnketu()
@@ -121,7 +123,7 @@ namespace Servis
                 kvartalnaAnketa = DateTime.Today,
                 Vidjeno = false
             };
-            SkladisteZaObavestenja.GetInstance().Save(obavestenje);
+            SkladisteZaObavestenjaXml.GetInstance().Save(obavestenje);
         }
 
         private string GetNazivMesec(int month)
@@ -164,7 +166,7 @@ namespace Servis
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
-            /*Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
+            /*Pacijent p = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbgPacijenta);
              p.ZdravstveniKarton.Izvestaj = new List<Izvestaj>();
              Izvestaj i = new Izvestaj();
              i.recepti = new List<Recept>();
@@ -185,7 +187,7 @@ namespace Servis
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
 
-        public Repozitorijum.SkladisteZaObavestenja skladisteZaObavestenja;
+        public ISkladisteZaObavestenja skladisteZaObavestenja;
 
     }
 }

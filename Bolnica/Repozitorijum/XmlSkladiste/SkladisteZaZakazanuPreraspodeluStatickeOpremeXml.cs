@@ -1,21 +1,21 @@
-﻿using Bolnica.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Bolnica.model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    public class SkladisteZaZakazanuPreraspodeluStatickeOpreme
+    public class SkladisteZaZakazanuPreraspodeluStatickeOpremeXml : ISkladisteZaZakazanuPreraspodeluStatickeOpreme
     {
         public String Lokacija { get; set; }
-        private static SkladisteZaZakazanuPreraspodeluStatickeOpreme instance = null;
+        private static SkladisteZaZakazanuPreraspodeluStatickeOpremeXml instance = null;
 
-        public static SkladisteZaZakazanuPreraspodeluStatickeOpreme GetInstance()
+        public static SkladisteZaZakazanuPreraspodeluStatickeOpremeXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladisteZaZakazanuPreraspodeluStatickeOpreme();
+                instance = new SkladisteZaZakazanuPreraspodeluStatickeOpremeXml();
             }
             return instance;
         }
@@ -27,7 +27,7 @@ namespace Bolnica.Repozitorijum
             set;
         }
 
-        public SkladisteZaZakazanuPreraspodeluStatickeOpreme()
+        public SkladisteZaZakazanuPreraspodeluStatickeOpremeXml()
         {
             ZakazanePreraspodele = new List<ZakazanaPreraspodelaStatickeOpreme>();
             Lokacija = "..\\..\\SkladistePodataka\\zakazane preraspodele staticke opreme.xml";

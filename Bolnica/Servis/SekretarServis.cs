@@ -2,6 +2,8 @@ using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis
 {
@@ -9,7 +11,7 @@ namespace Servis
     {
         public SekretarServis()
         {
-            skladisteSekretara = SkladisteSekretara.GetInstance();
+            skladisteSekretara = SkladisteSekretaraXml.GetInstance();
         }
 
         public bool RegistrujSekretara(Sekretar sekretar)
@@ -64,7 +66,7 @@ namespace Servis
             // TODO: implement
         }
 
-        public SkladisteSekretara skladisteSekretara;
+        public ISkladisteSekretara skladisteSekretara;
 
     }
 }

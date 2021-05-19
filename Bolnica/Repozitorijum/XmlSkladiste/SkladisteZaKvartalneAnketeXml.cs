@@ -1,30 +1,27 @@
-﻿using Bolnica.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Bolnica.model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-    class SkladisteZaKvartalneAnkete
+    class SkladisteZaKvartalneAnketeXml : ISkladisteZaKvartalneAnkete
     {
         private String Lokacija;
-        public static SkladisteZaKvartalneAnkete instance;
-        public static SkladisteZaKvartalneAnkete GetInstance()
+        public static SkladisteZaKvartalneAnketeXml instance;
+        public static SkladisteZaKvartalneAnketeXml GetInstance()
         {
             if(instance==null)
             {
-                return new SkladisteZaKvartalneAnkete();
+                return new SkladisteZaKvartalneAnketeXml();
             }
             else
             {
                 return instance;
             }
         }
-        public SkladisteZaKvartalneAnkete()
+        public SkladisteZaKvartalneAnketeXml()
         {
             instance = this;
             Lokacija = "..\\..\\SkladistePodataka\\kvartalne ankete.xml";

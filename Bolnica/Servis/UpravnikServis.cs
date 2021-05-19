@@ -2,6 +2,7 @@ using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis
 {
@@ -10,7 +11,7 @@ namespace Servis
 
         public UpravnikServis()
         {
-            skladisteUpravnik = SkladisteUpravnik.GetInstance();
+            skladisteUpravnik = SkladisteUpravnikXml.GetInstance();
         }
 
         public bool RegistrujUpravnika(Upravnik upravnik)
@@ -51,20 +52,20 @@ namespace Servis
 
         public List<Upravnik> GetAll()
         {
-            return SkladisteUpravnik.GetInstance().GetAll();
+            return skladisteUpravnik.GetAll();
         }
 
         public void Save(Model.Upravnik upravnik)
         {
-            SkladisteUpravnik.GetInstance().Save(upravnik);
+            skladisteUpravnik.Save(upravnik);
         }
 
         public void SaveAll(List<Upravnik> upravnici)
         {
-            SkladisteUpravnik.GetInstance().SaveAll(upravnici);
+            skladisteUpravnik.SaveAll(upravnici);
         }
 
-        public SkladisteUpravnik skladisteUpravnik;
+        public ISkladisteUpravnik skladisteUpravnik;
 
     }
 }

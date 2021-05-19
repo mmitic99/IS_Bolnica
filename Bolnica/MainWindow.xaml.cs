@@ -15,13 +15,13 @@ namespace Bolnica
         {
             InitializeComponent();
             /*Upravnik upravnik = new Upravnik { Korisnik = new Korisnik { KorisnickoIme = "upravnik", Lozinka = "upravnik" } };
-            SkladisteUpravnik.GetInstance().Save(upravnik);
+            SkladisteUpravnikXml.GetInstance().Save(upravnik);
             Sekretar sekretar = new Sekretar { Korisnik = new Korisnik { KorisnickoIme = "sekretar", Lozinka = "sekretar" } };
-            SkladisteSekretara.GetInstance().Save(sekretar);
+            SkladisteSekretaraXml.GetInstance().Save(sekretar);
             Lekar lekar = new Lekar { Korisnik = new Korisnik { KorisnickoIme = "lekar", Lozinka = "lekar" } };
-            SkladisteZaLekara.GetInstance().Save(lekar);*/
+            SkladisteZaLekaraXml.GetInstance().Save(lekar);*/
 
-            /*SkladisteZaSpecijalizaciju skladisteZaSpecijalizaciju = new SkladisteZaSpecijalizaciju();
+            /*SkladisteZaSpecijalizacijuXml skladisteZaSpecijalizaciju = new SkladisteZaSpecijalizacijuXml();
             List<Specijalizacija> specijalizacije = new List<Specijalizacija>();
             specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "opšta medicina" });
             specijalizacije.Add(new Specijalizacija { VrstaSpecijalizacije = "interna medicina" });

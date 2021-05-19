@@ -1,23 +1,24 @@
-using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
+using Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 
 {
-    public class SkladisteZaLekara
+    public class SkladisteZaLekaraXml : ISkladisteZaLekara
     {
-        private SkladisteZaLekara()
+        private SkladisteZaLekaraXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\lekari.xml";
         }
-        public static SkladisteZaLekara GetInstance()
+        public static SkladisteZaLekaraXml GetInstance()
         {
             if (instance == null)
             {
-                instance = new SkladisteZaLekara();
+                instance = new SkladisteZaLekaraXml();
             }
             return instance;
         }
@@ -94,7 +95,7 @@ namespace Repozitorijum
         }
 
         private String Lokacija;
-        private static SkladisteZaLekara instance = null;
+        private static SkladisteZaLekaraXml instance = null;
 
     }
 }

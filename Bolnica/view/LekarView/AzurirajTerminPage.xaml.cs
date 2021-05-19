@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.LekarView
 {
@@ -28,8 +29,8 @@ namespace Bolnica.view.LekarView
         public Termin selektovani { get; set; }
 
         Termin t = null;
-        SkladisteZaTermine skladiste = new SkladisteZaTermine();
-        SkladisteZaProstorije skladprost = new SkladisteZaProstorije();
+        SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
+        SkladisteZaProstorijeXml skladprost = new SkladisteZaProstorijeXml();
         public AzurirajTerminPage(TerminiPage pr)
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace Bolnica.view.LekarView
 
 
 
-            List<Termin> termini = SkladisteZaTermine.getInstance().GetAll();
+            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetAll();
             foreach (Termin t in termini)
             {
                 if (t.IDTermina != null)
@@ -84,10 +85,10 @@ namespace Bolnica.view.LekarView
                 }
             }
 
-            SkladisteZaTermine.getInstance().SaveAll(termini);
+            SkladisteZaTermineXml.getInstance().SaveAll(termini);
 
-            TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermine.getInstance().getByJmbgLekar(t.JmbgLekara));
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(SkladisteZaLekara.GetInstance().getByJmbg(t.JmbgLekara));
+            TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbgLekar(t.JmbgLekara));
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(SkladisteZaLekaraXml.GetInstance().getByJmbg(t.JmbgLekara));
         }
     }
 }

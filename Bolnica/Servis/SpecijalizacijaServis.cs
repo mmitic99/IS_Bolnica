@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
     class SpecijalizacijaServis
     {
-        private SkladisteZaSpecijalizaciju skladisteZaSpecijalizaciju;
+        private ISkladisteZaSpecijalizaciju skladisteZaSpecijalizaciju;
 
         public SpecijalizacijaServis()
         {
-            skladisteZaSpecijalizaciju = new SkladisteZaSpecijalizaciju();
+            skladisteZaSpecijalizaciju = new SkladisteZaSpecijalizacijuXml();
         }
         public List<Specijalizacija> GetAll()
         {

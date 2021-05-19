@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view
 {
@@ -30,13 +31,13 @@ namespace Bolnica.view
         public Lekar lekar1;
         
 
-        SkladisteZaTermine skladiste = new SkladisteZaTermine();
+        SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
         public LekarWindow(Lekar lekar)
         {
 
             InitializeComponent();
             this.DataContext = this;                         
-            Termini = skladiste.getByJmbgLekar(lekar.Jmbg);
+            Termini = skladiste.GetByJmbgLekar(lekar.Jmbg);
             Frame1.Content = new TerminiPage(lekar);
             lekar1 = lekar;
             instance = this;

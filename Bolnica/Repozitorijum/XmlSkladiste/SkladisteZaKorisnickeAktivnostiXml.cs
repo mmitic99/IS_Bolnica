@@ -1,39 +1,40 @@
 /***********************************************************************
- * Module:  SkladisteZaKorisnickeAktivnosti.cs
+ * Module:  SkladisteZaKorisnickeAktivnostiXml.cs
  * Author:  PC
- * Purpose: Definition of the Class Repozitorijum.SkladisteZaKorisnickeAktivnosti
+ * Purpose: Definition of the Class Repozitorijum.SkladisteZaKorisnickeAktivnostiXml
  ***********************************************************************/
 
-using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using Model;
+using Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.XmlSkladiste
 {
-   public class SkladisteZaKorisnickeAktivnosti
-   {
+    public class SkladisteZaKorisnickeAktivnostiXml : ISkladisteZaKorisnickeAktivnosti
+    {
         private String Lokacija { get; set; }
-        private static SkladisteZaKorisnickeAktivnosti instance = null;
+        private static SkladisteZaKorisnickeAktivnostiXml instance = null;
 
-        public static SkladisteZaKorisnickeAktivnosti GetInstance()
+        public static SkladisteZaKorisnickeAktivnostiXml GetInstance()
         {
             if (instance == null)
             {
-                return new SkladisteZaKorisnickeAktivnosti();
+                return new SkladisteZaKorisnickeAktivnostiXml();
             }
             else
                 return instance;
         }
 
-        public SkladisteZaKorisnickeAktivnosti()
+        public SkladisteZaKorisnickeAktivnostiXml()
         {
             instance = this;
             Lokacija = "..\\..\\SkladistePodataka\\aktivnosti.xml";
         }
         public List<KorisnickeAktivnostiNaAplikaciji> GetAll()
-      {
+        {
             List<KorisnickeAktivnostiNaAplikaciji> KorisnickeAktivnostiNaAplikacijii = new List<KorisnickeAktivnostiNaAplikaciji>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<KorisnickeAktivnostiNaAplikaciji>));
 
@@ -46,17 +47,17 @@ namespace Repozitorijum
 
             return KorisnickeAktivnostiNaAplikacijii;
         }
-      
-      public void Save(Model.KorisnickeAktivnostiNaAplikaciji korisnickeAktivnosti)
-      {
+
+        public void Save(Model.KorisnickeAktivnostiNaAplikaciji korisnickeAktivnosti)
+        {
             List<KorisnickeAktivnostiNaAplikaciji> KorisnickeAktivnostiNaAplikacijii = GetAll();
             KorisnickeAktivnostiNaAplikacijii.Add(korisnickeAktivnosti);
 
             SaveAll(KorisnickeAktivnostiNaAplikacijii);
         }
-      
-      public void SaveAll(List<KorisnickeAktivnostiNaAplikaciji> korisnickeAktivnosti)
-      {
+
+        public void SaveAll(List<KorisnickeAktivnostiNaAplikaciji> korisnickeAktivnosti)
+        {
             StreamWriter stream = new StreamWriter(Lokacija);
 
             try
@@ -69,9 +70,9 @@ namespace Repozitorijum
                 stream.Close();
             }
         }
-      
-      public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
-      {
+
+        public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
+        {
             List<KorisnickeAktivnostiNaAplikaciji> KorisnickeAktivnostiNaAplikacijii = this.GetAll();
             foreach (KorisnickeAktivnostiNaAplikaciji l in KorisnickeAktivnostiNaAplikacijii)
             {
@@ -85,7 +86,7 @@ namespace Repozitorijum
             }
             return null;
         }
-   
-   
-   }
+
+
+    }
 }
