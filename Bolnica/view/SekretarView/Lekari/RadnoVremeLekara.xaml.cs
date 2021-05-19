@@ -13,10 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
-using Bolnica.model;
 using Bolnica.model.Enum;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -54,7 +52,7 @@ namespace Bolnica.view.SekretarView.Lekari
 
                 if (izbor == MessageBoxResult.Yes)
                 {
-                    bool uspesno = radnoVremeKontroler.Obrisi(((RadnoVreme)RadnoVremePrikaz.SelectedItem).IdRadnogVremena);
+                    bool uspesno = radnoVremeKontroler.Obrisi(((RadnoVremeDTO)RadnoVremePrikaz.SelectedItem).IdRadnogVremena);
                     if (uspesno)
                         RadnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
                     else

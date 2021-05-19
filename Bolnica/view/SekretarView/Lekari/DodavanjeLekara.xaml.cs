@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -50,13 +49,11 @@ namespace Bolnica.view.SekretarView.Lekari
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad {Naziv = grad.Text},
-                Korisnik = new Korisnik {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
+                NazivGrada = grad.Text,
+                Korisnik = new KorisnikDTO() {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
                 Pol = Pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
-                Specijalizacija = (Specijalizacija)Specijalizacija.SelectedItem,
+                Specijalizacija = Specijalizacija.SelectedItem.ToString(),
                 BrojSlobodnihDana = 25
-                
-
             };
             lekar.DatumRodjenja = datum.SelectedDate ?? DateTime.Now;
 

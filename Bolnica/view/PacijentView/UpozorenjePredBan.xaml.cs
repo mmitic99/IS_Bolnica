@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
+using Bolnica.model;
 using Bolnica.viewActions;
 using Kontroler;
 using Model;
@@ -37,7 +39,7 @@ namespace Bolnica.view.PacijentView
             this.Close();
             if(upozorenjeZa.Equals("z"))
             {
-                TerminKontroler.getInstance().ZakaziTermin((Termin)MoguciTermini.GetInstance().prikazMogucih.SelectedItem);
+                TerminKontroler.getInstance().ZakaziTermin((TerminDTO)MoguciTermini.GetInstance().prikazMogucih.SelectedItem);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
                 KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
             }

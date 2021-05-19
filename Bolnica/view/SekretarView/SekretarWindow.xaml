@@ -432,7 +432,7 @@
                             </DataGrid.ColumnHeaderStyle>
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="SpecijalizacijaL" Header="Specijalizacija" Binding="{Binding Specijalizacija.VrstaSpecijalizacije}" Width="*"/>
+                                <DataGridTextColumn x:Name="SpecijalizacijaL" Header="Specijalizacija" Binding="{Binding Specijalizacija}" Width="*"/>
                                 <DataGridTextColumn x:Name="JmbgL" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
                                 <DataGridTextColumn x:Name="ImeL" Header="Ime" Binding="{Binding Ime}" Width="*"/>
                                 <DataGridTextColumn x:Name="PrezimeL" Header="Prezime" Binding="{Binding Prezime}" Width="*"/>

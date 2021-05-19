@@ -83,12 +83,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\SekretarCommands.cs" />
+    <Compile Include="DTOs\AnamnezaDTO.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
+    <Compile Include="DTOs\IzvestajDTO.cs" />
+    <Compile Include="DTOs\KorisnikDTO.cs" />
     <Compile Include="DTOs\LekarDTO.cs" />
     <Compile Include="DTOs\ObavestenjeDTO.cs" />
     <Compile Include="DTOs\PacijentDTO.cs" />
+    <Compile Include="DTOs\ProstorijaDTO.cs" />
+    <Compile Include="DTOs\RadnoVremeDTO.cs" />
     <Compile Include="DTOs\SekretarDTO.cs" />
+    <Compile Include="DTOs\TerminDTO.cs" />
+    <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="DTO\LekDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />

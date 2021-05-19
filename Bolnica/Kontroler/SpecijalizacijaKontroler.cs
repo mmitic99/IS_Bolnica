@@ -17,9 +17,15 @@ namespace Kontroler
             specijalizacijaServis = new SpecijalizacijaServis();
         }
 
-        public List<Specijalizacija> GetAll()
+        public List<string> GetAll()
         {
-            return specijalizacijaServis.GetAll();
+            List<string> specijalizacije = new List<string>();
+            foreach (Specijalizacija specijalizacija in specijalizacijaServis.GetAll())
+            {
+                specijalizacije.Add(specijalizacija.VrstaSpecijalizacije);
+            }
+
+            return specijalizacije;
         }
 
         public bool Save(Specijalizacija specijalizacija)

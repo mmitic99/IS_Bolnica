@@ -1,8 +1,8 @@
+using Bolnica.DTOs;
 using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
-using Bolnica.DTOs;
 
 namespace Kontroler
 {
@@ -29,7 +29,39 @@ namespace Kontroler
 
         public bool RegistrujPacijenta(PacijentDTO pacijent)
         {
-            return pacijentServis.RegistrujPacijenta(new Pacijent(){
+            List<Anamneza> anamneze = new List<Anamneza>();
+            if (pacijent.ZdravstveniKarton.Anamneze != null)
+                foreach (AnamnezaDTO anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                {
+                    anamneze.Add(new Anamneza()
+                    {
+                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                        DatumAnamneze = anamneza.DatumAnamneze,
+                        IdAnamneze = anamneza.IdAnamneze,
+                        ImeLekara = anamneza.ImeLekara
+                    });
+                }
+
+            List<Izvestaj> izvestaji = new List<Izvestaj>();
+            if (pacijent.ZdravstveniKarton.Izvestaj != null)
+                foreach (IzvestajDTO izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
+                {
+                    izvestaji.Add(new Izvestaj()
+                    {
+                        datum = izvestaj.datum,
+                        dijagnoza = izvestaj.dijagnoza,
+                        recepti = izvestaj.recepti
+                    });
+                }
+
+            List<string> alergeni = new List<string>();
+            if (pacijent.ZdravstveniKarton.Alergeni != null)
+            {
+                alergeni = pacijent.ZdravstveniKarton.Alergeni;
+            }
+
+            return pacijentServis.RegistrujPacijenta(new Pacijent()
+            {
                 Ime = pacijent.Ime,
                 Prezime = pacijent.Prezime,
                 BracnoStanje = pacijent.BracnoStanje,
@@ -40,11 +72,21 @@ namespace Kontroler
                 DatumRodjenja = pacijent.DatumRodjenja,
                 BrojTelefona = pacijent.BrojTelefona,
                 Email = pacijent.Email,
-                Grad = pacijent.Grad,
-                Korisnik = pacijent.Korisnik,
+                Grad = new Grad() { Naziv = pacijent.NazivGrada },
+                Korisnik = new Korisnik()
+                {
+                    KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
+                    Lozinka = pacijent.Korisnik.Lozinka
+                },
                 Registrovan = pacijent.Registrovan,
-                zdravstveniKarton = pacijent.zdravstveniKarton
+                ZdravstveniKarton = new ZdravstveniKarton()
+                {
+                    Alergeni = alergeni,
+                    Anamneze = anamneze,
+                    Izvestaj = izvestaji
+                }
             });
+
         }
 
         public bool DodajAlergen(String alergen)
@@ -92,14 +134,61 @@ namespace Kontroler
             List<PacijentDTO> pacijentiDto = new List<PacijentDTO>();
             foreach (Pacijent pacijent in pacijenti)
             {
+                List<string> alergeni = new List<string>();
+                List<AnamnezaDTO> anamneze = new List<AnamnezaDTO>();
+                List<IzvestajDTO> izvestaji = new List<IzvestajDTO>();
+                if (pacijent.ZdravstveniKarton != null)
+                {
+                    foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                    {
+                        anamneze.Add(new AnamnezaDTO()
+                        {
+                            AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                            DatumAnamneze = anamneza.DatumAnamneze,
+                            IdAnamneze = anamneza.IdAnamneze,
+                            ImeLekara = anamneza.ImeLekara
+                        });
+                    }
+
+                    foreach (Izvestaj izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
+                    {
+                        izvestaji.Add(new IzvestajDTO()
+                        {
+                            datum = izvestaj.datum,
+                            dijagnoza = izvestaj.dijagnoza,
+                            recepti = izvestaj.recepti
+                        });
+                    }
+
+                    alergeni = pacijent.ZdravstveniKarton.Alergeni;
+                }
                 pacijentiDto.Add(new PacijentDTO()
                 {
-                    Ime = pacijent.Ime, Prezime = pacijent.Prezime, BracnoStanje = pacijent.BracnoStanje,
-                    Adresa = pacijent.Adresa, Jmbg = pacijent.Jmbg, Zanimanje = pacijent.Zanimanje, Pol = pacijent.Pol,
-                    DatumRodjenja = pacijent.DatumRodjenja, BrojTelefona = pacijent.BrojTelefona,
-                    Email = pacijent.Email, Grad = pacijent.Grad, Korisnik = pacijent.Korisnik,
-                    Registrovan = pacijent.Registrovan, zdravstveniKarton = pacijent.zdravstveniKarton
+                    Ime = pacijent.Ime,
+                    Prezime = pacijent.Prezime,
+                    BracnoStanje = pacijent.BracnoStanje,
+                    Adresa = pacijent.Adresa,
+                    Jmbg = pacijent.Jmbg,
+                    Zanimanje = pacijent.Zanimanje,
+                    Pol = pacijent.Pol,
+                    DatumRodjenja = pacijent.DatumRodjenja,
+                    BrojTelefona = pacijent.BrojTelefona,
+                    Email = pacijent.Email,
+                    NazivGrada = pacijent.Grad.Naziv,
+                    Korisnik = new KorisnikDTO()
+                    {
+                        KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
+                        Lozinka = pacijent.Korisnik.Lozinka
+                    },
+                    Registrovan = pacijent.Registrovan,
+                    ZdravstveniKarton = new ZdravstveniKartonDTO()
+                    {
+                        Alergeni = alergeni,
+                        Anamneze = anamneze,
+                        Izvestaj = izvestaji
+                    }
                 });
+
             }
 
             return pacijentiDto;
@@ -117,6 +206,67 @@ namespace Kontroler
 
         public bool IzmeniPacijenta(PacijentDTO stariPacijent, PacijentDTO noviPacijent)
         {
+            List<Anamneza> anamneze = new List<Anamneza>();
+            if (stariPacijent.ZdravstveniKarton.Anamneze != null)
+                foreach (AnamnezaDTO anamneza in stariPacijent.ZdravstveniKarton.Anamneze)
+                {
+                    anamneze.Add(new Anamneza()
+                    {
+                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                        DatumAnamneze = anamneza.DatumAnamneze,
+                        IdAnamneze = anamneza.IdAnamneze,
+                        ImeLekara = anamneza.ImeLekara
+                    });
+                }
+
+            List<Izvestaj> izvestaji = new List<Izvestaj>();
+            if (stariPacijent.ZdravstveniKarton.Izvestaj != null)
+                foreach (IzvestajDTO izvestaj in stariPacijent.ZdravstveniKarton.Izvestaj)
+                {
+                    izvestaji.Add(new Izvestaj()
+                    {
+                        datum = izvestaj.datum,
+                        dijagnoza = izvestaj.dijagnoza,
+                        recepti = izvestaj.recepti
+                    });
+                }
+
+            List<Anamneza> anamnezeNovi = new List<Anamneza>();
+            if (noviPacijent.ZdravstveniKarton.Anamneze != null)
+                foreach (AnamnezaDTO anamneza in noviPacijent.ZdravstveniKarton.Anamneze)
+                {
+                    anamneze.Add(new Anamneza()
+                    {
+                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                        DatumAnamneze = anamneza.DatumAnamneze,
+                        IdAnamneze = anamneza.IdAnamneze,
+                        ImeLekara = anamneza.ImeLekara
+                    });
+                }
+
+            List<Izvestaj> izvestajiNovi = new List<Izvestaj>();
+            if (noviPacijent.ZdravstveniKarton.Izvestaj != null)
+                foreach (IzvestajDTO izvestaj in noviPacijent.ZdravstveniKarton.Izvestaj)
+                {
+                    izvestaji.Add(new Izvestaj()
+                    {
+                        datum = izvestaj.datum,
+                        dijagnoza = izvestaj.dijagnoza,
+                        recepti = izvestaj.recepti
+                    });
+                }
+
+            List<string> alergeni = new List<string>();
+            if (stariPacijent.ZdravstveniKarton.Alergeni != null)
+            {
+                alergeni = stariPacijent.ZdravstveniKarton.Alergeni;
+            }
+
+            List<string> alergeniNovi = new List<string>();
+            if (noviPacijent.ZdravstveniKarton.Alergeni != null)
+            {
+                alergeniNovi = noviPacijent.ZdravstveniKarton.Alergeni;
+            }
             return pacijentServis.IzmeniPacijenta(new Pacijent()
             {
                 Ime = stariPacijent.Ime,
@@ -129,10 +279,19 @@ namespace Kontroler
                 DatumRodjenja = stariPacijent.DatumRodjenja,
                 BrojTelefona = stariPacijent.BrojTelefona,
                 Email = stariPacijent.Email,
-                Grad = stariPacijent.Grad,
-                Korisnik = stariPacijent.Korisnik,
+                Grad = new Grad() { Naziv = stariPacijent.NazivGrada },
+                Korisnik = new Korisnik()
+                {
+                    KorisnickoIme = stariPacijent.Korisnik.KorisnickoIme,
+                    Lozinka = stariPacijent.Korisnik.Lozinka
+                },
                 Registrovan = stariPacijent.Registrovan,
-                zdravstveniKarton = stariPacijent.zdravstveniKarton
+                ZdravstveniKarton = new ZdravstveniKarton()
+                {
+                    Alergeni = alergeni,
+                    Anamneze = anamneze,
+                    Izvestaj = izvestaji
+                }
             }, new Pacijent()
             {
                 Ime = noviPacijent.Ime,
@@ -145,11 +304,21 @@ namespace Kontroler
                 DatumRodjenja = noviPacijent.DatumRodjenja,
                 BrojTelefona = noviPacijent.BrojTelefona,
                 Email = noviPacijent.Email,
-                Grad = noviPacijent.Grad,
-                Korisnik = noviPacijent.Korisnik,
+                Grad = new Grad() { Naziv = noviPacijent.NazivGrada },
+                Korisnik = new Korisnik()
+                {
+                    KorisnickoIme = noviPacijent.Korisnik.KorisnickoIme,
+                    Lozinka = noviPacijent.Korisnik.Lozinka
+                },
                 Registrovan = noviPacijent.Registrovan,
-                zdravstveniKarton = noviPacijent.zdravstveniKarton
+                ZdravstveniKarton = new ZdravstveniKarton()
+                {
+                    Alergeni = alergeniNovi,
+                    Anamneze = anamnezeNovi,
+                    Izvestaj = izvestajiNovi
+                }
             });
+
         }
 
         public List<Recept> DobaviRecepePacijenta(string jmbg)

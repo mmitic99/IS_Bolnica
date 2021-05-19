@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Pacijenti
 {
@@ -36,13 +35,13 @@ namespace Bolnica.view.SekretarView.Pacijenti
             adresa.Text = pacijent.Adresa;
             tel.Text = pacijent.BrojTelefona;
             email.Text = pacijent.Email;
-            grad.Text = pacijent.Grad.Naziv;
+            grad.Text = pacijent.NazivGrada;
             korIme.Text = pacijent.Korisnik.KorisnickoIme;
             lozinka.Password = pacijent.Korisnik.Lozinka;
             datum.SelectedDate = pacijent.DatumRodjenja.Date;
-            if(pacijent.zdravstveniKarton == null)
+            if(pacijent.ZdravstveniKarton == null)
             {
-                pacijent.zdravstveniKarton = new ZdravstveniKarton();
+                pacijent.ZdravstveniKarton = new ZdravstveniKartonDTO();
             }
             if (pacijent.Pol == Model.Enum.Pol.Muski)
             {
@@ -64,7 +63,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
             }
 
             Zanimanje.Text = pacijent.Zanimanje;
-            alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
+            alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
             alergeniList.ItemsSource = alergeni;
 
         }
@@ -79,17 +78,17 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad { Naziv = grad.Text },
-                Korisnik = new Korisnik
+                NazivGrada = grad.Text ,
+                Korisnik = new KorisnikDTO()
                 {
                     KorisnickoIme = korIme.Text,
                     Lozinka = lozinka.Password
                 },
-                zdravstveniKarton = pacijent.zdravstveniKarton,
+                ZdravstveniKarton = pacijent.ZdravstveniKarton,
                 BracnoStanje = (string)BracnoStanje.SelectedItem,
                 Zanimanje = Zanimanje.Text
             };
-            noviPacijent.zdravstveniKarton.Alergeni = new List<string>(alergeni);
+            noviPacijent.ZdravstveniKarton.Alergeni = new List<string>(alergeni);
 
             noviPacijent.Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski;
             noviPacijent.DatumRodjenja = datum.SelectedDate != null ? (DateTime) datum.SelectedDate : DateTime.Now;
@@ -116,18 +115,18 @@ namespace Bolnica.view.SekretarView.Pacijenti
             }
         }
 
-        private void otkazi_Click(object sender, RoutedEventArgs e)
+        private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void dodajA_Click(object sender, RoutedEventArgs e)
+        private void DodajAlergen_Click(object sender, RoutedEventArgs e)
         {
             var s = new DodavanjeAlregena(alergeni);
             s.ShowDialog();
         }
 
-        private void obrisiA_Click(object sender, RoutedEventArgs e)
+        private void ObrisiAlergen_Click(object sender, RoutedEventArgs e)
         {
             if (alergeniList.SelectedIndex == -1)
             {

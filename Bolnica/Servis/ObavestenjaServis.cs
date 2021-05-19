@@ -165,7 +165,7 @@ namespace Servis
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
             /*Pacijent p = SkladistePacijenta.GetInstance().getByJmbg(jmbgPacijenta);
-             p.zdravstveniKarton.izvestaj = new List<Izvestaj>();
+             p.ZdravstveniKarton.Izvestaj = new List<Izvestaj>();
              Izvestaj i = new Izvestaj();
              i.recepti = new List<Recept>();
              TimeSpan ts1 = new TimeSpan(8, 0, 0);
@@ -180,7 +180,7 @@ namespace Servis
              r.lek.NazivLeka = "Brufen";
              r.terminiUzimanjaTokomDana = terminiUzimanja;
              i.recepti.Add(r);
-             p.zdravstveniKarton.izvestaj.Add(i);
+             p.ZdravstveniKarton.Izvestaj.Add(i);
              PacijentServis.getInstance().IzmeniPacijenta(p, p);*/
             return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }

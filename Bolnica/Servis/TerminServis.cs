@@ -38,7 +38,7 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermine();
         }
 
-        public bool ZakaziTermin(Model.Termin termin)
+        public bool ZakaziTermin(Termin termin)
         {
             termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
             skladisteZaTermine.Save(termin);

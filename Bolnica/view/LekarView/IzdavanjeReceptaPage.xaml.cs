@@ -76,7 +76,7 @@ namespace Bolnica.view.LekarView
         private void txtImeLeka_LostFocus(object sender, RoutedEventArgs e)
         {
             bool daLiJeAlergican = false;
-            foreach (String alergen in pacijent.zdravstveniKarton.Alergeni)
+            foreach (String alergen in pacijent.ZdravstveniKarton.Alergeni)
                 if (txtImeLeka.Text.ToLower().Equals(alergen.ToLower()))
                     daLiJeAlergican = true;
 

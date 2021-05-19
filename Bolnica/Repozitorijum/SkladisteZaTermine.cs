@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using Bolnica.DTOs;
+using Bolnica.model;
 
 namespace Repozitorijum
 {
@@ -54,8 +55,93 @@ namespace Repozitorijum
             {
                 if (termin.DatumIVremeTermina >= DateTime.Now)
                 {
-                    TerminPacijentLekarDTO t = new TerminPacijentLekarDTO { termin = termin, pacijent = SkladistePacijenta.GetInstance().getByJmbg(termin.JmbgPacijenta), lekar = SkladisteZaLekara.GetInstance().getByJmbg(termin.JmbgLekara) };
-                    termini.Add(t);
+                    Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(termin.JmbgPacijenta);
+                    Lekar lekar = SkladisteZaLekara.GetInstance().getByJmbg(termin.JmbgLekara);
+                    List<string> alergeni = new List<string>();
+                    List<AnamnezaDTO> anamneze = new List<AnamnezaDTO>();
+                    List<IzvestajDTO> izvestaji = new List<IzvestajDTO>();
+                    if (pacijent.ZdravstveniKarton != null)
+                    {
+                        foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                        {
+                            anamneze.Add(new AnamnezaDTO()
+                            {
+                                AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                                DatumAnamneze = anamneza.DatumAnamneze,
+                                IdAnamneze = anamneza.IdAnamneze,
+                                ImeLekara = anamneza.ImeLekara
+                            });
+                        }
+
+                        foreach (Izvestaj izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
+                        {
+                            izvestaji.Add(new IzvestajDTO()
+                            {
+                                datum = izvestaj.datum,
+                                dijagnoza = izvestaj.dijagnoza,
+                                recepti = izvestaj.recepti
+                            });
+                        }
+
+                        alergeni = pacijent.ZdravstveniKarton.Alergeni;
+                    }
+                    TerminPacijentLekarDTO termin1 = new TerminPacijentLekarDTO { termin = new TerminDTO()
+                    {
+                        JmbgLekara = termin.JmbgLekara,
+                        IDTermina = termin.IDTermina,
+                        brojSobe = termin.brojSobe,
+                        VrstaTermina = termin.VrstaTermina,
+                        TrajanjeTermina = termin.TrajanjeTermina,
+                        opisTegobe = termin.opisTegobe,
+                        JmbgPacijenta = termin.JmbgPacijenta,
+                        DatumIVremeTermina = termin.DatumIVremeTermina,
+                        IdProstorije = termin.IdProstorije
+                    }, pacijent = new PacijentDTO()
+                    {
+                        Ime = pacijent.Ime,
+                        Prezime = pacijent.Prezime,
+                        BracnoStanje = pacijent.BracnoStanje,
+                        Adresa = pacijent.Adresa,
+                        Jmbg = pacijent.Jmbg,
+                        Zanimanje = pacijent.Zanimanje,
+                        Pol = pacijent.Pol,
+                        DatumRodjenja = pacijent.DatumRodjenja,
+                        BrojTelefona = pacijent.BrojTelefona,
+                        Email = pacijent.Email,
+                        NazivGrada = pacijent.Grad.Naziv,
+                        Korisnik = new KorisnikDTO()
+                        {
+                            KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
+                            Lozinka = pacijent.Korisnik.Lozinka
+                        },
+                        Registrovan = pacijent.Registrovan,
+                        ZdravstveniKarton = new ZdravstveniKartonDTO()
+                        {
+                            Alergeni = alergeni,
+                            Anamneze = anamneze,
+                            Izvestaj = izvestaji
+                        }
+                    }, lekar =  new LekarDTO()
+                    {
+                        Ime = lekar.Ime,
+                        Prezime = lekar.Prezime,
+                        BracnoStanje = lekar.BracnoStanje,
+                        Adresa = lekar.Adresa,
+                        Jmbg = lekar.Jmbg,
+                        Zanimanje = lekar.Zanimanje,
+                        Pol = lekar.Pol,
+                        DatumRodjenja = lekar.DatumRodjenja,
+                        BrojTelefona = lekar.BrojTelefona,
+                        Email = lekar.Email,
+                        NazivGrada = lekar.Grad.Naziv,
+                        Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
+                        Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
+                        BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                        IdOrdinacija = lekar.IdOrdinacija,
+                        FullName = lekar.FullName
+                    }
+                    };
+                    termini.Add(termin1);
                 }
             }
 
@@ -137,7 +223,7 @@ namespace Repozitorijum
         }
 
 
-        public void Save(Model.Termin termin)
+        public void Save(Termin termin)
         {
             termini = GetAll();
 

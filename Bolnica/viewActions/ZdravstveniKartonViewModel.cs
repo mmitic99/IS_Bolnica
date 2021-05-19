@@ -20,7 +20,7 @@ namespace Bolnica.viewActions
         {
             pacijent = p;
             odradjeniPregledi = new List<PregledViewModel>();
-            foreach(Izvestaj izvestaj in p.zdravstveniKarton.izvestaj)
+            foreach(Izvestaj izvestaj in p.ZdravstveniKarton.Izvestaj)
                 foreach(Recept recept in izvestaj.recepti)
                 {
                     PregledViewModel pregled = new PregledViewModel(recept);

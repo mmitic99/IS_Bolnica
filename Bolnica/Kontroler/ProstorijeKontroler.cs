@@ -3,6 +3,8 @@ using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Bolnica.DTOs;
+using Bolnica.model;
 
 namespace Kontroler
 {
@@ -62,9 +64,20 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().DaLiJeSLobodnaProstorija(iDProstorije, pocetakTermina, trajanje);
         }
 
-        public List<Prostorija> GetAll()
+        public List<ProstorijaDTO> GetAll()
         {
-            return prostorijeServis.GetAll();
+            List<ProstorijaDTO> prostorije = new List<ProstorijaDTO>();
+            foreach (Prostorija prostorija in prostorijeServis.GetAll())
+            {
+                prostorije.Add(new ProstorijaDTO()
+                {
+                    BrojSobe = prostorija.BrojSobe,
+                    IdProstorije = prostorija.IdProstorije,
+                    Sprat = prostorija.Sprat,
+                    VrstaProstorije = prostorija.VrstaProstorije
+                });
+            }
+            return prostorije;
         }
 
         public void Save(Prostorija prostorija)

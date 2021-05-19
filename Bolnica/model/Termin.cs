@@ -1,8 +1,9 @@
+using System;
+using Model;
 using Model.Enum;
 using Repozitorijum;
-using System;
 
-namespace Model
+namespace Bolnica.model
 {
     public class Termin
     {

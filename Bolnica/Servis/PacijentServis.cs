@@ -4,6 +4,7 @@ using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Bolnica.model;
 
 namespace Servis
 {
@@ -82,7 +83,7 @@ namespace Servis
         {
             List<Recept> receptiPacijenta = new List<Recept>();
             Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(jmbg);
-            foreach(Izvestaj i in pacijent.zdravstveniKarton.izvestaj)
+            foreach(Izvestaj i in pacijent.ZdravstveniKarton.Izvestaj)
             {
                 foreach(Recept r in i.recepti)
                 {

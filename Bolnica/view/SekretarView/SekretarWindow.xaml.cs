@@ -146,7 +146,7 @@ namespace Bolnica.view.SekretarView
 
             if (izbor == MessageBoxResult.Yes)
             {
-                terminKontroler.OtkaziTermin(((TerminPacijentLekarDTO) TerminiPrikaz.SelectedItem).termin);
+                terminKontroler.OtkaziTermin(((TerminPacijentLekarDTO) TerminiPrikaz.SelectedItem).termin.IDTermina);
                 TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }

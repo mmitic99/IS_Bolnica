@@ -55,8 +55,9 @@ namespace Bolnica.view.UpravnikView
             PreraspodeleStatickeOpreme = new List<ZakazanaPreraspodelaStatickeOpreme>();
             SvaRenoviranja = new List<Renoviranje>();
             SviLekovi = new List<Lek>();
-            SveVerifikacijeLekova = new List<VerifikacijaLeka>();            
-            ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
+            SveVerifikacijeLekova = new List<VerifikacijaLeka>();     
+            // TODO : izmeniti tip sa Prostorija na ProstorijaDTO
+            //ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
             StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
             PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
             PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpreme.GetInstance().GetAll();

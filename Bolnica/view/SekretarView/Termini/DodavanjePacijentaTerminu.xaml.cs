@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Termini
 {
@@ -11,10 +10,10 @@ namespace Bolnica.view.SekretarView.Termini
     /// </summary>
     public partial class DodavanjePacijentaTerminu : Window
     {
-        private Termin termin;
+        private TerminDTO termin;
         private TextBox pacijent;
         private PacijentKontroler pacijentKontroler;
-        public DodavanjePacijentaTerminu(Termin termin, TextBox pacijent)
+        public DodavanjePacijentaTerminu(TerminDTO termin, TextBox pacijent)
         {
             InitializeComponent();
             pacijentKontroler = new PacijentKontroler();

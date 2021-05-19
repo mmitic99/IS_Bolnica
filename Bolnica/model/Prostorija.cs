@@ -1,6 +1,7 @@
 using Model.Enum;
 using System;
 using System.Collections.Generic;
+using Bolnica.model;
 
 namespace Model
 {

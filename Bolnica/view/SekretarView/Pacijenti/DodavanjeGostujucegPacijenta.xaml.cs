@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using Bolnica.DTOs;
 using Bolnica.view.SekretarView.Termini;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Pacijenti
 {
@@ -39,13 +38,13 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 DatumRodjenja = DateTime.Now,
                 BrojTelefona = "",
                 Email = "",
-                Grad = new Grad { Naziv = "" },
-                Korisnik = new Korisnik
+                NazivGrada =  "" ,
+                Korisnik = new KorisnikDTO()
                 {
                     KorisnickoIme = jmbg.Text,
                     Lozinka = ime.Text
                 },
-                zdravstveniKarton = new ZdravstveniKarton(),
+                ZdravstveniKarton = new ZdravstveniKartonDTO(),
                 BracnoStanje = "",
                 Zanimanje = ""
             };

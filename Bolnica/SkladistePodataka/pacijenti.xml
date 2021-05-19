@@ -19,11 +19,11 @@
     <Adresa />
     <BracnoStanje>neudata</BracnoStanje>
     <Zanimanje />
-    <zdravstveniKarton>
-      <izvestaj />
+    <ZdravstveniKarton>
+      <Izvestaj />
       <Anamneze />
       <Alergeni />
-    </zdravstveniKarton>
+    </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Sara Sarić</FullName>
   </Pacijent>
@@ -46,8 +46,8 @@
     <Adresa />
     <BracnoStanje>udovac</BracnoStanje>
     <Zanimanje />
-    <zdravstveniKarton>
-      <izvestaj />
+    <ZdravstveniKarton>
+      <Izvestaj />
       <Anamneze>
         <Anamneza>
           <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
@@ -57,7 +57,7 @@
         </Anamneza>
       </Anamneze>
       <Alergeni />
-    </zdravstveniKarton>
+    </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Pera Perić</FullName>
   </Pacijent>
@@ -80,8 +80,8 @@
     <Adresa>Jovana Mikica 23/A</Adresa>
     <BracnoStanje>udata</BracnoStanje>
     <Zanimanje />
-    <zdravstveniKarton>
-      <izvestaj>
+    <ZdravstveniKarton>
+      <Izvestaj>
         <Izvestaj>
           <recepti />
           <datum>0001-01-01T00:00:00</datum>
@@ -107,7 +107,7 @@
           </recepti>
           <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
-      </izvestaj>
+      </Izvestaj>
       <Anamneze>
         <Anamneza>
           <AnamnezaDijalog>Pacijent ima napad slepog creva.</AnamnezaDijalog>
@@ -125,7 +125,7 @@
       <Alergeni>
         <string>Kamilica</string>
       </Alergeni>
-    </zdravstveniKarton>
+    </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
@@ -148,8 +148,8 @@
     <Adresa />
     <BracnoStanje>oženjen</BracnoStanje>
     <Zanimanje />
-    <zdravstveniKarton>
-      <izvestaj />
+    <ZdravstveniKarton>
+      <Izvestaj />
       <Anamneze>
         <Anamneza>
           <AnamnezaDijalog />
@@ -162,7 +162,7 @@
         <string>Kamilica</string>
         <string>Polen</string>
       </Alergeni>
-    </zdravstveniKarton>
+    </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Nikola Nikolic</FullName>
   </Pacijent>
@@ -185,8 +185,8 @@
     <Adresa />
     <BracnoStanje>razveden</BracnoStanje>
     <Zanimanje />
-    <zdravstveniKarton>
-      <izvestaj>
+    <ZdravstveniKarton>
+      <Izvestaj>
         <Izvestaj>
           <recepti>
             <Recept>
@@ -329,14 +329,14 @@
           </recepti>
           <datum>0001-01-01T00:00:00</datum>
         </Izvestaj>
-      </izvestaj>
+      </Izvestaj>
       <Anamneze>
         <Anamneza>
           <DatumAnamneze>0001-01-01T00:00:00</DatumAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni />
-    </zdravstveniKarton>
+    </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>

@@ -281,7 +281,7 @@
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>1234567890123</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
@@ -291,7 +291,7 @@
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-05-05T01:17:28.2984838+02:00</DatumIVreme>
-        <logickiObrisan>false</logickiObrisan>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
@@ -301,12 +301,12 @@
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-05-05T01:17:57.8188973+02:00</DatumIVreme>
-        <logickiObrisan>false</logickiObrisan>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-05-05T01:18:12.1750623+02:00</DatumIVreme>
-        <logickiObrisan>false</logickiObrisan>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>2021-05-19T00:00:00+02:00</BlokiranDo>

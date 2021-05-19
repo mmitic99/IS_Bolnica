@@ -1,19 +1,8 @@
-﻿using Kontroler;
-using Model;
+﻿using Bolnica.DTOs;
+using Kontroler;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView.Obavestenja
 {
@@ -47,13 +36,16 @@ namespace Bolnica.view.SekretarView.Obavestenja
             };
 
             bool uspesno = obavestenjaKontroler.IzmeniObavestenje(obavestenje, novoObavestenje);
-            if (uspesno)
+            if (!uspesno)
             {
-                obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
-                obavestenjaPrikaz.ScrollIntoView(novoObavestenje);
-                obavestenjaPrikaz.SelectedItem = novoObavestenje;
-                this.Close();
+                MessageBox.Show("Desila se greška prilikom izmene obaveštenja.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
+            obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+            obavestenjaPrikaz.ScrollIntoView(novoObavestenje);
+            obavestenjaPrikaz.SelectedItem = novoObavestenje;
+            this.Close();
         }
 
         private void otkazi_Click(object sender, RoutedEventArgs e)

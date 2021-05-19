@@ -1,11 +1,11 @@
 ﻿using Bolnica.Kontroler;
-using Bolnica.model;
 using Bolnica.model.Enum;
 using Kontroler;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Bolnica.DTOs;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -34,9 +34,9 @@ namespace Bolnica.view.SekretarView.Lekari
             lekarKontroler = new LekarKontroler();
         }
 
-        private void Potvrdi_OnClickdi_Click(object sender, RoutedEventArgs e)
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            RadnoVreme radnoVreme = new RadnoVreme()
+            RadnoVremeDTO radnoVreme = new RadnoVremeDTO()
             {
                 JmbgLekara = jmbgLekara
             };
@@ -125,7 +125,7 @@ namespace Bolnica.view.SekretarView.Lekari
             }
         }
 
-        private void Otkazi_OnClickzi_Click(object sender, RoutedEventArgs e)
+        private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

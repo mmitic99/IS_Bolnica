@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.model;
 
 namespace Bolnica.view.PacijentView
 {
@@ -61,7 +62,7 @@ public partial class PomeranjeTermina : UserControl
                 vrstaTermina = 0
                 
             };
-            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
+            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
                 MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
             

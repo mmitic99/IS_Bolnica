@@ -178,8 +178,8 @@
                     <ListBox Grid.Row="1" Grid.Column="0" FontSize="20" x:Name="alergeniList" Margin="5"/>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="dodajA" Margin="50,10" Click="dodajA_Click">Dodaj alergen</Button>
-                        <Button x:Name="obrisiA" Margin="50,10" Click="obrisiA_Click">Obriši alergen</Button>
+                        <Button x:Name="dodajA" Margin="50,10" Click="DodajAlergen_Click">Dodaj alergen</Button>
+                        <Button x:Name="obrisiA" Margin="50,10" Click="ObrisiAlergen_Click">Obriši alergen</Button>
                     </StackPanel>
 
                 </Grid>
@@ -198,7 +198,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
+            <Button Width="100" Grid.Column="1" Click="Otkazi_Click">Otkaži</Button>
         </Grid>
 
     </Grid>

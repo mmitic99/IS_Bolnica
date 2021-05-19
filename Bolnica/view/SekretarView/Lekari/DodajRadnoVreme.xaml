@@ -52,8 +52,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_OnClickdi_Click" Width="85">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_OnClickzi_Click" Width="85">Otkaži</Button>
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
         </StackPanel>
 
     </Grid>

@@ -10,8 +10,8 @@ namespace Bolnica.DTOs
 {
     public class PacijentDTO
     {
-        public Grad Grad { get; set; }
-        public Korisnik Korisnik { get; set; }
+        public string NazivGrada { get; set; }
+        public KorisnikDTO Korisnik { get; set; }
         public String Ime { get; set; }
         public String Prezime { get; set; }
         public String Jmbg { get; set; }
@@ -22,7 +22,7 @@ namespace Bolnica.DTOs
         public String Adresa { get; set; }
         public String BracnoStanje { get; set; }
         public String Zanimanje { get; set; }
-        public ZdravstveniKarton zdravstveniKarton { get; set; }
+        public ZdravstveniKartonDTO ZdravstveniKarton { get; set; }
         public bool Registrovan { get; set; }
     }
 }

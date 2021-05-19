@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.model;
 
 namespace Bolnica.view.PacijentView
 {
@@ -76,7 +77,7 @@ namespace Bolnica.view.PacijentView
                 vrstaTermina = 0
 
             };
-            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
+            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             if (moguciTermini.Count > 0)
             {
                 MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,PacijentMainWindow.getInstance().pacijent.Jmbg);

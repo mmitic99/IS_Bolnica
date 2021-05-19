@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.model;
 
 namespace Bolnica.view.LekarView
 {
@@ -29,8 +30,8 @@ namespace Bolnica.view.LekarView
         {
             InitializeComponent();
             this.DataContext = this;
-            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
-            prikazMogucih.ItemsSource = new ObservableCollection<Termin>(moguciTermini);
+            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
+            prikazMogucih.ItemsSource = new ObservableCollection<TerminDTO>(moguciTermini);
 
         }
 
@@ -41,7 +42,7 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
+            TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((Termin)prikazMogucih.SelectedItem).JmbgPacijenta);
         }
 

@@ -6,7 +6,7 @@ namespace Model
 {
     public class Pacijent : Osoba
     {
-        public ZdravstveniKarton zdravstveniKarton { get; set; }
+        public ZdravstveniKarton ZdravstveniKarton { get; set; }
 
         public bool Registrovan { get; set; }
         public String FullName
@@ -40,7 +40,7 @@ namespace Model
             this.Grad.PostanskiBroj = "2300";
             this.Grad.drzava.Naziv = "Srbija";
             this.Grad.drzava.Oznaka = "SRB";
-            this.zdravstveniKarton = new ZdravstveniKarton();
+            this.ZdravstveniKarton = new ZdravstveniKarton();
         }
     }
 }

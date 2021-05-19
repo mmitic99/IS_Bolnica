@@ -71,7 +71,7 @@ namespace Bolnica.view.LekarView
                 txt6.Text = "Oženjen";
                 txt7.Text = "Posao";
                 txt8.Text = pacijent.BrojTelefona;
-                ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
+                ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
                 String alergeniString = String.Join(",", alergeni);
                 txt9.Text = alergeniString;
             }
@@ -98,7 +98,7 @@ namespace Bolnica.view.LekarView
             txt6.Text = "Oženjen";
             txt7.Text = "Posao";
             txt8.Text = pacijent.BrojTelefona;
-            ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.zdravstveniKarton.Alergeni);
+            ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
             String alergeniString = String.Join(",", alergeni);
             txt9.Text = alergeniString;
         }
@@ -113,7 +113,7 @@ namespace Bolnica.view.LekarView
             String dijalog = AnamnezaTxt.Text;
             Anamneza anamneza = new Anamneza(dijalog, DateTime.Now, LekarWindow.getInstance().lekar1.FullName);
             Pacijent pacijent = (Pacijent)ComboBox1.SelectedItem;
-            pacijent.zdravstveniKarton.Anamneze.Add(anamneza);
+            pacijent.ZdravstveniKarton.Anamneze.Add(anamneza);
             Pacijent pacijent1 = pacijent;
             PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
             AnamnezaTxt.Clear();

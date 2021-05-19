@@ -5,6 +5,7 @@ using Servis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bolnica.model;
 
 namespace Kontroler
 {
@@ -33,19 +34,44 @@ namespace Kontroler
             instance = this;
         }
 
-        public bool ZakaziTermin(Termin termin)
+        public bool ZakaziTermin(TerminDTO terminDto)
         {
+            Termin termin = new Termin()
+            {
+                IDTermina = terminDto.IDTermina,
+                JmbgLekara = terminDto.JmbgLekara,
+                brojSobe = terminDto.brojSobe,
+                VrstaTermina = terminDto.VrstaTermina,
+                TrajanjeTermina = terminDto.TrajanjeTermina,
+                opisTegobe = terminDto.opisTegobe,
+                JmbgPacijenta = terminDto.JmbgPacijenta,
+                DatumIVremeTermina = terminDto.DatumIVremeTermina,
+                IdProstorije = terminDto.IdProstorije
+            };
+            termin.IDTermina = termin.generateRandId();
             termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
             return terminServis.ZakaziTermin(termin);
         }
 
-        public bool OtkaziTermin(Model.Termin termin)
+        public bool OtkaziTermin(string IdTermina)
         {
-            return terminServis.OtkaziTermin(termin.IDTermina);
+            return terminServis.OtkaziTermin(IdTermina);
         }
 
-        public bool IzmeniTermin(Object termin, Object stariIdTermina = null)
+        public bool IzmeniTermin(TerminDTO terminDto, Object stariIdTermina = null)
         {
+            Termin termin = new Termin()
+            {
+                IDTermina = terminDto.IDTermina,
+                JmbgLekara = terminDto.JmbgLekara,
+                brojSobe = terminDto.brojSobe,
+                VrstaTermina = terminDto.VrstaTermina,
+                TrajanjeTermina = terminDto.TrajanjeTermina,
+                opisTegobe = terminDto.opisTegobe,
+                JmbgPacijenta = terminDto.JmbgPacijenta,
+                DatumIVremeTermina = terminDto.DatumIVremeTermina,
+                IdProstorije = terminDto.IdProstorije
+            };
             if (stariIdTermina != null)
             {
                 return terminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
@@ -86,27 +112,21 @@ namespace Kontroler
             return TerminServis.getInstance().DobaviPPoslednjiMogiDanZakazivanja(prethodnTermin);
         }
 
-        public List<Termin> NadjiTermineZaParametre(String jmbgLekara, String jmbgPacijenta, List<DateTime> dani, TimeSpan pocetak, TimeSpan kraj, int prioritet, String tegobe, Termin termin = null, bool sekretar = false)
+        public TerminDTO GetById(String idTermina)
         {
-            ParametriZaTrazenjeTerminaKlasifikovanoDTO paramet = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
+            Termin termin = terminServis.GetById(idTermina);
+            return new TerminDTO()
             {
-                JmbgPacijenta = jmbgPacijenta,
-                JmbgLekara = jmbgLekara,
-                IzabraniDani = dani,
-                Pocetak = pocetak,
-                Kraj = kraj,
-                Prioritet = prioritet,
-                tegobe = tegobe,
-                PrethodnoZakazaniTermin = termin,
-                trajanjeUMinutama = 30,
-                sekretar = sekretar
+                JmbgLekara = termin.JmbgLekara,
+                IDTermina = termin.IDTermina,
+                brojSobe = termin.brojSobe,
+                VrstaTermina = termin.VrstaTermina,
+                TrajanjeTermina = termin.TrajanjeTermina,
+                opisTegobe = termin.opisTegobe,
+                JmbgPacijenta = termin.JmbgPacijenta,
+                DatumIVremeTermina = termin.DatumIVremeTermina,
+                IdProstorije = termin.IdProstorije
             };
-            return TerminServis.getInstance().NadjiTermineZaParametre(paramet);
-        }
-
-        public Termin GetById(String idTermina)
-        {
-            return terminServis.GetById(idTermina);
         }
 
         public IEnumerable GetBuduciTerminPacLekar()
@@ -123,7 +143,7 @@ namespace Kontroler
         {
             ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriKlasifikovanoDTO = new ParametriZaTrazenjeTerminaKlasifikovanoDTO()
             {
-                JmbgLekara = ((Lekar)parametriDTO.IzabraniLekar).Jmbg,
+                JmbgLekara = ((LekarDTO)parametriDTO.IzabraniLekar).Jmbg,
                 PrethodnoZakazaniTermin = (Termin)parametriDTO.PrethodnoZakazaniTermin,
                 trajanjeUMinutama = (int)parametriDTO.trajanjeUMinutama,
                 tegobe = (String)parametriDTO.OpisTegobe
@@ -141,9 +161,25 @@ namespace Kontroler
             return parametriKlasifikovanoDTO;
         }
 
-        public List<Termin> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
+        public List<TerminDTO> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
         {
-            return terminServis.NadjiHitanTermin(jmbgPacijenta, vrstaSpecijalizacije);
+            List<TerminDTO> termini = new List<TerminDTO>();
+            foreach (Termin termin in terminServis.NadjiHitanTermin(jmbgPacijenta, vrstaSpecijalizacije))
+            {
+                termini.Add(new TerminDTO()
+                {
+                    JmbgLekara = termin.JmbgLekara,
+                    IDTermina = termin.IDTermina,
+                    brojSobe = termin.brojSobe,
+                    VrstaTermina = termin.VrstaTermina,
+                    TrajanjeTermina = termin.TrajanjeTermina,
+                    opisTegobe = termin.opisTegobe,
+                    JmbgPacijenta = termin.JmbgPacijenta,
+                    DatumIVremeTermina = termin.DatumIVremeTermina,
+                    IdProstorije = termin.IdProstorije
+                });
+            }
+            return termini;
         }
 
         private VrstaPregleda PronadjiVrstuTermina(object zahtevaocTermina)
@@ -178,13 +214,46 @@ namespace Kontroler
             else return 2;
         }
 
-        public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
+        public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
         {
-            return TerminServis.getInstance().NadjiTermineZaParametre(KlasifikujUlazneParametre(parametriDTO));
+            List<TerminDTO> termini = new List<TerminDTO>();
+            foreach (Termin termin in TerminServis.getInstance().NadjiTermineZaParametre(KlasifikujUlazneParametre(parametriDTO)))
+            {
+                termini.Add(new TerminDTO()
+                {
+                    JmbgLekara = termin.JmbgLekara,
+                    IDTermina = termin.IDTermina,
+                    brojSobe = termin.brojSobe,
+                    VrstaTermina = termin.VrstaTermina,
+                    TrajanjeTermina = termin.TrajanjeTermina,
+                    opisTegobe = termin.opisTegobe,
+                    JmbgPacijenta = termin.JmbgPacijenta,
+                    DatumIVremeTermina = termin.DatumIVremeTermina,
+                    IdProstorije = termin.IdProstorije
+                });
+            }
+            return termini;
         }
-        public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
+
+        public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
         {
-            return TerminServis.getInstance().NadjiTermineZaParametre(parametriDTO);
+            List<TerminDTO> termini = new List<TerminDTO>();
+            foreach (Termin termin in terminServis.NadjiTermineZaParametre(parametriDTO))
+            {
+                termini.Add(new TerminDTO()
+                {
+                    JmbgLekara = termin.JmbgLekara,
+                    IDTermina = termin.IDTermina,
+                    brojSobe = termin.brojSobe,
+                    VrstaTermina = termin.VrstaTermina,
+                    TrajanjeTermina = termin.TrajanjeTermina,
+                    opisTegobe = termin.opisTegobe,
+                    JmbgPacijenta = termin.JmbgPacijenta,
+                    DatumIVremeTermina = termin.DatumIVremeTermina,
+                    IdProstorije = termin.IdProstorije
+                });
+            }
+            return termini;
         }
 
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)

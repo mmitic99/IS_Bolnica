@@ -6,17 +6,12 @@ namespace Model
 {
     public class ZdravstveniKarton
     {
-
-
-        public List<Izvestaj> izvestaj { get; set; }      
+        public List<Izvestaj> Izvestaj { get; set; }      
         public List<Anamneza> Anamneze { get; set; }
-
-       
-
 
         public ZdravstveniKarton()
         {
-            izvestaj = new List<Izvestaj>();
+            Izvestaj = new List<Izvestaj>();
             Alergeni = new List<string>();
             Anamneze = new List<Anamneza>();
         }

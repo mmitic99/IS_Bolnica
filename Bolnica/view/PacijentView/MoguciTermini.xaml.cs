@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.DTOs;
+using Bolnica.model;
 
 namespace Bolnica.view.PacijentView
 {
@@ -37,7 +39,7 @@ namespace Bolnica.view.PacijentView
         {
             InitializeComponent();
             instance = this;
-            prikazMogucih.ItemsSource = new ObservableCollection<Termin>(MainViewModel.getInstance().MoguciTerminiVM.terminiZaPrikazivanje);
+            prikazMogucih.ItemsSource = new ObservableCollection<TerminDTO>(MainViewModel.getInstance().MoguciTerminiVM.terminiZaPrikazivanje);
 
         }
 
@@ -45,7 +47,7 @@ namespace Bolnica.view.PacijentView
         {
             if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
             {
-                TerminKontroler.getInstance().IzmeniTermin(prikazMogucih.SelectedItem, PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
+                TerminKontroler.getInstance().IzmeniTermin((TerminDTO) prikazMogucih.SelectedItem, PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
                 KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(PacijentMainWindow.getInstance().pacijent.Jmbg);
             }
@@ -59,7 +61,7 @@ namespace Bolnica.view.PacijentView
                 }
                 else
                 {
-                    TerminKontroler.getInstance().ZakaziTermin((Termin)prikazMogucih.SelectedItem);
+                    TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
                     MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
                     KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
                 }

@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Termini
 {
@@ -14,14 +13,14 @@ namespace Bolnica.view.SekretarView.Termini
     /// </summary>
     public partial class ZakazivanjeTerminaSekretar : Window
     {
-        private Termin termin;
+        private TerminDTO termin;
         private DataGrid terminiPrikaz;
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
         private SpecijalizacijaKontroler specijalizacijaKontroler;
         private LekarKontroler lekarKontroler;
 
-        private List<Termin> moguciTermini = new List<Termin>();
+        private List<TerminDTO> moguciTermini = new List<TerminDTO>();
 
         public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, PacijentDTO izabraniPacijent, bool hitan = false, LekarDTO izabraniLekar = null)
         {
@@ -36,7 +35,7 @@ namespace Bolnica.view.SekretarView.Termini
             hitanT.IsChecked = hitan;
             this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
-            termin = new Termin();
+            termin = new TerminDTO();
             if (izabraniPacijent != null)
             {
                 termin.JmbgPacijenta = izabraniPacijent.Jmbg;
@@ -68,7 +67,7 @@ namespace Bolnica.view.SekretarView.Termini
             }
 
             termin.VrstaTermina = vrstaT.SelectedIndex == 0 ? Model.Enum.VrstaPregleda.Pregled : Model.Enum.VrstaPregleda.Operacija;
-            termin.IdProstorije = int.Parse(((Prostorija) sala.SelectedItem).BrojSobe);
+            termin.IdProstorije = int.Parse(((ProstorijaDTO) sala.SelectedItem).BrojSobe);
             DateTime selDate = (DateTime) datum.SelectedDate;
 
             string vremeTermina = ((string) vremeT.SelectedItem).Substring(0, 5);
@@ -80,15 +79,14 @@ namespace Bolnica.view.SekretarView.Termini
             DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
 
             termin.DatumIVremeTermina = datumIVreme;
-            termin.IdProstorije = ((Prostorija) sala.SelectedItem).IdProstorije;
+            termin.IdProstorije = ((ProstorijaDTO) sala.SelectedItem).IdProstorije;
 
             termin.opisTegobe = tegobe.Text;
-            termin.IDTermina = termin.generateRandId();
             termin.TrajanjeTermina = 30;
 
             if (moguciTermini[vremeT.SelectedIndex].JmbgPacijenta != null)
             {
-                Termin noviTermin = terminKontroler.GetById(moguciTermini[vremeT.SelectedIndex].IDTermina);
+                TerminDTO noviTermin = terminKontroler.GetById(moguciTermini[vremeT.SelectedIndex].IDTermina);
                 if (termin.JmbgLekara.Equals(noviTermin.JmbgLekara))
                 {
                     PronadjiNovoVremeTermina(noviTermin);
@@ -101,7 +99,7 @@ namespace Bolnica.view.SekretarView.Termini
             this.Close();
         }
 
-        private void PronadjiNovoVremeTermina(Termin noviTermin)
+        private void PronadjiNovoVremeTermina(TerminDTO noviTermin)
         {
             while (terminKontroler.GetTerminZaDatumILekara(noviTermin.DatumIVremeTermina, noviTermin.JmbgLekara) != null)
             {
@@ -133,7 +131,7 @@ namespace Bolnica.view.SekretarView.Termini
             {
                 if (vremeT != null && !pacijent.Text.Equals("") && vrstaSpec.SelectedIndex != -1)
                 {
-                    moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(termin.JmbgPacijenta, ((Specijalizacija)vrstaSpec.SelectedItem).VrstaSpecijalizacije);
+                    moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(termin.JmbgPacijenta, (vrstaSpec.SelectedItem).ToString());
                     vremeT.ItemsSource = GenerisiVremena(moguciTermini);
                 }
                 return;
@@ -166,10 +164,10 @@ namespace Bolnica.view.SekretarView.Termini
             }
         }
 
-        private List<string> GenerisiVremena(List<Termin> termini)
+        private List<string> GenerisiVremena(List<TerminDTO> termini)
         {
             List<String> vremena = new List<String>();
-            foreach (Termin termin in termini)
+            foreach (TerminDTO termin in termini)
             {
                 if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
                 {
@@ -184,7 +182,7 @@ namespace Bolnica.view.SekretarView.Termini
             return vremena;
         }
 
-        private string AzurirajPrikazVremenaZaHitanTermin(Termin hitanTermin, string prikazVremena)
+        private string AzurirajPrikazVremenaZaHitanTermin(TerminDTO hitanTermin, string prikazVremena)
         {
             LekarDTO lekarUTerminu = lekarKontroler.GetByJmbg(hitanTermin.JmbgLekara);
             prikazVremena += " lekar: " + lekarUTerminu.Ime + " " + lekarUTerminu.Prezime;
@@ -228,7 +226,7 @@ namespace Bolnica.view.SekretarView.Termini
             vrstaSpecLabela.Visibility = Visibility.Visible;
             if (termin != null)
             {
-                termin.lekar = null;
+                termin.JmbgLekara = null;
             }
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;
@@ -246,7 +244,7 @@ namespace Bolnica.view.SekretarView.Termini
             vrstaSpecLabela.Visibility = Visibility.Hidden;
             if (termin != null)
             {
-                termin.lekar = null;
+                termin.JmbgLekara = null;
             }
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;

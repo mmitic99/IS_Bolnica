@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Windows;
 using Model.Enum;
 using System.Collections.ObjectModel;
+using Bolnica.model;
 using Repozitorijum;
 using Bolnica.viewActions;
 using Kontroler;

@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -42,14 +41,14 @@ namespace Bolnica.view.SekretarView.Lekari
             adresa.Text = lekar.Adresa;
             tel.Text = lekar.BrojTelefona;
             email.Text = lekar.Email;
-            grad.Text = lekar.Grad.Naziv;
+            grad.Text = lekar.NazivGrada;
             korIme.Text = lekar.Korisnik.KorisnickoIme;
             lozinka.Password = lekar.Korisnik.Lozinka;
             datum.SelectedDate = lekar.DatumRodjenja.Date;
 
             pol.SelectedIndex = lekar.Pol == Model.Enum.Pol.Muski ? 0 : 1;
 
-            List<Specijalizacija> specijalizacije = specijalizacijaKontroler.GetAll();
+            List<String> specijalizacije = specijalizacijaKontroler.GetAll();
 
             Specijalizacija.ItemsSource = specijalizacije;
 
@@ -58,11 +57,11 @@ namespace Bolnica.view.SekretarView.Lekari
 
         }
 
-        private void IzaberiSpecijalizaciju(List<Specijalizacija> specijalizacije)
+        private void IzaberiSpecijalizaciju(List<String> specijalizacije)
         {
             for (int i = 0; i < specijalizacije.Count; i++)
             {
-                if (specijalizacije[i].VrstaSpecijalizacije.Equals(lekar.Specijalizacija.VrstaSpecijalizacije))
+                if (specijalizacije[i].Equals(lekar.Specijalizacija))
                 {
                     Specijalizacija.SelectedIndex = i;
                     return;
@@ -80,10 +79,10 @@ namespace Bolnica.view.SekretarView.Lekari
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad { Naziv = grad.Text },
-                Korisnik = new Korisnik { KorisnickoIme = jmbg.Text, Lozinka = ime.Text },
+                NazivGrada = grad.Text ,
+                Korisnik = new KorisnikDTO() { KorisnickoIme = jmbg.Text, Lozinka = ime.Text },
                 Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
-                Specijalizacija = (Specijalizacija)Specijalizacija.SelectedItem,
+                Specijalizacija = (string) Specijalizacija.SelectedItem,
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana
 
             };

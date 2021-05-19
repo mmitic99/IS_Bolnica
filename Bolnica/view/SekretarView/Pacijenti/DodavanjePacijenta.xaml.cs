@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Bolnica.DTOs;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Pacijenti
 {
@@ -42,9 +41,9 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 Adresa = adresa.Text,
                 BrojTelefona = tel.Text,
                 Email = email.Text,
-                Grad = new Grad {Naziv = grad.Text},
-                zdravstveniKarton = new ZdravstveniKarton(),
-                Korisnik = new Korisnik {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
+                NazivGrada = grad.Text,
+                ZdravstveniKarton = new ZdravstveniKartonDTO(),
+                Korisnik = new KorisnikDTO() {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
                 BracnoStanje = (string) BracnoStanje.SelectedItem,
                 Zanimanje = (string) Zanimanje.Text,
                 Pol = Pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski

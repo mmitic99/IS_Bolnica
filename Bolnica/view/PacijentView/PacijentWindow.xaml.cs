@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using Model.Enum;
 using System.Collections.ObjectModel;
+using Bolnica.model;
 using Repozitorijum;
 
 namespace Bolnica.view

@@ -45,7 +45,7 @@ namespace Bolnica.view.LekarView
             
             Pacijent pacijent = SkladistePacijenta.GetInstance().getByJmbg(PacijentInfoPage.getInstance().Jmbg);
             Pacijent p1 = pacijent;
-            pacijent.zdravstveniKarton.IzmenaAnamneze(anamneza1.IdAnamneze, txt1.Text);
+            pacijent.ZdravstveniKarton.IzmenaAnamneze(anamneza1.IdAnamneze, txt1.Text);
             PacijentServis.GetInstance().IzmeniPacijenta(pacijent, p1);
             //LekarWindow.getInstance().Frame1.Content = new AnamnezaPage(pacijent.Jmbg);
         }

@@ -6,7 +6,6 @@ using System.Windows.Controls;
 using Bolnica.DTOs;
 using Bolnica.viewActions;
 using Kontroler;
-using Model;
 
 namespace Bolnica.view.SekretarView.Termini
 {
@@ -64,7 +63,7 @@ namespace Bolnica.view.SekretarView.Termini
                 sekretar = true
             };
 
-            List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
+            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
             List<string> vremena = GenerisiVremena(moguciTermini);
 
             if (!vremena.Contains(vreme = ParsirajVreme(sati, minuti)))
@@ -79,7 +78,7 @@ namespace Bolnica.view.SekretarView.Termini
             sala.ItemsSource = prostorijeKontroler.GetAll();
             for (int i = 0; i < sala.Items.Count; i++)
             {
-                if (((Prostorija)sala.Items[i]).BrojSobe.Equals(termin.termin.IdProstorije.ToString()))
+                if (((ProstorijaDTO)sala.Items[i]).BrojSobe.Equals(termin.termin.IdProstorije.ToString()))
                 {
                     sala.SelectedIndex = i;
                 }
@@ -125,10 +124,10 @@ namespace Bolnica.view.SekretarView.Termini
             return vreme;
         }
 
-        private List<string> GenerisiVremena(List<Termin> moguciTermini)
+        private List<string> GenerisiVremena(List<TerminDTO> moguciTermini)
         {
             List<String> vremena = new List<String>();
-            foreach (Termin termin in moguciTermini)
+            foreach (TerminDTO termin in moguciTermini)
             {
                 if (datum.SelectedDate.Value.Month == termin.DatumIVremeTermina.Month && datum.SelectedDate.Value.Day == termin.DatumIVremeTermina.Day)
                 {
@@ -161,9 +160,9 @@ namespace Bolnica.view.SekretarView.Termini
                 return;
             }
 
-            Termin noviTermin = new Termin
+            TerminDTO noviTermin = new TerminDTO
             {
-                IdProstorije = int.Parse(((Prostorija) sala.SelectedItem).BrojSobe),
+                IdProstorije = int.Parse(((ProstorijaDTO) sala.SelectedItem).BrojSobe),
                 opisTegobe = tegobe.Text,
                 JmbgPacijenta = termin.pacijent.Jmbg,
                 JmbgLekara = termin.lekar.Jmbg,
@@ -182,7 +181,7 @@ namespace Bolnica.view.SekretarView.Termini
 
             noviTermin.IDTermina = termin.termin.IDTermina;
 
-            terminKontroler.IzmeniTermin(noviTermin, noviTermin);
+            terminKontroler.IzmeniTermin(noviTermin);
 
             terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             SekretarWindow.SortirajDataGrid(terminiPrikaz, 0, ListSortDirection.Ascending);
@@ -223,7 +222,7 @@ namespace Bolnica.view.SekretarView.Termini
                     sekretar = true
                 };
 
-                List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
+                List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
 
 
                 List<String> vremena = GenerisiVremena(moguciTermini);
@@ -254,7 +253,7 @@ namespace Bolnica.view.SekretarView.Termini
                         trajanjeUMinutama = 30,
                         sekretar = true
                     };
-                    List<Termin> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
+                    List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
                     List<string> vremena = GenerisiVremena(moguciTermini);
                     vremeT.ItemsSource = vremena;
                 }

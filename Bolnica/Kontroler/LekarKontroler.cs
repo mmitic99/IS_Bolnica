@@ -6,6 +6,7 @@ using Servis;
 using System;
 using System.Collections.Generic;
 using Bolnica.DTOs;
+using Bolnica.model;
 using static Bolnica.DTO.ReceptDTO;
 
 namespace Kontroler
@@ -45,9 +46,9 @@ namespace Kontroler
                 DatumRodjenja = lekar.DatumRodjenja,
                 BrojTelefona = lekar.BrojTelefona,
                 Email = lekar.Email,
-                Grad = lekar.Grad,
-                Korisnik = lekar.Korisnik,
-                Specijalizacija = lekar.Specijalizacija,
+                Grad = new Grad(){Naziv = lekar.NazivGrada},
+                Korisnik = new Korisnik(){KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka},
+                Specijalizacija = new Specijalizacija(){VrstaSpecijalizacije =  lekar.Specijalizacija},
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
                 FullName = lekar.FullName
@@ -93,9 +94,9 @@ namespace Kontroler
                     DatumRodjenja = lekar.DatumRodjenja,
                     BrojTelefona = lekar.BrojTelefona,
                     Email = lekar.Email,
-                    Grad = lekar.Grad,
-                    Korisnik = lekar.Korisnik,
-                    Specijalizacija = lekar.Specijalizacija,
+                    NazivGrada = lekar.Grad.Naziv,
+                    Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
+                    Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                     IdOrdinacija = lekar.IdOrdinacija,
                     FullName = lekar.FullName
@@ -140,9 +141,9 @@ namespace Kontroler
                 DatumRodjenja = lekar.DatumRodjenja,
                 BrojTelefona = lekar.BrojTelefona,
                 Email = lekar.Email,
-                Grad = lekar.Grad,
-                Korisnik = lekar.Korisnik,
-                Specijalizacija = lekar.Specijalizacija,
+                NazivGrada = lekar.Grad.Naziv,
+                Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
+                Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
                 FullName = lekar.FullName
@@ -172,9 +173,9 @@ namespace Kontroler
                 DatumRodjenja = lekar.DatumRodjenja,
                 BrojTelefona = lekar.BrojTelefona,
                 Email = lekar.Email,
-                Grad = lekar.Grad,
-                Korisnik = lekar.Korisnik,
-                Specijalizacija = lekar.Specijalizacija,
+                Grad = new Grad() { Naziv = lekar.NazivGrada },
+                Korisnik = new Korisnik() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
+                Specijalizacija = new Specijalizacija() { VrstaSpecijalizacije = lekar.Specijalizacija },
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
                 FullName = lekar.FullName
