@@ -2,6 +2,7 @@
 using Bolnica.viewActions;
 using Kontroler;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Threading;
@@ -9,7 +10,11 @@ using Bolnica.view.SekretarView.Lekari;
 using Bolnica.view.SekretarView.Pacijenti;
 using Bolnica.view.SekretarView.Termini;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
 using Bolnica.DTOs;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace Bolnica.view.SekretarView
 {
@@ -23,6 +28,10 @@ namespace Bolnica.view.SekretarView
         private TerminKontroler terminKontroler;
         private ObavestenjaKontroler obavestenjaKontroler;
         private LekarKontroler lekarKontroler;
+
+        public SeriesCollection SeriesBrojTermina { get; set; }
+        public string[] XOsaBrojTermina { get; set; }
+        public Func<double, string> YOsaBrojTermina { get; set; }
 
         public SekretarWindow(SekretarDTO sekretar)
         {
@@ -47,6 +56,54 @@ namespace Bolnica.view.SekretarView
             timer.Tick += Timer_Tick;
             timer.Start();
         }
+
+        private void AzurirajDijagramBrojTermina()
+        {
+            List<string> sviDaniUMesecu = GenerisiSveDaneUMesecu();
+
+            SeriesBrojTermina = new SeriesCollection()
+            {
+                new StackedColumnSeries
+                {
+                    Title = "Pregledi",
+                    Values = new ChartValues<int>(terminKontroler.GetMesecnePreglede(sviDaniUMesecu)),
+                    Stroke = new SolidColorBrush(Color.FromRgb(66, 55, 208))
+                },
+                new StackedColumnSeries
+                {
+                    Title = "Operacije",
+                    Values = new ChartValues<int>(terminKontroler.GetMesecneOperacije(sviDaniUMesecu)),
+                    Stroke = new SolidColorBrush(Color.FromRgb(208, 55, 66))
+                }
+            };
+            XOsaBrojTermina = pretvoriListuUNiz(sviDaniUMesecu);
+            DataContext = this;
+        }
+
+        private string[] pretvoriListuUNiz(List<string> sviDaniUMesecu)
+        {
+            string[] retVal = new string[sviDaniUMesecu.Count];
+            for (int i = 0; i < sviDaniUMesecu.Count; i++)
+            {
+                retVal[i] = sviDaniUMesecu[i];
+            }
+
+            return retVal;
+        }
+
+        private List<string> GenerisiSveDaneUMesecu()
+        {
+            List<string> sviDaniUMesecu = new List<string>();
+            var prviDanUMesecu = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var prviDanUSledecemMesecu = prviDanUMesecu.AddMonths(1);
+
+            for (DateTime datum = prviDanUMesecu; datum < prviDanUSledecemMesecu; datum = datum.AddDays(1))
+            {
+                sviDaniUMesecu.Add(datum.Day.ToString());
+            }
+            return sviDaniUMesecu;
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
@@ -266,6 +323,7 @@ namespace Bolnica.view.SekretarView
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
             ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+            AzurirajDijagramBrojTermina();
         }
 
         private void Pacijenti_Selected(object sender, RoutedEventArgs e)

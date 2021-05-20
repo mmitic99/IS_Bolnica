@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
         Title="SekretarWindow" Height="600" Width="800"
@@ -145,6 +146,33 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="0.4*"/>
                         </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <lvc:CartesianChart Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
+                                                Series="{Binding SeriesBrojTermina}">
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis LabelFormatter="{Binding YOsaBrojTermina}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Labels="{Binding XOsaBrojTermina}"/>
+                                </lvc:CartesianChart.AxisX>
+
+                                <lvc:CartesianChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="10" Foreground="LightGray"/>
+                                </lvc:CartesianChart.ChartLegend>
+                            </lvc:CartesianChart>
+
+                        </Grid>
 
                         <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>
 
