@@ -1,4 +1,4 @@
-﻿using Bolnica.DTO;
+﻿using Bolnica.DTOs;
 using Bolnica.Kontroler;
 using Bolnica.model;
 using Bolnica.Repozitorijum;

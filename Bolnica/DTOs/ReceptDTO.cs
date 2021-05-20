@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bolnica.DTO
+namespace Bolnica.DTOs
 {
     public class ReceptDTO
     {

@@ -37,8 +37,33 @@ namespace Bolnica.Servis
         public bool SacuvajKvartalnuAnketu(PopunjenaKvartalnaAnketaDTO popunjenaAnketa)
         {
             KvartalnaAnketa kvartalnaAnketa = GetKvartalnaAnketa(popunjenaAnketa.datumAnkete);
-            kvartalnaAnketa.dodajPopunjenuAnketu(popunjenaAnketa);
+            dodajPopunjenuAnketu(popunjenaAnketa, kvartalnaAnketa);
             return SacuvajIzmenjenuKvartalnuAnketu(kvartalnaAnketa);
+        }
+
+        public void dodajPopunjenuAnketu(PopunjenaKvartalnaAnketaDTO anketa, KvartalnaAnketa kvartalnaAnketa)
+        {
+            kvartalnaAnketa.StrucnostMedicinskogOsoboljaProsecnaOcena = azuriranjeProsecneOcene(anketa.StrucnostMedicinskogOsobolja, kvartalnaAnketa.StrucnostMedicinskogOsoboljaProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.LjubaznostMedicinskogOsoboljaProsecnaOcena = azuriranjeProsecneOcene(anketa.LjubaznostMedicinskogOsobolja, kvartalnaAnketa.LjubaznostMedicinskogOsoboljaProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.LjubaznostNemedicnskogOsobljaProsecnaOcena = azuriranjeProsecneOcene(anketa.LjubaznostNemedicnskogOsoblja, kvartalnaAnketa.LjubaznostNemedicnskogOsobljaProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena = azuriranjeProsecneOcene(anketa.JednostavnostZakazivanjaTerminaPrekoTelefona, kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena = azuriranjeProsecneOcene(anketa.JednostavnostZakazivanjaTerminaPrekoAplikacije, kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.DostupnostTerminaURazumnomRokuProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostTerminaURazumnomRoku, kvartalnaAnketa.DostupnostTerminaURazumnomRokuProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.InformacijeOOdlozenomTerminuProsecnaOcena = azuriranjeProsecneOcene(anketa.InformacijeOOdlozenomTerminu, kvartalnaAnketa.InformacijeOOdlozenomTerminuProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostLekaraKadaJeBolnicaZatvorena, kvartalnaAnketa.DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostLekaraUTokuRadnihSatiLekara, kvartalnaAnketa.DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.RezultatiTestovaDostupniURazumnoVremeProsecnaOcena = azuriranjeProsecneOcene(anketa.RezultatiTestovaDostupniURazumnoVreme, kvartalnaAnketa.RezultatiTestovaDostupniURazumnoVremeProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.IzgledNaseBolniceProsecnaOcena = azuriranjeProsecneOcene(anketa.IzgledNaseBolnice, kvartalnaAnketa.IzgledNaseBolniceProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.OpremljenostBolniceProsecnaOcena = azuriranjeProsecneOcene(anketa.OpremljenostBolnice, kvartalnaAnketa.OpremljenostBolniceProsecnaOcena, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.CelokupniUtisak = azuriranjeProsecneOcene(anketa.CelokupniUtisak, kvartalnaAnketa.CelokupniUtisak, kvartalnaAnketa.BrojAnketiranih);
+            kvartalnaAnketa.komentari.Add(anketa.KomentarKorisnika);
+            kvartalnaAnketa.anketuPopunili.Add(anketa.JmbgKorisnika);
+            ++kvartalnaAnketa.BrojAnketiranih;
+        }
+
+        public double azuriranjeProsecneOcene(double novaOcena, double ProsecnaOcena, int BrojAnketiranih)
+        {
+            return (ProsecnaOcena * BrojAnketiranih + novaOcena) / (BrojAnketiranih + 1);
         }
 
         private bool SacuvajIzmenjenuKvartalnuAnketu(KvartalnaAnketa kvartalnaAnketa)

@@ -85,8 +85,8 @@
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />
-    <Compile Include="DTO\LekDTO.cs" />
-    <Compile Include="DTO\ReceptDTO.cs" />
+    <Compile Include="DTOs\LekDTO.cs" />
+    <Compile Include="DTOs\ReceptDTO.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
@@ -243,9 +243,6 @@
     <Compile Include="view\PacijentView\PacijentMainWindow.xaml.cs">
       <DependentUpon>PacijentMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\PacijentView\PacijentWindow.xaml.cs">
-      <DependentUpon>PacijentWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\PacijentView\PacijentZakazaniTermini.xaml.cs">
       <DependentUpon>PacijentZakazaniTermini.xaml</DependentUpon>
     </Compile>
@@ -397,10 +394,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\PacijentMainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\PacijentView\PacijentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -180,7 +180,8 @@ namespace Servis
 
             };
             moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
-            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
+            //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
+            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) 
             {
                 parametriZaPotraguTerminaUNekomIntervalu.Pocetak = PocetakRadnogVremena();
                 parametriZaPotraguTerminaUNekomIntervalu.Kraj = KrajRadnogVremena();

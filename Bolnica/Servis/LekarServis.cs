@@ -4,7 +4,7 @@ using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
-using static Bolnica.DTO.ReceptDTO;
+using static Bolnica.DTOs.ReceptDTO;
 
 namespace Servis
 {

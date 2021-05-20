@@ -205,7 +205,7 @@
     <Sprat_>3</Sprat_>
     <BrojSobe_>302</BrojSobe_>
     <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
-    <RenoviraSe_>true</RenoviraSe_>
+    <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>65</Kvadratura_>
     <Staticka_>
       <StacionarnaOprema>

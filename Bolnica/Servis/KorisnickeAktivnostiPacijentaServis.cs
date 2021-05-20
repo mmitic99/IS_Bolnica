@@ -37,7 +37,6 @@ namespace Servis
             if (aktivnosti == null)
             {
                 aktivnosti = NapraviNoveKorisnickeAktivnosti(jmbgKorisnika);
-               // SkladisteZaKorisnickeAktivnosti.GetInstance().Save(aktivnosti);
             }
             return aktivnosti;
         }
