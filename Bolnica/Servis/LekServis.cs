@@ -1,4 +1,4 @@
-﻿using Bolnica.DTO;
+﻿using Bolnica.DTOs;
 using Bolnica.Repozitorijum;
 using Bolnica.view.LekarView;
 using Bolnica.view.UpravnikView;

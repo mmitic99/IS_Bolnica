@@ -1,4 +1,4 @@
-﻿using Bolnica.DTO;
+﻿using Bolnica.DTOs;
 using Bolnica.view.LekarView;
 using Kontroler;
 using Model;
@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Bolnica.DTO.ReceptDTO;
+using static Bolnica.DTOs.ReceptDTO;
 
 namespace Bolnica.view.LekarView
 {

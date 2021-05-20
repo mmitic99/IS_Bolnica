@@ -59,30 +59,7 @@ namespace Bolnica.model
             anketuPopunili = new List<String>();
         }
 
-        public void dodajPopunjenuAnketu(PopunjenaKvartalnaAnketaDTO anketa)
-        {
-            StrucnostMedicinskogOsoboljaProsecnaOcena = azuriranjeProsecneOcene(anketa.StrucnostMedicinskogOsobolja, StrucnostMedicinskogOsoboljaProsecnaOcena);
-            LjubaznostMedicinskogOsoboljaProsecnaOcena = azuriranjeProsecneOcene(anketa.LjubaznostMedicinskogOsobolja, LjubaznostMedicinskogOsoboljaProsecnaOcena);
-            LjubaznostNemedicnskogOsobljaProsecnaOcena = azuriranjeProsecneOcene(anketa.LjubaznostNemedicnskogOsoblja, LjubaznostNemedicnskogOsobljaProsecnaOcena);
-            JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena = azuriranjeProsecneOcene(anketa.JednostavnostZakazivanjaTerminaPrekoTelefona, JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena);
-            JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena = azuriranjeProsecneOcene(anketa.JednostavnostZakazivanjaTerminaPrekoAplikacije, JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena);
-            DostupnostTerminaURazumnomRokuProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostTerminaURazumnomRoku, DostupnostTerminaURazumnomRokuProsecnaOcena);
-            InformacijeOOdlozenomTerminuProsecnaOcena = azuriranjeProsecneOcene(anketa.InformacijeOOdlozenomTerminu, InformacijeOOdlozenomTerminuProsecnaOcena);
-            DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostLekaraKadaJeBolnicaZatvorena, DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena);
-            DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena = azuriranjeProsecneOcene(anketa.DostupnostLekaraUTokuRadnihSatiLekara, DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena);
-            RezultatiTestovaDostupniURazumnoVremeProsecnaOcena = azuriranjeProsecneOcene(anketa.RezultatiTestovaDostupniURazumnoVreme, RezultatiTestovaDostupniURazumnoVremeProsecnaOcena);
-            IzgledNaseBolniceProsecnaOcena = azuriranjeProsecneOcene(anketa.IzgledNaseBolnice, IzgledNaseBolniceProsecnaOcena);
-            OpremljenostBolniceProsecnaOcena = azuriranjeProsecneOcene(anketa.OpremljenostBolnice, OpremljenostBolniceProsecnaOcena);
-            CelokupniUtisak = azuriranjeProsecneOcene(anketa.CelokupniUtisak, CelokupniUtisak);
-            komentari.Add(anketa.KomentarKorisnika);
-            anketuPopunili.Add(anketa.JmbgKorisnika);
-            ++BrojAnketiranih;
-        }
 
-        public double azuriranjeProsecneOcene (double novaOcena, double ProsecnaOcena)
-        {
-            return (ProsecnaOcena*BrojAnketiranih+novaOcena)/(BrojAnketiranih+1);
-        }
 
     }
 }

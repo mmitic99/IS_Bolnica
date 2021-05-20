@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
 using Bolnica.Repozitorijum.XmlSkladiste;
-using static Bolnica.DTO.ReceptDTO;
+using static Bolnica.DTOs.ReceptDTO;
 
 namespace Servis
 {
