@@ -405,6 +405,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
+                            <Button Content="Generiši izvestaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="GenerisanjeIzvestaja_Click"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="TerminiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 

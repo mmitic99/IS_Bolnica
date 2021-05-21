@@ -169,6 +169,11 @@ namespace Bolnica.view.SekretarView
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
+        private void GenerisanjeIzvestaja_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new GenerisiIzvestaj();
+            s.ShowDialog();
+        }
 
         private void Odjava_Click(object sender, RoutedEventArgs e)
         {
@@ -281,6 +286,7 @@ namespace Bolnica.view.SekretarView
             var s = new RadnoVremeLekara(((LekarDTO)LekariPrikaz.SelectedItem).Jmbg);
             s.ShowDialog();
         }
+
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
             ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
@@ -411,5 +417,6 @@ namespace Bolnica.view.SekretarView
             DataContext = this;
         }
 
+        
     }
 }

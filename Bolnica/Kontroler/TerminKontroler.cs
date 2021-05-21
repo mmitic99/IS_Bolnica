@@ -1,11 +1,24 @@
-using Bolnica.DTOs;
-using Model;
+﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Model.Enum;
 using Servis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Bolnica.model;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using iText.IO.Font;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using TextAlignment = iText.Layout.Properties.TextAlignment;
+using Model;
+using HorizontalAlignment = iText.Layout.Properties.HorizontalAlignment;
 
 namespace Kontroler
 {
@@ -109,7 +122,7 @@ namespace Kontroler
                     if (termin.VrstaTermina == VrstaPregleda.Operacija && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
                         termin.DatumIVremeTermina.Month == DateTime.Now.Month && termin.DatumIVremeTermina.Day == dan)
                     {
-                        Termini[dan-1]++;
+                        Termini[dan - 1]++;
                     }
                 }
             }
@@ -297,6 +310,11 @@ namespace Kontroler
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)
         {
             return terminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
+        }
+
+        public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
+        {
+            return terminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
         }
     }
 }
