@@ -1,4 +1,4 @@
-﻿using Bolnica.DTO;
+﻿using Bolnica.DTOs;
 using Bolnica.Servis;
 using Model;
 using System;

@@ -108,4 +108,30 @@
     <ImeiSpecijalizacija>dr Miroslav Mi- opšta medicina</ImeiSpecijalizacija>
     <IdOrdinacija>0</IdOrdinacija>
   </Lekar>
+  <Lekar>
+    <Grad>
+      <drzava />
+      <Naziv>Sremska Mitrovica</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>1231828828477</KorisnickoIme>
+      <Lozinka>Dusko</Lozinka>
+    </Korisnik>
+    <Ime>Dusko</Ime>
+    <Prezime>Jankovic</Prezime>
+    <Jmbg>1231828828477</Jmbg>
+    <BrojTelefona>123</BrojTelefona>
+    <Pol>Muski</Pol>
+    <DatumRodjenja>1980-08-20T00:00:00</DatumRodjenja>
+    <Email>dusko@gmail.com</Email>
+    <Adresa>Trg Aekse Santica 12</Adresa>
+    <BrojSlobodnihDana>25</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <Specijalizacija>
+      <VrstaSpecijalizacije>kardiohirurgija</VrstaSpecijalizacije>
+    </Specijalizacija>
+    <FullName>dr Dusko Jankovic</FullName>
+    <ImeiSpecijalizacija>dr Dusko Jankovic- kardiohirurgija</ImeiSpecijalizacija>
+    <IdOrdinacija>0</IdOrdinacija>
+  </Lekar>
 </ArrayOfLekar>

@@ -1115,18 +1115,4 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-05-31T11:00:00</DatumIVremeTermina>
-    <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>3</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>1234</JmbgPacijenta>
-    <IDTermina>1234666731.5.2021. 11:00:00</IDTermina>
-    <brojSobe>101</brojSobe>
-    <sprat>1</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
 </ArrayOfTermin>

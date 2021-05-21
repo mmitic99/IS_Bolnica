@@ -40,7 +40,6 @@ namespace Servis
             if (aktivnosti == null)
             {
                 aktivnosti = NapraviNoveKorisnickeAktivnosti(jmbgKorisnika);
-               // skladisteZaKorisnickeAktivnosti.Save(aktivnosti);
             }
             return aktivnosti;
         }

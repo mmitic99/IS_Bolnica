@@ -1,13 +1,14 @@
-using Bolnica.DTO;
+using Bolnica.DTOs;
+using Bolnica.model;
 using Bolnica.view;
 using Bolnica.view.PacijentView;
 using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
-using Bolnica.DTOs;
-using Bolnica.model;
-using static Bolnica.DTO.ReceptDTO;
+
+using static Bolnica.DTOs.ReceptDTO;
+
 
 namespace Kontroler
 {
