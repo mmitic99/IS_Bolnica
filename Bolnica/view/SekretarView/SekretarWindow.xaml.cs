@@ -317,7 +317,7 @@ namespace Bolnica.view.SekretarView
         }
         private void Lekovi_Selected(object sender, RoutedEventArgs e)
         {
-            LekariPrikaz.ItemsSource = lekKontroler.GetAll();
+            LekoviPrikaz.ItemsSource = lekKontroler.GetAll();
             SortirajDataGrid(LekariPrikaz, 0, ListSortDirection.Ascending);
         }
         public static void SortirajDataGrid(DataGrid dataGrid, int kolona, ListSortDirection sortDirection)
