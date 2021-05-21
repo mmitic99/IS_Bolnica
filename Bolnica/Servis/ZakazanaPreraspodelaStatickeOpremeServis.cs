@@ -56,21 +56,14 @@ namespace Bolnica.Servis
 
         public bool ProveraValidnostiPreraspodeleOpreme(String trajanje)
         {
-            bool checkTrajanje = false;
-
             Regex sablon = new Regex(@"^[1-9]{1}[0-9]*$");
             if (sablon.IsMatch(trajanje) && !trajanje.Equals(""))
-                checkTrajanje = true;
+                return true;
             else
             {
                 MessageBox.Show("Neispravno uneto trajanje termina za preraspodelu opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-            if (checkTrajanje == true)
-                return true;
-            else
-                return false;
         }
-
     }
 }
