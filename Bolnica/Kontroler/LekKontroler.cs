@@ -55,5 +55,10 @@ namespace Bolnica.Kontroler
         {
             return LekServis.GetInstance().GetKlasuLeka(IndexSelektovaneKlaseLeka);
         }
+
+        public List<Lek> GetAll()
+        {
+            return LekServis.GetInstance().GetAll();
+        }
     }
 }

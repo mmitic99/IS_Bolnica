@@ -531,6 +531,78 @@
                         </DataGrid>
                     </Grid>
                 </TabItem>
+                <TabItem  x:Name="Prostorije" Width="100" Selector.Selected="Prostorije_Selected">
+                    <TabItem.Header>
+                        <TextBlock Text="Prostorije" FontSize="20"></TextBlock>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Uvid u inventar i materijal" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                        </StackPanel>
+                        <DataGrid Grid.Row="1" Name="ProstorijePrikaz" CanUserAddRows="false" 
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
+                                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                                  CanUserResizeRows="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="100"/>
+                                <DataGridTextColumn x:Name="SpratP" Header="Sprat" Binding="{Binding Sprat}" Width="80"/>
+                                <DataGridTextColumn x:Name="BrojProstorijeP" Header="Broj prostorije" Binding="{Binding BrojSobe}" Width="*"/>
+                                <DataGridTextColumn x:Name="VrstaP" Header="Vrsta" Binding="{Binding VrstaProstorije}" Width="*"/>
+                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="150"/>
+                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="100" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem  x:Name="Lekovi" Width="100" Selector.Selected="Lekovi_Selected">
+                    <TabItem.Header>
+                        <TextBlock Text="Lekovi" FontSize="20"></TextBlock>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Zahtev za dodavanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                            <Button Content="Zahtev za brisanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                        </StackPanel>
+                        <DataGrid Grid.Row="1" Name="LekoviPrikaz" CanUserAddRows="false" 
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
+                                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                                  CanUserResizeRows="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="IdLeka" Header="Id leka" Binding="{Binding IdLeka}" Width="100"/>
+                                <DataGridTextColumn x:Name="Naziv" Header="Naziv" Binding="{Binding NazivLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Vrsta" Header="Vrsta" Binding="{Binding VrstaLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Klasa" Header="Klasa" Binding="{Binding KlasaLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Kolicina" Header="Kolicina" Binding="{Binding KolicinaLeka}" Width="150"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
             </TabControl>
         </Grid>
     </DockPanel>

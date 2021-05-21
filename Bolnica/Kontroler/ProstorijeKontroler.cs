@@ -75,7 +75,9 @@ namespace Kontroler
                     BrojSobe = prostorija.BrojSobe,
                     IdProstorije = prostorija.IdProstorije,
                     Sprat = prostorija.Sprat,
-                    VrstaProstorije = prostorija.VrstaProstorije
+                    VrstaProstorije = prostorija.VrstaProstorije,
+                    Kvadratura = prostorija.Kvadratura_,
+                    RenoviraSe = prostorija.RenoviraSe_
                 });
             }
             return prostorije;

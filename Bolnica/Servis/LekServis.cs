@@ -54,6 +54,12 @@ namespace Bolnica.Servis
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
         }
+
+        public List<Lek> GetAll()
+        {
+            return skladisteZaLekove.GetAll();
+        }
+
         public void IzmeniLekLekar(int index,Lek lek)
         {
             int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;

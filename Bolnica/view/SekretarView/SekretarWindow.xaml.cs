@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using Bolnica.DTOs;
+using Bolnica.Kontroler;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Model.Enum;
@@ -30,6 +31,7 @@ namespace Bolnica.view.SekretarView
         private ObavestenjaKontroler obavestenjaKontroler;
         private LekarKontroler lekarKontroler;
         private ProstorijeKontroler prostorijeKontroler;
+        private LekKontroler lekKontroler;
         public string[] XOsaBrojTermina { get; set; }
         public Func<double, string> YOsaBrojTermina { get; set; }
         public string[] XOsaBrojNovihPacijenata { get; set; }
@@ -44,6 +46,7 @@ namespace Bolnica.view.SekretarView
             obavestenjaKontroler = new ObavestenjaKontroler();
             lekarKontroler = new LekarKontroler();
             prostorijeKontroler = new ProstorijeKontroler();
+            lekKontroler = new LekKontroler();
 
             this.sekretar = sekretar;
             ImeS.Content = sekretar.Ime;
@@ -307,6 +310,16 @@ namespace Bolnica.view.SekretarView
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
             SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
         }
+        private void Prostorije_Selected(object sender, RoutedEventArgs e)
+        {
+            ProstorijePrikaz.ItemsSource = prostorijeKontroler.GetAll();
+            SortirajDataGrid(ProstorijePrikaz, 0, ListSortDirection.Ascending);
+        }
+        private void Lekovi_Selected(object sender, RoutedEventArgs e)
+        {
+            LekariPrikaz.ItemsSource = lekKontroler.GetAll();
+            SortirajDataGrid(LekariPrikaz, 0, ListSortDirection.Ascending);
+        }
         public static void SortirajDataGrid(DataGrid dataGrid, int kolona, ListSortDirection sortDirection)
         {
             var column = dataGrid.Columns[kolona];
@@ -397,5 +410,6 @@ namespace Bolnica.view.SekretarView
             XOsaBrojNovihPacijenata = pretvoriListuUNiz(sviDaniUMesecu);
             DataContext = this;
         }
+
     }
 }
