@@ -8,6 +8,7 @@
     <Korisnik>
       <KorisnickoIme>4567891230987</KorisnickoIme>
       <Lozinka>Sara</Lozinka>
+      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Sara</Ime>
     <Prezime>Sarić</Prezime>
@@ -35,6 +36,7 @@
     <Korisnik>
       <KorisnickoIme>1234567890123</KorisnickoIme>
       <Lozinka>Pera</Lozinka>
+      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Pera</Ime>
     <Prezime>Perić</Prezime>
@@ -69,6 +71,7 @@
     <Korisnik>
       <KorisnickoIme>1234</KorisnickoIme>
       <Lozinka>Jovana</Lozinka>
+      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Jovana</Ime>
     <Prezime>Jovanovic</Prezime>
@@ -84,7 +87,7 @@
       <Izvestaj>
         <Izvestaj>
           <recepti />
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -105,7 +108,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
       </Izvestaj>
       <Anamneze>
@@ -137,6 +140,7 @@
     <Korisnik>
       <KorisnickoIme>231321315464</KorisnickoIme>
       <Lozinka>Nikola</Lozinka>
+      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Nikola</Ime>
     <Prezime>Nikolic</Prezime>
@@ -174,6 +178,7 @@
     <Korisnik>
       <KorisnickoIme>12</KorisnickoIme>
       <Lozinka>Mihailo</Lozinka>
+      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Mihailo</Ime>
     <Prezime>Majstorovic</Prezime>
@@ -205,7 +210,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -226,7 +231,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -246,7 +251,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -266,7 +271,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -286,7 +291,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -306,7 +311,7 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
         <Izvestaj>
           <recepti>
@@ -327,12 +332,12 @@
               <ImeDoktora>dr Milos Marinkovic</ImeDoktora>
             </Recept>
           </recepti>
-          <datum>0001-01-01T00:00:00</datum>
+          <datum>2021-01-01T00:00:00</datum>
         </Izvestaj>
       </Izvestaj>
       <Anamneze>
         <Anamneza>
-          <DatumAnamneze>0001-01-01T00:00:00</DatumAnamneze>
+          <DatumAnamneze>2021-01-01T00:00:00</DatumAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni />

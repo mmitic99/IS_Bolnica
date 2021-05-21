@@ -7,5 +7,7 @@ namespace Model
         public String KorisnickoIme { get; set; }
         public String Lozinka { get; set; }
 
+        public DateTime DatumKreiranjaNaloga { get; set; }
+
     }
 }

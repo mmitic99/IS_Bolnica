@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Bolnica.DTOs;
 using Bolnica.model;
+using Model.Enum;
 
 namespace Kontroler
 {
@@ -226,5 +227,9 @@ namespace Kontroler
         public Servis.TerminServis terminServis;
         public Servis.ProstorijeServis prostorijeServis;
 
+        public int GetBrojProstorija(VrstaProstorije vrstaProstorije)
+        {
+            return prostorijeServis.GetByVrstaProstorije(vrstaProstorije).Count;
+        }
     }
 }

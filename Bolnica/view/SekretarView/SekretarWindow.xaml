@@ -149,6 +149,7 @@
 
                         <Grid Grid.Column="0">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="80"/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
@@ -156,22 +157,71 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj pacijenata</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojPacijenata" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj lekara</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojLekara" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj soba za pregled</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojSobaZaPregled" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj operacionih sala</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojOperacionihSala" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
 
-                            <lvc:CartesianChart Grid.Row="0" Grid.Column="0" Margin="5" Grid.ColumnSpan="2"
-                                                Series="{Binding SeriesBrojTermina}">
-                                <lvc:CartesianChart.AxisY>
-                                    <lvc:Axis LabelFormatter="{Binding YOsaBrojTermina}"></lvc:Axis>
-                                </lvc:CartesianChart.AxisY>
-
-                                <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Labels="{Binding XOsaBrojTermina}"/>
-                                </lvc:CartesianChart.AxisX>
-
-                                <lvc:CartesianChart.ChartLegend>
-                                    <lvc:DefaultLegend BulletSize="10" Foreground="LightGray"/>
-                                </lvc:CartesianChart.ChartLegend>
-                            </lvc:CartesianChart>
-
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="5" Grid.ColumnSpan="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Broj zakazanih pregleda i operaciju u tekućem mesecu:</Label>
+                                <lvc:CartesianChart x:Name="BrojTermina" Grid.Row="1">
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis LabelFormatter="{Binding YOsaBrojTermina}"></lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Labels="{Binding XOsaBrojTermina}"/>
+                                    </lvc:CartesianChart.AxisX>
+                                </lvc:CartesianChart>
+                            </Grid>
+                            <Grid Grid.Row="2" Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Podela pacijenata po polovima:</Label>
+                                <lvc:PieChart Grid.Row="1" x:Name="PodelaPoPolovima" StartingRotationAngle="0"/>
+                            </Grid>
+                            <Grid Grid.Row="2" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap">Broj novih pacijenata u tekućem mesecu:</TextBlock>
+                                <lvc:CartesianChart x:Name="BrojNovihPacijenata" Grid.Row="1">
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis LabelFormatter="{Binding YOsaBrojNovihPacijenata}"></lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Labels="{Binding XOsaBrojNovihPacijenata}"/>
+                                    </lvc:CartesianChart.AxisX>
+                                </lvc:CartesianChart>
+                            </Grid>
                         </Grid>
 
                         <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>

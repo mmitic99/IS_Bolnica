@@ -22,12 +22,12 @@
 
     <Grid Background="AliceBlue">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Ellipse  Width="200" Height="90" Margin="30">
+            <Ellipse  Width="200" Height="90" Margin="30,30,30,40">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="../Images/Login.png"/>
                 </Ellipse.Fill>
             </Ellipse>
-            <Grid Margin="5">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="160"/>
@@ -35,7 +35,7 @@
                 <Label Grid.Column="0">Korisničko ime:</Label>
                 <TextBox x:Name="korIme" Grid.Column="1"/>
             </Grid>
-            <Grid Margin="5">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="160"/>
@@ -43,7 +43,7 @@
                 <Label Grid.Column="0">Lozinka:</Label>
                 <PasswordBox x:Name="lozinka" Grid.Column="1"/>
             </Grid>
-            <Grid Margin="30">
+            <Grid Margin="0,30,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

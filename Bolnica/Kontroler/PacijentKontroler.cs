@@ -3,6 +3,7 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
+using Model.Enum;
 
 namespace Kontroler
 {
@@ -76,7 +77,8 @@ namespace Kontroler
                 Korisnik = new Korisnik()
                 {
                     KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
-                    Lozinka = pacijent.Korisnik.Lozinka
+                    Lozinka = pacijent.Korisnik.Lozinka,
+                    DatumKreiranjaNaloga = DateTime.Now
                 },
                 Registrovan = pacijent.Registrovan,
                 ZdravstveniKarton = new ZdravstveniKarton()
@@ -334,6 +336,47 @@ namespace Kontroler
         public bool ObrisiPacijenta(string jmbg)
         {
             return pacijentServis.ObrisiPacijenta(jmbg);
+        }
+
+        public int GetBrojMuskihPacijenata()
+        {
+            int broj = 0;
+
+            foreach (Pacijent pacijent in pacijentServis.GetAll())
+            {
+                if (pacijent.Pol == Pol.Muski) broj++;
+            }
+
+            return broj;
+        }
+
+        public int GetBrojZenskihPacijenata()
+        {
+            int broj = 0;
+
+            foreach (Pacijent pacijent in pacijentServis.GetAll())
+            {
+                if (pacijent.Pol == Pol.Zenski) broj++;
+            }
+
+            return broj;
+        }
+
+        public IEnumerable<int> GetBrojNovihPacijenataUMesecu(List<string> sviDaniUMesecu)
+        {
+            List<int> brojNovihPacijenataPoDanu = new List<int>(new int[sviDaniUMesecu.Count]);
+            foreach (Pacijent pacijent in pacijentServis.GetAll())
+            {
+                for (int dan = 1; dan <= sviDaniUMesecu.Count; dan++)
+                {
+                    if (pacijent.Korisnik.DatumKreiranjaNaloga.Year == DateTime.Now.Year &&
+                        pacijent.Korisnik.DatumKreiranjaNaloga.Month == DateTime.Now.Month && pacijent.Korisnik.DatumKreiranjaNaloga.Day == dan)
+                    {
+                        brojNovihPacijenataPoDanu[dan - 1]++;
+                    }
+                }
+            }
+            return brojNovihPacijenataPoDanu;
         }
     }
 }
