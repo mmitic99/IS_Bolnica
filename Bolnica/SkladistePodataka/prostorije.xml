@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProstorija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<Prostorija>
+  <Prostorija>
     <termin />
     <IdProstorije>0</IdProstorije>
     <Sprat>0</Sprat>
@@ -267,5 +267,20 @@
     </Staticka_>
     <Potrosna_ />
     <IdProstorije_>9</IdProstorije_>
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <IdProstorije>10</IdProstorije>
+    <Sprat>4</Sprat>
+    <BrojSobe>406</BrojSobe>
+    <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
+    <Sprat_>4</Sprat_>
+    <BrojSobe_>406</BrojSobe_>
+    <VrstaProstorije_>Soba_za_bolesnike</VrstaProstorije_>
+    <RenoviraSe_>false</RenoviraSe_>
+    <Kvadratura_>43</Kvadratura_>
+    <Staticka_ />
+    <Potrosna_ />
+    <IdProstorije_>10</IdProstorije_>
   </Prostorija>
 </ArrayOfProstorija>

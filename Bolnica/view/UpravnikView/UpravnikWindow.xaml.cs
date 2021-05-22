@@ -56,9 +56,10 @@ namespace Bolnica.view.UpravnikView
             PreraspodeleStatickeOpreme = new List<ZakazanaPreraspodelaStatickeOpreme>();
             SvaRenoviranja = new List<Renoviranje>();
             SviLekovi = new List<Lek>();
-            SveVerifikacijeLekova = new List<VerifikacijaLeka>();     
+            SveVerifikacijeLekova = new List<VerifikacijaLeka>();
             // TODO : izmeniti tip sa Prostorija na ProstorijaDTO
             //ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
+            ListaProstorija = SkladisteZaProstorijeXml.GetInstance().GetAll();
             StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
             PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
             PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
@@ -68,10 +69,8 @@ namespace Bolnica.view.UpravnikView
             BrojProstorijeRenoviranje.ItemsSource = ListaProstorija;
             LekariLekovi.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
             LekariLekoviIzmeni.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
-
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
-            ListaProstorija = SkladisteZaProstorijeXml.GetInstance().GetAll();
         }
 
         // metoda za dodavanje nove prostorije

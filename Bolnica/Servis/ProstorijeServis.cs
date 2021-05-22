@@ -117,6 +117,7 @@ namespace Servis
 
         public void AzurirajRenoviranjaProstorija()
         {
+
             List<int> IdProstorijaZaBrisanjeIzRenoviranja = new List<int>();
             for (int i = 0; i < UpravnikWindow.GetInstance().SvaRenoviranja.Count; i++)
             {
@@ -140,6 +141,7 @@ namespace Servis
                     }
                 }
             }
+
             foreach (int ID in IdProstorijaZaBrisanjeIzRenoviranja)
             {
                 for (int i = 0; i < UpravnikWindow.GetInstance().SvaRenoviranja.Count; i++)
@@ -152,6 +154,7 @@ namespace Servis
             SkladisteZaRenoviranjaXml.GetInstance().SaveAll(UpravnikWindow.GetInstance().SvaRenoviranja);
             UpravnikWindow.GetInstance().TabelaRenoviranja.ItemsSource = new ObservableCollection<Renoviranje>(UpravnikWindow.GetInstance().SvaRenoviranja);
             UpravnikWindow.GetInstance().TabelaProstorija.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
+            UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
         }
 
         public void DeselektujMoguceRenoviranje(int id)
