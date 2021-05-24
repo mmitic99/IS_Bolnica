@@ -24,46 +24,38 @@ using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for ZakazivanjeTerminaP.xaml
-    /// </summary>
     public partial class ZakazivanjeTerminaP : UserControl
     {
-        public Pacijent p;
-        public List<Termin> moguciTermini;
-        public static ZakazivanjeTerminaP instance = null;
-        public static ZakazivanjeTerminaP getInstance()
-        {
-            if(instance==null)
-            {
-                return new ZakazivanjeTerminaP();
-            }
-            else
-            {
-                return instance;
-            }    
-        }
+        private PacijentZakaziTermin ViewModel;
+        private MainViewModel MainViewModel;
+        private TerminKontroler TerminKontroler;
+
         public ZakazivanjeTerminaP()
         {
             InitializeComponent();
-            instance = this;
-            izabraniLekar.ItemsSource = new ObservableCollection<LekarDTO>( LekarKontroler.getInstance().GetAll());
+            MainViewModel = MainViewModel.getInstance();
+            ViewModel = MainViewModel.PacijentZakaziVM;
+            this.TerminKontroler = new TerminKontroler();
+            SetStartupPage();    
+        }
+
+        private void SetStartupPage()
+        {
+            izabraniLekar.ItemsSource = new ObservableCollection<LekarDTO>(LekarKontroler.getInstance().GetAll());
             izabraniLekar.SelectedIndex = 0;
             kalendar.DisplayDateStart = DateTime.Today.AddDays(1);
             kalendar.DisplayDateEnd = DateTime.Today.AddMonths(3); //moze se unapred zakazati termin 3 meseca
             satnicaPocetak.SelectedIndex = 0;
-            satnicaKraj.SelectedIndex =14;
+            satnicaKraj.SelectedIndex = 14;
             minutPocetak.SelectedIndex = 0;
             minutKraj.SelectedIndex = 0;
-            p = PacijentMainWindow.getInstance().pacijent;
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
             {
-                Pacijent = p.Jmbg,
+                Pacijent = ViewModel.JmbgPacijenta,
                 IzabraniDatumi = kalendar.SelectedDates,
                 IzabraniLekar = izabraniLekar.SelectedItem,
                 PocetnaSatnica = satnicaPocetak.SelectedIndex,
@@ -76,25 +68,20 @@ namespace Bolnica.view.PacijentView
                 PriotitetVreme = vreme.IsChecked,
                 trajanjeUMinutama = 30,
                 vrstaTermina = 0
-
             };
             List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             if (moguciTermini.Count > 0)
             {
-                MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,PacijentMainWindow.getInstance().pacijent.Jmbg);
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
+                MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,ViewModel.JmbgPacijenta);
+                MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
             }
-
-
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-      
-            PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbg(p.Jmbg));
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM; 
 
+            PacijentZakazaniTermini.getInstance().RefresujPrikazTermina();
+            MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM; 
         }
     }
 }

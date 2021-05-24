@@ -17,12 +17,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
+using Bolnica.viewActions;
 
 namespace Bolnica.view
-{
-    /// <summary>
-    /// Interaction logic for Prijavljivanje.xaml
-    /// </summary>
+{ 
     public partial class Prijavljivanje : Window
     {
         private String uloga;
@@ -120,8 +118,7 @@ namespace Bolnica.view
             }
             else if (uloga.Equals("p"))
             {
-                Pacijent prijavljeniPacijent = (Pacijent)pacijentKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
-
+                Object prijavljeniPacijent = pacijentKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
                 if (prijavljeniPacijent == null)
                 {
                     MessageBox.Show("Neispravno korisničko ime ili lozinka!");
@@ -129,12 +126,11 @@ namespace Bolnica.view
                 }
                 else
                 {
-
-                    var s1 = new PacijentMainWindow(prijavljeniPacijent);
+                    MainViewModel MainViewModelPacijenta = new MainViewModel(prijavljeniPacijent);
+                    var s1 = new PacijentMainWindow(MainViewModelPacijenta);
                     potvrdi = true;
                     s1.Show();
 
-                    //s1.nabaviNoveRecepte();
                     this.Close();
                 }
             }

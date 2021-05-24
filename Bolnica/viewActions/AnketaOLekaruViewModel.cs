@@ -8,14 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Kontroler;
 
 namespace Bolnica.viewActions
 {
-    class AnketaOLekaruViewModel
+    public class AnketaOLekaruViewModel
     {
-        public AnketaLekar anketa { get; set; }
+        public AnketaLekar Anketa { get; set; }
         public String IdAnkete { get; set; }
         public String PunoImeLekara { get; set; }
+        private LekarKontroler LekarKontroler;
+
         public AnketaOLekaruViewModel()
         {
 
@@ -23,14 +26,9 @@ namespace Bolnica.viewActions
         public AnketaOLekaruViewModel(AnketaLekar anketa)
         {
             anketa = anketa;
-            PunoImeLekara = SkladisteZaLekaraXml.GetInstance().getByJmbg(anketa.JmbgLekara).FullName;
-        }
+            this.LekarKontroler = new LekarKontroler();
+            PunoImeLekara = LekarKontroler.GetByJmbg(anketa.JmbgLekara).FullName;
 
-        public AnketaOLekaruViewModel(PrikacenaAnketaPoslePregledaDTO anketa1)
-        {
-            anketa = AnketeServis.GetInstance().GetAnketaOLekaru(anketa1.JmbgLekara);
-            IdAnkete = anketa1.IDAnkete;
-            PunoImeLekara = SkladisteZaLekaraXml.GetInstance().getByJmbg(anketa.JmbgLekara).FullName;
         }
     }
 }

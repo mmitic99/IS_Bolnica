@@ -12,6 +12,7 @@ namespace Bolnica.Kontroler
 {
     class AnketeKontroler
     {
+        private AnketeServis AnketeServis;
         public static AnketeKontroler instance;
         public static AnketeKontroler GetInstance()
         {
@@ -21,19 +22,20 @@ namespace Bolnica.Kontroler
         public AnketeKontroler()
         {
             instance = this;
+            this.AnketeServis = new AnketeServis();
         }
 
         internal bool DaLiJeKorisnikPopunioAnketu(Pacijent pacijent, model.KvartalnaAnketa anketa)
         {
-            return AnketeServis.GetInstance().DaLiJeKorisnikPopunioAnketu(pacijent.Jmbg, anketa);
+            return AnketeServis.DaLiJeKorisnikPopunioKvartalnuAnketu(pacijent.Jmbg, anketa);
         }
 
-        internal bool SacuvajKvartalnuAnketu(KvartalnaAnketaDTO kvartalnaAnketa)
+        public bool SacuvajKvartalnuAnketu(KvartalnaAnketaDTO kvartalnaAnketa)
         {
             if (uneteSveOcene(kvartalnaAnketa))
             {
               PopunjenaKvartalnaAnketaDTO popunjenaAnketa = KlasifikujParametrePopunjeneKvartalne(kvartalnaAnketa);
-               return AnketeServis.GetInstance().SacuvajKvartalnuAnketu(popunjenaAnketa);
+               return AnketeServis.SacuvajKvartalnuAnketu(popunjenaAnketa);
             }
             else
                 return false;
@@ -63,14 +65,21 @@ namespace Bolnica.Kontroler
             return popunjenaAnketa;
         }
 
-
+        public bool DaLiJeVremeZaKvartalnuAnketu()
+        {
+            return ((DateTime.Today.Date.Day.Equals(24) && DateTime.Today.Month.Equals(5)) //anketa prvog kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(6)) //anketa drugog kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(9)) //anketa treceg kvartala
+                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(12))) //anketa cetvrtog kvartala
+                && !DaLiJePoslataKvartalnaAnketa(DateTime.Today);
+        }
 
         internal bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
         {
             if(uneteSveOceneLekarAnketa(popunjena))
             {
                 PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = KlasifikujParametrePopunjeneAnketeOLekaru(popunjena);
-                return AnketeServis.GetInstance().SacuvajAnketuOLekaru(popunjenaAnketa);
+                return AnketeServis.SacuvajAnketuOLekaru(popunjenaAnketa);
             }
             else
             {
@@ -95,29 +104,29 @@ namespace Bolnica.Kontroler
             return popunjenaAnketa;
         }
 
-        internal AnketaLekar GrtAnketaOLekaruByJmbg(string jmbgLekara)
+        internal AnketaLekar GetAnketaOLekaruByJmbg(string jmbgLekara)
         {
-            return AnketeServis.GetInstance().GetAnketaOLekaru(jmbgLekara);
+            return AnketeServis.GetAnketaOLekaru(jmbgLekara);
         }
 
         internal KvartalnaAnketa GetByDate(DateTime kvartalnaAnketa)
         {
-            return AnketeServis.GetInstance().GetKvartalnaAnketa(kvartalnaAnketa);
+            return AnketeServis.GetKvartalnaAnketa(kvartalnaAnketa);
         }
 
         internal bool DaLiJeIstekloVremeZaPopunjavanjeAnkete(KvartalnaAnketa anketa)
         {
-            return AnketeServis.GetInstance().DaLiJeIstekloVremeZaPopunjavanjeAnkete(anketa.datum);
+            return AnketeServis.DaLiJeIstekloVremeZaPopunjavanjeAnkete(anketa.datum);
         }
 
         internal bool DaLiJePoslataKvartalnaAnketa(DateTime today)
         {
-            return AnketeServis.GetInstance().DaLiJePoslataKvartalnaAnketa(today);
+            return AnketeServis.DaLiJePoslataKvartalnaAnketa(today);
         }
 
         internal bool DaLiJeKorisnikPopunioAnketu(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
         {
-            return AnketeServis.GetInstance().DaLiJeKorisnikPopunioAnketu(anketaOLekaru);
+            return AnketeServis.DaLiJeKorisnikPopunioAnketuOLekaru(anketaOLekaru);
         }
 
         private bool uneteSveOcene(KvartalnaAnketaDTO kvartalnaAnketa)

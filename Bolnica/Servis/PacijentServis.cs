@@ -12,6 +12,8 @@ namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
+        public ISkladistePacijenta skladistePacijenta;
+        public ISkladisteZaTermine skladisteZaTermine;
         public static PacijentServis instance = null;
         public static PacijentServis GetInstance()
         {
@@ -69,7 +71,7 @@ namespace Servis
             return false;
         }
 
-        public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
+        public Object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
             foreach (Pacijent pacijent in pacijenti)
@@ -135,7 +137,7 @@ namespace Servis
 
         public bool DaLiJePacijentSlobodan(ParamsToCheckAvailabilityOfPatientDTO parametri)
         {
-            List<Termin> terminiPacijenta = skladisteZaTermine.GetByJmbg(parametri.Id);
+            List<Termin> terminiPacijenta = skladisteZaTermine.GetByJmbgPacijenta(parametri.Id);
             foreach (Termin termin in terminiPacijenta)
             {
                 if (DaLiPocetakIliKrajTerminaUpadaju(parametri, termin)) return false;
@@ -195,13 +197,9 @@ namespace Servis
             skladistePacijenta.Save(pacijent);
         }
 
-        public void SaveAll(List<Pacijent> pacijenti)
-        {
-            // TODO: implement
-        }
 
-        public ISkladistePacijenta skladistePacijenta;
-        public ISkladisteZaTermine skladisteZaTermine;
+
+
 
     }
 }

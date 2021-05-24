@@ -21,125 +21,69 @@ using System.Windows.Threading;
 
 namespace Bolnica.view
 {
-    /// <summary>
-    /// Interaction logic for PacijentMainWindow.xaml
-    /// </summary>
     public partial class PacijentMainWindow : Window
     {
         public static PacijentMainWindow instance = null;
+        private ObavestenjaKontroler ObavestenjaKontroler;
+        private MainViewModel MainViewModel;
+        private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
+        private AnketeKontroler AnketeKontroler;
 
 
         public static PacijentMainWindow getInstance()
         {
             return instance;
         }
-        public Pacijent pacijent { get; set; }
+        
 
-        public PacijentMainWindow(Pacijent pacijent)
+        public PacijentMainWindow(MainViewModel PacijentMainViewModel)
         {
             InitializeComponent();
             instance = this;
-            this.pacijent = pacijent;
-            Ime.DataContext = pacijent;
-            MainViewModel mVM = new MainViewModel();
-            mVM.ZdravstveniKartonVM = new ZdravstveniKartonViewModel(pacijent);
-            DataContext = mVM;
-            brojObavestenja.Text = "0";
+            this.MainViewModel = PacijentMainViewModel;
+            this.ObavestenjaKontroler = new ObavestenjaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.AnketeKontroler = new AnketeKontroler();
+            ZapocniRadAplikacije();
 
+        }
+
+        private void ZapocniRadAplikacije()
+        {
+            Ime.DataContext = MainViewModel.Pacijent;
+            DataContext = MainViewModel;
+            brojObavestenja.Text = "0";
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(nabaviNovePodsetnike);
-            timer.Tick += new EventHandler(posaljiKvartalneAnkete);
-            timer.Tick += new EventHandler(odblokirajKorisnike);
+            timer.Tick += new EventHandler(NabaviNovePodsetnike);
+            timer.Tick += new EventHandler(PosaljiKvartalneAnkete);
+            timer.Tick += new EventHandler(OdblokirajKorisnike);
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.Start();
         }
 
-        private void odblokirajKorisnike(object sender, EventArgs e)
+        private void OdblokirajKorisnike(object sender, EventArgs e)
         {
-            KorisnickeAktivnostiPacijentaKontroler.GetInstance().OdblokirajKorisnike();
+            KorisnickeAktivnostiPacijentaKontroler.OdblokirajKorisnike();
         }
 
-        private void posaljiKvartalneAnkete(object sender, EventArgs e)
+        private void PosaljiKvartalneAnkete(object sender, EventArgs e)
         {
-            if (((DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(3)) //anketa prvog kvartala
-                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(6)) //anketa drugog kvartala
-                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(9)) //anketa treceg kvartala
-                || (DateTime.Today.Date.Day.Equals(1) && DateTime.Today.Month.Equals(12))) //anketa cetvrtog kvartala
-                && !AnketeKontroler.GetInstance().DaLiJePoslataKvartalnaAnketa(DateTime.Today))
+            if (AnketeKontroler.DaLiJeVremeZaKvartalnuAnketu())
             {
-                ObavestenjaKontroler.getInstance().PosaljiKvartalnuAnketu();
-                primiObavestenja(1);
-            }
-                
+                ObavestenjaKontroler.PosaljiKvartalnuAnketu();
+                PrimiObavestenja(1);
+            }              
         }
 
-        public void nabaviNovePodsetnike(object sender, EventArgs e)
+        public void NabaviNovePodsetnike(object sender, EventArgs e)
         {
-            List<Recept> recepti= PacijentKontroler.GetInstance().DobaviRecepePacijenta(pacijent.Jmbg);
-            List<DateTime> terminiUzimanja = new List<DateTime>();
-            int brojNovihPodsetnika = 0;
-            if (recepti.Count > 0)
+            int brojNovihPodsetnika = ObavestenjaKontroler.nabaviNovePodsetnike(MainViewModel.Pacijent);
+            if(brojNovihPodsetnika > 0)
             {
-                foreach (Recept r in recepti)
+                PrimiObavestenja(brojNovihPodsetnika);
+                if (MainViewModel.CurrentView == MainViewModel.ObavestenjaVM)
                 {
-                    DateTime dt = (r.DatumIzdavanja.AddDays(r.BrojDana)).Date;
-                    if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date > DateTime.Today)
-                    {
-                        TimeSpan satVremena = new TimeSpan(1, 1, 0);
-                        TimeSpan nula = new TimeSpan(0, 0, 0);
-                         foreach(int i in r.TerminiUzimanjaLeka)
-                        {
-                            if((DateTime.Today.AddHours(i)- DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now)> nula)
-                            {
-                                if(ObavestenjaKontroler.getInstance().NapraviPodsetnik(pacijent.Jmbg, r, i))
-                                brojNovihPodsetnika++;
-                            }
-                        }
-                    }
-                }
-            }
-            if(brojNovihPodsetnika>0)
-            {
-                primiObavestenja(brojNovihPodsetnika);
-                if (MainViewModel.getInstance().CurrentView == MainViewModel.getInstance().ObavestenjaVM)
-                {
-                    view.Obavestenja.getInstance().PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
-                }
-
-            }
-        }
-
-        public void nabaviNovePodsetnike1()
-        {
-            List<Recept> recepti = PacijentKontroler.GetInstance().DobaviRecepePacijenta(pacijent.Jmbg);
-            List<DateTime> terminiUzimanja = new List<DateTime>();
-            int brojNovihPodsetnika = 0;
-            if (recepti.Count > 0)
-            {
-                foreach (Recept r in recepti)
-                {
-                    DateTime dt = (r.DatumIzdavanja.AddDays(r.BrojDana)).Date;
-                    if ((r.DatumIzdavanja.AddDays(r.BrojDana)).Date > DateTime.Today)
-                    {
-                        TimeSpan satVremena = new TimeSpan(1, 1, 0);
-                        TimeSpan nula = new TimeSpan(0, 0, 0);
-                        foreach (int i in r.TerminiUzimanjaLeka)
-                        {
-                            if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
-                            {
-                                if( ObavestenjaKontroler.getInstance().NapraviPodsetnik(pacijent.Jmbg, r, i))
-                                brojNovihPodsetnika++;
-                            }
-                        }
-                    }
-                }
-            }
-            if (brojNovihPodsetnika > 0)
-            {
-                primiObavestenja(brojNovihPodsetnika);
-                if (MainViewModel.getInstance().CurrentView == MainViewModel.getInstance().ObavestenjaVM)
-                {
-                    view.Obavestenja.getInstance().PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+                    view.Obavestenja.instance.RefresujPrikaz();
                 }
 
             }
@@ -152,7 +96,7 @@ namespace Bolnica.view
             s.Show();
         }
 
-        public void primiObavestenja(int brojPodsetnika)
+        public void PrimiObavestenja(int brojPodsetnika)
         {
             int broj = Int32.Parse(brojObavestenja.Text);
             zvonceSaObevestenjem.Visibility = Visibility.Visible;
@@ -161,9 +105,7 @@ namespace Bolnica.view
             brojObavestenja.Text = broj.ToString();
             okvirZaBrojObavestenja.Visibility = Visibility.Visible;
             zvonce.Visibility = Visibility.Hidden;
-
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

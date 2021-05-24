@@ -30,111 +30,104 @@ using Bolnica.view.PacijentView;
 
 namespace Bolnica.view
 {
-
-
     public partial class PacijentZakazaniTermini : UserControl
     {
-        Pacijent pacijent { get; set; }
-        public String JmbgPacijenta { get; set; }
 
+        private PacijentTerminiViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
+        private TerminKontroler TerminKontroler;
         private static PacijentZakazaniTermini instance = null;
+        public const int MAX_BROJ_OTKAZIVANJA = 3;
 
         public static PacijentZakazaniTermini getInstance()
         {
             return instance;
         }
 
+
         public PacijentZakazaniTermini()
         {
-
             InitializeComponent();
             instance = this;
-            this.pacijent = PacijentMainWindow.getInstance().pacijent;
-            // Lekar l = new Lekar("Dragana", "Dusanovic", "2366");
-            // SkladistePacijentaXml.GetInstance().Save(p);
-            /* Prostorija pr = new Prostorija(Sprat.Cetvrti, "407B");
-             Termin t = new Termin(pr, l, p, new DateTime(2021, 6, 27), 0.5, VrstaPregleda.Operacija);
-             List<Termin> termins = new List<Termin>();
-             termins.Add(t);
-            SkladisteZaTermineXml.getInstance().SaveAll(termins);
-             */
-            //DataContext = SkladistePacijentaXml.GetInstance().GetByJmbg(pacijent.Jmbg);
-            DataContext = pacijent;
-
-           prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbg(pacijent.Jmbg));
-           
-            this.JmbgPacijenta = pacijent.Jmbg;
-            
+            this.ViewModel = MainViewModel.getInstance().PacijentTerminiVM;
+            this.MainViewModel = MainViewModel.getInstance();
+            this.TerminKontroler = new TerminKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            prikazTermina.ItemsSource = ViewModel.ZakazaniTerminiPacijenta;            
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ZakazivanjeTerminaBC(object sender, RoutedEventArgs e)
         {
-           if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DaLiJeMoguceZakazatiNoviTermin(JmbgPacijenta))
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceZakazatiNoviTermin(ViewModel.JmbgPacijenta))
+                zakaziButton.Command = MainViewModel.PacijentZakaziTerminCommand;
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta));
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }    
-
         }
         
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void IzmenaTerminaBC(object sender, RoutedEventArgs e)
         {
-            if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DaLiJeMoguceOdlozitiZakazaniTermin(JmbgPacijenta))
-                if(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojOtkazivanjaUProteklihMesecDana(JmbgPacijenta)>=2)
+            MainViewModel.PomeranjeTerminaVM.SelektovanJeTermin(prikazTermina.SelectedItem);
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin(ViewModel.JmbgPacijenta))
+                if(KorisnickeAktivnostiPacijentaKontroler.DobaviBrojOtkazivanjaUProteklihMesecDana(ViewModel.JmbgPacijenta)>=MAX_BROJ_OTKAZIVANJA-1)
                 {
-                    var DijjalogPredBan = new UpozorenjePredBan("p");
+                    var DijjalogPredBan = new UpozorenjePredBan("p", prikazTermina.SelectedItem);
                     DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
                     DijjalogPredBan.ShowDialog();
                 }
                 else
                 {
-                    MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+                    izmeniButton.Command = MainViewModel.PomeranjeTerminaCommand;
 
                 }
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta))
-                {
-                    Owner = PacijentMainWindow.getInstance()
-                };
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
+                DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();          
                 DijalogUpozorenja.ShowDialog();
             }
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void OtkazivanjeTerminaBC(object sender, RoutedEventArgs e)
         {
-            if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DaLiJeMoguceOdlozitiZakazaniTermin(JmbgPacijenta))
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin(ViewModel.JmbgPacijenta))
             {
-                if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojOtkazivanjaUProteklihMesecDana(JmbgPacijenta) >= 2)
+                if (KorisnickeAktivnostiPacijentaKontroler.DobaviBrojOtkazivanjaUProteklihMesecDana(ViewModel.JmbgPacijenta) >= MAX_BROJ_OTKAZIVANJA-1)
                 {
-                    var DijjalogPredBan = new UpozorenjePredBan("o");
+                    var DijjalogPredBan = new UpozorenjePredBan("o", prikazTermina.SelectedItem);
                     DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
                     DijjalogPredBan.ShowDialog();
                 } 
                 else
                 {
-                    TerminKontroler.getInstance().RemoveByID(((Termin)prikazTermina1.SelectedItem).IDTermina);
-                    prikazTermina1.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbg(JmbgPacijenta));
-                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(JmbgPacijenta);
+                    TerminKontroler.RemoveSelected(prikazTermina.SelectedItem);
+                    RefresujPrikazTermina();
+                    KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(ViewModel.JmbgPacijenta);
                 }
             }
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviPorukuZabrane(JmbgPacijenta));
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }
             
         }
 
+        public void RefresujPrikazTermina()
+        {
+            prikazTermina.ItemsSource = ViewModel.ZakazaniTerminiPacijenta;
+        }
+
         private void prikazTermina1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (prikazTermina1.SelectedItem == null || (((Termin)prikazTermina1.SelectedItem).DatumIVremeTermina.Date.AddDays(-1) < DateTime.Today || ((Termin)prikazTermina1.SelectedItem).VrstaTermina == VrstaPregleda.Operacija))
+            if (prikazTermina.SelectedItem == null || !TerminKontroler.DaLiJeMoguceOtkazatiTermin(prikazTermina.SelectedItem))
             {
                 otkaziButton.IsEnabled = false;
                 izmeniButton.IsEnabled = false;
@@ -144,7 +137,8 @@ namespace Bolnica.view
                 izmeniButton.IsEnabled = true;
                  otkaziButton.IsEnabled = true;
             }
-            
+          
         }
+
     }
 }

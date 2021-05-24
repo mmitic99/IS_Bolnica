@@ -12,7 +12,7 @@ namespace Kontroler
 
     public class TerminKontroler
     {
-        public Servis.TerminServis terminServis;
+        public Servis.TerminServis TerminServis;
 
         public static TerminKontroler instance = null;
 
@@ -30,12 +30,13 @@ namespace Kontroler
 
         public TerminKontroler()
         {
-            terminServis = new TerminServis();
+            TerminServis = new TerminServis();
             instance = this;
         }
 
-        public bool ZakaziTermin(TerminDTO terminDto)
+        public bool ZakaziTermin(Object selectedAppointment)
         {
+            TerminDTO terminDto = (TerminDTO)selectedAppointment;
             Termin termin = new Termin()
             {
                 IDTermina = terminDto.IDTermina,
@@ -50,12 +51,12 @@ namespace Kontroler
             };
             termin.IDTermina = termin.generateRandId();
             termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
-            return terminServis.ZakaziTermin(termin);
+            return TerminServis.ZakaziTermin(termin);
         }
 
         public bool OtkaziTermin(string IdTermina)
         {
-            return terminServis.OtkaziTermin(IdTermina);
+            return TerminServis.OtkaziTermin(IdTermina);
         }
 
         public bool IzmeniTermin(TerminDTO terminDto, Object stariIdTermina = null)
@@ -74,47 +75,47 @@ namespace Kontroler
             };
             if (stariIdTermina != null)
             {
-                return terminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
+                return TerminServis.IzmeniTermin((Termin)termin, ((Termin)stariIdTermina).IDTermina);
             }
-            return terminServis.IzmeniTermin((Termin)termin, null);
+            return TerminServis.IzmeniTermin((Termin)termin, null);
 
         }
 
         public List<Termin> GetAll()
         {
-            return terminServis.GetAll();
+            return TerminServis.GetAll();
         }
 
         public void Save(Termin termin)
         {
-            terminServis.Save(termin);
+            TerminServis.Save(termin);
         }
 
         public void SaveAll(List<Termin> termini)
         {
-            terminServis.SaveAll(termini);
+            TerminServis.SaveAll(termini);
         }
 
-        public List<Termin> GetByJmbg(string jmbg)
+        public IEnumerable GetByJmbgPacijenta(string jmbg)
         {
-            return TerminServis.getInstance().GetByJmbgPacijenta(jmbg);
+            return TerminServis.GetByJmbgPacijenta(jmbg);
         }
 
         internal DateTime? PrviMoguciDanZakazivanja(Object prethodniTermin)
         {
             Termin prethodnTermin = (Termin)prethodniTermin;
-            return TerminServis.getInstance().DobaviPrviMoguciDanZakazivanja(prethodnTermin);
+            return TerminServis.DobaviPrviMoguciDanZakazivanja(prethodnTermin);
         }
 
         internal DateTime? PoslednjiMoguciDanZakazivanja(Object prethodniTermin)
         {
             Termin prethodnTermin = (Termin)prethodniTermin;
-            return TerminServis.getInstance().DobaviPPoslednjiMogiDanZakazivanja(prethodnTermin);
+            return TerminServis.DobaviPPoslednjiMogiDanZakazivanja(prethodnTermin);
         }
 
         public TerminDTO GetById(String idTermina)
         {
-            Termin termin = terminServis.GetById(idTermina);
+            Termin termin = TerminServis.GetById(idTermina);
             return new TerminDTO()
             {
                 JmbgLekara = termin.JmbgLekara,
@@ -129,14 +130,20 @@ namespace Kontroler
             };
         }
 
+        internal void RemoveSelected(object selectedItem)
+        {
+            Termin SelektovaniTermin = (Termin)selectedItem;
+            TerminServis.RemoveByID(SelektovaniTermin.IDTermina);
+        }
+
         public IEnumerable GetBuduciTerminPacLekar()
         {
-            return terminServis.GetBuduciTerminPacLekar();
+            return TerminServis.GetBuduciTerminPacLekar();
         }
 
         public void RemoveByID(string iDTermina)
         {
-            terminServis.RemoveByID(iDTermina);
+            TerminServis.RemoveByID(iDTermina);
         }
 
         public ParametriZaTrazenjeTerminaKlasifikovanoDTO KlasifikujUlazneParametre(ParametriZaTrazenjeMogucihTerminaDTO parametriDTO)
@@ -161,10 +168,17 @@ namespace Kontroler
             return parametriKlasifikovanoDTO;
         }
 
+        public bool DaLiJeMoguceOtkazatiTermin(object selectedItem)
+        {
+            Termin selektovaniTermin = (Termin)selectedItem;
+            return selektovaniTermin.DatumIVremeTermina.Date.AddDays(-1) > DateTime.Today
+                && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija; 
+        }
+
         public List<TerminDTO> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
         {
             List<TerminDTO> termini = new List<TerminDTO>();
-            foreach (Termin termin in terminServis.NadjiHitanTermin(jmbgPacijenta, vrstaSpecijalizacije))
+            foreach (Termin termin in TerminServis.NadjiHitanTermin(jmbgPacijenta, vrstaSpecijalizacije))
             {
                 termini.Add(new TerminDTO()
                 {
@@ -205,7 +219,6 @@ namespace Kontroler
             return TerminServis.getInstance().DobaviMoguceSveDaneZakazivanja((Termin)selectedItem);
         }
 
-
         private int PronadjiPrioritet(bool nemaPrioritet, bool prioritetLekar)
         {
             int prioritet;
@@ -238,7 +251,7 @@ namespace Kontroler
         public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
         {
             List<TerminDTO> termini = new List<TerminDTO>();
-            foreach (Termin termin in terminServis.NadjiTermineZaParametre(parametriDTO))
+            foreach (Termin termin in TerminServis.NadjiTermineZaParametre(parametriDTO))
             {
                 termini.Add(new TerminDTO()
                 {
@@ -258,7 +271,7 @@ namespace Kontroler
 
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)
         {
-            return terminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
+            return TerminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
         }
     }
 }

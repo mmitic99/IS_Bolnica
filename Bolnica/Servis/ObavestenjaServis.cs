@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Kontroler;
 
 namespace Servis
 {
@@ -14,6 +15,10 @@ namespace Servis
     {
 
         public static ObavestenjaServis instance;
+        private ISkladisteZaObavestenja SkladisteZaObavestenja;
+        private PacijentServis PacijentServis;
+        private AnketeServis AnketeServis;
+        private LekarServis LekarServis;
 
         public static ObavestenjaServis getInstance()
         {
@@ -29,29 +34,33 @@ namespace Servis
 
         public ObavestenjaServis()
         {
-            skladisteZaObavestenja = SkladisteZaObavestenjaXml.GetInstance();
+            this.PacijentServis = new PacijentServis();
+            this.SkladisteZaObavestenja = new SkladisteZaObavestenjaXml();
+            this.AnketeServis = new AnketeServis();
+            this.LekarServis = new LekarServis();
         }
 
-        public List<Obavestenje> GetAll()
+        public List<Obavestenje> GetAll
+            ()
         {
-            return skladisteZaObavestenja.GetAll();
+            return SkladisteZaObavestenja.GetAll();
         }
 
         public void Save(Model.Obavestenje obavestenje)
         {
-            skladisteZaObavestenja.Save(obavestenje);
+            SkladisteZaObavestenja.Save(obavestenje);
         }
 
         public void SaveAll(List<Obavestenje> obavestenje)
         {
-            skladisteZaObavestenja.SaveAll(obavestenje);
+            SkladisteZaObavestenja.SaveAll(obavestenje);
         }
 
-        public List<Obavestenje> GetByJmbg(String jmbg)
+        public List<Obavestenje> GetObavestenjaByJmbg(String jmbg)
         {
-            List<Obavestenje> obavestenja = skladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+            List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
 
-            foreach(Obavestenje obavestenje in skladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
+            foreach(Obavestenje obavestenje in SkladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
             {
                 if (!obavestenja.Contains(obavestenje))
                 {
@@ -64,13 +73,12 @@ namespace Servis
 
         public List<Obavestenje> GetPodsetnici(String jmbg)
         {
-            return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
+            return SkladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
         }
 
-        public bool NapraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool NapraviPodsetnikZaUzimanjeLeka(string jmbgPacijenta, Recept r, int hours)
         {
-            Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(jmbgPacijenta);
-            //ObavestenjaServis.getInstance().NapraviPodsetnik(jmbgPacijenta, r, hours);
+            Pacijent pacijent = PacijentServis.GetByJmbg(jmbgPacijenta);
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -80,20 +88,46 @@ namespace Servis
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Today.AddHours(hours)).ToString("HH:mm") + 
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
-            skladisteZaObavestenja.Save(obavestenje);
+            return PosaljiPodsetnik(obavestenje);
+            }
+
+        private bool PosaljiPodsetnik(Obavestenje obavestenje)
+        {
+            if (DaLiJePodsetnikPoslat(obavestenje)) return false;
+            SkladisteZaObavestenja.Save(obavestenje);
             return true;
+    
         }
 
-        internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
+        private bool DaLiJePodsetnikPoslat(Obavestenje obavestenje)
         {
-            Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(JmbgPacijenta);
-            Lekar lekar = LekarServis.getInstance().GetByJmbg(JmbgLekara);
-            AnketeServis.GetInstance().GetAnketaOLekaru(JmbgLekara);
+            List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetAll();
+            foreach(Obavestenje o in obavestenja)
+            {
+                if (DaLiJeIstiPodsetnik(o, obavestenje)) return true;
+            }
+            return false;
+        }
+
+        private bool DaLiJeIstiPodsetnik(Obavestenje o, Obavestenje obavestenje)
+        {
+            return  o.Naslov.Equals(obavestenje.Naslov) 
+                    && o.Sadrzaj.Equals(obavestenje.Sadrzaj)
+                    && o.JmbgKorisnika.Equals(obavestenje.JmbgKorisnika);
+        }
+
+        public void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
+        {
+            Pacijent pacijent = PacijentServis.GetByJmbg(JmbgPacijenta);
+            Lekar lekar = LekarServis.GetByJmbg(JmbgLekara);
+            AnketeServis.GetAnketaOLekaru(JmbgLekara);
+
             PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
             {
                 IDAnkete = JmbgPacijenta + JmbgLekara + DateTime.Now.ToString(),
                 JmbgLekara = JmbgLekara
             };
+
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -106,12 +140,42 @@ namespace Servis
                 anketaOLekaru = anketaOLekaru
                 
             };
-            SkladisteZaObavestenjaXml.GetInstance().Save(obavestenje);
+            SkladisteZaObavestenja.Save(obavestenje);
         }
+
+        public int NabaviNovePodsetnike(string jmbg)
+        {
+            int brojNovihPodsetnika = 0;
+            List<Recept> recepti = PacijentServis.DobaviReceptePacijenta(jmbg);
+            List<DateTime> terminiUzimanja = new List<DateTime>();
+            if (recepti.Count > 0)
+            {
+                foreach (Recept recept in recepti)
+                {
+                    DateTime poslednjiDanUzimanja = (recept.DatumIzdavanja.AddDays(recept.BrojDana)).Date;
+                    if (poslednjiDanUzimanja > DateTime.Today)
+                    {
+                        TimeSpan satVremena = new TimeSpan(1, 1, 0);
+                        TimeSpan nula = new TimeSpan(0, 0, 0);
+                        foreach (int i in recept.TerminiUzimanjaLeka)
+                        {
+                            if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena 
+                                && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
+                            {
+                                if (NapraviPodsetnikZaUzimanjeLeka(jmbg, recept, i))
+                                    brojNovihPodsetnika++;
+                            }
+                        }
+                    }
+                }
+            }
+            return brojNovihPodsetnika;
+        } 
+        
 
         internal void PosaljiKvartalnuAnketu()
         {
-            AnketeServis.GetInstance().GetKvartalnaAnketa(DateTime.Today);
+            AnketeServis.GetKvartalnaAnketa(DateTime.Today);
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -123,7 +187,7 @@ namespace Servis
                 kvartalnaAnketa = DateTime.Today,
                 Vidjeno = false
             };
-            SkladisteZaObavestenjaXml.GetInstance().Save(obavestenje);
+            SkladisteZaObavestenja.Save(obavestenje);
         }
 
         private string GetNazivMesec(int month)
@@ -136,7 +200,7 @@ namespace Servis
             else if (month == 6) return "junska";
             else if (month == 7) return "julska";
             else if (month == 8) return "avgustovska";
-            else if (month == 9) return "septemvarska";
+            else if (month == 9) return "septembarska";
             else if (month == 10) return "oktobarska";
             else if (month == 11) return "novembarska";
             else return "decembarska";
@@ -145,19 +209,19 @@ namespace Servis
         public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
         {
             ObrisiObavestenje(staroObavestenje);
-            skladisteZaObavestenja.Save(novoObavestenje);
+            SkladisteZaObavestenja.Save(novoObavestenje);
             return true;
         }
 
         public bool ObrisiObavestenje(Obavestenje obavestenje)
         {
-            List<Obavestenje> obavestenja = skladisteZaObavestenja.GetAll();
+            List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetAll();
             foreach (Obavestenje obavestenje1 in obavestenja)
             {
                 if (obavestenje1.Equals(obavestenje))
                 {
                     obavestenja.Remove(obavestenje);
-                    skladisteZaObavestenja.SaveAll(obavestenja);
+                    SkladisteZaObavestenja.SaveAll(obavestenja);
                     return true;
                 }
             }
@@ -166,28 +230,9 @@ namespace Servis
 
         public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
         {
-            /*Pacijent p = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbgPacijenta);
-             p.ZdravstveniKarton.Izvestaj = new List<Izvestaj>();
-             Izvestaj i = new Izvestaj();
-             i.recepti = new List<Recept>();
-             TimeSpan ts1 = new TimeSpan(8, 0, 0);
-             TimeSpan ts2 = new TimeSpan(10, 0, 0);
-             TimeSpan ts3 = new TimeSpan(12, 0, 0);
-             List<int> terminiUzimanja = new List<int>();
-             terminiUzimanja.Add(7);
-             terminiUzimanja.Add(10);
-             terminiUzimanja.Add(13);
-             Recept r = new Recept();
-             r.lek = new Lek();
-             r.lek.NazivLeka = "Brufen";
-             r.terminiUzimanjaTokomDana = terminiUzimanja;
-             i.recepti.Add(r);
-             p.ZdravstveniKarton.Izvestaj.Add(i);
-             PacijentServis.getInstance().IzmeniPacijenta(p, p);*/
-            return skladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
+            return SkladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
         }
 
-        public ISkladisteZaObavestenja skladisteZaObavestenja;
 
     }
 }

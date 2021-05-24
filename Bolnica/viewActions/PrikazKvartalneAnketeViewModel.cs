@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    class PrikazKvartalneAnketeViewModel
+    public class PrikazKvartalneAnketeViewModel
     {
         public KvartalnaAnketa anketa { get; set; }
         public PrikazKvartalneAnketeViewModel()

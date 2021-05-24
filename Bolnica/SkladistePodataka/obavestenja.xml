@@ -795,4 +795,51 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
     <Vidjeno>false</Vidjeno>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-24T01:08:38.6455188+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Pera
+nedavno ste bili na pregledu kod dr Dunja Jovanovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678901236095/24/2021 1:08:38 AM</IDAnkete>
+      <JmbgLekara>609</JmbgLekara>
+    </anketaOLekaru>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-24T01:09:05.36433+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Retinol</Naslov>
+    <Sadrzaj>Poštovani/a Pera podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-24T01:21:44.2201719+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Dioklecijan</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 02:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Podsetnik>true</Podsetnik>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-24T01:21:44.2775582+02:00</VremeObavestenja>
+    <Naslov>Aktivna majska anketa</Naslov>
+    <Sadrzaj>Poštovani pacijenti,
+
+obaveštavamo vas da je do 8.6.2021 aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije.
+
+Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Podsetnik>false</Podsetnik>
+    <kvartalnaAnketa>2021-05-24T00:00:00+02:00</kvartalnaAnketa>
+    <Vidjeno>false</Vidjeno>
+  </Obavestenje>
 </ArrayOfObavestenje>

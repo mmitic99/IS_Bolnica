@@ -11,7 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="viewActions/TerminiPacjentTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate DataType="{x:Type viewActions:PacijentTerminiModel}">
+            <DataTemplate DataType="{x:Type viewActions:PacijentTerminiViewModel}">
                 <view:PacijentZakazaniTermini/>
             </DataTemplate>
 

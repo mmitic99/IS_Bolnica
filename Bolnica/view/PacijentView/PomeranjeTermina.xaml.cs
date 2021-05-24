@@ -21,33 +21,43 @@ using Bolnica.model;
 
 namespace Bolnica.view.PacijentView
 {
-
-
 public partial class PomeranjeTermina : UserControl
     {
+        private MainViewModel MainViewModel;
+        private PomeranjeTerminaViewModel ViewModel;
+        private TerminKontroler TerminKontroler;
+        private LekarKontroler LekarKontroler;
+
         public PomeranjeTermina()
         {
             InitializeComponent();
-            //this.termin = (Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem;
-            DataContext = PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem;
-            kalendar.DisplayDateStart = TerminKontroler.getInstance().PrviMoguciDanZakazivanja(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
-            kalendar.DisplayDateEnd = TerminKontroler.getInstance().PoslednjiMoguciDanZakazivanja(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
-            izabraniLekar.ItemsSource = LekarKontroler.getInstance().GetAll();
-            izabraniLekar.SelectedIndex = LekarKontroler.getInstance().DobaviIndeksSelektovanogLekara(PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
+            this.MainViewModel = MainViewModel.getInstance();
+            this.ViewModel = MainViewModel.PomeranjeTerminaVM;
+            this.TerminKontroler = new TerminKontroler();
+            this.LekarKontroler = new LekarKontroler();
+            SetStartPage();
+       
         }
 
-
+        private void SetStartPage()
+        {
+            DataContext = ViewModel.TerminZaPomeranje;
+            kalendar.DisplayDateStart = TerminKontroler.PrviMoguciDanZakazivanja(ViewModel.TerminZaPomeranje);
+            kalendar.DisplayDateEnd = TerminKontroler.PoslednjiMoguciDanZakazivanja(ViewModel.TerminZaPomeranje);
+            izabraniLekar.ItemsSource = LekarKontroler.GetAll();
+            izabraniLekar.SelectedIndex = LekarKontroler.DobaviIndeksSelektovanogLekara(ViewModel.TerminZaPomeranje);
+        }
 
         private void Nazad_ButtonClick(object sender, RoutedEventArgs e)
         {
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+            MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
             {
-                PrethodnoZakazaniTermin = PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem,
+                PrethodnoZakazaniTermin = ViewModel.TerminZaPomeranje,
                 IzabraniDatumi = kalendar.SelectedDates,
                 IzabraniLekar = izabraniLekar.SelectedItem,
                 PocetnaSatnica = satnicaPocetak.SelectedIndex,
@@ -62,9 +72,9 @@ public partial class PomeranjeTermina : UserControl
                 vrstaTermina = 0
                 
             };
-            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
-                MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
+            List<TerminDTO> moguciTermini = TerminKontroler.NadjiTermineZaParametre(parametriDTO);
+                MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
+                MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
             
         }
     }

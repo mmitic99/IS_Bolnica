@@ -9,7 +9,7 @@ using Bolnica.model;
 
 namespace Bolnica.viewActions
 {
-    class MoguciTerminiViewModel
+    public class MoguciTerminiViewModel
     {
         public List<TerminDTO> terminiZaPrikazivanje;
         public string pozivaoc { get; set; }

@@ -28,18 +28,5 @@ namespace Bolnica.model
             BrojAnketa = 0;
             ispunjeneAnkete = new List<string>();
         }
-
-        public void DodajPopunjenuAnketu(PopunjenaAnketaPoslePregledaDTO anketa)
-        {
-            Komentari.Add(anketa.Komentar);
-            ProsecnaOcena = azuriranjeProsecneOcene(anketa.Ocena, ProsecnaOcena);
-            ispunjeneAnkete.Add(anketa.IDAnkete);
-            ++BrojAnketa;
-        }
-
-        public double azuriranjeProsecneOcene(double novaOcena, double ProsecnaOcena)
-        {
-            return (ProsecnaOcena * BrojAnketa + novaOcena) / (BrojAnketa + 1);
-        }
     }
 }

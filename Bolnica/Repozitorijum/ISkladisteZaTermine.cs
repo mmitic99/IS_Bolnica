@@ -9,7 +9,7 @@ namespace Repozitorijum
     public interface ISkladisteZaTermine : ISkladiste<Termin>
     {
         List<TerminPacijentLekarDTO> GetBuduciTerminPacLekar();
-        List<Termin> GetByJmbg(String jmbg);
+        List<Termin> GetByJmbgPacijenta(String jmbg);
         List<Termin> GetByDateForLekar(DateTime datum, String jmbg);
         List<Termin> GetByJmbgLekar(String jmbg);
         Termin GetById(String id);

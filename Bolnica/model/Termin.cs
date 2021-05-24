@@ -105,29 +105,9 @@ namespace Bolnica.model
             this.IDTermina = this.generateRandId();
         }
 
-        public int GetProstorija()
-        {
-            return IdProstorije;
-        }
 
         public void SetProstorija(Prostorija newProstorija)
         {
-            // TODO: izmeni zakomentarisano ako je potrebno
-
-            /*if (this.prostorija != newProstorija)
-            {
-                if (this.prostorija != null)
-                {
-                    Prostorija oldProstorija = this.prostorija;
-                    this.prostorija = null;
-                    oldProstorija.RemoveTermin(this);
-                }
-                if (newProstorija != null)
-                {
-                    this.prostorija = newProstorija;
-                    this.prostorija.AddTermin(this);
-                }
-            }*/
             IdProstorije = newProstorija.IdProstorije;
         }
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Bolnica.viewActions
 {
     //Klasa koja sluzi kako bi se UI azurirao
-    class ObseravableObject : INotifyPropertyChanged
+    public class ObseravableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

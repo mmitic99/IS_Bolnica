@@ -167,37 +167,36 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             return anamneze;
         }
 
-
-        public List<Termin> GetByJmbg(String jmbg)
+        public List<Termin> GetByJmbgPacijenta(String jmbg)
         {
             List<Termin> odgovarajuciTermini = new List<Termin>();
             List<Termin> sviTermini = this.GetAll();
             List<Termin> sviTerminiSaProstorijama = new List<Termin>();
             foreach (Termin t in sviTermini)
             {
-                //  t.IdProstorije = SkladisteZaLekaraXml.GetInstance().GetByJmbg(t.JmbgLekara).IdOrdinacija;
-                //  sviTerminiSaProstorijama.Add(t);
+                
                 if (t.JmbgPacijenta.Equals(jmbg))
                 {
                     odgovarajuciTermini.Add(t);
                 }
             }
-            // this.SaveAll(sviTerminiSaProstorijama);
             return odgovarajuciTermini;
         }
-        public List<Termin> GetByDateForLekar(DateTime datum, String jmbg)
+
+        public List<Termin> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
             List<Termin> odgovTermini = new List<Termin>();
             List<Termin> sviTermini = this.GetAll();
             foreach (Termin t in sviTermini)
             {
-                if (t.JmbgLekara.Equals(jmbg) & t.DatumIVremeTermina.Date.Equals(datum.Date))
+                if (t.JmbgLekara.Equals(jmbgLekara) & t.DatumIVremeTermina.Date.Equals(datum.Date))
                 {
                     odgovTermini.Add(t);
                 }
             }
             return odgovTermini;
         }
+
         public List<Termin> GetByJmbgLekar(String jmbg)
         {
             List<Termin> odgovTermini = new List<Termin>();
@@ -267,6 +266,5 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
         }
 
     }
-
 
 }

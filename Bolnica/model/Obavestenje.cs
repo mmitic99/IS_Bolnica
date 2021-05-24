@@ -29,6 +29,7 @@ namespace Model
                    Sadrzaj == obavestenje.Sadrzaj &&
                    JmbgKorisnika == obavestenje.JmbgKorisnika &&
                    Podsetnik == obavestenje.Podsetnik;
+                   kvartalnaAnketa.Equals(obavestenje.kvartalnaAnketa);
         }
     }
 }

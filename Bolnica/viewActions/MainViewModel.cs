@@ -1,4 +1,5 @@
 ﻿using Bolnica.view;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    class MainViewModel : ObseravableObject
+    public class MainViewModel : ObseravableObject
     {
         public static MainViewModel instance = null;
+        public Pacijent Pacijent { get; set; }
 
         public static MainViewModel getInstance()
         {
@@ -25,7 +27,7 @@ namespace Bolnica.viewActions
         public RelayCommand PrikazObavestenjaCommand { get; set; }
         public RelayCommand AnketaOLekaruCommand { get; set; }
 
-        public PacijentTerminiModel PacijentTerminiVM { get; set; }
+        public PacijentTerminiViewModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
         public PacijentZakaziTermin PacijentZakaziVM { get; set; }
         public MoguciTerminiViewModel MoguciTerminiVM { get; set; }
@@ -36,6 +38,7 @@ namespace Bolnica.viewActions
         public AnketaOLekaruViewModel AnketaOLekaruVM { get; set; }
 
         private object _currentView;
+
         public object CurrentView
         {
             get { return _currentView; }
@@ -43,21 +46,23 @@ namespace Bolnica.viewActions
                 OnPropertyChanged();
             }
         }
-        public MainViewModel()
+
+        public MainViewModel(object ulogovaniPacijent)
         {
+            this.Pacijent = (Pacijent)ulogovaniPacijent;
             instance = this;
-            PacijentTerminiVM = new PacijentTerminiModel();
-            ObavestenjaVM = new ObavestenjaViewModel();
-            PacijentZakaziVM = new PacijentZakaziTermin();
+            PacijentTerminiVM = new PacijentTerminiViewModel(Pacijent);
+            ObavestenjaVM = new ObavestenjaViewModel(Pacijent);
+            PacijentZakaziVM = new PacijentZakaziTermin(Pacijent);
             MoguciTerminiVM = new MoguciTerminiViewModel();
-            PomeranjeTerminaVM = new PomeranjeTerminaViewModel();
+            PomeranjeTerminaVM = new PomeranjeTerminaViewModel(Pacijent);
             PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
             PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel();
             AnketaOLekaruVM = new AnketaOLekaruViewModel();
 
             CurrentView = PacijentTerminiVM;
 
-            PacijentTerminCommand = new RelayCommand(o => 
+            PacijentTerminCommand = new RelayCommand(o =>
             {
                 CurrentView = PacijentTerminiVM;
             });
@@ -108,5 +113,11 @@ namespace Bolnica.viewActions
             }
             );
         }
+        public MainViewModel()
+        {
+          
+        }
+
+
     }
 }

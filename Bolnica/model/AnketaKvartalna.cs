@@ -59,7 +59,5 @@ namespace Bolnica.model
             anketuPopunili = new List<String>();
         }
 
-
-
     }
 }

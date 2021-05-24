@@ -19,66 +19,67 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for PrikazObavestenja.xaml
-    /// </summary>
     public partial class PrikazObavestenja : UserControl
     {
+        private PrikazJednogObavestenjaPacijentaViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private AnketeKontroler AnketeKontroler;
+        
         public PrikazObavestenja()
         {
             InitializeComponent();
-            NaslovObavestenja.Text = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.Naslov;
-            TekstObavestenja.Text = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.Sadrzaj;
-          /*  KvartalnaAnketaDugme.Visibility = Visibility.Visible;
-            MainViewModel.getInstance().PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa);
+            MainViewModel = MainViewModel.getInstance();
+            ViewModel = MainViewModel.PrikazObavestenjaVM;
+            this.AnketeKontroler = new AnketeKontroler();
+            SetStarPage();
 
-            KvartalnaAnketaDugme.Command = MainViewModel.getInstance().KvartalnaAnketaCommand;*/
+        }
 
+        private void SetStarPage()
+        {
+            NaslovObavestenja.Text = ViewModel.obavestenje.Naslov;
+            TekstObavestenja.Text = ViewModel.obavestenje.Sadrzaj;
+            Nazad.Command = MainViewModel.ObavestenjaCommand;
 
-            Nazad.Command = MainViewModel.getInstance().ObavestenjaCommand;            
-            if (MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa != new DateTime(0))
+            if (ViewModel.ZakacenaKvartalnaAnketa!=null)
             {
                 KvartalnaAnketaDugme.Visibility = Visibility.Visible;
-                KvartalnaAnketa anketa = AnketeKontroler.GetInstance().GetByDate(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.kvartalnaAnketa);
-                MainViewModel.getInstance().PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(anketa);
+                MainViewModel.PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel(ViewModel.ZakacenaKvartalnaAnketa);
 
             }
-            else if(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru!=null)
+            else if (ViewModel.ZakacenaAnketaOLekaru != null)
             {
                 AnketaLekarDugme.Visibility = Visibility.Visible;
-                AnketeKontroler.GetInstance().GrtAnketaOLekaruByJmbg(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru.JmbgLekara);
-                PrikacenaAnketaPoslePregledaDTO anketa = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru;
-                MainViewModel.getInstance().AnketaOLekaruVM = new AnketaOLekaruViewModel(anketa);
+                MainViewModel.AnketaOLekaruVM = new AnketaOLekaruViewModel(ViewModel.ZakacenaAnketaOLekaru);
             }
         }
 
         private void KvartalnaAnketaDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (!AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(PacijentMainWindow.getInstance().pacijent, MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa)
-                && !AnketeKontroler.GetInstance().DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
-            {
-                KvartalnaAnketaDugme.Command = MainViewModel.getInstance().KvartalnaAnketaCommand;
-            }
-            else if(AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(PacijentMainWindow.getInstance().pacijent, MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            if(AnketeKontroler.DaLiJeKorisnikPopunioAnketu(MainViewModel.Pacijent, ViewModel.ZakacenaKvartalnaAnketa))
             {
                 var s = new Upozorenje("Već ste popunili anketu!");
                 s.Owner = PacijentMainWindow.getInstance();
                 s.ShowDialog();
             }
-            else if (AnketeKontroler.GetInstance().DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            else if (AnketeKontroler.DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
             {
                 var s = new Upozorenje("Vreme za popunjavanje ove ankete je isteklo!");
                 s.Owner = PacijentMainWindow.getInstance();
                 s.ShowDialog();
+            }
+            else
+            {
+                KvartalnaAnketaDugme.Command = MainViewModel.KvartalnaAnketaCommand;
             }
             
         }
 
         private void AnketaLekarDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (!AnketeKontroler.GetInstance().DaLiJeKorisnikPopunioAnketu(MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru))
+            if (!AnketeKontroler.DaLiJeKorisnikPopunioAnketu(ViewModel.obavestenje.anketaOLekaru))
             {
-                AnketaLekarDugme.Command = MainViewModel.getInstance().AnketaOLekaruCommand;
+                AnketaLekarDugme.Command = MainViewModel.AnketaOLekaruCommand;
             }
             else
             {

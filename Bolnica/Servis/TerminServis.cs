@@ -17,6 +17,8 @@ namespace Servis
         public ISkladisteZaProstorije skladisteZaProstorije;
         public ISkladisteZaLekara skladisteZaLekara;
         public static TerminServis instance = null;
+        private PacijentServis PacijentServis;
+        private ProstorijeServis ProstorijeServis;
         public const int MAX_BR_TERMINA_PRIKAZ = 10;
         public const int MAX_BR_TERMINA_PRIKAZ_SEKRETAR = 50;
 
@@ -39,11 +41,13 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermineXml();
             skladisteZaProstorije = new SkladisteZaProstorijeXml();
             skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
+            PacijentServis = new PacijentServis();
+            ProstorijeServis = new ProstorijeServis();
         }
 
         public bool ZakaziTermin(Termin termin)
         {
-            termin.IdProstorije = ProstorijeServis.GetInstance().GetPrvaPogodna(termin);
+            termin.IdProstorije = ProstorijeServis.GetPrvaPogodna(termin);
             skladisteZaTermine.Save(termin);
             return true;
         }
@@ -99,7 +103,7 @@ namespace Servis
 
         public List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
         {
-            List<Termin> sviTerminiKorisnika = skladisteZaTermine.GetByJmbg(jmbgKorisnkika); //vraca samo za pazijenta
+            List<Termin> sviTerminiKorisnika = skladisteZaTermine.GetByJmbgPacijenta(jmbgKorisnkika); //vraca samo za pazijenta
             List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
             foreach (Termin t in sviTerminiKorisnika)
             {
@@ -113,7 +117,7 @@ namespace Servis
 
         public List<Termin> GetByJmbgPacijenta(string jmbg)
         {
-            return skladisteZaTermine.GetByJmbg(jmbg);
+            return skladisteZaTermine.GetByJmbgPacijenta(jmbg);
         }
 
         public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
@@ -349,7 +353,7 @@ namespace Servis
                 if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
                     && (parametri.JmbgLekara == null || lekar.Jmbg == parametri.JmbgLekara)
                     && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(parametri.JmbgLekara, parametri.TacnoVreme, parametri.trajanjeUMinutama))
-                    && ProstorijeServis.GetInstance().PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama)))
+                    && ProstorijeServis.PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama)))
                 {
                     Termin t = new Termin()
                     {
@@ -374,7 +378,7 @@ namespace Servis
                 List<Termin> personalizovaniPredlozeniTermini = new List<Termin>();
                 foreach (Termin termin in parametri.PossibleAppointmentsTimings)
                 {
-                    if (PacijentServis.GetInstance().DaLiJePacijentSlobodan(new ParamsToCheckAvailabilityOfPatientDTO(parametri.Id, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina)))
+                    if (PacijentServis.DaLiJePacijentSlobodan(new ParamsToCheckAvailabilityOfPatientDTO(parametri.Id, termin.DatumIVremeTermina, (int)termin.TrajanjeTermina)))
                     {
                         termin.JmbgPacijenta = parametri.Id;
                         termin.opisTegobe = parametri.SymptomsOfIllness;

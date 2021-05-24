@@ -20,26 +20,28 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view
 {
-    /// <summary>
-    /// Interaction logic for Obavestenja.xaml
-    /// </summary>
     public partial class Obavestenja : UserControl
     {
-        public Pacijent pacijent;
-        public static Obavestenja instance = null;
-        public static Obavestenja getInstance()
-        {
-            return instance;
-        }
+        private ObavestenjaViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private ObavestenjaKontroler ObavestenjaKontroler;
+        public static Obavestenja instance{get; set;}
+
         public Obavestenja()
         {
-            this.pacijent = PacijentMainWindow.getInstance().pacijent;
             InitializeComponent();
+            this.MainViewModel = MainViewModel.getInstance();
+            this.ViewModel = MainViewModel.ObavestenjaVM;
+            this.ObavestenjaKontroler = new ObavestenjaKontroler();
             instance = this;
-            obavestenjaPacijenta.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(PacijentMainWindow.getInstance().pacijent.Jmbg);
-            PodsetnikTerapija.ItemsSource = ObavestenjaKontroler.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+            SetStartPage();
         }
 
+        private void SetStartPage()
+        {
+            obavestenjaPacijenta.ItemsSource = ViewModel.obavestenja;
+            PodsetnikTerapija.ItemsSource = ViewModel.podsetnici;
+        }
 
         public void Execute(Action action, DateTime ExecutionTime)
         {
@@ -52,9 +54,15 @@ namespace Bolnica.view
         {
             if (obavestenjaPacijenta.SelectedIndex != -1)
             {
-                MainViewModel.getInstance().PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel(obavestenjaPacijenta.SelectedItem);
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PrikazObavestenjaVM;
+                MainViewModel.PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel(obavestenjaPacijenta.SelectedItem);
+                MainViewModel.CurrentView = MainViewModel.PrikazObavestenjaVM;
             }
+        }
+
+        internal void RefresujPrikaz()
+        {
+            obavestenjaPacijenta.ItemsSource = ViewModel.obavestenja;
+            PodsetnikTerapija.ItemsSource = ViewModel.podsetnici;
         }
     }
 }

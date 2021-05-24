@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  KorisnickeAktivnostiPacijentaServis.cs
- * Author:  PC
- * Purpose: Definition of the Class Servis.KorisnickeAktivnostiPacijentaServis
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using Bolnica.Repozitorijum.XmlSkladiste;

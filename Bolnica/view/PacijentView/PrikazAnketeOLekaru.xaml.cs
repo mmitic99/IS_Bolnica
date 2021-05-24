@@ -18,16 +18,19 @@ using Bolnica.Kontroler;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for PrikazAnketeOLekaru.xaml
-    /// </summary>
     public partial class PrikazAnketeOLekaru : UserControl
     {
+        private MainViewModel MainViewModel;
+        private AnketaOLekaruViewModel ViewModel;
+        private AnketeKontroler AnketeKontroler;
         public PrikazAnketeOLekaru()
         {
             InitializeComponent();
-            ImeLekara.Text = MainViewModel.getInstance().AnketaOLekaruVM.PunoImeLekara;
-            Nazad.Command = MainViewModel.getInstance().PrikazObavestenjaCommand;
+            this.MainViewModel = MainViewModel.getInstance();
+            this.ViewModel = MainViewModel.AnketaOLekaruVM;
+            this.AnketeKontroler = new AnketeKontroler();
+            ImeLekara.Text = ViewModel.PunoImeLekara;
+            Nazad.Command = MainViewModel.PrikazObavestenjaCommand;
 
         }
 
@@ -35,14 +38,14 @@ namespace Bolnica.view.PacijentView
         {
             PopunjenaAnketaPoslePregledaObjectDTO popunjena = new PopunjenaAnketaPoslePregledaObjectDTO()
             {
-                JmbgLekara = MainViewModel.getInstance().AnketaOLekaruVM.anketa.JmbgLekara,
+                JmbgLekara = MainViewModel.getInstance().AnketaOLekaruVM.Anketa.JmbgLekara,
                 Komentar = Komentar.Text,
                 Ocena = vratiOcenu(OcenaLekara),
                 IDAnkete = MainViewModel.getInstance().AnketaOLekaruVM.IdAnkete
             };
-            if(AnketeKontroler.GetInstance().SacuvajAnketuOLekaru(popunjena))
+            if(AnketeKontroler.SacuvajAnketuOLekaru(popunjena))
             {
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PrikazObavestenjaVM;
+                MainViewModel.CurrentView = MainViewModel.PrikazObavestenjaVM;
             }
             else
             {
@@ -52,9 +55,9 @@ namespace Bolnica.view.PacijentView
             }
         }
 
-        private object vratiOcenu(StackPanel strucnostOsoblja)
+        private object vratiOcenu(StackPanel OcenaLekara)
         {
-            foreach (RadioButton RB in strucnostOsoblja.Children)
+            foreach (RadioButton RB in OcenaLekara.Children)
             {
                 if ((bool)RB.IsChecked)
                 {

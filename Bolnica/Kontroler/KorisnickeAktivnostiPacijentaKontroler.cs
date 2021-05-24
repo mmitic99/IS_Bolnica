@@ -1,8 +1,3 @@
-/***********************************************************************
- * Module:  KorisnickeAktivnostiPacijentaKontroler.cs
- * Author:  PC
- * Purpose: Definition of the Class Kontroler.KorisnickeAktivnostiPacijentaKontroler
- ***********************************************************************/
 
 using Servis;
 using System;
@@ -48,7 +43,6 @@ namespace Kontroler
       
       public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
       {
-         // TODO: implement
          return KorisnickeAktivnostiPacijentaServis.GetInstance().DobaviBrojZakazanihPregledaUBuducnosti(jmbgKorisnkika);
       }
       

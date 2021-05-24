@@ -21,10 +21,13 @@ namespace Kontroler
                 return instance;
             }
         }
+        private ObavestenjaServis ObavestenjaServis;
+
         public ObavestenjaKontroler()
         {
             instance = this;
             obavestenjaServis = new ObavestenjaServis();
+            ObavestenjaServis = new ObavestenjaServis();
         }
 
 
@@ -55,9 +58,9 @@ namespace Kontroler
             obavestenjaServis.SaveAll(obavestenje);
         }
 
-        public List<ObavestenjeDTO> GetByJmbg(string jmbg)
+        public List<ObavestenjeDTO> GetOavestenjaByJmbg(string jmbg)
         {
-            List<Obavestenje> obavestenja = obavestenjaServis.GetByJmbg(jmbg);
+            List<Obavestenje> obavestenja = obavestenjaServis.GetObavestenjaByJmbg(jmbg);
             List<ObavestenjeDTO> obavestenjaDto = new List<ObavestenjeDTO>();
             foreach (Obavestenje obavestenje in obavestenja)
             {
@@ -81,14 +84,20 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().GetPodsetnici(jmbg);
         }
 
-        public bool NapraviPodsetnik(string jmbgPacijenta, Recept r, int hours)
+        public bool NapraviPodsetnikZaUzimanjeLeka(string jmbgPacijenta, Recept r, int hours)
         {
-            return ObavestenjaServis.getInstance().NapraviPodsetnik(jmbgPacijenta, r, hours);
+            return ObavestenjaServis.getInstance().NapraviPodsetnikZaUzimanjeLeka(jmbgPacijenta, r, hours);
         }
 
-        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
+        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(Pacijent pacijent)
         {
-            return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(jmbgPacijenta);
+            return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+        }
+
+        public int nabaviNovePodsetnike(Pacijent pacijent
+            )
+        {
+            return ObavestenjaServis.NabaviNovePodsetnike(pacijent.Jmbg);
         }
 
         public bool IzmeniObavestenje(ObavestenjeDTO staroObavestenje, ObavestenjeDTO novoObavestenje)
@@ -134,7 +143,7 @@ namespace Kontroler
             ObavestenjaServis.getInstance().PosaljiKvartalnuAnketu();
         }
 
-        internal void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
+        public void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
         {
             ObavestenjaServis.getInstance().PosaljiAnketuOLekaru(JmbgPacijenta, JmbgLekara);
         }

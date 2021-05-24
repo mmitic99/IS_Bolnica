@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  SkladisteZaKorisnickeAktivnostiXml.cs
- * Author:  PC
- * Purpose: Definition of the Class Repozitorijum.SkladisteZaKorisnickeAktivnostiXml
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.IO;

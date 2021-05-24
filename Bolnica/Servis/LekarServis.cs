@@ -15,6 +15,7 @@ namespace Servis
 {
     public class LekarServis : KorisnikServis
     {
+        public PacijentServis PacijentServis;
         public static LekarServis instance = null;
 
         public static LekarServis getInstance()
@@ -34,6 +35,7 @@ namespace Servis
             skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
             skladisteZaTermine = new SkladisteZaTermineXml();
             radnoVremeServis = new RadnoVremeServis();
+            PacijentServis = new PacijentServis();
             instance = this;
         }
 
@@ -213,7 +215,7 @@ namespace Servis
             List<Izvestaj> izvestaji = new List<Izvestaj>();
             izvestaji.Add(izvestaj);
             parametri.p1.ZdravstveniKarton.Izvestaj.Add(izvestaj);
-            PacijentServis.GetInstance().IzmeniPacijenta(parametri.p, parametri.p1);
+            PacijentServis.IzmeniPacijenta(parametri.p, parametri.p1);
         }
         public List<int> dobijTerminePijenja(String terminiPijenja)
         {

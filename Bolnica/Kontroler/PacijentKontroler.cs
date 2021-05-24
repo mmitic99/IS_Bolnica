@@ -8,7 +8,7 @@ namespace Kontroler
 {
     public class PacijentKontroler : KorisnikKontroler
     {
-        public PacijentServis pacijentServis;
+        public PacijentServis PacijentServis;
         public static PacijentKontroler instance = null;
 
         public static PacijentKontroler GetInstance()
@@ -23,7 +23,7 @@ namespace Kontroler
         public PacijentKontroler()
         {
             instance = this;
-            pacijentServis = new PacijentServis();
+            PacijentServis = new PacijentServis();
             instance = this;
         }
 
@@ -60,7 +60,7 @@ namespace Kontroler
                 alergeni = pacijent.ZdravstveniKarton.Alergeni;
             }
 
-            return pacijentServis.RegistrujPacijenta(new Pacijent()
+            return PacijentServis.RegistrujPacijenta(new Pacijent()
             {
                 Ime = pacijent.Ime,
                 Prezime = pacijent.Prezime,
@@ -113,9 +113,9 @@ namespace Kontroler
             return false;
         }
 
-        public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
+        public Object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            return pacijentServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            return PacijentServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -130,7 +130,7 @@ namespace Kontroler
 
         public List<PacijentDTO> GetAll()
         {
-            List<Pacijent> pacijenti = pacijentServis.GetAll();
+            List<Pacijent> pacijenti = PacijentServis.GetAll();
             List<PacijentDTO> pacijentiDto = new List<PacijentDTO>();
             foreach (Pacijent pacijent in pacijenti)
             {
@@ -267,7 +267,7 @@ namespace Kontroler
             {
                 alergeniNovi = noviPacijent.ZdravstveniKarton.Alergeni;
             }
-            return pacijentServis.IzmeniPacijenta(new Pacijent()
+            return PacijentServis.IzmeniPacijenta(new Pacijent()
             {
                 Ime = stariPacijent.Ime,
                 Prezime = stariPacijent.Prezime,
@@ -323,17 +323,17 @@ namespace Kontroler
 
         public List<Recept> DobaviRecepePacijenta(string jmbg)
         {
-            return pacijentServis.DobaviReceptePacijenta(jmbg);
+            return PacijentServis.DobaviReceptePacijenta(jmbg);
         }
 
         public Pacijent GetByJmbg(string jmbg)
         {
-            return pacijentServis.GetByJmbg(jmbg);
+            return PacijentServis.GetByJmbg(jmbg);
         }
 
         public bool ObrisiPacijenta(string jmbg)
         {
-            return pacijentServis.ObrisiPacijenta(jmbg);
+            return PacijentServis.ObrisiPacijenta(jmbg);
         }
     }
 }

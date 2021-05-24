@@ -7,8 +7,6 @@ namespace Model
 {
    public class Izvestaj
    {
-
-
         public List<Recept> recepti { get; set; }
         public DateTime datum { get; set;}
         public String dijagnoza { get; set; }

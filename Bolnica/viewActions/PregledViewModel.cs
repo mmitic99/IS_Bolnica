@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    class PregledViewModel
+    public class PregledViewModel
     {
         public DateTime datum { get; set;}
         public String terapija { get; set; }

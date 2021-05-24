@@ -20,7 +20,7 @@
                    HorizontalAlignment="Left"
                    Margin="20,0,0,0"
                        VerticalAlignment="Center"/>
-            <DataGrid x:Name="prikazTermina1"
+            <DataGrid x:Name="prikazTermina"
                        CanUserAddRows="false"
                       AutoGenerateColumns="False"
                       VerticalScrollBarVisibility="Hidden"
@@ -55,8 +55,8 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <Button Content="Zakaži termin" Grid.Column="3" Width="120" Height="50" Grid.Row="2" Click="Button_Click"/>
-            <Button x:Name="otkaziButton" Content="Otkaži termin" Grid.Row="2" Width="120" Height="50" HorizontalAlignment="Right"  Click="Button_Click_2">
+            <Button x:Name="zakaziButton" Grid.Column="3" Width="120" Height="50" Grid.Row="2" Click="ZakazivanjeTerminaBC"/>
+            <Button x:Name="otkaziButton" Content="Otkaži termin" Grid.Row="2" Width="120" Height="50" HorizontalAlignment="Right"  Click="OtkazivanjeTerminaBC">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True" />
@@ -70,7 +70,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="izmeniButton"  Content="Izmeni termin" Grid.Row="2" HorizontalAlignment="Left" Width="120" Height="50" Click="Button_Click_1">
+            <Button x:Name="izmeniButton"  Content="Izmeni termin" Grid.Row="2" HorizontalAlignment="Left" Width="120" Height="50" Click="IzmenaTerminaBC">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True" />

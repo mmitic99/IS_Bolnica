@@ -18,22 +18,26 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for PrikazKvartalneAnkete.xaml
-    /// </summary>
     public partial class PrikazKvartalneAnkete : UserControl
     {
+        private PrikazKvartalneAnketeViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private AnketeKontroler AnketeKontroler;
+
         public PrikazKvartalneAnkete()
         {
             InitializeComponent();
-            Nazad.Command = MainViewModel.getInstance().PrikazObavestenjaCommand;
+            this.MainViewModel = MainViewModel.getInstance();
+            this.ViewModel = MainViewModel.PrikazKvartalneAnketeVM;
+            this.AnketeKontroler = new AnketeKontroler();
+            Nazad.Command = MainViewModel.PrikazObavestenjaCommand;
         }
 
         private void SacuvajAnketu_Click(object sender, RoutedEventArgs e)
         {
             KvartalnaAnketaDTO kvartalnaAnketa = new KvartalnaAnketaDTO()
             {
-                JmbgKorisnika = PacijentMainWindow.getInstance().pacijent,
+                JmbgKorisnika = MainViewModel.Pacijent,
                 KomentarKorisnika = komentar.Text,
                 StrucnostMedicinskogOsobolja = vratiOcenu(strucnostOsoblja),
                 LjubaznostMedicinskogOsobolja = vratiOcenu(ljubaznostMedicinskog),
@@ -48,7 +52,7 @@ namespace Bolnica.view.PacijentView
                 IzgledNaseBolnice = vratiOcenu(izgledBolnice),
                 OpremljenostBolnice = vratiOcenu(opremljenostBolnice),
                 CelokupniUtisak = vratiOcenu(opstiUtisak),
-                datumAnkete = MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa.datum
+                datumAnkete = ViewModel.anketa.datum
                 
             };
 

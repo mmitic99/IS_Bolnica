@@ -22,14 +22,16 @@ using Bolnica.model;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for MoguciTermini.xaml
-    /// </summary>
+
     public partial class MoguciTermini : UserControl
     {
-        public List<Termin> moguciTermini;
 
         public static MoguciTermini instance = null;
+        private MoguciTerminiViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private TerminKontroler TerminKontroler;
+        private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
+        public const int MAX_BROJ_ZAKAZANIH = 5;
 
         public static MoguciTermini GetInstance()
         {
@@ -39,47 +41,49 @@ namespace Bolnica.view.PacijentView
         {
             InitializeComponent();
             instance = this;
+            ViewModel = MainViewModel.getInstance().MoguciTerminiVM;
+            MainViewModel = MainViewModel.getInstance();
             prikazMogucih.ItemsSource = new ObservableCollection<TerminDTO>(MainViewModel.getInstance().MoguciTerminiVM.terminiZaPrikazivanje);
+            this.TerminKontroler = new TerminKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
 
         }
 
         private void Zakaži_Click(object sender, RoutedEventArgs e)
         {
-            if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
+            if (ViewModel.pozivaoc != null)
             {
-                TerminKontroler.getInstance().IzmeniTermin((TerminDTO) prikazMogucih.SelectedItem, PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem);
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                TerminKontroler.IzmeniTermin((TerminDTO) prikazMogucih.SelectedItem, PacijentZakazaniTermini.getInstance().prikazTermina.SelectedItem);
+                MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
+                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(ViewModel.jmbg);
             }
             else
             {
-                if (KorisnickeAktivnostiPacijentaKontroler.GetInstance().DobaviBrojZakazanihPregledaUBuducnosti(PacijentMainWindow.getInstance().pacijent.Jmbg)>=4)
+                if (KorisnickeAktivnostiPacijentaKontroler.DobaviBrojZakazanihPregledaUBuducnosti(ViewModel.jmbg) >= MAX_BROJ_ZAKAZANIH-1)
                 {
-                    var s = new UpozorenjePredBan("z");
+                    var s = new UpozorenjePredBan("z", prikazMogucih.SelectedItem);
                     s.Owner = PacijentMainWindow.getInstance();
                     s.ShowDialog();
                 }
                 else
                 {
-                    TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
-                    MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
-                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                    TerminKontroler.ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
+                    MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
+                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(ViewModel.jmbg);
                 }
-
-            }
-                
+            }               
         }
 
         private void Nazad_Click(object sender, RoutedEventArgs e)
         {
-            if (MainViewModel.getInstance().MoguciTerminiVM.pozivaoc != null)
+            if (ViewModel.pozivaoc != null)
             {
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+                MainViewModel.CurrentView = MainViewModel.PomeranjeTerminaVM;
 
             }
             else
             {
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentZakaziVM;
+                MainViewModel.CurrentView = MainViewModel.PacijentZakaziVM;
             }
         }
     }

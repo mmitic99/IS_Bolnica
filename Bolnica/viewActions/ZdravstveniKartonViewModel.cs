@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    class ZdravstveniKartonViewModel
+    public class ZdravstveniKartonViewModel
     {
         public Pacijent pacijent { get; set; }
         public List<PregledViewModel> odradjeniPregledi { get; set; }

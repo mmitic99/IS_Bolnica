@@ -9,6 +9,9 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
 {
     public class SkladisteZaObavestenjaXml : ISkladisteZaObavestenja
     {
+        private String Lokacija;
+        private static SkladisteZaObavestenjaXml instance = null;
+
         public SkladisteZaObavestenjaXml()
         {
             Lokacija = "..\\..\\SkladistePodataka\\obavestenja.xml";
@@ -108,8 +111,6 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             this.SaveAll(svaObavestenjaFiltrirano);
             return odgovarajucaObavestanje;
         }
-        private String Lokacija;
-        private static SkladisteZaObavestenjaXml instance = null;
 
     }
 }

@@ -193,6 +193,7 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
+    <Compile Include="viewActions\ZakazivanjeTerminaViewModel.cs" />
     <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
       <DependentUpon>AnamnezaPage.xaml</DependentUpon>

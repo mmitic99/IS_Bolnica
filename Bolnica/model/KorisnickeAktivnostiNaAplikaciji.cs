@@ -25,6 +25,7 @@ namespace Model
         {
 
         }
+
         public bool BlokirajKorisnika()
         {
             TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Spam;
@@ -41,8 +42,8 @@ namespace Model
 
         public bool OznaciDaJeZakazaoPrevisePregledaUnapred()
         {
-            // TODO: implement
-            return false;
+            TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.HalfSpam;
+            return true;
         }
     }
    

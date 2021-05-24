@@ -10,6 +10,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
     {
         private String Lokacija;
         public static SkladisteZaKvartalneAnketeXml instance;
+
         public static SkladisteZaKvartalneAnketeXml GetInstance()
         {
             if(instance==null)

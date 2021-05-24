@@ -21,44 +21,51 @@ using Model.Enum;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for UpozorenjePredBan.xaml
-    /// </summary>
     public partial class UpozorenjePredBan : Window
     {
         private String upozorenjeZa { get; set; }
-        public UpozorenjePredBan(String upozorenjeZa)
+        private Object selectedItem;
+        private TerminKontroler TerminKontroler;
+        private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
+        private MainViewModel MainViewModel;
+
+        
+       
+        public UpozorenjePredBan(String upozorenjeZa, Object selectedItem)
         {
             InitializeComponent();
+            this.MainViewModel = MainViewModel.getInstance();
             this.upozorenjeZa = upozorenjeZa;
+            this.selectedItem = selectedItem;
+            this.TerminKontroler = new TerminKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
         }
 
-        //nastavi
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             if(upozorenjeZa.Equals("z"))
             {
-                TerminKontroler.getInstance().ZakaziTermin((TerminDTO)MoguciTermini.GetInstance().prikazMogucih.SelectedItem);
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                TerminKontroler.ZakaziTermin(selectedItem);
+                MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
+                KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje(MainViewModel.Pacijent.Jmbg);
             }
            else if(upozorenjeZa.Equals("o"))
             {
-                TerminKontroler.getInstance().RemoveByID(((Termin)PacijentZakazaniTermini.getInstance().prikazTermina1.SelectedItem).IDTermina);
-                PacijentZakazaniTermini.getInstance().prikazTermina1.ItemsSource = new ObservableCollection<Termin>(TerminKontroler.getInstance().GetByJmbg(PacijentMainWindow.getInstance().pacijent.Jmbg));
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(PacijentMainWindow.getInstance().pacijent.Jmbg);
+                TerminKontroler.RemoveSelected(selectedItem);
+                PacijentZakazaniTermini.getInstance().RefresujPrikazTermina();
+                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(MainViewModel.Pacijent.Jmbg);
             }
             else if(upozorenjeZa.Equals("p"))
             {
-                MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PomeranjeTerminaVM;
+                MainViewModel.CurrentView = MainViewModel.PomeranjeTerminaVM;
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PacijentTerminiVM;
+            MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
         }
     }
 }

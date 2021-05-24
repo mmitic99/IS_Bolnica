@@ -40,7 +40,7 @@ namespace Bolnica.view.SekretarView
             PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
             TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg(sekretar.Jmbg);
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg(sekretar.Jmbg);
 
             StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
@@ -200,7 +200,7 @@ namespace Bolnica.view.SekretarView
                         MessageBoxImage.Error);
                 }
                 
-                ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+                ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
             }
         }
         private void PogledajObavestenje_Click(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace Bolnica.view.SekretarView
         }
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
-            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetByJmbg("-1");
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
         }
 
         private void Pacijenti_Selected(object sender, RoutedEventArgs e)
