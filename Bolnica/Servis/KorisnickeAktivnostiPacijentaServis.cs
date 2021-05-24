@@ -165,7 +165,7 @@ namespace Servis
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
       }
       
-      public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
+      public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost, string noviJmbg = null)
       {
             AzurirajRang(korisnickaAktivnost);
             List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  skladisteZaKorisnickeAktivnosti.GetAll();
@@ -173,6 +173,8 @@ namespace Servis
             {
                 if(aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
                 {
+                    if (noviJmbg != null)
+                        korisnickaAktivnost.JmbgKorisnika = noviJmbg;
                     aktivnostiSvihKorisnika[i] = korisnickaAktivnost;
                     break;
                 }

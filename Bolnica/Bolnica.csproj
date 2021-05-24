@@ -200,6 +200,7 @@
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
+    <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />

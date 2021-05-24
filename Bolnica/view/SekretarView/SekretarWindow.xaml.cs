@@ -354,11 +354,11 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(terminKontroler.GetMesecneOperacije(sviDaniUMesecu))
                 }
             };
-            XOsaBrojTermina = pretvoriListuUNiz(sviDaniUMesecu);
+            XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
             DataContext = this;
         }
 
-        private string[] pretvoriListuUNiz(List<string> sviDaniUMesecu)
+        private string[] PretvoriListuUNiz(List<string> sviDaniUMesecu)
         {
             string[] retVal = new string[sviDaniUMesecu.Count];
             for (int i = 0; i < sviDaniUMesecu.Count; i++)
@@ -409,11 +409,11 @@ namespace Bolnica.view.SekretarView
             {
                 new LineSeries
                 {
-                    Title = "Novih pacijenata",
+                    Title = "Broj novih pacijenata",
                     Values = new ChartValues<int>(pacijentKontroler.GetBrojNovihPacijenataUMesecu(sviDaniUMesecu))
                 }
             };
-            XOsaBrojNovihPacijenata = pretvoriListuUNiz(sviDaniUMesecu);
+            XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
             DataContext = this;
         }
 

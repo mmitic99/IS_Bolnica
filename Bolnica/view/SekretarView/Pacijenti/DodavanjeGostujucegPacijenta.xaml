@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:validacije="clr-namespace:Bolnica.Validacije"
         mc:Ignorable="d"
         Title="Dodavanje gostujućeg pacijenta" Height="350" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
@@ -24,7 +25,28 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1"/>
+                    <TextBox x:Name="jmbg" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validacije:StringToIntValidationRule  ValidationStep="RawProposedValue"/>
+                                    <validacije:JmbgValidationRule ValidationStep="ConvertedProposedValue" Min="1000000000000" Max="9999999999999"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="jmbgValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="20">
                     <Grid.ColumnDefinitions>
@@ -32,7 +54,27 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Ime*:</Label>
-                    <TextBox x:Name="ime" Grid.Column="1"/>
+                    <TextBox x:Name="ime" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <validacije:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="ImeValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="20">
                     <Grid.ColumnDefinitions>
@@ -40,7 +82,27 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Prezime*:</Label>
-                    <TextBox x:Name="prezime" Grid.Column="1"/>
+                    <TextBox x:Name="prezime" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <validacije:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="PrezimeValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
 
             </StackPanel>
@@ -51,7 +113,23 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click">Sačuvaj</Button>
+            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" Content="Potvrdi">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Width="100" Height="35" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
         </Grid>
 

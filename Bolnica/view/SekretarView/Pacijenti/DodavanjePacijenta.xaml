@@ -26,7 +26,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1" Height="26" VerticalAlignment="Bottom" >
+                    <TextBox x:Name="jmbg" Grid.Column="1" Height="26" VerticalAlignment="Bottom">
                         <TextBox.Text>
                             <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -42,10 +42,6 @@
                                         <RowDefinition />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-
                                     <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="jmbgValBox"/>
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                                 </Grid>
@@ -60,7 +56,27 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Ime*:</Label>
-                    <TextBox x:Name="ime" Grid.Column="1"/>
+                    <TextBox x:Name="ime" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <val:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="ImeValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -68,7 +84,27 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0">Prezime*:</Label>
-                    <TextBox x:Name="prezime" Grid.Column="1"/>
+                    <TextBox x:Name="prezime" Grid.Column="1">
+                        <TextBox.Text>
+                            <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <val:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="PrezimeValBox"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -131,10 +167,6 @@
                                         <RowDefinition />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-
                                     <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="TelValBox"/>
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                                 </Grid>
@@ -163,10 +195,6 @@
                                         <RowDefinition />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-
                                     <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="EmailBox"/>
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                                 </Grid>
@@ -211,6 +239,8 @@
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
                                     <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tel}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="False"/>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="IsEnabled" Value="True"/>
                             </MultiDataTrigger>
