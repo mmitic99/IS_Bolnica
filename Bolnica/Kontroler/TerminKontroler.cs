@@ -81,10 +81,48 @@ namespace Kontroler
 
         }
 
+        public IEnumerable<int> GetMesecnePreglede(List<string> sviDaniUMesecu)
+        {
+            List<int> mesecniPreglediPoDanu = new List<int>(new int[sviDaniUMesecu.Count]);
+
+            foreach (Termin termin in TerminServis.GetAll())
+            {
+                for (int dan = 1; dan <= sviDaniUMesecu.Count; dan++)
+                {
+                    if (termin.VrstaTermina == VrstaPregleda.Pregled && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
+                        termin.DatumIVremeTermina.Month == DateTime.Now.Month && termin.DatumIVremeTermina.Day == dan)
+                    {
+                        mesecniPreglediPoDanu[dan - 1]++;
+                    }
+                }
+            }
+
+            return mesecniPreglediPoDanu;
+        }
+        public IEnumerable<int> GetMesecneOperacije(List<string> sviDaniUMesecu)
+        {
+            List<int> Termini = new List<int>(new int[sviDaniUMesecu.Count]);
+
+            foreach (Termin termin in TerminServis.GetAll())
+            {
+                for (int dan = 1; dan <= sviDaniUMesecu.Count; dan++)
+                {
+                    if (termin.VrstaTermina == VrstaPregleda.Operacija && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
+                        termin.DatumIVremeTermina.Month == DateTime.Now.Month && termin.DatumIVremeTermina.Day == dan)
+                    {
+                        Termini[dan-1]++;
+                    }
+                }
+            }
+
+            return Termini;
+        }
+
         public List<Termin> GetAll()
         {
             return TerminServis.GetAll();
         }
+
 
         public void Save(Termin termin)
         {

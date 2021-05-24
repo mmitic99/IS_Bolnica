@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
         Title="SekretarWindow" Height="600" Width="800"
@@ -145,6 +146,83 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="0.4*"/>
                         </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj pacijenata</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojPacijenata" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj lekara</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojLekara" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj soba za pregled</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojSobaZaPregled" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj operacionih sala</TextBlock>
+                                        <TextBlock x:Name="UkupanBrojOperacionihSala" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="5" Grid.ColumnSpan="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Broj zakazanih pregleda i operaciju u tekućem mesecu:</Label>
+                                <lvc:CartesianChart x:Name="BrojTermina" Grid.Row="1">
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis LabelFormatter="{Binding YOsaBrojTermina}"></lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Labels="{Binding XOsaBrojTermina}"/>
+                                    </lvc:CartesianChart.AxisX>
+                                </lvc:CartesianChart>
+                            </Grid>
+                            <Grid Grid.Row="2" Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Podela pacijenata po polovima:</Label>
+                                <lvc:PieChart Grid.Row="1" x:Name="PodelaPoPolovima" StartingRotationAngle="0"/>
+                            </Grid>
+                            <Grid Grid.Row="2" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap">Broj novih pacijenata u tekućem mesecu:</TextBlock>
+                                <lvc:CartesianChart x:Name="BrojNovihPacijenata" Grid.Row="1">
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis LabelFormatter="{Binding YOsaBrojNovihPacijenata}"></lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Labels="{Binding XOsaBrojNovihPacijenata}"/>
+                                    </lvc:CartesianChart.AxisX>
+                                </lvc:CartesianChart>
+                            </Grid>
+                        </Grid>
 
                         <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>
 
@@ -449,6 +527,78 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem  x:Name="Prostorije" Width="100" Selector.Selected="Prostorije_Selected">
+                    <TabItem.Header>
+                        <TextBlock Text="Prostorije" FontSize="20"></TextBlock>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Uvid u inventar i materijal" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                        </StackPanel>
+                        <DataGrid Grid.Row="1" Name="ProstorijePrikaz" CanUserAddRows="false" 
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
+                                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                                  CanUserResizeRows="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="100"/>
+                                <DataGridTextColumn x:Name="SpratP" Header="Sprat" Binding="{Binding Sprat}" Width="80"/>
+                                <DataGridTextColumn x:Name="BrojProstorijeP" Header="Broj prostorije" Binding="{Binding BrojSobe}" Width="*"/>
+                                <DataGridTextColumn x:Name="VrstaP" Header="Vrsta" Binding="{Binding VrstaProstorije}" Width="*"/>
+                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="150"/>
+                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="100" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem  x:Name="Lekovi" Width="100" Selector.Selected="Lekovi_Selected">
+                    <TabItem.Header>
+                        <TextBlock Text="Lekovi" FontSize="20"></TextBlock>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Zahtev za dodavanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                            <Button Content="Zahtev za brisanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                        </StackPanel>
+                        <DataGrid Grid.Row="1" Name="LekoviPrikaz" CanUserAddRows="false" 
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
+                                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                                  CanUserResizeRows="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontWeight" Value="Medium"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="IdLeka" Header="Id leka" Binding="{Binding IdLeka}" Width="100"/>
+                                <DataGridTextColumn x:Name="Naziv" Header="Naziv" Binding="{Binding NazivLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Vrsta" Header="Vrsta" Binding="{Binding VrstaLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Klasa" Header="Klasa" Binding="{Binding KlasaLeka}" Width="*"/>
+                                <DataGridTextColumn x:Name="Kolicina" Header="Kolicina" Binding="{Binding KolicinaLeka}" Width="150"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

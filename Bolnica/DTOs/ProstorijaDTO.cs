@@ -13,6 +13,8 @@ namespace Bolnica.DTOs
         public int Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }
+        public bool RenoviraSe { get; set; }
+        public double Kvadratura { get; set; }
 
     }
 }
