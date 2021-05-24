@@ -16,5 +16,14 @@ namespace Bolnica.DTOs
         public bool RenoviraSe { get; set; }
         public double Kvadratura { get; set; }
 
+        public ProstorijaDTO(String BrojProstorije, int Sprat, Model.Enum.VrstaProstorije Vrsta, double Kvadratura)
+        {
+            this.BrojSobe = BrojProstorije;
+            this.Sprat = Sprat;
+            this.VrstaProstorije = Vrsta;
+            this.Kvadratura = Kvadratura;
+        }
+
+        public ProstorijaDTO() { }
     }
 }

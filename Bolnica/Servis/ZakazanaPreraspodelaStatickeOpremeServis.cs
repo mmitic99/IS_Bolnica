@@ -34,14 +34,13 @@ namespace Bolnica.Servis
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = new List<ZakazanaPreraspodelaStatickeOpreme>();
             SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.Add(preraspodela);
-            UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme = SvePreraspodele;
             skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
             OsveziPrikazPreraspodeleOpreme();
         }
 
         private void OsveziPrikazPreraspodeleOpreme()
         {
-            UpravnikWindow.GetInstance().TabelaZakazanihPrebacivanjaOpreme.ItemsSource = new ObservableCollection<ZakazanaPreraspodelaStatickeOpreme>(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme);
+            UpravnikWindow.GetInstance().TabelaZakazanihPrebacivanjaOpreme.ItemsSource = new ObservableCollection<ZakazanaPreraspodelaStatickeOpreme>(SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll());
         }
 
         public void OtkaziPreraspodeluStatickeOpreme(int index) 
@@ -49,7 +48,6 @@ namespace Bolnica.Servis
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = new List<ZakazanaPreraspodelaStatickeOpreme>();
             SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.RemoveAt(index);
-            UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme = SvePreraspodele;
             skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
             OsveziPrikazPreraspodeleOpreme();
         }

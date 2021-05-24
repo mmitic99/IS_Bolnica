@@ -36,21 +36,23 @@ namespace Bolnica.Servis
 
         public void DodajLek(Lek lek)
         {
-            int indexPoslednjegLeka = UpravnikWindow.GetInstance().SviLekovi.Count - 1;
-            IdLekaGenerator = UpravnikWindow.GetInstance().SviLekovi[indexPoslednjegLeka].IdLeka;
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            int indexPoslednjegLeka = SviLekovi.Count - 1;
+            IdLekaGenerator = SviLekovi[indexPoslednjegLeka].IdLeka;
             lek.IdLeka = ++IdLekaGenerator;
-            UpravnikWindow.GetInstance().SviLekovi.Add(lek);
-            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            SviLekovi.Add(lek);
+            skladisteZaLekove.SaveAll(SviLekovi);
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
         }
 
         public void IzmeniLek(int index, Lek lek)
         {
-            int StariIdLeka = UpravnikWindow.GetInstance().SviLekovi[index].IdLeka;
-            UpravnikWindow.GetInstance().SviLekovi[index] = lek;
-            UpravnikWindow.GetInstance().SviLekovi[index].IdLeka = StariIdLeka;
-            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            int StariIdLeka = SviLekovi[index].IdLeka;
+            SviLekovi[index] = lek;
+            SviLekovi[index].IdLeka = StariIdLeka;
+            skladisteZaLekove.SaveAll(SviLekovi);
             OsveziPrikazLekova();
             OcistiTextPoljaLekova();
         }
@@ -71,12 +73,13 @@ namespace Bolnica.Servis
 
         public void IzbrisiLek(int index)
         {
-            UpravnikWindow.GetInstance().SviLekovi.RemoveAt(index);
-            skladisteZaLekove.SaveAll(UpravnikWindow.GetInstance().SviLekovi);
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            SviLekovi.RemoveAt(index);
+            skladisteZaLekove.SaveAll(SviLekovi);
             OsveziPrikazLekova();
         }
 
-        public bool ProveriValidnostLeka(LekDTO lek, String DodajIliIzmeni)
+        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni)
         {
             bool checkVrsta = false;
             bool checkKolicina = false;
@@ -85,12 +88,12 @@ namespace Bolnica.Servis
             bool checkJacina = false;
             bool checkZamenskiLek = false;
             bool checkSastav = false;
-
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
             if (sablon.IsMatch(lek.NazivLeka))
             {
 
-                foreach (Lek l in UpravnikWindow.GetInstance().SviLekovi)
+                foreach (Lek l in SviLekovi)
                 {
                     if (DodajIliIzmeni.Equals("dodaj"))
                     {
@@ -107,7 +110,7 @@ namespace Bolnica.Servis
                     else
                     {
                         int index = UpravnikWindow.GetInstance().TabelaLekovaIzmeni.SelectedIndex;
-                        if (lek.NazivLeka != UpravnikWindow.GetInstance().SviLekovi[index].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
+                        if (lek.NazivLeka != SviLekovi[index].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
                         {
                             MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;
@@ -246,8 +249,8 @@ namespace Bolnica.Servis
 
         private void OsveziPrikazLekova() 
         {
-            UpravnikWindow.GetInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(UpravnikWindow.GetInstance().SviLekovi);
-            UpravnikWindow.GetInstance().TabelaLekovaIzmeni.ItemsSource = new ObservableCollection<Lek>(UpravnikWindow.GetInstance().SviLekovi);
+            UpravnikWindow.GetInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekoveXml.GetInstance().GetAll());
+            UpravnikWindow.GetInstance().TabelaLekovaIzmeni.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekoveXml.GetInstance().GetAll());
         }
         private void OcistiTextPoljaLekova() {}
     }

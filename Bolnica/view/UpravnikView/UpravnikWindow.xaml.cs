@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
-using Bolnica.DTOs;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.UpravnikView
@@ -21,17 +20,6 @@ namespace Bolnica.view.UpravnikView
     public partial class UpravnikWindow : Window
     {
         Upravnik upravnik;
-        public List<StacionarnaOprema> StacionarnaMagacin { get; set; }
-        public List<StacionarnaOprema> StacionarnaOpremaOdKojeSeUzima { get; set; }
-        public List<StacionarnaOprema> StacionarnaOpremaUKojuSeDodaje { get; set; }
-        public List<PotrosnaOprema> PotrosnaMagacin { get; set; }
-        public List<Prostorija> ListaProstorija { get; set; }
-        public List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme { get; set; }
-        public List<Lek> SviLekovi { get; set; }
-        public List<VerifikacijaLeka> SveVerifikacijeLekova { get; set; }
-
-        public List<Renoviranje> SvaRenoviranja { get; set; }
-        public List<Prostorija> PretrazeneProstorije { get; set; }
 
         private static UpravnikWindow instance = null;
 
@@ -47,26 +35,21 @@ namespace Bolnica.view.UpravnikView
             this.upravnik = upravnik;
             instance = this;
             this.DataContext = this;
-            ListaProstorija = new List<Prostorija>();
-            PretrazeneProstorije = new List<Prostorija>();
-            StacionarnaMagacin = new List<StacionarnaOprema>();
-            PotrosnaMagacin = new List<PotrosnaOprema>();
-            StacionarnaOpremaOdKojeSeUzima = new List<StacionarnaOprema>();
-            StacionarnaOpremaUKojuSeDodaje = new List<StacionarnaOprema>();
-            PreraspodeleStatickeOpreme = new List<ZakazanaPreraspodelaStatickeOpreme>();
-            SvaRenoviranja = new List<Renoviranje>();
-            SviLekovi = new List<Lek>();
-            SveVerifikacijeLekova = new List<VerifikacijaLeka>();
+
             // TODO : izmeniti tip sa Prostorija na ProstorijaDTO
             //ListaProstorija = ProstorijeKontroler.GetInstance().GetAll();
-            ListaProstorija = SkladisteZaProstorijeXml.GetInstance().GetAll();
-            StacionarnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
-            PotrosnaMagacin = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
-            PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
-            SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
-            SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
-            SveVerifikacijeLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg("1903999772025");
-            BrojProstorijeRenoviranje.ItemsSource = ListaProstorija;
+            TabelaProstorija.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
+            TabelaProstorijaIzmeni.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
+            TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
+            TabelaProstorijeUKojuSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
+            TabelaStatickeMagacin.ItemsSource = ProstorijeKontroler.GetInstance().GetMagacin().Staticka_;
+            TabelaDinamickeMagacin.ItemsSource = ProstorijeKontroler.GetInstance().GetMagacin().Potrosna_;
+            TabelaZakazanihPrebacivanjaOpreme.ItemsSource =  SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            TabelaLekova.ItemsSource = SkladisteZaLekoveXml.GetInstance().GetAll();
+            TabelaLekovaIzmeni.ItemsSource = SkladisteZaLekoveXml.GetInstance().GetAll();
+            TabelaRenoviranja.ItemsSource = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            TabelaVerifikacija.ItemsSource = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg("1903999772025");
+            BrojProstorijeRenoviranje.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
             LekariLekovi.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
             LekariLekoviIzmeni.ItemsSource = SkladisteZaLekaraXml.GetInstance().GetAll();
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
@@ -76,22 +59,49 @@ namespace Bolnica.view.UpravnikView
         // metoda za dodavanje nove prostorije
         private void DodajProstoriju(object sender, RoutedEventArgs e)
         {
-            if (ProstorijeKontroler.GetInstance().ProveriValidnostProstorije(BrojProstorijeTextBox.Text, SpratTextBox.Text, VrstaProstorijeComboBox.SelectedIndex, KvadraturaTextBox.Text))
+            ProstorijaValidacijaDTO prostorijaZaValidaciju = new ProstorijaValidacijaDTO
+                                                                 (
+                                                                 BrojProstorijeTextBox.Text, 
+                                                                 SpratTextBox.Text, 
+                                                                 VrstaProstorijeComboBox.SelectedIndex, 
+                                                                 KvadraturaTextBox.Text
+                                                                 );
+            if (ProstorijeKontroler.GetInstance().ProveriValidnostProstorije(prostorijaZaValidaciju))
             {
-                Prostorija p = new Prostorija(BrojProstorijeTextBox.Text, Int32.Parse(SpratTextBox.Text), ProstorijeKontroler.GetInstance().GetVrstuProstorije(VrstaProstorijeComboBox.SelectedIndex), Double.Parse(KvadraturaTextBox.Text));
-                ProstorijeKontroler.GetInstance().DodajProstoriju(p);
+                ProstorijaDTO prostorija = new ProstorijaDTO
+                                               (
+                                               BrojProstorijeTextBox.Text, 
+                                               Int32.Parse(SpratTextBox.Text), 
+                                               ProstorijeKontroler.GetInstance().GetVrstuProstorije(VrstaProstorijeComboBox.SelectedIndex), 
+                                               Double.Parse(KvadraturaTextBox.Text)
+                                               );
+                ProstorijeKontroler.GetInstance().DodajProstoriju(prostorija);
             }
         }
 
         // metoda za izmenu selektovane prostorije
         private void IzmeniProstoriju(object sender, RoutedEventArgs e)
         {
+
             if (TabelaProstorijaIzmeni.SelectedIndex != -1)
             {
-                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmeneProstorije(BrojProstorijeTextBoxIzmeni.Text, SpratTextBoxIzmeni.Text, VrstaProstorijeComboBoxIzmeni.SelectedIndex, KvadraturaTextBoxIzmeni.Text))
+                ProstorijaValidacijaDTO prostorijaZaValidaciju = new ProstorijaValidacijaDTO
+                                                                     (
+                                                                     BrojProstorijeTextBoxIzmeni.Text, 
+                                                                     SpratTextBoxIzmeni.Text, 
+                                                                     VrstaProstorijeComboBoxIzmeni.SelectedIndex, 
+                                                                     KvadraturaTextBoxIzmeni.Text
+                                                                     );
+                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmeneProstorije(prostorijaZaValidaciju))
                 {
-                    Prostorija p = new Prostorija(BrojProstorijeTextBoxIzmeni.Text, Int32.Parse(SpratTextBoxIzmeni.Text), ProstorijeKontroler.GetInstance().GetVrstuProstorije(VrstaProstorijeComboBoxIzmeni.SelectedIndex), Double.Parse(KvadraturaTextBoxIzmeni.Text));
-                    ProstorijeKontroler.GetInstance().IzmeniProstoriju(TabelaProstorijaIzmeni.SelectedIndex, p);
+                    ProstorijaDTO prostorija = new ProstorijaDTO
+                                                   (
+                                                   BrojProstorijeTextBoxIzmeni.Text, 
+                                                   Int32.Parse(SpratTextBoxIzmeni.Text), 
+                                                   ProstorijeKontroler.GetInstance().GetVrstuProstorije(VrstaProstorijeComboBoxIzmeni.SelectedIndex), 
+                                                   Double.Parse(KvadraturaTextBoxIzmeni.Text)
+                                                   );
+                    ProstorijeKontroler.GetInstance().IzmeniProstoriju(TabelaProstorijaIzmeni.SelectedIndex, prostorija);
                 }
             }
             else
@@ -117,27 +127,7 @@ namespace Bolnica.view.UpravnikView
         {
             if (TabelaProstorijaIzmeni.SelectedIndex != -1)
             {
-                int indexSelektovaneProstorije = TabelaProstorijaIzmeni.SelectedIndex;
-                BrojProstorijeTextBoxIzmeni.Text = ListaProstorija[indexSelektovaneProstorije].BrojSobe_;
-                SpratTextBoxIzmeni.Text = ListaProstorija[indexSelektovaneProstorije].Sprat_.ToString();
-                KvadraturaTextBoxIzmeni.Text = ListaProstorija[indexSelektovaneProstorije].Kvadratura_.ToString();
-
-                if (ListaProstorija[indexSelektovaneProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Soba_za_preglede)
-                {
-                    VrstaProstorijeComboBoxIzmeni.Text = "Soba za preglede";
-                }
-                else if (ListaProstorija[indexSelektovaneProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Operaciona_sala)
-                {
-                    VrstaProstorijeComboBoxIzmeni.Text = "Operaciona sala";
-                }
-                else if (ListaProstorija[indexSelektovaneProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Soba_za_bolesnike)
-                {
-                    VrstaProstorijeComboBoxIzmeni.Text = "Soba za bolesnike";
-                }
-                else if (ListaProstorija[indexSelektovaneProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
-                {
-                    VrstaProstorijeComboBoxIzmeni.Text = "Magacin";
-                }
+                ProstorijeKontroler.GetInstance().NamapirajProstoriju(TabelaProstorijaIzmeni.SelectedIndex);
             }
         }
 
@@ -193,35 +183,25 @@ namespace Bolnica.view.UpravnikView
         private void TabelaStatickeMagacinIzmeni_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (TabelaStatickeMagacinIzmeni.SelectedIndex != -1)
-            {
-                int indexSelektovaneOpreme = TabelaStatickeMagacinIzmeni.SelectedIndex;
-                NazivStatickeOpremeIzmeni.Text = StacionarnaMagacin[indexSelektovaneOpreme].TipStacionarneOpreme_;
-                KolicinaStatickeOpremeIzmeni.Text = StacionarnaMagacin[indexSelektovaneOpreme].Kolicina_.ToString();
-            }
+                ProstorijeKontroler.GetInstance().NamapirajStatickuOpremuMagacina(TabelaStatickeMagacinIzmeni.SelectedIndex);
         }
 
         private void TabelaDinamickeMagacinIzmeni_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (TabelaDinamickeMagacinIzmeni.SelectedIndex != -1)
-            {
-                int indexSelektovaneOpreme = TabelaDinamickeMagacinIzmeni.SelectedIndex;
-                NazivDinamickeOpremeIzmeni.Text = PotrosnaMagacin[indexSelektovaneOpreme].TipOpreme_;
-                KolicinaDinamickeOpremeIzmeni.Text = PotrosnaMagacin[indexSelektovaneOpreme].KolicinaOpreme_.ToString();
-            }
+                ProstorijeKontroler.GetInstance().NamapirajDinamickuOpremuMagacina(TabelaDinamickeMagacinIzmeni.SelectedIndex);
         }
 
         private void PrikaziProzorZaSelektovanuProstoriju(object sender, RoutedEventArgs e)
         {
             if ((TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex != -1) && (TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex != -1) && (TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex != TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex))
             {
-                StacionarnaOpremaOdKojeSeUzima = ProstorijeKontroler.GetInstance().GetStacionarnaOpremaProstorije(TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex);
-                StacionarnaOpremaUKojuSeDodaje = ProstorijeKontroler.GetInstance().GetStacionarnaOpremaProstorije(TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex);
-                TabelaOpremeUKojuSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(StacionarnaOpremaUKojuSeDodaje);
-                TabelaOpremeIzKojeSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(StacionarnaOpremaOdKojeSeUzima);
-                ProstorijaIzKojeSePrebacujeLabel.Content = ListaProstorija[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].BrojSobe_
-                    + " - " + VrstaProstorijeLepIspis(ListaProstorija[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].VrstaProstorije);
-                ProstorijaUKojuSePrebacujeLabel.Content = ListaProstorija[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe_
-                    + " - " + VrstaProstorijeLepIspis(ListaProstorija[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].VrstaProstorije_);
+                TabelaOpremeIzKojeSePrebacuje.ItemsSource = ProstorijeKontroler.GetInstance().GetStacionarnaOpremaProstorije(TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex);
+                TabelaOpremeUKojuSePrebacuje.ItemsSource = ProstorijeKontroler.GetInstance().GetStacionarnaOpremaProstorije(TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex);
+                ProstorijaIzKojeSePrebacujeLabel.Content = ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].BrojSobe_
+                    + " - " + VrstaProstorijeLepIspis(ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].VrstaProstorije);
+                ProstorijaUKojuSePrebacujeLabel.Content = ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe_
+                    + " - " + VrstaProstorijeLepIspis(ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].VrstaProstorije_);
                 RaspodelaOpremeTab.IsEnabled = true;
                 RaspodelaOpremeTab.IsSelected = true;
             }
@@ -238,12 +218,12 @@ namespace Bolnica.view.UpravnikView
             if (TabelaOpremeIzKojeSePrebacuje.SelectedIndex != -1)
             {
                 if (ProstorijeKontroler.GetInstance().ProveriValidnostKolicineOpremePriPrebacivanju(KolicinaOpremeSKojomSeRadi_Copy.Text))
-                    if (ListaProstorija[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].Staticka_[TabelaOpremeIzKojeSePrebacuje.SelectedIndex].Kolicina_ - Int32.Parse(KolicinaOpremeSKojomSeRadi_Copy.Text) >= 0)
+                    if (ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].Staticka_[TabelaOpremeIzKojeSePrebacuje.SelectedIndex].Kolicina_ - Int32.Parse(KolicinaOpremeSKojomSeRadi_Copy.Text) >= 0)
                     {
                         ZakazanaPrebacivanjaOpremeTab.IsEnabled = true;
                         ZakazanaPrebacivanjaOpremeTab.IsSelected = true;
-                        ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text = ListaProstorija[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].BrojSobe_;
-                        ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text = ListaProstorija[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe_;
+                        ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text = ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex].BrojSobe_;
+                        ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text = ProstorijeKontroler.GetInstance().GetAllProstorije()[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe_;
                         NazivOpremeZakazivanje.Text = NazivOpremeSKojomSeRadi_Copy.Text;
                         KolicinaOpremeZakazivanje.Text = KolicinaOpremeSKojomSeRadi_Copy.Text;
                     }
@@ -261,8 +241,6 @@ namespace Bolnica.view.UpravnikView
         {
             if (RaspodelaOpremeTab.IsSelected == false)
             {
-                //NazivOpremeSKojomSeRadi_Copy.Clear();
-                //KolicinaOpremeSKojomSeRadi_Copy.Clear();
                 NazivOpremeSKojomSeRadi.Clear();
                 KolicinaOpremeSKojomSeRadi.Clear();
                 RaspodelaOpremeTab.IsEnabled = false;
@@ -308,19 +286,13 @@ namespace Bolnica.view.UpravnikView
         private void TabelaOpremeIzKojeSePrebacuje_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (TabelaOpremeIzKojeSePrebacuje.SelectedIndex != -1)
-            {
-                int indexSelektovaneOpreme = TabelaOpremeIzKojeSePrebacuje.SelectedIndex;
-                NazivOpremeSKojomSeRadi_Copy.Text = StacionarnaOpremaOdKojeSeUzima[indexSelektovaneOpreme].TipStacionarneOpreme_;
-            }
+                ProstorijeKontroler.GetInstance().NamapirajOpremuZaPrebacivanjeIzProstorije(TabelaOpremeIzKojeSePrebacuje.SelectedIndex, TabelaProstorijaIzKojeSePrebacujeOprema.SelectedIndex);
         }
 
         private void TabelaOpremeUKojuSePrebacuje_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (TabelaOpremeUKojuSePrebacuje.SelectedIndex != -1)
-            {
-                int indexSelektovaneOpreme = TabelaOpremeUKojuSePrebacuje.SelectedIndex;
-                NazivOpremeSKojomSeRadi.Text = StacionarnaOpremaUKojuSeDodaje[indexSelektovaneOpreme].TipStacionarneOpreme_;
-            }
+                ProstorijeKontroler.GetInstance().NamapirajOpremuZaPrebacivanjeUProstoriju(TabelaOpremeUKojuSePrebacuje.SelectedIndex, TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex);
         }
         private String VrstaProstorijeLepIspis(Model.Enum.VrstaProstorije vrsta)
         {
@@ -345,26 +317,30 @@ namespace Bolnica.view.UpravnikView
             ZakazanaPrebacivanjaOpremeTab.IsEnabled = false;
         }
 
+        private DateTime PodesiDatumIVremePreraspodele()
+        {
+            DateTime datumVreme = (DateTime)DatumPreraspodele.SelectedDate;
+            int sati = (int)Sat.SelectedIndex + 6;
+            int minuti = 30;
+            if (Minut.SelectedIndex == 0)
+            {
+                minuti = 0;
+            }
+            return new DateTime(datumVreme.Year, datumVreme.Month, datumVreme.Day, sati, minuti, 0);
+        }
         private void ZakaziPrebacivanjeOpreme_Click(object sender, RoutedEventArgs e)
         {
-            ZakazanaPreraspodelaStatickeOpreme preraspodela = new ZakazanaPreraspodelaStatickeOpreme();
+            ZakazanaPreraspodelaStatickeOpremeDTO preraspodela = new ZakazanaPreraspodelaStatickeOpremeDTO();
             if (DatumPreraspodele.SelectedDate != null)
             {
-                DateTime datumVreme = (DateTime)DatumPreraspodele.SelectedDate;
-                int sati = (int)Sat.SelectedIndex + 6;
-                int minuti = 30;
-                if (Minut.SelectedIndex == 0)
-                {
-                    minuti = 0;
-                }
-                DateTime odabranDatumIVreme = new DateTime(datumVreme.Year, datumVreme.Month, datumVreme.Day, sati, minuti, 0);
+                DateTime odabranDatumIVreme = PodesiDatumIVremePreraspodele();
                 int IdPrveProstorije = ProstorijeKontroler.GetInstance().GetIdProstorijeByBrojProstorije(ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text);
                 int IdDrugeProstorije = ProstorijeKontroler.GetInstance().GetIdProstorijeByBrojProstorije(ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text);
                 double trajanjePreraspodele = 60;
                 if ((ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdPrveProstorije, odabranDatumIVreme, trajanjePreraspodele)) &&
                     ((ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdDrugeProstorije, odabranDatumIVreme, trajanjePreraspodele))))
                 {
-                    preraspodela = new ZakazanaPreraspodelaStatickeOpreme(ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text, ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text, odabranDatumIVreme, 60, NazivOpremeZakazivanje.Text, Int32.Parse(KolicinaOpremeZakazivanje.Text));
+                    preraspodela = new ZakazanaPreraspodelaStatickeOpremeDTO(ZakazivanjeProstorijaKojaGubiOpremuTextBox.Text, ZakazivanjeProstorijaKojaDobijaOpremuTextBox.Text, odabranDatumIVreme, 60, NazivOpremeZakazivanje.Text, Int32.Parse(KolicinaOpremeZakazivanje.Text));
                     ZakazanaPreraspodelaStatickeOpremeKontroler.GetInstance().ZakaziPreraspodeluStatickeOpreme(preraspodela);
                 }
                 else if (ProstorijeKontroler.GetInstance().DaLiJeSLobodnaProstorija(IdPrveProstorije, odabranDatumIVreme, trajanjePreraspodele))
@@ -394,10 +370,11 @@ namespace Bolnica.view.UpravnikView
                 MessageBox.Show("Niste uneli sve potrebnje podatke (broj prostorije ili datume) !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             else 
             {
-                String Broj = ((Prostorija)BrojProstorijeRenoviranje.SelectedItem).BrojSobe_;
+                String Broj = ProstorijeKontroler.GetInstance().GetAllProstorije()[BrojProstorijeRenoviranje.SelectedIndex].BrojSobe_;
                 DateTime DatumPocetka = (DateTime)DatumPocetkaRenoviranja.SelectedDate;
                 DateTime DatumKraja = (DateTime)DatumZavrsetkaRenoviranja.SelectedDate;
-                ProstorijeKontroler.GetInstance().RenovirajProstoriju(Broj, DatumPocetka, DatumKraja);
+                RenoviranjeDTO renoviranje = new RenoviranjeDTO(Broj, DatumPocetka, DatumKraja);
+                ProstorijeKontroler.GetInstance().RenovirajProstoriju(renoviranje);
             }
         }
 
@@ -411,11 +388,11 @@ namespace Bolnica.view.UpravnikView
 
         private void DodajLek(object sender, RoutedEventArgs e)
         {
-            LekDTO lekZaValidaciju = new LekDTO(VrstaLeka.SelectedIndex, KolicinaLeka.Text, NazivLeka.Text, KlasaLeka.SelectedIndex, JacinaLeka.Text, ZamenskiLek.Text, SastavLeka.Text);
-            Lek lekZaDodavanje;
+            LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaLeka.SelectedIndex, KolicinaLeka.Text, NazivLeka.Text, KlasaLeka.SelectedIndex, JacinaLeka.Text, ZamenskiLek.Text, SastavLeka.Text);
+            LekDTO lekZaDodavanje;
             if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj"))
             {
-                lekZaDodavanje = new Lek(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka),Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
+                lekZaDodavanje = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka),Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
                 LekKontroler.GetInstance().DodajLek(lekZaDodavanje);
             }
         }
@@ -436,11 +413,11 @@ namespace Bolnica.view.UpravnikView
         {
             if (TabelaLekovaIzmeni.SelectedIndex != -1)
             {
-                LekDTO lekZaValidaciju = new LekDTO(VrstaLekaIzmeni.SelectedIndex, KolicinaLekaIzmeni.Text, NazivLekaIzmeni.Text, KlasaLekaIzmeni.SelectedIndex, JacinaLekaIzmeni.Text, ZamenskiLekIzmeni.Text, SastavLekaIzmeni.Text);
-                Lek lekZaIzmenu;
+                LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaLekaIzmeni.SelectedIndex, KolicinaLekaIzmeni.Text, NazivLekaIzmeni.Text, KlasaLekaIzmeni.SelectedIndex, JacinaLekaIzmeni.Text, ZamenskiLekIzmeni.Text, SastavLekaIzmeni.Text);
+                LekDTO lekZaIzmenu;
                 if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "izmeni"))
                 {
-                    lekZaIzmenu = new Lek(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
+                    lekZaIzmenu = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
                     LekKontroler.GetInstance().IzmeniLek(TabelaLekovaIzmeni.SelectedIndex, lekZaIzmenu);
                 }
             }
@@ -454,102 +431,21 @@ namespace Bolnica.view.UpravnikView
         {
             if (TabelaLekovaIzmeni.SelectedIndex != -1)
             {
-                int indexSelektovanogLeka = TabelaLekovaIzmeni.SelectedIndex;
-                NazivLekaIzmeni.Text = SviLekovi[indexSelektovanogLeka].NazivLeka;
-                JacinaLekaIzmeni.Text = SviLekovi[indexSelektovanogLeka].JacinaLeka.ToString();
-                KolicinaLekaIzmeni.Text = SviLekovi[indexSelektovanogLeka].KolicinaLeka.ToString();
-                ZamenskiLekIzmeni.Text = SviLekovi[indexSelektovanogLeka].ZamenskiLek;
-                SastavLekaIzmeni.Text = SviLekovi[indexSelektovanogLeka].SastavLeka;
-                NamapirajVrstuLeka(indexSelektovanogLeka);
-                NamapirajKlasuLeka(indexSelektovanogLeka);
+                LekKontroler.GetInstance().NamapirajInfoOLeku(TabelaLekovaIzmeni.SelectedIndex);
+                LekKontroler.GetInstance().NamapirajVrstuLeka(TabelaLekovaIzmeni.SelectedIndex);
+                LekKontroler.GetInstance().NamapirajKlasuLeka(TabelaLekovaIzmeni.SelectedIndex);
             }
         }
-
-        private void NamapirajVrstuLeka(int index)
-        {
-            if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.Gel)
-            {
-                VrstaLekaIzmeni.Text = "Gel";
-            }
-            else if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.Kapsula)
-            {
-                VrstaLekaIzmeni.Text = "Kapsula";
-            }
-            else if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.Sirup)
-            {
-                VrstaLekaIzmeni.Text = "Sirup";
-            }
-            else if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.Sprej)
-            {
-                VrstaLekaIzmeni.Text = "Sprej";
-            }
-            else if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.SumecaTableta)
-            {
-                VrstaLekaIzmeni.Text = "Šumeća tableta";
-            }
-            else if (SviLekovi[index].VrstaLeka == Model.Enum.VrstaLeka.Tableta)
-            {
-                VrstaLekaIzmeni.Text = "Tableta";
-            }
-        }
-
-        private void NamapirajKlasuLeka(int index)
-        {
-            if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Analgetik)
-            {
-               KlasaLekaIzmeni.Text = "Analgetik";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Antibiotik)
-            {
-                KlasaLekaIzmeni.Text = "Antibiotik";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Antimalarijski_Lek)
-            {
-                KlasaLekaIzmeni.Text = "Antimalarijski lek";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Antipiretik)
-            {
-                KlasaLekaIzmeni.Text = "Antipiretik";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Antiseptik)
-            {
-                KlasaLekaIzmeni.Text = "Antiseptik";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Hormonska_Zamena)
-            {
-                KlasaLekaIzmeni.Text = "Hormonska zamena";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Oralni_Kontraceptiv)
-            {
-                KlasaLekaIzmeni.Text = "Oralni kontraceptiv";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Stabilizator_Raspolozenja)
-            {
-                KlasaLekaIzmeni.Text = "Stabilizator raspoloženja";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Statin)
-            {
-                KlasaLekaIzmeni.Text = "Statin";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Stimulant)
-            {
-                KlasaLekaIzmeni.Text = "Stimulant";
-            }
-            else if (SviLekovi[index].KlasaLeka == Model.Enum.KlasaLeka.Trankvilajzer)
-            {
-                KlasaLekaIzmeni.Text = "Trankvilajzer";
-            }
-        }
+        
         private void PosaljiLekNaProveru(object sender, RoutedEventArgs e)
         {
-            LekDTO lekZaValidaciju = new LekDTO(VrstaLeka.SelectedIndex, KolicinaLeka.Text, NazivLeka.Text, KlasaLeka.SelectedIndex, JacinaLeka.Text, ZamenskiLek.Text, SastavLeka.Text);
+            LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaLeka.SelectedIndex, KolicinaLeka.Text, NazivLeka.Text, KlasaLeka.SelectedIndex, JacinaLeka.Text, ZamenskiLek.Text, SastavLeka.Text);
             if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj"))
             {
                 String infoOLeku = "Vrsta:" + VrstaLekaLepIspis(lekZaValidaciju.VrstaLeka) + " Jačina:" + lekZaValidaciju.JacinaLeka + " mg" + 
                                    " Zamenski lek:" + lekZaValidaciju.ZamenskiLek + " Sastav:" + lekZaValidaciju.SastavLeka;
-                VerifikacijaLeka verifikacija = new VerifikacijaLeka(DateTime.Now, lekZaValidaciju.NazivLeka, infoOLeku, "1903999772025", GetJmbgLekaraZaValidaciju(LekariLekovi.SelectedIndex), Napomena.Text);
+                VerifikacijaLekaDTO verifikacija = new VerifikacijaLekaDTO(DateTime.Now, lekZaValidaciju.NazivLeka, infoOLeku, "1903999772025", GetJmbgLekaraZaValidaciju(LekariLekovi.SelectedIndex), Napomena.Text);
                 VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(verifikacija);
-                OsveziPrikazVerifikacijaLeka();
             }
         }
 
@@ -577,22 +473,13 @@ namespace Bolnica.view.UpravnikView
 
         private void TabelaVerifikacija_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            Sadrzaj.Text = SveVerifikacijeLekova[TabelaVerifikacija.SelectedIndex].Sadrzaj;
-        }
-
-        private void OsveziPrikazVerifikacijaLeka()
-        {
-            TabelaVerifikacija.ItemsSource = new ObservableCollection<VerifikacijaLeka>(SveVerifikacijeLekova);
+            VerifikacijaLekaKontroler.GetInstance().NamapirajSadrzajVerifikacije(TabelaVerifikacija.SelectedIndex);
         }
 
         private void PretraziOpremu(object sender, RoutedEventArgs e)
         {
             if (ProstorijeKontroler.GetInstance().ProveriValidnostPretrage(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex))
-            {
-                PretrazeneProstorije = ProstorijeKontroler.GetInstance().PretraziProstorijePoOpremi(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex);
-                TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(PretrazeneProstorije);
-                TabelaProstorijaIzKojeSePrebacujeOprema.IsEnabled = false;
-            }
+                ProstorijeKontroler.GetInstance().PretraziProstorijePoOpremi(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex);
         }
 
         private void ResetujPretraguOpreme(object sender, RoutedEventArgs e)
@@ -600,7 +487,7 @@ namespace Bolnica.view.UpravnikView
             TabelaProstorijaIzKojeSePrebacujeOprema.IsEnabled = true;
             NazivPretraga.Text = "";
             KolicinaPretraga.Text = "";
-            TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(ListaProstorija);
+            TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().GetAllProstorije();
         }
     }
 }

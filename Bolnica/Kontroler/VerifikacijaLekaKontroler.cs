@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.model;
 using Bolnica.Servis;
+using Bolnica.view.UpravnikView;
+using Bolnica.DTOs;
 
 namespace Bolnica.Kontroler
 {
@@ -23,8 +25,17 @@ namespace Bolnica.Kontroler
         }
 
 
-        public void PosaljiVerifikacijuLeka(VerifikacijaLeka verifikacijaLeka)
+        public void PosaljiVerifikacijuLeka(VerifikacijaLekaDTO verifikacijaLekaDTO)
         {
+            VerifikacijaLeka verifikacijaLeka = new VerifikacijaLeka
+                                                    (
+                                                    verifikacijaLekaDTO.VremeSlanjaZahteva, 
+                                                    verifikacijaLekaDTO.Naslov,
+                                                    verifikacijaLekaDTO.Sadrzaj,
+                                                    verifikacijaLekaDTO.JmbgPosiljaoca, 
+                                                    verifikacijaLekaDTO.JmbgPrimaoca,
+                                                    verifikacijaLekaDTO.Napomena
+                                                    );
             VerifikacijaLekaServis.GetInstance().PosaljiVerifikacijuLeka(verifikacijaLeka);
         }
 
@@ -43,6 +54,12 @@ namespace Bolnica.Kontroler
         public void SaveAll(List<VerifikacijaLeka> verifikacije)
         {
             VerifikacijaLekaServis.GetInstance().SaveAll(verifikacije);
+        }
+
+        public void NamapirajSadrzajVerifikacije(int index)
+        {
+            List<VerifikacijaLeka> SveVerifikacijeLekova = VerifikacijaLekaServis.GetInstance().GetAll();
+            UpravnikWindow.GetInstance().Sadrzaj.Text = SveVerifikacijeLekova[index].Sadrzaj;
         }
     }
 }

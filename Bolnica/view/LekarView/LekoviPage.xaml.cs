@@ -78,7 +78,7 @@ namespace Bolnica.view.LekarView
 
             if (TabelaLekova.SelectedIndex != -1)
             {
-                LekDTO lekZaValidaciju = new LekDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
+                LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
                 Lek lekZaIzmenu;
                 
                     lekZaIzmenu = new Lek(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
@@ -94,7 +94,7 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         { String napomena = NapomenaTxt.Text;
-            VerifikacijaLeka vL = new VerifikacijaLeka(verifikacijaLeka.VremeSlanjaZahteva, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
+            VerifikacijaLekaDTO vL = new VerifikacijaLekaDTO(verifikacijaLeka.VremeSlanjaZahteva, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
             VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(vL);
             NapomenaTxt.Text = "";
             SastavTxt.Text = "";

@@ -86,19 +86,20 @@ namespace Servis
             return postojiSlobodna;
         }
 
-        public void RenovirajProstoriju(String BrojProstorije, DateTime PocetakRenoviranja, DateTime KrajRenoviranja)
+        public void RenovirajProstoriju(Renoviranje renoviranje)
         {
+            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             int id = -1;
-            foreach (Prostorija p in UpravnikWindow.GetInstance().ListaProstorija)
+            foreach (Prostorija p in SveProstorije)
             {
-                if (BrojProstorije == p.BrojSobe_)
+                if (renoviranje.BrojProstorije == p.BrojSobe_)
                     id = p.IdProstorije_;
             }
-            if (DaLiJeSLobodnaProstorijaZaRenoviranje(id, PocetakRenoviranja, KrajRenoviranja))
+            if (DaLiJeSLobodnaProstorijaZaRenoviranje(id, renoviranje.DatumPocetkaRenoviranja, renoviranje.DatumZavrsetkaRenoviranja))
             {
-                Renoviranje renoviranje = new Renoviranje(BrojProstorije, PocetakRenoviranja, KrajRenoviranja);
-                UpravnikWindow.GetInstance().SvaRenoviranja.Add(renoviranje);
-                SkladisteZaRenoviranjaXml.GetInstance().SaveAll(UpravnikWindow.GetInstance().SvaRenoviranja);
+                SvaRenoviranja.Add(renoviranje);
+                SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
                 OsveziPrikazRenoviranja();
                 OcistiTextPoljaRenoviranja();
             }
@@ -108,35 +109,37 @@ namespace Servis
 
         public void ZavrsiRenoviranje(int index)
         {
-            int IdProstorije = UpravnikWindow.GetInstance().SvaRenoviranja[index].IdProstorije;
-            UpravnikWindow.GetInstance().SvaRenoviranja.RemoveAt(index);
-            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(UpravnikWindow.GetInstance().SvaRenoviranja);
+            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            int IdProstorije = SvaRenoviranja[index].IdProstorije;
+            SvaRenoviranja.RemoveAt(index);
+            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
             OsveziPrikazRenoviranja();
             DeselektujMoguceRenoviranje(IdProstorije);
         }
 
         public void AzurirajRenoviranjaProstorija()
         {
-
+            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             List<int> IdProstorijaZaBrisanjeIzRenoviranja = new List<int>();
-            for (int i = 0; i < UpravnikWindow.GetInstance().SvaRenoviranja.Count; i++)
+            for (int i = 0; i < SvaRenoviranja.Count; i++)
             {
-                if (DateTime.Now.Date >= UpravnikWindow.GetInstance().SvaRenoviranja[i].DatumPocetkaRenoviranja.Date && DateTime.Now.Date <= UpravnikWindow.GetInstance().SvaRenoviranja[i].DatumZavrsetkaRenoviranja.Date)
+                if (DateTime.Now.Date >= SvaRenoviranja[i].DatumPocetkaRenoviranja.Date && DateTime.Now.Date <= SvaRenoviranja[i].DatumZavrsetkaRenoviranja.Date)
                 {
-                    for (int j = 0; j < UpravnikWindow.GetInstance().ListaProstorija.Count; j++)
+                    for (int j = 0; j < SveProstorije.Count; j++)
                     {
-                        if (UpravnikWindow.GetInstance().ListaProstorija[j].IdProstorije_.Equals(UpravnikWindow.GetInstance().SvaRenoviranja[i].IdProstorije))
-                            UpravnikWindow.GetInstance().ListaProstorija[j].RenoviraSe_ = true;
+                        if (SveProstorije[j].IdProstorije_.Equals(SvaRenoviranja[i].IdProstorije))
+                            SveProstorije[j].RenoviraSe_ = true;
                     }
                 }
-                else if (DateTime.Now.Date > UpravnikWindow.GetInstance().SvaRenoviranja[i].DatumZavrsetkaRenoviranja)
+                else if (DateTime.Now.Date > SvaRenoviranja[i].DatumZavrsetkaRenoviranja)
                 {
-                    IdProstorijaZaBrisanjeIzRenoviranja.Add(UpravnikWindow.GetInstance().SvaRenoviranja[i].IdProstorije);
-                    for (int j = 0; j < UpravnikWindow.GetInstance().ListaProstorija.Count; j++)
+                    IdProstorijaZaBrisanjeIzRenoviranja.Add(SvaRenoviranja[i].IdProstorije);
+                    for (int j = 0; j < SveProstorije.Count; j++)
                     {
-                        if (UpravnikWindow.GetInstance().ListaProstorija[j].IdProstorije_.Equals(UpravnikWindow.GetInstance().SvaRenoviranja[i].IdProstorije))
+                        if (SveProstorije[j].IdProstorije_.Equals(SvaRenoviranja[i].IdProstorije))
                         {
-                            UpravnikWindow.GetInstance().ListaProstorija[j].RenoviraSe_ = false;
+                            SveProstorije[j].RenoviraSe_ = false;
                         }
                     }
                 }
@@ -144,25 +147,26 @@ namespace Servis
 
             foreach (int ID in IdProstorijaZaBrisanjeIzRenoviranja)
             {
-                for (int i = 0; i < UpravnikWindow.GetInstance().SvaRenoviranja.Count; i++)
+                for (int i = 0; i < SvaRenoviranja.Count; i++)
                 {
-                    if (UpravnikWindow.GetInstance().SvaRenoviranja[i].IdProstorije == ID)
-                        UpravnikWindow.GetInstance().SvaRenoviranja.RemoveAt(i);
+                    if (SvaRenoviranja[i].IdProstorije == ID)
+                        SvaRenoviranja.RemoveAt(i);
                 }
             }
-            skladisteZaProstorije.SaveAll(UpravnikWindow.GetInstance().ListaProstorija);
-            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(UpravnikWindow.GetInstance().SvaRenoviranja);
-            UpravnikWindow.GetInstance().TabelaRenoviranja.ItemsSource = new ObservableCollection<Renoviranje>(UpravnikWindow.GetInstance().SvaRenoviranja);
-            UpravnikWindow.GetInstance().TabelaProstorija.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
-            UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
+            skladisteZaProstorije.SaveAll(SveProstorije);
+            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
+            UpravnikWindow.GetInstance().TabelaRenoviranja.ItemsSource = new ObservableCollection<Renoviranje>(SvaRenoviranja);
+            UpravnikWindow.GetInstance().TabelaProstorija.ItemsSource = new ObservableCollection<Prostorija>(SveProstorije);
+            UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.ItemsSource = new ObservableCollection<Prostorija>(SveProstorije);
         }
 
         public void DeselektujMoguceRenoviranje(int id)
         {
-            for (int i = 0; i < UpravnikWindow.GetInstance().ListaProstorija.Count; i++)
-                if (UpravnikWindow.GetInstance().ListaProstorija[i].IdProstorije_.Equals(id))
-                    UpravnikWindow.GetInstance().ListaProstorija[i].RenoviraSe_ = false;
-            skladisteZaProstorije.SaveAll(UpravnikWindow.GetInstance().ListaProstorija);
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            for (int i = 0; i < SveProstorije.Count; i++)
+                if (SveProstorije[i].IdProstorije_.Equals(id))
+                    SveProstorije[i].RenoviraSe_ = false;
+            skladisteZaProstorije.SaveAll(SveProstorije);
             OsveziPrikazProstorija();
 
         }
@@ -343,13 +347,14 @@ namespace Servis
 
         public void DodajStacionarnuOpremuUMagacin(String tipOpreme, int kolicina)
         {
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
                     prostorije[i].Staticka_.Add(new StacionarnaOprema(tipOpreme, kolicina));
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[i].Staticka_;
+                    StacionarnaMagacin = prostorije[i].Staticka_;
                 }
             }
             skladisteZaProstorije.SaveAll(prostorije);
@@ -359,13 +364,14 @@ namespace Servis
 
         public void IzbrisiStacionarnuOpremuIzMagacina(int index)
         {
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
                     prostorije[i].Staticka_.RemoveAt(index);
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[i].Staticka_;
+                    StacionarnaMagacin = prostorije[i].Staticka_;
                 }
             }
             skladisteZaProstorije.SaveAll(prostorije);
@@ -374,12 +380,13 @@ namespace Servis
         public void DodajPotrosnuOpremuUMagacin(String tipOpreme, int kolicina)
         {
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
+            List<PotrosnaOprema> PotrosnaMagacin = GetMagacin().Potrosna_;
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
                     prostorije[i].Potrosna_.Add(new PotrosnaOprema(tipOpreme, kolicina));
-                    UpravnikWindow.GetInstance().PotrosnaMagacin = prostorije[i].Potrosna_;
+                    PotrosnaMagacin = prostorije[i].Potrosna_;
                 }
             }
             skladisteZaProstorije.SaveAll(prostorije);
@@ -390,12 +397,13 @@ namespace Servis
         public void IzbrisiPotrosnuOpremuIzMagacina(int index)
         {
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
+            List<PotrosnaOprema> PotrosnaMagacin = GetMagacin().Potrosna_;
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
                     prostorije[i].Potrosna_.RemoveAt(index);
-                    UpravnikWindow.GetInstance().PotrosnaMagacin = prostorije[i].Potrosna_;
+                    PotrosnaMagacin = prostorije[i].Potrosna_;
                 }
             }
             skladisteZaProstorije.SaveAll(prostorije);
@@ -405,12 +413,13 @@ namespace Servis
         public void IzmeniStacionarnuOpremuUMagacinu(int index, int kolicina)
         {
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin && (prostorije[i].Staticka_[index].Kolicina_ + kolicina) >= 0)
                 {
                     prostorije[i].Staticka_[index].Kolicina_ += kolicina;
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[i].Staticka_;
+                    StacionarnaMagacin = prostorije[i].Staticka_;
                     skladisteZaProstorije.SaveAll(prostorije);
                     OsveziPrikazTabelaStatickeOpremeMagacina();
                     OcistiTextPoljaStatickeOpremeUMagacinu();
@@ -423,12 +432,13 @@ namespace Servis
 
         public void IzmeniDinamickuOpremuUMagacinu(int index, int kolicina)
         {
+            List<PotrosnaOprema> PotrosnaMagacin = GetMagacin().Potrosna_;
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             for (int i = 0; i < prostorije.Count; i++)
             {
                 if (prostorije[i].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin && (prostorije[i].Potrosna_[index].KolicinaOpreme_ += kolicina) >= 0)
                 {
-                    UpravnikWindow.GetInstance().PotrosnaMagacin = prostorije[i].Potrosna_;
+                    PotrosnaMagacin = prostorije[i].Potrosna_;
                     skladisteZaProstorije.SaveAll(prostorije);
                     OsveziPrikazTabelaDinamickeOpremeMagacina();
                     OcistiTextPoljaDinamickeOpremeUMagacinu();
@@ -453,38 +463,42 @@ namespace Servis
 
         public void DodajProstoriju(Prostorija p)
         {
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             Prostorija prostorija = p;
-            int indexPoslednjeProstorije = UpravnikWindow.GetInstance().ListaProstorija.Count - 1;
-            IdProstorijeGenerator = UpravnikWindow.GetInstance().ListaProstorija[indexPoslednjeProstorije].IdProstorije_;
+            int indexPoslednjeProstorije = SveProstorije.Count - 1;
+            IdProstorijeGenerator = SveProstorije[indexPoslednjeProstorije].IdProstorije_;
             prostorija.IdProstorije_ = ++IdProstorijeGenerator;
-            UpravnikWindow.GetInstance().ListaProstorija.Add(prostorija);
-            skladisteZaProstorije.SaveAll(UpravnikWindow.GetInstance().ListaProstorija);
+            SveProstorije.Add(prostorija);
+            skladisteZaProstorije.SaveAll(SveProstorije);
             OsveziPrikazProstorija();
             OcistiTextPoljaProstorije();
         }
 
         public void IzmeniProstoriju(int index, Prostorija p)
         {
-            int StariIdProstorije = UpravnikWindow.GetInstance().ListaProstorija[index].IdProstorije_;
-            bool RenoviranjeStatus = UpravnikWindow.GetInstance().ListaProstorija[index].RenoviraSe_;
-            UpravnikWindow.GetInstance().ListaProstorija[index] = p;
-            UpravnikWindow.GetInstance().ListaProstorija[index].IdProstorije_ = StariIdProstorije;
-            UpravnikWindow.GetInstance().ListaProstorija[index].RenoviraSe_ = RenoviranjeStatus;
-            skladisteZaProstorije.SaveAll(UpravnikWindow.GetInstance().ListaProstorija);
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            int StariIdProstorije = SveProstorije[index].IdProstorije_;
+            bool RenoviranjeStatus = SveProstorije[index].RenoviraSe_;
+            SveProstorije[index] = p;
+            SveProstorije[index].IdProstorije_ = StariIdProstorije;
+            SveProstorije[index].RenoviraSe_ = RenoviranjeStatus;
+            skladisteZaProstorije.SaveAll(SveProstorije);
             OsveziPrikazProstorija();
             OcistiTextPoljaProstorije();
         }
 
         public void IzbrisiProstoriju(int index)
         {
-            UpravnikWindow.GetInstance().ListaProstorija.RemoveAt(index);
-            skladisteZaProstorije.SaveAll(UpravnikWindow.GetInstance().ListaProstorija);
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            SveProstorije.RemoveAt(index);
+            skladisteZaProstorije.SaveAll(SveProstorije);
             OsveziPrikazProstorija();
         }
 
         public void PrebaciStacionarnuOpremuUProstoriju(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina)
         {
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             bool nazivOpremeVecPrisutan = false;
             int indexOpreme = UpravnikWindow.GetInstance().TabelaOpremeIzKojeSePrebacuje.SelectedIndex;
             for (int i = 0; i < prostorije[indexUKojuProstoriju].Staticka_.Count; i++)
@@ -496,20 +510,18 @@ namespace Servis
                     {
                         prostorije[indexUKojuProstoriju].Staticka_[i].Kolicina_ += kolicina;
                         prostorije[indexIzKojeProstorije].Staticka_[indexOpreme].Kolicina_ -= kolicina;
-                        UpravnikWindow.GetInstance().StacionarnaOpremaOdKojeSeUzima = prostorije[indexIzKojeProstorije].Staticka_;
-                        UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje = prostorije[indexUKojuProstoriju].Staticka_;
                         if (prostorije[indexIzKojeProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                         {
-                            UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
+                            StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
                             OsveziPrikazTabelaStatickeOpremeMagacina();
                         }
                         if (prostorije[indexUKojuProstoriju].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                         {
-                            UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
+                            StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
                             OsveziPrikazTabelaStatickeOpremeMagacina();
                         }
                         skladisteZaProstorije.SaveAll(prostorije);
-                        OsveziPrikazTabelaOpreme();
+                        OsveziPrikazTabelaOpreme(indexIzKojeProstorije, indexUKojuProstoriju);
                     }
                     else
                     {
@@ -524,20 +536,18 @@ namespace Servis
                 {
                     prostorije[indexUKojuProstoriju].Staticka_.Add(new StacionarnaOprema(nazivOpreme, kolicina));
                     prostorije[indexIzKojeProstorije].Staticka_[indexOpreme].Kolicina_ -= kolicina;
-                    UpravnikWindow.GetInstance().StacionarnaOpremaOdKojeSeUzima = prostorije[indexIzKojeProstorije].Staticka_;
-                    UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje = prostorije[indexUKojuProstoriju].Staticka_;
                     if (prostorije[indexIzKojeProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                     {
-                        UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
+                        StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
                         OsveziPrikazTabelaStatickeOpremeMagacina();
                     }
                     if (prostorije[indexUKojuProstoriju].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                     {
-                        UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
+                        StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
                         OsveziPrikazTabelaStatickeOpremeMagacina();
                     }
                     skladisteZaProstorije.SaveAll(prostorije);
-                    OsveziPrikazTabelaOpreme();
+                    OsveziPrikazTabelaOpreme(indexIzKojeProstorije, indexUKojuProstoriju);
                 }
                 else
                 {
@@ -548,15 +558,17 @@ namespace Servis
         }
         public int GetIndexOpremeKojaSePrebacuje(int indexIzKojeProstorije, string nazivOpreme)
         {
-            for (int i = 0; i < UpravnikWindow.GetInstance().ListaProstorija[indexIzKojeProstorije].Staticka_.Count; i++)
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            for (int i = 0; i < SveProstorije[indexIzKojeProstorije].Staticka_.Count; i++)
             {
-                if (UpravnikWindow.GetInstance().ListaProstorija[indexIzKojeProstorije].Staticka_[i].TipStacionarneOpreme_.Equals(nazivOpreme))
+                if (SveProstorije[indexIzKojeProstorije].Staticka_[i].TipStacionarneOpreme_.Equals(nazivOpreme))
                     return i;
             }
             return -1;
         }
         public void IzvrsiPrebacivanjeOpreme(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina, int indexOpreme, List<Prostorija> prostorije, int i)
         {
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             if (prostorije[indexIzKojeProstorije].Staticka_[indexOpreme].Kolicina_ - kolicina >= 0)
             {
                 if (i == -1)
@@ -564,20 +576,18 @@ namespace Servis
                 else
                     prostorije[indexUKojuProstoriju].Staticka_[i].Kolicina_ += kolicina;
                 prostorije[indexIzKojeProstorije].Staticka_[indexOpreme].Kolicina_ -= kolicina;
-                UpravnikWindow.GetInstance().StacionarnaOpremaOdKojeSeUzima = prostorije[indexIzKojeProstorije].Staticka_;
-                UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje = prostorije[indexUKojuProstoriju].Staticka_;
                 if (prostorije[indexIzKojeProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
+                    StacionarnaMagacin = prostorije[indexIzKojeProstorije].Staticka_;
                     OsveziPrikazTabelaStatickeOpremeMagacina();
                 }
                 if (prostorije[indexUKojuProstoriju].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
                 {
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
+                    StacionarnaMagacin = prostorije[indexUKojuProstoriju].Staticka_;
                     OsveziPrikazTabelaStatickeOpremeMagacina();
                 }
                 skladisteZaProstorije.SaveAll(prostorije);
-                OsveziPrikazTabelaOpreme();
+                OsveziPrikazTabelaOpreme(indexIzKojeProstorije, indexUKojuProstoriju);
             }
             else
             {
@@ -608,18 +618,19 @@ namespace Servis
 
         public void IzbrisiStacionarnuOpremuIzProstorije(int indexProstorije, int indexOpreme)
         {
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             prostorije[indexProstorije].Staticka_.RemoveAt(indexOpreme);
             if (prostorije[indexProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
-                UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexProstorije].Staticka_;
+                StacionarnaMagacin = prostorije[indexProstorije].Staticka_;
             skladisteZaProstorije.SaveAll(prostorije);
-            UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje = prostorije[indexProstorije].Staticka_;
             OsveziPrikazTabelaStatickeOpremeMagacina();
-            OsveziPrikazTabelaOpreme();
+            OsveziPrikazTabelaOpreme(-1, indexProstorije);
         }
 
         public void IzmeniStacionarnuOpremuProstorije(int indexProstorije, int indexOpreme, int kolicina)
         {
+            List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka_;
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             if ((prostorije[indexProstorije].Staticka_[indexOpreme].Kolicina_ + kolicina) < 0)
                 MessageBox.Show("Ne možete oduzeti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -627,63 +638,50 @@ namespace Servis
             {
                 prostorije[indexProstorije].Staticka_[indexOpreme].Kolicina_ += kolicina;
                 if (prostorije[indexProstorije].VrstaProstorije_ == Model.Enum.VrstaProstorije.Magacin)
-                    UpravnikWindow.GetInstance().StacionarnaMagacin = prostorije[indexProstorije].Staticka_;
+                    StacionarnaMagacin = prostorije[indexProstorije].Staticka_;
                 skladisteZaProstorije.SaveAll(prostorije);
-                UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje = prostorije[indexProstorije].Staticka_;
                 OsveziPrikazTabelaStatickeOpremeMagacina();
-                OsveziPrikazTabelaOpreme();
+                OsveziPrikazTabelaOpreme(-1, indexProstorije);
             }
         }
 
-        public bool ProveriValidnostProstorije(String BrojProstorije, String Sprat, int IndexSelektovaneVrsteProstorije, String Kvadratura)
+        private bool Validiraj(Regex sablon, String unos)
+        {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
+
+        public bool ProveriValidnostProstorije(ProstorijaValidacijaDTO prostorija)
         {
             bool checkBrojProstorije = false;
             bool checkSprat = false;
             bool checkVrsta = false;
             bool checkKvadratura = false;
 
-            Regex sablon = new Regex(@"^[0-9a-zA-Z]+$");
-            if (sablon.IsMatch(BrojProstorije))
-            {
-
-                foreach (Prostorija Soba in UpravnikWindow.GetInstance().ListaProstorija)
-                {
-                    if (BrojProstorije.Equals(Soba.BrojSobe_))
-                    {
-                        MessageBox.Show("Već postoji soba sa istim brojem !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                    else
-                    {
-                        checkBrojProstorije = true;
-                    }
-                }
-            }
-            else
+            checkBrojProstorije = ValidirajBrojProstorije(new Regex(@"^[0-9a-zA-Z]+$"), prostorija.BrojSobe);
+            if (checkBrojProstorije == false)
             {
                 MessageBox.Show("Neispravno unet broj prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9]$");
-            if (sablon.IsMatch(Sprat))
-                checkSprat = true;
-            else
-            {
+            checkSprat = Validiraj(new Regex(@"^[0-9]$"), prostorija.Sprat);
+            if (checkSprat == false)
+            { 
                 MessageBox.Show("Neispravno unet sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[1-9]{1}[0-9]*$");
-            if (sablon.IsMatch(Kvadratura))
-                checkKvadratura = true;
-            else
+            checkKvadratura = Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), prostorija.Kvadratura);
+            if (checkKvadratura == false)
             {
                 MessageBox.Show("Neispravno uneta kvadratura prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            if (IndexSelektovaneVrsteProstorije != -1)
+            if (prostorija.VrstaProstorije != -1)
                 checkVrsta = true;
             else
             {
@@ -691,61 +689,81 @@ namespace Servis
                 return false;
             }
 
-            if (checkKvadratura == true && checkSprat == true && checkBrojProstorije == true && checkVrsta == true)
-                return true;
-            else
-                return false;
+            return true;
         }
 
-        public bool ProveriValidnostIzmeneProstorije(String BrojProstorije, String Sprat, int IndexSelektovaneVrsteProstorije, String Kvadratura)
+        private bool ValidirajBrojProstorije(Regex sablon, String unos)
         {
-            bool checkBrojProstorije = false;
-            bool checkSprat = false;
-            bool checkVrsta = false;
-            bool checkKvadratura = false;
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            if (sablon.IsMatch(unos))
+            {
+                foreach (Prostorija Soba in SveProstorije)
+                {
+                    if (unos.Equals(Soba.BrojSobe_))
+                    {
+                        MessageBox.Show("Već postoji soba sa istim brojem !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool ValidirajBrojProstorijeIzmena(Regex sablon, String unos)
+        {
             int indexSelektovaneProstorije = UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.SelectedIndex;
-
-            Regex sablon = new Regex(@"^[0-9a-zA-Z]+$");
-            if (sablon.IsMatch(BrojProstorije))
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            if (sablon.IsMatch(unos))
             {
-                foreach (Prostorija Soba in UpravnikWindow.GetInstance().ListaProstorija)
+                foreach (Prostorija Soba in SveProstorije)
                 {
-                    if (Soba.BrojSobe_ != UpravnikWindow.GetInstance().ListaProstorija[indexSelektovaneProstorije].BrojSobe_ && BrojProstorije.Equals(Soba.BrojSobe_))
+                    if (Soba.BrojSobe_ != SveProstorije[indexSelektovaneProstorije].BrojSobe_ && unos.Equals(Soba.BrojSobe_))
                     {
                         MessageBox.Show("Već postoji soba sa istim brojem !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
                     else
                     {
-                        checkBrojProstorije = true;
+                        return true;
                     }
                 }
             }
-            else
+            return false;
+        }
+
+        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija)
+        {
+            bool checkBrojProstorije = false;
+            bool checkSprat = false;
+            bool checkVrsta = false;
+            bool checkKvadratura = false;
+
+            checkBrojProstorije = ValidirajBrojProstorijeIzmena(new Regex(@"^[0-9a-zA-Z]+$"), prostorija.BrojSobe);
+            if (checkBrojProstorije == false)
             {
                 MessageBox.Show("Neispravno unet broj prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9]$");
-            if (sablon.IsMatch(Sprat))
-                checkSprat = true;
-            else
+            checkSprat = Validiraj(new Regex(@"^[0-9]$"), prostorija.Sprat);
+            if (checkSprat == false)
             {
                 MessageBox.Show("Neispravno unet sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[1-9]{1}[0-9]*$");
-            if (sablon.IsMatch(Kvadratura))
-                checkKvadratura = true;
-            else
+            checkKvadratura = Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), prostorija.Kvadratura);
+            if (checkKvadratura == false)
             {
                 MessageBox.Show("Neispravno uneta kvadratura prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            if (IndexSelektovaneVrsteProstorije != -1)
+            if (prostorija.VrstaProstorije != -1)
                 checkVrsta = true;
             else
             {
@@ -753,10 +771,7 @@ namespace Servis
                 return false;
             }
 
-            if (checkKvadratura == true && checkSprat == true && checkBrojProstorije == true && checkVrsta == true)
-                return true;
-            else
-                return false;
+            return true;
         }
 
         public bool ProveriValidnostOpreme(String NazivOpreme, String Kolicina)
@@ -847,33 +862,34 @@ namespace Servis
 
         public void OsveziPrikazProstorija()
         {
-            UpravnikWindow.GetInstance().TabelaProstorija.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
-            UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
-            UpravnikWindow.GetInstance().TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
-            UpravnikWindow.GetInstance().TabelaProstorijeUKojuSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(UpravnikWindow.GetInstance().ListaProstorija);
+            UpravnikWindow.GetInstance().TabelaProstorija.ItemsSource = new ObservableCollection<Prostorija>(SkladisteZaProstorijeXml.GetInstance().GetAll());
+            UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.ItemsSource = new ObservableCollection<Prostorija>(SkladisteZaProstorijeXml.GetInstance().GetAll());
+            UpravnikWindow.GetInstance().TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(SkladisteZaProstorijeXml.GetInstance().GetAll());
+            UpravnikWindow.GetInstance().TabelaProstorijeUKojuSePrebacujeOprema.ItemsSource = new ObservableCollection<Prostorija>(SkladisteZaProstorijeXml.GetInstance().GetAll());
         }
 
         private void OsveziPrikazTabelaStatickeOpremeMagacina()
         {
-            UpravnikWindow.GetInstance().TabelaStatickeMagacinIzmeni.ItemsSource = new ObservableCollection<StacionarnaOprema>(UpravnikWindow.GetInstance().StacionarnaMagacin);
-            UpravnikWindow.GetInstance().TabelaStatickeMagacin.ItemsSource = new ObservableCollection<StacionarnaOprema>(UpravnikWindow.GetInstance().StacionarnaMagacin);
+            UpravnikWindow.GetInstance().TabelaStatickeMagacinIzmeni.ItemsSource = new ObservableCollection<StacionarnaOprema>(GetMagacin().Staticka_);
+            UpravnikWindow.GetInstance().TabelaStatickeMagacin.ItemsSource = new ObservableCollection<StacionarnaOprema>(GetMagacin().Staticka_);
         }
 
         private void OsveziPrikazTabelaDinamickeOpremeMagacina()
         {
-            UpravnikWindow.GetInstance().TabelaDinamickeMagacinIzmeni.ItemsSource = new ObservableCollection<PotrosnaOprema>(UpravnikWindow.GetInstance().PotrosnaMagacin);
-            UpravnikWindow.GetInstance().TabelaDinamickeMagacin.ItemsSource = new ObservableCollection<PotrosnaOprema>(UpravnikWindow.GetInstance().PotrosnaMagacin);
+            UpravnikWindow.GetInstance().TabelaDinamickeMagacinIzmeni.ItemsSource = new ObservableCollection<PotrosnaOprema>(GetMagacin().Potrosna_);
+            UpravnikWindow.GetInstance().TabelaDinamickeMagacin.ItemsSource = new ObservableCollection<PotrosnaOprema>(GetMagacin().Potrosna_);
         }
 
-        private void OsveziPrikazTabelaOpreme()
+        private void OsveziPrikazTabelaOpreme(int indexIzKojeProstorije, int indexUKojuProstoriju)
         {
-            UpravnikWindow.GetInstance().TabelaOpremeIzKojeSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(UpravnikWindow.GetInstance().StacionarnaOpremaOdKojeSeUzima);
-            UpravnikWindow.GetInstance().TabelaOpremeUKojuSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(UpravnikWindow.GetInstance().StacionarnaOpremaUKojuSeDodaje);
+            if (indexIzKojeProstorije != -1)
+                UpravnikWindow.GetInstance().TabelaOpremeIzKojeSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(SkladisteZaProstorijeXml.GetInstance().GetAll()[indexIzKojeProstorije].Staticka_);
+            UpravnikWindow.GetInstance().TabelaOpremeUKojuSePrebacuje.ItemsSource = new ObservableCollection<StacionarnaOprema>(SkladisteZaProstorijeXml.GetInstance().GetAll()[indexUKojuProstoriju].Staticka_);
         }
 
         private void OsveziPrikazRenoviranja()
         {
-            UpravnikWindow.GetInstance().TabelaRenoviranja.ItemsSource = new ObservableCollection<Renoviranje>(UpravnikWindow.GetInstance().SvaRenoviranja);
+            UpravnikWindow.GetInstance().TabelaRenoviranja.ItemsSource = new ObservableCollection<Renoviranje>(SkladisteZaRenoviranjaXml.GetInstance().GetAll());
         }
 
         private void OcistiTextPoljaProstorije()
@@ -951,13 +967,14 @@ namespace Servis
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
             int indexUKoju = -1;
             int indexIzKoje = -1;
+            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             foreach (ZakazanaPreraspodelaStatickeOpreme preraspodela in SvePreraspodele)
             {
-                for (int i = 0; i < UpravnikWindow.GetInstance().ListaProstorija.Count; i++)
+                for (int i = 0; i < SveProstorije.Count; i++)
                 {
-                    if (preraspodela.IdProstorijeUKojUSePrenosiOprema == UpravnikWindow.GetInstance().ListaProstorija[i].IdProstorije_)
+                    if (preraspodela.IdProstorijeUKojUSePrenosiOprema == SveProstorije[i].IdProstorije_)
                         indexUKoju = i;
-                    else if (preraspodela.IdProstorijeIzKojeSePrenosiOprema == UpravnikWindow.GetInstance().ListaProstorija[i].IdProstorije_)
+                    else if (preraspodela.IdProstorijeIzKojeSePrenosiOprema == SveProstorije[i].IdProstorije_)
                         indexIzKoje = i;
                 }
                 await PrebaciZakazanuOpremu(indexIzKoje, indexUKoju, preraspodela);
@@ -977,35 +994,38 @@ namespace Servis
                 //await Task.Delay(10000);
                 PrebaciZakazanuStacionarnuOpremuUProstoriju(indexIzKojeProstorije, indexUKojuProstoriju, preraspodela.NazivOpreme, preraspodela.KolicinaOpreme);
                 OsveziPrikazTabelaStatickeOpremeMagacina();
-                OsveziPrikazTabelaOpreme();
+                OsveziPrikazTabelaOpreme(indexIzKojeProstorije, indexUKojuProstoriju);
                 AzurirajPreraspodeleOpreme();
             }
         }
         public void PopuniInformacijeZaBrisanjePreraspodela(List<int> IdIzKojeProstorije, List<int> IdUKojuProstoriju, List<DateTime> vremePreraspodele)
         {
-            for (int i = 0; i < UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme.Count; i++)
+            List <ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            for (int i = 0; i < PreraspodeleStatickeOpreme.Count; i++)
             {
-                if (DateTime.Now > UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele.AddMinutes(59))
+                if (DateTime.Now > PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele.AddMinutes(59))
                 {
-                    IdIzKojeProstorije.Add(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].IdProstorijeIzKojeSePrenosiOprema);
-                    IdUKojuProstoriju.Add(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].IdProstorijeUKojUSePrenosiOprema);
-                    vremePreraspodele.Add(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele);
+                    IdIzKojeProstorije.Add(PreraspodeleStatickeOpreme[i].IdProstorijeIzKojeSePrenosiOprema);
+                    IdUKojuProstoriju.Add(PreraspodeleStatickeOpreme[i].IdProstorijeUKojUSePrenosiOprema);
+                    vremePreraspodele.Add(PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele);
                 }
             }
         }
 
         public void IzbrisiPotrebnePreraspodele(List<int> IdIzKojeProstorije, List<int> IdUKojuProstoriju, List<DateTime> vremePreraspodele)
         {
+            List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
             for (int k = 0; k < IdIzKojeProstorije.Count; k++)
             {
-                for (int i = 0; i < UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme.Count; i++)
+                for (int i = 0; i < PreraspodeleStatickeOpreme.Count; i++)
                 {
-                    if (UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].IdProstorijeIzKojeSePrenosiOprema == IdIzKojeProstorije[k] &&
-                        UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].IdProstorijeUKojUSePrenosiOprema == IdUKojuProstoriju[k] &&
-                        UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele == vremePreraspodele[k])
-                        UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme.RemoveAt(i);
+                    if (PreraspodeleStatickeOpreme[i].IdProstorijeIzKojeSePrenosiOprema == IdIzKojeProstorije[k] &&
+                        PreraspodeleStatickeOpreme[i].IdProstorijeUKojUSePrenosiOprema == IdUKojuProstoriju[k] &&
+                        PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele == vremePreraspodele[k])
+                        PreraspodeleStatickeOpreme.RemoveAt(i);
                 }
             }
+            SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().SaveAll(PreraspodeleStatickeOpreme);
         }
 
         public void AzurirajPreraspodeleOpreme()
@@ -1015,8 +1035,7 @@ namespace Servis
             List<DateTime> vremePreraspodele = new List<DateTime>();
             PopuniInformacijeZaBrisanjePreraspodela(IdIzKojeProstorije, IdUKojuProstoriju, vremePreraspodele);
             IzbrisiPotrebnePreraspodele(IdIzKojeProstorije, IdUKojuProstoriju, vremePreraspodele);
-            SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().SaveAll(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme);
-            UpravnikWindow.GetInstance().TabelaZakazanihPrebacivanjaOpreme.ItemsSource = new ObservableCollection<ZakazanaPreraspodelaStatickeOpreme>(UpravnikWindow.GetInstance().PreraspodeleStatickeOpreme);
+            UpravnikWindow.GetInstance().TabelaZakazanihPrebacivanjaOpreme.ItemsSource = new ObservableCollection<ZakazanaPreraspodelaStatickeOpreme>(SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll());
         }
 
         public bool ProveriValidnostPretrage(String naziv, String kolicina, int index)
