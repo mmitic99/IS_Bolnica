@@ -22,8 +22,10 @@ namespace Bolnica.Commands
         public static readonly ICommand IzmeniPacijentaCommand;
         public static readonly ICommand IzmeniTerminCommand;
         public static readonly ICommand IzmeniLekaraCommand;
+        public static readonly ICommand IzmeniProfilCommand;
+        public static readonly ICommand IzmeniLozinkuCommand;
 
-        public static readonly ICommand ObrisiObavestenjeCommand;
+		public static readonly ICommand ObrisiObavestenjeCommand;
         public static readonly ICommand ObrisiPacijentaCommand;
         public static readonly ICommand ObrisiTerminCommand;
         public static readonly ICommand ObrisiLekaraCommand;
@@ -78,6 +80,14 @@ namespace Bolnica.Commands
             IzmeniLekaraCommand = new RoutedUICommand("IzmeniLekaraCommand", "IzmeniLekaraCommand", typeof(SekretarCommands), inputGestures);
 
             inputGestures = new InputGestureCollection();
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.S }, ModifierKeys.Control, "Ctrl+E, S"));
+            IzmeniProfilCommand = new RoutedUICommand("IzmeniProfilCommand", "IzmeniProfilCommand", typeof(SekretarCommands), inputGestures);
+
+            inputGestures = new InputGestureCollection();
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.Z }, ModifierKeys.Control, "Ctrl+E, Z"));
+            IzmeniLozinkuCommand = new RoutedUICommand("IzmeniLozinkuCommand", "IzmeniLozinkuCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
             inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.O }, ModifierKeys.Control, "Ctrl+D, O"));
             ObrisiObavestenjeCommand = new RoutedUICommand("ObrisiObavestenjeCommand", "ObrisiObavestenjeCommand", typeof(SekretarCommands), inputGestures);
 

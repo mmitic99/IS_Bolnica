@@ -17,7 +17,17 @@
     <KlasaLeka>Antiseptik</KlasaLeka>
     <IdLeka>1</IdLeka>
     <JacinaLeka>100</JacinaLeka>
-    <ZamenskiLek>Mukodina</ZamenskiLek>
+    <ZamenskiLek>Mukodin</ZamenskiLek>
     <SastavLeka>sirup</SastavLeka>
+  </Lek>
+  <Lek>
+    <VrstaLeka>SumecaTableta</VrstaLeka>
+    <KolicinaLeka>30</KolicinaLeka>
+    <NazivLeka>TylolHot</NazivLeka>
+    <KlasaLeka>Analgetik</KlasaLeka>
+    <IdLeka>2</IdLeka>
+    <JacinaLeka>550</JacinaLeka>
+    <ZamenskiLek>Neki lek</ZamenskiLek>
+    <SastavLeka>sastojak, sastojci</SastavLeka>
   </Lek>
 </ArrayOfLek>

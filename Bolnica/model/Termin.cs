@@ -21,7 +21,7 @@ namespace Bolnica.model
         {
             get
             {
-                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).BrojSobe_;
+                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).BrojSobe;
             }
             set
             {
@@ -33,7 +33,7 @@ namespace Bolnica.model
         {
             get
             {
-                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).Sprat_;
+                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).Sprat;
             }
             set
             {

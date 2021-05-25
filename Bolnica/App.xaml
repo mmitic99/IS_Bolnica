@@ -40,6 +40,14 @@
                 <PacijentView:ZdravstveniKarton/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewActions:PodesavanjeObavestenjaViewModel}">
+                <PacijentView:PodesavanjeObavestenjaView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewActions:DodavanjePodsetnikaViewModel}">
+                <PacijentView:DodavanjePodsetnika/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewActions:PrikazKvartalneAnketeViewModel}">
                 <PacijentView:PrikazKvartalneAnkete/>
             </DataTemplate>

@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSekretar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sekretar>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
     <Korisnik>
       <KorisnickoIme>sekretar</KorisnickoIme>
       <Lozinka>sekretar</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
+    <Ime>Mika</Ime>
+    <Prezime>Mikić</Prezime>
+    <Jmbg>5689654897456</Jmbg>
+    <BrojTelefona>1231232</BrojTelefona>
     <Pol>Muski</Pol>
-    <DatumRodjenja>0001-01-01T00:00:00</DatumRodjenja>
-	<Ime>Sekretar</Ime>
-    <Prezime>Sekretar</Prezime>
-    <Jmbg>-1</Jmbg>
+    <DatumRodjenja>2000-01-03T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>asd</Adresa>
+    <BrojSlobodnihDana>0</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
   </Sekretar>
 </ArrayOfSekretar>

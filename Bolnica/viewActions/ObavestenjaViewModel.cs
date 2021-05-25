@@ -1,4 +1,5 @@
 ﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Kontroler;
 using Model;
 using System;
@@ -13,11 +14,12 @@ namespace Bolnica.viewActions
     public class ObavestenjaViewModel
     {
         private ObavestenjaKontroler ObavestenjaKontroler;
-        public ObservableCollection<Obavestenje> podsetnici
+        public ObservableCollection<Notifikacija> podsetnici
         {
             get
             {
-                return new ObservableCollection<Obavestenje>(ObavestenjaKontroler.DobaviPodsetnikeZaTerapiju(Pacijent));
+                ObservableCollection<Notifikacija> notifikacijas = new ObservableCollection<Notifikacija>(ObavestenjaKontroler.DobaviPodsetnikeZaTerapiju(Pacijent));
+                return notifikacijas;
             }
         }
 

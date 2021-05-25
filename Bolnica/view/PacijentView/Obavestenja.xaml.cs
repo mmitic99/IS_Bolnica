@@ -41,13 +41,7 @@ namespace Bolnica.view
         {
             obavestenjaPacijenta.ItemsSource = ViewModel.obavestenja;
             PodsetnikTerapija.ItemsSource = ViewModel.podsetnici;
-        }
-
-        public void Execute(Action action, DateTime ExecutionTime)
-        {
-            Task WaitTask = Task.Delay((int)ExecutionTime.Subtract(DateTime.Now).TotalMilliseconds);
-            WaitTask.ContinueWith(_ => action);
-            WaitTask.Start();
+            dodajPodsetnikButton.Command = MainViewModel.DodavnjePodsetnikaCommand;
         }
 
         private void obavestenjaPacijenta_SelectionChanged(object sender, SelectionChangedEventArgs e)

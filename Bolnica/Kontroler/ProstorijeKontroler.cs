@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using Bolnica.DTOs;
 using Bolnica.model;
 using Model.Enum;
+using Bolnica.view.UpravnikView;
+using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace Kontroler
 {
@@ -28,9 +31,10 @@ namespace Kontroler
             prostorijeServis = new ProstorijeServis();
         }
 
-        public void RenovirajProstoriju(String BrojProstorije, DateTime PocetakRenoviranja, DateTime KrajRenoviranja)
+        public void RenovirajProstoriju(RenoviranjeDTO renoviranjeDTO)
         {
-            ProstorijeServis.GetInstance().RenovirajProstoriju(BrojProstorije, PocetakRenoviranja, KrajRenoviranja);
+            Renoviranje renoviranje = new Renoviranje(renoviranjeDTO.BrojProstorije, renoviranjeDTO.DatumPocetkaRenoviranja, renoviranjeDTO.DatumZavrsetkaRenoviranja);
+            ProstorijeServis.GetInstance().RenovirajProstoriju(renoviranje);
         }
 
         public void ZavrsiRenoviranje(int index)
@@ -67,20 +71,36 @@ namespace Kontroler
 
         public List<ProstorijaDTO> GetAll()
         {
-            List<ProstorijaDTO> prostorije = new List<ProstorijaDTO>();
+            List<ProstorijaDTO> prostorijeDTO = new List<ProstorijaDTO>();
             foreach (Prostorija prostorija in prostorijeServis.GetAll())
             {
-                prostorije.Add(new ProstorijaDTO()
+                ProstorijaDTO prostorijaDTO = new ProstorijaDTO();
+                prostorijaDTO.BrojSobe = prostorija.BrojSobe;
+                prostorijaDTO.IdProstorije = prostorija.IdProstorije;
+                prostorijaDTO.Sprat = prostorija.Sprat;
+                prostorijaDTO.VrstaProstorije = prostorija.VrstaProstorije;
+                prostorijaDTO.Kvadratura = prostorija.Kvadratura;
+                prostorijaDTO.RenoviraSe = prostorija.RenoviraSe;
+                prostorijaDTO.Potrosna = new List<PotrosnaOpremaDTO>();
+                prostorijaDTO.Staticka = new List<StacionarnaOpremaDTO>();
+                foreach (StacionarnaOprema stacionarna in prostorija.Staticka)
                 {
-                    BrojSobe = prostorija.BrojSobe,
-                    IdProstorije = prostorija.IdProstorije,
-                    Sprat = prostorija.Sprat,
-                    VrstaProstorije = prostorija.VrstaProstorije,
-                    Kvadratura = prostorija.Kvadratura_,
-                    RenoviraSe = prostorija.RenoviraSe_
-                });
+                    StacionarnaOpremaDTO oprema = new StacionarnaOpremaDTO(stacionarna.TipStacionarneOpreme, stacionarna.Kolicina);
+                    prostorijaDTO.Staticka.Add(oprema);
+                }
+                foreach (PotrosnaOprema potrosna in prostorija.Potrosna)
+                {
+                    PotrosnaOpremaDTO oprema = new PotrosnaOpremaDTO(potrosna.TipOpreme, potrosna.KolicinaOpreme);
+                    prostorijaDTO.Potrosna.Add(oprema);
+                }
+                prostorijeDTO.Add(prostorijaDTO);
             }
-            return prostorije;
+            return prostorijeDTO;
+        }
+
+        public List<Prostorija> GetAllProstorije()
+        {
+            return ProstorijeServis.GetInstance().GetAll();
         }
 
         public void Save(Prostorija prostorija)
@@ -122,19 +142,41 @@ namespace Kontroler
             ProstorijeServis.GetInstance().IzmeniDinamickuOpremuUMagacinu(index, kolicina);
         }
 
-        public Prostorija GetMagacin()
+        public ProstorijaDTO GetMagacin()
         {
-            return ProstorijeServis.GetInstance().GetMagacin();
+            Prostorija magacin = ProstorijeServis.GetInstance().GetMagacin();
+            ProstorijaDTO magacinDTO = new ProstorijaDTO()
+            {
+                BrojSobe = magacin.BrojSobe,
+                Sprat = magacin.Sprat,
+                VrstaProstorije = magacin.VrstaProstorije,
+                Kvadratura = magacin.Kvadratura,
+                Staticka = new List<StacionarnaOpremaDTO>(),
+                Potrosna = new List<PotrosnaOpremaDTO>()
+            };
+            foreach (StacionarnaOprema stacionarna in magacin.Staticka)
+            {
+                StacionarnaOpremaDTO oprema = new StacionarnaOpremaDTO(stacionarna.TipStacionarneOpreme, stacionarna.Kolicina);
+                magacinDTO.Staticka.Add(oprema);
+            }
+            foreach (PotrosnaOprema potrosna in magacin.Potrosna)
+            {
+                PotrosnaOpremaDTO oprema = new PotrosnaOpremaDTO(potrosna.TipOpreme, potrosna.KolicinaOpreme);
+                magacinDTO.Potrosna.Add(oprema);
+            }
+            return magacinDTO;
         }
 
-        public void DodajProstoriju(Prostorija p)
+        public void DodajProstoriju(ProstorijaDTO prostorijaDTO)
         {
-            ProstorijeServis.GetInstance().DodajProstoriju(p);
+            Prostorija prostorija = new Prostorija(prostorijaDTO.BrojSobe, prostorijaDTO.Sprat, prostorijaDTO.VrstaProstorije, prostorijaDTO.Kvadratura);
+            ProstorijeServis.GetInstance().DodajProstoriju(prostorija);
         }
 
-        public void IzmeniProstoriju(int index, Prostorija p)
+        public void IzmeniProstoriju(int index, ProstorijaDTO prostorijaDTO)
         {
-            ProstorijeServis.GetInstance().IzmeniProstoriju(index, p);
+            Prostorija prostorija = new Prostorija(prostorijaDTO.BrojSobe, prostorijaDTO.Sprat, prostorijaDTO.VrstaProstorije, prostorijaDTO.Kvadratura);
+            ProstorijeServis.GetInstance().IzmeniProstoriju(index, prostorija);
         }
 
         public void IzbrisiProstoriju(int index)
@@ -142,14 +184,19 @@ namespace Kontroler
             ProstorijeServis.GetInstance().IzbrisiProstoriju(index);
         }
 
-        public bool ProveriValidnostProstorije(String BrojProstorije, String Sprat, int IndexSelektovaneVrsteProstorije, String Kvadaratura)
+        public bool ProveriValidnostProstorije(ProstorijaValidacijaDTO prostorija)
         {
-            return ProstorijeServis.GetInstance().ProveriValidnostProstorije(BrojProstorije, Sprat, IndexSelektovaneVrsteProstorije, Kvadaratura);
+            return ProstorijeServis.GetInstance().ProveriValidnostProstorije(prostorija);
         }
 
-        public bool ProveriValidnostIzmeneProstorije(String BrojProstorije, String Sprat, int IndexSelektovaneVrsteProstorije, String Kvadaratura)
+        public bool ValidirajBrojProstorije(Regex sablon, String unos)
         {
-            return ProstorijeServis.GetInstance().ProveriValidnostIzmeneProstorije(BrojProstorije, Sprat, IndexSelektovaneVrsteProstorije, Kvadaratura);
+            return ProstorijeServis.GetInstance().ValidirajBrojProstorije(sablon, unos);
+        }
+
+        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija, int indexProstorije)
+        {
+            return ProstorijeServis.GetInstance().ProveriValidnostIzmeneProstorije(prostorija, indexProstorije);
         }
 
         public bool ProveriValidnostOpreme(String NazivOpreme, String Kolicina)
@@ -182,18 +229,18 @@ namespace Kontroler
             ProstorijeServis.GetInstance().IzbrisiStacionarnuOpremuIzProstorije(indexProstorije, indexOpreme); 
         }
 
-        public void IzmeniStacionarnuOpremuProstorije(int indexProstorije, int indexOpreme, int kolicina)
+        public void IzmeniStacionarnuOpremuProstorije(IzmenaOpremeInfoDTO izmenaOpremeInfo)
         {
-            ProstorijeServis.GetInstance().IzmeniStacionarnuOpremuProstorije(indexProstorije, indexOpreme, kolicina);
+            ProstorijeServis.GetInstance().IzmeniStacionarnuOpremuProstorije(izmenaOpremeInfo);
         }
 
         public bool ProveriValidnostPrebacivanjaOpreme(String kolicina)
         {
             return ProstorijeServis.GetInstance().ProveriValidnostKolicineOpreme(kolicina);
         }
-        public void PrebaciStacionarnuOpremuUProstoriju(int indexIzKojeProstorije, int indexUKojuProstoriju, String nazivOpreme, int kolicina)
+        public void PrebaciStacionarnuOpremuUProstoriju(PrebacivanjeOpremeInfoDTO prebacivanjeInfo, int indexOpreme)
         {
-            ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(indexIzKojeProstorije, indexUKojuProstoriju, nazivOpreme, kolicina);
+            ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(prebacivanjeInfo, indexOpreme);
         }
 
         public int GetIdProstorijeByBrojProstorije(String brojProstorije)
@@ -221,9 +268,49 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().ProveriValidnostPretrage(naziv, kolicina, index);
         }
 
-        public List<Prostorija> PretraziProstorijePoOpremi(String naziv, String kolicina, int index)
+        public List<ProstorijaDTO> PretraziProstorijePoOpremi(PretragaInfoDTO info)
         {
-            return ProstorijeServis.GetInstance().PretraziProstorijePoOpremi(naziv, kolicina, index);
+            List<Prostorija> PretrazeneProstorije = ProstorijeServis.GetInstance().PretraziProstorijePoOpremi(info);
+            List<ProstorijaDTO> pretrazeneDTO = new List<ProstorijaDTO>();
+            foreach (Prostorija prostorija in PretrazeneProstorije)
+            {
+                ProstorijaDTO prostorijaDTO = new ProstorijaDTO()
+                {
+                    BrojSobe = prostorija.BrojSobe,
+                    Sprat = prostorija.Sprat,
+                    VrstaProstorije = prostorija.VrstaProstorije,
+                    Kvadratura = prostorija.Kvadratura,
+                    Staticka = new List<StacionarnaOpremaDTO>(),
+                    Potrosna = new List<PotrosnaOpremaDTO>()
+                };
+                foreach (StacionarnaOprema stacionarna in prostorija.Staticka)
+                {
+                    StacionarnaOpremaDTO oprema = new StacionarnaOpremaDTO(stacionarna.TipStacionarneOpreme, stacionarna.Kolicina);
+                    prostorijaDTO.Staticka.Add(oprema);
+                }
+                foreach (PotrosnaOprema potrosna in prostorija.Potrosna)
+                {
+                    PotrosnaOpremaDTO oprema = new PotrosnaOpremaDTO(potrosna.TipOpreme, potrosna.KolicinaOpreme);
+                    prostorijaDTO.Potrosna.Add(oprema);
+                }
+                 pretrazeneDTO.Add(prostorijaDTO);
+            }
+            return pretrazeneDTO;
+        }
+
+        public void DodajNaprednoRenoviranje(NaprednoRenoviranjeDTO renoviranjeDTO)
+        {
+            NaprednoRenoviranje renoviranje = new NaprednoRenoviranje()
+            {
+                BrojGlavneProstorije = renoviranjeDTO.BrojGlavneProstorije,
+                BrojProstorije1 = renoviranjeDTO.BrojProstorije1,
+                BrojProstorije2 = renoviranjeDTO.BrojProstorije2,
+                DatumPocetkaRenoviranja = renoviranjeDTO.DatumPocetkaRenoviranja,
+                DatumZavrsetkaRenoviranja = renoviranjeDTO.DatumZavrsetkaRenoviranja,
+                Spajanje = renoviranjeDTO.Spajanje,
+                Podela = renoviranjeDTO.Podela
+            };
+            ProstorijeServis.GetInstance().DodajNaprednoRenoviranje(renoviranje);
         }
 
         public Servis.TerminServis terminServis;
@@ -233,5 +320,42 @@ namespace Kontroler
         {
             return prostorijeServis.GetByVrstaProstorije(vrstaProstorije).Count;
         }
+
+        public List<RenoviranjeDTO> GetAllRenoviranja()
+        {
+            List<RenoviranjeDTO> renoviranja = new List<RenoviranjeDTO>();
+            foreach (Renoviranje renoviranje in prostorijeServis.GetAllRenoviranja())
+            {
+                renoviranja.Add(new RenoviranjeDTO()
+                {
+                    BrojProstorije = renoviranje.BrojProstorije,
+                    IdProstorije = renoviranje.IdProstorije,
+                    VrstaProstorije = renoviranje.VrstaProstorije,
+                    Sprat = renoviranje.Sprat,
+                    DatumPocetkaRenoviranja = renoviranje.DatumPocetkaRenoviranja,
+                    DatumZavrsetkaRenoviranja = renoviranje.DatumZavrsetkaRenoviranja
+                });
+            }
+            return renoviranja;
+        }
+        public List<NaprednoRenoviranjeDTO> GetAllNaprednaRenoviranja()
+        {
+            List<NaprednoRenoviranjeDTO> renoviranjaDTO = new List<NaprednoRenoviranjeDTO>();
+            foreach (NaprednoRenoviranje renoviranje in prostorijeServis.GetAllNaprednaRenoviranja())
+            {
+                renoviranjaDTO.Add(new NaprednoRenoviranjeDTO()
+                {
+                    BrojGlavneProstorije = renoviranje.BrojGlavneProstorije,
+                    BrojProstorije1 = renoviranje.BrojProstorije1,
+                    BrojProstorije2 = renoviranje.BrojProstorije2,
+                    DatumPocetkaRenoviranja = renoviranje.DatumPocetkaRenoviranja,
+                    DatumZavrsetkaRenoviranja = renoviranje.DatumZavrsetkaRenoviranja,
+                    Spajanje = renoviranje.Spajanje,
+                    Podela = renoviranje.Podela
+            });
+            }
+            return renoviranjaDTO;
+        }
+
     }
 }

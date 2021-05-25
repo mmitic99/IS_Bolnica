@@ -1,5 +1,6 @@
 ﻿using Bolnica.DTOs;
 using Bolnica.Servis;
+using Bolnica.view.UpravnikView;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,15 @@ namespace Bolnica.Kontroler
             return instance;
         }
 
-        public void DodajLek(Lek lek)
+        public void DodajLek(LekDTO lekDTO)
         {
+            Lek lek = new Lek(lekDTO.VrstaLeka, lekDTO.KolicinaLeka, lekDTO.NazivLeka, lekDTO.KlasaLeka, lekDTO.JacinaLeka, lekDTO.ZamenskiLek, lekDTO.SastavLeka);
             LekServis.GetInstance().DodajLek(lek);
         }
 
-        public void IzmeniLek(int index, Lek lek)
+        public void IzmeniLek(int index, LekDTO lekDTO)
         {
+            Lek lek = new Lek(lekDTO.VrstaLeka, lekDTO.KolicinaLeka, lekDTO.NazivLeka, lekDTO.KlasaLeka, lekDTO.JacinaLeka, lekDTO.ZamenskiLek, lekDTO.SastavLeka);
             LekServis.GetInstance().IzmeniLek(index, lek);
         }
         public void IzmeniLekLekar(int index, Lek lek)
@@ -40,9 +43,9 @@ namespace Bolnica.Kontroler
             LekServis.GetInstance().IzbrisiLek(index);
         }
 
-        public bool ProveriValidnostLeka(LekDTO lek, String dodajIzmeni)
+        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String dodajIzmeni, int selektovaniLek)
         {
-           return LekServis.GetInstance().ProveriValidnostLeka(lek, dodajIzmeni);
+           return LekServis.GetInstance().ProveriValidnostLeka(lek, dodajIzmeni, selektovaniLek);
         }
 
         public Model.Enum.VrstaLeka GetVrstuLeka(int IndexSelektovaneVrsteLeka)
@@ -56,9 +59,37 @@ namespace Bolnica.Kontroler
             return LekServis.GetInstance().GetKlasuLeka(IndexSelektovaneKlaseLeka);
         }
 
-        public List<Lek> GetAll()
+        public List<LekDTO> GetAll()
         {
-            return LekServis.GetInstance().GetAll();
+            List<LekDTO> lekovi = new List<LekDTO>();
+            foreach (Lek lek in LekServis.GetInstance().GetAll())
+            {
+                lekovi.Add(new LekDTO()
+                {
+                    VrstaLeka = lek.VrstaLeka,
+                    KolicinaLeka = lek.KolicinaLeka,
+                    NazivLeka = lek.NazivLeka,
+                    KlasaLeka = lek.KlasaLeka,
+                    JacinaLeka = lek.JacinaLeka,
+                    ZamenskiLek = lek.ZamenskiLek,
+                    SastavLeka = lek.SastavLeka
+                });
+            }
+            return lekovi;
+        }
+
+        public void Save(Lek lek)
+        {
+            LekServis.GetInstance().Save(lek);
+        }
+
+        public void SaveAll(List<Lek> lekovi)
+        {
+            LekServis.GetInstance().SaveAll(lekovi);
+        }
+        public Lek getById(int id)
+        {
+            return LekServis.GetInstance().getById(id);
         }
     }
 }

@@ -12,8 +12,6 @@ namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
-        public ISkladistePacijenta skladistePacijenta;
-        public ISkladisteZaTermine skladisteZaTermine;
         public static PacijentServis instance = null;
         public static PacijentServis GetInstance()
         {
@@ -30,6 +28,8 @@ namespace Servis
         {
             skladistePacijenta = SkladistePacijentaXml.GetInstance();
             skladisteZaTermine = new SkladisteZaTermineXml();
+            skladisteZaObavestenja = new SkladisteZaObavestenjaXml();
+            skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
         }
 
         public bool RegistrujPacijenta(Pacijent pacijent)
@@ -121,8 +121,52 @@ namespace Servis
             if (uspesno)
             {
                 uspesno = RegistrujPacijenta(novi);
+                IzmeniJmbgPacijentaUTerminima(stari.Jmbg, novi.Jmbg);
+                IzmeniJmbgPacijentaUObavestenjima(stari.Jmbg, novi.Jmbg);
+                IzmeniJmbgPacijentaUAktivnostima(stari.Jmbg, novi.Jmbg);
             }
             return uspesno;
+        }
+
+        private void IzmeniJmbgPacijentaUAktivnostima(string stariJmbg, string noviJmbg)
+        {
+            foreach (KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost in skladisteZaKorisnickeAktivnosti.GetAll())
+            {
+                if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))
+                {
+                    korisnickaAktivnost.JmbgKorisnika = noviJmbg;
+                    KorisnickeAktivnostiPacijentaServis.GetInstance().IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
+                }
+            }
+        }
+
+        private void IzmeniJmbgPacijentaUObavestenjima(string stariJmbg, string noviJmbg)
+        {
+            foreach (Obavestenje obavestenje in skladisteZaObavestenja.GetAll())
+            {
+                if (obavestenje.JmbgKorisnika.Equals(stariJmbg))
+                {
+                    ObavestenjaServis.getInstance().IzmeniObavestenje(obavestenje, new Obavestenje()
+                    {
+                        JmbgKorisnika = noviJmbg, Naslov = obavestenje.Naslov,
+                        Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,
+                        VremeObavestenja = obavestenje.VremeObavestenja, anketaOLekaru = obavestenje.anketaOLekaru,
+                        kvartalnaAnketa = obavestenje.kvartalnaAnketa
+                    });
+                }
+            }
+        }
+
+        private void IzmeniJmbgPacijentaUTerminima(string stariJmbg, string noviJmbg)
+        {
+            foreach (Termin termin in skladisteZaTermine.GetAll())
+            {
+                if (termin.JmbgPacijenta.Equals(stariJmbg))
+                {
+                    termin.JmbgPacijenta = noviJmbg;
+                    TerminServis.getInstance().IzmeniTermin(termin);
+                }
+            }
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -198,8 +242,10 @@ namespace Servis
         }
 
 
-
-
+        public ISkladistePacijenta skladistePacijenta;
+        public ISkladisteZaTermine skladisteZaTermine;
+        public ISkladisteZaObavestenja skladisteZaObavestenja;
+        public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
 
     }
 }

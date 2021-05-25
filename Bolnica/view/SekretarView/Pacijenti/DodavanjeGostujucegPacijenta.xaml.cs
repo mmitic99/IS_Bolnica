@@ -23,6 +23,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
             this.terminiPrikaz = terminiPrikaz;
             pacijentKontroler = new PacijentKontroler();
             this.Owner = App.Current.MainWindow;
+            DataContext = new PacijentDTO();
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)

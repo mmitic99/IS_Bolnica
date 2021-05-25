@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Bolnica.DTOs
     {
         public LekDTO() { }
 
-        public LekDTO(int vrsta, String kolicina, String naziv, int klasa, String jacina, String zamenskiLek, String sastav)
+        public LekDTO(VrstaLeka vrsta, double kolicina, String naziv, KlasaLeka klasa, int jacina, String zamenskiLek, String sastav)
         {
             VrstaLeka = vrsta;
             KolicinaLeka = kolicina;
@@ -20,13 +21,13 @@ namespace Bolnica.DTOs
             ZamenskiLek = zamenskiLek;
             SastavLeka = sastav;
         }
-        public int VrstaLeka { get; set; }
-        public String KolicinaLeka { get; set; }
+        public VrstaLeka VrstaLeka { get; set; }
+        public double KolicinaLeka { get; set; }
         public String NazivLeka { get; set; }
-        public int KlasaLeka { get; set; }
-        public String JacinaLeka { get; set; }
+        public KlasaLeka KlasaLeka { get; set; }
+        public int IdLeka { get; set; }
+        public int JacinaLeka { get; set; }
         public String ZamenskiLek { get; set; }
         public String SastavLeka { get; set; }
     }
 }
-

@@ -1,0 +1,41 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.Termini.GenerisiIzvestaj"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView.Termini"
+        mc:Ignorable="d"
+        Title="RadnoVremeLekara" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Margin="15">Datum početka:</Label>
+                <DatePicker x:Name="DatumPocetka" Grid.Column="1" Margin="15"/>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Margin="15">Datum završetka:</Label>
+                <DatePicker x:Name="DatumZavrsetka" Grid.Column="1" Margin="15"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
+        </StackPanel>
+    </Grid>
+</Window>

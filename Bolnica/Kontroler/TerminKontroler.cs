@@ -1,5 +1,5 @@
-using Bolnica.DTOs;
-using Model;
+﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Model.Enum;
 using Servis;
 using System;
@@ -7,6 +7,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using iText.IO.Font;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using TextAlignment = iText.Layout.Properties.TextAlignment;
+using Model;
+using HorizontalAlignment = iText.Layout.Properties.HorizontalAlignment;
 
 namespace Kontroler
 {
@@ -84,39 +98,29 @@ namespace Kontroler
 
         public IEnumerable<int> GetMesecnePreglede(List<string> sviDaniUMesecu)
         {
-            List<int> mesecniPreglediPoDanu = new List<int>(new int[sviDaniUMesecu.Count]);
-
-            foreach (Termin termin in TerminServis.GetAll())
-            {
-                for (int dan = 1; dan <= sviDaniUMesecu.Count; dan++)
-                {
-                    if (termin.VrstaTermina == VrstaPregleda.Pregled && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
-                        termin.DatumIVremeTermina.Month == DateTime.Now.Month && termin.DatumIVremeTermina.Day == dan)
-                    {
-                        mesecniPreglediPoDanu[dan - 1]++;
-                    }
-                }
-            }
-
-            return mesecniPreglediPoDanu;
+            return MesecniPreglediPoDanu(sviDaniUMesecu, VrstaPregleda.Pregled);
         }
         public IEnumerable<int> GetMesecneOperacije(List<string> sviDaniUMesecu)
         {
-            List<int> Termini = new List<int>(new int[sviDaniUMesecu.Count]);
+            return MesecniPreglediPoDanu(sviDaniUMesecu, VrstaPregleda.Operacija);
+        }
+
+        private List<int> MesecniPreglediPoDanu(List<string> sviDaniUMesecu, VrstaPregleda vrstaPregleda)
+        {
+            List<int> mesecniTerminiPoDanu = new List<int>(new int[sviDaniUMesecu.Count]);
 
             foreach (Termin termin in TerminServis.GetAll())
             {
                 for (int dan = 1; dan <= sviDaniUMesecu.Count; dan++)
                 {
-                    if (termin.VrstaTermina == VrstaPregleda.Operacija && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
+                    if (termin.VrstaTermina == vrstaPregleda && termin.DatumIVremeTermina.Year == DateTime.Now.Year &&
                         termin.DatumIVremeTermina.Month == DateTime.Now.Month && termin.DatumIVremeTermina.Day == dan)
                     {
-                        Termini[dan-1]++;
+                        mesecniTerminiPoDanu[dan - 1]++;
                     }
                 }
             }
-
-            return Termini;
+            return mesecniTerminiPoDanu;
         }
 
         public List<Termin> GetAll()
@@ -260,7 +264,6 @@ namespace Kontroler
 
         private int PronadjiPrioritet(bool nemaPrioritet, bool prioritetLekar)
         {
-            int prioritet;
             if (nemaPrioritet) return 0;
             else if (prioritetLekar) return 1;
             else return 2;
@@ -313,6 +316,7 @@ namespace Kontroler
         {
             return TerminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
         }
+
         public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
            List<Termin> termini =  SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
@@ -334,6 +338,12 @@ namespace Kontroler
                 terminiDTO.Add(terminDTO);
             }
             return terminiDTO;
+
+
+        public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
+        {
+            return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
+
         }
     }
 }

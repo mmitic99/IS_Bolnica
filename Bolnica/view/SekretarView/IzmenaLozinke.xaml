@@ -1,0 +1,49 @@
+﻿<Window x:Class="Bolnica.view.SekretarView.IzmenaLozinke"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView"
+        mc:Ignorable="d"
+        Title="IzmenaLozinke" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Stara lozinka:</Label>
+                <PasswordBox x:Name="staraLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Nova lozinka:</Label>
+                <PasswordBox x:Name="novaLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+            </Grid>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Ponovi novu lozinku:</Label>
+                <PasswordBox x:Name="ponovoNovaLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
