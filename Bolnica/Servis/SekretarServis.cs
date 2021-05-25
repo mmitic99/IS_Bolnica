@@ -56,6 +56,17 @@ namespace Servis
             throw new NotImplementedException();
         }
 
+        public bool IzmenaLozinke(string jmbgSekretara, string staraLozinka, string novaLozinka)
+        {
+            Sekretar sekretar = skladisteSekretara.GetByJmbg(jmbgSekretara);
+
+            ObrisiSekretara(jmbgSekretara);
+            sekretar.Korisnik.Lozinka = novaLozinka;
+            skladisteSekretara.Save(sekretar);
+
+            return true;
+        }
+
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
         {
             throw new NotImplementedException();

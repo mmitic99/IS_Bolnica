@@ -427,7 +427,7 @@ namespace Bolnica.view.SekretarView
 
         private void IzmenaLozinke_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            var s = new IzmenaLozinke();
+            var s = new IzmenaLozinke(sekretar);
             s.ShowDialog();
         }
     }

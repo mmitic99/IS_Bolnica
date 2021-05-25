@@ -44,9 +44,9 @@ namespace Kontroler
             return null;
         }
 
-        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        public bool IzmenaLozinke(string jmbgSekretara, string staraLozinka, string novaLozinka)
         {
-            throw new NotImplementedException();
+            return sekretarServis.IzmenaLozinke(jmbgSekretara, staraLozinka, novaLozinka);
         }
 
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
@@ -96,6 +96,11 @@ namespace Kontroler
                     Naziv = noviSekretar.NazivGrada
                 }
             });
+        }
+
+        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        {
+            throw new NotImplementedException();
         }
     }
 }

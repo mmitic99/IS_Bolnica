@@ -4,6 +4,6 @@ namespace Bolnica.Repozitorijum
 {
     public interface ISkladisteSekretara : ISkladiste<Sekretar>
     {
-
+        Sekretar GetByJmbg(string jmbg);
     }
 }
