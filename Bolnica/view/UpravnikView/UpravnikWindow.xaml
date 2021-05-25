@@ -10,9 +10,9 @@
     <TabControl>
         <TabItem Header="Mihailo Majstorović" Background="DodgerBlue" FontSize="15" FontFamily="Yu Gothic Medium" Width="191" BorderBrush="DodgerBlue" IsEnabled="False"/>
         <TabItem x:Name="PocetnaStrana" Header="POČETNA STRANA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="200" BorderBrush="DodgerBlue"/>
-        <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue">
+        <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue" >
             <TabControl TabStripPlacement="Left">
-                <TabItem Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                <TabItem x:Name="DodajObrisiProstorijeTab" Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid Background="DodgerBlue">
                         <DataGrid x:Name ="TabelaProstorija" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
                           SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="2">

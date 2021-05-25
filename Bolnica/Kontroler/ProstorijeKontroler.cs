@@ -188,9 +188,9 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().ProveriValidnostProstorije(prostorija);
         }
 
-        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija)
+        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija, int indexProstorije)
         {
-            return ProstorijeServis.GetInstance().ProveriValidnostIzmeneProstorije(prostorija);
+            return ProstorijeServis.GetInstance().ProveriValidnostIzmeneProstorije(prostorija, indexProstorije);
         }
 
         public bool ProveriValidnostOpreme(String NazivOpreme, String Kolicina)
@@ -232,9 +232,9 @@ namespace Kontroler
         {
             return ProstorijeServis.GetInstance().ProveriValidnostKolicineOpreme(kolicina);
         }
-        public void PrebaciStacionarnuOpremuUProstoriju(PrebacivanjeOpremeInfoDTO prebacivanjeInfo)
+        public void PrebaciStacionarnuOpremuUProstoriju(PrebacivanjeOpremeInfoDTO prebacivanjeInfo, int indexOpreme)
         {
-            ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(prebacivanjeInfo);
+            ProstorijeServis.GetInstance().PrebaciStacionarnuOpremuUProstoriju(prebacivanjeInfo, indexOpreme);
         }
 
         public int GetIdProstorijeByBrojProstorije(String brojProstorije)

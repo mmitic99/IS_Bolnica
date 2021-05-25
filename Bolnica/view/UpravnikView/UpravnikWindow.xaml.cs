@@ -51,7 +51,6 @@ namespace Bolnica.view.UpravnikView
             OsveziPrikazVerifikacijaLeka();
         }
 
-        // metoda za dodavanje nove prostorije
         private void DodajProstoriju(object sender, RoutedEventArgs e)
         {
             ProstorijaValidacijaDTO prostorijaZaValidaciju = new ProstorijaValidacijaDTO
@@ -76,7 +75,6 @@ namespace Bolnica.view.UpravnikView
             }
         }
 
-        // metoda za izmenu selektovane prostorije
         private void IzmeniProstoriju(object sender, RoutedEventArgs e)
         {
 
@@ -89,7 +87,7 @@ namespace Bolnica.view.UpravnikView
                                                                      VrstaProstorijeComboBoxIzmeni.SelectedIndex, 
                                                                      KvadraturaTextBoxIzmeni.Text
                                                                      );
-                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmeneProstorije(prostorijaZaValidaciju))
+                if (ProstorijeKontroler.GetInstance().ProveriValidnostIzmeneProstorije(prostorijaZaValidaciju, TabelaProstorijaIzmeni.SelectedIndex))
                 {
                     ProstorijaDTO prostorija = new ProstorijaDTO
                                                    (
@@ -109,7 +107,6 @@ namespace Bolnica.view.UpravnikView
             }
         }
 
-        // metoda za brisanje selektovane prostorije
         private void ObrisiProstoriju(object sender, RoutedEventArgs e)
         {
             if (TabelaProstorija.SelectedIndex != -1)
@@ -278,7 +275,7 @@ namespace Bolnica.view.UpravnikView
                                                                      NazivOpremeSKojomSeRadi_Copy.Text,
                                                                      Int32.Parse(KolicinaOpremeSKojomSeRadi_Copy.Text)
                                                                      );
-                    ProstorijeKontroler.GetInstance().PrebaciStacionarnuOpremuUProstoriju(prebacivanjeInfo);
+                    ProstorijeKontroler.GetInstance().PrebaciStacionarnuOpremuUProstoriju(prebacivanjeInfo, TabelaOpremeIzKojeSePrebacuje.SelectedIndex);
                     OsveziPrikazOpreme();
                     OsveziPrikazTabelaOpreme(prebacivanjeInfo.IndexIzKojeProstorije, prebacivanjeInfo.IndexUKojuProstoriju);
                 }
@@ -460,7 +457,7 @@ namespace Bolnica.view.UpravnikView
                                                    SastavLeka.Text
                                                    );
             LekDTO lekZaDodavanje;
-            if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj"))
+            if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj", -1))
             {
                 lekZaDodavanje = new LekDTO
                                      (
@@ -506,7 +503,7 @@ namespace Bolnica.view.UpravnikView
                                                        SastavLekaIzmeni.Text
                                                        );
                 LekDTO lekZaIzmenu;
-                if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "izmeni"))
+                if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "izmeni", TabelaLekovaIzmeni.SelectedIndex))
                 {
                     lekZaIzmenu = new LekDTO
                                       (
@@ -551,7 +548,7 @@ namespace Bolnica.view.UpravnikView
                                                    ZamenskiLek.Text, 
                                                    SastavLeka.Text
                                                    );
-            if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj"))
+            if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj", -1))
             {
                 String infoOLeku = "Vrsta:" + VrstaLekaLepIspis(lekZaValidaciju.VrstaLeka) + " Jačina:" + lekZaValidaciju.JacinaLeka + " mg" + 
                                    " Zamenski lek:" + lekZaValidaciju.ZamenskiLek + " Sastav:" + lekZaValidaciju.SastavLeka;

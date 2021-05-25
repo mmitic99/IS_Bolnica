@@ -43,9 +43,9 @@ namespace Bolnica.Kontroler
             LekServis.GetInstance().IzbrisiLek(index);
         }
 
-        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String dodajIzmeni)
+        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String dodajIzmeni, int selektovaniLek)
         {
-           return LekServis.GetInstance().ProveriValidnostLeka(lek, dodajIzmeni);
+           return LekServis.GetInstance().ProveriValidnostLeka(lek, dodajIzmeni, selektovaniLek);
         }
 
         public Model.Enum.VrstaLeka GetVrstuLeka(int IndexSelektovaneVrsteLeka)

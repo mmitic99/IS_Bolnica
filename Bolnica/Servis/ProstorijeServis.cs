@@ -475,42 +475,35 @@ public void AzurirajRenoviranjaProstorija()
             skladisteZaProstorije.SaveAll(SveProstorije);
         }
 
-        public void PrebaciStacionarnuOpremuUProstoriju(PrebacivanjeOpremeInfoDTO prebacivanjeInfo)
+        public void PrebaciStacionarnuOpremuUProstoriju(PrebacivanjeOpremeInfoDTO prebacivanjeInfo, int indexOpreme)
         {
             List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             bool nazivOpremeVecPrisutan = false;
-            int indexOpreme = UpravnikWindow.GetInstance().TabelaOpremeIzKojeSePrebacuje.SelectedIndex;
+            int indexPronadjeneOpreme = -1;
             for (int i = 0; i < prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka.Count; i++)
             {
                 if (prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka[i].TipStacionarneOpreme.Equals(prebacivanjeInfo.NazivOpreme))
                 {
                     nazivOpremeVecPrisutan = true;
-                    if (prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina - prebacivanjeInfo.KolicinaOpreme >= 0)
-                    {
-                        prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka[i].Kolicina += prebacivanjeInfo.KolicinaOpreme;
-                        prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina -= prebacivanjeInfo.KolicinaOpreme;
-                        skladisteZaProstorije.SaveAll(prostorije);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ne možete prebaciti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                    indexPronadjeneOpreme = i;
                 }
             }
-            if (nazivOpremeVecPrisutan == false)
+            if (prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina - prebacivanjeInfo.KolicinaOpreme >= 0)
             {
-                if (prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina - prebacivanjeInfo.KolicinaOpreme >= 0)
-                {
-                    prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka.Add(new StacionarnaOprema(prebacivanjeInfo.NazivOpreme, prebacivanjeInfo.KolicinaOpreme));
-                    prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina -= prebacivanjeInfo.KolicinaOpreme;
-                    skladisteZaProstorije.SaveAll(prostorije);
-                }
+                if (nazivOpremeVecPrisutan == true)
+                    prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka[indexPronadjeneOpreme].Kolicina += prebacivanjeInfo.KolicinaOpreme;
                 else
-                {
-                    MessageBox.Show("Ne možete prebaciti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                    prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka.Add(new StacionarnaOprema(prebacivanjeInfo.NazivOpreme, prebacivanjeInfo.KolicinaOpreme));
+
+                prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina -= prebacivanjeInfo.KolicinaOpreme;
+                skladisteZaProstorije.SaveAll(prostorije);
+            }
+            else
+            {
+                MessageBox.Show("Ne možete prebaciti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        
         public int GetIndexOpremeKojaSePrebacuje(int indexIzKojeProstorije, string nazivOpreme)
         {
             List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
@@ -652,9 +645,8 @@ public void AzurirajRenoviranjaProstorija()
             return false;
         }
 
-        private bool ValidirajBrojProstorijeIzmena(Regex sablon, String unos)
+        private bool ValidirajBrojProstorijeIzmena(Regex sablon, String unos, int indexSelektovaneProstorije)
         {
-            int indexSelektovaneProstorije = UpravnikWindow.GetInstance().TabelaProstorijaIzmeni.SelectedIndex;
             List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             if (sablon.IsMatch(unos))
             {
@@ -674,9 +666,9 @@ public void AzurirajRenoviranjaProstorija()
             return false;
         }
 
-        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija)
+        public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija, int indexProstorije)
         {
-            if (ValidirajBrojProstorijeIzmena(new Regex(@"^[0-9a-zA-Z]+$"), prostorija.BrojSobe) == false)
+            if (ValidirajBrojProstorijeIzmena(new Regex(@"^[0-9a-zA-Z]+$"), prostorija.BrojSobe, indexProstorije) == false)
             {
                 MessageBox.Show("Neispravno unet broj prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
