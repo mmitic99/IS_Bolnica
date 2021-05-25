@@ -23,7 +23,11 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Kompjuter</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>5</Kolicina>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Respirator</TipStacionarneOpreme>
+        <Kolicina>3</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna>
@@ -118,10 +122,6 @@
         <Kolicina>1</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
-        <TipStacionarneOpreme>Kompjuter</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
-      </StacionarnaOprema>
-      <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
         <Kolicina>2</Kolicina>
       </StacionarnaOprema>
@@ -198,7 +198,7 @@
     <Sprat>3</Sprat>
     <BrojSobe>304</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-    <RenoviraSe>false</RenoviraSe>
+    <RenoviraSe>true</RenoviraSe>
     <Kvadratura>54</Kvadratura>
     <Staticka>
       <StacionarnaOprema>
