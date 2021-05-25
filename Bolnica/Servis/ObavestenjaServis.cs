@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Windows;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
+using Bolnica.model;
+using Bolnica.Repozitorijum;
+using Bolnica.model.Enum;
 
 namespace Servis
 {
@@ -16,6 +19,7 @@ namespace Servis
 
         public static ObavestenjaServis instance;
         private ISkladisteZaObavestenja SkladisteZaObavestenja;
+        private ISkladisteZaPodsetnike SkladisteZaPodsetnike;
         private PacijentServis PacijentServis;
         private AnketeServis AnketeServis;
         private LekarServis LekarServis;
@@ -36,6 +40,7 @@ namespace Servis
         {
             this.PacijentServis = new PacijentServis();
             this.SkladisteZaObavestenja = new SkladisteZaObavestenjaXml();
+            this.SkladisteZaPodsetnike = new SkladisteZaPodsetnikeXml();
             this.AnketeServis = new AnketeServis();
             this.LekarServis = new LekarServis();
         }
@@ -71,49 +76,74 @@ namespace Servis
             return obavestenja;
         }
 
-        public List<Obavestenje> GetPodsetnici(String jmbg)
+        public List<Podsetnik> GetPodsetnici(String jmbg)
         {
-            return SkladisteZaObavestenja.GetPodsetniciByJmbg(jmbg);
+            return SkladisteZaPodsetnike.GetPodsetniciByJmbg(jmbg);
         }
 
         public bool NapraviPodsetnikZaUzimanjeLeka(string jmbgPacijenta, Recept r, int hours)
         {
             Pacijent pacijent = PacijentServis.GetByJmbg(jmbgPacijenta);
-            Obavestenje obavestenje = new Obavestenje()
+            Podsetnik podsetnik = new Podsetnik()
             {
                 VremeObavestenja = DateTime.Now,
                 JmbgKorisnika = jmbgPacijenta,
-                Podsetnik = true,
+                Ubaceno = true,
+                VrstaPodsetnika = VrstaPodsetnika.UzimanjeLeka,
                 Naslov = "Podsetnik o uzimanju leka -" + r.ImeLeka,
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + " podsećamo vas da danas u " + (DateTime.Today.AddHours(hours)).ToString("HH:mm") + 
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
-            return PosaljiPodsetnik(obavestenje);
+            return PosaljiPodsetnik(podsetnik);
             }
 
-        private bool PosaljiPodsetnik(Obavestenje obavestenje)
+        internal bool NapravikorisnickePodsetnike(KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano)
         {
-            if (DaLiJePodsetnikPoslat(obavestenje)) return false;
-            SkladisteZaObavestenja.Save(obavestenje);
+            foreach(DateTime datum in podsetnikKlasifikovano.Datumi)
+            {
+                NapraviKorisnickiPodsetnik(podsetnikKlasifikovano, datum);
+            }
             return true;
-    
         }
 
-        private bool DaLiJePodsetnikPoslat(Obavestenje obavestenje)
+        private void NapraviKorisnickiPodsetnik(KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano, DateTime datum)
         {
-            List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetAll();
-            foreach(Obavestenje o in obavestenja)
+            Podsetnik podsetnik = new Podsetnik()
             {
-                if (DaLiJeIstiPodsetnik(o, obavestenje)) return true;
+                VremeObavestenja = datum,
+                JmbgKorisnika = podsetnikKlasifikovano.JmbgKorisnika,
+                Ubaceno = false,
+                VrstaPodsetnika = VrstaPodsetnika.Korisnicki,
+                Naslov = podsetnikKlasifikovano.Naslov,
+                Sadrzaj = podsetnikKlasifikovano.Sadrzaj,
+                Vidjeno = false
+            };
+            PosaljiPodsetnik(podsetnik);
+        }
+
+        private bool PosaljiPodsetnik(Podsetnik podsetnik)
+        {
+            if (DaLiJePodsetnikPoslat(podsetnik)) return false;
+            SkladisteZaPodsetnike.Save(podsetnik);
+            return true;    
+        }
+
+        private bool DaLiJePodsetnikPoslat(Podsetnik podsetnik)
+        {
+            List<Podsetnik> podsetnici = SkladisteZaPodsetnike.GetAll();
+            foreach(Podsetnik p in podsetnici)
+            {
+                if (DaLiJeIstiPodsetnik(p, podsetnik)) return true;
             }
             return false;
         }
 
-        private bool DaLiJeIstiPodsetnik(Obavestenje o, Obavestenje obavestenje)
+        private bool DaLiJeIstiPodsetnik(Podsetnik p, Podsetnik podsetnik)
         {
-            return  o.Naslov.Equals(obavestenje.Naslov) 
-                    && o.Sadrzaj.Equals(obavestenje.Sadrzaj)
-                    && o.JmbgKorisnika.Equals(obavestenje.JmbgKorisnika);
+            return  p.Naslov.Equals(podsetnik.Naslov) 
+                    && p.Sadrzaj.Equals(podsetnik.Sadrzaj)
+                    && p.JmbgKorisnika.Equals(podsetnik.JmbgKorisnika)
+                    && p.VrstaPodsetnika== VrstaPodsetnika.UzimanjeLeka;
         }
 
         public void PosaljiAnketuOLekaru(string JmbgPacijenta, string JmbgLekara)
@@ -132,7 +162,6 @@ namespace Servis
             {
                 VremeObavestenja = DateTime.Now,
                 JmbgKorisnika = JmbgPacijenta,
-                Podsetnik = false,
                 Naslov = "Anketa o nedavnom pregledu",
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + "\r\n" + "nedavno ste bili na pregledu kod " + lekar.FullName + ". Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža." +
                 "Hvala Vam na izdvojenom vremenu." + "\r\n\n" + "Prijatan dan Vam želi ZDRAVO bolnica.",
@@ -144,6 +173,30 @@ namespace Servis
         }
 
         public int NabaviNovePodsetnike(string jmbg)
+        {
+            int brojNovihPodsetnika = 0;
+            brojNovihPodsetnika += NabaviPodsetnikeOUzimanjuLeka(jmbg);
+            brojNovihPodsetnika += NabaviKorisnickePodsetnike(jmbg);
+            return brojNovihPodsetnika;
+        }
+
+        private int NabaviKorisnickePodsetnike(string jmbg)
+        {
+            int brojNovihPodsetnika = 0;
+            List<Podsetnik> podsetnici = SkladisteZaPodsetnike.GetPodsetniciByJmbg(jmbg);
+            for (int i = 0; i < podsetnici.Count; i++)
+            {
+                if (!podsetnici[i].Ubaceno && podsetnici[i].VremeObavestenja <= DateTime.Now)
+                {
+                    brojNovihPodsetnika++;
+                    podsetnici[i].Ubaceno = true;
+                }
+            }
+            SkladisteZaPodsetnike.SaveAll(podsetnici);
+            return brojNovihPodsetnika;
+        }
+
+        private int NabaviPodsetnikeOUzimanjuLeka(string jmbg)
         {
             int brojNovihPodsetnika = 0;
             List<Recept> recepti = PacijentServis.DobaviReceptePacijenta(jmbg);
@@ -159,7 +212,7 @@ namespace Servis
                         TimeSpan nula = new TimeSpan(0, 0, 0);
                         foreach (int i in recept.TerminiUzimanjaLeka)
                         {
-                            if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena 
+                            if ((DateTime.Today.AddHours(i) - DateTime.Now) < satVremena
                                 && (DateTime.Today.AddHours(i) - DateTime.Now) > nula)
                             {
                                 if (NapraviPodsetnikZaUzimanjeLeka(jmbg, recept, i))
@@ -170,8 +223,7 @@ namespace Servis
                 }
             }
             return brojNovihPodsetnika;
-        } 
-        
+        }
 
         internal void PosaljiKvartalnuAnketu()
         {
@@ -180,7 +232,6 @@ namespace Servis
             {
                 VremeObavestenja = DateTime.Now,
                 JmbgKorisnika = "-1",
-                Podsetnik=false,
                 Naslov = "Aktivna "+GetNazivMesec(DateTime.Now.Month)+" anketa",
                 Sadrzaj = "Poštovani pacijenti," +"\r\n\n"+"obaveštavamo vas da je do "+DateTime.Now.Date.AddDays(15).ToString("d.M.yyyy")+" aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije." +
                 "\r\n\n"+"Sve najbolje Vam želi ZDRAVO bolnica.",
@@ -228,9 +279,22 @@ namespace Servis
             return false;
         }
 
-        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(string jmbgPacijenta)
+        public List<Podsetnik> DobaviAktuelnePodsetnike(string jmbgPacijenta)
         {
-            return SkladisteZaObavestenja.GetPodsetniciByJmbg(jmbgPacijenta);
+           List<Podsetnik> podsetniciKorisnika = SkladisteZaPodsetnike.GetPodsetniciByJmbg(jmbgPacijenta);
+            List<Podsetnik> uzimanjeTerapijePodsetnik = new List<Podsetnik>();
+            foreach (Podsetnik p in podsetniciKorisnika)
+            {
+                if(p.VrstaPodsetnika == VrstaPodsetnika.UzimanjeLeka)
+                {
+                    uzimanjeTerapijePodsetnik.Add(p);
+                }
+                if(p.VrstaPodsetnika == VrstaPodsetnika.Korisnicki && p.Ubaceno)
+                {
+                    uzimanjeTerapijePodsetnik.Add(p);
+                }
+            }
+            return uzimanjeTerapijePodsetnik;
         }
 
 

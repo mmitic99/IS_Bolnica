@@ -204,4 +204,22 @@ namespace Bolnica.DTOs
         public String JmbgLekara { get; set; }
     }
 
+    public class KorisnickiPodsetnikFrontDTO
+    {
+        public object JmbgKorisnika { get; set; }
+        public object Datumi { get; set; }
+        public object Sadrzaj { get; set; }
+        public object Naslov { get; set; }
+        public object Sat { get; set; }
+        public object Minut { get; set; }           
+    }
+
+    public class KorisnickiPodsetnikKlasifikovnoDTO
+    {
+        public string JmbgKorisnika { get; set; }
+        public List<DateTime> Datumi { get; set; }
+        public string Sadrzaj { get; set; }
+        public string Naslov { get; set; }
+    }
+
 }

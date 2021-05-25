@@ -5,20 +5,13 @@ using Bolnica.DTOs;
 
 namespace Model
 {
-    public class Obavestenje
-    {
-        public DateTime VremeObavestenja { get; set; }
-        public String Naslov { get; set; }
-        public String Sadrzaj { get; set; }
-        public String JmbgKorisnika { get; set; }
-        public bool Podsetnik { get; set; }
+    public class Obavestenje : Notifikacija
+    { 
         public DateTime kvartalnaAnketa { get; set; }
         public PrikacenaAnketaPoslePregledaDTO anketaOLekaru {get; set;}
-        public bool Vidjeno { get; set; }
 
         public Obavestenje()
         {
-            Podsetnik = false;
         }
 
         public override bool Equals(object obj)
@@ -28,7 +21,6 @@ namespace Model
                    Naslov == obavestenje.Naslov &&
                    Sadrzaj == obavestenje.Sadrzaj &&
                    JmbgKorisnika == obavestenje.JmbgKorisnika &&
-                   Podsetnik == obavestenje.Podsetnik;
                    kvartalnaAnketa.Equals(obavestenje.kvartalnaAnketa);
         }
     }
