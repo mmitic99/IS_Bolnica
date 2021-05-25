@@ -12,8 +12,6 @@ namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
-        public ISkladistePacijenta skladistePacijenta;
-        public ISkladisteZaTermine skladisteZaTermine;
         public static PacijentServis instance = null;
         public static PacijentServis GetInstance()
         {

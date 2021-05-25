@@ -316,7 +316,7 @@ namespace Kontroler
 
         public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
         {
-            return terminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
+            return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
         }
     }
 }
