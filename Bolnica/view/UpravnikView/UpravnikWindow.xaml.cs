@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using System.Text.RegularExpressions;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -764,7 +765,10 @@ namespace Bolnica.view.UpravnikView
                 TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
                 TabelaProstorijeUKojuSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
                 BrojProstorijeRenoviranje.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
-            }
+                BrojProstorijeNaprednoRenoviranjeComboBox.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
+                BrojProstorije1ComboBox.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
+                BrojProstorije2ComboBox.ItemsSource = ProstorijeKontroler.GetInstance().GetAll();
+        }
 
             private void OsveziPrikazOpreme()
             {
@@ -783,6 +787,7 @@ namespace Bolnica.view.UpravnikView
             private void OsveziPrikazRenoviranja()
             {
                 TabelaRenoviranja.ItemsSource = ProstorijeKontroler.GetInstance().GetAllRenoviranja();
+                TabelaNaprednogRenoviranja.ItemsSource = ProstorijeKontroler.GetInstance().GetAllNaprednaRenoviranja();
             }
 
             private void OsveziPrikazVerifikacijaLeka()
@@ -844,11 +849,81 @@ namespace Bolnica.view.UpravnikView
                 TabelaZakazanihPrebacivanjaOpreme.ItemsSource = ZakazanaPreraspodelaStatickeOpremeKontroler.GetInstance().GetAll();
             }
 
+            private void OsveziPrikazNaprednihRenoviranja()
+            {
+                TabelaNaprednogRenoviranja.ItemsSource = ProstorijeKontroler.GetInstance().GetAllNaprednaRenoviranja();
+        }
+
+
         private void OdjavaTab_GotFocus(object sender, RoutedEventArgs e)
         {
             var s = new Prijavljivanje("u");
             this.Close();
             s.Show();
+        }
+
+        private void ZakaziPodeluProstorijeClick(object sender, RoutedEventArgs e)
+        {
+            if (BrojProstorijeNaprednoRenoviranjeComboBox.SelectedIndex != -1 && DatumPocetkaPodeleSobe.SelectedDate != null && 
+                DatumZavrsetkaPodeleSobe.SelectedDate != null)
+            {
+                Regex sablon = new Regex(@"^[0-9a-zA-Z]+$");
+                if (ProstorijeKontroler.GetInstance().ValidirajBrojProstorije(sablon, NaprednoRenoviranjeSoba1.Text) &&
+                    ProstorijeKontroler.GetInstance().ValidirajBrojProstorije(sablon, NaprednoRenoviranjeSoba2.Text))
+                {
+                    NaprednoRenoviranjeDTO naprednoDTO = new NaprednoRenoviranjeDTO()
+                    {
+                        IdGlavneProstorije = -1,
+                        IdProstorije1 = -1,
+                        IdProstorije2 = -1,
+                        BrojGlavneProstorije = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorijeNaprednoRenoviranjeComboBox.SelectedIndex].BrojSobe,
+                        BrojProstorije1 = NaprednoRenoviranjeSoba1.Text,
+                        BrojProstorije2 = NaprednoRenoviranjeSoba2.Text,
+                        DatumPocetkaRenoviranja = (DateTime)DatumPocetkaPodeleSobe.SelectedDate,
+                        DatumZavrsetkaRenoviranja = (DateTime)DatumZavrsetkaPodeleSobe.SelectedDate,
+                        Spajanje = false,
+                        Podela = true
+                    };
+                    ProstorijeKontroler.GetInstance().DodajNaprednoRenoviranje(naprednoDTO);
+                    OsveziPrikazNaprednihRenoviranja();
+                }
+            }
+            else
+                MessageBox.Show("Niste uneli sve potrebnje podatke (brojeve prostorija ili datume) !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void ZakaziSpajanjeProstorijaClick(object sender, RoutedEventArgs e)
+        {
+            if (BrojProstorije1ComboBox.SelectedIndex != -1 && BrojProstorije1ComboBox.SelectedIndex != -1 || 
+                DatumPocetkaSpajanjaSoba.SelectedDate != null && DatumZavrsetkaSpajanjaSoba.SelectedDate != null)
+            {
+                Regex sablon = new Regex(@"^[0-9a-zA-Z]+$");
+                if (ProstorijeKontroler.GetInstance().ValidirajBrojProstorije(sablon, NaprednoRenoviranjeNovaSoba.Text))
+                {
+                    NaprednoRenoviranjeDTO naprednoDTO = new NaprednoRenoviranjeDTO()
+                    {
+                        IdGlavneProstorije = -1,
+                        IdProstorije1 = -1,
+                        IdProstorije2 = -1,
+                        BrojGlavneProstorije = NaprednoRenoviranjeNovaSoba.Text,
+                        BrojProstorije1 = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorije1ComboBox.SelectedIndex].BrojSobe,
+                        BrojProstorije2 = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorije2ComboBox.SelectedIndex].BrojSobe,
+                        DatumPocetkaRenoviranja = (DateTime)DatumPocetkaSpajanjaSoba.SelectedDate,
+                        DatumZavrsetkaRenoviranja = (DateTime)DatumZavrsetkaSpajanjaSoba.SelectedDate,
+                        Spajanje = true,
+                        Podela = false
+                    };
+                    ProstorijeKontroler.GetInstance().DodajNaprednoRenoviranje(naprednoDTO);
+                    OsveziPrikazNaprednihRenoviranja();
+                }
+            }
+            else
+                MessageBox.Show("Niste uneli sve potrebnje podatke (broj prostorije ili datume) !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void OtkaziNaprednoRenoviranjeClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

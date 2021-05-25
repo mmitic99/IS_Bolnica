@@ -17,12 +17,15 @@ namespace Bolnica.model
         public String BrojProstorije2 { get; set; }
         public DateTime DatumPocetkaRenoviranja { get; set; }
         public DateTime DatumZavrsetkaRenoviranja { get; set; }
+        public bool Spajanje { get; set; }
+        public bool Podela { get; set; }
+
 
         public NaprednoRenoviranje() { }
 
         public NaprednoRenoviranje(int idGlavneProstorije, int idProstorije1, int idProstorije2, 
                                    string brojGlavneProstorije, string brojProstorije1, string brojProstorije2, 
-                                   DateTime datumPocetkaRenoviranja, DateTime datumZavrsetkaRenoviranja)
+                                   DateTime datumPocetkaRenoviranja, DateTime datumZavrsetkaRenoviranja, bool spajanje, bool podela)
         {
             IdGlavneProstorije = idGlavneProstorije;
             IdProstorije1 = idProstorije1;
@@ -32,6 +35,8 @@ namespace Bolnica.model
             BrojProstorije2 = brojProstorije2;
             DatumPocetkaRenoviranja = datumPocetkaRenoviranja;
             DatumZavrsetkaRenoviranja = datumZavrsetkaRenoviranja;
+            Spajanje = spajanje;
+            Podela = podela;
         }
     }
 }

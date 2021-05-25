@@ -16,14 +16,16 @@ namespace Bolnica.DTOs
         public String BrojProstorije2 { get; set; }
         public DateTime DatumPocetkaRenoviranja { get; set; }
         public DateTime DatumZavrsetkaRenoviranja { get; set; }
+        public bool Spajanje { get; set; }
+        public bool Podela { get; set; }
 
         public NaprednoRenoviranjeDTO() { }
 
         public NaprednoRenoviranjeDTO(int idGlavneProstorije, int idProstorije1, int idProstorije2,
                                    string brojGlavneProstorije, string brojProstorije1, string brojProstorije2,
-                                   DateTime datumPocetkaRenoviranja, DateTime datumZavrsetkaRenoviranja)
+                                   DateTime datumPocetkaRenoviranja, DateTime datumZavrsetkaRenoviranja, bool spajanje, bool podela)
         {
-            IdGlavneProstorije = idGlavneProstorije;
+           // IdGlavneProstorije = idGlavneProstorije;
             IdProstorije1 = idProstorije1;
             IdProstorije2 = idProstorije2;
             BrojGlavneProstorije = brojGlavneProstorije;
@@ -31,5 +33,8 @@ namespace Bolnica.DTOs
             BrojProstorije2 = brojProstorije2;
             DatumPocetkaRenoviranja = datumPocetkaRenoviranja;
             DatumZavrsetkaRenoviranja = datumZavrsetkaRenoviranja;
+            Spajanje = spajanje;
+            Podela = podela;
         }
     }
+}

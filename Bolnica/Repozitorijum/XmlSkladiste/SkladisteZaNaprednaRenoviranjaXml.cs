@@ -54,7 +54,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
 
             NaprednaRenoviranja.Add(renoviranje);
 
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Renoviranje>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<NaprednoRenoviranje>));
 
             StreamWriter writer = new StreamWriter(Lokacija);
             serializer.Serialize(writer, NaprednaRenoviranja);
@@ -63,7 +63,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
 
         public void SaveAll(List<NaprednoRenoviranje> renoviranja)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Renoviranje>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<NaprednoRenoviranje>));
 
             StreamWriter writer = new StreamWriter(Lokacija);
             serializer.Serialize(writer, renoviranja);

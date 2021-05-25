@@ -624,7 +624,7 @@ public void AzurirajRenoviranjaProstorija()
             return true;
         }
 
-        private bool ValidirajBrojProstorije(Regex sablon, String unos)
+        public bool ValidirajBrojProstorije(Regex sablon, String unos)
         {
             List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
             if (sablon.IsMatch(unos))
@@ -964,7 +964,14 @@ public void AzurirajRenoviranjaProstorija()
                 }
             }
         }
-    public List<Renoviranje> GetAllRenoviranja()
+        public void DodajNaprednoRenoviranje(NaprednoRenoviranje renoviranje)
+        {
+            List<NaprednoRenoviranje> SvaNapredna = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            SvaNapredna.Add(renoviranje);
+            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(SvaNapredna);
+        }
+
+        public List<Renoviranje> GetAllRenoviranja()
         {
             return SkladisteZaRenoviranjaXml.GetInstance().GetAll();
         }
@@ -977,6 +984,20 @@ public void AzurirajRenoviranjaProstorija()
         public void SaveAll(List<Renoviranje> renoviranja)
         {
             SkladisteZaRenoviranjaXml.GetInstance().SaveAll(renoviranja);
+        }
+        public List<NaprednoRenoviranje> GetAllNaprednaRenoviranja()
+        {
+            return SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+        }
+
+        public void Save(NaprednoRenoviranje renoviranje)
+        {
+            SkladisteZaNaprednaRenoviranjaXml.GetInstance().Save(renoviranje);
+        }
+
+        public void SaveAll(List<NaprednoRenoviranje> renoviranja)
+        {
+            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(renoviranja);
         }
 
         public ISkladisteZaProstorije skladisteZaProstorije;

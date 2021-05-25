@@ -8,6 +8,7 @@ using Bolnica.model;
 using Model.Enum;
 using Bolnica.view.UpravnikView;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace Kontroler
 {
@@ -188,6 +189,11 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().ProveriValidnostProstorije(prostorija);
         }
 
+        public bool ValidirajBrojProstorije(Regex sablon, String unos)
+        {
+            return ProstorijeServis.GetInstance().ValidirajBrojProstorije(sablon, unos);
+        }
+
         public bool ProveriValidnostIzmeneProstorije(ProstorijaValidacijaDTO prostorija, int indexProstorije)
         {
             return ProstorijeServis.GetInstance().ProveriValidnostIzmeneProstorije(prostorija, indexProstorije);
@@ -292,6 +298,21 @@ namespace Kontroler
             return pretrazeneDTO;
         }
 
+        public void DodajNaprednoRenoviranje(NaprednoRenoviranjeDTO renoviranjeDTO)
+        {
+            NaprednoRenoviranje renoviranje = new NaprednoRenoviranje()
+            {
+                BrojGlavneProstorije = renoviranjeDTO.BrojGlavneProstorije,
+                BrojProstorije1 = renoviranjeDTO.BrojProstorije1,
+                BrojProstorije2 = renoviranjeDTO.BrojProstorije2,
+                DatumPocetkaRenoviranja = renoviranjeDTO.DatumPocetkaRenoviranja,
+                DatumZavrsetkaRenoviranja = renoviranjeDTO.DatumZavrsetkaRenoviranja,
+                Spajanje = renoviranjeDTO.Spajanje,
+                Podela = renoviranjeDTO.Podela
+            };
+            ProstorijeServis.GetInstance().DodajNaprednoRenoviranje(renoviranje);
+        }
+
         public Servis.TerminServis terminServis;
         public Servis.ProstorijeServis prostorijeServis;
 
@@ -317,15 +338,24 @@ namespace Kontroler
             }
             return renoviranja;
         }
-
-        public void Save(Renoviranje renoviranje)
+        public List<NaprednoRenoviranjeDTO> GetAllNaprednaRenoviranja()
         {
-            ProstorijeServis.GetInstance().Save(renoviranje);
+            List<NaprednoRenoviranjeDTO> renoviranjaDTO = new List<NaprednoRenoviranjeDTO>();
+            foreach (NaprednoRenoviranje renoviranje in prostorijeServis.GetAllNaprednaRenoviranja())
+            {
+                renoviranjaDTO.Add(new NaprednoRenoviranjeDTO()
+                {
+                    BrojGlavneProstorije = renoviranje.BrojGlavneProstorije,
+                    BrojProstorije1 = renoviranje.BrojProstorije1,
+                    BrojProstorije2 = renoviranje.BrojProstorije2,
+                    DatumPocetkaRenoviranja = renoviranje.DatumPocetkaRenoviranja,
+                    DatumZavrsetkaRenoviranja = renoviranje.DatumZavrsetkaRenoviranja,
+                    Spajanje = renoviranje.Spajanje,
+                    Podela = renoviranje.Podela
+            });
+            }
+            return renoviranjaDTO;
         }
 
-        public void SaveAll(List<Renoviranje> renoviranja)
-        {
-            ProstorijeServis.GetInstance().SaveAll(renoviranja);
-        }
     }
 }

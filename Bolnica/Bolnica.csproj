@@ -165,7 +165,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKvartalneAnketeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKorisnickeAktivnostiXml.cs" />
-    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjeaXml.cs" />
+    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />
