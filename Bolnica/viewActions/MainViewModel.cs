@@ -26,6 +26,8 @@ namespace Bolnica.viewActions
         public RelayCommand KvartalnaAnketaCommand { get; set; }
         public RelayCommand PrikazObavestenjaCommand { get; set; }
         public RelayCommand AnketaOLekaruCommand { get; set; }
+        public RelayCommand PodesavanjeObavestenjaCommand { get; set; }
+        public RelayCommand DodavnjePodsetnikaCommand { get; set; }
 
         public PacijentTerminiViewModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
@@ -36,6 +38,8 @@ namespace Bolnica.viewActions
         public ZdravstveniKartonViewModel ZdravstveniKartonVM { get; set; }
         public PrikazKvartalneAnketeViewModel PrikazKvartalneAnketeVM { get; set; }
         public AnketaOLekaruViewModel AnketaOLekaruVM { get; set; }
+        public PodesavanjeObavestenjaViewModel PodesavanjeObavestenjaVM { get; set; }
+        public DodavanjePodsetnikaViewModel DodavanjePodsetnikaVM { get; set; }
 
         private object _currentView;
 
@@ -59,6 +63,9 @@ namespace Bolnica.viewActions
             PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
             PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel();
             AnketaOLekaruVM = new AnketaOLekaruViewModel();
+            ZdravstveniKartonVM = new ZdravstveniKartonViewModel(Pacijent);
+            PodesavanjeObavestenjaVM = new PodesavanjeObavestenjaViewModel(Pacijent);
+            DodavanjePodsetnikaVM = new DodavanjePodsetnikaViewModel(Pacijent);
 
             CurrentView = PacijentTerminiVM;
 
@@ -112,7 +119,20 @@ namespace Bolnica.viewActions
                 CurrentView = PrikazObavestenjaVM;
             }
             );
+
+            PodesavanjeObavestenjaCommand = new RelayCommand(o =>
+            {
+                CurrentView = PrikazObavestenjaVM;
+            }
+            );
+
+            DodavnjePodsetnikaCommand = new RelayCommand(o =>
+            {
+                CurrentView = DodavanjePodsetnikaVM;
+            }
+            );
         }
+
         public MainViewModel()
         {
           

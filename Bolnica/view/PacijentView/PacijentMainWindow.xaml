@@ -65,7 +65,7 @@
                              FontSize="14"
                             Style="{StaticResource TerminPacijentTheme}"
                              Command="{Binding ObavestenjaCommand}"/>
-                <RadioButton x:Name="izmenaProfila" Content="Zdravstveni karton"
+                <RadioButton x:Name="zdravstveniKarton" Content="Zdravstveni karton"
                              Height="50"
                              FontSize="14"
                             Style="{StaticResource TerminPacijentTheme}"

@@ -148,7 +148,7 @@ namespace Servis
                 {
                     ObavestenjaServis.getInstance().IzmeniObavestenje(obavestenje, new Obavestenje()
                     {
-                        JmbgKorisnika = noviJmbg, Naslov = obavestenje.Naslov, Podsetnik = obavestenje.Podsetnik,
+                        JmbgKorisnika = noviJmbg, Naslov = obavestenje.Naslov,
                         Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,
                         VremeObavestenja = obavestenje.VremeObavestenja, anketaOLekaru = obavestenje.anketaOLekaru,
                         kvartalnaAnketa = obavestenje.kvartalnaAnketa

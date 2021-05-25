@@ -8,7 +8,6 @@ namespace Repozitorijum
     public interface ISkladisteZaObavestenja : ISkladiste<Obavestenje>
     {
         List<Obavestenje> GetObavestenjaByJmbg(String korisnickoIme);
-        List<Obavestenje> GetPodsetniciByJmbg(String jmbg);
 
     }
 }

@@ -85,7 +85,6 @@ namespace Bolnica.view
                 {
                     view.Obavestenja.instance.RefresujPrikaz();
                 }
-
             }
         }
 

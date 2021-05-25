@@ -3,6 +3,7 @@ using Servis;
 using System;
 using System.Collections.Generic;
 using Bolnica.DTOs;
+using Bolnica.model;
 
 namespace Kontroler
 {
@@ -43,7 +44,6 @@ namespace Kontroler
             {
                 JmbgKorisnika = obavestenje.JmbgKorisnika,
                 Naslov = obavestenje.Naslov,
-                Podsetnik = obavestenje.Podsetnik,
                 Sadrzaj = obavestenje.Sadrzaj,
                 Vidjeno = obavestenje.Vidjeno,
                 VremeObavestenja = obavestenje.VremeObavestenja,
@@ -67,7 +67,6 @@ namespace Kontroler
                 obavestenjaDto.Add(new ObavestenjeDTO(){
                     JmbgKorisnika = obavestenje.JmbgKorisnika,
                     Naslov = obavestenje.Naslov,
-                    Podsetnik = obavestenje.Podsetnik,
                     Sadrzaj = obavestenje.Sadrzaj,
                     Vidjeno = obavestenje.Vidjeno,
                     VremeObavestenja = obavestenje.VremeObavestenja,
@@ -79,7 +78,7 @@ namespace Kontroler
             return obavestenjaDto;
         }
 
-        public List<Obavestenje> GetPodsetnici(string jmbg)
+        public List<Podsetnik> GetPodsetnici(string jmbg)
         {
             return ObavestenjaServis.getInstance().GetPodsetnici(jmbg);
         }
@@ -89,9 +88,35 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().NapraviPodsetnikZaUzimanjeLeka(jmbgPacijenta, r, hours);
         }
 
-        public List<Obavestenje> DobaviPodsetnikeZaTerapiju(Pacijent pacijent)
+        public bool NapraviKorisnickiPodsetnik(KorisnickiPodsetnikFrontDTO podsetnikDTO)
         {
-            return ObavestenjaServis.getInstance().DobaviPodsetnikeZaTerapiju(pacijent.Jmbg);
+            KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano = KlasifikujParametreKorisnickogPodsetnika(podsetnikDTO);
+            return ObavestenjaServis.NapravikorisnickePodsetnike(podsetnikKlasifikovano);
+        }
+
+        private KorisnickiPodsetnikKlasifikovnoDTO KlasifikujParametreKorisnickogPodsetnika(KorisnickiPodsetnikFrontDTO podsetnikDTO)
+        {
+            KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovnoDTO = new KorisnickiPodsetnikKlasifikovnoDTO()
+            {
+                JmbgKorisnika = ((Pacijent)podsetnikDTO.JmbgKorisnika).Jmbg,
+                Datumi = new List<DateTime>((IEnumerable<DateTime>)podsetnikDTO.Datumi),
+                Naslov = (String)podsetnikDTO.Naslov,
+                Sadrzaj = (String)podsetnikDTO.Sadrzaj
+            };
+            int minut = int.Parse((String)podsetnikDTO.Minut);
+            int sat = int.Parse((String)podsetnikDTO.Sat);
+
+            TimeSpan vreme = new TimeSpan(sat, minut, 0);
+            for(int i=0; i<podsetnikKlasifikovnoDTO.Datumi.Count; i++)
+            {
+                podsetnikKlasifikovnoDTO.Datumi[i] = podsetnikKlasifikovnoDTO.Datumi[i].Date.Add(vreme);
+            }
+            return podsetnikKlasifikovnoDTO;
+        }
+
+        public List<Podsetnik> DobaviPodsetnikeZaTerapiju(Pacijent pacijent)
+        {
+            return ObavestenjaServis.getInstance().DobaviAktuelnePodsetnike(pacijent.Jmbg);
         }
 
         public int nabaviNovePodsetnike(Pacijent pacijent
@@ -106,7 +131,6 @@ namespace Kontroler
             {
                 JmbgKorisnika = staroObavestenje.JmbgKorisnika,
                 Naslov = staroObavestenje.Naslov,
-                Podsetnik = staroObavestenje.Podsetnik,
                 Sadrzaj = staroObavestenje.Sadrzaj,
                 Vidjeno = staroObavestenje.Vidjeno,
                 VremeObavestenja = staroObavestenje.VremeObavestenja,
@@ -116,7 +140,6 @@ namespace Kontroler
             {
                 JmbgKorisnika = novoObavestenje.JmbgKorisnika,
                 Naslov = novoObavestenje.Naslov,
-                Podsetnik = novoObavestenje.Podsetnik,
                 Sadrzaj = novoObavestenje.Sadrzaj,
                 Vidjeno = novoObavestenje.Vidjeno,
                 VremeObavestenja = novoObavestenje.VremeObavestenja,
@@ -132,7 +155,7 @@ namespace Kontroler
             return obavestenjaServis.ObrisiObavestenje(new Obavestenje()
             {
                 JmbgKorisnika = obavestenje.JmbgKorisnika, Naslov = obavestenje.Naslov,
-                Podsetnik = obavestenje.Podsetnik, Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,
+               Sadrzaj = obavestenje.Sadrzaj, Vidjeno = obavestenje.Vidjeno,
                 VremeObavestenja = obavestenje.VremeObavestenja, anketaOLekaru = obavestenje.anketaOLekaru,
                 kvartalnaAnketa = obavestenje.kvartalnaAnketa
             });

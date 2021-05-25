@@ -43,20 +43,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
         public void Save(Obavestenje obavestenje)
         {
             List<Obavestenje> obavestenja = GetAll();
-            bool sacuvaj = true;
-            foreach(Obavestenje o in obavestenja)
-            {
-                if(o.Sadrzaj.Equals(obavestenje.Sadrzaj) && o.Naslov.Equals(obavestenje.Naslov) && o.JmbgKorisnika.Equals(obavestenje.JmbgKorisnika) && obavestenje.Podsetnik)
-                {
-                    sacuvaj = false;
-                    break;
-                }
-            }
-            if(sacuvaj)
-            {
-                obavestenja.Add(obavestenje);
-
-            }
+            obavestenja.Add(obavestenje);
             SaveAll(obavestenja);
             return;
         }
@@ -82,35 +69,12 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             List<Obavestenje> odgovarajucaObavestanje = new List<Obavestenje>();
             foreach(Obavestenje o in svaObavestenja)
             {
-                if(o.JmbgKorisnika.Equals(korisnickoIme) && !o.Podsetnik)
+                if(o.JmbgKorisnika.Equals(korisnickoIme))
                 {
                     odgovarajucaObavestanje.Add(o);
                 }
             }
             return odgovarajucaObavestanje;
         }
-
-        public List<Obavestenje> GetPodsetniciByJmbg(String jmbg)
-        {
-            List<Obavestenje> svaObavestenja = this.GetAll();
-            List<Obavestenje> svaObavestenjaFiltrirano = this.GetAll();
-            List<Obavestenje> odgovarajucaObavestanje = new List<Obavestenje>();
-            bool remove = false;
-            foreach (Obavestenje o in svaObavestenja)
-            {
-                if (o.VremeObavestenja < DateTime.Today && o.Podsetnik)
-                {
-                    svaObavestenjaFiltrirano.Remove(o);
-                }
-                else if (o.JmbgKorisnika.Equals(jmbg) && o.Podsetnik)
-                {
-                    odgovarajucaObavestanje.Add(o);
-                }
-            }
-            
-            this.SaveAll(svaObavestenjaFiltrirano);
-            return odgovarajucaObavestanje;
-        }
-
     }
 }

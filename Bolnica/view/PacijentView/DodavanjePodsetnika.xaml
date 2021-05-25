@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Bolnica.view.PacijentView.DodavanjePodsetnika"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             mc:Ignorable="d" 
+             FontSize="15"
+             d:DesignHeight="673" d:DesignWidth="804"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="235"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="60"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Novi podsetnik" FontSize="25"
+                   HorizontalAlignment="Left"
+                   Margin="10"
+                   FontWeight="DemiBold">
+        </TextBlock>
+        <TextBlock Grid.Row="1"
+                   x:Name="nazivPodsetnika"
+                   Text="Naziv podsetnika:"
+                   HorizontalAlignment="Right"
+                   Margin="10">
+        </TextBlock>
+        <TextBlock Grid.Row="2"
+                   Text="Dodatne napomene:"
+                   HorizontalAlignment="Right"
+                  Margin="10">
+        </TextBlock>
+        <TextBlock Grid.Row="4" 
+                   Text="Vreme:"
+                   Margin="10"
+                   HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="3"
+                   Text="Datum:"
+                   Margin="10"
+                   HorizontalAlignment="Right"/>
+        <TextBox x:Name="naslov" 
+                Grid.Column="1"
+                 Grid.Row="1"
+                 Margin="10"
+                 Height="49" 
+                 VerticalAlignment="Top">
+        </TextBox>
+        <TextBlock Grid.Row="3">
+
+        </TextBlock>
+        <TextBox x:Name="sadrzaj"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Margin="10">
+        </TextBox>
+        <TextBox x:Name="sat"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Margin="10"
+                 Height="25"
+                 Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Text=":"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Margin="50,10,10,10"
+                   ></TextBlock>
+        <TextBox x:Name="minut"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Margin="60,10,10,10"
+                 Height="25"
+                 Width="30" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Viewbox Grid.Row="3" 
+                         Grid.Column="1" 
+                         Width="250"
+                         Height="250"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Margin="10,0,0,0">
+            <Calendar x:Name="kalendar" 
+                              HorizontalAlignment="Left" 
+                              VerticalAlignment="Top"
+                              SelectionMode="MultipleRange" 
+                              FontSize="15" />
+        </Viewbox>
+        <Button x:Name="Nazad"
+                Content="Nazad"
+                Grid.Column="1"
+                Grid.Row="5"
+                HorizontalAlignment="Left"
+                Width="100"
+                Height="60">
+
+        </Button>
+        <Button x:Name="Dodaj"
+                Grid.Column="1"
+                Grid.Row="5"
+                HorizontalAlignment="Right"
+                Width="100"
+                Height="60"
+                Content="Dodaj"
+                Margin="0,0,50,0"
+                Click="Dodaj_Click">
+
+        </Button>
+
+
+    </Grid>
+</UserControl>

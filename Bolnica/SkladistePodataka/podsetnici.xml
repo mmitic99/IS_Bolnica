@@ -1,2 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T11:05:32.5355495+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Pulmicort</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>UzimanjeLeka</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T12:20:00+02:00</VremeObavestenja>
+    <Naslov>proba</Naslov>
+    <Sadrzaj>proba</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T12:50:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-25T12:00:00</VremeObavestenja>
+    <Naslov>er</Naslov>
+    <Sadrzaj>ee</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T12:22:00</VremeObavestenja>
+    <Naslov />
+    <Sadrzaj />
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-26T12:00:00</VremeObavestenja>
+    <Naslov>5</Naslov>
+    <Sadrzaj>r</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T12:00:00</VremeObavestenja>
+    <Naslov>5</Naslov>
+    <Sadrzaj>redd</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T12:00:00</VremeObavestenja>
+    <Naslov>5</Naslov>
+    <Sadrzaj>redd</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T14:08:00</VremeObavestenja>
+    <Naslov>cf</Naslov>
+    <Sadrzaj>ff</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+</ArrayOfPodsetnik>

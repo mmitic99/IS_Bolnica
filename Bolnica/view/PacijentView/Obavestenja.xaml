@@ -17,9 +17,52 @@
                 </Grid.RowDefinitions>
                 <StackPanel x:Name="posetnikZaTerapiju"
                             Height="320">
-                    <TextBlock Text="Podsetnik za terapiju"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Podsetnik za terapiju"
+                               Width="350"
+                               HorizontalAlignment="Left"
                                FontSize="25"
                                FontWeight="Bold"></TextBlock>
+                        <Button Width="70" Height="50" HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                                Grid.Column="1"
+                                x:Name="podesvanja_button"
+                            Background="Transparent"
+                            BorderThickness="0" RenderTransformOrigin="0.449,0.128">
+                            <StackPanel>
+                                <Grid Width="70" Height="50">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="configuration-gears.png" Margin="0,0,0,0.4"/>
+                                <TextBlock Text="Podešavanja" Grid.Row="1"/>
+                            </Grid>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="70" Height="50" HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                                Grid.Column="1"
+                                Margin="0,0,70,0"
+                                x:Name="dodajPodsetnikButton"
+                            Background="Transparent"
+                            BorderThickness="0" RenderTransformOrigin="0.449,0.128">
+                            <StackPanel>
+                                <Grid Width="70" Height="50">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="add.png" Margin="0,0,0,0.4"/>
+                                    <TextBlock Text="Dodaj" Grid.Row="1" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
                     <DataGrid Height="295"
                               x:Name="PodsetnikTerapija"
                               HeadersVisibility="None"
