@@ -930,49 +930,23 @@ namespace Servis
                 return true;
         }
 
-        public List<Prostorija> PretraziProstorijePoOpremi(String naziv, String kolicina, int index)
+        public List<Prostorija> PretraziProstorijePoOpremi(PretragaInfoDTO info)
         {
             List<Prostorija> pronadjeneProstorije = new List<Prostorija>();
             List<Prostorija> sveProstorije = skladisteZaProstorije.GetAll();
-            int kolicinaOpreme = Int32.Parse(kolicina);
+            int kolicinaOpreme = Int32.Parse(info.KolicinaOpreme);
             bool pronadjenaOprema = false;
             foreach (Prostorija p in sveProstorije)
             {
                 List<StacionarnaOprema> opremaProstorije = p.Staticka;
                 pronadjenaOprema = false;
-                foreach (StacionarnaOprema oprema in opremaProstorije)
-                {
-                    if (index == 0)
-                    {
-                        if (oprema.TipStacionarneOpreme.Equals(naziv) && oprema.Kolicina > kolicinaOpreme)
-                        {
-                            pronadjeneProstorije.Add(p);
-                            pronadjenaOprema = true;
-                        }
-                    }
-                    else if (index == 1)
-                    {
-                        if (oprema.TipStacionarneOpreme.Equals(naziv))
-                        {
-                            pronadjenaOprema = true;
-                            if (oprema.Kolicina < kolicinaOpreme)
-                                pronadjeneProstorije.Add(p);
-                        }
-                    }
-                    else if (index == 2)
-                    {
-                        if (oprema.TipStacionarneOpreme.Equals(naziv) && oprema.Kolicina == kolicinaOpreme)
-                        {
-                            pronadjeneProstorije.Add(p);
-                            pronadjenaOprema = true;
-                        }
-                    }
-                }
-                if (pronadjenaOprema == false && index == 1 && kolicinaOpreme > 0)
+                ProstorijaInfoDTO prostorijaInfo = new ProstorijaInfoDTO(info, opremaProstorije, p);
+                PretraziOpremuPoProstorijama(prostorijaInfo, ref pronadjeneProstorije, ref pronadjenaOprema);
+                if (pronadjenaOprema == false && info.IndexComboBox == 1 && kolicinaOpreme > 0)
                 {
                     pronadjeneProstorije.Add(p);
                 }
-                if ((index == 2 && kolicinaOpreme == 0) || (index == 1 && kolicinaOpreme == 0))
+                if ((info.IndexComboBox == 2 && kolicinaOpreme == 0) || (info.IndexComboBox == 1 && kolicinaOpreme == 0))
                 {
                     MessageBox.Show("Nevalidna pretraga !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
@@ -981,6 +955,38 @@ namespace Servis
             return pronadjeneProstorije;
         }
 
+        private void PretraziOpremuPoProstorijama(ProstorijaInfoDTO info, ref List<Prostorija> pronadjeneProstorije, ref bool pronadjenaOprema)
+        {
+            int kolicinaOpreme = Int32.Parse(info.pretragaInfo.KolicinaOpreme);
+            foreach (StacionarnaOprema oprema in info.OpremaProstorije)
+            {
+                if (info.pretragaInfo.IndexComboBox == 0)
+                {
+                    if (oprema.TipStacionarneOpreme.Equals(info.pretragaInfo.NazivOpreme) && oprema.Kolicina > kolicinaOpreme)
+                    {
+                        pronadjeneProstorije.Add(info.Prostorija);
+                        pronadjenaOprema = true;
+                    }
+                }
+                else if (info.pretragaInfo.IndexComboBox == 1)
+                {
+                    if (oprema.TipStacionarneOpreme.Equals(info.pretragaInfo.NazivOpreme))
+                    {
+                        pronadjenaOprema = true;
+                        if (oprema.Kolicina < kolicinaOpreme)
+                            pronadjeneProstorije.Add(info.Prostorija);
+                    }
+                }
+                else if (info.pretragaInfo.IndexComboBox == 2)
+                {
+                    if (oprema.TipStacionarneOpreme.Equals(info.pretragaInfo.NazivOpreme) && oprema.Kolicina == kolicinaOpreme)
+                    {
+                        pronadjeneProstorije.Add(info.Prostorija);
+                        pronadjenaOprema = true;
+                    }
+                }
+            }
+        }
     public List<Renoviranje> GetAllRenoviranja()
         {
             return SkladisteZaRenoviranjaXml.GetInstance().GetAll();

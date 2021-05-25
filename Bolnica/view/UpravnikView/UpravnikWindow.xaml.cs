@@ -600,8 +600,9 @@ namespace Bolnica.view.UpravnikView
         {
             if (ProstorijeKontroler.GetInstance().ProveriValidnostPretrage(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex))
             {
+                PretragaInfoDTO info = new PretragaInfoDTO(NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex);
                 TabelaProstorijaIzKojeSePrebacujeOprema.ItemsSource = ProstorijeKontroler.GetInstance().PretraziProstorijePoOpremi
-                                                                     (NazivPretraga.Text, KolicinaPretraga.Text, UpitPretrage.SelectedIndex);
+                                                                     (info);
                 TabelaProstorijaIzKojeSePrebacujeOprema.IsEnabled = false;
             }
         }

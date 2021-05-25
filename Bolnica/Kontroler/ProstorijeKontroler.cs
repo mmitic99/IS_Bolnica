@@ -262,9 +262,9 @@ namespace Kontroler
             return ProstorijeServis.GetInstance().ProveriValidnostPretrage(naziv, kolicina, index);
         }
 
-        public List<ProstorijaDTO> PretraziProstorijePoOpremi(String naziv, String kolicina, int index)
+        public List<ProstorijaDTO> PretraziProstorijePoOpremi(PretragaInfoDTO info)
         {
-            List<Prostorija> PretrazeneProstorije = ProstorijeServis.GetInstance().PretraziProstorijePoOpremi(naziv, kolicina, index);
+            List<Prostorija> PretrazeneProstorije = ProstorijeServis.GetInstance().PretraziProstorijePoOpremi(info);
             List<ProstorijaDTO> pretrazeneDTO = new List<ProstorijaDTO>();
             foreach (Prostorija prostorija in PretrazeneProstorije)
             {
