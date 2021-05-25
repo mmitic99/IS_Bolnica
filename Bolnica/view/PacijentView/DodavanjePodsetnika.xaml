@@ -48,6 +48,7 @@
                    HorizontalAlignment="Right"/>
         <TextBox x:Name="naslov" 
                 Grid.Column="1"
+                 Text="{Binding Path = beleska.Naslov}"
                  Grid.Row="1"
                  Margin="10"
                  Height="49" 
@@ -58,6 +59,7 @@
         </TextBlock>
         <TextBox x:Name="sadrzaj"
                  Grid.Row="2"
+                 Text="{Binding beleska.Opis}"
                  Grid.Column="1"
                  Margin="10">
         </TextBox>

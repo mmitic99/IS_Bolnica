@@ -16,15 +16,22 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for ZdravstveniKarton.xaml
-    /// </summary>
     public partial class ZdravstveniKarton : UserControl
     {
+        private MainViewModel MainViewModel;
+        private ZdravstveniKartonViewModel ViewModel;
         public ZdravstveniKarton()
         {
             InitializeComponent();
-            IstorijaPregleda.ItemsSource = MainViewModel.getInstance().ZdravstveniKartonVM.odradjeniPregledi;
+            this.MainViewModel = MainViewModel.getInstance();
+            this.ViewModel = MainViewModel.ZdravstveniKartonVM;
+            SetStartView();
+        }
+
+        private void SetStartView()
+        {
+            DataContext = ViewModel;
         }
     }
+
 }

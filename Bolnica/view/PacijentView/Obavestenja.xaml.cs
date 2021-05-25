@@ -58,5 +58,10 @@ namespace Bolnica.view
             obavestenjaPacijenta.ItemsSource = ViewModel.obavestenja;
             PodsetnikTerapija.ItemsSource = ViewModel.podsetnici;
         }
+
+        private void PodsetnikTerapija_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

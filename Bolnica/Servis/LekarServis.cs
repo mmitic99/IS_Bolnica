@@ -210,6 +210,7 @@ namespace Servis
         {
             Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka, parametri.DodatneNapomene, parametri.DatumIzdavanja, parametri.BrojDana, parametri.Doza, parametri.terminiUzimanjaTokomDana, parametri.Dijagnoza, parametri.ImeDoktora);
             List<Recept> recepti = new List<Recept>();
+            Recept.IdRecepta = PacijentServis.GetByJmbg(parametri.p.Jmbg).ZdravstveniKarton.Izvestaj.Count+1;
             recepti.Add(Recept);
             Izvestaj izvestaj = new Izvestaj(recepti);
             List<Izvestaj> izvestaji = new List<Izvestaj>();

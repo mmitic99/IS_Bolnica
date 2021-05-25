@@ -53,12 +53,12 @@ namespace Bolnica.view
             Ime.DataContext = MainViewModel.Pacijent;
             DataContext = MainViewModel;
             brojObavestenja.Text = "0";
-            DispatcherTimer timer = new DispatcherTimer();
+            /*DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(NabaviNovePodsetnike);
             timer.Tick += new EventHandler(PosaljiKvartalneAnkete);
             timer.Tick += new EventHandler(OdblokirajKorisnike);
             timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Start();
+            timer.Start();*/
         }
 
         private void OdblokirajKorisnike(object sender, EventArgs e)

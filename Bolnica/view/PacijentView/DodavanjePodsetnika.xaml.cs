@@ -37,6 +37,7 @@ namespace Bolnica.view.PacijentView
             kalendar.SelectedDate = DateTime.Today;
             kalendar.DisplayDateStart = DateTime.Today;
             Nazad.Command = MainViewModel.ObavestenjaCommand;
+            DataContext = ViewModel;
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -51,6 +52,7 @@ namespace Bolnica.view.PacijentView
                 Sadrzaj = sadrzaj.Text
             };
             ObavestenjaKontroler.NapraviKorisnickiPodsetnik(PodsetnikDTO);
+            MainViewModel.DodavanjePodsetnikaVM = new DodavanjePodsetnikaViewModel(MainViewModel.Pacijent);
             MainViewModel.CurrentView = MainViewModel.ObavestenjaVM;
         }
     }

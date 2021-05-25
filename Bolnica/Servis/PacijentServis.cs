@@ -32,6 +32,7 @@ namespace Servis
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
         }
 
+
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
@@ -114,6 +115,19 @@ namespace Servis
             return uspesno;
         }
 
+        public void SacuvajKomentarNaDijagnozu(Recept izabraniRecept, Pacijent pacijent)
+        {
+            for(int i=0; i<pacijent.ZdravstveniKarton.Izvestaj.Count; i++)
+            {
+                for(int j=0; j<pacijent.ZdravstveniKarton.Izvestaj[i].recepti.Count; j++)
+                if(pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j].IdRecepta == izabraniRecept.IdRecepta)
+                {
+                        pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j] = izabraniRecept;
+                }
+            }
+            IzmeniPacijenta(pacijent, pacijent);
+        }
+
         public bool IzmeniPacijenta(Pacijent stari, Pacijent novi)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
@@ -121,9 +135,13 @@ namespace Servis
             if (uspesno)
             {
                 uspesno = RegistrujPacijenta(novi);
-                IzmeniJmbgPacijentaUTerminima(stari.Jmbg, novi.Jmbg);
-                IzmeniJmbgPacijentaUObavestenjima(stari.Jmbg, novi.Jmbg);
-                IzmeniJmbgPacijentaUAktivnostima(stari.Jmbg, novi.Jmbg);
+                if(!stari.Jmbg.Equals(novi.Jmbg))
+                {
+                    IzmeniJmbgPacijentaUTerminima(stari.Jmbg, novi.Jmbg);
+                    IzmeniJmbgPacijentaUObavestenjima(stari.Jmbg, novi.Jmbg);
+                    IzmeniJmbgPacijentaUAktivnostima(stari.Jmbg, novi.Jmbg);
+                }
+
             }
             return uspesno;
         }

@@ -6,6 +6,7 @@ namespace Kontroler
 {
    public class KorisnickeAktivnostiPacijentaKontroler
    {
+        private KorisnickeAktivnostiPacijentaServis KorisnickeAktivnostiPacijentaServis;
         private static KorisnickeAktivnostiPacijentaKontroler instance = null;
 
         public static KorisnickeAktivnostiPacijentaKontroler GetInstance()
@@ -21,64 +22,48 @@ namespace Kontroler
         public KorisnickeAktivnostiPacijentaKontroler()
         {
             instance = this;
+            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
         }
 
-      public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Enum.VrstaKorisnikaAplikacije GetRangKorisnika(String jmbgKorisnika)
-      {
-         // TODO: implement
-         return Model.Enum.VrstaKorisnikaAplikacije.Normalan;
-      }
       
       public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
       {
-         // TODO: implement
-         return KorisnickeAktivnostiPacijentaServis.GetInstance().DobaviBrojOtkazivanjaUProteklihMesecDana(jmbgKorisnika);
+         return KorisnickeAktivnostiPacijentaServis.DobaviBrojOtkazivanjaUProteklihMesecDana(jmbgKorisnika);
       }
       
       public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
       {
-         return KorisnickeAktivnostiPacijentaServis.GetInstance().DobaviBrojZakazanihPregledaUBuducnosti(jmbgKorisnkika);
+         return KorisnickeAktivnostiPacijentaServis.DobaviBrojZakazanihPregledaUBuducnosti(jmbgKorisnkika);
       }
       
       public bool DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
       {
-         // TODO: implement
-         return KorisnickeAktivnostiPacijentaServis.GetInstance().DaLiJeMoguceZakazatiNoviTermin(jmbgKorisnika);
+         return KorisnickeAktivnostiPacijentaServis.DaLiJeMoguceZakazatiNoviTermin(jmbgKorisnika);
       }
 
         internal void OdblokirajKorisnike()
         {
-            KorisnickeAktivnostiPacijentaServis.GetInstance().OdblokirajKorisnika();
+            KorisnickeAktivnostiPacijentaServis.OdblokirajKorisnika();
         }
 
         public void DodajZakazivanje(string jmbg)
       {
-            KorisnickeAktivnostiPacijentaServis.GetInstance().DodajZakazivanje(jmbg);
+            KorisnickeAktivnostiPacijentaServis.DodajZakazivanje(jmbg);
       }
       
       public void DodajOdlaganje(string jmbgPacijenta)
       {
-            KorisnickeAktivnostiPacijentaServis.GetInstance().DodajOdlaganje(jmbgPacijenta);
+            KorisnickeAktivnostiPacijentaServis.DodajOdlaganje(jmbgPacijenta);
       }
       
       public Boolean DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
       {
-         // TODO: implement
-         return KorisnickeAktivnostiPacijentaServis.GetInstance().DaLiJeMoguceOdlozitiZakazaniTermin(jmbgPacijenta);
+         return KorisnickeAktivnostiPacijentaServis.DaLiJeMoguceOdlozitiZakazaniTermin(jmbgPacijenta);
       }
 
         internal string DobaviPorukuZabrane(string jmbgPacijenta)
         {
-            return KorisnickeAktivnostiPacijentaServis.GetInstance().DobaviPorukuZabrane(jmbgPacijenta);
+            return KorisnickeAktivnostiPacijentaServis.DobaviPorukuZabrane(jmbgPacijenta);
         }
-
-        /// <pdGenerated>default getter</pdGenerated>
-
     }
 }

@@ -157,6 +157,7 @@
     <Compile Include="model\Anamneza.cs" />
     <Compile Include="model\AnketaKvartalna.cs" />
     <Compile Include="model\AnketaLekar.cs" />
+    <Compile Include="model\Beleska.cs" />
     <Compile Include="model\Enum\StatusRadnogVremena.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
@@ -208,7 +209,10 @@
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
+    <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />
+    <Compile Include="viewActions\KomentariKorisnikaViewModel.cs" />
+    <Compile Include="viewActions\MyICommand.cs" />
     <Compile Include="viewActions\PodesavanjeObavestenjaViewModel.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
     <Compile Include="viewActions\PregledViewModel.cs" />
@@ -243,6 +247,8 @@
     <Compile Include="viewActions\PacijentTerminiModel.cs" />
     <Compile Include="viewActions\PacijentZakaziTermin.cs" />
     <Compile Include="viewActions\RelayCommand.cs" />
+    <Compile Include="viewActions\ValidationBase.cs" />
+    <Compile Include="viewActions\ValidationErrors.cs" />
     <Compile Include="viewActions\ZakazivanjeTerminaViewModel.cs" />
     <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
@@ -715,8 +721,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\user.png" />
-</ItemGroup>
-<ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="view\PacijentView\configuration-gears.png" />
   </ItemGroup>
   <ItemGroup>

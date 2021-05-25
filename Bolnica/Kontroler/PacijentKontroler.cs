@@ -21,12 +21,14 @@ namespace Kontroler
 
             return instance;
         }
+
         public PacijentKontroler()
         {
             instance = this;
             PacijentServis = new PacijentServis();
             instance = this;
         }
+
 
         public bool RegistrujPacijenta(PacijentDTO pacijent)
         {
@@ -91,17 +93,17 @@ namespace Kontroler
 
         }
 
+        public void SacuvajKomentarNaDijagnozu(Recept IzabraniRecept, Pacijent pacijent)
+        {
+            PacijentServis.SacuvajKomentarNaDijagnozu(IzabraniRecept, pacijent);
+        }
+
         public bool DodajAlergen(String alergen)
         {
             // TODO: implement
             return false;
         }
 
-        public bool DodajObavestenje(Model.Obavestenje obavestenje)
-        {
-            // TODO: implement
-            return false;
-        }
 
         public bool DodajIzvestaj(Izvestaj izvestaj)
         {
@@ -111,7 +113,6 @@ namespace Kontroler
 
         public bool IzmeniIzvestaj(Izvestaj izvestaj)
         {
-            // TODO: implement
             return false;
         }
 
@@ -194,16 +195,6 @@ namespace Kontroler
             }
 
             return pacijentiDto;
-        }
-
-        public void Save(Pacijent pacijent)
-        {
-            // TODO: implement
-        }
-
-        public void SaveAll(List<Pacijent> pacijenti)
-        {
-            // TODO: implement
         }
 
         public bool IzmeniPacijenta(PacijentDTO stariPacijent, PacijentDTO noviPacijent)

@@ -23,7 +23,7 @@ namespace Bolnica.viewActions
             foreach(Izvestaj izvestaj in p.ZdravstveniKarton.Izvestaj)
                 foreach(Recept recept in izvestaj.recepti)
                 {
-                    PregledViewModel pregled = new PregledViewModel(recept);
+                    PregledViewModel pregled = new PregledViewModel(recept, pacijent);
                     odradjeniPregledi.Add(pregled);
                 }
         }

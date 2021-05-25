@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             xmlns:viewmodel="clr-namespace:Bolnica.viewActions"
+             xmlns:data="clr-namespace:Bolnica.model"
              mc:Ignorable="d" 
              Background="#FFF1F7F9"
              d:DesignHeight="673" d:DesignWidth="804" Opacity="0.7">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type data:Beleska}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding Path=Naslov, Mode=OneWay}" FontSize="16" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Path=Opis, Mode=OneWay}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" >
         <StackPanel>
             <StackPanel>
@@ -18,13 +28,14 @@
                       IsReadOnly="True"
                       FontSize="15"
                       Width="804"
+                      ItemsSource="{Binding Path=odradjeniPregledi}"
                       CanUserReorderColumns="False"
                       CanUserResizeColumns="False"
                       SelectionMode="Single">
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
-                                <Setter Property="Height" Value="35"/>
-                            </Style>
+                            <Setter Property="MinHeight" Value="35"/>
+                        </Style>
                         </DataGrid.RowStyle>
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -34,11 +45,54 @@
                         </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="Datum" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Datum" Binding="{Binding datum, StringFormat=\{0:dd.MM.yyyy.\}}" Width="*"/>
-                            <DataGridTextColumn x:Name="VrstaTermina" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Dijagnoza" Binding="{Binding dijagnoza}" Width="*"/>
-                            <DataGridTextColumn x:Name="LekaPrezime" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Terapija" Binding="{Binding terapija}" Width="*"/>
+                        <DataGridTextColumn x:Name="VrstaTermina" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Dijagnoza" Binding="{Binding dijagnoza}" Width="*"/>
+                        <DataGridTextColumn x:Name="LekaPrezime" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Terapija" Binding="{Binding terapija}" Width="*"/>
                         <DataGridTextColumn x:Name="sprat" Header="Lekar" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Binding="{Binding lekar}" Width="*"/>
                     </DataGrid.Columns>
-                    </DataGrid>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="0" Background="#FFF1F7F9" Padding="10">
+                                <StackPanel Orientation="Vertical">
+                                    <Grid x:Name="Prosirenje">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="Beleške:" FontSize="20"/>
+                                                <ListView x:Name="NotesList" ItemsSource="{Binding KomentariKorisnika.KomentariKorisnika}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Expander Header="Dodaj novu belešku" ExpandDirection="Down"
+                      IsExpanded="False">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="Naslov:"/>
+                                                    <TextBox Text="{Binding Path=KomentariKorisnika.TrenutnaBeleska.Naslov, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                                    <TextBlock Text="{Binding KomentariKorisnika.TrenutnaBeleska.ValidationErrors[Naslov]}"
+                               Foreground="Red"/>
+                                                    <TextBlock Text="Dodatne napomene:"/>
+                                                    <TextBox Text="{Binding Path=KomentariKorisnika.TrenutnaBeleska.Opis, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                                    <TextBlock Text="{Binding KomentariKorisnika.ValidationErrors[Opis]}"
+                               Foreground="Red"/>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Kreiraj podsetnik:"/>
+                                                        <RadioButton x:Name="KreiratiPodsetnik" Height="30" Margin="5" IsChecked="{Binding KomentariKorisnika.RadioButtonChecked, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                                                    </StackPanel>
+    
+                                                    <Button x:Name="AddNoe" Content="Dodaj" Command="{Binding KomentariKorisnika.AddNoteCommand}"/>
+                                                </StackPanel>
+                                            </Expander>
+                                        </Grid>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

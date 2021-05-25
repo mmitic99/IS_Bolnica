@@ -162,4 +162,31 @@
     <Ubaceno>true</Ubaceno>
     <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
   </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T19:52:09.5084968+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Magnum</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 20:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>UzimanjeLeka</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-25T19:57:34.4993211+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Ter</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 20:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>UzimanjeLeka</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-17T13:23:00</VremeObavestenja>
+    <Naslov>ustati u 7</Naslov>
+    <Sadrzaj>,</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
 </ArrayOfPodsetnik>

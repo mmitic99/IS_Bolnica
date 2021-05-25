@@ -40,6 +40,7 @@ namespace Bolnica.viewActions
         public AnketaOLekaruViewModel AnketaOLekaruVM { get; set; }
         public PodesavanjeObavestenjaViewModel PodesavanjeObavestenjaVM { get; set; }
         public DodavanjePodsetnikaViewModel DodavanjePodsetnikaVM { get; set; }
+        public KomentariKorisnikaViewModel KomentariKorisnikaVM { get; set; }
 
         private object _currentView;
 

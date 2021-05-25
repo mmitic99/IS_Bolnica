@@ -71,7 +71,7 @@
                               CanUserAddRows="False"
                               Grid.Row="1"
                               HorizontalScrollBarVisibility="Hidden"
-                              VerticalScrollBarVisibility="Hidden">
+                              VerticalScrollBarVisibility="Hidden" SelectionChanged="PodsetnikTerapija_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>

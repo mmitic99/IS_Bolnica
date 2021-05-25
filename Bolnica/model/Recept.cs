@@ -1,3 +1,4 @@
+using Bolnica.model;
 using System;
 
 using System.Collections;
@@ -11,7 +12,7 @@ namespace Model
 
       
       public List<int> terminiUzimanjaTokomDana { get; set;}
-
+        public int IdRecepta { get; set; }
         public string ImeLeka { get; set; }
         public string SifraLeka { get; set; }
         public string DodatneNapomene { get; set; }
@@ -21,6 +22,7 @@ namespace Model
         public List<int> TerminiUzimanjaLeka { get; set; }
         public string Dijagnoza { get; set; } 
         public string ImeDoktora { get; set; }
+        public List<Beleska> KomentariPacijenta { get; set; }
 
         public Recept()
         {
@@ -37,6 +39,7 @@ namespace Model
             TerminiUzimanjaLeka = terminiUzimanjaLeka;
             Dijagnoza = dijagnoza;
             ImeDoktora = imeDoktora;
+            KomentariPacijenta = new List<Beleska>();
         }
 
     }
