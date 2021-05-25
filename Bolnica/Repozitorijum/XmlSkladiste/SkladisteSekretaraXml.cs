@@ -59,6 +59,24 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             }
         }
 
+        public Sekretar GetByJmbg(string jmbg)
+        {
+            List<Sekretar> sekretari = this.GetAll();
+            Sekretar sekretar1 = new Sekretar();
+            foreach (Sekretar sekretar in sekretari)
+            {
+                if (sekretar.Jmbg != null)
+                {
+                    if (sekretar.Jmbg.Equals(jmbg))
+                    {
+                        sekretar1 = sekretar;
+                        break;
+                    }
+                }
+            }
+            return sekretar1;
+        }
+
         private String Lokacija;
         private static SkladisteSekretaraXml instance = null;
     }

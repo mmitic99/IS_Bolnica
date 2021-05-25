@@ -11,6 +11,7 @@ using Bolnica.view.SekretarView.Pacijenti;
 using Bolnica.view.SekretarView.Termini;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
@@ -169,6 +170,11 @@ namespace Bolnica.view.SekretarView
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
+        private void GenerisanjeIzvestaja_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new GenerisiIzvestaj();
+            s.ShowDialog();
+        }
 
         private void Odjava_Click(object sender, RoutedEventArgs e)
         {
@@ -281,6 +287,7 @@ namespace Bolnica.view.SekretarView
             var s = new RadnoVremeLekara(((LekarDTO)LekariPrikaz.SelectedItem).Jmbg);
             s.ShowDialog();
         }
+
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
             ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
@@ -347,11 +354,11 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(terminKontroler.GetMesecneOperacije(sviDaniUMesecu))
                 }
             };
-            XOsaBrojTermina = pretvoriListuUNiz(sviDaniUMesecu);
+            XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
             DataContext = this;
         }
 
-        private string[] pretvoriListuUNiz(List<string> sviDaniUMesecu)
+        private string[] PretvoriListuUNiz(List<string> sviDaniUMesecu)
         {
             string[] retVal = new string[sviDaniUMesecu.Count];
             for (int i = 0; i < sviDaniUMesecu.Count; i++)
@@ -402,13 +409,25 @@ namespace Bolnica.view.SekretarView
             {
                 new LineSeries
                 {
-                    Title = "Novih pacijenata",
+                    Title = "Broj novih pacijenata",
                     Values = new ChartValues<int>(pacijentKontroler.GetBrojNovihPacijenataUMesecu(sviDaniUMesecu))
                 }
             };
-            XOsaBrojNovihPacijenata = pretvoriListuUNiz(sviDaniUMesecu);
+            XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
             DataContext = this;
         }
 
+
+        private void IzmenaProfila_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new IzmenaProfila(sekretar, ImeS, PrezimeS);
+            s.ShowDialog();
+        }
+
+        private void IzmenaLozinke_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var s = new IzmenaLozinke(sekretar);
+            s.ShowDialog();
+        }
     }
 }

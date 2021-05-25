@@ -66,75 +66,6 @@
   <Pacijent>
     <Grad>
       <drzava />
-        <Naziv>Beograd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>1234</KorisnickoIme>
-      <Lozinka>Jovana</Lozinka>
-      <DatumKreiranjaNaloga>2021-01-01T00:00:00</DatumKreiranjaNaloga>
-    </Korisnik>
-    <Ime>Jovana</Ime>
-    <Prezime>Jovanovic</Prezime>
-    <Jmbg>1234</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Mikica 23/A</Adresa>
-    <BracnoStanje>udata</BracnoStanje>
-    <Zanimanje />
-    <ZdravstveniKarton>
-      <Izvestaj>
-        <Izvestaj>
-          <recepti />
-          <datum>2021-01-01T00:00:00</datum>
-        </Izvestaj>
-        <Izvestaj>
-          <recepti>
-            <Recept>
-              <terminiUzimanjaTokomDana />
-              <ImeLeka>Bromazepan</ImeLeka>
-              <SifraLeka>ddyeyehw</SifraLeka>
-              <DodatneNapomene>Kada se uzima lek potrudite se da niste gledali horor filmove pre njega.</DodatneNapomene>
-              <DatumIzdavanja>2021-04-27T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>10</BrojDana>
-              <Doza>1</Doza>
-              <TerminiUzimanjaLeka>
-                <int>2</int>
-                <int>3</int>
-                <int>4</int>
-              </TerminiUzimanjaLeka>
-              <Dijagnoza />
-              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
-            </Recept>
-          </recepti>
-          <datum>2021-01-01T00:00:00</datum>
-        </Izvestaj>
-      </Izvestaj>
-      <Anamneze>
-        <Anamneza>
-          <AnamnezaDijalog>Pacijent ima napad slepog creva.</AnamnezaDijalog>
-          <DatumAnamneze>2021-04-20T17:11:13.2826159+02:00</DatumAnamneze>
-          <ImeLekara>dr Miroslav Mi</ImeLekara>
-          <IdAnamneze>dr Miroslav Mi4/20/2021 5:11:13 PM</IdAnamneze>
-        </Anamneza>
-        <Anamneza>
-          <AnamnezaDijalog>Pacijent ima napad panike. Pacijent se plasi mene.</AnamnezaDijalog>
-          <DatumAnamneze>2021-04-20T17:12:14.0594346+02:00</DatumAnamneze>
-          <ImeLekara>dr Milos Marinkovic</ImeLekara>
-          <IdAnamneze>dr Milos Marinkovic4/20/2021 5:12:14 PM</IdAnamneze>
-        </Anamneza>
-      </Anamneze>
-      <Alergeni>
-        <string>Kamilica</string>
-      </Alergeni>
-    </ZdravstveniKarton>
-    <Registrovan>false</Registrovan>
-    <FullName>Jovana Jovanovic</FullName>
-  </Pacijent>
-  <Pacijent>
-    <Grad>
-      <drzava />
       <Naziv />
     </Grad>
     <Korisnik>
@@ -348,55 +279,31 @@
   <Pacijent>
     <Grad>
       <drzava />
-      <Naziv />
+      <Naziv>Beograd</Naziv>
     </Grad>
     <Korisnik>
-      <KorisnickoIme>1234567890123</KorisnickoIme>
-      <Lozinka>Pera</Lozinka>
+      <KorisnickoIme>1234</KorisnickoIme>
+      <Lozinka>Jovana</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
-    <Ime>Pera</Ime>
-    <Prezime>Perić</Prezime>
-    <Jmbg>1234567890123</Jmbg>
+    <Ime>Jovana</Ime>
+    <Prezime>Jovanovic</Prezime>
+    <Jmbg>1234123123232</Jmbg>
     <BrojTelefona />
-    <Pol>Muski</Pol>
-    <DatumRodjenja>2021-03-29T00:00:00+02:00</DatumRodjenja>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1999-12-03T00:00:00</DatumRodjenja>
     <Email />
-    <Adresa />
-    <BracnoStanje>udovac</BracnoStanje>
+    <Adresa>Jovana Mikica 23/A</Adresa>
+    <BracnoStanje>udata</BracnoStanje>
     <Zanimanje />
     <ZdravstveniKarton>
-      <Izvestaj>
-        <Izvestaj>
-          <recepti>
-            <Recept>
-              <ImeLeka>Retinol</ImeLeka>
-              <SifraLeka>Retinol</SifraLeka>
-              <DodatneNapomene />
-              <DatumIzdavanja>2021-05-24T00:00:00+02:00</DatumIzdavanja>
-              <BrojDana>5</BrojDana>
-              <Doza>2</Doza>
-              <TerminiUzimanjaLeka>
-                <int>2</int>
-                <int>4</int>
-              </TerminiUzimanjaLeka>
-              <Dijagnoza>lose</Dijagnoza>
-              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
-            </Recept>
-          </recepti>
-          <datum>0001-01-01T00:00:00</datum>
-        </Izvestaj>
-      </Izvestaj>
-      <Anamneze>
-        <Anamneza>
-          <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
-          <DatumAnamneze>2021-04-20T18:38:39.3426378+02:00</DatumAnamneze>
-          <ImeLekara>dr Milos Marinkovic</ImeLekara>
-          <IdAnamneze>dr Milos Marinkovic4/20/2021 6:38:39 PM</IdAnamneze>
-        </Anamneza>
-      </Anamneze>
-      <Alergeni />
+      <Izvestaj />
+      <Anamneze />
+      <Alergeni>
+        <string>Kamilica</string>
+      </Alergeni>
     </ZdravstveniKarton>
     <Registrovan>false</Registrovan>
-    <FullName>Pera Perić</FullName>
+    <FullName>Jovana Jovanovic</FullName>
   </Pacijent>
 </ArrayOfPacijent>

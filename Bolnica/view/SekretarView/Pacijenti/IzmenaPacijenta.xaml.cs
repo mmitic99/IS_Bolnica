@@ -66,6 +66,25 @@ namespace Bolnica.view.SekretarView.Pacijenti
             alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
             alergeniList.ItemsSource = alergeni;
 
+            DataContext = new PacijentDTO()
+            {
+                Ime = ime.Text,
+                Prezime = prezime.Text,
+                Jmbg = jmbg.Text,
+                Adresa = adresa.Text,
+                BrojTelefona = tel.Text,
+                Email = email.Text,
+                NazivGrada = grad.Text,
+                Korisnik = new KorisnikDTO()
+                {
+                    KorisnickoIme = korIme.Text,
+                    Lozinka = lozinka.Password
+                },
+                ZdravstveniKarton = pacijent.ZdravstveniKarton,
+                BracnoStanje = (string)BracnoStanje.SelectedItem,
+                Zanimanje = Zanimanje.Text
+            };
+
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)

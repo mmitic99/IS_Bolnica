@@ -54,6 +54,21 @@ namespace Bolnica.view.SekretarView.Lekari
 
             IzaberiSpecijalizaciju(specijalizacije);
 
+            DataContext = new LekarDTO()
+            {
+                Ime = ime.Text,
+                Prezime = prezime.Text,
+                Jmbg = jmbg.Text,
+                Adresa = adresa.Text,
+                BrojTelefona = tel.Text,
+                Email = email.Text,
+                NazivGrada = grad.Text,
+                Korisnik = new KorisnikDTO() {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
+                Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
+                Specijalizacija = (string) Specijalizacija.SelectedItem,
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana
+            };
+
 
         }
 
@@ -80,7 +95,7 @@ namespace Bolnica.view.SekretarView.Lekari
                 BrojTelefona = tel.Text,
                 Email = email.Text,
                 NazivGrada = grad.Text ,
-                Korisnik = new KorisnikDTO() { KorisnickoIme = jmbg.Text, Lozinka = ime.Text },
+                Korisnik = new KorisnikDTO() { KorisnickoIme = korIme.Text, Lozinka = lozinka.Password },
                 Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
                 Specijalizacija = (string) Specijalizacija.SelectedItem,
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana

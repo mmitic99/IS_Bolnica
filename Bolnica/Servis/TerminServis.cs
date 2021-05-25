@@ -1,12 +1,21 @@
-using Bolnica.DTOs;
+﻿using Bolnica.DTOs;
 using Model;
 using Repozitorijum;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Servis;
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using iText.Layout;
+using TextAlignment = iText.Layout.Properties.TextAlignment;
 
 namespace Servis
 {
@@ -84,7 +93,7 @@ namespace Servis
             {
                 JmbgKorisnika = termin.JmbgPacijenta,
                 Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Po�tovani, obave�tavamo vas da je termin koji ste imali zakazan za " +
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " +
                           stariTermin.DatumIVremeTermina + "" +
                           " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now,
@@ -95,7 +104,7 @@ namespace Servis
             {
                 JmbgKorisnika = termin.JmbgLekara,
                 Naslov = "Izmena zakazanog termina",
-                Sadrzaj = "Po�tovani, obave�tavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
+                Sadrzaj = "Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za " + stariTermin.DatumIVremeTermina + "" +
                           " je pomeren na " + termin.DatumIVremeTermina + ".",
                 VremeObavestenja = DateTime.Now
             });
@@ -582,5 +591,86 @@ namespace Servis
 
 
         private RadnoVremeServis radnoVremeServis = new RadnoVremeServis();
+
+        //HCI zahtev:
+        public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
+        {
+            string putanjaIzvestaja = "..\\..\\..\\IzvestajSekretar.pdf";
+
+            try
+            {
+                PdfWriter writer = new PdfWriter(putanjaIzvestaja);
+                PdfDocument pdf = new PdfDocument(writer);
+                Document document = new Document(pdf);
+
+                PdfFont normalnFont = PdfFontFactory.CreateFont("c:/windows/fonts/arial.ttf", "Identity-H", true);
+
+                document.SetFont(normalnFont);
+
+                Paragraph header = new Paragraph("Izveštaj sekretara za vremenski period: " + datumPocetka.Date.ToString("dd.MM.yyyy") +
+                                                 " - " + datumZavrsetka.Date.ToString("dd.MM.yyyy"))
+                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetFontSize(18);
+                document.Add(header);
+                document.Add(new Paragraph("\n"));
+
+                Table tabela = new Table(5).SetFontSize(12);
+
+                tabela.AddCell(new Cell(1, 1).SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetBold()
+                    .Add(new Paragraph("Datum i vreme početka")));
+                tabela.AddCell(new Cell(1, 1).SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetBold()
+                    .Add(new Paragraph("Vrsta")));
+                tabela.AddCell(new Cell(1, 1).SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetBold()
+                    .Add(new Paragraph("Pacijent")));
+                tabela.AddCell(new Cell(1, 1).SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetBold()
+                    .Add(new Paragraph("Lekar")));
+                tabela.AddCell(new Cell(1, 1).SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetBold()
+                    .Add(new Paragraph("Broj sobe")));
+
+                foreach (Termin termin in GetTermineUIntervalu(datumPocetka, datumZavrsetka))
+                {
+                    tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.DatumIVremeTermina.ToString("dd.MM.yyyy HH:mm"))));
+                    tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.VrstaTermina.ToString())));
+                    tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.pacijent)));
+                    tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.lekar)));
+                    tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.brojSobe)));
+
+                }
+
+                document.Add(tabela);
+
+                document.Add(new Paragraph("\n\n" + "Datum i vreme:"));
+                document.Add(new Paragraph(DateTime.Now.ToString("dd.MM.yyyy HH:mm")));
+
+                document.Close();
+
+                return Path.GetFullPath(putanjaIzvestaja);
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("Fajl na adresi: '" + Path.GetFullPath(putanjaIzvestaja) + "' je već otvoren. Zatvorite fajl i pokušajte ponovo.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return null;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Desila se nepoznata greška prilikom generisanja izveštaja", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return null;
+            }
+        }
+
+        private List<Termin> GetTermineUIntervalu(DateTime datumPocetka, DateTime datumZavrsetka)
+        {
+            List<Termin> termini = new List<Termin>();
+            foreach (Termin termin in GetAll())
+            {
+                if (termin.DatumIVremeTermina >= datumPocetka && termin.DatumIVremeTermina <= datumZavrsetka)
+                {
+                    termini.Add(termin);
+                }
+            }
+            return termini.OrderBy(termin => termin.DatumIVremeTermina).ToList();
+        }
     }
 }

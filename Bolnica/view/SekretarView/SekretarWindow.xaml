@@ -24,6 +24,8 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}" Executed="IzmenaPacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}" Executed="IzmeniTermin_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniLekaraCommand}" Executed="IzmenaLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniProfilCommand}" Executed="IzmenaProfila_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniLozinkuCommand}" Executed="IzmenaLozinke_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiObavestenjeCommand}" Executed="ObrisiObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiPacijentaCommand}" Executed="BrisanjePacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}" Executed="OtkakazivanjeTermina_Click" />
@@ -51,8 +53,8 @@
                 <MenuItem Header="Otkaži termin" Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}"/>
             </MenuItem>
             <MenuItem Header="Profil">
-                <MenuItem Header="Izmeni profil"/>
-                <MenuItem Header="Izmeni lozinku"/>
+                <MenuItem Header="Izmeni profil" Command="{x:Static commands:SekretarCommands.IzmeniProfilCommand}"/>
+                <MenuItem Header="Izmeni lozinku" Command="{x:Static commands:SekretarCommands.IzmeniLozinkuCommand}"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
@@ -111,6 +113,16 @@
                                 </Grid.ColumnDefinitions>
                                 <Label FontSize="13" Grid.Column="0" >Odjavi se</Label>
                                 <Image Grid.Column="1" Source="/Images/logout.png" Width="20"/>
+                            </Grid>
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="IzmenaProfila_Click">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="/Images/user.png" Height="40"/>
+                                <Label FontSize="13" Grid.Row="1" FontWeight="Bold">Izmeni profil</Label>
                             </Grid>
                         </Button>
                     </StackPanel>
@@ -405,6 +417,7 @@
                                     </Style>
                                 </Button.Style>
                             </Button>
+                            <Button Content="Generiši izvestaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="GenerisanjeIzvestaja_Click"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="TerminiPrikaz" CanUserAddRows="false" 
                                   AutoGenerateColumns="False" IsReadOnly="True" 
