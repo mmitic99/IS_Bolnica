@@ -11,24 +11,13 @@ namespace Model
         public int Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }
-        private bool RenoviraSe;
-        private double Kvadratura;
-        private List<StacionarnaOprema> Staticka { get; set; }
-        private List<PotrosnaOprema> Potrosna { get; set; }
-
-        public void RenovirajProstoriju()
-        {
-            // TODO: implement
-        }
-
-        public void ZavrsiRenoviranje()
-        {
-            // TODO: implement
-        }
+        public bool RenoviraSe { get; set; }
+        public double Kvadratura { get; set; }
+        public List<StacionarnaOprema> Staticka { get; set; }
+        public List<PotrosnaOprema> Potrosna { get; set; }
 
         public InventarZaProstorije inventarZaProstorije;
         public System.Collections.ArrayList termin;
-
 
         public Prostorija() {}
 
@@ -49,123 +38,60 @@ namespace Model
             this.BrojSobe = brs;
         }
 
-        public int Sprat_
+        public System.Collections.ArrayList GetTermin()
         {
-            get
+            if (termin == null)
+                termin = new System.Collections.ArrayList();
+            return termin;
+        }
+
+
+        public void SetTermin(System.Collections.ArrayList newTermin)
+        {
+            RemoveAllTermin();
+            foreach (Termin oTermin in newTermin)
+                AddTermin(oTermin);
+        }
+
+
+        public void AddTermin(Termin newTermin)
+        {
+            if (newTermin == null)
+                return;
+            if (this.termin == null)
+                this.termin = new System.Collections.ArrayList();
+            if (!this.termin.Contains(newTermin))
             {
-                return Sprat;
-            }
-            set
-            {
-                if (value != Sprat)
-                {
-                    Sprat = value;
-                }
+                this.termin.Add(newTermin);
+                newTermin.SetProstorija(this);
             }
         }
 
-        public String BrojSobe_
+
+        public void RemoveTermin(Termin oldTermin)
         {
-            get
-            {
-                return BrojSobe;
-            }
-            set
-            {
-                if (value != BrojSobe)
+            if (oldTermin == null)
+                return;
+            if (this.termin != null)
+                if (this.termin.Contains(oldTermin))
                 {
-                    BrojSobe = value;
+                    this.termin.Remove(oldTermin);
+                    oldTermin.SetProstorija((Prostorija)null);
                 }
-            }
         }
 
-        public VrstaProstorije VrstaProstorije_
-        {
-            get
-            {
-                return VrstaProstorije;
-            }
-            set
-            {
-                if (value != VrstaProstorije)
-                {
-                    VrstaProstorije = value;
-                }
-            }
-        }
 
-        public bool RenoviraSe_
+        public void RemoveAllTermin()
         {
-            get
+            if (termin != null)
             {
-                return RenoviraSe;
-            }
-            set
-            {
-                if (value != RenoviraSe)
-                {
-                    RenoviraSe = value;
-                }
-            }
-        }
-
-        public double Kvadratura_
-        {
-            get
-            {
-                return Kvadratura;
-            }
-            set
-            {
-                if (value != Kvadratura)
-                {
-                    Kvadratura = value;
-                }
-            }
-        }
-        
-        public List<StacionarnaOprema> Staticka_
-        {
-            get
-            {
-                return Staticka;
-            }
-            set
-            {
-                if (value != Staticka)
-                {
-                    Staticka = value;
-                }
-            }
-        }
-
-        public List<PotrosnaOprema> Potrosna_
-        {
-            get
-            {
-                return Potrosna;
-            }
-            set
-            {
-                if (value != Potrosna)
-                {
-                    Potrosna = value;
-                }
-            }
-        }
-
-        public int IdProstorije_
-        {
-            get
-            {
-                return IdProstorije;
-            }
-            set
-            {
-                if (value != IdProstorije)
-                {
-                    IdProstorije = value;
-                }
+                System.Collections.ArrayList tmpTermin = new System.Collections.ArrayList();
+                foreach (Termin oldTermin in termin)
+                    tmpTermin.Add(oldTermin);
+                termin.Clear();
+                foreach (Termin oldTermin in tmpTermin)
+                    oldTermin.SetProstorija((Prostorija)null);
+                tmpTermin.Clear();
             }
         }
     }
