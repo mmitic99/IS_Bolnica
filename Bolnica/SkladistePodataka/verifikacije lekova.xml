@@ -63,4 +63,22 @@
     <Napomena>Nije dobro, promeni zamenski lek.</Napomena>
     <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
   </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-25T00:20:55.0869623+02:00</VremeSlanjaZahteva>
+    <Naslov>Hepatrombin</Naslov>
+    <Sadrzaj>Vrsta:gel Jačina:500 mg Zamenski lek:Kreuterhof Sastav:alantoin, dekspantenol, bronopol, karbomer</Sadrzaj>
+    <JmbgPrimaoca>4536</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>25.5.2021. 00:20:5519039997720254536</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-25T14:03:20.0268151+02:00</VremeSlanjaZahteva>
+    <Naslov>Kreuterhof</Naslov>
+    <Sadrzaj>Vrsta:gel Jačina:500 mg Zamenski lek:Hepatrombin Sastav:sastojak 1, sastojak 2</Sadrzaj>
+    <JmbgPrimaoca>1231828828477</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>25.5.2021. 14:03:2019039997720251231828828477</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

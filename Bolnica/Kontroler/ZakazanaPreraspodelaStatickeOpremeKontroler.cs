@@ -1,4 +1,5 @@
-﻿using Bolnica.model;
+﻿using Bolnica.DTOs;
+using Bolnica.model;
 using Bolnica.Servis;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,17 @@ namespace Bolnica.Kontroler
             return instance;
         }
 
-        public void ZakaziPreraspodeluStatickeOpreme(ZakazanaPreraspodelaStatickeOpreme preraspodela)
+        public void ZakaziPreraspodeluStatickeOpreme(ZakazanaPreraspodelaStatickeOpremeDTO preraspodelaDTO)
         {
+            ZakazanaPreraspodelaStatickeOpreme preraspodela = new ZakazanaPreraspodelaStatickeOpreme
+                                                                  (
+                                                                  preraspodelaDTO.BrojProstorijeIzKojeSePrenosiOprema,
+                                                                  preraspodelaDTO.BrojProstorijeUKojuSePrenosiOprema,
+                                                                  preraspodelaDTO.DatumIVremePreraspodele,
+                                                                  preraspodelaDTO.TrajanjePreraspodele,
+                                                                  preraspodelaDTO.NazivOpreme,
+                                                                  preraspodelaDTO.KolicinaOpreme
+                                                                  );
             ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().ZakaziPreraspodeluStatickeOpreme(preraspodela);
         }
 
@@ -34,6 +44,36 @@ namespace Bolnica.Kontroler
         public bool ProveraValidnostiPreraspodeleOpreme(String trajanje)
         {
             return ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().ProveraValidnostiPreraspodeleOpreme(trajanje);
+        }
+
+        public List<ZakazanaPreraspodelaStatickeOpremeDTO> GetAll()
+        {
+            List<ZakazanaPreraspodelaStatickeOpremeDTO> preraspodele = new List<ZakazanaPreraspodelaStatickeOpremeDTO>();
+            foreach (ZakazanaPreraspodelaStatickeOpreme preraspodela in ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().GetAll())
+            {
+                preraspodele.Add(new ZakazanaPreraspodelaStatickeOpremeDTO()
+                {
+                    BrojProstorijeIzKojeSePrenosiOprema = preraspodela.BrojProstorijeIzKojeSePrenosiOprema,
+                    BrojProstorijeUKojuSePrenosiOprema = preraspodela.BrojProstorijeUKojuSePrenosiOprema,
+                    DatumIVremePreraspodele = preraspodela.DatumIVremePreraspodele,
+                    TrajanjePreraspodele = preraspodela.TrajanjePreraspodele,
+                    NazivOpreme = preraspodela.NazivOpreme,
+                    KolicinaOpreme = preraspodela.KolicinaOpreme,
+                    IdProstorijeIzKojeSePrenosiOprema = preraspodela.IdProstorijeIzKojeSePrenosiOprema,
+                    IdProstorijeUKojUSePrenosiOprema = preraspodela.IdProstorijeUKojUSePrenosiOprema
+                });
+            }
+            return preraspodele;
+        }
+
+        public void Save(ZakazanaPreraspodelaStatickeOpreme zakazanaPreraspodela)
+        {
+            ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().Save(zakazanaPreraspodela);
+        }
+
+        public void SaveAll(List<ZakazanaPreraspodelaStatickeOpreme> zakazanePreraspodele)
+        {
+            ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().SaveAll(zakazanePreraspodele);
         }
     }
 }

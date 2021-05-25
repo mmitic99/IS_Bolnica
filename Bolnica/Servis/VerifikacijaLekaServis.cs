@@ -33,10 +33,17 @@ namespace Bolnica.Servis
             SveVerifikacijeLeka.Add(verifikacijaLeka);
             skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka);
         }
+
         public void ObrisiVerifikacijuLeka() { }
+
         public List<VerifikacijaLeka> GetAll()
         {
             return skladisteZaVerifikacijuLeka.GetAll();
+        }
+
+        public List<VerifikacijaLeka> GetObavestenjaByJmbg(String jmbg)
+        {
+            return skladisteZaVerifikacijuLeka.GetObavestenjaByJmbg(jmbg);
         }
 
         public void Save(VerifikacijaLeka verifikacija)
