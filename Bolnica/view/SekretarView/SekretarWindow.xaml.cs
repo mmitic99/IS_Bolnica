@@ -11,6 +11,7 @@ using Bolnica.view.SekretarView.Pacijenti;
 using Bolnica.view.SekretarView.Termini;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
@@ -417,6 +418,17 @@ namespace Bolnica.view.SekretarView
             DataContext = this;
         }
 
-        
+
+        private void IzmenaProfila_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new IzmenaProfila(sekretar, ImeS, PrezimeS);
+            s.ShowDialog();
+        }
+
+        private void IzmenaLozinke_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var s = new IzmenaLozinke();
+            s.ShowDialog();
+        }
     }
 }

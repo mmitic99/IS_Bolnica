@@ -294,6 +294,12 @@
     <Compile Include="view\PacijentView\ZdravstveniKarton.xaml.cs">
       <DependentUpon>ZdravstveniKarton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\SekretarView\IzmenaLozinke.xaml.cs">
+      <DependentUpon>IzmenaLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\IzmenaProfila.xaml.cs">
+      <DependentUpon>IzmenaProfila.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\SekretarView\Lekari\DodajRadnoVreme.xaml.cs">
       <DependentUpon>DodajRadnoVreme.xaml</DependentUpon>
     </Compile>
@@ -452,6 +458,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\ZdravstveniKarton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\IzmenaLozinke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\IzmenaProfila.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -677,7 +691,9 @@
   <ItemGroup>
     <Resource Include="view\LekarView\doctor1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

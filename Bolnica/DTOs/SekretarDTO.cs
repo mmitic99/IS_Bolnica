@@ -12,8 +12,8 @@ namespace Bolnica.DTOs
     public class SekretarDTO
     {
         public int BrojSlobodnihDana { get; set; }
-        public Grad Grad { get; set; }
-        public Korisnik Korisnik { get; set; }
+        public string NazivGrada { get; set; }
+        public KorisnikDTO Korisnik { get; set; }
         public String Ime { get; set; }
         public String Prezime { get; set; }
         public String Jmbg { get; set; }
