@@ -4,6 +4,7 @@ using Servis;
 using System;
 using System.Collections.Generic;
 using Model.Enum;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Kontroler
 {
@@ -73,6 +74,7 @@ namespace Kontroler
                 DatumRodjenja = pacijent.DatumRodjenja,
                 BrojTelefona = pacijent.BrojTelefona,
                 Email = pacijent.Email,
+                FullName = pacijent.FullName,
                 Grad = new Grad() { Naziv = pacijent.NazivGrada },
                 Korisnik = new Korisnik()
                 {
@@ -177,6 +179,7 @@ namespace Kontroler
                     BrojTelefona = pacijent.BrojTelefona,
                     Email = pacijent.Email,
                     NazivGrada = pacijent.Grad.Naziv,
+                    FullName = pacijent.FullName,
                     Korisnik = new KorisnikDTO()
                     {
                         KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
@@ -281,6 +284,7 @@ namespace Kontroler
                 DatumRodjenja = stariPacijent.DatumRodjenja,
                 BrojTelefona = stariPacijent.BrojTelefona,
                 Email = stariPacijent.Email,
+                FullName = stariPacijent.FullName,
                 Grad = new Grad() { Naziv = stariPacijent.NazivGrada },
                 Korisnik = new Korisnik()
                 {
@@ -306,6 +310,7 @@ namespace Kontroler
                 DatumRodjenja = noviPacijent.DatumRodjenja,
                 BrojTelefona = noviPacijent.BrojTelefona,
                 Email = noviPacijent.Email,
+                FullName = noviPacijent.FullName,
                 Grad = new Grad() { Naziv = noviPacijent.NazivGrada },
                 Korisnik = new Korisnik()
                 {
@@ -328,9 +333,70 @@ namespace Kontroler
             return PacijentServis.DobaviReceptePacijenta(jmbg);
         }
 
-        public Pacijent GetByJmbg(string jmbg)
+        public PacijentDTO GetByJmbg(string jmbg)
         {
-            return PacijentServis.GetByJmbg(jmbg);
+            Pacijent pacijent = PacijentServis.GetByJmbg(jmbg);
+            List<AnamnezaDTO> anamneze = new List<AnamnezaDTO>();
+            if (pacijent.ZdravstveniKarton.Anamneze != null)
+                foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                {
+                    anamneze.Add(new AnamnezaDTO()
+                    {
+                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                        DatumAnamneze = anamneza.DatumAnamneze,
+                        IdAnamneze = anamneza.IdAnamneze,
+                        ImeLekara = anamneza.ImeLekara
+                    });
+                }
+
+            List<IzvestajDTO> izvestaji = new List<IzvestajDTO>();
+            if (pacijent.ZdravstveniKarton.Izvestaj != null)
+                foreach (Izvestaj izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
+                {
+                    izvestaji.Add(new IzvestajDTO()
+                    {
+                        datum = izvestaj.datum,
+                        dijagnoza = izvestaj.dijagnoza,
+                        recepti = izvestaj.recepti
+                    });
+                }
+
+            List<string> alergeni = new List<string>();
+            if (pacijent.ZdravstveniKarton.Alergeni != null)
+            {
+                alergeni = pacijent.ZdravstveniKarton.Alergeni;
+            }
+            PacijentDTO pacijentDTO = new PacijentDTO
+            {
+                Adresa = pacijent.Adresa,
+                BracnoStanje = pacijent.BracnoStanje,
+                BrojTelefona = pacijent.BrojTelefona,
+                DatumRodjenja = pacijent.DatumRodjenja,
+                Email = pacijent.Email,
+                Ime = pacijent.Ime,
+                Jmbg = pacijent.Jmbg,
+                Pol = pacijent.Pol,
+                Prezime = pacijent.Prezime,
+                Zanimanje = pacijent.Zanimanje,
+                NazivGrada = pacijent.Grad.Naziv,
+                FullName = pacijent.FullName,
+                Korisnik = new KorisnikDTO()
+                {
+                    KorisnickoIme = pacijent.Korisnik.KorisnickoIme,
+                    Lozinka = pacijent.Korisnik.Lozinka
+                },
+                Registrovan = pacijent.Registrovan,
+                ZdravstveniKarton = new ZdravstveniKartonDTO
+                {
+                    Alergeni = alergeni,
+                    Anamneze = anamneze,
+                    Izvestaj = izvestaji
+                }
+            };
+            return pacijentDTO;
+            
+
+
         }
 
         public bool ObrisiPacijenta(string jmbg)
@@ -378,5 +444,6 @@ namespace Kontroler
             }
             return brojNovihPacijenataPoDanu;
         }
-    }
+        
+        }
 }

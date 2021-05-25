@@ -308,6 +308,16 @@
         <DatumIVreme>2021-05-05T01:18:12.1750623+02:00</DatumIVreme>
         <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-05-25T16:20:46.3069496+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-05-25T16:20:49.2670544+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
     </AktivnostiKorisnika>
     <BlokiranDo>2021-05-19T00:00:00+02:00</BlokiranDo>
     <BrojPutaBlokiranja>1</BrojPutaBlokiranja>

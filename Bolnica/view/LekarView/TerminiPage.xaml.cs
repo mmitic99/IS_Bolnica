@@ -17,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Bolnica.DTOs;
+using Kontroler;
 
 namespace Bolnica.view.LekarView
 {
@@ -33,22 +35,18 @@ namespace Bolnica.view.LekarView
         {
             return instance;
         }
-        public List<Termin> Termini
-        {
-            get;
-            set;
-        }
+       
 
 
 
 
 
-        public TerminiPage(Lekar lekar)
+        public TerminiPage(LekarDTO lekar)
         {
             InitializeComponent();
             DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
+            Pregledi_Table.ItemsSource = SkladisteZaTermineXml.getInstance().GetByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
             ImeDoktora.DataContext = lekar;
             instance = this;
         }
@@ -68,8 +66,8 @@ namespace Bolnica.view.LekarView
         {
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
             {
-                SkladisteZaTermineXml.getInstance().RemoveById(((Termin)Pregledi_Table.SelectedItem).IDTermina);
-                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByDateForLekar(DatePicker1.SelectedDate.Value, ((Termin)Pregledi_Table.SelectedItem).JmbgLekara));
+                TerminKontroler.getInstance().RemoveSelected(((TerminDTO)Pregledi_Table.SelectedItem).IDTermina);
+                LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<TerminDTO>(TerminKontroler.getInstance().GetByDateForLekar(DatePicker1.SelectedDate.Value, ((TerminDTO)Pregledi_Table.SelectedItem).JmbgLekara));
 
 
             }
@@ -82,7 +80,7 @@ namespace Bolnica.view.LekarView
         {
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
             {
-                String jmbg = ((Termin)Pregledi_Table.SelectedItem).JmbgPacijenta;
+                String jmbg = ((TerminDTO)Pregledi_Table.SelectedItem).JmbgPacijenta;
                 LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbg);
             }
         }
@@ -97,9 +95,7 @@ namespace Bolnica.view.LekarView
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             DateTime datum = DateTime.Parse(DatePicker1.Text);
-            Termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum.Date, LekarWindow.getInstance().lekar1.Jmbg);
-            LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(Termini);
-            //TerminiPage.getInstance().DatumTermina.SortDirection = 0;
+            LekarView.TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<TerminDTO>(TerminKontroler.getInstance().GetByDateForLekar(datum.Date, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg));
             TerminiPage.getInstance().VremeTermina.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
 
         }

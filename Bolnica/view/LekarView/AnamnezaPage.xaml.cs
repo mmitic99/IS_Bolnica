@@ -6,39 +6,40 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Bolnica.DTOs;
+using Kontroler;
+using Bolnica.Kontroler;
 
 namespace Bolnica.view.LekarView
 {
-    /// <summary>
-    /// Interaction logic for AnamnezaPage.xaml
-    /// </summary>
+    
     public partial class AnamnezaPage : Page
     {
 
-        public List<Anamneza> Anamneze { get; set; }
-        public Pacijent pacijent;
+       
+        
+        String jmbgPacijenta;
+        private PacijentKontroler pacijentKontroler;
         public AnamnezaPage(String jmbg)
         {
            
             InitializeComponent();
             DataContext = this;
-            Anamneze = new List<Anamneza>();
-            pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbg);
-            Anamneze = pacijent.ZdravstveniKarton.Anamneze;
-
-            Console.WriteLine(jmbg);
+            pacijentKontroler = new PacijentKontroler();
+            jmbgPacijenta = jmbg;
+            Anamneza_Table.ItemsSource = pacijentKontroler.GetByJmbg(jmbg).ZdravstveniKarton.Anamneze;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbgPacijenta);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (Anamneza_Table.SelectedIndex != -1) {
-                Anamneza anamneza = pacijent.ZdravstveniKarton.getAnamnezaById(((Anamneza)Anamneza_Table.SelectedItem).IdAnamneze);
-               LekarWindow.getInstance().Frame1.Content = new AzurirajAnamnezuPage(anamneza);
+                AnamnezaDTO anamnezaDTO = AnamnezaKontroler.GetInstance().getAnamnezaById(((AnamnezaDTO)Anamneza_Table.SelectedItem).IdAnamneze);
+               LekarWindow.getInstance().Frame1.Content = new AzurirajAnamnezuPage(anamnezaDTO);
             }
                
         }

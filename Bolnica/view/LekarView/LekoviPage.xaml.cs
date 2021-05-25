@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Kontroler;
 
 namespace Bolnica.view.LekarView
 {
@@ -49,8 +50,8 @@ namespace Bolnica.view.LekarView
             Lekovi = new List<Lek>();
             Lekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             VerifikacijaLekova = new List<VerifikacijaLeka>();
-            VerifikacijaLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg(LekarWindow.getInstance().lekar1.Jmbg);
-            ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
+            VerifikacijaLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
             instance = this;
 
 
@@ -109,7 +110,7 @@ namespace Bolnica.view.LekarView
 
         private void MenuItem_Click_Termini(object sender, RoutedEventArgs e)
         {
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().trenutnoUlogovaniLekar());
         }
 
         private void MenuItem_Click_Pacijenti(object sender, RoutedEventArgs e)

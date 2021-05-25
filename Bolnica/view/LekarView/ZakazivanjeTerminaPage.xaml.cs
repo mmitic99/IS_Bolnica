@@ -123,7 +123,7 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbgPacijenta);
         }
 
-        private void terminCheckBox_Checked(object sender, RoutedEventArgs e)
+        public void terminCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if(terminCheckBox.IsChecked== true)
             {

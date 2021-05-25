@@ -31,5 +31,16 @@ namespace Bolnica.DTOs
 
             }
         }
+        public String pacijent
+        {
+            get
+            {
+                return SkladistePacijentaXml.GetInstance().GetByJmbg(JmbgPacijenta).FullName;
+            }
+            set
+            {
+
+            }
+        }
     }
 }

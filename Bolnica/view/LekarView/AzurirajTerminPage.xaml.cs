@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Kontroler;
 
 namespace Bolnica.view.LekarView
 {
@@ -88,7 +89,7 @@ namespace Bolnica.view.LekarView
             SkladisteZaTermineXml.getInstance().SaveAll(termini);
 
             TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbgLekar(t.JmbgLekara));
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(SkladisteZaLekaraXml.GetInstance().getByJmbg(t.JmbgLekara));
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().GetByJmbg(t.JmbgLekara));
         }
     }
 }

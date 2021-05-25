@@ -187,7 +187,7 @@ namespace Servis
             };
             moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
             //ako nema dovoljno termina u tom izabranom intervalu pretrazuje dalje termine za izabranog lekara
-            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ)) 
+            if (moguciTermini.Count < (parametri.sekretar ? MAX_BR_TERMINA_PRIKAZ_SEKRETAR : MAX_BR_TERMINA_PRIKAZ))
             {
                 parametriZaPotraguTerminaUNekomIntervalu.Pocetak = PocetakRadnogVremena();
                 parametriZaPotraguTerminaUNekomIntervalu.Kraj = KrajRadnogVremena();
@@ -424,7 +424,7 @@ namespace Servis
                 pocetak += TimeSpan.FromMinutes(dodaj);
             }
             return pocetak;
-            
+
         }
 
         public DateTime? DobaviPrviMoguciDanZakazivanja(Termin termin)
@@ -579,8 +579,13 @@ namespace Servis
         {
             return skladisteZaTermine.GetBuduciTerminPacLekar();
         }
+        public List<Termin> GetByDateForLekar(DateTime datum, String jmbgLekara)
+        {
+            return skladisteZaTermine.GetByDateForLekar(datum, jmbgLekara);
+        }
 
 
         private RadnoVremeServis radnoVremeServis = new RadnoVremeServis();
     }
+    
 }

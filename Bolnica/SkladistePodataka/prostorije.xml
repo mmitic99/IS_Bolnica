@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProstorija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<Prostorija>
+  <Prostorija>
     <termin />
     <IdProstorije>0</IdProstorije>
     <Sprat>0</Sprat>
@@ -14,7 +14,7 @@
     <Staticka_>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
-        <Kolicina_>33</Kolicina_>
+        <Kolicina_>31</Kolicina_>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Sto</TipStacionarneOpreme_>
@@ -105,7 +105,7 @@
     <Sprat_>1</Sprat_>
     <BrojSobe_>101</BrojSobe_>
     <VrstaProstorije_>Operaciona_sala</VrstaProstorije_>
-    <RenoviraSe_>true</RenoviraSe_>
+    <RenoviraSe_>false</RenoviraSe_>
     <Kvadratura_>54</Kvadratura_>
     <Staticka_>
       <StacionarnaOprema>
@@ -191,6 +191,10 @@
       <StacionarnaOprema>
         <TipStacionarneOpreme_>Kompjuter</TipStacionarneOpreme_>
         <Kolicina_>0</Kolicina_>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme_>Krevet</TipStacionarneOpreme_>
+        <Kolicina_>2</Kolicina_>
       </StacionarnaOprema>
     </Staticka_>
     <Potrosna_ />

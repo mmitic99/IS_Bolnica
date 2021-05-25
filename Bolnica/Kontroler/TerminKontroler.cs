@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Kontroler
 {
@@ -285,6 +286,7 @@ namespace Kontroler
             }
             return termini;
         }
+      
 
         public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
         {
@@ -310,6 +312,28 @@ namespace Kontroler
         public Termin GetTerminZaDatumILekara(DateTime datumIVreme, string jmbgLekara)
         {
             return TerminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
+        }
+        public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
+        {
+           List<Termin> termini =  SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
+            List<TerminDTO> terminiDTO = new List<TerminDTO>();
+            foreach(Termin termin in termini)
+            {
+                TerminDTO terminDTO = new TerminDTO()
+                {
+                    JmbgLekara = termin.JmbgLekara,
+                    IDTermina = termin.IDTermina,
+                    brojSobe = termin.brojSobe,
+                    VrstaTermina = termin.VrstaTermina,
+                    TrajanjeTermina = termin.TrajanjeTermina,
+                    opisTegobe = termin.opisTegobe,
+                    JmbgPacijenta = termin.JmbgPacijenta,
+                    DatumIVremeTermina = termin.DatumIVremeTermina,
+                    IdProstorije = termin.IdProstorije
+                };
+                terminiDTO.Add(terminDTO);
+            }
+            return terminiDTO;
         }
     }
 }
