@@ -189,4 +189,67 @@
     <Ubaceno>false</Ubaceno>
     <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
   </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-15T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-26T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-27T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-28T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-29T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-30T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-05-31T07:00:00</VremeObavestenja>
+    <Naslov>Piti caj ok kamilici svako jutro</Naslov>
+    <Sadrzaj>nema</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
 </ArrayOfPodsetnik>
