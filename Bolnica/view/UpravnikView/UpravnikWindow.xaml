@@ -116,7 +116,68 @@
                         <DatePicker x:Name="DatumZavrsetkaRenoviranja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,595,0,0" Width="206" Height="40"/>
                     </Grid>
                 </TabItem>
+                <TabItem Header="NAPREDNO RENOVIRANJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <DataGrid x:Name ="TabelanNaprednogRenoviranja" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="251" Margin="50,87,0,0" VerticalAlignment="Top" Width="971">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojProstorije}"/>
+                                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
+                                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}"/>
+                                <DataGridTextColumn Header="Datum početka renoviranja" Binding="{Binding DatumPocetkaRenoviranja}"/>
+                                <DataGridTextColumn Header="Datum završetka renoviranja" Binding="{Binding DatumZavrsetkaRenoviranja}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
 
+                        <ComboBox x:Name="BrojProstorijeNaprednoRenoviranje" HorizontalAlignment="Left"  Height="30" Margin="276,382,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BrojSobe}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
+
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="52,382,0,0" TextWrapping="Wrap" Text="Broj glavne prostorije*" VerticalAlignment="Top" Width="213" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="52,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum završetka"/><Run Text="*"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="52,513,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum početka"/><Run Text="*"/></TextBlock>
+                        <Label Content="ZAKAZANA NAPREDNA RENOVIRANJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="503" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
+                        <DatePicker x:Name="DatumPocetkaNaprednogRenoviranja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,509,0,0" Width="206" Height="37"/>
+                        <DatePicker x:Name="DatumZavrsetkaNaprednogRenoviranja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,551,0,0" Width="206" Height="37"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="52,426,0,0" TextWrapping="Wrap" Text="Broj prostorije 1*" VerticalAlignment="Top" Width="199" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="52,469,0,0" TextWrapping="Wrap" Text="Broj prostorije 2*" VerticalAlignment="Top" Width="199" FontSize="18" FontWeight="Bold"/>
+                        <TextBox x:Name="NaprednoRenoviranjeSoba1" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Margin="276,426,0,0"/>
+                        <TextBox x:Name="NaprednoRenoviranjeSoba2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Margin="276,469,0,0"/>
+                        <Button Content="Zakaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="276,593,0,0" Height="39" RenderTransformOrigin="0.58,0.434"/>
+                        <Label Content="PODELA PROSTORIJE NA DVE PROSTORIJE" HorizontalAlignment="Left" Margin="62,338,0,0" VerticalAlignment="Top" Width="389"/>
+                        <ComboBox x:Name="BrojProstorijeNaprednoRenoviranje_Copy" HorizontalAlignment="Left"  Height="30" Margin="847,382,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BrojSobe}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="623,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" FontSize="18" FontWeight="Bold"><Run Text="Broj "/><Run Text="prostorije 1"/><Run Text="*"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="623,558,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum završetka"/><Run Text="*"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="623,512,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold"><Run Text="Datum početka"/><Run Text="*"/></TextBlock>
+                        <DatePicker x:Name="DatumPocetkaNaprednogRenoviranja_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="845,508,0,0" Width="206" Height="37"/>
+                        <DatePicker x:Name="DatumZavrsetkaNaprednogRenoviranja_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="845,551,0,0" Width="206" Height="37"/>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="623,427,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.461,0.486"><Run Text="Broj prostorije "/><Run Text="2"/><Run Text="*"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Height="30" Margin="623,469,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="18" FontWeight="Bold"><Run Text="Broj "/><Run Text="nove prostorije"/><Run Text="*"/></TextBlock>
+                        <TextBox x:Name="NaprednoRenoviranjeNovaSoba" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Margin="847,469,0,0"/>
+                        <Button Content="Zakaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="847,593,0,0" Height="39"/>
+                        <Label Content="SPAJANJE DVE PROSTORIJE U JEDNU" HorizontalAlignment="Left" Margin="653,338,0,0" VerticalAlignment="Top" Width="368"/>
+                        <Button Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="718,24,0,0" Height="39"/>
+                        <ComboBox x:Name="BrojProstorijeNaprednoRenoviranje_Copy1" HorizontalAlignment="Left"  Height="30" Margin="847,427,0,0" VerticalAlignment="Top" Width="175" FontSize="16">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BrojSobe}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Grid>
+                </TabItem>
                 <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid x:Name="ProstorijeSelektujOpremu" Background="DodgerBlue">
                         <Grid.ColumnDefinitions>

@@ -97,6 +97,7 @@
     <Compile Include="DTOs\KorisnikDTO.cs" />
     <Compile Include="DTOs\LekarDTO.cs" />
     <Compile Include="DTOs\LekDTO.cs" />
+    <Compile Include="DTOs\NaprednoRenoviranjeDTO.cs" />
     <Compile Include="DTOs\ObavestenjeDTO.cs" />
     <Compile Include="DTOs\PacijentDTO.cs" />
     <Compile Include="DTOs\PotrosnaOpremaDTO.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\KorisnickaAktivnost.cs" />
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
+    <Compile Include="model\NaprednoRenoviranje.cs" />
     <Compile Include="model\Obavestenje.cs" />
     <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Repozitorijum\ISkladisteZaKvartalneAnkete.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaLekara.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaNaprednaRenoviranja.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaObavestenja.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaProstorije.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaRenoviranja.cs" />
@@ -162,6 +165,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKvartalneAnketeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKorisnickeAktivnostiXml.cs" />
+    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjeaXml.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />

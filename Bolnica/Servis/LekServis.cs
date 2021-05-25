@@ -113,28 +113,15 @@ namespace Bolnica.Servis
             }
             return false;
         }
-        private bool ValidirajComboBoxoveLeka(LekValidacijaDTO lek, String vrstaOperacije)
+        private bool ValidirajComboBoxoveLeka(LekValidacijaDTO lek)
         {
-            if (vrstaOperacije.Equals("dodaj"))
+            if (lek.VrstaLeka == -1 || lek.KlasaLeka == -1)
             {
-                if (lek.VrstaLeka == -1 || lek.KlasaLeka == -1)
-                {
-                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-                return true;
+                MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
-            else if (vrstaOperacije.Equals("izmeni"))
-            {
-                if (lek.VrstaLeka == -1 || lek.KlasaLeka == -1)
-                {
-                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-                return true;
-            }
-            return false;
-}
+            return true;
+        }
 
 public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, int selektovaniLek)
         {
@@ -168,7 +155,7 @@ public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, in
                 return false;
             }
 
-            if (ValidirajComboBoxoveLeka(lek, DodajIliIzmeni) == true)
+            if (ValidirajComboBoxoveLeka(lek) == true)
                 return true;
             else
                 return false;
