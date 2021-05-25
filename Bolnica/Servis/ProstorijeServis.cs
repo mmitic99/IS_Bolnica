@@ -537,8 +537,9 @@ namespace Servis
             }
             return -1;
         }
-        public void IzvrsiPrebacivanjeOpreme(PrebacivanjeOpremeInfoDTO prebacivanjeInfo, int indexOpreme, List<Prostorija> prostorije, int i)
+        public void IzvrsiPrebacivanjeOpreme(PrebacivanjeOpremeInfoDTO prebacivanjeInfo, int indexOpreme, int i)
         {
+            List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
             List<StacionarnaOprema> StacionarnaMagacin = GetMagacin().Staticka;
             if (prostorije[prebacivanjeInfo.IndexIzKojeProstorije].Staticka[indexOpreme].Kolicina - prebacivanjeInfo.KolicinaOpreme >= 0)
             {
@@ -560,7 +561,6 @@ namespace Servis
             else
             {
                 MessageBox.Show("Ne možete prebaciti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                UpravnikWindow.GetInstance().KolicinaOpremeSKojomSeRadi_Copy.Focus();
             }
         }
 
@@ -575,12 +575,12 @@ namespace Servis
                 if (prostorije[prebacivanjeInfo.IndexUKojuProstoriju].Staticka[i].TipStacionarneOpreme.Equals(prebacivanjeInfo.NazivOpreme))
                 {
                     nazivOpremeVecPrisutan = true;
-                    IzvrsiPrebacivanjeOpreme(prebacivanjeInfo, indexOpreme, prostorije, i);
+                    IzvrsiPrebacivanjeOpreme(prebacivanjeInfo, indexOpreme, i);
                 }
             }
             if (nazivOpremeVecPrisutan == false)
             {
-                IzvrsiPrebacivanjeOpreme(prebacivanjeInfo, indexOpreme, prostorije, -1);
+                IzvrsiPrebacivanjeOpreme(prebacivanjeInfo, indexOpreme, -1);
             }
         }
 
@@ -842,7 +842,7 @@ namespace Servis
                     else if (preraspodela.IdProstorijeIzKojeSePrenosiOprema == SveProstorije[i].IdProstorije)
                         indexIzKoje = i;
                 }
-                await PrebaciZakazanuOpremu(indexIzKoje, indexUKoju, preraspodela);
+                PrebaciZakazanuOpremu(indexIzKoje, indexUKoju, preraspodela);
             }
         }
 
