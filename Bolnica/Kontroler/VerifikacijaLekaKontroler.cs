@@ -41,9 +41,42 @@ namespace Bolnica.Kontroler
 
         public void ObrisiVerifikacijuLeka() { }
 
-        public List<VerifikacijaLeka> GetAll()
+        public List<VerifikacijaLekaDTO> GetAll()
         {
-            return VerifikacijaLekaServis.GetInstance().GetAll();
+            List<VerifikacijaLekaDTO> verifikacije = new List<VerifikacijaLekaDTO>();
+            foreach (VerifikacijaLeka verifikacija in VerifikacijaLekaServis.GetInstance().GetAll())
+            {
+                verifikacije.Add(new VerifikacijaLekaDTO()
+                {
+                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString() + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
+                    VremeSlanjaZahteva = verifikacija.VremeSlanjaZahteva,
+                    Naslov = verifikacija.Naslov,
+                    Sadrzaj = verifikacija.Sadrzaj,
+                    JmbgPrimaoca = verifikacija.JmbgPrimaoca,
+                    JmbgPosiljaoca = verifikacija.JmbgPosiljaoca,
+                    Napomena = verifikacija.Napomena
+                });
+            }
+            return verifikacije;
+        }
+
+        public List<VerifikacijaLekaDTO> GetObavestenjaByJmbg(String jmbg)
+        {
+            List<VerifikacijaLekaDTO> verifikacije = new List<VerifikacijaLekaDTO>();
+            foreach (VerifikacijaLeka verifikacija in VerifikacijaLekaServis.GetInstance().GetObavestenjaByJmbg(jmbg))
+            {
+                verifikacije.Add(new VerifikacijaLekaDTO()
+                {
+                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString() + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
+                    VremeSlanjaZahteva = verifikacija.VremeSlanjaZahteva,
+                    Naslov = verifikacija.Naslov,
+                    Sadrzaj = verifikacija.Sadrzaj,
+                    JmbgPrimaoca = verifikacija.JmbgPrimaoca,
+                    JmbgPosiljaoca = verifikacija.JmbgPosiljaoca,
+                    Napomena = verifikacija.Napomena
+                });
+            }
+            return verifikacije;
         }
 
         public void Save(VerifikacijaLeka verifikacija)
@@ -56,10 +89,5 @@ namespace Bolnica.Kontroler
             VerifikacijaLekaServis.GetInstance().SaveAll(verifikacije);
         }
 
-        public void NamapirajSadrzajVerifikacije(int index)
-        {
-            List<VerifikacijaLeka> SveVerifikacijeLekova = VerifikacijaLekaServis.GetInstance().GetAll();
-            UpravnikWindow.GetInstance().Sadrzaj.Text = SveVerifikacijeLekova[index].Sadrzaj;
-        }
     }
 }

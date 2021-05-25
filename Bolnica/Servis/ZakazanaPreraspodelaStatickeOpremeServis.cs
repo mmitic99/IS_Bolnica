@@ -35,12 +35,6 @@ namespace Bolnica.Servis
             SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.Add(preraspodela);
             skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
-            OsveziPrikazPreraspodeleOpreme();
-        }
-
-        private void OsveziPrikazPreraspodeleOpreme()
-        {
-            UpravnikWindow.GetInstance().TabelaZakazanihPrebacivanjaOpreme.ItemsSource = new ObservableCollection<ZakazanaPreraspodelaStatickeOpreme>(SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll());
         }
 
         public void OtkaziPreraspodeluStatickeOpreme(int index) 
@@ -49,7 +43,6 @@ namespace Bolnica.Servis
             SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             SvePreraspodele.RemoveAt(index);
             skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(SvePreraspodele);
-            OsveziPrikazPreraspodeleOpreme();
         }
 
         public bool ProveraValidnostiPreraspodeleOpreme(String trajanje)
@@ -62,6 +55,21 @@ namespace Bolnica.Servis
                 MessageBox.Show("Neispravno uneto trajanje termina za preraspodelu opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+        }
+
+        public List<ZakazanaPreraspodelaStatickeOpreme> GetAll()
+        {
+            return skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
+        }
+
+        public void Save(ZakazanaPreraspodelaStatickeOpreme zakazanaPreraspodela)
+        {
+            skladisteZaZakazanuPreraspodeluStatickeOpreme.Save(zakazanaPreraspodela);
+        }
+
+        public void SaveAll(List<ZakazanaPreraspodelaStatickeOpreme> zakazanePreraspodele)
+        {
+            skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(zakazanePreraspodele);
         }
     }
 }

@@ -42,8 +42,6 @@ namespace Bolnica.Servis
             lek.IdLeka = ++IdLekaGenerator;
             SviLekovi.Add(lek);
             skladisteZaLekove.SaveAll(SviLekovi);
-            OsveziPrikazLekova();
-            OcistiTextPoljaLekova();
         }
 
         public void IzmeniLek(int index, Lek lek)
@@ -53,13 +51,6 @@ namespace Bolnica.Servis
             SviLekovi[index] = lek;
             SviLekovi[index].IdLeka = StariIdLeka;
             skladisteZaLekove.SaveAll(SviLekovi);
-            OsveziPrikazLekova();
-            OcistiTextPoljaLekova();
-        }
-
-        public List<Lek> GetAll()
-        {
-            return skladisteZaLekove.GetAll();
         }
 
         public void IzmeniLekLekar(int index,Lek lek)
@@ -76,129 +67,117 @@ namespace Bolnica.Servis
             List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             SviLekovi.RemoveAt(index);
             skladisteZaLekove.SaveAll(SviLekovi);
-            OsveziPrikazLekova();
         }
 
-        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni)
+        private bool Validiraj(Regex sablon, String unos)
         {
-            bool checkVrsta = false;
-            bool checkKolicina = false;
-            bool checkNaziv = false;
-            bool checkKlasa = false;
-            bool checkJacina = false;
-            bool checkZamenskiLek = false;
-            bool checkSastav = false;
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
-            Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
-            if (sablon.IsMatch(lek.NazivLeka))
-            {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
 
+        private bool ValidirajNazivLeka(Regex sablon, String unos, String vrstaOperacije)
+        {
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            if (sablon.IsMatch(unos))
+            {
                 foreach (Lek l in SviLekovi)
                 {
-                    if (DodajIliIzmeni.Equals("dodaj"))
+                    if (vrstaOperacije.Equals("dodaj"))
                     {
-                        if (lek.NazivLeka.Equals(l.NazivLeka))
+                        if (unos.Equals(l.NazivLeka))
                         {
                             MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;
                         }
                         else
                         {
-                            checkNaziv = true;
+                            return true;
                         }
                     }
                     else
                     {
                         int index = UpravnikWindow.GetInstance().TabelaLekovaIzmeni.SelectedIndex;
-                        if (lek.NazivLeka != SviLekovi[index].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
+                        if (unos != SviLekovi[index].NazivLeka && unos.Equals(l.NazivLeka))
                         {
                             MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;
                         }
                         else
                         {
-                            checkNaziv = true;
+                            return true;
                         }
                     }
                 }
             }
+            return false;
+        }
+        private bool ValidirajComboBoxoveLeka(String vrstaOperacije)
+        {
+            if (vrstaOperacije.Equals("dodaj"))
+            {
+                if (UpravnikWindow.GetInstance().VrstaLeka.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (UpravnikWindow.GetInstance().KlasaLeka.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                return true;
+            }
             else
+            {
+                if (UpravnikWindow.GetInstance().VrstaLekaIzmeni.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (UpravnikWindow.GetInstance().KlasaLekaIzmeni.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                return true;
+            }
+}
+
+public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni)
+        {
+            if (ValidirajNazivLeka(new Regex(@"^[0-9a-zA-Z\s]+$"), lek.NazivLeka, DodajIliIzmeni) == false)
             {
                 MessageBox.Show("Neispravno unet naziv leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[1-9]{1}[0-9]*$");
-            if (sablon.IsMatch(lek.KolicinaLeka))
-                checkKolicina = true;
-            else
+            if (Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), lek.KolicinaLeka) == false)
             {
                 MessageBox.Show("Neispravno uneta količina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[1-9]{1}[0-9]*$");
-            if (sablon.IsMatch(lek.JacinaLeka))
-                checkJacina = true;
-            else
+            if (Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), lek.JacinaLeka) == false)
             {
                 MessageBox.Show("Neispravno uneta jačina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
-            if (sablon.IsMatch(lek.ZamenskiLek))
-                checkZamenskiLek = true;
-            else
+            if (Validiraj(new Regex(@"^[0-9a-zA-Z\s]+$"), lek.ZamenskiLek) == false)
             {
                 MessageBox.Show("Neispravno unet zamenski lek !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            sablon = new Regex(@"^[0-9a-zA-Z,\s]+$");
-            if (sablon.IsMatch(lek.SastavLeka))
-                checkSastav = true;
-            else
+            if (Validiraj(new Regex(@"^[0-9a-zA-Z,\s]+$"), lek.SastavLeka) == false)
             {
                 MessageBox.Show("Neispravno unet sastav leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-            if (DodajIliIzmeni.Equals("dodaj"))
-            {
-                if (UpravnikWindow.GetInstance().VrstaLeka.SelectedIndex != -1)
-                    checkVrsta = true;
-                else
-                {
-                    MessageBox.Show("Selektujte  vrstu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-                if (UpravnikWindow.GetInstance().KlasaLeka.SelectedIndex != -1)
-                    checkKlasa = true;
-                else
-                {
-                    MessageBox.Show("Selektujte  klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            else
-            {
-                if (UpravnikWindow.GetInstance().VrstaLekaIzmeni.SelectedIndex != -1)
-                    checkVrsta = true;
-                else
-                {
-                    MessageBox.Show("Selektujte  vrstu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-                if (UpravnikWindow.GetInstance().KlasaLekaIzmeni.SelectedIndex != -1)
-                    checkKlasa = true;
-                else
-                {
-                    MessageBox.Show("Selektujte  klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
 
-            if (checkJacina == true && checkKlasa == true && checkKolicina == true && checkVrsta == true && checkNaziv == true && checkSastav == true && checkZamenskiLek == true)
+            if (ValidirajComboBoxoveLeka(DodajIliIzmeni) == true)
                 return true;
             else
                 return false;
@@ -253,5 +232,24 @@ namespace Bolnica.Servis
             UpravnikWindow.GetInstance().TabelaLekovaIzmeni.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekoveXml.GetInstance().GetAll());
         }
         private void OcistiTextPoljaLekova() {}
+
+        public List<Lek> GetAll()
+        {
+            return skladisteZaLekove.GetAll();
+        }
+
+        public void Save(Lek lek)
+        {
+            skladisteZaLekove.Save(lek);
+        }
+
+        public void SaveAll(List<Lek> lekovi)
+        {
+            skladisteZaLekove.SaveAll(lekovi);
+        }
+        public Lek getById(int id)
+        {
+            return skladisteZaLekove.getById(id);
+        }
     }
 }

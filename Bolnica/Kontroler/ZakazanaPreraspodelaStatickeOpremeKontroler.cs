@@ -45,6 +45,36 @@ namespace Bolnica.Kontroler
         {
             return ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().ProveraValidnostiPreraspodeleOpreme(trajanje);
         }
+
+        public List<ZakazanaPreraspodelaStatickeOpremeDTO> GetAll()
+        {
+            List<ZakazanaPreraspodelaStatickeOpremeDTO> preraspodele = new List<ZakazanaPreraspodelaStatickeOpremeDTO>();
+            foreach (ZakazanaPreraspodelaStatickeOpreme preraspodela in ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().GetAll())
+            {
+                preraspodele.Add(new ZakazanaPreraspodelaStatickeOpremeDTO()
+                {
+                    BrojProstorijeIzKojeSePrenosiOprema = preraspodela.BrojProstorijeIzKojeSePrenosiOprema,
+                    BrojProstorijeUKojuSePrenosiOprema = preraspodela.BrojProstorijeUKojuSePrenosiOprema,
+                    DatumIVremePreraspodele = preraspodela.DatumIVremePreraspodele,
+                    TrajanjePreraspodele = preraspodela.TrajanjePreraspodele,
+                    NazivOpreme = preraspodela.NazivOpreme,
+                    KolicinaOpreme = preraspodela.KolicinaOpreme,
+                    IdProstorijeIzKojeSePrenosiOprema = preraspodela.IdProstorijeIzKojeSePrenosiOprema,
+                    IdProstorijeUKojUSePrenosiOprema = preraspodela.IdProstorijeUKojUSePrenosiOprema
+                });
+            }
+            return preraspodele;
+        }
+
+        public void Save(ZakazanaPreraspodelaStatickeOpreme zakazanaPreraspodela)
+        {
+            ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().Save(zakazanaPreraspodela);
+        }
+
+        public void SaveAll(List<ZakazanaPreraspodelaStatickeOpreme> zakazanePreraspodele)
+        {
+            ZakazanaPreraspodelaStatickeOpremeServis.GetInstance().SaveAll(zakazanePreraspodele);
+        }
     }
 }
 

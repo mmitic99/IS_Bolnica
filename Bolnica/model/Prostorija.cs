@@ -11,24 +11,13 @@ namespace Model
         public int Sprat { get; set; }
         public String BrojSobe { get; set; }
         public VrstaProstorije VrstaProstorije { get; set; }
-        private bool RenoviraSe;
-        private double Kvadratura;
-        private List<StacionarnaOprema> Staticka { get; set; }
-        private List<PotrosnaOprema> Potrosna { get; set; }
-
-        public void RenovirajProstoriju()
-        {
-            // TODO: implement
-        }
-
-        public void ZavrsiRenoviranje()
-        {
-            // TODO: implement
-        }
+        public bool RenoviraSe { get; set; }
+        public double Kvadratura { get; set; }
+        public List<StacionarnaOprema> Staticka { get; set; }
+        public List<PotrosnaOprema> Potrosna { get; set; }
 
         public InventarZaProstorije inventarZaProstorije;
         public System.Collections.ArrayList termin;
-
 
         public Prostorija() {}
 
@@ -103,127 +92,6 @@ namespace Model
                 foreach (Termin oldTermin in tmpTermin)
                     oldTermin.SetProstorija((Prostorija)null);
                 tmpTermin.Clear();
-            }
-        }
-
-
-        public int Sprat_
-        {
-            get
-            {
-                return Sprat;
-            }
-            set
-            {
-                if (value != Sprat)
-                {
-                    Sprat = value;
-                }
-            }
-        }
-
-        public String BrojSobe_
-        {
-            get
-            {
-                return BrojSobe;
-            }
-            set
-            {
-                if (value != BrojSobe)
-                {
-                    BrojSobe = value;
-                }
-            }
-        }
-
-        public VrstaProstorije VrstaProstorije_
-        {
-            get
-            {
-                return VrstaProstorije;
-            }
-            set
-            {
-                if (value != VrstaProstorije)
-                {
-                    VrstaProstorije = value;
-                }
-            }
-        }
-
-        public bool RenoviraSe_
-        {
-            get
-            {
-                return RenoviraSe;
-            }
-            set
-            {
-                if (value != RenoviraSe)
-                {
-                    RenoviraSe = value;
-                }
-            }
-        }
-
-        public double Kvadratura_
-        {
-            get
-            {
-                return Kvadratura;
-            }
-            set
-            {
-                if (value != Kvadratura)
-                {
-                    Kvadratura = value;
-                }
-            }
-        }
-        
-        public List<StacionarnaOprema> Staticka_
-        {
-            get
-            {
-                return Staticka;
-            }
-            set
-            {
-                if (value != Staticka)
-                {
-                    Staticka = value;
-                }
-            }
-        }
-
-        public List<PotrosnaOprema> Potrosna_
-        {
-            get
-            {
-                return Potrosna;
-            }
-            set
-            {
-                if (value != Potrosna)
-                {
-                    Potrosna = value;
-                }
-            }
-        }
-
-        public int IdProstorije_
-        {
-            get
-            {
-                return IdProstorije;
-            }
-            set
-            {
-                if (value != IdProstorije)
-                {
-                    IdProstorije = value;
-                }
             }
         }
     }

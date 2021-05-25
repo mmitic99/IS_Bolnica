@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfZakazanaPreraspodelaStatickeOpreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfZakazanaPreraspodelaStatickeOpreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-05-29T13:00:00</DatumIVremePreraspodele>
+    <NazivOpreme>Krevet</NazivOpreme>
+    <KolicinaOpreme>2</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>406</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>10</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+</ArrayOfZakazanaPreraspodelaStatickeOpreme>
