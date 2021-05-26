@@ -222,32 +222,23 @@
   </Prostorija>
   <Prostorija>
     <termin />
-    <IdProstorije>9</IdProstorije>
-    <Sprat>4</Sprat>
-    <BrojSobe>403</BrojSobe>
-    <VrstaProstorije>Operaciona_sala</VrstaProstorije>
-    <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>52</Kvadratura>
-    <Staticka>
-      <StacionarnaOprema>
-        <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
-      </StacionarnaOprema>
-      <StacionarnaOprema>
-        <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
-      </StacionarnaOprema>
-    </Staticka>
-    <Potrosna />
-  </Prostorija>
-  <Prostorija>
-    <termin />
     <IdProstorije>10</IdProstorije>
     <Sprat>4</Sprat>
     <BrojSobe>406</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
     <Kvadratura>43</Kvadratura>
+    <Staticka />
+    <Potrosna />
+  </Prostorija>
+  <Prostorija>
+    <termin />
+    <IdProstorije>11</IdProstorije>
+    <Sprat>0</Sprat>
+    <BrojSobe>430</BrojSobe>
+    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <RenoviraSe>true</RenoviraSe>
+    <Kvadratura>0</Kvadratura>
     <Staticka />
     <Potrosna />
   </Prostorija>

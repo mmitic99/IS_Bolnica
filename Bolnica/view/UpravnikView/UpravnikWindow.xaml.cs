@@ -39,6 +39,7 @@ namespace Bolnica.view.UpravnikView
             PocetnaStrana.IsSelected = true;
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
+            ProstorijeKontroler.GetInstance().AzurirajNaprednaRenoviranjaProstorija();
             PrikaziTabele();
         }
 
@@ -835,7 +836,18 @@ namespace Bolnica.view.UpravnikView
                 NazivDinamickeOpremeIzmeni.Clear();
             }
 
-            private void OcistiTextPoljaLekova() { }
+            private void OcistiTextPoljaPodeleProstorije()
+            {
+                NaprednoRenoviranjeSoba1.Clear();
+                NaprednoRenoviranjeSoba2.Clear();
+            }
+
+            private void OcistiTextPoljaSpajanjaProstorija()
+            {
+                NaprednoRenoviranjeNovaSoba.Clear();
+            }
+
+        private void OcistiTextPoljaLekova() { }
 
             private void OsveziPrikazTabelaOpreme(int indexIzKojeProstorije, int indexUKojuProstoriju)
             {
@@ -873,9 +885,6 @@ namespace Bolnica.view.UpravnikView
                 {
                     NaprednoRenoviranjeDTO naprednoDTO = new NaprednoRenoviranjeDTO()
                     {
-                        IdGlavneProstorije = -1,
-                        IdProstorije1 = -1,
-                        IdProstorije2 = -1,
                         BrojGlavneProstorije = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorijeNaprednoRenoviranjeComboBox.SelectedIndex].BrojSobe,
                         BrojProstorije1 = NaprednoRenoviranjeSoba1.Text,
                         BrojProstorije2 = NaprednoRenoviranjeSoba2.Text,
@@ -886,6 +895,7 @@ namespace Bolnica.view.UpravnikView
                     };
                     ProstorijeKontroler.GetInstance().DodajNaprednoRenoviranje(naprednoDTO);
                     OsveziPrikazNaprednihRenoviranja();
+                    OcistiTextPoljaPodeleProstorije();
                 }
             }
             else
@@ -902,9 +912,6 @@ namespace Bolnica.view.UpravnikView
                 {
                     NaprednoRenoviranjeDTO naprednoDTO = new NaprednoRenoviranjeDTO()
                     {
-                        IdGlavneProstorije = -1,
-                        IdProstorije1 = -1,
-                        IdProstorije2 = -1,
                         BrojGlavneProstorije = NaprednoRenoviranjeNovaSoba.Text,
                         BrojProstorije1 = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorije1ComboBox.SelectedIndex].BrojSobe,
                         BrojProstorije2 = ProstorijeKontroler.GetInstance().GetAll()[BrojProstorije2ComboBox.SelectedIndex].BrojSobe,
@@ -915,6 +922,7 @@ namespace Bolnica.view.UpravnikView
                     };
                     ProstorijeKontroler.GetInstance().DodajNaprednoRenoviranje(naprednoDTO);
                     OsveziPrikazNaprednihRenoviranja();
+                    OcistiTextPoljaSpajanjaProstorija();
                 }
             }
             else
@@ -923,7 +931,13 @@ namespace Bolnica.view.UpravnikView
 
         private void OtkaziNaprednoRenoviranjeClick(object sender, RoutedEventArgs e)
         {
-
+            if (TabelaNaprednogRenoviranja.SelectedIndex != -1)
+            {
+                ProstorijeKontroler.GetInstance().ObrisiNaprednoRenoviranje(TabelaNaprednogRenoviranja.SelectedIndex);
+                OsveziPrikazNaprednihRenoviranja();
+            }
+            else
+                MessageBox.Show("Označite renoviranje koje želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
