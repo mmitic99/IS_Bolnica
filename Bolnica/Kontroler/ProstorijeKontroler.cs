@@ -45,7 +45,6 @@ namespace Kontroler
         public void AzurirajRenoviranjaProstorija()
         {
             ProstorijeServis.GetInstance().AzurirajRenoviranjaProstorija();
-            ProstorijeServis.GetInstance().AzurirajRenoviranjeFlegProstorije();
         }
 
         public void IzmeniKolicinuLeka(int idLeka, double kolicina, int izProstorije, int uProstoriju)
@@ -358,15 +357,5 @@ namespace Kontroler
             return renoviranjaDTO;
         }
 
-        public void AzurirajNaprednaRenoviranjaProstorija()
-        {
-            ProstorijeServis.GetInstance().AzurirajNaprednaRenoviranjaProstorija();
-        }
-
-        public void ObrisiNaprednoRenoviranje(int index)
-        {
-            ProstorijeServis.GetInstance().ObrisiNaprednoRenoviranje(index);
-        }
-            
     }
 }

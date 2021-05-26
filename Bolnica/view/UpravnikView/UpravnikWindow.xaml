@@ -10,8 +10,8 @@
     <TabControl>
         <TabItem Header="Mihailo Majstorović" Background="DodgerBlue" FontSize="15" FontFamily="Yu Gothic Medium" Width="191" BorderBrush="DodgerBlue" IsEnabled="False"/>
         <TabItem x:Name="PocetnaStrana" Header="POČETNA STRANA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="200" BorderBrush="DodgerBlue"/>
-        <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue">
-            <TabControl TabStripPlacement="Left" >
+        <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue" >
+            <TabControl TabStripPlacement="Left">
                 <TabItem x:Name="DodajObrisiProstorijeTab" Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid Background="DodgerBlue">
                         <DataGrid x:Name ="TabelaProstorija" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
@@ -44,7 +44,7 @@
                         <Image Margin="861,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill"/>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="IzmeniProstorijeTab" Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue" >
+                <TabItem Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid Background="DodgerBlue">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="550*"/>
@@ -126,8 +126,8 @@
                                 <DataGridTextColumn Header="Prostorija 2" Binding="{Binding BrojProstorije2}"/>
                                 <DataGridCheckBoxColumn Header="Spajanje" Binding="{Binding Spajanje}"/>
                                 <DataGridCheckBoxColumn Header="Podela" Binding="{Binding Podela}"/>
-                                <DataGridTextColumn Header="Datum početka renoviranja" Binding="{Binding DatumPocetkaRenoviranja}" Width="*"/>
-                                <DataGridTextColumn Header="Datum završetka renoviranja" Binding="{Binding DatumZavrsetkaRenoviranja}" Width="*"/>
+                                <DataGridTextColumn Header="Datum početka renoviranja" Binding="{Binding DatumPocetkaRenoviranja}"/>
+                                <DataGridTextColumn Header="Datum završetka renoviranja" Binding="{Binding DatumZavrsetkaRenoviranja}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -180,7 +180,7 @@
                         </ComboBox>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="ProstorijeOpremaTab" Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                <TabItem Header="OPREMA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
                     <Grid x:Name="ProstorijeSelektujOpremu" Background="DodgerBlue">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="535*"/>
