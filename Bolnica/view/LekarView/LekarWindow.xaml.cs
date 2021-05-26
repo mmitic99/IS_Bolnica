@@ -8,6 +8,10 @@ using System.Windows;
 using System.Windows.Controls;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Bolnica.DTOs;
+using Kontroler;
+using Servis;
+using Bolnica.Kontroler;
 
 namespace Bolnica.view
 {
@@ -23,23 +27,19 @@ namespace Bolnica.view
         {
             return instance;
         }
-        public List<Termin> Termini
-        {
-            get;
-            set;
-        }
-        public Lekar lekar1;
+        public Lekar lekarTrenutni;
         
 
         SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
-        public LekarWindow(Lekar lekar)
+        public LekarWindow(LekarDTO lekar)
         {
 
             InitializeComponent();
-            this.DataContext = this;                         
-            Termini = skladiste.GetByJmbgLekar(lekar.Jmbg);
+            this.DataContext = this;                        
             Frame1.Content = new TerminiPage(lekar);
-            lekar1 = lekar;
+
+            lekarTrenutni = LekarServis.getInstance().GetByJmbg(lekar.Jmbg);
+            BolnickaLecenjaKontroler.GetInstance().OtpustanjePacijenata();
             instance = this;
         }
 

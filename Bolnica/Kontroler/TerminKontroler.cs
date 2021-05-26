@@ -5,6 +5,8 @@ using Servis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bolnica.model;
+using Bolnica.Repozitorijum.XmlSkladiste;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -213,7 +215,7 @@ namespace Kontroler
         {
             Termin selektovaniTermin = (Termin)selectedItem;
             return selektovaniTermin.DatumIVremeTermina.Date.AddDays(-1) > DateTime.Today
-                && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija; 
+                && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija;
         }
 
         public List<TerminDTO> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
@@ -288,6 +290,7 @@ namespace Kontroler
             return termini;
         }
 
+
         public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
         {
             List<TerminDTO> termini = new List<TerminDTO>();
@@ -314,9 +317,34 @@ namespace Kontroler
             return TerminServis.GetTerminZaDatumILekara(datumIVreme, jmbgLekara);
         }
 
-        public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
+        public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
-            return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
+            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
+            List<TerminDTO> terminiDTO = new List<TerminDTO>();
+            foreach (Termin termin in termini)
+            {
+                TerminDTO terminDTO = new TerminDTO()
+                {
+                    JmbgLekara = termin.JmbgLekara,
+                    IDTermina = termin.IDTermina,
+                    brojSobe = termin.brojSobe,
+                    VrstaTermina = termin.VrstaTermina,
+                    TrajanjeTermina = termin.TrajanjeTermina,
+                    opisTegobe = termin.opisTegobe,
+                    JmbgPacijenta = termin.JmbgPacijenta,
+                    DatumIVremeTermina = termin.DatumIVremeTermina,
+                    IdProstorije = termin.IdProstorije
+                };
+                terminiDTO.Add(terminDTO);
+            }
+            return terminiDTO;
         }
+
+        public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
+            {
+                return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
+
+            }
+        
     }
 }

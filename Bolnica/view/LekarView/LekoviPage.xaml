@@ -12,9 +12,9 @@
         <TabControl Margin="0,80,10,4.6" TabStripPlacement="Left" Background="#F0DBD7">
             <TabItem x:Name="VerifikacijaTab" Header="Verifikacija lekova"  Margin="-2,-2,-0.4,-2" Width="108" >
                 <Grid>
-                    <TextBox x:Name="SastavTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Margin="413,41,0,0" IsReadOnly="True"/>
+                    <TextBox x:Name="SastavTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="445,41,0,0" IsReadOnly="True"/>
 
-                    <DataGrid x:Name="TabelaVerifikacija" ItemsSource="{Binding VerifikacijaLekova}" Margin="26,10,267.2,34.4" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged">
+                    <DataGrid x:Name="TabelaVerifikacija" ItemsSource="{Binding VerifikacijaLekova}" Margin="10,10,251.2,34.2" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Vreme slanja" Binding="{ Binding VremeSlanjaZahteva}"/>
                             <DataGridTextColumn Header="Ime leka" Binding="{ Binding Naslov}"/>
@@ -24,9 +24,9 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <TextBox x:Name="NapomenaTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" Margin="413,200,0,0" />
-                    <Label Content="Sastav:" HorizontalAlignment="Left" Margin="413,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.101,0.563"/>
-                    <Label Content="Napomena:" HorizontalAlignment="Left" Margin="413,174,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="NapomenaTxt" HorizontalAlignment="Left" Height="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Margin="445,200,0,0" />
+                    <Label Content="Sastav:" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.101,0.563"/>
+                    <Label Content="Napomena:" HorizontalAlignment="Left" Margin="445,174,0,0" VerticalAlignment="Top"/>
                     <Button Content="Pošalji" HorizontalAlignment="Left" Margin="477,333,0,0" VerticalAlignment="Top" Width="104" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>

@@ -81,4 +81,13 @@
     <Napomena />
     <IdVerifikacijeLeka>25.5.2021. 14:03:2019039997720251231828828477</IdVerifikacijeLeka>
   </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
+    <Naslov>Panklav</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
+    <JmbgPrimaoca>6667</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena>Odobreno.</Napomena>
+    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM19039997720256667</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

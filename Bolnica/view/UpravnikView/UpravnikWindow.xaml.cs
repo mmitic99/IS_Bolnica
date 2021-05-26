@@ -36,10 +36,11 @@ namespace Bolnica.view.UpravnikView
             this.upravnik = upravnik;
             instance = this;
             this.DataContext = this;
-            PocetnaStrana.IsSelected = true;
+            
+
             ProstorijeKontroler.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
-            PrikaziTabele();
+            
         }
 
         private void PrikaziTabele()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kontroler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Bolnica.view.LekarView
 
         private void MenuItem_Click_Termini(object sender, RoutedEventArgs e)
         {
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().trenutnoUlogovaniLekar());
         }
 
     }

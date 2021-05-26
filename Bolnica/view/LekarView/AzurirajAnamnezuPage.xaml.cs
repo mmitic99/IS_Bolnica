@@ -17,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
+using Bolnica.DTOs;
+using Bolnica.Kontroler;
 
 namespace Bolnica.view.LekarView
 {
@@ -25,13 +27,13 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class AzurirajAnamnezuPage : Page
     {
-        public Anamneza anamneza1;
-        public AzurirajAnamnezuPage(Anamneza anamneza)
+        public AnamnezaDTO anamnezaDTONova;
+        public AzurirajAnamnezuPage(AnamnezaDTO anamneza)
         {
             InitializeComponent();
             this.DataContext = this;
             txt1.Text = anamneza.AnamnezaDijalog;
-            anamneza1 = anamneza;
+            anamnezaDTONova = anamneza;
         }
 
        
@@ -43,12 +45,12 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            String dijalog = txt1.Text;
+            PacijentDTO pacijent = PacijentKontroler.GetInstance().GetByJmbg(PacijentInfoPage.getInstance().Jmbg);
             
-            Pacijent pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(PacijentInfoPage.getInstance().Jmbg);
-            Pacijent p1 = pacijent;
-            pacijent.ZdravstveniKarton.IzmenaAnamneze(anamneza1.IdAnamneze, txt1.Text);
-            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, p1);
-            //LekarWindow.getInstance().Frame1.Content = new AnamnezaPage(pacijent.Jmbg);
+            AnamnezaKontroler.GetInstance().IzmenaAnamneze(anamnezaDTONova.IdAnamneze, dijalog, pacijent);
+            
+            
         }
     }
 }
