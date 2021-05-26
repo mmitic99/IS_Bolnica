@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfObavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Obavestenje>
-    <VremeObavestenja>2021-04-09T18:03:38.8380124+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 17.4.2021. 08:00:00 je pomeren na 27.4.2021. 08:00:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-09T18:03:38.8889834+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 17.4.2021. 08:00:00 je pomeren na 27.4.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-19T11:55:29.596945+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 28.4.2021. 13:30:00 je pomeren na 30.4.2021. 13:30:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -49,26 +33,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-18T21:30:11.9286517+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-18T21:30:11.938616+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-18T21:37:39.8853238+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 8:30:00 AM je pomeren na 4/29/2021 8:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -81,26 +49,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-18T21:44:52.132421+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 12:00:00 PM je pomeren na 5/19/2021 12:00:00 PM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-18T21:44:52.1354131+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 12:00:00 PM je pomeren na 5/19/2021 12:00:00 PM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-21T07:10:29.5353128+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -113,14 +65,6 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T20:55:33.8149317+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 6:00:00 AM je pomeren na 4/28/2021 6:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-27T20:55:33.869533+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 6:00:00 AM je pomeren na 4/28/2021 6:30:00 AM.</Sadrzaj>
@@ -129,26 +73,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-04-27T21:15:51.5971625+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/30/2021 6:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-04-27T21:15:51.6061768+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/30/2021 6:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>4536</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:33:55.5380057+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:30:00 AM je pomeren na 4/28/2021 6:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -164,23 +92,7 @@
     <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>4536</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-04-29T12:32:34.665724+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/12/2021 5:30:00 PM je pomeren na 5/9/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -233,26 +145,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:40:13.5801611+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234567890123</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T13:40:13.5957848+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:41:23.8653372+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234567890123</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -265,26 +161,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:43:44.818265+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234567890123</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T13:43:44.8222644+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
     <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:56:47.3829964+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -297,14 +177,6 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:57:05.4404699+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 2.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T13:57:05.4434639+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 2.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
@@ -313,26 +185,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:57:21.9811925+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T13:57:21.9831893+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
     <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:57:40.382983+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>4567891230987</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -348,23 +204,7 @@
     <VremeObavestenja>2021-05-01T13:58:52.5013186+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T13:58:52.5013186+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T14:00:35.829383+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234567890123</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -409,14 +249,6 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T16:17:31.475342+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4.12.2021. 00:00:00 je pomeren na 4.12.2021. 10:00:00.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T16:17:31.4793329+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4.12.2021. 00:00:00 je pomeren na 4.12.2021. 10:00:00.</Sadrzaj>
@@ -425,26 +257,10 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-01T16:18:15.5927946+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 17:00:00 je pomeren na 2.5.2021. 17:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234567890123</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-01T16:18:15.5957743+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 17:00:00 je pomeren na 2.5.2021. 17:00:00.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-01T16:18:55.4318408+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 17:00:00 je pomeren na 3.5.2021. 17:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -469,26 +285,10 @@ Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>2021-05-03T00:00:00+02:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-04T00:55:03.8581888+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/9/2021 7:00:00 AM je pomeren na 5/6/2021 9:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-04T00:55:03.8601826+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/9/2021 7:00:00 AM je pomeren na 5/6/2021 9:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-04T00:55:16.2721873+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -501,26 +301,10 @@ Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-04T00:55:55.2834999+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-04T00:55:55.2844949+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-04T12:26:33.8055633+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 6:30:00 PM.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -578,6 +362,634 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     </anketaOLekaru>
   </Obavestenje>
   <Obavestenje>
+    <VremeObavestenja>2021-05-05T01:17:57.6633134+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:00:00 AM je pomeren na 5/6/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-05T01:18:12.0184285+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-16T18:29:04.8984719+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 09:30:00 je pomeren na 27.5.2021. 15:30:00.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-17T12:31:43.423497+02:00</VremeObavestenja>
+    <Naslov>Doniranje krvi</Naslov>
+    <Sadrzaj>Obaveštavamo vas da će 06.06.2020. biti organizovana akcija dobrovoljnog davanja krvi.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-19T11:36:49.8886756+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-19T11:38:32.4475877+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-19T11:40:21.550927+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 15:30:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-24T01:21:44.2775582+02:00</VremeObavestenja>
+    <Naslov>Aktivna majska anketa</Naslov>
+    <Sadrzaj>Poštovani pacijenti,
+
+obaveštavamo vas da je do 8.6.2021 aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije.
+
+Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>2021-05-24T00:00:00+02:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:26.4453219+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:26.6727642+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:26.8982238+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.1296198+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.3626454+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.586046+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.81248+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.0368755+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.2632953+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.494677+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.723002+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.2293805+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.4647516+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.6991242+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.9220086+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.1547129+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.3804498+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.6057918+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.8307634+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.053166+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.2891008+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.5171605+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:37.7830055+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.0073711+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.2298329+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.4544382+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.6868159+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.9142448+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.1399+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.3643548+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.5920334+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.8244119+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:40.0498087+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:37.9993935+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.2218366+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.445462+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.6788394+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:38.9052059+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.1311242+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.3553257+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.5834345+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:39.8154709+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:40.0408682+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:46.6742265+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:46.6822049+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:46.8983194+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:46.9073511+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.1240176+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.1319568+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.486496+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.4954729+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.7159229+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.724144+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.9381047+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:47.9470388+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.1624455+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.1703809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.3838503+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.3927864+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.6112026+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.6202324+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.8326645+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:48.8415861+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:49.0570645+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:41:49.0649878+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:40:13.5801611+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:41:23.8653372+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:43:44.818265+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T14:00:35.829383+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T16:18:15.5927946+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 17:00:00 je pomeren na 2.5.2021. 17:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
     <VremeObavestenja>2021-05-05T01:14:54.3095896+02:00</VremeObavestenja>
     <Naslov>Anketa o nedavnom pregledu</Naslov>
     <Sadrzaj>Poštovani/a Pera
@@ -601,113 +1013,10 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-05T01:17:57.6633134+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:00:00 AM je pomeren na 5/6/2021 9:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-05T01:18:12.0104487+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>1234567890123</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-05T01:18:12.0184285+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-05T01:43:56.6124532+02:00</VremeObavestenja>
-    <Naslov>Anketa o nedavnom pregledu</Naslov>
-    <Sadrzaj>Poštovani/a Mihailo
-nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
-
-Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
-    <JmbgKorisnika>123456789</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-    <anketaOLekaru>
-      <IDAnkete>12345678966675/5/2021 1:43:56 AM</IDAnkete>
-      <JmbgLekara>6667</JmbgLekara>
-    </anketaOLekaru>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-16T18:29:04.8884766+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 09:30:00 je pomeren na 27.5.2021. 15:30:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-16T18:29:04.8984719+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 09:30:00 je pomeren na 27.5.2021. 15:30:00.</Sadrzaj>
-    <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-17T12:31:43.423497+02:00</VremeObavestenja>
-    <Naslov>Doniranje krvi</Naslov>
-    <Sadrzaj>Obaveštavamo vas da će 06.06.2020. biti organizovana akcija dobrovoljnog davanja krvi.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:36:49.8816751+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:36:49.8886756+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:38:32.392127+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:38:32.4475877+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>7897611</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:40:21.5409309+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 15:30:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>1234</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-19T11:40:21.550927+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 15:30:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
-    <JmbgKorisnika>7897611</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -727,16 +1036,1659 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
     </anketaOLekaru>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-24T01:21:44.2775582+02:00</VremeObavestenja>
-    <Naslov>Aktivna majska anketa</Naslov>
-    <Sadrzaj>Poštovani pacijenti,
-
-obaveštavamo vas da je do 8.6.2021 aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije.
-
-Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
-    <JmbgKorisnika>-1</JmbgKorisnika>
+    <VremeObavestenja>2021-05-25T20:59:26.4006621+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>2021-05-24T00:00:00+02:00</kvartalnaAnketa>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:26.6648219+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:26.8902441+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.1216026+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.3547051+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.5791037+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:27.8045008+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.0299473+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.2563158+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.4857001+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:28.7150217+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.2214364+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 3:00:00 PM je pomeren na 4/20/2021 3:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.4537809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/23/2021 6:30:00 AM je pomeren na 4/23/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.6911447+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:35.91407+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 12:00:00 PM je pomeren na 5/5/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.1467724+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.3721318+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 1:00:00 PM je pomeren na 5/5/2021 1:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.5978134+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 5:00:00 PM je pomeren na 5/2/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:36.8227846+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.0451875+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 8:30:00 AM je pomeren na 5/5/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.2756091+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:30:00 AM je pomeren na 5/6/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-25T20:59:37.5085136+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 2:00:00 PM je pomeren na 5/20/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:47.9100402+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.1437367+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.370267+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.5946759+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.8300024+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:49.0539343+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.4172101+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.6559264+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.8930497+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.1223227+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.3516573+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.5770595+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:57:21.9811925+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T16:18:55.4318408+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 17:00:00 je pomeren na 3.5.2021. 17:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T12:26:33.8055633+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-16T18:29:04.8884766+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 27.5.2021. 09:30:00 je pomeren na 27.5.2021. 15:30:00.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-19T11:36:49.8816751+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-19T11:38:32.392127+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.1.0001. 00:00:00 je pomeren na 27.5.2021. 16:00:00.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.4643735+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.6977064+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.9290884+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.1629596+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.4043137+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.6379048+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.1747789+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.4082528+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.64316+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.8774969+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:32.120846+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:32.354396+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:12.6913752+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:12.9307364+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.1691848+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.4096568+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.6563779+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.8917082+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.1991128+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.4371232+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.6749879+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.911357+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:22.1560905+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:22.3964476+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:57:40.382983+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:47.8639011+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.1347612+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.3612562+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.5856861+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:48.8210694+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:48:49.0450137+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.407281+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.6476288+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:00.8846907+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.1141089+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.3429321+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T00:49:01.5688554+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.4171467+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.6887477+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:10.9201514+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.1529861+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.3953379+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:10:11.6289835+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.1286699+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.3982811+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.6341488+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:31.8675237+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:32.1109077+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:11:32.344423+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:12.6436428+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:12.9197645+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.1592124+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.3998416+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.6453683+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:13.8817738+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.1891991+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 11:30:00 AM je pomeren na 4/30/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.4271501+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.6650171+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 10:30:00 AM je pomeren na 5/6/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:21.9014368+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 2:00:00 PM je pomeren na 5/2/2021 2:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:22.1457666+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/1/2021 5:00:00 PM je pomeren na 5/1/2021 5:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:22.3864745+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 7:00:00 AM je pomeren na 5/6/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:33.9755526+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 8/8/0008 12:00:00 AM je pomeren na 8/8/0008 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.2169071+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/4/2021 7:00:00 AM je pomeren na 4/4/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.4532749+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 3/3/0004 12:00:00 AM je pomeren na 3/3/0004 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.7511563+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 7/3/2018 9:00:00 AM je pomeren na 7/3/2018 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.9974978+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:00:00 AM je pomeren na 4/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.2392592+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 6:00:00 AM je pomeren na 4/19/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.4776599+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:30:00 AM je pomeren na 4/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.7240017+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:30:00 AM je pomeren na 4/19/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.9673123+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:00:00 AM je pomeren na 4/19/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.2067305+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:00:00 AM je pomeren na 4/19/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.442903+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.6825433+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 10:30:00 AM je pomeren na 4/19/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.9234047+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 11:30:00 AM je pomeren na 4/19/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.1627666+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 12:00:00 PM je pomeren na 4/19/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.403908+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.6411046+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:00:00 AM je pomeren na 4/20/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.882497+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:30:00 AM je pomeren na 4/20/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.1268461+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 9:00:00 AM je pomeren na 4/20/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.365243+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/24/2021 7:00:00 AM je pomeren na 6/24/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.6076962+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 7:30:00 AM je pomeren na 5/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.8510438+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/22/2021 7:00:00 AM je pomeren na 4/22/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.1032831+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 7:00:00 PM je pomeren na 5/20/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.3426184+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 7:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.5850062+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/27/2021 7:00:00 PM je pomeren na 5/27/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.8273225+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 6:00:00 AM je pomeren na 5/5/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.0746609+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.3170124+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:00:00 AM je pomeren na 4/29/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.5604778+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:30:00 AM je pomeren na 4/29/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.8059726+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:30:00 AM je pomeren na 4/30/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.0463447+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:00:00 AM je pomeren na 4/30/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.2916887+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 7:00:00 AM je pomeren na 4/30/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.5351144+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 8:00:00 AM je pomeren na 5/2/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.7761269+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.0144918+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 12/4/2021 10:00:00 AM je pomeren na 12/4/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.2677198+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.5080433+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.7594139+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.0032609+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.2448417+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 9:00:00 AM je pomeren na 5/5/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.4902618+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 4:00:00 AM je pomeren na 5/5/2021 4:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.7312292+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 10:00:00 AM je pomeren na 5/5/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.9825558+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:00:00 AM je pomeren na 5/6/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:44.2350871+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 8:00:00 AM je pomeren na 5/6/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:53.5634399+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 8/8/0008 12:00:00 AM je pomeren na 8/8/0008 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:53.8033028+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/4/2021 7:00:00 AM je pomeren na 4/4/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.0610516+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 3/3/0004 12:00:00 AM je pomeren na 3/3/0004 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.2998804+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 7/3/2018 9:00:00 AM je pomeren na 7/3/2018 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.5489998+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:00:00 AM je pomeren na 4/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.7864622+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 6:00:00 AM je pomeren na 4/19/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.0247824+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:30:00 AM je pomeren na 4/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.2622018+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:30:00 AM je pomeren na 4/19/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.5104826+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:00:00 AM je pomeren na 4/19/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.7533484+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:00:00 AM je pomeren na 4/19/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.9897427+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.2291725+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 10:30:00 AM je pomeren na 4/19/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.4695298+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 11:30:00 AM je pomeren na 4/19/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.7155629+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 12:00:00 PM je pomeren na 4/19/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.9569486+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.193+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:00:00 AM je pomeren na 4/20/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.4314416+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:30:00 AM je pomeren na 4/20/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.6737932+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 9:00:00 AM je pomeren na 4/20/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.9131529+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/24/2021 7:00:00 AM je pomeren na 6/24/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.154507+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 7:30:00 AM je pomeren na 5/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.3928694+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/22/2021 7:00:00 AM je pomeren na 4/22/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.6349222+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 7:00:00 PM je pomeren na 5/20/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.8765299+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 7:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.1151261+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/27/2021 7:00:00 PM je pomeren na 5/27/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.3512134+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 6:00:00 AM je pomeren na 5/5/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.601489+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.8627898+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:00:00 AM je pomeren na 4/29/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.1060714+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:30:00 AM je pomeren na 4/29/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.3456882+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:30:00 AM je pomeren na 4/30/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.5860453+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:00:00 AM je pomeren na 4/30/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.8280344+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 7:00:00 AM je pomeren na 4/30/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.0656189+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 8:00:00 AM je pomeren na 5/2/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.3147205+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.5541356+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 12/4/2021 10:00:00 AM je pomeren na 12/4/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.7935886+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>7897611</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.0359782+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>4536</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.2733606+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>609</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.5127747+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.7810581+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 9:00:00 AM je pomeren na 5/5/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.0233594+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 4:00:00 AM je pomeren na 5/5/2021 4:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.2607179+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 10:00:00 AM je pomeren na 5/5/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.5030123+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:00:00 AM je pomeren na 5/6/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.7405705+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 8:00:00 AM je pomeren na 5/6/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-09T18:03:38.8380124+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 17.4.2021. 08:00:00 je pomeren na 27.4.2021. 08:00:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-19T11:55:29.596945+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 28.4.2021. 13:30:00 je pomeren na 30.4.2021. 13:30:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-18T21:30:11.9286517+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-18T21:37:39.8853238+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 8:30:00 AM je pomeren na 4/29/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-18T21:44:52.132421+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 12:00:00 PM je pomeren na 5/19/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-21T07:10:29.5353128+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 11:00:00 AM je pomeren na 5/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T20:55:33.8149317+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 6:00:00 AM je pomeren na 4/28/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T21:15:51.5971625+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/30/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:33:55.5380057+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:30:00 AM je pomeren na 4/28/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-27T22:34:12.3780809+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 6:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-04-29T12:32:34.665724+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/12/2021 5:30:00 PM je pomeren na 5/9/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:56:47.3829964+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:57:05.4404699+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 2.5.2021. 14:00:00 je pomeren na 2.5.2021. 08:00:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T13:58:52.5013186+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 1.5.2021. 14:00:00 je pomeren na 2.5.2021. 14:00:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-01T16:17:31.475342+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4.12.2021. 00:00:00 je pomeren na 4.12.2021. 10:00:00.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T00:55:03.8581888+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/9/2021 7:00:00 AM je pomeren na 5/6/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T00:55:16.2721873+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 9:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-04T00:55:55.2834999+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-05T01:43:56.6124532+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678966675/5/2021 1:43:56 AM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
   </Obavestenje>
   <Obavestenje>
     <VremeObavestenja>2021-05-25T11:05:32.1541768+02:00</VremeObavestenja>
@@ -752,5 +2704,693 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
       <IDAnkete>1234567896095/25/2021 11:05:32 AM</IDAnkete>
       <JmbgLekara>609</JmbgLekara>
     </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:33.9655216+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 8/8/0008 12:00:00 AM je pomeren na 8/8/0008 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.2069358+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/4/2021 7:00:00 AM je pomeren na 4/4/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.4433016+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 3/3/0004 12:00:00 AM je pomeren na 3/3/0004 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.7401857+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 7/3/2018 9:00:00 AM je pomeren na 7/3/2018 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:34.9865674+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:00:00 AM je pomeren na 4/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.2288781+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 6:00:00 AM je pomeren na 4/19/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.4666913+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:30:00 AM je pomeren na 4/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.7139896+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:30:00 AM je pomeren na 4/19/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:35.9553794+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:00:00 AM je pomeren na 4/19/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.1957576+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:00:00 AM je pomeren na 4/19/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.4329188+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.67257+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 10:30:00 AM je pomeren na 4/19/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:36.9119301+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 11:30:00 AM je pomeren na 4/19/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.1527922+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 12:00:00 PM je pomeren na 4/19/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.392938+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.6312106+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:00:00 AM je pomeren na 4/20/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:37.8705312+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:30:00 AM je pomeren na 4/20/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.1158762+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 9:00:00 AM je pomeren na 4/20/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.3542557+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/24/2021 7:00:00 AM je pomeren na 6/24/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.5967246+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 7:30:00 AM je pomeren na 5/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:38.8401137+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/22/2021 7:00:00 AM je pomeren na 4/22/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.0922753+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 7:00:00 PM je pomeren na 5/20/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.3316486+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 7:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.5740018+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/27/2021 7:00:00 PM je pomeren na 5/27/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:39.8153567+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 6:00:00 AM je pomeren na 5/5/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.0606985+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.3060424+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:00:00 AM je pomeren na 4/29/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.5495071+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:30:00 AM je pomeren na 4/29/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:40.7940047+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:30:00 AM je pomeren na 4/30/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.0344102+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:00:00 AM je pomeren na 4/30/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.2797627+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 7:00:00 AM je pomeren na 4/30/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.5230697+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 8:00:00 AM je pomeren na 5/2/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:41.7641617+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.0035216+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 12/4/2021 10:00:00 AM je pomeren na 12/4/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.2557491+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.4961174+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.7474852+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:42.9918519+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.2308813+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 9:00:00 AM je pomeren na 5/5/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.4782147+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 4:00:00 AM je pomeren na 5/5/2021 4:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.7192649+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 10:00:00 AM je pomeren na 5/5/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:43.9695908+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:00:00 AM je pomeren na 5/6/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:44.2226091+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 8:00:00 AM je pomeren na 5/6/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:53.5515097+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 8/8/0008 12:00:00 AM je pomeren na 8/8/0008 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:53.79132+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/4/2021 7:00:00 AM je pomeren na 4/4/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.0490457+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 3/3/0004 12:00:00 AM je pomeren na 3/3/0004 12:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.2879124+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 7/3/2018 9:00:00 AM je pomeren na 7/3/2018 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.5370318+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:00:00 AM je pomeren na 4/19/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:54.7744947+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 6:00:00 AM je pomeren na 4/19/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.0138521+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:30:00 AM je pomeren na 4/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.2502202+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:30:00 AM je pomeren na 4/19/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.4965193+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:00:00 AM je pomeren na 4/19/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.741414+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:00:00 AM je pomeren na 4/19/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:55.977766+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.2172073+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 10:30:00 AM je pomeren na 4/19/2021 10:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.4585592+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 11:30:00 AM je pomeren na 4/19/2021 11:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.7035737+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 12:00:00 PM je pomeren na 4/19/2021 12:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:56.9438917+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.1809985+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:00:00 AM je pomeren na 4/20/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.4184756+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:30:00 AM je pomeren na 4/20/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.660828+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 9:00:00 AM je pomeren na 4/20/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:57.9011866+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/24/2021 7:00:00 AM je pomeren na 6/24/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.1415423+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/19/2021 7:30:00 AM je pomeren na 5/19/2021 7:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.3809414+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/22/2021 7:00:00 AM je pomeren na 4/22/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.6219566+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/20/2021 7:00:00 PM je pomeren na 5/20/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:58.8635372+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 7:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.1021041+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/27/2021 7:00:00 PM je pomeren na 5/27/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.3382378+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 6:00:00 AM je pomeren na 5/5/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.5865641+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/22/2021 7:00:00 PM je pomeren na 6/22/2021 7:00:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:12:59.8468422+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:00:00 AM je pomeren na 4/29/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.0931066+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/29/2021 9:30:00 AM je pomeren na 4/29/2021 9:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.3327229+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:30:00 AM je pomeren na 4/30/2021 8:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.5731166+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 8:00:00 AM je pomeren na 4/30/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:00.8141123+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/30/2021 7:00:00 AM je pomeren na 4/30/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.0526535+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 8:00:00 AM je pomeren na 5/2/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.3017559+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.5421654+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 12/4/2021 10:00:00 AM je pomeren na 12/4/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:01.7796652+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.0230127+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.2613949+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.4986995+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:02.7670948+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 9:00:00 AM je pomeren na 5/5/2021 9:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.0113653+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 4:00:00 AM je pomeren na 5/5/2021 4:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.248732+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 10:00:00 AM je pomeren na 5/5/2021 10:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.4900496+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 6:00:00 AM je pomeren na 5/6/2021 6:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-05-26T01:13:03.7276053+02:00</VremeObavestenja>
+    <Naslov>Izmena zakazanog termina</Naslov>
+    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/6/2021 8:00:00 AM je pomeren na 5/6/2021 8:00:00 AM.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
 </ArrayOfObavestenje>

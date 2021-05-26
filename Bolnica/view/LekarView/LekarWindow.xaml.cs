@@ -11,6 +11,7 @@ using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.DTOs;
 using Kontroler;
 using Servis;
+using Bolnica.Kontroler;
 
 namespace Bolnica.view
 {
@@ -38,6 +39,7 @@ namespace Bolnica.view
             Frame1.Content = new TerminiPage(lekar);
 
             lekarTrenutni = LekarServis.getInstance().GetByJmbg(lekar.Jmbg);
+            BolnickaLecenjaKontroler.GetInstance().OtpustanjePacijenata();
             instance = this;
         }
 

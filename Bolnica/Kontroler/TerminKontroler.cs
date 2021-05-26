@@ -215,7 +215,7 @@ namespace Kontroler
         {
             Termin selektovaniTermin = (Termin)selectedItem;
             return selektovaniTermin.DatumIVremeTermina.Date.AddDays(-1) > DateTime.Today
-                && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija; 
+                && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija;
         }
 
         public List<TerminDTO> NadjiHitanTermin(string jmbgPacijenta, string vrstaSpecijalizacije)
@@ -289,7 +289,7 @@ namespace Kontroler
             }
             return termini;
         }
-      
+
 
         public List<TerminDTO> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametriDTO)
         {
@@ -319,9 +319,9 @@ namespace Kontroler
 
         public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
-           List<Termin> termini =  SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
+            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
             List<TerminDTO> terminiDTO = new List<TerminDTO>();
-            foreach(Termin termin in termini)
+            foreach (Termin termin in termini)
             {
                 TerminDTO terminDTO = new TerminDTO()
                 {
@@ -338,12 +338,13 @@ namespace Kontroler
                 terminiDTO.Add(terminDTO);
             }
             return terminiDTO;
-
+        }
 
         public string GenerisiIzvestaj(DateTime datumPocetka, DateTime datumZavrsetka)
-        {
-            return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
+            {
+                return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
 
-        }
+            }
+        
     }
 }

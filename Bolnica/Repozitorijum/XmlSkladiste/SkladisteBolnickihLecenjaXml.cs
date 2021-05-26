@@ -62,6 +62,20 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             }
         }
 
+        public void RemoveByID(string jmbgPacijenta)
+        {
+            List<BolnickoLecenje> svaLecenja = this.GetAll();
+            foreach(BolnickoLecenje bolnickoLecenje in svaLecenja)
+            {
+                if (bolnickoLecenje.jmbgPacijenta.Equals(jmbgPacijenta))
+                {
+                    svaLecenja.Remove(bolnickoLecenje);
+                    break;
+                }
+                this.SaveAll(svaLecenja);
+            }
+        }
+
         private String Lokacija;
         private static SkladisteBolnickihLecenjaXml instance = null;
     }

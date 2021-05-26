@@ -1,6 +1,8 @@
 ﻿using Bolnica.DTOs;
 using Bolnica.Servis;
+using Kontroler;
 using Model;
+using Servis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,18 +37,11 @@ namespace Bolnica.Kontroler
             };
             return anamnezaDTO;
         }
-        public AnamnezaDTO IzmenaAnamneze(String id, String dijalog)
+        public void IzmenaAnamneze(String id, String dijalog,PacijentDTO pacijent)
         {
 
-            Anamneza anamneza = AnamnezaServis.GetInstance().IzmenaAnamneze(id, dijalog);
-            AnamnezaDTO anamnezaDTO = new AnamnezaDTO()
-            {
-                AnamnezaDijalog = anamneza.AnamnezaDijalog,
-                DatumAnamneze = anamneza.DatumAnamneze,
-                IdAnamneze = anamneza.IdAnamneze,
-                ImeLekara = anamneza.ImeLekara
-            };
-            return anamnezaDTO;
+            Pacijent pacijentIzmena = PacijentServis.GetInstance().GetByJmbg(pacijent.Jmbg);
+            AnamnezaServis.GetInstance().IzmenaAnamneze(id,dijalog,pacijentIzmena);
         }
     }
 }

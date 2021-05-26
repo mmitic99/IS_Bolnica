@@ -2,6 +2,7 @@
 using Bolnica.Repozitorijum;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
+using Servis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,12 +49,15 @@ namespace Bolnica.Servis
             }
             return anamnezaNova;
         }
-        public Anamneza IzmenaAnamneze(String id, String dijalog)
+       
+        public void IzmenaAnamneze(String id, String dijalog,Pacijent pacijent)
         {
 
             Anamneza anamneza = AnamnezaServis.GetInstance().getAnamnezaById(id);
+            Pacijent pacijentNovi = pacijent;
             anamneza.AnamnezaDijalog = dijalog;
-            return anamneza;
+            
+            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijentNovi);
         }
     }
 }

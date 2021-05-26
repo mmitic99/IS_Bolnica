@@ -35,7 +35,7 @@ namespace Bolnica.view.LekarView
             if (ZakazivanjeTerminaPage.getInstance().isHitan)
             {
                
-                moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(PacijentInfoPage.getInstance().pacijent.Jmbg, ((LekarDTO)ZakazivanjeTerminaPage.getInstance().LekariBox.SelectedItem).Specijalizacija.ToString());
+                moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(PacijentInfoPage.getInstance().pacijent.Jmbg, "opšta medicina");
             }
             else
             {

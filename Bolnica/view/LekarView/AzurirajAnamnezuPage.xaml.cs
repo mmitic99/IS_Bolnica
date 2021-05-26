@@ -45,12 +45,11 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            String dijalog = txt1.Text;
             PacijentDTO pacijent = PacijentKontroler.GetInstance().GetByJmbg(PacijentInfoPage.getInstance().Jmbg);
-            PacijentDTO pacijentnovi = pacijent;
-            AnamnezaDTO anamneza = AnamnezaKontroler.GetInstance().IzmenaAnamneze(anamnezaDTONova.IdAnamneze, txt1.Text);
-            pacijentnovi.ZdravstveniKarton.Anamneze.Add(anamneza);
-            PacijentKontroler.GetInstance().IzmeniPacijenta(pacijent, pacijentnovi);
+            
+            AnamnezaKontroler.GetInstance().IzmenaAnamneze(anamnezaDTONova.IdAnamneze, dijalog, pacijent);
+            
             
         }
     }

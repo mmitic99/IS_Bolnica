@@ -1,4 +1,5 @@
 ﻿using Bolnica.DTOs;
+using Bolnica.Kontroler;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.view.LekarView;
 using Kontroler;
@@ -40,7 +41,7 @@ namespace Bolnica.view.LekarView
             txt2.Text = pacijent.Prezime;
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName;
-            BolnickiLekBox.ItemsSource = SkladisteZaLekoveXml.GetInstance().GetAll();
+            BolnickiLekBox.ItemsSource = LekKontroler.GetInstance().GetAll();
             
             
 
@@ -98,8 +99,8 @@ namespace Bolnica.view.LekarView
         {
             if (BolnickiLekBox.SelectedItem != null)
             {
-                Lek lek = (Lek)BolnickiLekBox.SelectedItem;
-                txt7.Text = lek.IdLeka.ToString();
+                LekDTO lek = (LekDTO)BolnickiLekBox.SelectedItem;
+                txt7.Text = lek.SiftaLeka;
                 txtImeLeka.Text = lek.NazivLeka;
                 bool daLiJeAlergican = false;
                 String[] sastojci = lek.SastavLeka.Split(',');

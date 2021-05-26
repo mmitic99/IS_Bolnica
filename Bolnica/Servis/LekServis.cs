@@ -55,11 +55,12 @@ namespace Bolnica.Servis
 
         public void IzmeniLekLekar(int index,Lek lek)
         {
+            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;
-            LekoviPage.getInstance().Lekovi[index] = lek;
-            LekoviPage.getInstance().Lekovi[index].IdLeka = StariIdLeka;
-            skladisteZaLekove.SaveAll(LekoviPage.getInstance().Lekovi);
-            LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(LekoviPage.getInstance().Lekovi);
+            SviLekovi[index] = lek;
+            SviLekovi[index].IdLeka = StariIdLeka;
+            skladisteZaLekove.SaveAll(SviLekovi);
+            LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<LekDTO>(LekoviPage.getInstance().Lekovi);
         }
 
         public void IzbrisiLek(int index)

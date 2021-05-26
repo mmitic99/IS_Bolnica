@@ -29,10 +29,10 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class LekoviPage : Page
     {
-        public List<Lek> Lekovi { get; set; }
-        public Lek lek;
-        public List<VerifikacijaLeka> VerifikacijaLekova{get; set;}
-        public VerifikacijaLeka verifikacijaLeka;
+       
+        public LekDTO lek;
+        public List<LekDTO> Lekovi;
+        public VerifikacijaLekaDTO verifikacijaLeka;
 
         private static LekoviPage instance = null;
         
@@ -47,10 +47,11 @@ namespace Bolnica.view.LekarView
         {
             InitializeComponent();
             this.DataContext = this;
-            Lekovi = new List<Lek>();
-            Lekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
-            VerifikacijaLekova = new List<VerifikacijaLeka>();
-            VerifikacijaLekova = SkladisteZaVerifikacijuLekaXml.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            Lekovi = LekKontroler.GetInstance().GetAll(); 
+            TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            TabelaLekova.ItemsSource = LekKontroler.GetInstance().GetAll();
+            List<VerifikacijaLekaDTO> VerifikacijaLekova = new List<VerifikacijaLekaDTO>();
+            VerifikacijaLekova = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
             ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
             instance = this;
 
@@ -60,7 +61,7 @@ namespace Bolnica.view.LekarView
         private void TabelaLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {   if (TabelaLekova.SelectedIndex != -1)
             {
-                lek = (Lek)TabelaLekova.SelectedItem;
+                lek = (LekDTO)TabelaLekova.SelectedItem;
                 int indexSelektovanogLeka = TabelaLekova.SelectedIndex;
                 txt1.Text = Lekovi[indexSelektovanogLeka].NazivLeka;
                 txt2.Text = Lekovi[indexSelektovanogLeka].JacinaLeka.ToString();
@@ -80,9 +81,9 @@ namespace Bolnica.view.LekarView
             if (TabelaLekova.SelectedIndex != -1)
             {
                 LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
-                Lek lekZaIzmenu;
                 
-                    lekZaIzmenu = new Lek(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
+
+                LekDTO lekZaIzmenu = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
                     LekKontroler.GetInstance().IzmeniLekLekar(TabelaLekova.SelectedIndex, lekZaIzmenu);
                 
             }
@@ -90,7 +91,8 @@ namespace Bolnica.view.LekarView
             {
                 MessageBox.Show("Označite lek koji želite da izmenite !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<Lek>(SkladisteZaLekoveXml.GetInstance().GetAll());
+            LekoviPage.getInstance().TabelaLekova.ItemsSource = new ObservableCollection<LekDTO>(LekKontroler.GetInstance().GetAll());
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -103,8 +105,8 @@ namespace Bolnica.view.LekarView
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            verifikacijaLeka = (VerifikacijaLeka)TabelaVerifikacija.SelectedItem;
-            SastavTxt.Text = verifikacijaLeka.Sadrzaj;
+            verifikacijaLeka = (VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem;
+            SastavTxt.Text = ((VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem).Sadrzaj;
 
         }
 

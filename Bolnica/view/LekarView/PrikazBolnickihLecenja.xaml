@@ -11,7 +11,7 @@
     <Grid>
         <Label Content="Pregled bolnilčkih lečenja" HorizontalAlignment="Left" Margin="319,18,0,0" VerticalAlignment="Top" Width="146"/>
         <DataGrid  x:Name="Bolnicka_Lecenja_Table" ItemsSource = "{Binding BolnickaLecenja}" AutoGenerateColumns="False" HorizontalAlignment="Right" 
-            Height="313" VerticalAlignment="Top" Width="601" Margin="0,85,176,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"  >
+            Height="313" VerticalAlignment="Top" Width="583" Margin="0,85,194,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"  CanUserSortColumns="False" SelectionChanged="Bolnicka_Lecenja_Table_SelectionChanged"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ime pacijenta"  Binding="{Binding imePacijenta}"/>
                 <DataGridTextColumn Header="Prostorija" Binding="{Binding brojSobe}" />
@@ -21,8 +21,10 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Prikaži anamnezu" HorizontalAlignment="Left" Margin="659,104,0,0" VerticalAlignment="Top" Width="114" />
-        <Button Content="Povratak na pacijenta" HorizontalAlignment="Left" Margin="656,379,0,0" VerticalAlignment="Top" Width="117" />
+        <Button Content="Produži boravak" HorizontalAlignment="Left" Margin="638,128,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_Produzi" />
+        <Button Content="Otpusti pacijenta" HorizontalAlignment="Left" Margin="635,341,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Otpusti" />
+        <Button Content="Povratak" HorizontalAlignment="Left" Margin="635,379,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Povratak" />
+        <Calendar x:Name="Kalendar" HorizontalAlignment="Left" Margin="625,165,0,0" VerticalAlignment="Top" Width="165" Height="150" RenderTransformOrigin="0.349,0.4"/>
 
     </Grid>
 </Page>
