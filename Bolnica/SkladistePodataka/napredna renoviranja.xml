@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfNaprednoRenoviranje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <NaprednoRenoviranje>
-    <IdGlavneProstorije>0</IdGlavneProstorije>
-    <IdProstorije1>0</IdProstorije1>
-    <IdProstorije2>0</IdProstorije2>
-    <BrojGlavneProstorije>004</BrojGlavneProstorije>
-    <BrojProstorije1>111</BrojProstorije1>
-    <BrojProstorije2>111</BrojProstorije2>
-    <DatumPocetkaRenoviranja>2021-05-12T00:00:00</DatumPocetkaRenoviranja>
-    <DatumZavrsetkaRenoviranja>2021-05-14T00:00:00</DatumZavrsetkaRenoviranja>
+    <BrojGlavneProstorije>430</BrojGlavneProstorije>
+    <BrojProstorije1>410</BrojProstorije1>
+    <BrojProstorije2>420</BrojProstorije2>
+    <DatumPocetkaRenoviranja>2021-05-20T00:00:00</DatumPocetkaRenoviranja>
+    <DatumZavrsetkaRenoviranja>2021-05-29T00:00:00</DatumZavrsetkaRenoviranja>
     <Spajanje>false</Spajanje>
     <Podela>true</Podela>
-  </NaprednoRenoviranje>
-  <NaprednoRenoviranje>
-    <IdGlavneProstorije>0</IdGlavneProstorije>
-    <IdProstorije1>0</IdProstorije1>
-    <IdProstorije2>0</IdProstorije2>
-    <BrojGlavneProstorije>305</BrojGlavneProstorije>
-    <BrojProstorije1>304</BrojProstorije1>
-    <BrojProstorije2>204</BrojProstorije2>
-    <DatumPocetkaRenoviranja>2021-05-20T00:00:00</DatumPocetkaRenoviranja>
-    <DatumZavrsetkaRenoviranja>2021-05-08T00:00:00</DatumZavrsetkaRenoviranja>
-    <Spajanje>true</Spajanje>
-    <Podela>false</Podela>
-  </NaprednoRenoviranje>
-  <NaprednoRenoviranje>
-    <IdGlavneProstorije>0</IdGlavneProstorije>
-    <IdProstorije1>0</IdProstorije1>
-    <IdProstorije2>0</IdProstorije2>
-    <BrojGlavneProstorije>403</BrojGlavneProstorije>
-    <BrojProstorije1>304</BrojProstorije1>
-    <BrojProstorije2>204</BrojProstorije2>
-    <DatumPocetkaRenoviranja>2021-05-20T00:00:00</DatumPocetkaRenoviranja>
-    <DatumZavrsetkaRenoviranja>2021-05-08T00:00:00</DatumZavrsetkaRenoviranja>
-    <Spajanje>true</Spajanje>
-    <Podela>false</Podela>
   </NaprednoRenoviranje>
 </ArrayOfNaprednoRenoviranje>
