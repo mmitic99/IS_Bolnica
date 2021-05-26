@@ -8,7 +8,7 @@
     <IdLeka>0</IdLeka>
     <JacinaLeka>490</JacinaLeka>
     <ZamenskiLek>BlokMax</ZamenskiLek>
-    <SastavLeka>ibuprofen, secer</SastavLeka>
+    <SastavLeka>ibuprofen, secer,kamilica</SastavLeka>
   </Lek>
   <Lek>
     <VrstaLeka>Gel</VrstaLeka>
@@ -21,7 +21,7 @@
     <SastavLeka>sirup</SastavLeka>
   </Lek>
   <Lek>
-    <VrstaLeka>SumecaTableta</VrstaLeka>
+    <VrstaLeka>Tableta</VrstaLeka>
     <KolicinaLeka>30</KolicinaLeka>
     <NazivLeka>TylolHot</NazivLeka>
     <KlasaLeka>Analgetik</KlasaLeka>
@@ -29,5 +29,15 @@
     <JacinaLeka>550</JacinaLeka>
     <ZamenskiLek>Neki lek</ZamenskiLek>
     <SastavLeka>sastojak, sastojci</SastavLeka>
+  </Lek>
+  <Lek>
+    <VrstaLeka>Kapsula</VrstaLeka>
+    <KolicinaLeka>23</KolicinaLeka>
+    <NazivLeka>dsa</NazivLeka>
+    <KlasaLeka>Analgetik</KlasaLeka>
+    <IdLeka>3</IdLeka>
+    <JacinaLeka>23</JacinaLeka>
+    <ZamenskiLek>adxsasd</ZamenskiLek>
+    <SastavLeka>dsa</SastavLeka>
   </Lek>
 </ArrayOfLek>

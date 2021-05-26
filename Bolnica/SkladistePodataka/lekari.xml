@@ -8,6 +8,7 @@
     <Korisnik>
       <KorisnickoIme>609</KorisnickoIme>
       <Lozinka>Dunja</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Dunja</Ime>
     <Prezime>Jovanovic</Prezime>
@@ -35,6 +36,7 @@
     <Korisnik>
       <KorisnickoIme>6667</KorisnickoIme>
       <Lozinka>Milos</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Milos</Ime>
     <Prezime>Marinkovic</Prezime>
@@ -62,6 +64,7 @@
     <Korisnik>
       <KorisnickoIme>7897611</KorisnickoIme>
       <Lozinka>Maja</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Maja</Ime>
     <Prezime>Balazevic</Prezime>
@@ -79,7 +82,7 @@
     </Specijalizacija>
     <FullName>dr Maja Balazevic</FullName>
     <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>0</IdOrdinacija>
+    <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
   <Lekar>
     <Grad>
@@ -89,6 +92,7 @@
     <Korisnik>
       <KorisnickoIme>4536</KorisnickoIme>
       <Lozinka>Miroslav</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Miroslav</Ime>
     <Prezime>Mi</Prezime>
@@ -106,7 +110,7 @@
     </Specijalizacija>
     <FullName>dr Miroslav Mi</FullName>
     <ImeiSpecijalizacija>dr Miroslav Mi- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>0</IdOrdinacija>
+    <IdOrdinacija>2</IdOrdinacija>
   </Lekar>
   <Lekar>
     <Grad>
@@ -116,6 +120,7 @@
     <Korisnik>
       <KorisnickoIme>1231828828477</KorisnickoIme>
       <Lozinka>Dusko</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
     </Korisnik>
     <Ime>Dusko</Ime>
     <Prezime>Jankovic</Prezime>
@@ -132,6 +137,6 @@
     </Specijalizacija>
     <FullName>dr Dusko Jankovic</FullName>
     <ImeiSpecijalizacija>dr Dusko Jankovic- kardiohirurgija</ImeiSpecijalizacija>
-    <IdOrdinacija>0</IdOrdinacija>
+    <IdOrdinacija>3</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

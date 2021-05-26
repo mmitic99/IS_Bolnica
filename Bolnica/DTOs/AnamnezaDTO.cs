@@ -7,6 +7,16 @@ namespace Bolnica.DTOs
         public string AnamnezaDijalog { get; set; }
         public DateTime DatumAnamneze { get; set; }
         public string ImeLekara { get; set; }
-        public String IdAnamneze { get; set; }
+        public String IdAnamneze
+        {
+            get
+            {
+                return ImeLekara + DatumAnamneze.ToString();
+            }
+            set
+            {
+
+            }
+        }
     }
 }
