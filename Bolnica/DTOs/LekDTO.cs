@@ -29,16 +29,5 @@ namespace Bolnica.DTOs
         public int JacinaLeka { get; set; }
         public String ZamenskiLek { get; set; }
         public String SastavLeka { get; set; }
-        public String SiftaLeka
-        {
-            get
-            {
-                return NazivLeka.Substring(0, 3).ToUpper();
-            }
-            set
-            {
-
-            }
-        }
     }
 }

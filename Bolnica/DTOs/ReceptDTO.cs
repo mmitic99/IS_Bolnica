@@ -22,8 +22,8 @@ namespace Bolnica.DTOs
             public int Doza { get; set; }
             public string Dijagnoza { get; set; }
             public string ImeDoktora { get; set; }
-            public PacijentDTO p { get; set; }
-            public PacijentDTO p1 { get; set; }
+            public Pacijent p { get; set; }
+            public Pacijent p1 { get; set; }
         }
     }
 }

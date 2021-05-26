@@ -52,8 +52,7 @@ namespace Kontroler
                 Specijalizacija = new Specijalizacija(){VrstaSpecijalizacije =  lekar.Specijalizacija},
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
-                FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                FullName = lekar.FullName
             });
         }
 
@@ -65,30 +64,7 @@ namespace Kontroler
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            Lekar lekar =  (Lekar)lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
-            if (lekar != null) {
-                return new LekarDTO()
-                {
-                    Ime = lekar.Ime,
-                    Prezime = lekar.Prezime,
-                    BracnoStanje = lekar.BracnoStanje,
-                    Adresa = lekar.Adresa,
-                    Jmbg = lekar.Jmbg,
-                    Zanimanje = lekar.Zanimanje,
-                    Pol = lekar.Pol,
-                    DatumRodjenja = lekar.DatumRodjenja,
-                    BrojTelefona = lekar.BrojTelefona,
-                    Email = lekar.Email,
-                    NazivGrada = lekar.Grad.Naziv,
-                    Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
-                    Specijalizacija =  lekar.Specijalizacija.ToString(),
-                    BrojSlobodnihDana = lekar.BrojSlobodnihDana,
-                    IdOrdinacija = lekar.IdOrdinacija,
-                    FullName = lekar.FullName,
-                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
-                };
-            }
-            return null;
+            return lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
         public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
@@ -124,8 +100,7 @@ namespace Kontroler
                     Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                     IdOrdinacija = lekar.IdOrdinacija,
-                    FullName = lekar.FullName,
-                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                    FullName = lekar.FullName
                 });
             }
 
@@ -172,8 +147,7 @@ namespace Kontroler
                 Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
-                FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                FullName = lekar.FullName
             };
         }
         public List<int> DobijTerminePijenja(String terminiPijenja)
@@ -205,34 +179,9 @@ namespace Kontroler
                 Specijalizacija = new Specijalizacija() { VrstaSpecijalizacije = lekar.Specijalizacija },
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
-                FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                FullName = lekar.FullName
             });
             return true;
-        }
-        public LekarDTO trenutnoUlogovaniLekar()
-        {
-            Lekar lekar = LekarServis.getInstance().trenutnoUlogovaniLekar();
-            return new LekarDTO()
-            {
-                Ime = lekar.Ime,
-                Prezime = lekar.Prezime,
-                BracnoStanje = lekar.BracnoStanje,
-                Adresa = lekar.Adresa,
-                Jmbg = lekar.Jmbg,
-                Zanimanje = lekar.Zanimanje,
-                Pol = lekar.Pol,
-                DatumRodjenja = lekar.DatumRodjenja,
-                BrojTelefona = lekar.BrojTelefona,
-                Email = lekar.Email,
-                NazivGrada = lekar.Grad.Naziv,
-                Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
-                Specijalizacija = lekar.Specijalizacija.VrstaSpecijalizacije,
-                BrojSlobodnihDana = lekar.BrojSlobodnihDana,
-                IdOrdinacija = lekar.IdOrdinacija,
-                FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
-            };
         }
     }
 }

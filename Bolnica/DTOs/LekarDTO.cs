@@ -28,7 +28,6 @@ namespace Bolnica.DTOs
         public String Zanimanje { get; set; }
 
         public String FullName { get; set; }
-        public String ImeiSpecijalizacija { get; set; }
 
     }
 }

@@ -10,7 +10,6 @@ using System.Linq;
 using System.Security.Permissions;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using static Bolnica.DTOs.ReceptDTO;
-using Bolnica.view;
 
 namespace Servis
 {
@@ -216,10 +215,8 @@ namespace Servis
             Izvestaj izvestaj = new Izvestaj(recepti);
             List<Izvestaj> izvestaji = new List<Izvestaj>();
             izvestaji.Add(izvestaj);
-            Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(parametri.p1.Jmbg);
-            Pacijent pacijent1 = pacijent;
-            pacijent1.ZdravstveniKarton.Izvestaj.Add(izvestaj);
-            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
+            parametri.p1.ZdravstveniKarton.Izvestaj.Add(izvestaj);
+            PacijentServis.IzmeniPacijenta(parametri.p, parametri.p1);
         }
         public List<int> dobijTerminePijenja(String terminiPijenja)
         {
@@ -233,11 +230,7 @@ namespace Servis
             }
             return terminiInt;
         }
-        public Lekar trenutnoUlogovaniLekar()
-        {
-            return LekarWindow.getInstance().lekarTrenutni;
-        }
+
         private RadnoVremeServis radnoVremeServis;
     }
-   
 }

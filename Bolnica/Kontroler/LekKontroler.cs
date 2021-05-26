@@ -33,9 +33,8 @@ namespace Bolnica.Kontroler
             Lek lek = new Lek(lekDTO.VrstaLeka, lekDTO.KolicinaLeka, lekDTO.NazivLeka, lekDTO.KlasaLeka, lekDTO.JacinaLeka, lekDTO.ZamenskiLek, lekDTO.SastavLeka);
             LekServis.GetInstance().IzmeniLek(index, lek);
         }
-        public void IzmeniLekLekar(int index, LekDTO lekDTO)
+        public void IzmeniLekLekar(int index, Lek lek)
         {
-            Lek lek = new Lek(lekDTO.VrstaLeka, lekDTO.KolicinaLeka, lekDTO.NazivLeka, lekDTO.KlasaLeka, lekDTO.JacinaLeka, lekDTO.ZamenskiLek, lekDTO.SastavLeka);
             LekServis.GetInstance().IzmeniLekLekar(index, lek);
         }
 

@@ -126,7 +126,6 @@
     </ApplicationDefinition>
     <Compile Include="Commands\SekretarCommands.cs" />
     <Compile Include="DTOs\AnamnezaDTO.cs" />
-    <Compile Include="DTOs\BolnickoLecenjeDTO.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="DTOs\IzmenaOpremeInfoDTO.cs" />
@@ -151,11 +150,9 @@
     <Compile Include="DTOs\VerifikacijaLekaDTO.cs" />
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
-    <Compile Include="Kontroler\AnamnezaKontroler.cs" />
     <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="DTOs\LekValidacijaDTO.cs" />
     <Compile Include="DTOs\ReceptDTO.cs" />
-    <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
@@ -173,7 +170,6 @@
     <Compile Include="model\AnketaKvartalna.cs" />
     <Compile Include="model\AnketaLekar.cs" />
     <Compile Include="model\Beleska.cs" />
-    <Compile Include="model\BolnickoLecenje.cs" />
     <Compile Include="model\Enum\StatusRadnogVremena.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
@@ -188,7 +184,6 @@
     <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
     <Compile Include="Repozitorijum\ISkladiste.cs" />
-    <Compile Include="Repozitorijum\ISkladisteBolnickihLecenja.cs" />
     <Compile Include="Repozitorijum\ISkladistePacijenta.cs" />
     <Compile Include="Repozitorijum\ISkladisteRadnihVremena.cs" />
     <Compile Include="Repozitorijum\ISkladisteSekretara.cs" />
@@ -207,16 +202,13 @@
     <Compile Include="Repozitorijum\ISkladisteZaTermine.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaVerifikacijuLeka.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
-    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteBolnickihLecenjaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteRadnihVremenaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKvartalneAnketeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKorisnickeAktivnostiXml.cs" />
-    <Compile Include="Servis\AnamnezaServis.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaPodsetnikeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
-    <Compile Include="Servis\BolnickaLecenjaServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
@@ -291,9 +283,6 @@
     </Compile>
     <Compile Include="view\LekarView\PacijentInfoPage.xaml.cs">
       <DependentUpon>PacijentInfoPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\LekarView\PrikazBolnickihLecenja.xaml.cs">
-      <DependentUpon>PrikazBolnickihLecenja.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\PrikazDostupnihTermina.xaml.cs">
       <DependentUpon>PrikazDostupnihTermina.xaml</DependentUpon>
@@ -452,10 +441,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\PacijentInfoPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\LekarView\PrikazBolnickihLecenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

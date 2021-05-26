@@ -1,17 +1,15 @@
-﻿<Page
+﻿<Page x:Class="Bolnica.view.LekarView.PacijentInfoPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.LekarView"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bolnica.view.LekarView.PacijentInfoPage"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PacijentInfoPage">
 
     <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="176" Margin="539,245,0,0" Stroke="Black" VerticalAlignment="Top" Width="251"/>
-        <ComboBox Text="Izaberi" x:Name="ComboBox1" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
+        <ComboBox Text="Izaberi" Name="ComboBox1" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox1_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding FullName}"/>
@@ -37,10 +35,10 @@
         <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="19" Margin="183,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
         <TextBox x:Name="txt9" HorizontalAlignment="Left" Height="67" Margin="153,354,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
         <Button Content="Izdaj recept" HorizontalAlignment="Left" Margin="358,140,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Label Content="Anamneza :" HorizontalAlignment="Left" Margin="494,113,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="AnamnezaTxt" HorizontalAlignment="Left" Height="81" Margin="586,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" />
-        <Button Content="Unesi anamnezu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="4.503,5.514" Margin="586,188,0,0" FontSize="10" Click="Button_Click_1"/>
-        <Button Content="Istorija anamneza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" RenderTransformOrigin="4.503,5.514" Margin="706,188,0,0" FontSize="10" Click="Button_Click_2"/>
+        <Label Content="Anamneza :" HorizontalAlignment="Left" Margin="494,175,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AnamnezaTxt" HorizontalAlignment="Left" Height="81" Margin="586,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" />
+        <Button Content="Unesi anamnezu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="4.503,5.514" Margin="586,250,0,0" FontSize="10" Click="Button_Click_1"/>
+        <Button Content="Istorija anamneza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="84" RenderTransformOrigin="4.503,5.514" Margin="706,250,0,0" FontSize="10" Click="Button_Click_2"/>
         <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="358,167,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <Menu HorizontalAlignment="Left" Height="65" Margin="89,0,0,0" VerticalAlignment="Top" Width="701" Background="#F0DBD7" Cursor="Hand">
             <Menu.ItemsPanel>
@@ -57,20 +55,6 @@
         </Menu>
         <Image HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="61" Source="doctor1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
         <TextBlock x:Name="ImeDoktora"  Text ="{Binding FullName}" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="89" FontSize="10"/>
-        <Button Content="Pošalji pacijenta na &#xA;  bolničko lečenje" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Margin="641,375,0,0" Height="38"  Click="Button_Click_SlanjeNaLecenje"/>
-        <Button Content="Prikaz bolničkih lečenja" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149" Margin="325,197,0,0" Height="22"  Click="Button_Click_Prikaz_Lecenja"/>
-        <Label Content="Prostorija:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,253,0,0"/>
-        <Label Content="Početak lečenja:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,287,0,0"/>
-        <Label Content="Kraj lečenja :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,324,0,0"/>
-        <ComboBox x:Name="ProstorijaBox" HorizontalAlignment="Left" Margin="664,257,0,0" VerticalAlignment="Top" Width="102">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding BrojSobe}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <DatePicker Name="PocetakLecenjaBox" HorizontalAlignment="Left" Margin="664,294,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="KrajLecenjaBox"  HorizontalAlignment="Left" Margin="664,326,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

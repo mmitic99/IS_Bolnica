@@ -1,6 +1,4 @@
 ﻿using Bolnica.DTOs;
-using Bolnica.Kontroler;
-using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.view.LekarView;
 using Kontroler;
 using Model;
@@ -27,23 +25,20 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class IzdavanjeReceptaPage : Page
     {
-        public ReceptDTO recept { get; set; }
-        public PacijentDTO pacijent { get; set; }
-        public PacijentDTO pacijent1;
+        public Recept recept { get; set; }
+        public Pacijent pacijent { get; set; }
+        public Pacijent pacijent1;
         public PacijentKontroler kontroler;
 
         public IzdavanjeReceptaPage()
         {
             InitializeComponent();
-            pacijent = (PacijentDTO)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
-            pacijent1 = pacijent;
+            pacijent = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
+            pacijent1 = (Pacijent)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
-            txt5.Text = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName;
-            BolnickiLekBox.ItemsSource = LekKontroler.GetInstance().GetAll();
-            
-            
+            txt5.Text = LekarWindow.getInstance().lekar1.FullName;
 
         }
 
@@ -65,14 +60,14 @@ namespace Bolnica.view.LekarView
                 BrojDana = int.Parse(txt4.Text),
                 Doza = int.Parse(txt10.Text),
                 Dijagnoza = txt12.Text,
-                ImeDoktora = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName,
+                ImeDoktora = LekarWindow.getInstance().lekar1.FullName,
                 p = pacijent,
-                p1 = pacijent
+                p1 = pacijent1
             };
 
 
 
-            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarWindow.getInstance().lekar1.Jmbg);
 
             LekarKontroler.getInstance().IzdajRecept(parametri);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
@@ -89,48 +84,9 @@ namespace Bolnica.view.LekarView
             {
                 MessageBox.Show("Pacijent alergican na uneti lek, unesi drugi lek!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 PotvrdiBtn.IsEnabled = false;
-                txtImeLeka.Text = "";
             }
             else
                 PotvrdiBtn.IsEnabled = true;
-        }
-
-        private void BolnickiLekBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (BolnickiLekBox.SelectedItem != null)
-            {
-                LekDTO lek = (LekDTO)BolnickiLekBox.SelectedItem;
-                txt7.Text = lek.SiftaLeka;
-                txtImeLeka.Text = lek.NazivLeka;
-                bool daLiJeAlergican = false;
-                String[] sastojci = lek.SastavLeka.Split(',');
-                List<String> sastojciList = new List<String>();
-                for (int i = 0; i < sastojci.Length; i++)
-                {
-                    String k = sastojci[i];
-                    sastojciList.Add(k);
-
-                }
-
-                foreach (String alergen in pacijent.ZdravstveniKarton.Alergeni)
-                {
-                    foreach(String sastojak in sastojciList)
-                    if (sastojak.Trim().ToLower().Equals(alergen.Trim().ToLower()))
-                        daLiJeAlergican = true;
-
-                    if (daLiJeAlergican)
-                    {
-                        MessageBox.Show("Pacijent alergican na sastojak unetog leka, unesi drugi lek!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                        PotvrdiBtn.IsEnabled = false;
-                        BolnickiLekBox.SelectedItem = null;
-                        txtImeLeka.Text = "";
-                        txt7.Text = "";
-                    }
-                    else
-                        PotvrdiBtn.IsEnabled = true;
-                }
-
-            }
         }
     }
 }

@@ -18,7 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.model;
-using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.view.LekarView
 {
@@ -31,16 +30,7 @@ namespace Bolnica.view.LekarView
         {
             InitializeComponent();
             this.DataContext = this;
-            List<TerminDTO> moguciTermini = new List<TerminDTO>();
-            if (ZakazivanjeTerminaPage.getInstance().isHitan)
-            {
-               
-                moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(PacijentInfoPage.getInstance().pacijent.Jmbg, "opšta medicina");
-            }
-            else
-            {
-                 moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
-            }
+            List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             prikazMogucih.ItemsSource = new ObservableCollection<TerminDTO>(moguciTermini);
 
         }
@@ -53,7 +43,7 @@ namespace Bolnica.view.LekarView
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((TerminDTO)prikazMogucih.SelectedItem).JmbgPacijenta);
+            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((Termin)prikazMogucih.SelectedItem).JmbgPacijenta);
         }
 
         

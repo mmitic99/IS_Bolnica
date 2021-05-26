@@ -1,7 +1,6 @@
 ﻿
 using Kontroler;
 using Model;
-using Bolnica.model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -20,8 +19,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
-using Bolnica.DTOs;
-using Bolnica.Kontroler;
 
 namespace Bolnica.view.LekarView
 {
@@ -31,9 +28,9 @@ namespace Bolnica.view.LekarView
     public partial class PacijentInfoPage : Page
     {
         private static PacijentInfoPage instance = null;
-        public ZdravstveniKartonDTO Karton;
+        public ZdravstveniKarton Karton;
         public String Jmbg;
-        public PacijentDTO pacijent;
+        public Pacijent pacijent;
 
         public static PacijentInfoPage getInstance()
         {
@@ -45,36 +42,24 @@ namespace Bolnica.view.LekarView
             
             InitializeComponent();
             instance = this;
-            int izabraniPacijent = 0;
+            int k = 0;
             Jmbg = jmbg;
-            ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
-            List<PacijentDTO> pacijentiDTO = PacijentKontroler.GetInstance().GetAll();
-            ComboBox1.ItemsSource = pacijentiDTO;
-            
-            List<ProstorijaDTO> prostorije = new List<ProstorijaDTO>();
-
-            foreach(ProstorijaDTO p in ProstorijeKontroler.GetInstance().GetAll())
-            {
-                if (p.VrstaProstorije == Model.Enum.VrstaProstorije.Soba_za_bolesnike)
-                    prostorije.Add(p);
-            }
-            ProstorijaBox.ItemsSource = prostorije;
-
+            ImeDoktora.DataContext = LekarWindow.getInstance().lekar1;
+            ComboBox1.ItemsSource = SkladistePacijentaXml.GetInstance().GetAll();
             if (jmbg != null)
             {
 
-                 pacijent = PacijentKontroler.GetInstance().GetByJmbg(jmbg);
-                
-                
-                foreach (PacijentDTO pacijentDTO in PacijentKontroler.GetInstance().GetAll())
+                 pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(jmbg);
+                ComboBox1.SelectedItem = pacijent.FullName;
+                foreach (Pacijent p in SkladistePacijentaXml.GetInstance().GetAll())
                 {
-                    if (pacijentDTO.Jmbg.Equals(jmbg))
+                    if (p.Jmbg.Equals(jmbg))
                     {
                         break;
                     }
-                    izabraniPacijent++;
+                    k++;
                 }
-                ComboBox1.SelectedIndex = izabraniPacijent;
+                ComboBox1.SelectedIndex = k;
                 txt1.Text = pacijent.Ime;
                 txt2.Text = pacijent.Prezime;
                 if (pacijent.Pol == Model.Enum.Pol.Muski)
@@ -84,8 +69,8 @@ namespace Bolnica.view.LekarView
 
                 txt4.Text = pacijent.DatumRodjenja.ToShortDateString();
                 txt5.Text = pacijent.Adresa;
-                txt6.Text = pacijent.BracnoStanje;
-                txt7.Text = pacijent.Zanimanje;
+                txt6.Text = "Oženjen";
+                txt7.Text = "Posao";
                 txt8.Text = pacijent.BrojTelefona;
                 ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
                 String alergeniString = String.Join(",", alergeni);
@@ -101,7 +86,7 @@ namespace Bolnica.view.LekarView
 
         private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            pacijent = (PacijentDTO)ComboBox1.SelectedItem;
+             pacijent = (Pacijent)ComboBox1.SelectedItem;
             Jmbg = pacijent.Jmbg;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
@@ -111,8 +96,8 @@ namespace Bolnica.view.LekarView
                 txt3.Text = "Ž";
             txt4.Text = pacijent.DatumRodjenja.ToString();
             txt5.Text = pacijent.Adresa;
-            txt6.Text = pacijent.BracnoStanje;
-            txt7.Text = pacijent.Zanimanje;
+            txt6.Text = "Oženjen";
+            txt7.Text = "Posao";
             txt8.Text = pacijent.BrojTelefona;
             ObservableCollection<String> alergeni = new ObservableCollection<String>(pacijent.ZdravstveniKarton.Alergeni);
             String alergeniString = String.Join(",", alergeni);
@@ -121,23 +106,17 @@ namespace Bolnica.view.LekarView
 
         private void MenuItem_Click_Termini(object sender, RoutedEventArgs e)
         {
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().trenutnoUlogovaniLekar());
+            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarWindow.getInstance().lekar1);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             String dijalog = AnamnezaTxt.Text;
-            Anamneza anamneza = new Anamneza()
-            {
-                AnamnezaDijalog = dijalog, 
-                DatumAnamneze=DateTime.Now, 
-                ImeLekara= LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName
-            };
-            PacijentDTO pacijent = (PacijentDTO)ComboBox1.SelectedItem;
-            Pacijent pacijentIzmena = PacijentServis.GetInstance().GetByJmbg(pacijent.Jmbg);
-            Pacijent pacijentNovi = pacijentIzmena;
-            pacijentNovi.ZdravstveniKarton.Anamneze.Add(anamneza);
-            PacijentServis.GetInstance().IzmeniPacijenta(pacijentIzmena, pacijentNovi);
+            Anamneza anamneza = new Anamneza(dijalog, DateTime.Now, LekarWindow.getInstance().lekar1.FullName);
+            Pacijent pacijent = (Pacijent)ComboBox1.SelectedItem;
+            pacijent.ZdravstveniKarton.Anamneze.Add(anamneza);
+            Pacijent pacijent1 = pacijent;
+            PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
             AnamnezaTxt.Clear();
 
         }
@@ -169,64 +148,6 @@ namespace Bolnica.view.LekarView
         {
             LekarWindow.getInstance().Frame1.Content = new LekarObavestenjaPage();
         }
-        private void Button_Click_SlanjeNaLecenje(object sender, RoutedEventArgs e)
-        {
-           ProstorijaDTO prostorija = ((ProstorijaDTO)ProstorijaBox.SelectedItem);
-            DateTime vremePocetkaLecenja = (DateTime)PocetakLecenjaBox.SelectedDate;
-            DateTime vremeKrajaLecenja = (DateTime)KrajLecenjaBox.SelectedDate;
-            int zauzetiKreveti = 0;
-            int brojKreveta = 0;
-            bool pacijentVecLezi = false;
-           foreach (BolnickoLecenjeDTO bl in BolnickaLecenjaKontroler.GetInstance().GetAll())
-            {
-                if (bl.idProstorije == prostorija.IdProstorije)
-                {
-                    zauzetiKreveti++;
-                }
-
-            }
-           
-                foreach(StacionarnaOpremaDTO so in prostorija.Staticka)
-            {
-                if (so.TipStacionarneOpreme.Equals("Krevet"))
-                {
-                     brojKreveta = so.Kolicina;
-                }
-            }
-                foreach(BolnickoLecenjeDTO bolnickoLecenjeDTO in BolnickaLecenjaKontroler.GetInstance().GetAll())
-            {
-                if (Jmbg.Equals(bolnickoLecenjeDTO.jmbgPacijenta))
-                    pacijentVecLezi = true;
-            }
-            if (pacijentVecLezi)
-            {
-                MessageBox.Show("Pacijent je več na stacionarnom lečenju.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (zauzetiKreveti < brojKreveta)
-            {
-                BolnickoLecenjeDTO bolnickoLecenjeDTO = new BolnickoLecenjeDTO()
-                {
-                    idProstorije = prostorija.IdProstorije,
-                    jmbgPacijenta = Jmbg,
-                    jmbgLekara = LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg,
-                    DatumPrijema = vremePocetkaLecenja,
-                    DatumOtpustanja = vremeKrajaLecenja
-                };
-                BolnickaLecenjaKontroler.GetInstance().Save(bolnickoLecenjeDTO);
-            }
-            else {
-                MessageBox.Show("Svi kreveti su zauzeti, izaberite drugu prostoriju!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-
-
-
-
-        }
-        private void Button_Click_Prikaz_Lecenja(object sender, RoutedEventArgs e)
-        {
-            LekarWindow.getInstance().Frame1.Content = new PrikazBolnickihLecenja();
-                }
 
     }
 }

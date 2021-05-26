@@ -24,6 +24,5 @@ namespace Bolnica.DTOs
         public String Zanimanje { get; set; }
         public ZdravstveniKartonDTO ZdravstveniKarton { get; set; }
         public bool Registrovan { get; set; }
-        public String FullName { get; set; }
     }
 }

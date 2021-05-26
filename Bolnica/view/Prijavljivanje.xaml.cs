@@ -101,7 +101,7 @@ namespace Bolnica.view
             }
             else if (uloga.Equals("l"))
             {
-                LekarDTO prijavljeniLekar = (LekarDTO)lekarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
+                Lekar prijavljeniLekar = (Lekar)lekarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
                 if (prijavljeniLekar == null)
                 {

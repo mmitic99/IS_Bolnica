@@ -28,7 +28,6 @@ namespace Bolnica.view.LekarView
 
     {
         public static ZakazivanjeTerminaPage instance = null;
-        private SpecijalizacijaKontroler specijalizacijaKontroler;
         String jmbgPacijenta;
         public bool isHitan;
         public static ZakazivanjeTerminaPage getInstance()
@@ -40,15 +39,12 @@ namespace Bolnica.view.LekarView
         {
             InitializeComponent();
             instance = this;
-            specijalizacijaKontroler = new SpecijalizacijaKontroler();
             LekariBox.ItemsSource = new ObservableCollection<LekarDTO>(LekarKontroler.getInstance().GetAll());
             LekariBox.SelectedIndex = 0;
             jmbgPacijenta = jmbg;
             TerminBox.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
             instance = this;
             isHitan = false;
-            if(SpecBox!=null)
-            SpecBox.ItemsSource = specijalizacijaKontroler.GetAll();
         }
 
         private void LekariBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -127,7 +123,7 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(jmbgPacijenta);
         }
 
-        public void terminCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void terminCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if(terminCheckBox.IsChecked== true)
             {
