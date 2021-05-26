@@ -125,7 +125,7 @@ namespace Servis
             }
         }
 
-public void AzurirajRenoviranjaProstorija()
+        public void AzurirajRenoviranjaProstorija()
         {
             List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
             List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
@@ -503,7 +503,7 @@ public void AzurirajRenoviranjaProstorija()
                 MessageBox.Show("Ne možete prebaciti više statičke opreme od onoliko koliko je ima u prostoriji !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         public int GetIndexOpremeKojaSePrebacuje(int indexIzKojeProstorije, string nazivOpreme)
         {
             List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
@@ -604,7 +604,7 @@ public void AzurirajRenoviranjaProstorija()
             }
 
             if (Validiraj(new Regex(@"^[0-9]$"), prostorija.Sprat) == false)
-            { 
+            {
                 MessageBox.Show("Neispravno unet sprat !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
@@ -804,6 +804,196 @@ public void AzurirajRenoviranjaProstorija()
             return -1;
         }
 
+        private Prostorija GetProstorijaById(int id)
+        {
+            foreach (Prostorija p in skladisteZaProstorije.GetAll())
+            {
+                if (p.IdProstorije == id)
+                    return p;
+            }
+            return null;
+        }
+
+        private void PrebaciSvuOpremuUMagacin(int idProstorije)
+        {
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
+            Prostorija magacin = GetMagacin();
+            Prostorija prostorija = GetProstorijaById(idProstorije);
+            bool vecPostojiOpremaUMagacinu = false;
+            int indexPronadjeneOpreme = -1;
+            foreach (StacionarnaOprema prostorijaOprema in prostorija.Staticka)
+            {
+                for (int i = 0; i < magacin.Staticka.Count; i++)
+                {
+                    if (prostorijaOprema.TipStacionarneOpreme.Equals(magacin.Staticka[i].TipStacionarneOpreme))
+                    {
+                        vecPostojiOpremaUMagacinu = true;
+                        indexPronadjeneOpreme = i;
+                    }
+                }
+                if (vecPostojiOpremaUMagacinu == true)
+                    magacin.Staticka[indexPronadjeneOpreme].Kolicina += prostorijaOprema.Kolicina;
+                else
+                    magacin.Staticka.Add(new StacionarnaOprema(prostorijaOprema.TipStacionarneOpreme, prostorijaOprema.Kolicina));
+                vecPostojiOpremaUMagacinu = false;
+            }
+            for (int i = 0; i < SveProstorije.Count; i++)
+                if (SveProstorije[i].VrstaProstorije == Model.Enum.VrstaProstorije.Magacin)
+                {
+                    SveProstorije[i] = magacin;
+                    break;
+                }
+            skladisteZaProstorije.SaveAll(SveProstorije);
+        }
+
+        private void ObrisiPodeljenuProstoriju(int id)
+        {
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
+            for (int i = 0; i < SveProstorije.Count; i++)
+                if (SveProstorije[i].IdProstorije == id)
+                {
+                    SveProstorije.RemoveAt(i);
+                    break;
+                }
+            skladisteZaProstorije.SaveAll(SveProstorije);
+        }
+
+        private int GetSpratById(int id)
+        {
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
+            for (int i = 0; i < SveProstorije.Count; i++)
+                if (SveProstorije[i].IdProstorije == id)
+                {
+                    return SveProstorije[i].Sprat;
+                }
+            return 0;
+        }
+
+        private void DodajNovonastaluProstoriju(String broj, int sprat)
+        {
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
+            Prostorija p = new Prostorija(broj, sprat, Model.Enum.VrstaProstorije.Soba_za_preglede, 0);
+            int indexPoslednjeProstorije = SveProstorije.Count - 1;
+            IdProstorijeGenerator = SveProstorije[indexPoslednjeProstorije].IdProstorije;
+            p.IdProstorije = ++IdProstorijeGenerator;
+        }
+
+        private void PodeliProstoriju(NaprednoRenoviranje renoviranje)
+        {
+            PrebaciSvuOpremuUMagacin(GetIdProstorijeByBrojProstorije(renoviranje.BrojGlavneProstorije));
+            ObrisiPodeljenuProstoriju(GetIdProstorijeByBrojProstorije(renoviranje.BrojGlavneProstorije));
+            DodajProstoriju(new Prostorija(renoviranje.BrojProstorije1, GetSpratById(GetIdProstorijeByBrojProstorije(renoviranje.BrojGlavneProstorije)), 
+                                           Model.Enum.VrstaProstorije.Soba_za_preglede, 0));
+            DodajProstoriju(new Prostorija(renoviranje.BrojProstorije2, GetSpratById(GetIdProstorijeByBrojProstorije(renoviranje.BrojGlavneProstorije)), 
+                                           Model.Enum.VrstaProstorije.Soba_za_preglede, 0));
+        }
+
+        private void SpojiProstorije(NaprednoRenoviranje renoviranje)
+        {
+            PrebaciSvuOpremuUMagacin(GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije1));
+            PrebaciSvuOpremuUMagacin(GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije2));
+            ObrisiPodeljenuProstoriju(GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije1));
+            ObrisiPodeljenuProstoriju(GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije2));
+            DodajProstoriju(new Prostorija(renoviranje.BrojGlavneProstorije, GetSpratById(GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije1)),
+                                           Model.Enum.VrstaProstorije.Soba_za_preglede, 0));
+        }
+
+
+        public async Task AzurirajNaprednaRenoviranjaProstorija()
+        {
+            foreach (NaprednoRenoviranje renoviranje in SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll())
+            {
+                if (DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja, DateTime.Now) <= 0)
+                {
+                    if (renoviranje.Podela == true)
+                    {
+                        PodeliProstoriju(renoviranje);
+                    }
+                    else if (renoviranje.Spajanje == true)
+                    {
+                        SpojiProstorije(renoviranje);
+                    }
+                }
+                else
+                {
+                    await Task.Delay(renoviranje.DatumZavrsetkaRenoviranja - DateTime.Now);
+                    if (renoviranje.Podela == true)
+                    {
+                        PodeliProstoriju(renoviranje);
+                    }
+                    else if (renoviranje.Spajanje == true)
+                    {
+                        SpojiProstorije(renoviranje);
+                    }
+                }
+            }
+            ObrisiZavrsenaNaprednaRenoviranja();
+            AzurirajRenoviranjeFlegProstorije();
+        }
+
+        private void ObrisiZavrsenaNaprednaRenoviranja()
+        {
+            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            List<int> indexiZaBrisanje = new List<int>();
+            for (int k = 0; k < SvaRenoviranja.Count; k++)
+            {
+                List<NaprednoRenoviranje> pomocnaLista = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+                for (int i = 0; i < SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll().Count; i++)
+                {
+                    if (DateTime.Compare(pomocnaLista[i].DatumZavrsetkaRenoviranja.AddHours(23).AddMinutes(59), DateTime.Now) < 0)
+                    {
+                        pomocnaLista.RemoveAt(i);
+                        break;
+                    }
+                }
+                SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(pomocnaLista);
+            }
+        }
+
+        public void AzurirajRenoviranjeFlegProstorije()
+        {
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
+            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            for (int i = 0; i < SvaRenoviranja.Count; i++)
+            {
+                if (SvaRenoviranja[i].Podela)
+                {
+                    if (DateTime.Now.Date >= SvaRenoviranja[i].DatumPocetkaRenoviranja.Date && DateTime.Now.Date <= SvaRenoviranja[i].DatumZavrsetkaRenoviranja.Date)
+                        for (int j = 0; j < SveProstorije.Count; j++)
+                        {
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojGlavneProstorije))
+                                SveProstorije[j].RenoviraSe = true;
+                        }
+                    else if (DateTime.Now.Date > SvaRenoviranja[i].DatumZavrsetkaRenoviranja)
+                        for (int j = 0; j < SveProstorije.Count; j++)
+                        {
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojGlavneProstorije))
+                                SveProstorije[j].RenoviraSe = false;
+                        }
+                }
+                else if (SvaRenoviranja[i].Spajanje)
+                {
+                    if (DateTime.Now.Date >= SvaRenoviranja[i].DatumPocetkaRenoviranja.Date && DateTime.Now.Date <= SvaRenoviranja[i].DatumZavrsetkaRenoviranja.Date)
+                        for (int j = 0; j < SveProstorije.Count; j++)
+                        {
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojProstorije1))
+                                SveProstorije[j].RenoviraSe = true;
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojProstorije2))
+                                SveProstorije[j].RenoviraSe = true;
+                        }
+                    else if (DateTime.Now.Date > SvaRenoviranja[i].DatumZavrsetkaRenoviranja)
+                        for (int j = 0; j < SveProstorije.Count; j++)
+                        {
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojProstorije1))
+                                SveProstorije[j].RenoviraSe = false;
+                            if (SveProstorije[j].BrojSobe.Equals(SvaRenoviranja[i].BrojProstorije2))
+                                SveProstorije[j].RenoviraSe = false;
+                        }
+                }
+            }
+            skladisteZaProstorije.SaveAll(SveProstorije);
+        }
+
         public async Task AzurirajStanjeOpremeAkoJeBiloPrebacivanja()
         {
             List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
@@ -969,6 +1159,13 @@ public void AzurirajRenoviranjaProstorija()
             List<NaprednoRenoviranje> SvaNapredna = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
             SvaNapredna.Add(renoviranje);
             SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(SvaNapredna);
+        }
+
+        public void ObrisiNaprednoRenoviranje(int index)
+        {
+            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            SvaRenoviranja.RemoveAt(index);
+            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
         }
 
         public List<Renoviranje> GetAllRenoviranja()
