@@ -449,5 +449,11 @@ namespace Bolnica.view.SekretarView
             var s = new IzmenaLozinke(sekretar);
             s.ShowDialog();
         }
+
+        private void Feedback_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var s = new SekretarFeedback(sekretar.Jmbg);
+            s.ShowDialog();
+        }
     }
 }

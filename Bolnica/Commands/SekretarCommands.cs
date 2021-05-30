@@ -32,8 +32,9 @@ namespace Bolnica.Commands
 
         public static readonly ICommand PogledajObavestenjeCommand;
         public static readonly ICommand RadnoVremeLekaraCommand;
+        public static readonly ICommand FeedbackCommand;
 
-        static SekretarCommands()
+		static SekretarCommands()
         {
             var inputGestures = new InputGestureCollection();
             inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.O }, ModifierKeys.Control, "Ctrl+A, O"));
@@ -110,6 +111,10 @@ namespace Bolnica.Commands
             inputGestures = new InputGestureCollection();
             inputGestures.Add(new MultiKeyGesture(new Key[] { Key.R, Key.L }, ModifierKeys.Control, "Ctrl+R, L"));
             RadnoVremeLekaraCommand = new RoutedUICommand("RadnoVremeLekaraCommand", "RadnoVremeLekaraCommand", typeof(SekretarCommands), inputGestures);
+
+            inputGestures = new InputGestureCollection();
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.F }, ModifierKeys.Control, "Ctrl+A, F"));
+            FeedbackCommand = new RoutedUICommand("FeedbackCommand", "FeedbackCommand", typeof(SekretarCommands), inputGestures);
 		}
 	}
 

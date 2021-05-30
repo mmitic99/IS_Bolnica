@@ -32,6 +32,7 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="BrisanjeLekara_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="PogledajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="RadnoVremeLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.FeedbackCommand}" Executed="Feedback_Click" />
         <CommandBinding Command="{StaticResource OdjavaCommand}" Executed="Odjava_Click"/>
     </Window.CommandBindings>
     <Window.InputBindings>
@@ -55,6 +56,9 @@
             <MenuItem Header="Pr_ofil" FontSize="18">
                 <MenuItem Header="Izmeni profil" Command="{x:Static commands:SekretarCommands.IzmeniProfilCommand}"/>
                 <MenuItem Header="Izmeni lozinku" Command="{x:Static commands:SekretarCommands.IzmeniLozinkuCommand}"/>
+            </MenuItem>
+            <MenuItem Header="_Help" FontSize="18">
+                <MenuItem Header="Oceni aplikaciju" Command="{x:Static commands:SekretarCommands.FeedbackCommand}"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">

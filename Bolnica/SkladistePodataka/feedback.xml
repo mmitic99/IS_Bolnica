@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFeedback xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Feedback>
+    <JmbgKorisnika>5689654897456</JmbgKorisnika>
+    <DatumIVreme>2021-05-30T17:18:08.4511885+02:00</DatumIVreme>
+    <Sadrzaj>Sve super</Sadrzaj>
+    <Ocena>5</Ocena>
+  </Feedback>
+</ArrayOfFeedback>

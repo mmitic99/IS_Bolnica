@@ -129,6 +129,7 @@
     <Compile Include="DTOs\BolnickoLecenjeDTO.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
+    <Compile Include="DTOs\FeedbackDTO.cs" />
     <Compile Include="DTOs\IzmenaOpremeInfoDTO.cs" />
     <Compile Include="DTOs\IzvestajDTO.cs" />
     <Compile Include="DTOs\KorisnikDTO.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="DTOs\LekValidacijaDTO.cs" />
     <Compile Include="DTOs\ReceptDTO.cs" />
     <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
+    <Compile Include="Kontroler\FeedbackKontroler.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Enum\VrstaPodsetnika.cs" />
+    <Compile Include="model\Feedback.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\KorisnickaAktivnost.cs" />
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
@@ -194,6 +197,7 @@
     <Compile Include="Repozitorijum\ISkladisteSekretara.cs" />
     <Compile Include="Repozitorijum\ISkladisteUpravnik.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaAnketeOLekaru.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaFeedback.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaKorisnickeAktivnosti.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaKvartalneAnkete.cs" />
     <Compile Include="Repozitorijum\ISkladisteZaLekara.cs" />
@@ -210,6 +214,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteBolnickihLecenjaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteRadnihVremenaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
+    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaFeedbackXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKvartalneAnketeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKorisnickeAktivnostiXml.cs" />
     <Compile Include="Servis\AnamnezaServis.cs" />
@@ -217,6 +222,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
+    <Compile Include="Servis\FeedbackServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
@@ -363,6 +369,9 @@
     </Compile>
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SekretarView\SekretarFeedback.xaml.cs">
+      <DependentUpon>SekretarFeedback.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\SekretarView\Termini\DodavanjeLekaraTerminu.xaml.cs">
       <DependentUpon>DodavanjeLekaraTerminu.xaml</DependentUpon>
@@ -548,6 +557,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\SekretarView\Pacijenti\DodavanjeGostujucegPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SekretarView\SekretarFeedback.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -758,6 +771,7 @@
   <ItemGroup>
     <Resource Include="view\PacijentView\add.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

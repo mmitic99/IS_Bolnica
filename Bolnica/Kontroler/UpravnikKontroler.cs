@@ -43,7 +43,7 @@ namespace Kontroler
             upravnikServis.Save(upravnik);
         }
 
-        public void SaveAll(List<Pacijent> upravnici)
+        public void SaveAll(List<Upravnik> upravnici)
         {
             upravnikServis.SaveAll(upravnici);
         }
