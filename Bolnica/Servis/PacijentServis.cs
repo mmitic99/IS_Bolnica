@@ -35,41 +35,19 @@ namespace Servis
 
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
+            bool retVal = true;
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
 
             for (int i = 0; i < pacijenti.Count; i++)
             {
                 if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
                 {
-                    return false;
+                    retVal =  false;
                 }
             }
-            skladistePacijenta.Save(pacijent);
-            return true;
-        }
-
-        public bool DodajAlergen(String alergen)
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool DodajObavestenje(Model.Obavestenje obavestenje)
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool DodajIzvestaj(Izvestaj izvestaj)
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool IzmeniIzvestaj(Izvestaj izvestaj)
-        {
-            // TODO: implement
-            return false;
+            if(retVal)
+                skladistePacijenta.Save(pacijent);
+            return retVal;
         }
 
         public Object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
@@ -120,10 +98,10 @@ namespace Servis
             for(int i=0; i<pacijent.ZdravstveniKarton.Izvestaj.Count; i++)
             {
                 for(int j=0; j<pacijent.ZdravstveniKarton.Izvestaj[i].recepti.Count; j++)
-                if(pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j].IdRecepta == izabraniRecept.IdRecepta)
-                {
-                        pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j] = izabraniRecept;
-                }
+                    if(pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j].IdRecepta == izabraniRecept.IdRecepta)
+                    {
+                            pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j] = izabraniRecept;
+                    }
             }
             IzmeniPacijenta(pacijent, pacijent);
         }

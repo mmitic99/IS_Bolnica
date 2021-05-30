@@ -48,23 +48,6 @@ namespace Kontroler
             ProstorijeServis.GetInstance().AzurirajRenoviranjeFlegProstorije();
         }
 
-        public void IzmeniKolicinuLeka(int idLeka, double kolicina, int izProstorije, int uProstoriju)
-        {
-            // TODO: implement
-        }
-
-        public int DobaviProstoriju(DateTime pocetakTermina, DateTime krajTermina, Model.Enum.VrstaProstorije vrstaProstorije)
-        {
-            // TODO: implement
-            return 0;
-        }
-
-        public List<Termin> PrikaziTermine(int idProstorije)
-        {
-            // TODO: implement
-            return null;
-        }
-
         public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime pocetakTermina, double trajanje)
         {
             return ProstorijeServis.GetInstance().DaLiJeSLobodnaProstorija(iDProstorije, pocetakTermina, trajanje);
@@ -106,12 +89,12 @@ namespace Kontroler
 
         public void Save(Prostorija prostorija)
         {
-            // TODO: implement
+            prostorijeServis.Save(prostorija);
         }
 
         public void SaveAll(List<Prostorija> prostorije)
         {
-            // TODO: implement
+            prostorijeServis.SaveAll(prostorije);
         }
 
         public void DodajPotrosnuOpremuUMagacin(String tipOpreme, int kolicina)

@@ -524,12 +524,6 @@ namespace Servis
             return datumVreme;
         }
 
-        public bool OdloziTermin(Termin termin)
-        {
-            // TODO: implement
-            return true;
-        }
-
         public void RemoveByID(string iDTermina)
         {
             skladisteZaTermine.RemoveById(iDTermina);
@@ -575,12 +569,12 @@ namespace Servis
 
         public void Save(Termin termin)
         {
-            // TODO: implement
+            skladisteZaTermine.Save(termin);
         }
 
         public void SaveAll(List<Termin> termini)
         {
-            // TODO: implement
+            skladisteZaTermine.SaveAll(termini);
         }
 
         public IEnumerable GetBuduciTerminPacLekar()

@@ -23,7 +23,7 @@ namespace Kontroler
             return upravnikServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
-        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
         {
             throw new NotImplementedException();
         }
@@ -35,18 +35,17 @@ namespace Kontroler
 
         public List<Upravnik> GetAll()
         {
-            // TODO: implement
-            return null;
+            return upravnikServis.GetAll();
         }
 
         public void Save(Model.Upravnik upravnik)
         {
-            // TODO: implement
+            upravnikServis.Save(upravnik);
         }
 
         public void SaveAll(List<Pacijent> upravnici)
         {
-            // TODO: implement
+            upravnikServis.SaveAll(upravnici);
         }
         public Servis.UpravnikServis upravnikServis;
 

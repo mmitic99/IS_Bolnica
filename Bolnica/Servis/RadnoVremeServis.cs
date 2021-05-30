@@ -69,8 +69,7 @@ namespace Bolnica.Servis
             bool sacuvaj = false;
             foreach (RadnoVreme radnoVreme in GetByJmbg(moguceRadnoVreme.JmbgLekara))
             {
-                if (DaLiJeMoguceRadnoVremeIspravno(moguceRadnoVreme, radnoVreme)
-                )
+                if (DaLiJeMoguceRadnoVremeIspravno(moguceRadnoVreme, radnoVreme))
                 {
                     sacuvaj = false;
                     break;

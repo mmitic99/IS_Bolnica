@@ -74,18 +74,17 @@ namespace Servis
 
         public List<Sekretar> GetAll()
         {
-            // TODO: implement
-            return null;
+            return skladisteSekretara.GetAll();
         }
 
         public void Save(Model.Sekretar sekretar)
         {
-            // TODO: implement
+            skladisteSekretara.Save(sekretar);
         }
 
         public void SaveAll(List<Sekretar> sekretari)
         {
-            // TODO: implement
+            skladisteSekretara.SaveAll(sekretari);
         }
 
         public ISkladisteSekretara skladisteSekretara;

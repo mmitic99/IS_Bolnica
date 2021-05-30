@@ -56,18 +56,17 @@ namespace Kontroler
 
         public List<Sekretar> GetAll()
         {
-            // TODO: implement
-            return null;
+            return sekretarServis.GetAll();
         }
 
         public void Save(Sekretar sekretar)
         {
-            // TODO: implement
+            sekretarServis.Save(sekretar);
         }
 
         public void SaveAll(List<Sekretar> sekretari)
         {
-            // TODO: implement
+            sekretarServis.SaveAll(sekretari);
         }
 
         public Servis.SekretarServis sekretarServis;
@@ -96,11 +95,6 @@ namespace Kontroler
                     Naziv = noviSekretar.NazivGrada
                 }
             });
-        }
-
-        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
-        {
-            throw new NotImplementedException();
         }
     }
 }

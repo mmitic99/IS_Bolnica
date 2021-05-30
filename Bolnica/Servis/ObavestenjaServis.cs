@@ -45,8 +45,7 @@ namespace Servis
             this.LekarServis = new LekarServis();
         }
 
-        public List<Obavestenje> GetAll
-            ()
+        public List<Obavestenje> GetAll()
         {
             return SkladisteZaObavestenja.GetAll();
         }
@@ -266,6 +265,7 @@ namespace Servis
 
         public bool ObrisiObavestenje(Obavestenje obavestenje)
         {
+            bool retVal = false;
             List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetAll();
             foreach (Obavestenje obavestenje1 in obavestenja)
             {
@@ -273,10 +273,10 @@ namespace Servis
                 {
                     obavestenja.Remove(obavestenje);
                     SkladisteZaObavestenja.SaveAll(obavestenja);
-                    return true;
+                    retVal = true;
                 }
             }
-            return false;
+            return retVal;
         }
 
         public List<Podsetnik> DobaviAktuelnePodsetnike(string jmbgPacijenta)
