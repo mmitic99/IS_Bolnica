@@ -23,16 +23,16 @@
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="Hitan termin:"/>
-                    <CheckBox x:Name="hitanT" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False">(označi ako je hitno)</CheckBox>
+                    <Label Grid.Column="0" Content="Hitan termin:" FontSize="15"/>
+                    <CheckBox x:Name="hitanT" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False" FontSize="13" VerticalContentAlignment="Center">(označi ako je hitno)</CheckBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="Vrsta termina:"/>
-                    <ComboBox x:Name="vrstaT" Grid.Column="1" SelectedIndex="0" IsEnabled="False">
+                    <Label Grid.Column="0" Content="Vrsta termina:" FontSize="15"/>
+                    <ComboBox x:Name="vrstaT" Grid.Column="1" SelectedIndex="0" IsEnabled="False" FontSize="15">
                         <ComboBoxItem>Pregled</ComboBoxItem>
                         <ComboBoxItem>Operacija</ComboBoxItem>
                     </ComboBox>
@@ -41,10 +41,10 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="175"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Pacijent:</Label>
-                    <TextBox x:Name="pacijent" Grid.Column="1" IsReadOnly="True"/>
+                    <Label Grid.Column="0" FontSize="15">Pacijent:</Label>
+                    <TextBox x:Name="pacijent" Grid.Column="1" IsReadOnly="True" FontSize="15"/>
                     <Button Grid.Column="2" IsEnabled="False" Padding="3"  Opacity="10" ToolTip="Dodaj pacijenta">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
@@ -54,13 +54,12 @@
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="35"/>
-                        <ColumnDefinition Width="140"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="175"/>
+                        <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Lekar:</Label>
-                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2"/>
-                    <Button Grid.Column="3" IsEnabled="False" Padding="3" Opacity="1" ToolTip="Dodaj pacijenta">
+                    <Label Grid.Column="0" FontSize="15">Lekar:</Label>
+                    <TextBox x:Name="lekar" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" FontSize="15"/>
+                    <Button Grid.Column="2" IsEnabled="False" Padding="3" Opacity="1" ToolTip="Dodaj pacijenta">
                         <Grid>
                             <Image Source="/Images/add.png" Stretch="Fill"/>
                         </Grid>
@@ -71,8 +70,8 @@
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Sala:</Label>
-                    <ComboBox x:Name="sala" Grid.Column="1">
+                    <Label Grid.Column="0" FontSize="15">Sala:</Label>
+                    <ComboBox x:Name="sala" Grid.Column="1" FontSize="15">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding BrojSobe}"/>
@@ -85,24 +84,24 @@
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Datum:</Label>
-                    <DatePicker Grid.Column="1" x:Name="datum"  SelectedDateChanged="AzurirajVreme"></DatePicker>
+                    <Label Grid.Column="0" FontSize="15">Datum:</Label>
+                    <DatePicker Grid.Column="1" x:Name="datum"  SelectedDateChanged="AzurirajVreme" FontSize="15"></DatePicker>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Vreme:</Label>
-                    <ComboBox Grid.Column="1" x:Name="vremeT"></ComboBox>
+                    <Label Grid.Column="0" FontSize="15">Vreme:</Label>
+                    <ComboBox Grid.Column="1" x:Name="vremeT" FontSize="15"></ComboBox>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Tegobe:</Label>
-                    <TextBox x:Name="tegobe" Grid.Column="1" Height="130" ScrollViewer.CanContentScroll="True" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                    <Label Grid.Column="0" FontSize="15">Tegobe:</Label>
+                    <TextBox FontSize="15" x:Name="tegobe" Grid.Column="1" Height="130" ScrollViewer.CanContentScroll="True" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>
@@ -138,8 +137,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click">Sačuvaj</Button>
-            <Button Width="100" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
+            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" FontSize="15">Sačuvaj</Button>
+            <Button Width="100" Grid.Column="1" Click="otkazi_Click" FontSize="15">Otkaži</Button>
         </Grid>
 
     </Grid>

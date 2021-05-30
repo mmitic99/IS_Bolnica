@@ -49,10 +49,10 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="Upravnik" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click"/>
-            <Button Content="Sekretar" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_1"/>
-            <Button Content="Lekar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_2"/>
-            <Button Content="Pacijent" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_3"/>
+            <Button Content="_Upravnik" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click"/>
+            <Button Content="_Sekretar" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_1"/>
+            <Button Content="_Lekar" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_2"/>
+            <Button Content="_Pacijent" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="70" Click="Button_Click_3"/>
 
         </Grid>
     </Grid>

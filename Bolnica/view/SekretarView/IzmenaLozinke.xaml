@@ -19,30 +19,30 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0">Stara lozinka:</Label>
-                <PasswordBox x:Name="staraLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+                <Label Grid.Column="0" FontSize="15">Stara lozinka:</Label>
+                <PasswordBox x:Name="staraLozinka" Grid.Column="1" Margin="20,0,0,0" FontSize="15"></PasswordBox>
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0">Nova lozinka:</Label>
-                <PasswordBox x:Name="novaLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+                <Label Grid.Column="0" FontSize="15">Nova lozinka:</Label>
+                <PasswordBox x:Name="novaLozinka" Grid.Column="1" Margin="20,0,0,0" FontSize="15"></PasswordBox>
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0">Ponovi novu lozinku:</Label>
-                <PasswordBox x:Name="ponovoNovaLozinka" Grid.Column="1" Margin="20,0,0,0"></PasswordBox>
+                <Label Grid.Column="0" FontSize="15">Ponovi novu lozinku:</Label>
+                <PasswordBox x:Name="ponovoNovaLozinka" Grid.Column="1" Margin="20,0,0,0" FontSize="15"></PasswordBox>
             </Grid>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85" FontSize="15">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85" FontSize="15">Otkaži</Button>
         </StackPanel>
 
     </Grid>

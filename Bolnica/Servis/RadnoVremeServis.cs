@@ -33,22 +33,35 @@ namespace Bolnica.Servis
         public bool Save(RadnoVreme moguceRadnoVreme)
         {
             bool sacuvaj = false;
-            if (moguceRadnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru)
-            {
-                Lekar lekar = skladisteZaLekara.getByJmbg(moguceRadnoVreme.JmbgLekara);
-                int brojDanaZaOdmor = (int)Math.Ceiling((moguceRadnoVreme.DatumIVremeZavrsetka - moguceRadnoVreme.DatumIVremePocetka).TotalDays);
-                if (brojDanaZaOdmor > lekar.BrojSlobodnihDana)
-                {
-                    return false;
-                }
-                lekar.BrojSlobodnihDana -= brojDanaZaOdmor;
-                skladisteZaLekara.IzmeniLekara(moguceRadnoVreme.JmbgLekara, lekar);
-            }
             List<RadnoVreme> radnoVremeLekara = (List<RadnoVreme>) GetByJmbg(moguceRadnoVreme.JmbgLekara);
             sacuvaj = radnoVremeLekara.Count == 0 || ProveriRadnaVremenaLekara(moguceRadnoVreme);
             if(sacuvaj)
-                skladisteRadnihVremena.Save(moguceRadnoVreme);
+            {
+                sacuvaj = IzmeniSlobodneDane(moguceRadnoVreme);
+                if(sacuvaj)
+                    skladisteRadnihVremena.Save(moguceRadnoVreme);
+            }
             return sacuvaj;
+        }
+
+        private bool IzmeniSlobodneDane(RadnoVreme moguceRadnoVreme)
+        {
+            bool retVal = true;
+            if (moguceRadnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru)
+            {
+                Lekar lekar = skladisteZaLekara.getByJmbg(moguceRadnoVreme.JmbgLekara);
+                int brojDanaZaOdmor =
+                    (int) Math.Ceiling((moguceRadnoVreme.DatumIVremeZavrsetka - moguceRadnoVreme.DatumIVremePocetka).TotalDays);
+                if (brojDanaZaOdmor > lekar.BrojSlobodnihDana)
+                {
+                    retVal = false;
+                }
+
+                lekar.BrojSlobodnihDana -= brojDanaZaOdmor;
+                skladisteZaLekara.IzmeniLekara(moguceRadnoVreme.JmbgLekara, lekar);
+            }
+
+            return retVal;
         }
 
         private bool ProveriRadnaVremenaLekara(RadnoVreme moguceRadnoVreme)

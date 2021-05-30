@@ -15,9 +15,9 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="datumIVremeObavestenja" Grid.Row="0" VerticalAlignment="Center">Datum i vreme objavljivanja:</Label>
-        <TextBlock x:Name="naslov" Grid.Row="1" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5">Naslov</TextBlock>
-        <TextBlock x:Name="sadrzaj" Grid.Row="2" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Justify" TextWrapping="Wrap" Margin="10">Sadrzaj</TextBlock>
-        <Button Grid.Row="3" x:Name="otkazi" Click="otkazi_Click" Width="100" Margin="15">Otkaži</Button>
+        <Label x:Name="datumIVremeObavestenja" Grid.Row="0" VerticalAlignment="Center" FontSize="15">Datum i vreme objavljivanja:</Label>
+        <TextBlock x:Name="naslov" Grid.Row="1" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5">Naslov</TextBlock>
+        <TextBlock x:Name="sadrzaj" Grid.Row="2" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Justify" TextWrapping="Wrap" Margin="10">Sadrzaj</TextBlock>
+        <Button Grid.Row="3" x:Name="otkazi" Click="otkazi_Click" Width="100" Margin="15" FontSize="15">Otkaži</Button>
     </Grid>
 </Window>

@@ -24,8 +24,8 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1">
+                    <Label Grid.Column="0" FontSize="15">JMBG*:</Label>
+                    <TextBox x:Name="jmbg" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
                             <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -53,8 +53,8 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Ime*:</Label>
-                    <TextBox x:Name="ime" Grid.Column="1">
+                    <Label Grid.Column="0" FontSize="15">Ime*:</Label>
+                    <TextBox x:Name="ime" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
                             <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
@@ -81,8 +81,8 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0">Prezime*:</Label>
-                    <TextBox x:Name="prezime" Grid.Column="1">
+                    <Label Grid.Column="0" FontSize="15">Prezime*:</Label>
+                    <TextBox x:Name="prezime" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
                             <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
@@ -113,7 +113,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" Content="Potvrdi">
+            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" Content="Potvrdi" FontSize="15">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="IsEnabled" Value="False"/>
@@ -130,7 +130,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Width="100" Height="35" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
+            <Button Width="100" Height="35" Grid.Column="1" Click="otkazi_Click" FontSize="15">Otkaži</Button>
         </Grid>
 
     </Grid>

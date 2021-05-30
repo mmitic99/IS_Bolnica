@@ -56,11 +56,11 @@ namespace Bolnica.Commands
             DodajLekaraCommand = new RoutedUICommand("DodajLekaraCommand", "DodajLekaraCommand", typeof(SekretarCommands), inputGestures);
 
             inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.P }, ModifierKeys.Alt, "Alt+A, P"));
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.P }, ModifierKeys.Control, "Ctrl+T, P"));
             DodajTerminPacijentuCommand= new RoutedUICommand("DodajTerminPacijentuCommand", "DodajTerminPacijentuCommand", typeof(SekretarCommands), inputGestures);
 
             inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.L }, ModifierKeys.Alt, "Alt+A, L"));
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.L }, ModifierKeys.Control, "Ctrl+T, L"));
             DodajTerminLekaruCommand = new RoutedUICommand("DodajTerminLekaruCommand", "DodajTerminLekaruCommand", typeof(SekretarCommands), inputGestures);
 
 			inputGestures = new InputGestureCollection();

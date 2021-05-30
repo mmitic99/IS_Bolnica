@@ -14,8 +14,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="dodaj_Click"/>
-            <Button Content="Obriši" x:Name="obrisi" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Obrisi_Click">
+            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="dodaj_Click" FontSize="15"/>
+            <Button Content="Obriši" x:Name="obrisi" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Obrisi_Click" FontSize="15">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="IsEnabled" Value="True" />
@@ -29,19 +29,19 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Label VerticalAlignment="Center" Margin="50,0,0,0">Broj preostalih dana za odmor: </Label>
-            <Label x:Name="OdmorLabela" VerticalAlignment="Center"></Label>
-            <Button Background="Transparent" VerticalAlignment="Center" BorderThickness="0" Click="dodajSlobodneDane_Click">+</Button>
+            <Label VerticalAlignment="Center" Margin="40,0,0,0" FontSize="15">Broj preostalih dana za odmor: </Label>
+            <Label x:Name="OdmorLabela" VerticalAlignment="Center" FontSize="15"></Label>
+            <Button Background="Transparent" VerticalAlignment="Center" BorderThickness="0" Click="dodajSlobodneDane_Click" FontSize="15">+</Button>
         </StackPanel>
         
         <DataGrid Grid.Row="1" Name="RadnoVremePrikaz" CanUserAddRows="false" 
                   AutoGenerateColumns="False" IsReadOnly="True" 
                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
+                  VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  
                   CanUserResizeRows="False" Margin="5">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontSize" Value="20"/>
                     <Setter Property="FontWeight" Value="Medium"/>
                 </Style>
             </DataGrid.ColumnHeaderStyle>

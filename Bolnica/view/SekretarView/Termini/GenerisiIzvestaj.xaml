@@ -20,22 +20,22 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Margin="15">Datum početka:</Label>
-                <DatePicker x:Name="DatumPocetka" Grid.Column="1" Margin="15"/>
+                <Label Grid.Column="0" Margin="15" FontSize="15">Datum početka:</Label>
+                <DatePicker x:Name="DatumPocetka" Grid.Column="1" Margin="15" FontSize="15"/>
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Margin="15">Datum završetka:</Label>
-                <DatePicker x:Name="DatumZavrsetka" Grid.Column="1" Margin="15"/>
+                <Label Grid.Column="0" Margin="15" FontSize="15">Datum završetka:</Label>
+                <DatePicker x:Name="DatumZavrsetka" Grid.Column="1" Margin="15" FontSize="15"/>
             </Grid>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85" FontSize="15">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85" FontSize="15">Otkaži</Button>
         </StackPanel>
     </Grid>
 </Window>
