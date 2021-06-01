@@ -69,7 +69,7 @@ namespace Bolnica.view.PacijentView
                 {
                     TerminKontroler.ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
                     MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
-                    KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajZakazivanje(ViewModel.jmbg);
+                    KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje(ViewModel.jmbg);
                 }
             }               
         }

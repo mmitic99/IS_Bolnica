@@ -28,12 +28,9 @@ namespace Servis
         {
             if (instance == null)
             {
-                return new ObavestenjaServis();
+                instance = new ObavestenjaServis();
             }
-            else
-            {
-                return instance;
-            }
+            return instance;
         }
 
         public ObavestenjaServis()
@@ -63,7 +60,6 @@ namespace Servis
         public List<Obavestenje> GetObavestenjaByJmbg(String jmbg)
         {
             List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
-
             foreach(Obavestenje obavestenje in SkladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
             {
                 if (!obavestenja.Contains(obavestenje))
@@ -71,7 +67,6 @@ namespace Servis
                     obavestenja.Add(obavestenje);
                 }
             }
-
             return obavestenja;
         }
 
@@ -94,7 +89,7 @@ namespace Servis
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             return PosaljiPodsetnik(podsetnik);
-            }
+         }
 
         internal bool NapravikorisnickePodsetnike(KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano)
         {
@@ -122,19 +117,28 @@ namespace Servis
 
         private bool PosaljiPodsetnik(Podsetnik podsetnik)
         {
-            if (DaLiJePodsetnikPoslat(podsetnik)) return false;
-            SkladisteZaPodsetnike.Save(podsetnik);
-            return true;    
+            bool uspesnoPoslat = false;
+            if (!DaLiJePrethodnoPodsetnikPoslat(podsetnik))
+            {
+                SkladisteZaPodsetnike.Save(podsetnik);
+                uspesnoPoslat = true
+            }
+            return uspesnoPoslat;    
         }
 
-        private bool DaLiJePodsetnikPoslat(Podsetnik podsetnik)
+        private bool DaLiJePrethodnoPodsetnikPoslat(Podsetnik podsetnik)
         {
+            bool poslatPodsetnik = false;
             List<Podsetnik> podsetnici = SkladisteZaPodsetnike.GetAll();
             foreach(Podsetnik p in podsetnici)
             {
-                if (DaLiJeIstiPodsetnik(p, podsetnik)) return true;
+                if (DaLiJeIstiPodsetnik(p, podsetnik))
+                {
+                    poslatPodsetnik = true;
+                    break;
+                }
             }
-            return false;
+            return poslatPodsetnik;
         }
 
         private bool DaLiJeIstiPodsetnik(Podsetnik p, Podsetnik podsetnik)

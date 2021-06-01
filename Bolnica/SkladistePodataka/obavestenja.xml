@@ -6888,4 +6888,16 @@
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-01T00:17:40.4617391+02:00</VremeObavestenja>
+    <Naslov>Aktivna junska anketa</Naslov>
+    <Sadrzaj>Poštovani pacijenti,
+
+obaveštavamo vas da je do 16.6.2021 aktivna anketa o radu naše bolnice. Bili bismo Vam mnogo zahvalni ako izdvojite vreme i popunite anketu, na taj načit ćete nam pomoći da unapredimo poslovanje naše bolnice i time učiniti komunikaciju i interakciju sa našom bolnicom još lakšom i pristupačnijom. Mišljenje naših pacijenata nam je najznačajnije.
+
+Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>2021-06-01T00:00:00+02:00</kvartalnaAnketa>
+  </Obavestenje>
 </ArrayOfObavestenje>

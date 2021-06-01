@@ -12,17 +12,16 @@ namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
+        private KorisnickeAktivnostiPacijentaServis KorisnickeAktivnostiPacijentaServis;
         public static PacijentServis instance = null;
+
         public static PacijentServis GetInstance()
         {
             if(instance == null)
             {
-                return new PacijentServis();
+                instance = new PacijentServis();
             }
-            else
-            {
-                return instance;
-            }
+            return instance;
         }
         public PacijentServis()
         {
@@ -30,6 +29,7 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermineXml();
             skladisteZaObavestenja = new SkladisteZaObavestenjaXml();
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
+            KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
         }
 
 
@@ -131,7 +131,7 @@ namespace Servis
                 if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))
                 {
                     korisnickaAktivnost.JmbgKorisnika = noviJmbg;
-                    KorisnickeAktivnostiPacijentaServis.GetInstance().IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
+                    KorisnickeAktivnostiPacijentaServis.IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
                 }
             }
         }

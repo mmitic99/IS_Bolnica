@@ -41,7 +41,7 @@ namespace Bolnica.view.SekretarView.Obavestenja
                         MessageBoxImage.Error);
                     return;
                 }
-                obavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
+                obavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetOavestenjaByJmbg("-1");
                 this.Close();
 
             }

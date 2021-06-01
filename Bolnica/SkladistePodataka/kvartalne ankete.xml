@@ -140,4 +140,46 @@
     <komentari />
     <anketuPopunili />
   </KvartalnaAnketa>
+  <KvartalnaAnketa>
+    <datum>2021-06-01T00:00:00+02:00</datum>
+    <BrojAnketiranih>0</BrojAnketiranih>
+    <StrucnostMedicinskogOsoboljaProsecnaOcena>0</StrucnostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>0</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>0</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>0</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>0</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>0</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>0</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>0</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>0</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>0</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>0</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>0</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>0</CelokupniUtisak>
+    <komentari />
+    <anketuPopunili />
+  </KvartalnaAnketa>
+  <KvartalnaAnketa>
+    <datum>2021-06-01T00:17:40.4617391+02:00</datum>
+    <BrojAnketiranih>1</BrojAnketiranih>
+    <StrucnostMedicinskogOsoboljaProsecnaOcena>2</StrucnostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>3</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>3</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>3</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>4</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>3</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>3</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>4</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>3</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>3</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>4</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>3</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>3</CelokupniUtisak>
+    <komentari>
+      <string />
+    </komentari>
+    <anketuPopunili>
+      <string>1234567894444</string>
+    </anketuPopunili>
+  </KvartalnaAnketa>
 </ArrayOfKvartalnaAnketa>

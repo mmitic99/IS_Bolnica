@@ -14,6 +14,7 @@ namespace Bolnica.Servis
     {
         public static AnketeServis instance;
         public ISkladisteZaKvartalneAnkete skladisteZaKvartalneAnkete;
+        public ISkladisteZaAnketeOLekaru SkladisteZaAnketeOLekaru;
         public static AnketeServis GetInstance()
         {
             if (instance == null) return new AnketeServis();
@@ -24,66 +25,97 @@ namespace Bolnica.Servis
         {
             instance = this;
             skladisteZaKvartalneAnkete = new SkladisteZaKvartalneAnketeXml();
+            SkladisteZaAnketeOLekaru = new SkladisteZaAnketeOLekaruXml();
         }
 
         public bool DaLiJePoslataKvartalnaAnketa(DateTime today)
         {
+            bool poslataAnketa = false;
             List<KvartalnaAnketa> sveAnkete = skladisteZaKvartalneAnkete.GetAll();
             foreach (KvartalnaAnketa anketa in sveAnkete)
             {
                 if (anketa.datum.Date.Equals(today.Date))
                 {
-                    return true;
+                    poslataAnketa = true;
+                    break;
                 }
             }
-            return false;
+            return poslataAnketa;
         }
+
         public bool DaLiJeIstekloVremeZaPopunjavanjeAnkete(DateTime datum)
         {
-            if (DateTime.Now < datum.Date.AddDays(15)) return false;
-            else return true;
+            bool istekloVreme = true;
+            if (DateTime.Now < datum.Date.AddDays(15)) istekloVreme = false;
+            return istekloVreme;
         }
 
         public bool DaLiJeKorisnikPopunioKvartalnuAnketu(string jmbg, KvartalnaAnketa anketa)
         {
+            bool popunioAnketu = false;
             KvartalnaAnketa kvartalnaAnketa = GetKvartalnaAnketa(anketa.datum);
             foreach (String jmbgPopunjenih in kvartalnaAnketa.anketuPopunili)
             {
                 if (jmbgPopunjenih.Equals(jmbg))
-                    return true;
+                {
+                    popunioAnketu = true;
+                    break;
+                }
             }
-            return false;
+            return popunioAnketu;
         }
 
         public bool DaLiJeKorisnikPopunioAnketuOLekaru(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
         {
+            bool popunioAnketu = false;
             AnketaLekar anketa = GetAnketaOLekaru(anketaOLekaru.JmbgLekara);
             foreach (String ID in anketa.ispunjeneAnkete)
+            {
                 if (ID.Equals(anketaOLekaru.IDAnkete))
-                    return true;
-            return false;
+                {
+                    popunioAnketu = true;
+                    break;
+                }
+            }
+            return popunioAnketu;
         }
 
         public KvartalnaAnketa GetKvartalnaAnketa(DateTime datumAnkete)
         {
+            KvartalnaAnketa kvartalnaAnketa = null;
             List<KvartalnaAnketa> sveAnkete = skladisteZaKvartalneAnkete.GetAll();
             foreach (KvartalnaAnketa anketa in sveAnkete)
             {
                 if (anketa.datum.Equals(datumAnkete))
-                    return anketa;
+                {
+                    kvartalnaAnketa = anketa;
+                    break;
+                }
             }
-            return kreirajNovuKvartalnuAnketu(datumAnkete);
+            if (kvartalnaAnketa == null)
+            {
+               kvartalnaAnketa = kreirajNovuKvartalnuAnketu(datumAnkete);
+            }
+            return kvartalnaAnketa;
         }
 
         public AnketaLekar GetAnketaOLekaru(string jmbgLekara)
         {
+            AnketaLekar anketaLekar = null;
             List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaruXml.GetInstance().GetAll();
             foreach (AnketaLekar anketa in sveAnkete)
             {
                 if (anketa.JmbgLekara.Equals(jmbgLekara))
-                    return anketa;
+                {
+                    anketaLekar = anketa;
+                    break;
+                }
             }
-            return kreirajNovuAnketuOLekaru(jmbgLekara);
+            if(anketaLekar == null)
+            {
+                anketaLekar = kreirajNovuAnketuOLekaru(jmbgLekara);
+            }
+            return anketaLekar;
         }
 
         public bool SacuvajKvartalnuAnketu(PopunjenaKvartalnaAnketaDTO popunjenaAnketa)

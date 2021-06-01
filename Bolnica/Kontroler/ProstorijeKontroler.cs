@@ -15,6 +15,8 @@ namespace Kontroler
     public class ProstorijeKontroler
     {
 
+        public Servis.TerminServis terminServis;
+        public Servis.ProstorijeServis prostorijeServis;
         private static ProstorijeKontroler instance = null;
 
         public static ProstorijeKontroler GetInstance()
@@ -296,9 +298,6 @@ namespace Kontroler
             };
             ProstorijeServis.GetInstance().DodajNaprednoRenoviranje(renoviranje);
         }
-
-        public Servis.TerminServis terminServis;
-        public Servis.ProstorijeServis prostorijeServis;
 
         public int GetBrojProstorija(VrstaProstorije vrstaProstorije)
         {

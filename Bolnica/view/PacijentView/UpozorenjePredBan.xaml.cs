@@ -54,7 +54,7 @@ namespace Bolnica.view.PacijentView
             {
                 TerminKontroler.RemoveSelected(selectedItem);
                 PacijentZakazaniTermini.getInstance().RefresujPrikazTermina();
-                KorisnickeAktivnostiPacijentaKontroler.GetInstance().DodajOdlaganje(MainViewModel.Pacijent.Jmbg);
+                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(MainViewModel.Pacijent.Jmbg);
             }
             else if(upozorenjeZa.Equals("p"))
             {

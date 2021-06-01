@@ -1,14 +1,14 @@
-using System;
-using System.Collections.Generic;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
 using Model.Enum;
 using Repozitorijum;
+using System;
+using System.Collections.Generic;
 
 namespace Servis
 {
-   public class KorisnickeAktivnostiPacijentaServis
-   {
+    public class KorisnickeAktivnostiPacijentaServis
+    {
         private static KorisnickeAktivnostiPacijentaServis instance = null;
         public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
 
@@ -16,10 +16,9 @@ namespace Servis
         {
             if (instance == null)
             {
-                return new KorisnickeAktivnostiPacijentaServis();
+                instance = new KorisnickeAktivnostiPacijentaServis();
             }
-            else
-                return instance;
+            return instance;
         }
 
         public KorisnickeAktivnostiPacijentaServis()
@@ -29,7 +28,7 @@ namespace Servis
         }
 
         public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
-      {
+        {
             KorisnickeAktivnostiNaAplikaciji aktivnosti = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgKorisnika);
             if (aktivnosti == null)
             {
@@ -37,21 +36,15 @@ namespace Servis
             }
             return aktivnosti;
         }
-      
-      public Model.Enum.VrstaKorisnikaAplikacije GetRangKorisnika(String jmbgKorisnika)
-      {
 
-            return GetByJmbg(jmbgKorisnika).TrenutnoSeTretiraKao;
-      }
-      
-      public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
-      {
-         return TerminServis.getInstance().NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
-      }
-
-        private object NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
+        public Model.Enum.VrstaKorisnikaAplikacije GetRangKorisnika(String jmbgKorisnika)
         {
-            throw new NotImplementedException();
+            return GetByJmbg(jmbgKorisnika).TrenutnoSeTretiraKao;
+        }
+
+        public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
+        {
+            return TerminServis.getInstance().NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
         }
 
         internal void OdblokirajKorisnika()
@@ -70,9 +63,9 @@ namespace Servis
 
         private void LogickiObrisiOdlaganja(KorisnickeAktivnostiNaAplikaciji aktivnost)
         {
-            foreach(KorisnickaAktivnost akt in aktivnost.AktivnostiKorisnika)
+            foreach (KorisnickaAktivnost akt in aktivnost.AktivnostiKorisnika)
             {
-                if(akt.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
+                if (akt.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
                 {
                     akt.logickiObrisan = true;
                 }
@@ -81,12 +74,12 @@ namespace Servis
         }
 
         public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
-      {
+        {
             List<KorisnickaAktivnost> aktivnostiKorisnika = GetByJmbg(jmbgKorisnika).AktivnostiKorisnika;
-         return IzracunajBrojOdlaganja(aktivnostiKorisnika);
-      }
+            return IzracunajBrojOdlaganja(aktivnostiKorisnika);
+        }
 
-      private int IzracunajBrojOdlaganja(List<KorisnickaAktivnost> aktivnostiKorisnika)
+        private int IzracunajBrojOdlaganja(List<KorisnickaAktivnost> aktivnostiKorisnika)
         {
             int brojOdlaganja = 0;
             foreach (KorisnickaAktivnost aktivnost in aktivnostiKorisnika)
@@ -105,12 +98,12 @@ namespace Servis
         {
             VrstaKorisnikaAplikacije tretiraSeKao = GetRangKorisnika(jmbgPacijenta);
             String povratna = "";
-            if(tretiraSeKao == VrstaKorisnikaAplikacije.HalfSpam)
+            if (tretiraSeKao == VrstaKorisnikaAplikacije.HalfSpam)
             {
-                povratna+="Premašili ste dozvoljeni broj zakazanih termina. Pokušajte ponovo kada prethodno zakazani budu završeni ili nas kontaktirajte putem telefona +381218381071781."
-                    + "\r\n"+"Molimo Vas da smanjite bespotrebna zakazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
+                povratna += "Premašili ste dozvoljeni broj zakazanih termina. Pokušajte ponovo kada prethodno zakazani budu završeni ili nas kontaktirajte putem telefona +381218381071781."
+                    + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
             }
-            else if(tretiraSeKao == VrstaKorisnikaAplikacije.Spam)
+            else if (tretiraSeKao == VrstaKorisnikaAplikacije.Spam)
             {
                 povratna += "Premašili ste dozvoljeni broj odlaganja termina. Pokušajte ponovo uskoro ili nas kontaktirajte putem telefona +381218381071781."
                     + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja i otkazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
@@ -119,7 +112,7 @@ namespace Servis
         }
 
         public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
-      {
+        {
             KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
             skladisteZaKorisnickeAktivnosti.Save(noveAktivnosti);
             return noveAktivnosti;
@@ -127,45 +120,45 @@ namespace Servis
 
         public Boolean DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
         {
+            bool moguceZakazati = true;
             VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgKorisnika);
-            if (rangKorisnika == VrstaKorisnikaAplikacije.HalfSpam || rangKorisnika == VrstaKorisnikaAplikacije.Spam) 
-                return false;
-            else 
-                return true;
-      }
+            if (rangKorisnika == VrstaKorisnikaAplikacije.HalfSpam || rangKorisnika == VrstaKorisnikaAplikacije.Spam)
+                moguceZakazati = false;        
+            return moguceZakazati;
+        }
 
         public Boolean DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
         {
+            bool moguceOdloziti = true;
             VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgPacijenta);
             if (rangKorisnika == VrstaKorisnikaAplikacije.Spam)
-                return false;
-            else
-                return true;
+                moguceOdloziti = false;
+            return moguceOdloziti;
         }
 
         public void DodajZakazivanje(String jmbgPacijenta)
-      {
+        {
             KorisnickaAktivnost zakazivanje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.ZakazivanjePregleda, DateTime.Now);
             KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
             sveAktivnostiKorisnika.AktivnostiKorisnika.Add(zakazivanje);
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
-      }
-      
-      public void DodajOdlaganje(String jmbgPacijenta)
-      {
+        }
+
+        public void DodajOdlaganje(String jmbgPacijenta)
+        {
             KorisnickaAktivnost odlaganje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.OdlaganjePregleda, DateTime.Now);
             KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
             sveAktivnostiKorisnika.AktivnostiKorisnika.Add(odlaganje);
             IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
-      }
-      
-      public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost, string noviJmbg = null)
-      {
+        }
+
+        public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost, string noviJmbg = null)
+        {
             AzurirajRang(korisnickaAktivnost);
-            List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika =  skladisteZaKorisnickeAktivnosti.GetAll();
-            for(int i=0; i<aktivnostiSvihKorisnika.Count; i++)
+            List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika = skladisteZaKorisnickeAktivnosti.GetAll();
+            for (int i = 0; i < aktivnostiSvihKorisnika.Count; i++)
             {
-                if(aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
+                if (aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
                 {
                     if (noviJmbg != null)
                         korisnickaAktivnost.JmbgKorisnika = noviJmbg;
@@ -175,10 +168,10 @@ namespace Servis
             }
             skladisteZaKorisnickeAktivnosti.SaveAll(aktivnostiSvihKorisnika);
             return true;
-      }
-      
-      public void AzurirajRang(KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
-      {
+        }
+
+        public void AzurirajRang(KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
+        {
             if (IzracunajBrojOdlaganja(korisnickaAktivnost.AktivnostiKorisnika) > 2)
             {
                 korisnickaAktivnost.BlokirajKorisnika();
@@ -187,7 +180,7 @@ namespace Servis
                 korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.HalfSpam;
             else
                 korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Normalan;
-      }
+        }
 
-   }
+    }
 }

@@ -12,12 +12,6 @@ namespace Kontroler
             upravnikServis = new UpravnikServis();
         }
 
-        public bool RegistrujUpravnika(Upravnik upravnik)
-        {
-            // TODO: implement
-            return false;
-        }
-
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             return upravnikServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);

@@ -360,7 +360,7 @@ namespace Servis
             {
                 if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
                     && (parametri.JmbgLekara == null || lekar.Jmbg == parametri.JmbgLekara)
-                    && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(parametri.JmbgLekara, parametri.TacnoVreme, parametri.trajanjeUMinutama))
+                    && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(lekar.Jmbg, parametri.TacnoVreme, parametri.trajanjeUMinutama))
                     && ProstorijeServis.PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama)))
                 {
                     Termin t = new Termin()

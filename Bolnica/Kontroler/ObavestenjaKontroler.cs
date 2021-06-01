@@ -10,6 +10,7 @@ namespace Kontroler
     public class ObavestenjaKontroler
     {
         public static ObavestenjaKontroler instance =null;
+        public Servis.ObavestenjaServis obavestenjaServis;
 
         public static ObavestenjaKontroler getInstance()
         {
@@ -147,8 +148,6 @@ namespace Kontroler
                 kvartalnaAnketa = novoObavestenje.kvartalnaAnketa
             });
         }
-
-        public Servis.ObavestenjaServis obavestenjaServis;
 
         public bool ObrisiObavestenje(ObavestenjeDTO obavestenje)
         {

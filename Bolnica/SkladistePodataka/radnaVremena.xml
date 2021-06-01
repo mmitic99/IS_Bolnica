@@ -77,11 +77,4 @@
     <DatumIVremeZavrsetka>2021-06-30T15:00:00</DatumIVremeZavrsetka>
     <StatusRadnogVremena>Radi</StatusRadnogVremena>
   </RadnoVreme>
-  <RadnoVreme>
-    <IdRadnogVremena>Radi12318288284776/1/2021 8:00:00 AM</IdRadnogVremena>
-    <JmbgLekara>1231828828477</JmbgLekara>
-    <DatumIVremePocetka>2021-06-01T08:00:00</DatumIVremePocetka>
-    <DatumIVremeZavrsetka>2021-06-30T16:00:00</DatumIVremeZavrsetka>
-    <StatusRadnogVremena>Radi</StatusRadnogVremena>
-  </RadnoVreme>
 </ArrayOfRadnoVreme>
