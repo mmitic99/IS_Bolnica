@@ -121,7 +121,7 @@ namespace Servis
             if (!DaLiJePrethodnoPodsetnikPoslat(podsetnik))
             {
                 SkladisteZaPodsetnike.Save(podsetnik);
-                uspesnoPoslat = true
+                uspesnoPoslat = true;
             }
             return uspesnoPoslat;    
         }

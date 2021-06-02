@@ -645,15 +645,11 @@ namespace Servis
             }
             catch (IOException e)
             {
-                MessageBox.Show("Fajl na adresi: '" + Path.GetFullPath(putanjaIzvestaja) + "' je već otvoren. Zatvorite fajl i pokušajte ponovo.", "Greška", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-                return null;
+                return "otvoren";
             }
             catch (Exception e)
             {
-                MessageBox.Show("Desila se nepoznata greška prilikom generisanja izveštaja", "Greška", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-                return null;
+                return "";
             }
         }
 
