@@ -55,7 +55,7 @@
           <AnamnezaDijalog />
           <DatumAnamneze>2021-04-27T01:36:14.4998186+02:00</DatumAnamneze>
           <ImeLekara>dr Dunja Jovanovic</ImeLekara>
-          <IdAnamneze>dr Dunja Jovanovic27.4.2021. 01:36:14</IdAnamneze>
+          <IdAnamneze>dr Dunja Jovanovic4/27/2021 1:36:14 AM</IdAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni>
@@ -116,7 +116,7 @@
           <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
           <DatumAnamneze>2021-04-20T18:38:39.3426378+02:00</DatumAnamneze>
           <ImeLekara>dr Milos Marinkovic</ImeLekara>
-          <IdAnamneze>dr Milos Marinkovic20.4.2021. 18:38:39</IdAnamneze>
+          <IdAnamneze>dr Milos Marinkovic4/20/2021 6:38:39 PM</IdAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni />
@@ -175,7 +175,37 @@
     <BracnoStanje>razveden</BracnoStanje>
     <Zanimanje />
     <ZdravstveniKarton>
-      <Izvestaj />
+      <Izvestaj>
+        <Izvestaj>
+          <recepti>
+            <Recept>
+              <terminiUzimanjaTokomDana />
+              <IdRecepta>1</IdRecepta>
+              <ImeLeka>Prospan</ImeLeka>
+              <SifraLeka>PRO</SifraLeka>
+              <DodatneNapomene>neke</DodatneNapomene>
+              <DatumIzdavanja>2021-06-02T00:00:00+02:00</DatumIzdavanja>
+              <BrojDana>3</BrojDana>
+              <Doza>2</Doza>
+              <TerminiUzimanjaLeka>
+                <int>12</int>
+                <int>15</int>
+              </TerminiUzimanjaLeka>
+              <Dijagnoza>kasalj</Dijagnoza>
+              <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
+              <KomentariPacijenta>
+                <Beleska>
+                  <ValidationErrors />
+                  <IsValid>false</IsValid>
+                  <Naslov>popiti caj</Naslov>
+                  <Opis>detalji</Opis>
+                </Beleska>
+              </KomentariPacijenta>
+            </Recept>
+          </recepti>
+          <datum>0001-01-01T00:00:00</datum>
+        </Izvestaj>
+      </Izvestaj>
       <Anamneze />
       <Alergeni />
     </ZdravstveniKarton>

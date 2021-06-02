@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfNaprednoRenoviranje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <NaprednoRenoviranje>
-    <BrojGlavneProstorije>430</BrojGlavneProstorije>
-    <BrojProstorije1>410</BrojProstorije1>
-    <BrojProstorije2>420</BrojProstorije2>
-    <DatumPocetkaRenoviranja>2021-05-20T00:00:00</DatumPocetkaRenoviranja>
-    <DatumZavrsetkaRenoviranja>2021-05-29T00:00:00</DatumZavrsetkaRenoviranja>
-    <Spajanje>false</Spajanje>
-    <Podela>true</Podela>
-  </NaprednoRenoviranje>
-</ArrayOfNaprednoRenoviranje>
+<ArrayOfNaprednoRenoviranje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

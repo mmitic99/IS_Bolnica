@@ -48,15 +48,15 @@
                     <DataGridTextColumn x:Name="atumIVremeTerminaD" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Datum i vreme" Binding="{Binding DatumIVremeTermina, StringFormat=\{0:dd.MM.yyyy. HH:mm\}}" Width="*"/>
                     <DataGridTextColumn x:Name="VrstaTermina" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Tip pregleda" Binding="{Binding VrstaTermina}" Width="70"/>
                     <DataGridTextColumn x:Name="LekaPrezime" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Lekar" Binding="{Binding lekar}" Width="*"/>
-                        <DataGridTextColumn x:Name="sprat" Header="Sprat" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Binding="{Binding sprat}" Width="50"/>
-                            <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Binding="{Binding brojSobe}" Width="60"/>
+                    <DataGridTextColumn x:Name="sprat" Header="Sprat" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Binding="{Binding sprat}" Width="50"/>
+                    <DataGridTextColumn x:Name="brojProstorije" Header="Broj sobe" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Binding="{Binding brojSobe}" Width="60"/>
                     <DataGridTextColumn x:Name="trajanje" HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Poslednji datum otkazivanja" Binding="{Binding poslednjiDatumOtkazivanja, StringFormat=\{0:dd.MM.yyyy. HH:mm\}}" Width="*" Foreground="Red">
                     </DataGridTextColumn>
                 </DataGrid.Columns>
 
             </DataGrid>
             <Button x:Name="zakaziButton" Content="Zakaži termin" Grid.Column="3" Width="120" Height="50" Grid.Row="2" Click="ZakazivanjeTerminaBC"/>
-            <Button x:Name="otkaziButton" Content="Otkaži termin" Grid.Row="2" Width="120" Height="50" HorizontalAlignment="Right"  Click="OtkazivanjeTerminaBC">
+            <Button x:Name="otkaziButton" Content="Otkaži termin" Grid.Row="1" Width="120" Height="50" HorizontalAlignment="Right"  Click="OtkazivanjeTerminaBC" Margin="0,592.6,217,-0.2" Grid.RowSpan="2">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True" />
@@ -70,7 +70,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="izmeniButton"  Content="Izmeni termin" Grid.Row="2" HorizontalAlignment="Left" Width="120" Height="50" Click="IzmenaTerminaBC">
+            <Button x:Name="izmeniButton"  Content="Izmeni termin" Grid.Row="1" HorizontalAlignment="Left" Width="120" Height="50" Click="IzmenaTerminaBC" Margin="217,592.6,0,-0.2" Grid.RowSpan="2">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True" />
@@ -83,6 +83,20 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
+            </Button>
+            <Button x:Name="generisiIzvestaj" Grid.Row="2" HorizontalAlignment="Right" Width="120" Height="50"
+                    Background="Transparent" BorderThickness="0" 
+                    Command="{Binding KreirajIzvestajCommand}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Kreiraj izveštaj" Grid.Row="1">
+                    </TextBlock>
+                    <Image Source="draw.png"/>
+                </Grid>
+                
             </Button>
         </Grid>
     </StackPanel>

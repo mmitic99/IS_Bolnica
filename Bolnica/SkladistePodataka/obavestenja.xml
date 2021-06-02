@@ -6900,4 +6900,19 @@ Sve najbolje Vam želi ZDRAVO bolnica.</Sadrzaj>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>2021-06-01T00:00:00+02:00</kvartalnaAnketa>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-02T10:59:42.8581537+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo
+nedavno ste bili na pregledu kod dr Dunja Jovanovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678944446096/2/2021 10:59:42 AM</IDAnkete>
+      <JmbgLekara>609</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
 </ArrayOfObavestenje>

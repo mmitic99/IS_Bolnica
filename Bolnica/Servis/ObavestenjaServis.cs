@@ -11,6 +11,7 @@ using Kontroler;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Bolnica.model.Enum;
+using System.Linq;
 
 namespace Servis
 {
@@ -67,6 +68,7 @@ namespace Servis
                     obavestenja.Add(obavestenje);
                 }
             }
+            List<Obavestenje> sortiranaObavestenja = obavestenja.OrderByDescending(x => x.VremeObavestenja).ToList();
             return obavestenja;
         }
 
@@ -121,7 +123,7 @@ namespace Servis
             if (!DaLiJePrethodnoPodsetnikPoslat(podsetnik))
             {
                 SkladisteZaPodsetnike.Save(podsetnik);
-                uspesnoPoslat = true
+                uspesnoPoslat = true;
             }
             return uspesnoPoslat;    
         }
@@ -154,13 +156,11 @@ namespace Servis
             Pacijent pacijent = PacijentServis.GetByJmbg(JmbgPacijenta);
             Lekar lekar = LekarServis.GetByJmbg(JmbgLekara);
             AnketeServis.GetAnketaOLekaru(JmbgLekara);
-
             PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
             {
                 IDAnkete = JmbgPacijenta + JmbgLekara + DateTime.Now.ToString(),
                 JmbgLekara = JmbgLekara
             };
-
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -246,18 +246,20 @@ namespace Servis
 
         private string GetNazivMesec(int month)
         {
-            if (month == 1) return "januarska";
-            else if (month == 2) return "februarska";
-            else if (month == 3) return "martovska";
-            else if (month == 4) return "aprilska";
-            else if (month == 5) return "majska";
-            else if (month == 6) return "junska";
-            else if (month == 7) return "julska";
-            else if (month == 8) return "avgustovska";
-            else if (month == 9) return "septembarska";
-            else if (month == 10) return "oktobarska";
-            else if (month == 11) return "novembarska";
-            else return "decembarska";
+            string tekstualniZapisMeseca="";
+            if (month == 1) tekstualniZapisMeseca = "januarska";
+            else if (month == 2) tekstualniZapisMeseca = "februarska";
+            else if (month == 3) tekstualniZapisMeseca = "martovska";
+            else if (month == 4) tekstualniZapisMeseca = "aprilska";
+            else if (month == 5) tekstualniZapisMeseca = "majska";
+            else if (month == 6) tekstualniZapisMeseca = "junska";
+            else if (month == 7) tekstualniZapisMeseca = "julska";
+            else if (month == 8) tekstualniZapisMeseca = "avgustovska";
+            else if (month == 9) tekstualniZapisMeseca = "septembarska";
+            else if (month == 10) tekstualniZapisMeseca = "oktobarska";
+            else if (month == 11) tekstualniZapisMeseca = "novembarska";
+            else tekstualniZapisMeseca = "decembarska";
+            return tekstualniZapisMeseca;
         }
 
         public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)

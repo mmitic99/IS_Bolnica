@@ -35,12 +35,9 @@ namespace Servis
         {
             if (instance == null)
             {
-                return new TerminServis();
+                instance = new TerminServis();
             }
-            else
-            {
-                return instance;
-            }
+            return instance;
         }
 
         public TerminServis()
