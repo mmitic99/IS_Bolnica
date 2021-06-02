@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Podsetnik>
+    <VremeObavestenja>2021-06-02T10:59:53.1690861+02:00</VremeObavestenja>
+    <Naslov>Podsetnik o uzimanju leka -Prospan</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo podsećamo vas da danas u 12:00 treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>UzimanjeLeka</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-02T07:30:00+02:00</VremeObavestenja>
+    <Naslov>popiti caj</Naslov>
+    <Sadrzaj>detalji</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-03T07:30:00</VremeObavestenja>
+    <Naslov>popiti caj</Naslov>
+    <Sadrzaj>detalji</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-04T07:30:00</VremeObavestenja>
+    <Naslov>popiti caj</Naslov>
+    <Sadrzaj>detalji</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+</ArrayOfPodsetnik>

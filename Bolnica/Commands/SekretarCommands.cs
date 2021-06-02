@@ -8,113 +8,113 @@ using System.Windows.Input;
 
 namespace Bolnica.Commands
 {
-    class SekretarCommands
-    {
-        public static readonly ICommand DodajObavestenjeCommand;
-        public static readonly ICommand DodajPacijentaCommand;
-        public static readonly ICommand DodajGostujucegPacijentaCommand;
-        public static readonly ICommand DodajTerminCommand;
-        public static readonly ICommand DodajLekaraCommand;
-        public static readonly ICommand DodajTerminPacijentuCommand;
-        public static readonly ICommand DodajTerminLekaruCommand;
+	class SekretarCommands
+	{
+		public static readonly ICommand DodajObavestenjeCommand;
+		public static readonly ICommand DodajPacijentaCommand;
+		public static readonly ICommand DodajGostujucegPacijentaCommand;
+		public static readonly ICommand DodajTerminCommand;
+		public static readonly ICommand DodajLekaraCommand;
+		public static readonly ICommand DodajTerminPacijentuCommand;
+		public static readonly ICommand DodajTerminLekaruCommand;
 
 		public static readonly ICommand IzmeniObavestenjeCommand;
-        public static readonly ICommand IzmeniPacijentaCommand;
-        public static readonly ICommand IzmeniTerminCommand;
-        public static readonly ICommand IzmeniLekaraCommand;
-        public static readonly ICommand IzmeniProfilCommand;
-        public static readonly ICommand IzmeniLozinkuCommand;
+		public static readonly ICommand IzmeniPacijentaCommand;
+		public static readonly ICommand IzmeniTerminCommand;
+		public static readonly ICommand IzmeniLekaraCommand;
+		public static readonly ICommand IzmeniProfilCommand;
+		public static readonly ICommand IzmeniLozinkuCommand;
 
 		public static readonly ICommand ObrisiObavestenjeCommand;
-        public static readonly ICommand ObrisiPacijentaCommand;
-        public static readonly ICommand ObrisiTerminCommand;
-        public static readonly ICommand ObrisiLekaraCommand;
+		public static readonly ICommand ObrisiPacijentaCommand;
+		public static readonly ICommand ObrisiTerminCommand;
+		public static readonly ICommand ObrisiLekaraCommand;
 
-        public static readonly ICommand PogledajObavestenjeCommand;
-        public static readonly ICommand RadnoVremeLekaraCommand;
-        public static readonly ICommand FeedbackCommand;
+		public static readonly ICommand PogledajObavestenjeCommand;
+		public static readonly ICommand RadnoVremeLekaraCommand;
+		public static readonly ICommand FeedbackCommand;
 
 		static SekretarCommands()
-        {
-            var inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.O }, ModifierKeys.Control, "Ctrl+A, O"));
-            DodajObavestenjeCommand = new RoutedUICommand("dodajObaDodajObavestenjeCommandvestenje", "DodajObavestenjeCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.P }, ModifierKeys.Control, "Ctrl+A, P"));
-            DodajPacijentaCommand = new RoutedUICommand("DodajPacijentaCommand", "DodajPacijentaCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.G }, ModifierKeys.Control, "Ctrl+A, G"));
-            DodajGostujucegPacijentaCommand = new RoutedUICommand("DodajGostujucegPacijentaCommand", "DodajGostujucegPacijentaCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.T }, ModifierKeys.Control, "Ctrl+A, T"));
-            DodajTerminCommand = new RoutedUICommand("DodajTerminCommand", "DodajTerminCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.L }, ModifierKeys.Control, "Ctrl+A, L"));
-            DodajLekaraCommand = new RoutedUICommand("DodajLekaraCommand", "DodajLekaraCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.P }, ModifierKeys.Control, "Ctrl+T, P"));
-            DodajTerminPacijentuCommand= new RoutedUICommand("DodajTerminPacijentuCommand", "DodajTerminPacijentuCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.L }, ModifierKeys.Control, "Ctrl+T, L"));
-            DodajTerminLekaruCommand = new RoutedUICommand("DodajTerminLekaruCommand", "DodajTerminLekaruCommand", typeof(SekretarCommands), inputGestures);
+		{
+			var inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.O }, ModifierKeys.Control, "Ctrl+A, O"));
+			DodajObavestenjeCommand = new RoutedUICommand("dodajObaDodajObavestenjeCommandvestenje", "DodajObavestenjeCommand", typeof(SekretarCommands), inputGestures);
 
 			inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.O }, ModifierKeys.Control, "Ctrl+E, O"));
-            IzmeniObavestenjeCommand = new RoutedUICommand("IzmeniObavestenjeCommand", "IzmeniObavestenjeCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.P }, ModifierKeys.Control, "Ctrl+E, P"));
-            IzmeniPacijentaCommand = new RoutedUICommand("IzmeniPacijentaCommand", "IzmeniPacijentaCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.T }, ModifierKeys.Control, "Ctrl+E, T"));
-            IzmeniTerminCommand = new RoutedUICommand("IzmeniTerminCommand", "IzmeniTerminCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.L }, ModifierKeys.Control, "Ctrl+E, L"));
-            IzmeniLekaraCommand = new RoutedUICommand("IzmeniLekaraCommand", "IzmeniLekaraCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.S }, ModifierKeys.Control, "Ctrl+E, S"));
-            IzmeniProfilCommand = new RoutedUICommand("IzmeniProfilCommand", "IzmeniProfilCommand", typeof(SekretarCommands), inputGestures);
-
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.Z }, ModifierKeys.Control, "Ctrl+E, Z"));
-            IzmeniLozinkuCommand = new RoutedUICommand("IzmeniLozinkuCommand", "IzmeniLozinkuCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.P }, ModifierKeys.Control, "Ctrl+A, P"));
+			DodajPacijentaCommand = new RoutedUICommand("DodajPacijentaCommand", "DodajPacijentaCommand", typeof(SekretarCommands), inputGestures);
 
 			inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.O }, ModifierKeys.Control, "Ctrl+D, O"));
-            ObrisiObavestenjeCommand = new RoutedUICommand("ObrisiObavestenjeCommand", "ObrisiObavestenjeCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.G }, ModifierKeys.Control, "Ctrl+A, G"));
+			DodajGostujucegPacijentaCommand = new RoutedUICommand("DodajGostujucegPacijentaCommand", "DodajGostujucegPacijentaCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.P }, ModifierKeys.Control, "Ctrl+D, P"));
-            ObrisiPacijentaCommand = new RoutedUICommand("ObrisiPacijentaCommand", "ObrisiPacijentaCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.T }, ModifierKeys.Control, "Ctrl+A, T"));
+			DodajTerminCommand = new RoutedUICommand("DodajTerminCommand", "DodajTerminCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.T }, ModifierKeys.Control, "Ctrl+D, T"));
-            ObrisiTerminCommand = new RoutedUICommand("ObrisiTerminCommand", "ObrisiTerminCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.L }, ModifierKeys.Control, "Ctrl+A, L"));
+			DodajLekaraCommand = new RoutedUICommand("DodajLekaraCommand", "DodajLekaraCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.L }, ModifierKeys.Control, "Ctrl+D, L"));
-            ObrisiLekaraCommand = new RoutedUICommand("ObrisiLekaraCommand", "ObrisiLekaraCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.P }, ModifierKeys.Control, "Ctrl+T, P"));
+			DodajTerminPacijentuCommand = new RoutedUICommand("DodajTerminPacijentuCommand", "DodajTerminPacijentuCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.V, Key.O }, ModifierKeys.Control, "Ctrl+V, O"));
-            PogledajObavestenjeCommand = new RoutedUICommand("PogledajObavestenjeCommand", "PogledajObavestenjeCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.L }, ModifierKeys.Control, "Ctrl+T, L"));
+			DodajTerminLekaruCommand = new RoutedUICommand("DodajTerminLekaruCommand", "DodajTerminLekaruCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.R, Key.L }, ModifierKeys.Control, "Ctrl+R, L"));
-            RadnoVremeLekaraCommand = new RoutedUICommand("RadnoVremeLekaraCommand", "RadnoVremeLekaraCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.O }, ModifierKeys.Control, "Ctrl+E, O"));
+			IzmeniObavestenjeCommand = new RoutedUICommand("IzmeniObavestenjeCommand", "IzmeniObavestenjeCommand", typeof(SekretarCommands), inputGestures);
 
-            inputGestures = new InputGestureCollection();
-            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.F }, ModifierKeys.Control, "Ctrl+A, F"));
-            FeedbackCommand = new RoutedUICommand("FeedbackCommand", "FeedbackCommand", typeof(SekretarCommands), inputGestures);
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.P }, ModifierKeys.Control, "Ctrl+E, P"));
+			IzmeniPacijentaCommand = new RoutedUICommand("IzmeniPacijentaCommand", "IzmeniPacijentaCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.T }, ModifierKeys.Control, "Ctrl+E, T"));
+			IzmeniTerminCommand = new RoutedUICommand("IzmeniTerminCommand", "IzmeniTerminCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.L }, ModifierKeys.Control, "Ctrl+E, L"));
+			IzmeniLekaraCommand = new RoutedUICommand("IzmeniLekaraCommand", "IzmeniLekaraCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.S }, ModifierKeys.Control, "Ctrl+E, S"));
+			IzmeniProfilCommand = new RoutedUICommand("IzmeniProfilCommand", "IzmeniProfilCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.Z }, ModifierKeys.Control, "Ctrl+E, Z"));
+			IzmeniLozinkuCommand = new RoutedUICommand("IzmeniLozinkuCommand", "IzmeniLozinkuCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.O }, ModifierKeys.Control, "Ctrl+D, O"));
+			ObrisiObavestenjeCommand = new RoutedUICommand("ObrisiObavestenjeCommand", "ObrisiObavestenjeCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.P }, ModifierKeys.Control, "Ctrl+D, P"));
+			ObrisiPacijentaCommand = new RoutedUICommand("ObrisiPacijentaCommand", "ObrisiPacijentaCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.T }, ModifierKeys.Control, "Ctrl+D, T"));
+			ObrisiTerminCommand = new RoutedUICommand("ObrisiTerminCommand", "ObrisiTerminCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.D, Key.L }, ModifierKeys.Control, "Ctrl+D, L"));
+			ObrisiLekaraCommand = new RoutedUICommand("ObrisiLekaraCommand", "ObrisiLekaraCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.V, Key.O }, ModifierKeys.Control, "Ctrl+V, O"));
+			PogledajObavestenjeCommand = new RoutedUICommand("PogledajObavestenjeCommand", "PogledajObavestenjeCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.R, Key.L }, ModifierKeys.Control, "Ctrl+R, L"));
+			RadnoVremeLekaraCommand = new RoutedUICommand("RadnoVremeLekaraCommand", "RadnoVremeLekaraCommand", typeof(SekretarCommands), inputGestures);
+
+			inputGestures = new InputGestureCollection();
+			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.F }, ModifierKeys.Control, "Ctrl+A, F"));
+			FeedbackCommand = new RoutedUICommand("FeedbackCommand", "FeedbackCommand", typeof(SekretarCommands), inputGestures);
 		}
 	}
 

@@ -1,4 +1,5 @@
-﻿using Bolnica.model;
+﻿using Bolnica.Kontroler;
+using Bolnica.model;
 using Kontroler;
 using Model;
 using System;
@@ -10,9 +11,12 @@ using System.Threading.Tasks;
 
 namespace Bolnica.viewActions
 {
-    public class PacijentTerminiViewModel
+    public class PacijentTerminiViewModel : BindableBase
     {
         private TerminKontroler TerminKontroler;
+        private IzvestajKontroler IzvestajKontroler;
+        public MyICommand KreirajIzvestajCommand { get; set; }
+
         public List<Termin> ZakazaniTerminiPacijenta
         {
             get
@@ -29,7 +33,15 @@ namespace Bolnica.viewActions
         public PacijentTerminiViewModel(Pacijent pacijent)
         {
             this.TerminKontroler = new TerminKontroler();
+            this.IzvestajKontroler = new IzvestajKontroler();
             this.JmbgPacijenta = pacijent.Jmbg;
+            this.KreirajIzvestajCommand = new MyICommand(KreirajIzvestaj);
         }
+
+        public void KreirajIzvestaj()
+        {
+            IzvestajKontroler.KreirajIzvestajOPregledimaIOperacijama(JmbgPacijenta);
+        }
+           
     }
 }

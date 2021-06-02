@@ -75,6 +75,12 @@ namespace Bolnica.view.PacijentView
                 MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,ViewModel.JmbgPacijenta);
                 MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
             }
+            else
+            {
+                var s = new Upozorenje("Nema slobodnih termina po traženim kriterujumima!");
+                s.Owner = PacijentMainWindow.getInstance();
+                s.ShowDialog();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
