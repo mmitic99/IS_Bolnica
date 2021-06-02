@@ -223,28 +223,15 @@
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="2" Margin="15">
-            <Button x:Name="potvrdi" Width="100" Click="potvrdi_Click" Content="Potvrdi" FontSize="15">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="False"/>
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tel}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="False"/>
-                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="False"/>
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="IsEnabled" Value="True"/>
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button x:Name="potvrdi" Width="100" Click="potvrdi_Click" Content="Potvrdi" FontSize="15"
+                    Style="{StaticResource ValidationButton}" 
+                    Template="{StaticResource RoundedSmallerButton}"/>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="2" Margin="15">
-            <Button Width="100" Click="otkazi_Click" FontSize="15">Otkaži</Button>
+            <Button Width="100" Click="otkazi_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
         </Grid>
 
     </Grid>

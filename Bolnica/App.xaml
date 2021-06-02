@@ -71,6 +71,178 @@
                 <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
             </Style>
 
+            <ControlTemplate TargetType="Button" x:Key="RoundedButton">
+                <Grid Width="140" Height="45">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}"/>
+                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="Button" x:Key="RoundedSmallerButton">
+                <Grid Width="100" Height="30">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}"/>
+                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate TargetType="RadioButton" x:Key="RoundedRadioButton">
+                <Grid>
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}"/>
+                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </ControlTemplate>
+
+            <Style TargetType="Button" x:Key="BasicButton">
+                <Setter Property="Background" Value="LightGray"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="DimGray"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ValidationButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=(Validation.HasError), ElementName=tel}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=(Validation.HasError), ElementName=email}" Value="True">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="RadioButton" x:Key="BasicRadioButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                <Setter Property="Background" Value="LightGray"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="DimGray"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Background" Value="DimGray"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="PacijentiDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=PacijentiPrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="TerminiDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=TerminiPrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="LekariDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ProstorijeDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=ProstorijePrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="LekoviDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=LekoviPrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button" x:Key="RadnoVremeDisabledButton" BasedOn="{StaticResource BasicButton}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="False"></Condition>
+                            <Condition Binding="{Binding Path=SelectedItem, ElementName=RadnoVremePrikaz}" Value="{x:Null}"/>
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+
+
         </ResourceDictionary>
             
     </Application.Resources>

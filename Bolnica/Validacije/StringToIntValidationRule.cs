@@ -16,6 +16,8 @@ namespace Bolnica.Validacije
             {
                 var s = value as string;
                 long r;
+                if (string.IsNullOrEmpty(s))
+                    return new ValidationResult(true, null);
                 if (long.TryParse(s, out r))
                 {
                     return new ValidationResult(true, null);

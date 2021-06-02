@@ -14,21 +14,12 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="dodaj_Click" FontSize="15"/>
-            <Button Content="Obriši" x:Name="obrisi" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Obrisi_Click" FontSize="15">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True" />
-                        <Setter Property="Opacity" Value="1" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=RadnoVremePrikaz}" Value="{x:Null}">
-                                <Setter Property="IsEnabled" Value="False" />
-                                <Setter Property="Opacity" Value="1" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Click="dodaj_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}"/>
+            <Button Content="Obriši" x:Name="obrisi" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Obrisi_Click" FontSize="15"
+                    Style="{StaticResource RadnoVremeDisabledButton}" 
+                    Template="{StaticResource RoundedSmallerButton}"/>
             <Label VerticalAlignment="Center" Margin="40,0,0,0" FontSize="15">Broj preostalih dana za odmor: </Label>
             <Label x:Name="OdmorLabela" VerticalAlignment="Center" FontSize="15"></Label>
             <Button Background="Transparent" VerticalAlignment="Center" BorderThickness="0" Click="dodajSlobodneDane_Click" FontSize="15">+</Button>

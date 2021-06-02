@@ -141,8 +141,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" FontSize="15">Sačuvaj</Button>
-            <Button Width="100" Grid.Column="1" Click="otkazi_Click" FontSize="15">Otkaži</Button>
+            <Button Width="100" Grid.Column="0" Click="sacuvaj_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}">Potvrdi</Button>
+            <Button Width="100" Grid.Column="1" Click="otkazi_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
         </Grid>
 
     </Grid>

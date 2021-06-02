@@ -52,8 +52,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85" FontSize="15">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85" FontSize="15">Otkaži</Button>
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" FontSize="15"
+                    Style="{StaticResource BasicButton}" 
+                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
         </StackPanel>
 
     </Grid>

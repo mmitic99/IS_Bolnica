@@ -21,9 +21,11 @@ namespace Bolnica.Validacije
         {
             if (value is String)
             {
-                long d = long.Parse((string)value);
-                if (d < Min) return new ValidationResult(false, "JMBG mora imati 13 cifara.");
-                if (d > Max) return new ValidationResult(false, "JMBG mora imati 13 cifara.");
+                if (string.IsNullOrEmpty((string)value))
+                    return new ValidationResult(true, null);
+                long jmbg = long.Parse((string)value);
+                if (jmbg < Min) return new ValidationResult(false, "JMBG mora imati 13 cifara.");
+                if (jmbg > Max) return new ValidationResult(false, "JMBG mora imati 13 cifara.");
                 return new ValidationResult(true, null);
             }
             else

@@ -62,6 +62,9 @@ namespace Bolnica.view.SekretarView
             DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            DatumZaTermin.DisplayDateStart = DateTime.Now;
+            DatumZaTermin.SelectedDate = DateTime.Now;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -454,6 +457,39 @@ namespace Bolnica.view.SekretarView
         {
             var s = new SekretarFeedback(sekretar.Jmbg);
             s.ShowDialog();
+        }
+
+        private void DatumZaTermin_OnSelectedDateChanged(object sender, RoutedEventArgs e)
+        {
+            if (Dan.IsChecked == true)
+            {
+                IzaberiDatumLabela.Content = "Izaberi datum:";
+                TerminiPrikaz.ItemsSource =
+                    terminKontroler.GetBuduciTerminPacLekarZaDan((DateTime)DatumZaTermin.SelectedDate);
+                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+            }
+            else if (Nedelja.IsChecked == true)
+            {
+                IzaberiDatumLabela.Content = "Izaberi nedelju:";
+                int razlika = (7 + ((DateTime)DatumZaTermin.SelectedDate).DayOfWeek - DayOfWeek.Monday) % 7;
+                TerminiPrikaz.ItemsSource =
+                    terminKontroler.GetBuduciTerminPacLekarZaNedelju(((DateTime)DatumZaTermin.SelectedDate).AddDays(-1 * razlika));
+                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+            }
+            else if (Mesec.IsChecked == true)
+            {
+                IzaberiDatumLabela.Content = "Izaberi mesec:";
+                TerminiPrikaz.ItemsSource =
+                    terminKontroler.GetBuduciTerminPacLekarZaMesec((DateTime)DatumZaTermin.SelectedDate);
+                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+            }
+            else if (Godina.IsChecked == true)
+            {
+                IzaberiDatumLabela.Content = "Izaberi godinu:";
+                TerminiPrikaz.ItemsSource =
+                    terminKontroler.GetBuduciTerminPacLekarZaGodinu((DateTime)DatumZaTermin.SelectedDate);
+                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+            }
         }
     }
 }
