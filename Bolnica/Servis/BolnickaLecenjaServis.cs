@@ -1,10 +1,5 @@
 ﻿using Bolnica.Repozitorijum;
 using Bolnica.Repozitorijum.XmlSkladiste;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bolnica.Servis
 {
@@ -26,11 +21,15 @@ namespace Bolnica.Servis
         public BolnickaLecenjaServis()
         {
             instance = this;
+            SkladisteBolnickihLecenja = SkladisteBolnickihLecenjaXml.GetInstance();
 
         }
+
+        private ISkladisteBolnickihLecenja SkladisteBolnickihLecenja;
+
         public void RemoveByID(string jmbgPacijenta)
         {
-                SkladisteBolnickihLecenjaXml.GetInstance().RemoveByID(jmbgPacijenta);  
+            SkladisteBolnickihLecenja.RemoveById(jmbgPacijenta);
         }
     }
 }

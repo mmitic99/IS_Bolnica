@@ -45,12 +45,22 @@ namespace Bolnica.view.SekretarView.Termini
 
             string putanjaIzvestaja = terminKontroler.GenerisiIzvestaj((DateTime)DatumPocetka.SelectedDate, (DateTime)DatumZavrsetka.SelectedDate);
 
-            if(putanjaIzvestaja != null)
+            if (putanjaIzvestaja.Equals("otvoren"))
             {
-                MessageBox.Show("Izveštaj se nalazi na sledećoj putanji: " + putanjaIzvestaja, "Obaveštenje",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Close();
+                MessageBox.Show("Fajl je već otvoren. Zatvorite fajl i pokušajte ponovo.", "Greška",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            if (putanjaIzvestaja.Equals(""))
+            {
+                MessageBox.Show("Desila se nepoznata greška prilikom generisanja izveštaja.", "Greška",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            
+            MessageBox.Show("Izveštaj se nalazi na sledećoj putanji: " + putanjaIzvestaja, "Obaveštenje",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
         }
 
         private void Otkazi_Click(object sender, RoutedEventArgs e)

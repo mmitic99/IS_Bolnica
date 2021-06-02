@@ -62,7 +62,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             }
         }
 
-        public void RemoveByID(string jmbgPacijenta)
+        public void RemoveById(string jmbgPacijenta)
         {
             List<BolnickoLecenje> svaLecenja = this.GetAll();
             foreach(BolnickoLecenje bolnickoLecenje in svaLecenja)
