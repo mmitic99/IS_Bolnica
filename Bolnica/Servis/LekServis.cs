@@ -221,7 +221,7 @@ public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, in
         }
         public Lek getById(int id)
         {
-            return skladisteZaLekove.getById(id);
+            return skladisteZaLekove.GetById(id);
         }
     }
 }

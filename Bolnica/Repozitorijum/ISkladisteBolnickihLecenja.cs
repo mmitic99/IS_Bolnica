@@ -9,7 +9,7 @@ namespace Bolnica.Repozitorijum
 {
     public interface ISkladisteBolnickihLecenja : ISkladiste<BolnickoLecenje>
     {
-        void RemoveByID(string jmbgPacijenta);
+        void RemoveById(string jmbgPacijenta);
         
     }
 }

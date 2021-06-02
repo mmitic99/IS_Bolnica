@@ -69,7 +69,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             serializer.Serialize(writer, lekovi);
             writer.Close();
         }
-        public Lek getById(int id)
+        public Lek GetById(int id)
         {
             List<Lek> lekovi = this.GetAll();
            Lek l1 = new Lek();
