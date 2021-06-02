@@ -55,20 +55,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-06-22T19:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>5</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>4567891230987</JmbgPacijenta>
-    <IDTermina>456789123098766676/22/2021 7:00:00 PM</IDTermina>
-    <brojSobe>204</brojSobe>
-    <sprat>2</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Sara Sarić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-05-06T10:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>1</IdProstorije>
@@ -419,20 +405,6 @@
     <opisTegobe>Pacijent zeli da zakaze kontrolni pregled.</opisTegobe>
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-06-22T18:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>4536</JmbgLekara>
-    <JmbgPacijenta>1234123123232</JmbgPacijenta>
-    <IDTermina>1234123123232453622.6.2021. 18:30:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-05-10T12:00:00</DatumIVremeTermina>
     <VrstaTermina>Operacija</VrstaTermina>
     <IdProstorije>3</IdProstorije>
@@ -766,20 +738,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-06-24T07:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>0</IdProstorije>
-    <JmbgLekara>4536</JmbgLekara>
-    <JmbgPacijenta>1234567894444</JmbgPacijenta>
-    <IDTermina>1234567894444453624.6.2021. 07:00:00</IDTermina>
-    <brojSobe>001</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe>Pregled.</opisTegobe>
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-05-19T07:30:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>0</IdProstorije>
@@ -859,20 +817,6 @@
     <brojSobe>001</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-06-22T19:00:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>7897611</JmbgLekara>
-    <JmbgPacijenta>1234567894444</JmbgPacijenta>
-    <IDTermina>1234567894444789761122.6.2021. 19:00:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Maja Balazevic</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
@@ -973,20 +917,6 @@
     <lekar>dr Milos Marinkovic</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-12-04T10:00:00</DatumIVremeTermina>
-    <VrstaTermina>Operacija</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>6667</JmbgLekara>
-    <JmbgPacijenta>1234567894444</JmbgPacijenta>
-    <IDTermina>123456789444466674.12.2021. 10:00:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Mihailo Majstorovic</pacijent>
-    <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
   <Termin>
@@ -1114,5 +1044,173 @@
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>120</TrajanjeTermina>
     <opisTegobe>dssd</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-03T11:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>4536</JmbgLekara>
+    <JmbgPacijenta>2313213154641</JmbgPacijenta>
+    <IDTermina>231321315464145363.6.2021. 11:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Miroslav Mi</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-12T09:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>1234123123232</JmbgPacijenta>
+    <IDTermina>1234123123232123182882847712.6.2021. 09:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-12T10:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>4567891230987</JmbgPacijenta>
+    <IDTermina>4567891230987123182882847712.6.2021. 10:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Sara Sarić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-12T07:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>2313213154641</JmbgPacijenta>
+    <IDTermina>2313213154641123182882847712.6.2021. 07:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-11T15:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>1234567890123789761111.6.2021. 15:30:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-10T17:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>2313213154641</JmbgPacijenta>
+    <IDTermina>2313213154641789761110.6.2021. 17:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-11T09:30:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>1234567894444</JmbgPacijenta>
+    <IDTermina>1234567894444123182882847711.6.2021. 09:30:00</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Mihailo Majstorovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-12T07:30:00</DatumIVremeTermina>
+    <VrstaTermina>Operacija</VrstaTermina>
+    <IdProstorije>3</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>1234567890123123182882847712.6.2021. 07:30:00</IDTermina>
+    <brojSobe>101</brojSobe>
+    <sprat>1</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-15T16:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>123456789012360915.6.2021. 16:30:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-16T16:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>2313213154641</JmbgPacijenta>
+    <IDTermina>231321315464160916.6.2021. 16:30:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-11T07:30:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>1231828828477</JmbgLekara>
+    <JmbgPacijenta>2313213154641</JmbgPacijenta>
+    <IDTermina>2313213154641123182882847711.6.2021. 07:30:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dusko Jankovic</lekar>
+    <pacijent>Nikola Nikolic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-03T07:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>1234123123232</JmbgPacijenta>
+    <IDTermina>123412312323266673.6.2021. 07:00:00</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Jovana Jovanovic</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
   </Termin>
 </ArrayOfTermin>

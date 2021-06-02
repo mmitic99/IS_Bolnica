@@ -54,7 +54,6 @@ namespace Bolnica.view.SekretarView
             PrezimeS.Content = sekretar.Prezime;
 
             PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
             ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetOavestenjaByJmbg(sekretar.Jmbg);
 
@@ -74,7 +73,7 @@ namespace Bolnica.view.SekretarView
 
         private void DodavanjeGostujuceg_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeGostujucegPacijenta(PacijentiPrikaz, TerminiPrikaz);
+            var s = new DodavanjeGostujucegPacijenta(PacijentiPrikaz, TerminiPrikaz, DatumZaTermin);
             Pacijenti.IsSelected = true;
             s.ShowDialog();
         }
@@ -127,20 +126,22 @@ namespace Bolnica.view.SekretarView
 
         private void ZakazivanjeTermina_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null);
+            var s = new ZakazivanjeTerminaSekretar(null, false, null, DatumZaTermin);
             Termini.IsSelected = true;
             s.ShowDialog();
         }
 
         private void ZakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, (PacijentDTO) PacijentiPrikaz.SelectedItem);
+            var s = new ZakazivanjeTerminaSekretar((PacijentDTO) PacijentiPrikaz.SelectedItem, false, null, DatumZaTermin);
+            Termini.IsSelected = true;
             s.ShowDialog();
         }
 
         private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null, false, (LekarDTO) LekariPrikaz.SelectedItem);
+            var s = new ZakazivanjeTerminaSekretar(null, false, (LekarDTO) LekariPrikaz.SelectedItem, DatumZaTermin);
+            Termini.IsSelected = true;
             s.ShowDialog();
         }
 
@@ -153,7 +154,7 @@ namespace Bolnica.view.SekretarView
                 return;
             }
 
-            var s = new IzmenaTermina(TerminiPrikaz);
+            var s = new IzmenaTermina(TerminiPrikaz, DatumZaTermin);
             s.ShowDialog();
         }
 
@@ -323,8 +324,7 @@ namespace Bolnica.view.SekretarView
 
         private void Termini_Selected(object sender, RoutedEventArgs e)
         {
-            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-            SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
+            DatumZaTermin.SelectedDate = DateTime.Now;
         }
 
         private void Lekari_Selected(object sender, RoutedEventArgs e)
@@ -464,30 +464,34 @@ namespace Bolnica.view.SekretarView
             if (Dan.IsChecked == true)
             {
                 IzaberiDatumLabela.Content = "Izaberi datum:";
-                TerminiPrikaz.ItemsSource =
-                    terminKontroler.GetBuduciTerminPacLekarZaDan((DateTime)DatumZaTermin.SelectedDate);
+                if (DatumZaTermin.SelectedDate != null)
+                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaDan((DateTime)DatumZaTermin.SelectedDate);
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
             else if (Nedelja.IsChecked == true)
             {
                 IzaberiDatumLabela.Content = "Izaberi nedelju:";
-                int razlika = (7 + ((DateTime)DatumZaTermin.SelectedDate).DayOfWeek - DayOfWeek.Monday) % 7;
-                TerminiPrikaz.ItemsSource =
-                    terminKontroler.GetBuduciTerminPacLekarZaNedelju(((DateTime)DatumZaTermin.SelectedDate).AddDays(-1 * razlika));
+                if (DatumZaTermin.SelectedDate != null)
+                {
+                    int razlika = (7 + ((DateTime) DatumZaTermin.SelectedDate).DayOfWeek - DayOfWeek.Monday) % 7;
+                    TerminiPrikaz.ItemsSource =
+                        terminKontroler.GetBuduciTerminPacLekarZaNedelju(((DateTime) DatumZaTermin.SelectedDate).AddDays(-1 * razlika));
+                }
+
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
             else if (Mesec.IsChecked == true)
             {
                 IzaberiDatumLabela.Content = "Izaberi mesec:";
-                TerminiPrikaz.ItemsSource =
-                    terminKontroler.GetBuduciTerminPacLekarZaMesec((DateTime)DatumZaTermin.SelectedDate);
+                if (DatumZaTermin.SelectedDate != null)
+                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaMesec((DateTime)DatumZaTermin.SelectedDate);
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
             else if (Godina.IsChecked == true)
             {
                 IzaberiDatumLabela.Content = "Izaberi godinu:";
-                TerminiPrikaz.ItemsSource =
-                    terminKontroler.GetBuduciTerminPacLekarZaGodinu((DateTime)DatumZaTermin.SelectedDate);
+                if (DatumZaTermin.SelectedDate != null)
+                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaGodinu((DateTime) DatumZaTermin.SelectedDate);
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }

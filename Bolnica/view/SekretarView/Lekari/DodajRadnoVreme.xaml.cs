@@ -14,12 +14,12 @@ namespace Bolnica.view.SekretarView.Lekari
     /// </summary>
     public partial class DodajRadnoVreme : Window
     {
-        private DataGrid radnoVremePrikaz;
         private string jmbgLekara;
         private RadnoVremeKontroler radnoVremeKontroler;
         private LekarKontroler lekarKontroler;
         private Label odmorLabela;
-        public DodajRadnoVreme(DataGrid radnoVremePrikaz, string jmbgLekara, Label odmorLabela)
+        private DatePicker datumZaPrikazRadnogVremena;
+        public DodajRadnoVreme(string jmbgLekara, Label odmorLabela, DatePicker datumZaPrikazRadnogVremena)
         {
             InitializeComponent();
             VremePocetka.ItemsSource = Enumerable.Range(00, 24).Select(i => (DateTime.MinValue.AddHours(i)).ToString("HH:mm"));
@@ -27,8 +27,8 @@ namespace Bolnica.view.SekretarView.Lekari
             VremePocetka.SelectedIndex = 0;
             VremeKraja.SelectedIndex = 0;
 
+            this.datumZaPrikazRadnogVremena = datumZaPrikazRadnogVremena;
             this.odmorLabela = odmorLabela;
-            this.radnoVremePrikaz = radnoVremePrikaz;
             this.jmbgLekara = jmbgLekara;
             radnoVremeKontroler = new RadnoVremeKontroler();
             lekarKontroler = new LekarKontroler();
@@ -77,8 +77,7 @@ namespace Bolnica.view.SekretarView.Lekari
                         if (uspesno)
                         {
                             this.Close();
-                            radnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
-                            odmorLabela.Content = lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana;
+                            datumZaPrikazRadnogVremena.SelectedDate = radnoVreme.DatumIVremePocetka;
                         }
                         else if (radnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru &&
                                  (radnoVreme.DatumIVremeZavrsetka - radnoVreme.DatumIVremePocetka).TotalDays > lekarKontroler.GetByJmbg(jmbgLekara).BrojSlobodnihDana
@@ -112,7 +111,7 @@ namespace Bolnica.view.SekretarView.Lekari
                 if (uspesno)
                 {
                     this.Close();
-                    radnoVremePrikaz.ItemsSource = radnoVremeKontroler.GetByJmbg(jmbgLekara);
+                    datumZaPrikazRadnogVremena.SelectedDate = radnoVreme.DatumIVremePocetka;
                 }
                 else
                 {

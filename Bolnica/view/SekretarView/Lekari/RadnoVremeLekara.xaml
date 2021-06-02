@@ -10,6 +10,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -24,8 +25,27 @@
             <Label x:Name="OdmorLabela" VerticalAlignment="Center" FontSize="15"></Label>
             <Button Background="Transparent" VerticalAlignment="Center" BorderThickness="0" Click="dodajSlobodneDane_Click" FontSize="15">+</Button>
         </StackPanel>
-        
-        <DataGrid Grid.Row="1" Name="RadnoVremePrikaz" CanUserAddRows="false" 
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="30,0,0,0">
+            <RadioButton x:Name="Dan" IsChecked="True" 
+                         Width="50" Margin="3,8" Click="DatumZaPrikazRadnogVremena_OnSelectedDateChanged"
+                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
+                Dan
+            </RadioButton>
+
+            <RadioButton x:Name="Nedelja" Width="50" Margin="3,8" Click="DatumZaPrikazRadnogVremena_OnSelectedDateChanged"
+                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
+                Nedelja
+            </RadioButton>
+            <RadioButton x:Name="Mesec" Width="50" Margin="3,8" Click="DatumZaPrikazRadnogVremena_OnSelectedDateChanged"
+                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Mesec</RadioButton>
+            <RadioButton x:Name="Godina" Width="50" Margin="3,8" Click="DatumZaPrikazRadnogVremena_OnSelectedDateChanged"
+                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Godina</RadioButton>
+
+            <Label x:Name="IzaberiDatumLabela" Width="100" Margin="70,3,0, 3" VerticalAlignment="Center">Izaberi datum:</Label>
+            <DatePicker x:Name="DatumZaPrikazRadnogVremena" Margin="0,3,0, 3" VerticalAlignment="Center" SelectedDateChanged="DatumZaPrikazRadnogVremena_OnSelectedDateChanged"></DatePicker>
+
+        </StackPanel>
+        <DataGrid Grid.Row="2" Name="RadnoVremePrikaz" CanUserAddRows="false" 
                   AutoGenerateColumns="False" IsReadOnly="True" 
                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                   VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  

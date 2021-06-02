@@ -75,5 +75,96 @@ namespace Bolnica.Kontroler
         {
             return RadnoVremeServis.Obrisi(idRadnogVremena);
         }
+
+        public IEnumerable GetRadnoVremeZaDan(DateTime selectedDate, string jmbg)
+        {
+            IEnumerable radnaVremena = RadnoVremeServis.GetByJmbg(jmbg);
+            var radnaVremenaZaDatum = new List<RadnoVremeDTO>();
+            foreach (RadnoVreme radnoVreme in radnaVremena)
+            {
+                if (radnoVreme.DatumIVremePocetka.Day == selectedDate.Day &&
+                    radnoVreme.DatumIVremePocetka.Month == selectedDate.Month &&
+                    radnoVreme.DatumIVremePocetka.Year == selectedDate.Year)
+                {
+                    radnaVremenaZaDatum.Add(new RadnoVremeDTO()
+                    {
+                        DatumIVremePocetka = radnoVreme.DatumIVremePocetka,
+                        DatumIVremeZavrsetka = radnoVreme.DatumIVremeZavrsetka,
+                        StatusRadnogVremena = radnoVreme.StatusRadnogVremena,
+                        JmbgLekara = radnoVreme.JmbgLekara,
+                        IdRadnogVremena = radnoVreme.IdRadnogVremena
+                    });
+                }
+            }
+
+            return radnaVremenaZaDatum;
+        }
+
+        public IEnumerable GetRadnoVremeZaNedelju(DateTime prviDanUNedelji, string jmbg)
+        {
+            DateTime zadnjiDanUNedelji = prviDanUNedelji.AddDays(6);
+            IEnumerable radnaVremena = RadnoVremeServis.GetByJmbg(jmbg);
+            var radnaVremenaZaDatum = new List<RadnoVremeDTO>();
+            foreach (RadnoVreme radnoVreme in radnaVremena)
+            {
+                if (radnoVreme.DatumIVremePocetka >= prviDanUNedelji && radnoVreme.DatumIVremePocetka <= zadnjiDanUNedelji)
+                {
+                    radnaVremenaZaDatum.Add(new RadnoVremeDTO()
+                    {
+                        DatumIVremePocetka = radnoVreme.DatumIVremePocetka,
+                        DatumIVremeZavrsetka = radnoVreme.DatumIVremeZavrsetka,
+                        StatusRadnogVremena = radnoVreme.StatusRadnogVremena,
+                        JmbgLekara = radnoVreme.JmbgLekara,
+                        IdRadnogVremena = radnoVreme.IdRadnogVremena
+                    });
+                }
+            }
+            return radnaVremenaZaDatum;
+        }
+
+        public IEnumerable GetRadnoVremeZaMesec(DateTime izabraniDatum, string jmbg)
+        {
+            IEnumerable radnaVremena = RadnoVremeServis.GetByJmbg(jmbg);
+            var radnaVremenaZaDatum = new List<RadnoVremeDTO>();
+            foreach (RadnoVreme radnoVreme in radnaVremena)
+            {
+                if (radnoVreme.DatumIVremePocetka.Month == izabraniDatum.Month &&
+                    radnoVreme.DatumIVremePocetka.Year == izabraniDatum.Year)
+                {
+                    radnaVremenaZaDatum.Add(new RadnoVremeDTO()
+                    {
+                        DatumIVremePocetka = radnoVreme.DatumIVremePocetka,
+                        DatumIVremeZavrsetka = radnoVreme.DatumIVremeZavrsetka,
+                        StatusRadnogVremena = radnoVreme.StatusRadnogVremena,
+                        JmbgLekara = radnoVreme.JmbgLekara,
+                        IdRadnogVremena = radnoVreme.IdRadnogVremena
+                    });
+                }
+            }
+
+            return radnaVremenaZaDatum;
+        }
+
+        public IEnumerable GetRadnoVremeZaGodinu(DateTime izabranaGodina, string jmbg)
+        {
+            IEnumerable radnaVremena = RadnoVremeServis.GetByJmbg(jmbg);
+            var radnaVremenaZaDatum = new List<RadnoVremeDTO>();
+            foreach (RadnoVreme radnoVreme in radnaVremena)
+            {
+                if (radnoVreme.DatumIVremePocetka.Year == izabranaGodina.Year)
+                {
+                    radnaVremenaZaDatum.Add(new RadnoVremeDTO()
+                    {
+                        DatumIVremePocetka = radnoVreme.DatumIVremePocetka,
+                        DatumIVremeZavrsetka = radnoVreme.DatumIVremeZavrsetka,
+                        StatusRadnogVremena = radnoVreme.StatusRadnogVremena,
+                        JmbgLekara = radnoVreme.JmbgLekara,
+                        IdRadnogVremena = radnoVreme.IdRadnogVremena
+                    });
+                }
+            }
+
+            return radnaVremenaZaDatum;
+        }
     }
 }

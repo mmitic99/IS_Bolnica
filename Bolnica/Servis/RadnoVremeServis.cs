@@ -20,10 +20,12 @@ namespace Bolnica.Servis
     {
         private ISkladisteRadnihVremena skladisteRadnihVremena;
         private ISkladisteZaLekara skladisteZaLekara;
+        private ISkladisteZaTermine skladisteZaTermine;
         public RadnoVremeServis()
         {
             skladisteRadnihVremena = new SkladisteRadnihVremenaXml();
             skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
+            skladisteZaTermine = new SkladisteZaTermineXml();
         }
         public List<RadnoVreme> GetAll()
         {
@@ -117,16 +119,37 @@ namespace Bolnica.Servis
         {
             List<RadnoVreme> radnaVremena = GetAll();
             bool uspesno = false;
+
             foreach (var radnoVreme in radnaVremena)
             {
                 if (radnoVreme.IdRadnogVremena.Equals(idRadnogVremena))
                 {
-                    uspesno = radnaVremena.Remove(radnoVreme);
+                    if(NemaZakazanihTermina(radnoVreme))
+                    {
+                        uspesno = radnaVremena.Remove(radnoVreme);
+                        SaveAll(radnaVremena);
+                    }
                     break;
                 }
             }
-            SaveAll(radnaVremena);
             return uspesno;
+        }
+
+        private bool NemaZakazanihTermina(RadnoVreme radnoVreme)
+        {
+            bool nema = true;
+            List<Termin> termini = skladisteZaTermine.GetByJmbgLekar(radnoVreme.JmbgLekara);
+
+            foreach (Termin termin in termini)
+            {
+                if (termin.DatumIVremeTermina >= radnoVreme.DatumIVremePocetka ||
+                    termin.DatumIVremeTermina <= radnoVreme.DatumIVremeZavrsetka)
+                {
+                    nema = false;
+                    break;
+                }
+            }
+            return nema;
         }
 
         public IEnumerable<RadnoVreme> GetByJmbgAkoRadi(string jmbgLekara)

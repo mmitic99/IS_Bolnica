@@ -15,12 +15,12 @@ namespace Bolnica.view.SekretarView.Termini
     public partial class IzmenaTermina : Window
     {
         private TerminPacijentLekarDTO termin;
-        private DataGrid terminiPrikaz;
 
         private TerminKontroler terminKontroler;
         private ProstorijeKontroler prostorijeKontroler;
+        private DatePicker datumZaTermin;
 
-        public IzmenaTermina(DataGrid terminiPrikaz)
+        public IzmenaTermina(DataGrid terminiPrikaz, DatePicker datumZaTermin)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
@@ -28,7 +28,7 @@ namespace Bolnica.view.SekretarView.Termini
             terminKontroler = new TerminKontroler();
             prostorijeKontroler = new ProstorijeKontroler();
 
-            this.terminiPrikaz = terminiPrikaz;
+            this.datumZaTermin = datumZaTermin;
             this.termin = (TerminPacijentLekarDTO)terminiPrikaz.SelectedItem;
             vrstaT.SelectedIndex = termin.termin.VrstaTermina == Model.Enum.VrstaPregleda.Pregled ? 0 : 1;
             pacijent.Text = termin.pacijent.Ime + " " + termin.pacijent.Prezime;
@@ -183,8 +183,7 @@ namespace Bolnica.view.SekretarView.Termini
 
             terminKontroler.IzmeniTermin(noviTermin);
 
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-            SekretarWindow.SortirajDataGrid(terminiPrikaz, 0, ListSortDirection.Ascending);
+            datumZaTermin.SelectedDate = datumIVreme;
 
             this.Close();
         }

@@ -14,15 +14,15 @@ namespace Bolnica.view.SekretarView.Termini
     public partial class ZakazivanjeTerminaSekretar : Window
     {
         private TerminDTO termin;
-        private DataGrid terminiPrikaz;
         private ProstorijeKontroler prostorijeKontroler;
         private TerminKontroler terminKontroler;
         private SpecijalizacijaKontroler specijalizacijaKontroler;
         private LekarKontroler lekarKontroler;
+        private DatePicker datumZaTermin;
 
         private List<TerminDTO> moguciTermini = new List<TerminDTO>();
 
-        public ZakazivanjeTerminaSekretar(DataGrid terminiPrikaz, PacijentDTO izabraniPacijent, bool hitan = false, LekarDTO izabraniLekar = null)
+        public ZakazivanjeTerminaSekretar(PacijentDTO izabraniPacijent, bool hitan = false, LekarDTO izabraniLekar = null, DatePicker datumZaTermin = null)
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
@@ -33,7 +33,6 @@ namespace Bolnica.view.SekretarView.Termini
             lekarKontroler = new LekarKontroler();
 
             hitanT.IsChecked = hitan;
-            this.terminiPrikaz = terminiPrikaz;
             datum.SelectedDate = DateTime.Now;
             termin = new TerminDTO();
             if (izabraniPacijent != null)
@@ -54,6 +53,7 @@ namespace Bolnica.view.SekretarView.Termini
             datum.DisplayDateStart = DateTime.Now;
 
             vrstaSpec.ItemsSource = specijalizacijaKontroler.GetAll();
+            this.datumZaTermin = datumZaTermin;
 
         }
 
@@ -94,8 +94,7 @@ namespace Bolnica.view.SekretarView.Termini
                 }
             }
             terminKontroler.ZakaziTermin(termin);
-            terminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
-            SekretarWindow.SortirajDataGrid(terminiPrikaz, 0, ListSortDirection.Ascending);
+            datumZaTermin.SelectedDate = datumIVreme;
             this.Close();
         }
 
