@@ -166,23 +166,6 @@ namespace Servis
             skladisteZaProstorije.SaveAll(SveProstorije);
         }
 
-        public void IzmeniKolicinuLeka(int idLeka, double kolicina, int izProstorije, int uProstoriju)
-        {
-            // TODO: implement
-        }
-
-        public int DobaviProstoriju(DateTime pocetakTermina, DateTime krajTermina, Model.Enum.VrstaProstorije vrstaProstorije)
-        {
-            // TODO: implement
-            return 0;
-        }
-
-        public List<Termin> PrikaziTermine(int idProstorije)
-        {
-            // TODO: implement
-            return null;
-        }
-
         public List<Termin> GetTerminiByIdProstorije(int id)
         {
             List<Termin> TerminiProstorije = new List<Termin>();

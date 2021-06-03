@@ -517,6 +517,7 @@
                         <DataGrid x:Name ="TabelaVerifikacija" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
                           SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="4" SelectionChanged="TabelaVerifikacija_SelectionChanged">
                             <DataGrid.Columns>
+                                <DataGridTextColumn Visibility="Hidden" Binding="{Binding IdVerifikacijeLeka}" Width="180"/>
                                 <DataGridTextColumn Header="Vreme prijema" Binding="{Binding VremeSlanjaZahteva}" Width="180"/>
                                 <DataGridTextColumn Header="Lek" Binding="{Binding Naslov}" Width="150"/>
                                 <DataGridTextColumn Header="JMBG lekara" Binding="{Binding JmbgPosiljaoca}" Width="170"/>
@@ -525,7 +526,7 @@
                         </DataGrid>
                         <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="135" Margin="50,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" FontSize="16" Grid.ColumnSpan="2"/>
                         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,454,0,0" TextWrapping="Wrap" Text="Informacije o leku:" VerticalAlignment="Top" Width="166" FontSize="18" FontWeight="Bold"/>
-                        <Button Background="WhiteSmoke" Content="Obriši verifikaciju" FontSize="15" HorizontalAlignment="Left" Margin="341.906,517,0,0" VerticalAlignment="Top" Width="175" Height="60" Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <Button Background="WhiteSmoke" Content="Obriši verifikaciju" FontSize="15" HorizontalAlignment="Left" Margin="341.906,517,0,0" VerticalAlignment="Top" Width="175" Height="60" Grid.ColumnSpan="3" Grid.Column="1" Click="ObrisiVerifikaciju_Click" />
                         <Label Content="PREGLED SVIH VERIFIKACIJA LEKOVA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="491" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Image Margin="161.321,475,50.396,20.113" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill" Grid.Column="3"/>
                     </Grid>

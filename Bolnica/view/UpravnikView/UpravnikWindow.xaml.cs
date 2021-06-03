@@ -592,7 +592,8 @@ namespace Bolnica.view.UpravnikView
 
         private void TabelaVerifikacija_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            NamapirajSadrzajVerifikacije(TabelaVerifikacija.SelectedIndex);
+            if (TabelaVerifikacija.SelectedIndex != -1)
+                NamapirajSadrzajVerifikacije(TabelaVerifikacija.SelectedIndex);
         }
 
         private void PretraziOpremu(object sender, RoutedEventArgs e)
@@ -793,7 +794,7 @@ namespace Bolnica.view.UpravnikView
 
             private void OsveziPrikazVerifikacijaLeka()
             {
-                TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg("1903999772025");
+                TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(upravnik.Jmbg);
                 LekariLekovi.ItemsSource = LekarKontroler.getInstance().GetAll();
                 LekariLekoviIzmeni.ItemsSource = LekarKontroler.getInstance().GetAll();
             }
@@ -938,6 +939,17 @@ namespace Bolnica.view.UpravnikView
             }
             else
                 MessageBox.Show("Označite renoviranje koje želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void ObrisiVerifikaciju_Click(object sender, RoutedEventArgs e)
+        {
+            if (TabelaVerifikacija.SelectedIndex != -1)
+            {
+                VerifikacijaLekaKontroler.GetInstance().ObrisiVerifikacijuLeka(TabelaVerifikacija.SelectedItem);
+                OsveziPrikazVerifikacijaLeka();
+            }
+            else
+                MessageBox.Show("Označite verifikaciju koje želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
