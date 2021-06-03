@@ -1,7 +1,6 @@
-﻿using Bolnica.Repozitorijum;
-using Model;
+﻿using Model;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladisteZaProstorije : ISkladiste<Prostorija>
     {

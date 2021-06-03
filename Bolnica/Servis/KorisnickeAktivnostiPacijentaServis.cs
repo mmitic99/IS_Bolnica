@@ -1,9 +1,9 @@
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
 using Model.Enum;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
+using Bolnica.Repozitorijum.ISkladista;
 
 namespace Servis
 {

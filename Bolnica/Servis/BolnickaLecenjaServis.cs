@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis

@@ -4,8 +4,8 @@ using System.IO;
 using System.Xml.Serialization;
 using Bolnica.DTOs;
 using Bolnica.model;
+using Bolnica.Repozitorijum.ISkladista;
 using Model;
-using Repozitorijum;
 using Servis;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste

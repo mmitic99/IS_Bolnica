@@ -2,7 +2,6 @@
 using Kontroler;
 using Model;
 using Bolnica.model;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

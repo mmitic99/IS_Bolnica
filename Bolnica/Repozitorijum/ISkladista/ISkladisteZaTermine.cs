@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using Bolnica.DTOs;
 using Bolnica.model;
-using Bolnica.Repozitorijum;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladisteZaTermine : ISkladiste<Termin>
     {

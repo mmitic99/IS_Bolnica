@@ -209,27 +209,27 @@
     <Compile Include="model\Podsetnik.cs" />
     <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
-    <Compile Include="Repozitorijum\ISkladiste.cs" />
-    <Compile Include="Repozitorijum\ISkladisteBolnickihLecenja.cs" />
-    <Compile Include="Repozitorijum\ISkladistePacijenta.cs" />
-    <Compile Include="Repozitorijum\ISkladisteRadnihVremena.cs" />
-    <Compile Include="Repozitorijum\ISkladisteSekretara.cs" />
-    <Compile Include="Repozitorijum\ISkladisteUpravnik.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaAnketeOLekaru.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaFeedback.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaKorisnickeAktivnosti.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaKvartalneAnkete.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaLekara.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaLekove.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaNaprednaRenoviranja.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaObavestenja.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaPodsetnike.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaProstorije.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaRenoviranja.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaSpecijalizaciju.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaTermine.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaVerifikacijuLeka.cs" />
-    <Compile Include="Repozitorijum\ISkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladiste.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteBolnickihLecenja.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladistePacijenta.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteRadnihVremena.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteSekretara.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteUpravnik.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaAnketeOLekaru.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaFeedback.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaKorisnickeAktivnosti.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaKvartalneAnkete.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaLekara.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaNaprednaRenoviranja.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaObavestenja.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaPodsetnike.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaProstorije.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaRenoviranja.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaSpecijalizaciju.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaTermine.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaVerifikacijuLeka.cs" />
+    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteBolnickihLecenjaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteRadnihVremenaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
@@ -793,6 +793,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\PacijentView\draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repozitorijum\Factory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

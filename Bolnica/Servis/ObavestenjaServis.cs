@@ -2,7 +2,6 @@
 using Bolnica.Servis;
 using Bolnica.view;
 using Model;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -12,6 +11,7 @@ using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Bolnica.model.Enum;
 using System.Linq;
+using Bolnica.Repozitorijum.ISkladista;
 
 namespace Servis
 {

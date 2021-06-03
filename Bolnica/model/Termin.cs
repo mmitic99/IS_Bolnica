@@ -2,7 +2,6 @@ using System;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
 using Model.Enum;
-using Repozitorijum;
 using Servis;
 
 namespace Bolnica.model

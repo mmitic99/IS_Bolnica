@@ -4,7 +4,6 @@ using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Kontroler;
 using Model;
-using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;

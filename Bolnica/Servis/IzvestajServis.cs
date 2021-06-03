@@ -1,5 +1,4 @@
 ﻿using Bolnica.model;
-using Repozitorijum;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Tables;
 using System;
@@ -9,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis

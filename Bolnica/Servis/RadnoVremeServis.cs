@@ -8,10 +8,10 @@ using System.Windows;
 using Bolnica.model;
 using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
 using Model;
-using Repozitorijum;
 using Servis;
 
 namespace Bolnica.Servis

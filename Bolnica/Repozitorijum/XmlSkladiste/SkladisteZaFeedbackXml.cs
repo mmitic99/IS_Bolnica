@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using Bolnica.model;
+using Bolnica.Repozitorijum.ISkladista;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste
 {

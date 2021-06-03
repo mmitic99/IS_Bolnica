@@ -1,6 +1,6 @@
 ﻿using Model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladisteZaLekove : ISkladiste<Lek>
     {

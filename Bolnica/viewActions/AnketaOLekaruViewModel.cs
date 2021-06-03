@@ -1,7 +1,6 @@
 ﻿using Bolnica.DTOs;
 using Bolnica.model;
 using Bolnica.Servis;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

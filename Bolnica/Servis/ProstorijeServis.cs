@@ -4,7 +4,6 @@ using Bolnica.Repozitorijum;
 using Bolnica.view.UpravnikView;
 using Model;
 using Model.Enum;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis

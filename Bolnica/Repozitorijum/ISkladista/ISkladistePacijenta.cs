@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladistePacijenta : ISkladiste<Pacijent>
     {

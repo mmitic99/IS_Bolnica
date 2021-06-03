@@ -1,11 +1,8 @@
-﻿using Bolnica.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Bolnica.model;
 
-namespace Bolnica.Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladisteZaPodsetnike : ISkladiste<Podsetnik>
     {

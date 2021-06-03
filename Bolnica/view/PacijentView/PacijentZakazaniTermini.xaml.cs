@@ -1,5 +1,4 @@
 ﻿using Model;
-using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +22,6 @@ using Model.Enum;
 using System.Collections.ObjectModel;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
-using Repozitorijum;
 using Bolnica.viewActions;
 using Kontroler;
 using Bolnica.view.PacijentView;

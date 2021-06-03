@@ -1,6 +1,5 @@
 ﻿using Bolnica.DTOs;
 using Model;
-using Repozitorijum;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Bolnica.model;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Servis;
 using iText.Kernel.Colors;

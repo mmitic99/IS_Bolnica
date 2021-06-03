@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bolnica.Repozitorijum;
 using Model;
 
-namespace Repozitorijum
+namespace Bolnica.Repozitorijum.ISkladista
 {
     public interface ISkladisteZaObavestenja : ISkladiste<Obavestenje>
     {

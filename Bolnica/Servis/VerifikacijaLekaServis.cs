@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.Repozitorijum;
 using Bolnica.model;
+using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
