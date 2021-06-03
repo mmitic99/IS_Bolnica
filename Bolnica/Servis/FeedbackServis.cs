@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.Factory.SkladisteRadnihVremenaFactory;
+using Bolnica.Repozitorijum.Factory.SkladisteZaFeedbackFactory;
 using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
@@ -11,9 +13,22 @@ namespace Bolnica.Servis
     {
         private ISkladisteZaFeedback SkladisteZaFeedback;
 
+        private ISkladisteZaFeedbackFactory _skladisteZaFeedbackFactory = new SkladisteZaFeedbackFactoryXml();
+        public ISkladisteZaFeedbackFactory SkladisteZaFeedbackFactory
+        {
+            get => _skladisteZaFeedbackFactory;
+            set
+            {
+                _skladisteZaFeedbackFactory = value;
+                SkladisteZaFeedback = value.CreateSkladisteZaFeedback();
+            }
+        }
+
+
+
         public FeedbackServis()
         {
-            SkladisteZaFeedback = new SkladisteZaFeedbackXml();
+            SkladisteZaFeedback = _skladisteZaFeedbackFactory.CreateSkladisteZaFeedback();
         }
         public List<Feedback> GetAll()
         {

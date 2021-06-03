@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.DTOs;
 using Bolnica.model;
+using Bolnica.Repozitorijum.Factory.SkladisteRadnihVremenaFactory;
 using Bolnica.Servis;
 
 namespace Bolnica.Kontroler

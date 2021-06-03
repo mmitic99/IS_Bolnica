@@ -209,6 +209,10 @@
     <Compile Include="model\Podsetnik.cs" />
     <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
+    <Compile Include="Repozitorijum\Factory\SkladisteRadnihVremenaFactory\ISkladisteRadnihVremenaFactory.cs" />
+    <Compile Include="Repozitorijum\Factory\SkladisteRadnihVremenaFactory\SkladisteRadnihVremenaXmlFactory.cs" />
+    <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\ISkladisteZaFeedbackFactory.cs" />
+    <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\SkladisteZaFeedbackFactoryXml.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladiste.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladisteBolnickihLecenja.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladistePacijenta.cs" />
@@ -794,9 +798,7 @@
   <ItemGroup>
     <Resource Include="view\PacijentView\draw.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repozitorijum\Factory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

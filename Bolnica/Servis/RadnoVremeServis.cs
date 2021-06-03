@@ -8,6 +8,7 @@ using System.Windows;
 using Bolnica.model;
 using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
+using Bolnica.Repozitorijum.Factory.SkladisteRadnihVremenaFactory;
 using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
@@ -21,9 +22,21 @@ namespace Bolnica.Servis
         private ISkladisteRadnihVremena skladisteRadnihVremena;
         private ISkladisteZaLekara skladisteZaLekara;
         private ISkladisteZaTermine skladisteZaTermine;
+
+        private ISkladisteRadnihVremenaFactory _skladisteRadnihVremenaFactory = new SkladisteRadnihVremenaXmlFactory();
+        public ISkladisteRadnihVremenaFactory SkladisteRadnihVremenaFactory
+        {
+            get => _skladisteRadnihVremenaFactory;
+            set
+            {
+                _skladisteRadnihVremenaFactory = value;
+                skladisteRadnihVremena = value.CreateSkladisteRadnihVremena();
+            }
+        }
+
         public RadnoVremeServis()
         {
-            skladisteRadnihVremena = new SkladisteRadnihVremenaXml();
+            skladisteRadnihVremena = SkladisteRadnihVremenaFactory.CreateSkladisteRadnihVremena();
             skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
             skladisteZaTermine = new SkladisteZaTermineXml();
         }
@@ -154,7 +167,7 @@ namespace Bolnica.Servis
 
         public IEnumerable<RadnoVreme> GetByJmbgAkoRadi(string jmbgLekara)
         {
-            List<RadnoVreme> svaRadnaVremena = (List<RadnoVreme>) GetAll();
+            List<RadnoVreme> svaRadnaVremena = GetAll();
             List<RadnoVreme> radnaVremena = new List<RadnoVreme>();
             foreach (RadnoVreme radnoVreme in svaRadnaVremena)
             {
