@@ -175,7 +175,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" Margin="2">
+                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="LightGray" BorderThickness="2" Margin="2">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
@@ -242,7 +242,7 @@
                             </Grid>
                         </Grid>
 
-                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1" Margin="2"/>
 
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
@@ -447,7 +447,7 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="ProstorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.brojSobe}"/>
+                                <DataGridTextColumn x:Name="ProstorijaT" Header="Prostorija" Width="100" Binding="{Binding termin.brojSobe}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
@@ -542,12 +542,12 @@
                             </DataGrid.ColumnHeaderStyle>
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="100"/>
+                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="120"/>
                                 <DataGridTextColumn x:Name="SpratP" Header="Sprat" Binding="{Binding Sprat}" Width="80"/>
                                 <DataGridTextColumn x:Name="BrojProstorijeP" Header="Broj prostorije" Binding="{Binding BrojSobe}" Width="*"/>
                                 <DataGridTextColumn x:Name="VrstaP" Header="Vrsta" Binding="{Binding VrstaProstorije}" Width="*"/>
-                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="150"/>
-                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="100" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
+                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="170"/>
+                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="120" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

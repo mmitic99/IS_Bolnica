@@ -78,7 +78,7 @@ namespace Bolnica.view.SekretarView.Termini
             sala.ItemsSource = prostorijeKontroler.GetAll();
             for (int i = 0; i < sala.Items.Count; i++)
             {
-                if (((ProstorijaDTO)sala.Items[i]).BrojSobe.Equals(termin.termin.IdProstorije.ToString()))
+                if (((ProstorijaDTO)sala.Items[i]).BrojSobe.Equals(termin.termin.brojSobe))
                 {
                     sala.SelectedIndex = i;
                 }
@@ -162,7 +162,7 @@ namespace Bolnica.view.SekretarView.Termini
 
             TerminDTO noviTermin = new TerminDTO
             {
-                IdProstorije = int.Parse(((ProstorijaDTO) sala.SelectedItem).BrojSobe),
+                brojSobe = ((ProstorijaDTO) sala.SelectedItem).BrojSobe,
                 opisTegobe = tegobe.Text,
                 JmbgPacijenta = termin.pacijent.Jmbg,
                 JmbgLekara = termin.lekar.Jmbg,
