@@ -319,7 +319,7 @@ namespace Kontroler
 
         public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
-            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
+            List<Termin> termini = TerminServis.GetByDateForLekar(datum, jmbgLekara);
             List<TerminDTO> terminiDTO = new List<TerminDTO>();
             foreach (Termin termin in termini)
             {
@@ -407,6 +407,11 @@ namespace Kontroler
             }
 
             return terminiZaDatum;
+        }
+
+        public List<Termin> GetByJmbgLekar(string tJmbgLekara)
+        {
+            return TerminServis.GetByJmbgLekar(tJmbgLekara);
         }
     }
 }

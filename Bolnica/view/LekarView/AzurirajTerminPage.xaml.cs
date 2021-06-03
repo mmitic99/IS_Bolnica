@@ -30,17 +30,17 @@ namespace Bolnica.view.LekarView
         public Termin selektovani { get; set; }
 
         Termin t = null;
-        SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
-        SkladisteZaProstorijeXml skladprost = new SkladisteZaProstorijeXml();
+        private TerminKontroler terminKontroler = new TerminKontroler();
+        private ProstorijeKontroler prostorijeKontroler = new ProstorijeKontroler();
         public AzurirajTerminPage(TerminiPage pr)
         {
             InitializeComponent();
 
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
-            ComboBox2.ItemsSource = skladprost.GetAll();
+            ComboBox2.ItemsSource = prostorijeKontroler.GetAll();
 
             this.selektovani = (Termin)TerminiPage.getInstance().Pregledi_Table.SelectedItem;
-            List<Termin> termini = skladiste.GetAll();
+            List<Termin> termini = terminKontroler.GetAll();
 
             this.DataContext = this;
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
@@ -61,7 +61,7 @@ namespace Bolnica.view.LekarView
 
 
 
-            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetAll();
+            List<Termin> termini = terminKontroler.GetAll();
             foreach (Termin t in termini)
             {
                 if (t.IDTermina != null)
@@ -86,9 +86,9 @@ namespace Bolnica.view.LekarView
                 }
             }
 
-            SkladisteZaTermineXml.getInstance().SaveAll(termini);
+            terminKontroler.SaveAll(termini);
 
-            TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbgLekar(t.JmbgLekara));
+            TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(terminKontroler.GetByJmbgLekar(t.JmbgLekara));
             LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().GetByJmbg(t.JmbgLekara));
         }
     }

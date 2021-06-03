@@ -1,12 +1,12 @@
 ﻿using Bolnica.DTOs;
 using Bolnica.model;
-using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Servis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Servis;
 
 namespace Bolnica.Kontroler
 {
@@ -32,13 +32,13 @@ namespace Bolnica.Kontroler
         }
         public List<BolnickoLecenjeDTO> GetAll()
         {
-            List<BolnickoLecenje> bolnickaLecenja= SkladisteBolnickihLecenjaXml.GetInstance().GetAll();
+            List<BolnickoLecenje> bolnickaLecenja= BolnickaLecenjaServis.GetInstance().GetAll();
             List<BolnickoLecenjeDTO> bolnickaLecenjaDTO = new List<BolnickoLecenjeDTO>();
             foreach (BolnickoLecenje bolnickoLecenje in bolnickaLecenja)
             {
                 bolnickaLecenjaDTO.Add(new BolnickoLecenjeDTO()
                 {
-                    brojSobe = SkladisteZaProstorijeXml.GetInstance().GetById(bolnickoLecenje.idProstorije).BrojSobe,
+                    brojSobe = ProstorijeServis.GetInstance().GetById(bolnickoLecenje.idProstorije).BrojSobe,
                     DatumOtpustanja = bolnickoLecenje.krajBolnickogLecenja,
                     DatumPrijema = bolnickoLecenje.pocetakBolnickogLecenja,
                     jmbgLekara =  bolnickoLecenje.jmbgLekara,
@@ -62,7 +62,7 @@ namespace Bolnica.Kontroler
 
 
             };
-            SkladisteBolnickihLecenjaXml.GetInstance().Save(bolnickoLecenje);
+            BolnickaLecenjaServis.GetInstance().Save(bolnickoLecenje);
         }
         public void SaveAll(List<BolnickoLecenjeDTO> bolnickaLecenjaDTO)
         {
@@ -79,7 +79,7 @@ namespace Bolnica.Kontroler
                 };
                 bolnickaLecenja.Add(bolnickoLecenje);
             }
-            SkladisteBolnickihLecenjaXml.GetInstance().SaveAll(bolnickaLecenja);
+            BolnickaLecenjaServis.GetInstance().SaveAll(bolnickaLecenja);
         }
         public BolnickoLecenjeDTO nadjiPoJmbgPacijenta(String jmbgIzabranogPacijenta)
         {

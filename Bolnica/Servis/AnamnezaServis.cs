@@ -28,7 +28,7 @@ namespace Bolnica.Servis
         public Anamneza getAnamnezaById(String Id)
         {
             List<Anamneza> sveAnamneze = new List<Anamneza>();
-            foreach (Pacijent pacijent in SkladistePacijentaXml.GetInstance().GetAll())
+            foreach (Pacijent pacijent in PacijentServis.GetInstance().GetAll())
             {
                 foreach(Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
                 {

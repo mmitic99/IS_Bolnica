@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
@@ -18,7 +19,7 @@ namespace Bolnica.Servis
 
         public IzvestajServis()
         {
-            skladisteZaTermine = Repozitorijum.XmlSkladiste.SkladisteZaTermineXml.getInstance();
+            skladisteZaTermine = new SkladisteZaTermineXml();
         }
         internal void KreirajIzvestajOPregledimaIOperacijama(string jmbgPacijenta)
         {

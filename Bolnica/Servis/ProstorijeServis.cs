@@ -22,6 +22,13 @@ namespace Servis
 
         private static ProstorijeServis instance = null;
         public int IdProstorijeGenerator = 0;
+
+        public ISkladisteZaProstorije skladisteZaProstorije;
+        public ISkladisteZaTermine skladisteZaTermine;
+        public ISkladisteZaNaprednaRenoviranja skladisteZaNaprednaRenoviranja;
+        public ISkladisteZaRenoviranja skladisteZaRenoviranja;
+        public ISkladisteZaZakazanuPreraspodeluStatickeOpreme skladisteZaZakazanuPreraspodeluStatickeOpreme;
+
         public static ProstorijeServis GetInstance()
         {
             if (instance == null)
@@ -35,6 +42,9 @@ namespace Servis
         {
             skladisteZaProstorije = new SkladisteZaProstorijeXml();
             skladisteZaTermine = new SkladisteZaTermineXml();
+            skladisteZaNaprednaRenoviranja = new SkladisteZaNaprednaRenoviranjaXml();
+            skladisteZaRenoviranja = new SkladisteZaRenoviranjaXml();
+            skladisteZaZakazanuPreraspodeluStatickeOpreme = new SkladisteZaZakazanuPreraspodeluStatickeOpremeXml();
         }
 
         public List<Prostorija> GetByVrstaProstorije(VrstaProstorije vrstaProstorije)
@@ -88,8 +98,8 @@ namespace Servis
 
         public void RenovirajProstoriju(Renoviranje renoviranje)
         {
-            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Renoviranje> SvaRenoviranja = skladisteZaRenoviranja.GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             int id = -1;
             foreach (Prostorija p in SveProstorije)
             {
@@ -99,7 +109,7 @@ namespace Servis
             if (DaLiJeSLobodnaProstorijaZaRenoviranje(id, renoviranje.DatumPocetkaRenoviranja, renoviranje.DatumZavrsetkaRenoviranja))
             {
                 SvaRenoviranja.Add(renoviranje);
-                SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
+                skladisteZaRenoviranja.SaveAll(SvaRenoviranja);
             }
             else
                 MessageBox.Show("Prostorija ima zakazan termin ili preraspodelu opreme u tom rasponu datuma !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -107,10 +117,10 @@ namespace Servis
 
         public void ZavrsiRenoviranje(int index)
         {
-            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            List<Renoviranje> SvaRenoviranja = skladisteZaRenoviranja.GetAll();
             int IdProstorije = SvaRenoviranja[index].IdProstorije;
             SvaRenoviranja.RemoveAt(index);
-            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
+            skladisteZaRenoviranja.SaveAll(SvaRenoviranja);
             DeselektujMoguceRenoviranje(IdProstorije);
         }
         private void ObrisiZavrsenaRenoviranja(ref List<Renoviranje> SvaRenoviranja, List<int> IdProstorijaZaBrisanjeIzRenoviranja)
@@ -127,8 +137,8 @@ namespace Servis
 
         public void AzurirajRenoviranjaProstorija()
         {
-            List<Renoviranje> SvaRenoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Renoviranje> SvaRenoviranja = skladisteZaRenoviranja.GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             List<int> IdProstorijaZaBrisanjeIzRenoviranja = new List<int>();
             for (int i = 0; i < SvaRenoviranja.Count; i++)
             {
@@ -154,12 +164,12 @@ namespace Servis
             }
             ObrisiZavrsenaRenoviranja(ref SvaRenoviranja, IdProstorijaZaBrisanjeIzRenoviranja);
             skladisteZaProstorije.SaveAll(SveProstorije);
-            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
+            skladisteZaRenoviranja.SaveAll(SvaRenoviranja);
         }
 
         public void DeselektujMoguceRenoviranje(int id)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             for (int i = 0; i < SveProstorije.Count; i++)
                 if (SveProstorije[i].IdProstorije.Equals(id))
                     SveProstorije[i].RenoviraSe = false;
@@ -182,7 +192,7 @@ namespace Servis
 
         public List<ZakazanaPreraspodelaStatickeOpreme> GetPreraspodeleByIdProstorije(int id)
         {
-            List<ZakazanaPreraspodelaStatickeOpreme> svePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            List<ZakazanaPreraspodelaStatickeOpreme> svePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = new List<ZakazanaPreraspodelaStatickeOpreme>();
             foreach (ZakazanaPreraspodelaStatickeOpreme prer in svePreraspodele)
             {
@@ -196,7 +206,7 @@ namespace Servis
 
         public Renoviranje GetRenoviranjeByIdProstorije(int id)
         {
-            List<Renoviranje> Renoviranja = SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            List<Renoviranje> Renoviranja = skladisteZaRenoviranja.GetAll();
             foreach (Renoviranje renoviranje in Renoviranja)
             {
                 if (renoviranje.IdProstorije == id)
@@ -431,7 +441,7 @@ namespace Servis
 
         public void DodajProstoriju(Prostorija p)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             Prostorija prostorija = p;
             int indexPoslednjeProstorije = SveProstorije.Count - 1;
             IdProstorijeGenerator = SveProstorije[indexPoslednjeProstorije].IdProstorije;
@@ -442,7 +452,7 @@ namespace Servis
 
         public void IzmeniProstoriju(int index, Prostorija p)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             int StariIdProstorije = SveProstorije[index].IdProstorije;
             bool RenoviranjeStatus = SveProstorije[index].RenoviraSe;
             SveProstorije[index] = p;
@@ -453,7 +463,7 @@ namespace Servis
 
         public void IzbrisiProstoriju(int index)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             SveProstorije.RemoveAt(index);
             skladisteZaProstorije.SaveAll(SveProstorije);
         }
@@ -489,7 +499,7 @@ namespace Servis
 
         public int GetIndexOpremeKojaSePrebacuje(int indexIzKojeProstorije, string nazivOpreme)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             for (int i = 0; i < SveProstorije[indexIzKojeProstorije].Staticka.Count; i++)
             {
                 if (SveProstorije[indexIzKojeProstorije].Staticka[i].TipStacionarneOpreme.Equals(nazivOpreme))
@@ -609,7 +619,7 @@ namespace Servis
 
         public bool ValidirajBrojProstorije(Regex sablon, String unos)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             if (sablon.IsMatch(unos))
             {
                 foreach (Prostorija Soba in SveProstorije)
@@ -630,7 +640,7 @@ namespace Servis
 
         private bool ValidirajBrojProstorijeIzmena(Regex sablon, String unos, int indexSelektovaneProstorije)
         {
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             if (sablon.IsMatch(unos))
             {
                 foreach (Prostorija Soba in SveProstorije)
@@ -884,7 +894,7 @@ namespace Servis
 
         public async Task AzurirajNaprednaRenoviranjaProstorija()
         {
-            foreach (NaprednoRenoviranje renoviranje in SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll())
+            foreach (NaprednoRenoviranje renoviranje in skladisteZaNaprednaRenoviranja.GetAll())
             {
                 if (DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja, DateTime.Now) <= 0)
                 {
@@ -916,12 +926,12 @@ namespace Servis
 
         private void ObrisiZavrsenaNaprednaRenoviranja()
         {
-            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            List<NaprednoRenoviranje> SvaRenoviranja = skladisteZaNaprednaRenoviranja.GetAll();
             List<int> indexiZaBrisanje = new List<int>();
             for (int k = 0; k < SvaRenoviranja.Count; k++)
             {
-                List<NaprednoRenoviranje> pomocnaLista = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
-                for (int i = 0; i < SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll().Count; i++)
+                List<NaprednoRenoviranje> pomocnaLista = skladisteZaNaprednaRenoviranja.GetAll();
+                for (int i = 0; i < skladisteZaNaprednaRenoviranja.GetAll().Count; i++)
                 {
                     if (DateTime.Compare(pomocnaLista[i].DatumZavrsetkaRenoviranja.AddHours(23).AddMinutes(59), DateTime.Now) < 0)
                     {
@@ -929,14 +939,14 @@ namespace Servis
                         break;
                     }
                 }
-                SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(pomocnaLista);
+                skladisteZaNaprednaRenoviranja.SaveAll(pomocnaLista);
             }
         }
 
         public void AzurirajRenoviranjeFlegProstorije()
         {
             List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
-            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            List<NaprednoRenoviranje> SvaRenoviranja = skladisteZaNaprednaRenoviranja.GetAll();
             for (int i = 0; i < SvaRenoviranja.Count; i++)
             {
                 if (SvaRenoviranja[i].Podela)
@@ -979,10 +989,10 @@ namespace Servis
 
         public async Task AzurirajStanjeOpremeAkoJeBiloPrebacivanja()
         {
-            List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            List<ZakazanaPreraspodelaStatickeOpreme> SvePreraspodele = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             int indexUKoju = -1;
             int indexIzKoje = -1;
-            List<Prostorija> SveProstorije = SkladisteZaProstorijeXml.GetInstance().GetAll();
+            List<Prostorija> SveProstorije = skladisteZaProstorije.GetAll();
             foreach (ZakazanaPreraspodelaStatickeOpreme preraspodela in SvePreraspodele)
             {
                 for (int i = 0; i < SveProstorije.Count; i++)
@@ -1020,7 +1030,7 @@ namespace Servis
         }
         public void PopuniInformacijeZaBrisanjePreraspodela(List<int> IdIzKojeProstorije, List<int> IdUKojuProstoriju, List<DateTime> vremePreraspodele)
         {
-            List <ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            List <ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             for (int i = 0; i < PreraspodeleStatickeOpreme.Count; i++)
             {
                 if (DateTime.Now > PreraspodeleStatickeOpreme[i].DatumIVremePreraspodele.AddMinutes(59))
@@ -1034,7 +1044,7 @@ namespace Servis
 
         public void IzbrisiPotrebnePreraspodele(List<int> IdIzKojeProstorije, List<int> IdUKojuProstoriju, List<DateTime> vremePreraspodele)
         {
-            List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll();
+            List<ZakazanaPreraspodelaStatickeOpreme> PreraspodeleStatickeOpreme = skladisteZaZakazanuPreraspodeluStatickeOpreme.GetAll();
             for (int k = 0; k < IdIzKojeProstorije.Count; k++)
             {
                 for (int i = 0; i < PreraspodeleStatickeOpreme.Count; i++)
@@ -1045,7 +1055,7 @@ namespace Servis
                         PreraspodeleStatickeOpreme.RemoveAt(i);
                 }
             }
-            SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().SaveAll(PreraspodeleStatickeOpreme);
+            skladisteZaZakazanuPreraspodeluStatickeOpreme.SaveAll(PreraspodeleStatickeOpreme);
         }
 
         public void AzurirajPreraspodeleOpreme()
@@ -1139,49 +1149,50 @@ namespace Servis
         }
         public void DodajNaprednoRenoviranje(NaprednoRenoviranje renoviranje)
         {
-            List<NaprednoRenoviranje> SvaNapredna = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            List<NaprednoRenoviranje> SvaNapredna = skladisteZaNaprednaRenoviranja.GetAll();
             SvaNapredna.Add(renoviranje);
-            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(SvaNapredna);
+            skladisteZaNaprednaRenoviranja.SaveAll(SvaNapredna);
         }
 
         public void ObrisiNaprednoRenoviranje(int index)
         {
-            List<NaprednoRenoviranje> SvaRenoviranja = SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            List<NaprednoRenoviranje> SvaRenoviranja = skladisteZaNaprednaRenoviranja.GetAll();
             SvaRenoviranja.RemoveAt(index);
-            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(SvaRenoviranja);
+            skladisteZaNaprednaRenoviranja.SaveAll(SvaRenoviranja);
         }
 
         public List<Renoviranje> GetAllRenoviranja()
         {
-            return SkladisteZaRenoviranjaXml.GetInstance().GetAll();
+            return skladisteZaRenoviranja.GetAll();
         }
 
         public void Save(Renoviranje renoviranje)
         {
-            SkladisteZaRenoviranjaXml.GetInstance().Save(renoviranje);
+            skladisteZaRenoviranja.Save(renoviranje);
         }
 
         public void SaveAll(List<Renoviranje> renoviranja)
         {
-            SkladisteZaRenoviranjaXml.GetInstance().SaveAll(renoviranja);
+            skladisteZaRenoviranja.SaveAll(renoviranja);
         }
         public List<NaprednoRenoviranje> GetAllNaprednaRenoviranja()
         {
-            return SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll();
+            return skladisteZaNaprednaRenoviranja.GetAll();
         }
 
         public void Save(NaprednoRenoviranje renoviranje)
         {
-            SkladisteZaNaprednaRenoviranjaXml.GetInstance().Save(renoviranje);
+            skladisteZaNaprednaRenoviranja.Save(renoviranje);
         }
 
         public void SaveAll(List<NaprednoRenoviranje> renoviranja)
         {
-            SkladisteZaNaprednaRenoviranjaXml.GetInstance().SaveAll(renoviranja);
+            skladisteZaNaprednaRenoviranja.SaveAll(renoviranja);
         }
 
-        public ISkladisteZaProstorije skladisteZaProstorije;
-        public ISkladisteZaTermine skladisteZaTermine;
-
+        public Prostorija GetById(int bolnickoLecenjeIdProstorije)
+        {
+            return skladisteZaProstorije.GetById(bolnickoLecenjeIdProstorije);
+        }
     }
 }

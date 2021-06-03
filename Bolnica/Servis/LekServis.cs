@@ -36,7 +36,7 @@ namespace Bolnica.Servis
 
         public void DodajLek(Lek lek)
         {
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             int indexPoslednjegLeka = SviLekovi.Count - 1;
             IdLekaGenerator = SviLekovi[indexPoslednjegLeka].IdLeka;
             lek.IdLeka = ++IdLekaGenerator;
@@ -46,7 +46,7 @@ namespace Bolnica.Servis
 
         public void IzmeniLek(int index, Lek lek)
         {
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             int StariIdLeka = SviLekovi[index].IdLeka;
             SviLekovi[index] = lek;
             SviLekovi[index].IdLeka = StariIdLeka;
@@ -55,7 +55,7 @@ namespace Bolnica.Servis
 
         public void IzmeniLekLekar(int index,Lek lek)
         {
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;
             SviLekovi[index] = lek;
             SviLekovi[index].IdLeka = StariIdLeka;
@@ -65,7 +65,7 @@ namespace Bolnica.Servis
 
         public void IzbrisiLek(int index)
         {
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             SviLekovi.RemoveAt(index);
             skladisteZaLekove.SaveAll(SviLekovi);
         }
@@ -81,7 +81,7 @@ namespace Bolnica.Servis
         private bool ValidirajNazivLeka(LekValidacijaDTO lek, String vrstaOperacije, int indexSelektovanogLeka)
         {
             Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
-            List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
+            List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             if (sablon.IsMatch(lek.NazivLeka))
             {
                 foreach (Lek l in SviLekovi)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Servis;
 
 namespace Bolnica.DTOs
 {
@@ -16,7 +17,7 @@ namespace Bolnica.DTOs
         {
             get
             {
-               return SkladisteZaLekaraXml.GetInstance().getByJmbg(jmbgLekara).FullName;
+               return LekarServis.getInstance().getByJmbg(jmbgLekara).FullName;
             }
 
             set { }
@@ -25,7 +26,7 @@ namespace Bolnica.DTOs
         public String imePacijenta
         { get
             {
-                return SkladistePacijentaXml.GetInstance().GetByJmbg(jmbgPacijenta).FullName;
+                return PacijentServis.GetInstance().GetByJmbg(jmbgPacijenta).FullName;
             }
             set
             {

@@ -236,6 +236,11 @@ namespace Servis
             return LekarWindow.getInstance().lekarTrenutni;
         }
         private RadnoVremeServis radnoVremeServis;
+
+        public Lekar getByJmbg(string jmbgLekara)
+        {
+            return skladisteZaLekara.getByJmbg(jmbgLekara);
+        }
     }
    
 }

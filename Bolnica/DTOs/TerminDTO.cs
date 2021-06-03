@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model.Enum;
 using Repozitorijum;
+using Servis;
 
 namespace Bolnica.DTOs
 {
@@ -24,7 +25,7 @@ namespace Bolnica.DTOs
         {
             get
             {
-                return SkladisteZaLekaraXml.GetInstance().getByJmbg(JmbgLekara).FullName;
+                return LekarServis.getInstance().getByJmbg(JmbgLekara).FullName;
             }
             set
             {
@@ -35,7 +36,7 @@ namespace Bolnica.DTOs
         {
             get
             {
-                return SkladistePacijentaXml.GetInstance().GetByJmbg(JmbgPacijenta).FullName;
+                return PacijentServis.GetInstance().GetByJmbg(JmbgPacijenta).FullName;
             }
             set
             {

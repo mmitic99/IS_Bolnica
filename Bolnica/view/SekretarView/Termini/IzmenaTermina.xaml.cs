@@ -66,13 +66,13 @@ namespace Bolnica.view.SekretarView.Termini
             List<TerminDTO> moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametri);
             List<string> vremena = GenerisiVremena(moguciTermini);
 
-            if (!vremena.Contains(vreme = ParsirajVreme(sati, minuti)))
+            if (!vremena.Contains(ParsirajVreme(sati, minuti)))
             {
-                vremena.Add(vreme = ParsirajVreme(sati, minuti));
+                vremena.Add(ParsirajVreme(sati, minuti));
             }
             vremena.Sort();
             vremeT.ItemsSource = vremena;
-            vremeT.SelectedItem = vreme = ParsirajVreme(sati, minuti);
+            vremeT.SelectedItem = ParsirajVreme(sati, minuti);
 
             sala.SelectedIndex = 0;
             sala.ItemsSource = prostorijeKontroler.GetAll();
@@ -178,13 +178,9 @@ namespace Bolnica.view.SekretarView.Termini
             DateTime datumIVreme = new DateTime(selDate.Year, selDate.Month, selDate.Day, sati, minuti, 0);
 
             noviTermin.DatumIVremeTermina = datumIVreme;
-
             noviTermin.IDTermina = termin.termin.IDTermina;
-
             terminKontroler.IzmeniTermin(noviTermin);
-
             datumZaTermin.SelectedDate = datumIVreme;
-
             this.Close();
         }
 

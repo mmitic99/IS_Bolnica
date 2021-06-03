@@ -662,6 +662,11 @@ namespace Servis
             }
             return termini.OrderBy(termin => termin.DatumIVremeTermina).ToList();
         }
+
+        public List<Termin> GetByJmbgLekar(string tJmbgLekara)
+        {
+            return skladisteZaTermine.GetByJmbgLekar(tJmbgLekara);
+        }
     }
     
 }

@@ -102,7 +102,7 @@ namespace Bolnica.Servis
         public AnketaLekar GetAnketaOLekaru(string jmbgLekara)
         {
             AnketaLekar anketaLekar = null;
-            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaruXml.GetInstance().GetAll();
+            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaru.GetAll();
             foreach (AnketaLekar anketa in sveAnkete)
             {
                 if (anketa.JmbgLekara.Equals(jmbgLekara))
@@ -142,7 +142,7 @@ namespace Bolnica.Servis
         private AnketaLekar kreirajNovuAnketuOLekaru(string jmbgLekara)
         {
             AnketaLekar anketaOLekaru = new AnketaLekar(jmbgLekara);
-            SkladisteZaAnketeOLekaruXml.GetInstance().Save(anketaOLekaru);
+            SkladisteZaAnketeOLekaru.Save(anketaOLekaru);
             return anketaOLekaru;
         }
 
@@ -195,7 +195,7 @@ namespace Bolnica.Servis
         }
         private bool SacuvajIzmenjenuAnketuOLekaru(AnketaLekar anketaOLekaru)
         {
-            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaruXml.GetInstance().GetAll();
+            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaru.GetAll();
             for (int i = 0; i < ankete.Count; i++)
             {
                 if (ankete[i].JmbgLekara.Equals(anketaOLekaru.JmbgLekara))
