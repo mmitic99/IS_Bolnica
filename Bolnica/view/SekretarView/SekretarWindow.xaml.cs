@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
+using Bolnica.ViewModel.SekretarViewModel;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Model.Enum;
@@ -33,14 +34,11 @@ namespace Bolnica.view.SekretarView
         private LekarKontroler lekarKontroler;
         private ProstorijeKontroler prostorijeKontroler;
         private LekKontroler lekKontroler;
-        public string[] XOsaBrojTermina { get; set; }
-        public Func<double, string> YOsaBrojTermina { get; set; }
-        public string[] XOsaBrojNovihPacijenata { get; set; }
-        public Func<double, string> YOsaBrojNovihPacijenata { get; set; }
 
         public SekretarWindow(SekretarDTO sekretar)
         {
             InitializeComponent();
+            this.DataContext = new SekretarWindowViewModel();
 
             pacijentKontroler = new PacijentKontroler();
             terminKontroler = new TerminKontroler();
@@ -55,7 +53,7 @@ namespace Bolnica.view.SekretarView
 
             PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-            ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetOavestenjaByJmbg(sekretar.Jmbg);
+            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg(sekretar.Jmbg);
 
             StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
@@ -191,11 +189,9 @@ namespace Bolnica.view.SekretarView
             s.Show();
         }
 
-
         private void DodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeObavestenja(ObavestenjaPrikaz);
-            s.ShowDialog();
+            ((SekretarWindowViewModel) DataContext).DodajObavestenje();
         }
 
         private void IzmeniObavestenje_Click(object sender, RoutedEventArgs e)
@@ -233,7 +229,7 @@ namespace Bolnica.view.SekretarView
                         MessageBoxImage.Error);
                 }
 
-                ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetOavestenjaByJmbg("-1");
+                ((SekretarWindowViewModel)DataContext).AzurirajObavestenja();
             }
         }
 
@@ -304,7 +300,8 @@ namespace Bolnica.view.SekretarView
 
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
-            ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetOavestenjaByJmbg("-1");
+            this.DataContext = new SekretarWindowViewModel();
+            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg("-1");
             AzurirajDijagramBrojTermina();
             AzurirajPodeluPoPolovima();
             AzurirajDijagramBrojNovihPacijenata();
@@ -375,8 +372,7 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(terminKontroler.GetMesecneOperacije(sviDaniUMesecu))
                 }
             };
-            XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
-            DataContext = this;
+            ((SekretarWindowViewModel)DataContext).XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
         }
 
         private string[] PretvoriListuUNiz(List<string> sviDaniUMesecu)
@@ -422,7 +418,7 @@ namespace Bolnica.view.SekretarView
                 }
             };
             PodelaPoPolovima.Series = podelaPoPolovima;
-            DataContext = this;
+            //DataContext = this;
         }
 
         private void AzurirajDijagramBrojNovihPacijenata()
@@ -436,8 +432,8 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(pacijentKontroler.GetBrojNovihPacijenataUMesecu(sviDaniUMesecu))
                 }
             };
-            XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
-            DataContext = this;
+            ((SekretarWindowViewModel)DataContext).XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
+            //DataContext = this;
         }
 
 

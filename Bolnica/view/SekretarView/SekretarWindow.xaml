@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bolnica.view"
+        xmlns:local="clr-namespace:Bolnica.view.SekretarView"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
@@ -13,7 +13,7 @@
         <RoutedUICommand x:Key="OdjavaCommand" Text="Ctrl+Alt+O"/>
     </Window.Resources>
     <Window.CommandBindings>
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="DodajObavestenje_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="DodajObavestenje_Click"/>
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="DodavanjePacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}" Executed="DodavanjeGostujuceg_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminCommand}" Executed="ZakazivanjeTermina_Click" />
@@ -254,7 +254,7 @@
                             <Label Grid.Row="0" FontSize="25" FontWeight="SemiBold" VerticalContentAlignment="Center">OBAVEŠTENJA:</Label>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="3">
-                                <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Click="DodajObavestenje_Click">
+                                <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Command="{Binding DodajObavestenjeCommand}">
                                     <Image Source="/Images/add.png"/>
                                 </Button>
                                 <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="IzmeniObavestenje_Click">
@@ -273,7 +273,8 @@
                                     Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
                                     Margin="5" BorderThickness="0" GridLinesVisibility="None" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" CanUserResizeRows="False">
+                                  VerticalContentAlignment="Center" CanUserResizeRows="False"
+                                    ItemsSource="{Binding Path=PrikazObavestenja, Mode=OneWay}">
                                 <DataGrid.Resources>
                                     <Style TargetType="DataGridRow">
                                         <EventSetter Event="MouseDoubleClick" Handler="PogledajObavestenje_Click"/>

@@ -6915,4 +6915,12 @@ Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
       <JmbgLekara>609</JmbgLekara>
     </anketaOLekaru>
   </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-04T10:32:44.4562242+02:00</VremeObavestenja>
+    <Naslov>sekretar</Naslov>
+    <Sadrzaj>sekretar</Sadrzaj>
+    <JmbgKorisnika>-1</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
 </ArrayOfObavestenje>

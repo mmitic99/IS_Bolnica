@@ -28,7 +28,7 @@ namespace Bolnica.viewActions
             get
             { 
 
-                return ObavestenjaKontroler.GetOavestenjaByJmbg(JmbgKorisnika).OrderByDescending(x => x.VremeObavestenja).ToList();
+                return ObavestenjaKontroler.GetObavestenjaByJmbg(JmbgKorisnika).OrderByDescending(x => x.VremeObavestenja).ToList();
             }
         }
         public string JmbgKorisnika { get; set; }

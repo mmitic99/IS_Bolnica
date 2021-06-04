@@ -59,7 +59,7 @@ namespace Kontroler
             obavestenjaServis.SaveAll(obavestenje);
         }
 
-        public List<ObavestenjeDTO> GetOavestenjaByJmbg(string jmbg)
+        public List<ObavestenjeDTO> GetObavestenjaByJmbg(string jmbg)
         {
             List<Obavestenje> obavestenja = obavestenjaServis.GetObavestenjaByJmbg(jmbg);
             List<ObavestenjeDTO> obavestenjaDto = new List<ObavestenjeDTO>();

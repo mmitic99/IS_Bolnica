@@ -55,7 +55,7 @@
           <AnamnezaDijalog />
           <DatumAnamneze>2021-04-27T01:36:14.4998186+02:00</DatumAnamneze>
           <ImeLekara>dr Dunja Jovanovic</ImeLekara>
-          <IdAnamneze>dr Dunja Jovanovic4/27/2021 1:36:14 AM</IdAnamneze>
+          <IdAnamneze>dr Dunja Jovanovic27.4.2021. 01:36:14</IdAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni>
@@ -116,7 +116,7 @@
           <AnamnezaDijalog>Pacijent ima problem sa disanjem. Pritisak povišen.</AnamnezaDijalog>
           <DatumAnamneze>2021-04-20T18:38:39.3426378+02:00</DatumAnamneze>
           <ImeLekara>dr Milos Marinkovic</ImeLekara>
-          <IdAnamneze>dr Milos Marinkovic4/20/2021 6:38:39 PM</IdAnamneze>
+          <IdAnamneze>dr Milos Marinkovic20.4.2021. 18:38:39</IdAnamneze>
         </Anamneza>
       </Anamneze>
       <Alergeni />

@@ -280,6 +280,7 @@ namespace Servis
                     obavestenja.Remove(obavestenje);
                     SkladisteZaObavestenja.SaveAll(obavestenja);
                     retVal = true;
+                    break;
                 }
             }
             return retVal;
