@@ -1,15 +1,13 @@
-﻿using System;
-using System.Windows;
-using Bolnica.DTOs;
+﻿using Bolnica.DTOs;
 using Bolnica.viewActions;
 using Kontroler;
+using System;
+using System.Windows;
 
 namespace Bolnica.ViewModel.SekretarViewModel
 {
     public class DodavanjeObavestenjaViewModel
     {
-        public ObavestenjeDTO ObavestenjeDto { get; set; }
-
         private string naslovText;
         private string sadrzajText;
 
@@ -37,6 +35,7 @@ namespace Bolnica.ViewModel.SekretarViewModel
                 if (sadrzajText != value)
                 {
                     sadrzajText = value;
+
                 }
             }
         }
@@ -49,37 +48,41 @@ namespace Bolnica.ViewModel.SekretarViewModel
 
         public void Potvrdi()
         {
-            if (!NaslovText.Equals("") || !SadrzajText.Equals(""))
+            if (SadrzajText == null || NaslovText == null || (NaslovText.Equals("") && SadrzajText.Equals("")))
             {
-                ObavestenjeDTO obavestenje = new ObavestenjeDTO
-                {
-                    JmbgKorisnika = "-1",
-                    Naslov = NaslovText,
-                    Sadrzaj = SadrzajText,
-                    Podsetnik = false,
-                    VremeObavestenja = DateTime.Now,
-                    Vidjeno = false
-                };
-
-                bool uspesno = obavestenjaKontroler.Save(obavestenje);
-
-                if (!uspesno)
-                {
-                    MessageBox.Show("Desila se greška prilikom kreiranja obaveštenja.", "Greška", MessageBoxButton.OK,
-                        MessageBoxImage.Error);
-                    return;
-                }
-                foreach (Window window in App.Current.Windows)
-                {
-                    if (window.DataContext is SekretarWindowViewModel)
-                    {
-                        ((SekretarWindowViewModel) window.DataContext).AzurirajObavestenja();
-                        break;
-                    }
-                }
-                Otkazi();
-
+                MessageBox.Show("Polja za naslov i sadržaj ne mogu ostati prazna.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
             }
+            ObavestenjeDTO obavestenje = new ObavestenjeDTO
+            {
+                JmbgKorisnika = "-1",
+                Naslov = NaslovText,
+                Sadrzaj = SadrzajText,
+                Podsetnik = false,
+                VremeObavestenja = DateTime.Now,
+                Vidjeno = false
+            };
+
+            bool uspesno = obavestenjaKontroler.Save(obavestenje);
+
+            if (!uspesno)
+            {
+                MessageBox.Show("Desila se greška prilikom kreiranja obaveštenja.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
+
+            foreach (Window window in App.Current.Windows)
+            {
+                if (window.DataContext is SekretarWindowViewModel)
+                {
+                    ((SekretarWindowViewModel)window.DataContext).AzurirajObavestenja();
+                    break;
+                }
+            }
+
+            Otkazi();
         }
 
         public void Otkazi()

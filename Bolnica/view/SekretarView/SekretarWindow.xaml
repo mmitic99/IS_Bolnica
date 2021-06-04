@@ -257,7 +257,7 @@
                                 <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Command="{Binding DodajObavestenjeCommand}">
                                     <Image Source="/Images/add.png"/>
                                 </Button>
-                                <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="IzmeniObavestenje_Click">
+                                <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Command="{Binding IzmeniObavestenjeCommand}">
                                     <Image Source="/Images/draw.png"/>
                                 </Button>
                                 <Button x:Name="ObrisiObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Obriši obaveštenje" Click="ObrisiObavestenje_Click">
@@ -274,7 +274,8 @@
                                     Margin="5" BorderThickness="0" GridLinesVisibility="None" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                                   VerticalContentAlignment="Center" CanUserResizeRows="False"
-                                    ItemsSource="{Binding Path=PrikazObavestenja, Mode=OneWay}">
+                                    ItemsSource="{Binding Path=PrikazObavestenja, Mode=OneWay}"
+                                    SelectedItem="{Binding SelectedObavestenje}">
                                 <DataGrid.Resources>
                                     <Style TargetType="DataGridRow">
                                         <EventSetter Event="MouseDoubleClick" Handler="PogledajObavestenje_Click"/>

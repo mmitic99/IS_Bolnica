@@ -27,15 +27,27 @@ namespace Bolnica.ViewModel.SekretarViewModel
                 OnPropertyChanged("PrikazObavestenja");
             }
         }
+        private ObavestenjeDTO _selectedObavestenje;
+
+        public ObavestenjeDTO SelectedObavestenje
+        {
+            get => _selectedObavestenje;
+            set 
+            {
+                _selectedObavestenje = value;
+            }
+        }
 
         public MyICommand DodajObavestenjeCommand { get; set; }
+        public MyICommand IzmeniObavestenjeCommand { get; set; }
 
-        private static ObavestenjaKontroler obavestenjaKontroler = new ObavestenjaKontroler();
+        private ObavestenjaKontroler obavestenjaKontroler = new ObavestenjaKontroler();
 
         public SekretarWindowViewModel()
         {
             PrikazObavestenja = new ObservableCollection<ObavestenjeDTO>(obavestenjaKontroler.GetObavestenjaByJmbg("-1"));
             DodajObavestenjeCommand = new MyICommand(DodajObavestenje);
+            IzmeniObavestenjeCommand = new MyICommand(IzmeniObavestenje);
         }
 
         public void AzurirajObavestenja()
@@ -47,6 +59,17 @@ namespace Bolnica.ViewModel.SekretarViewModel
         public void DodajObavestenje()
         {
             var s = new DodavanjeObavestenja();
+            s.ShowDialog();
+        }
+        public void IzmeniObavestenje()
+        {
+            if (SelectedObavestenje == null)
+            {
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da izmenite.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
+            var s = new IzmenaObavestenja(SelectedObavestenje);
             s.ShowDialog();
         }
     }

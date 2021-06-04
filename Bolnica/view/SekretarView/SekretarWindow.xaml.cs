@@ -196,15 +196,7 @@ namespace Bolnica.view.SekretarView
 
         private void IzmeniObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            if (ObavestenjaPrikaz.SelectedIndex == -1)
-            {
-                MessageBox.Show("Morate izabrati obaveštenje koje želite da izmenite.", "Greška", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-                return;
-            }
-
-            var s = new IzmenaObavestenja(ObavestenjaPrikaz);
-            s.ShowDialog();
+            ((SekretarWindowViewModel) DataContext).IzmeniObavestenje();
         }
 
         private void ObrisiObavestenje_Click(object sender, RoutedEventArgs e)

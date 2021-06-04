@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Novo obavestenje" Height="400" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding PotvrdiCommand}"/>
+        <KeyBinding Key="Escape" Command="{Binding OtkaziCommand}"/>
+    </Window.InputBindings>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -20,7 +24,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">Naslov:</TextBlock>
-            <TextBox Grid.Column="1" Margin="5" x:Name="naslov" TextWrapping="Wrap" Text="{Binding Path=NaslovText, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Column="1" Margin="5" x:Name="naslov" TextWrapping="Wrap" Text="{Binding Path=NaslovText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding PotvrdiCommand}"/>
+                    <KeyBinding Key="Escape" Command="{Binding OtkaziCommand}"/>
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
@@ -28,7 +37,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" TextWrapping="Wrap">Tekst obaveštenja:</TextBlock>
-            <TextBox Grid.Column="1" Margin="5" x:Name="sadrzaj" TextWrapping="Wrap" Text="{Binding Path=SadrzajText, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Column="1" Margin="5" x:Name="sadrzaj" TextWrapping="Wrap" Text="{Binding Path=SadrzajText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding PotvrdiCommand}"/>
+                    <KeyBinding Key="Escape" Command="{Binding OtkaziCommand}"/>
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -38,7 +52,9 @@
             <Button Grid.Column="0" Width="100" Margin="10" x:Name="potvrdi" FontSize="15"
                     Style="{StaticResource BasicButton}" 
                     Template="{StaticResource RoundedSmallerButton}"
-                    Command="{Binding PotvrdiCommand}">Potvrdi</Button>
+                    Command="{Binding PotvrdiCommand}">
+                Potvrdi
+            </Button>
             <Button Grid.Column="1" Width="100" Margin="10" x:Name="otkazi" FontSize="15"
                     Style="{StaticResource BasicButton}" 
                     Template="{StaticResource RoundedSmallerButton}"

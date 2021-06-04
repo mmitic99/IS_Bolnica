@@ -305,6 +305,7 @@
     <Compile Include="viewActions\ZakazivanjeTerminaViewModel.cs" />
     <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
     <Compile Include="ViewModel\SekretarViewModel\DodavanjeObavestenjaViewModel.cs" />
+    <Compile Include="ViewModel\SekretarViewModel\IzmenaObavestenjaViewModel.cs" />
     <Compile Include="ViewModel\SekretarViewModel\SekretarWindowViewModel.cs" />
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
       <DependentUpon>AnamnezaPage.xaml</DependentUpon>
