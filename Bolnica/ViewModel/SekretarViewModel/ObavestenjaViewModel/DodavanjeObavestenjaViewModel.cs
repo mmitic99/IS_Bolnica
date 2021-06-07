@@ -1,10 +1,10 @@
-﻿using Bolnica.DTOs;
+﻿using System;
+using System.Windows;
+using Bolnica.DTOs;
 using Bolnica.viewActions;
 using Kontroler;
-using System;
-using System.Windows;
 
-namespace Bolnica.ViewModel.SekretarViewModel
+namespace Bolnica.ViewModel.SekretarViewModel.ObavestenjaViewModel
 {
     public class DodavanjeObavestenjaViewModel
     {

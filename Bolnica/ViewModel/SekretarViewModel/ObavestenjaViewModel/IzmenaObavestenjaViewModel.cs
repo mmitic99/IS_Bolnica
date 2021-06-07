@@ -4,11 +4,11 @@ using Bolnica.DTOs;
 using Bolnica.viewActions;
 using Kontroler;
 
-namespace Bolnica.ViewModel.SekretarViewModel
+namespace Bolnica.ViewModel.SekretarViewModel.ObavestenjaViewModel
 {
     public class IzmenaObavestenjaViewModel
     {
-        private ObavestenjeDTO selectedObavestenje;
+        private ObavestenjeDTO _selectedObavestenje;
         private string naslovText;
         private string sadrzajText;
 
