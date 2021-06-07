@@ -51,6 +51,7 @@ namespace Bolnica.ViewModel.SekretarViewModel
 
         public MyICommand DodajObavestenjeCommand { get; set; }
         public MyICommand IzmeniObavestenjeCommand { get; set; }
+        public MyICommand DodajLekaraCommand { get; set; }
 
         private ObavestenjaKontroler obavestenjaKontroler = new ObavestenjaKontroler();
         private LekarKontroler lekarKontroler = new LekarKontroler();
@@ -61,6 +62,7 @@ namespace Bolnica.ViewModel.SekretarViewModel
             PrikazLekara = new ObservableCollection<LekarDTO>(lekarKontroler.GetAll());
             DodajObavestenjeCommand = new MyICommand(DodajObavestenje);
             IzmeniObavestenjeCommand = new MyICommand(IzmeniObavestenje);
+            DodajLekaraCommand = new MyICommand(DodajLekara);
         }
 
         public void AzurirajObavestenja()

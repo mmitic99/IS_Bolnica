@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Obaveštenje" Height="400" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

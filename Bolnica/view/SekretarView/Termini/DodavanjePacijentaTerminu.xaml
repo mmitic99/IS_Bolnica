@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="DodavanjePacijentaTerminu" Height="400" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />
+        <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource PotvrdiCommand}" Executed="potvrdi_Click" />
+        <CommandBinding Command="{StaticResource OtkaziCommand}" Executed="otkazi_Click" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource PotvrdiCommand}" Key="Space"/>
+        <KeyBinding Command="{StaticResource OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>

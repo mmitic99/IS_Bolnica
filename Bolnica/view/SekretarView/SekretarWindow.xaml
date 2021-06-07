@@ -33,6 +33,10 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="PogledajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="RadnoVremeLekara_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.FeedbackCommand}" Executed="Feedback_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.SelectObavestenjeCommand}" Executed="SelectFirstObavestenje" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.SelectPacijentaCommand}" Executed="SelectFirstPacijenta" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.SelectTerminCommand}" Executed="SelectFirstTermin" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.SelectLekaraCommand}" Executed="SelectFirstLekara" />
         <CommandBinding Command="{StaticResource OdjavaCommand}" Executed="Odjava_Click"/>
     </Window.CommandBindings>
     <Window.InputBindings>
@@ -402,20 +406,33 @@
                             <RadioButton x:Name="Dan" IsChecked="True" 
                                          Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
                                          Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
-                                Dan
+                                <AccessText>
+                                    _Dan
+                                </AccessText>
                             </RadioButton>
 
                             <RadioButton x:Name="Nedelja" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
                                          Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
-                                Nedelja
+                                <AccessText>
+                                    _Nedelja
+                                </AccessText>
                             </RadioButton>
                             <RadioButton x:Name="Mesec" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Mesec</RadioButton>
+                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
+                                <AccessText>
+                                    _Mesec
+                                </AccessText>
+                            </RadioButton>
                             <RadioButton x:Name="Godina" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Godina</RadioButton>
+                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
+                                <AccessText>
+                                    _Godina
+                                </AccessText>
+                            </RadioButton>
 
                             <Label x:Name="IzaberiDatumLabela" Width="100" Margin="100,3,0, 3" VerticalAlignment="Center">Izaberi datum:</Label>
-                            <DatePicker x:Name="DatumZaTermin" Margin="0,3,0, 3" VerticalAlignment="Center" SelectedDateChanged="DatumZaTermin_OnSelectedDateChanged"></DatePicker>
+                            <DatePicker x:Name="DatumZaTermin" Margin="0,3,0, 3" VerticalAlignment="Center" SelectedDateChanged="DatumZaTermin_OnSelectedDateChanged">
+                            </DatePicker>
 
                         </StackPanel>
 
@@ -466,7 +483,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2">
                             <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" 
-                                    VerticalAlignment="Top"  Click="DodavanjeLekara_Click" FontSize="16"
+                                    VerticalAlignment="Top" FontSize="16" Command="{Binding DodajLekaraCommand}"
                                     Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}"/>
                             <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" 
                                     Margin="30,0,0,0" VerticalAlignment="Top"  

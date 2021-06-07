@@ -8,6 +8,18 @@
         mc:Ignorable="d"
         Title="Zakazivanje termina" Height="700" Width="500"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />
+        <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource PotvrdiCommand}" Executed="sacuvaj_Click" />
+        <CommandBinding Command="{StaticResource OtkaziCommand}" Executed="otkazi_Click" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource PotvrdiCommand}" Key="Enter"/>
+        <KeyBinding Command="{StaticResource OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -98,6 +110,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Vreme:</Label>
                     <ComboBox FontSize="15" Grid.Column="1" x:Name="vremeT" SelectionChanged="vremeT_SelectionChanged"></ComboBox>
+                    <Label  FontSize="15" Grid.Column="1" x:Name="NeRadi" Visibility="Hidden">Lekar ne radi!</Label>
                 </Grid>
                 <Grid Margin="5, 5, 5, 25">
                     <Grid.ColumnDefinitions>

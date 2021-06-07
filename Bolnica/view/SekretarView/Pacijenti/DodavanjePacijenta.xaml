@@ -8,6 +8,18 @@
         mc:Ignorable="d"
         Title="Dodavanje pacijenta" Height="480" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />
+        <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource PotvrdiCommand}" Executed="potvrdi_Click" />
+        <CommandBinding Command="{StaticResource OtkaziCommand}" Executed="otkazi_Click" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource PotvrdiCommand}" Key="Enter"/>
+        <KeyBinding Command="{StaticResource OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

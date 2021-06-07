@@ -240,4 +240,32 @@
     <Registrovan>false</Registrovan>
     <FullName>Janko Janković</FullName>
   </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>6498754648746</KorisnickoIme>
+      <Lozinka>Petar</Lozinka>
+      <DatumKreiranjaNaloga>2021-06-07T17:21:03.3348812+02:00</DatumKreiranjaNaloga>
+    </Korisnik>
+    <Ime>Petar</Ime>
+    <Prezime>Petrović</Prezime>
+    <Jmbg>6498754648746</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-06-07T17:21:03.3328814+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <BracnoStanje />
+    <Zanimanje />
+    <ZdravstveniKarton>
+      <Izvestaj />
+      <Anamneze />
+      <Alergeni />
+    </ZdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Petar Petrović</FullName>
+  </Pacijent>
 </ArrayOfPacijent>

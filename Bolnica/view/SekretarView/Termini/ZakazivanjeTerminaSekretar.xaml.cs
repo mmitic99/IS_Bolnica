@@ -33,7 +33,7 @@ namespace Bolnica.view.SekretarView.Termini
             lekarKontroler = new LekarKontroler();
 
             hitanT.IsChecked = hitan;
-            datum.SelectedDate = DateTime.Now;
+            datum.SelectedDate = DateTime.Now.AddDays(1);
             termin = new TerminDTO();
             if (izabraniPacijent != null)
             {
@@ -161,6 +161,20 @@ namespace Bolnica.view.SekretarView.Termini
                 moguciTermini = terminKontroler.NadjiTermineZaParametre(parametri);
                 vremeT.ItemsSource = GenerisiVremena(moguciTermini);
             }
+
+            if (vremeT != null)
+            {
+                if (vremeT.Items.Count == 0 && lekar != null && !lekar.Text.Equals(""))
+                {
+                    vremeT.Visibility = Visibility.Hidden;
+                    NeRadi.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    vremeT.Visibility = Visibility.Visible;
+                    NeRadi.Visibility = Visibility.Hidden;
+                }
+            }
         }
 
         private List<string> GenerisiVremena(List<TerminDTO> termini)
@@ -248,6 +262,8 @@ namespace Bolnica.view.SekretarView.Termini
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;
             datum.IsEnabled = true;
+            datum.DisplayDateStart = DateTime.Now.AddDays(1);
+            datum.SelectedDate = DateTime.Now.AddDays(1);
         }
 
         private void vremeT_SelectionChanged(object sender, SelectionChangedEventArgs e)

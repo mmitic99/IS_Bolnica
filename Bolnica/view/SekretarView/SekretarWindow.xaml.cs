@@ -480,5 +480,41 @@ namespace Bolnica.view.SekretarView
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
+
+        private void SelectFirstObavestenje(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Pocetna.IsSelected)
+            {
+                ObavestenjaPrikaz.SelectedIndex = 0;
+                ObavestenjaPrikaz.Focus();
+            }
+        }
+
+        private void SelectFirstPacijenta(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Pocetna.IsSelected)
+            {
+                PacijentiPrikaz.SelectedIndex = 0;
+                PacijentiPrikaz.Focus();
+            }
+        }
+
+        private void SelectFirstTermin(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Pocetna.IsSelected)
+            {
+                TerminiPrikaz.SelectedIndex = 0;
+                TerminiPrikaz.Focus();
+            }
+        }
+
+        private void SelectFirstLekara(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (Pocetna.IsSelected)
+            {
+                LekariPrikaz.SelectedIndex = 0;
+                LekariPrikaz.Focus();
+            }
+        }
     }
 }

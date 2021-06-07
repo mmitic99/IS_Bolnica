@@ -4,6 +4,7 @@ using Kontroler;
 using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -111,6 +112,11 @@ namespace Bolnica.view.SekretarView.Lekari
                         radnoVremeKontroler.GetRadnoVremeZaGodinu((DateTime)DatumZaPrikazRadnogVremena.SelectedDate, jmbgLekara);
                 SekretarWindow.SortirajDataGrid(RadnoVremePrikaz, 1, ListSortDirection.Ascending);
             }
+        }
+
+        private void OtkaziClick(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

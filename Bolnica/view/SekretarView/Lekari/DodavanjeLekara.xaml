@@ -8,6 +8,10 @@
         mc:Ignorable="d"
         Title="Dodavanje lekara" Height="480" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding PotvrdiCommand}" Key="Enter"/>
+        <KeyBinding Command="{Binding OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

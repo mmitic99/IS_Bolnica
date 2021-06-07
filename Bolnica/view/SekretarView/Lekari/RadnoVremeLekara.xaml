@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="RadnoVremeLekara" Height="450" Width="620"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource OtkaziCommand}" Executed="OtkaziClick" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource OtkaziCommand}" Key="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
