@@ -304,6 +304,7 @@
     <Compile Include="viewActions\ValidationErrors.cs" />
     <Compile Include="viewActions\ZakazivanjeTerminaViewModel.cs" />
     <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
+    <Compile Include="ViewModel\SekretarViewModel\LekariViewModel\DodavanjeLekaraViewModel.cs" />
     <Compile Include="ViewModel\SekretarViewModel\ObavestenjaViewModel\DodavanjeObavestenjaViewModel.cs" />
     <Compile Include="ViewModel\SekretarViewModel\ObavestenjaViewModel\IzmenaObavestenjaViewModel.cs" />
     <Compile Include="ViewModel\SekretarViewModel\ObavestenjaViewModel\PogledajObavestenjaViewModel.cs" />

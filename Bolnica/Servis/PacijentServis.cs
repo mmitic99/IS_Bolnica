@@ -114,7 +114,7 @@ namespace Servis
         public bool IzmeniPacijenta(Pacijent stari, Pacijent novi)
         {
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
-            bool uspesno = ObrisiPacijenta(stari.Jmbg);
+            bool uspesno = ObrisiPacijentaZaIzmenu(stari.Jmbg);
             if (uspesno)
             {
                 uspesno = RegistrujPacijenta(novi);
@@ -125,6 +125,22 @@ namespace Servis
                     IzmeniJmbgPacijentaUAktivnostima(stari.Jmbg, novi.Jmbg);
                 }
 
+            }
+            return uspesno;
+        }
+
+        private bool ObrisiPacijentaZaIzmenu(string stariJmbg)
+        {
+            List<Pacijent> pacijenti = skladistePacijenta.GetAll();
+            bool uspesno = false;
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.Jmbg.Equals(stariJmbg))
+                {
+                    uspesno = pacijenti.Remove(pacijent);
+                    skladistePacijenta.SaveAll(pacijenti);
+                    break;
+                }
             }
             return uspesno;
         }

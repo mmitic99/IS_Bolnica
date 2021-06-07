@@ -52,8 +52,6 @@ namespace Bolnica.view.SekretarView
             PrezimeS.Content = sekretar.Prezime;
 
             PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
-            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg(sekretar.Jmbg);
 
             StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
@@ -240,8 +238,8 @@ namespace Bolnica.view.SekretarView
 
         private void DodavanjeLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeLekara(LekariPrikaz);
-            s.ShowDialog();
+            ((SekretarWindowViewModel)DataContext).DodajLekara();
+            SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
         }
 
         private void IzmenaLekara_Click(object sender, RoutedEventArgs e)
@@ -278,8 +276,7 @@ namespace Bolnica.view.SekretarView
                         MessageBoxImage.Error);
                     return;
                 }
-
-                LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+                ((SekretarWindowViewModel)DataContext).AzurirajLekare();
                 SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
             }
         }
@@ -293,7 +290,6 @@ namespace Bolnica.view.SekretarView
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
             this.DataContext = new SekretarWindowViewModel();
-            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg("-1");
             AzurirajDijagramBrojTermina();
             AzurirajPodeluPoPolovima();
             AzurirajDijagramBrojNovihPacijenata();
@@ -318,7 +314,8 @@ namespace Bolnica.view.SekretarView
 
         private void Lekari_Selected(object sender, RoutedEventArgs e)
         {
-            LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
+            this.DataContext = new SekretarWindowViewModel();
+            //LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
             SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
         }
 

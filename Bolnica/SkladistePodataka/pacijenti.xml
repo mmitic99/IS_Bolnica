@@ -212,4 +212,32 @@
     <Registrovan>false</Registrovan>
     <FullName>Mihailo Majstorovic</FullName>
   </Pacijent>
+  <Pacijent>
+    <Grad>
+      <drzava />
+      <Naziv />
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>6545454645454</KorisnickoIme>
+      <Lozinka>Janko</Lozinka>
+      <DatumKreiranjaNaloga>2021-06-07T16:04:50.9594998+02:00</DatumKreiranjaNaloga>
+    </Korisnik>
+    <Ime>Janko</Ime>
+    <Prezime>Janković</Prezime>
+    <Jmbg>6545454645454</Jmbg>
+    <BrojTelefona />
+    <Pol>Muski</Pol>
+    <DatumRodjenja>2021-06-07T00:00:00+02:00</DatumRodjenja>
+    <Email />
+    <Adresa />
+    <BracnoStanje>neoženjen</BracnoStanje>
+    <Zanimanje />
+    <ZdravstveniKarton>
+      <Izvestaj />
+      <Anamneze />
+      <Alergeni />
+    </ZdravstveniKarton>
+    <Registrovan>false</Registrovan>
+    <FullName>Janko Janković</FullName>
+  </Pacijent>
 </ArrayOfPacijent>

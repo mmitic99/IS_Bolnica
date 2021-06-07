@@ -26,9 +26,9 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1" Height="26" VerticalAlignment="Bottom" FontSize="15">
+                    <TextBox x:Name="jmbg" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
-                            <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="JmbgText" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
                                     <val:StringToIntValidationRule  ValidationStep="RawProposedValue"/>
                                     <val:JmbgValidationRule ValidationStep="ConvertedProposedValue" Min="1000000000000" Max="9999999999999"/>
@@ -62,7 +62,7 @@
                     <Label Grid.Column="0" FontSize="15">Ime*:</Label>
                     <TextBox x:Name="ime" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
-                            <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
+                            <Binding Path="ImeText" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
                                     <val:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -90,7 +90,7 @@
                     <Label Grid.Column="0" FontSize="15">Prezime*:</Label>
                     <TextBox x:Name="prezime" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
-                            <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
+                            <Binding Path="PrezimeText" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
                                     <val:PraznoPoljeValidationRule ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -116,10 +116,8 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Pol:</Label>
-                    <ComboBox x:Name="Pol" Grid.Column="1" SelectedIndex="0" FontSize="15">
-                        <ComboBoxItem>Muški</ComboBoxItem>
-                        <ComboBoxItem>Ženski</ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox x:Name="Pol" Grid.Column="1" SelectedIndex="0" FontSize="15" Text="{Binding PolText, UpdateSourceTrigger=PropertyChanged}"
+                              ItemsSource="{Binding Polovi}"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -127,7 +125,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Datum rođenja:</Label>
-                    <DatePicker x:Name="datum" Grid.Column="1" FontSize="15"/>
+                    <DatePicker x:Name="datum" Grid.Column="1" FontSize="15" Text="{Binding DatumText, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
                 
             </StackPanel>
@@ -141,9 +139,8 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Vrsta specijalizacije:</Label>
-                    <ComboBox x:Name="Specijalizacija" Grid.Column="1" Height="26" VerticalAlignment="Top" FontSize="15">
-                        
-                    </ComboBox>
+                    <ComboBox x:Name="Specijalizacija" Grid.Column="1" FontSize="15" SelectedItem="{Binding VrstaSpecijalizacijeText, UpdateSourceTrigger=PropertyChanged}"
+                              ItemsSource="{Binding VrstaSpecijalizacije}"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -153,7 +150,7 @@
                     <Label Grid.Column="0" FontSize="15">Broj telefona:</Label>
                     <TextBox x:Name="tel" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
-                            <Binding Path="BrojTelefona" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="BrojText" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
                                     <val:StringToIntValidationRule  ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -185,7 +182,7 @@
                     <Label Grid.Column="0" FontSize="15">E-mail adresa:</Label>
                     <TextBox x:Name="email" Grid.Column="1" FontSize="15">
                         <TextBox.Text>
-                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="EmailText" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
                                     <val:EmailValidationRule  ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -214,8 +211,8 @@
                         <ColumnDefinition Width="140"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Height="26" VerticalAlignment="Bottom" FontSize="15">Adresa stanovanja:</Label>
-                    <TextBox x:Name="adresa" Grid.Column="1" FontSize="15"/>
+                    <Label Grid.Column="0" FontSize="15">Adresa stanovanja:</Label>
+                    <TextBox x:Name="adresa" Grid.Column="1" FontSize="15" Text="{Binding AdresaText, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -223,7 +220,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Grad:</Label>
-                    <TextBox x:Name="grad" Grid.Column="1" FontSize="15"/>
+                    <TextBox x:Name="grad" Grid.Column="1" FontSize="15" Text="{Binding GradText, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
@@ -231,20 +228,20 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Država:</Label>
-                    <TextBox x:Name="drzava" Grid.Column="1" FontSize="15"/>
+                    <TextBox x:Name="drzava" Grid.Column="1" FontSize="15" Text="{Binding DrzavaText, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Margin="10">
-            <Button x:Name="potvrdi" Grid.Column="0" Click="potvrdi_Click" FontSize="15" Width="100"
+            <Button x:Name="potvrdi" Grid.Column="0" Command="{Binding PotvrdiCommand}" FontSize="15" Width="100"
                     Style = "{StaticResource ValidationButton}"
                     Template="{StaticResource RoundedSmallerButton}">Potvrdi
             </Button>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1" Margin="10">
-            <Button Width="100" Click="otkazi_Click" FontSize="15"
+            <Button Width="100" Command="{Binding OtkaziCommand}" FontSize="15"
                     Style="{StaticResource BasicButton}" 
                     Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
         </Grid>

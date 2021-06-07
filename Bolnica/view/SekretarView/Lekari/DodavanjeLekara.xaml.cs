@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Bolnica.DTOs;
+using Kontroler;
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Bolnica.DTOs;
-using Kontroler;
+using Bolnica.ViewModel.SekretarViewModel.LekariViewModel;
 
 namespace Bolnica.view.SekretarView.Lekari
 {
@@ -22,65 +13,11 @@ namespace Bolnica.view.SekretarView.Lekari
     /// </summary>
     public partial class DodavanjeLekara : Window
     {
-        private DataGrid lekariPrikaz;
-        private SpecijalizacijaKontroler specijalizacijaKontroler;
-        private LekarKontroler lekarKontroler;
-        public DodavanjeLekara(DataGrid lekariPrikaz)
+        public DodavanjeLekara()
         {
             InitializeComponent();
             this.Owner = App.Current.MainWindow;
-            DataContext = new LekarDTO();
-
-            specijalizacijaKontroler = new SpecijalizacijaKontroler();
-            lekarKontroler = new LekarKontroler();
-
-            this.lekariPrikaz = lekariPrikaz;
-            Specijalizacija.ItemsSource = specijalizacijaKontroler.GetAll();
-            Specijalizacija.SelectedIndex = 0;
-        }
-
-        private void potvrdi_Click(object sender, RoutedEventArgs e)
-        {
-            LekarDTO lekar = new LekarDTO()
-            {
-                Ime = ime.Text,
-                Prezime = prezime.Text,
-                Jmbg = jmbg.Text,
-                Adresa = adresa.Text,
-                BrojTelefona = tel.Text,
-                Email = email.Text,
-                NazivGrada = grad.Text,
-                Korisnik = new KorisnikDTO() {KorisnickoIme = jmbg.Text, Lozinka = ime.Text},
-                Pol = Pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
-                Specijalizacija = Specijalizacija.SelectedItem.ToString(),
-                BrojSlobodnihDana = 25
-            };
-            lekar.DatumRodjenja = datum.SelectedDate ?? DateTime.Now;
-
-            if (!lekar.Jmbg.Trim().Equals("") && !lekar.Ime.Trim().Equals("") && !lekar.Prezime.Trim().Equals(""))
-            {
-                bool uspesno = lekarKontroler.RegistrujLekara(lekar);
-                if (!uspesno)
-                {
-                    MessageBox.Show("Korisnik sa unetim JMBG već postoji, unesite drugi JMBG!!!", "Upozorenje",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    jmbg.Focus();
-                    return;
-                }
-                lekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-                SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
-                this.Close();
-            }
-            else if (lekar.Jmbg.Trim().Equals("") || lekar.Ime.Trim().Equals("") || lekar.Prezime.Trim().Equals(""))
-            {
-                MessageBox.Show("Polja JMBG, Ime i Prezime su obavezna!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        
-
-    private void otkazi_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            DataContext = new DodavanjeLekaraViewModel();
         }
     }
 }

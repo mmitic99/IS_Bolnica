@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
+using Bolnica.ViewModel.SekretarViewModel;
 using Kontroler;
 
 namespace Bolnica.view.SekretarView.Lekari
@@ -45,6 +46,7 @@ namespace Bolnica.view.SekretarView.Lekari
             korIme.Text = lekar.Korisnik.KorisnickoIme;
             lozinka.Password = lekar.Korisnik.Lozinka;
             datum.SelectedDate = lekar.DatumRodjenja.Date;
+            drzava.Text = lekar.Drzava;
 
             pol.SelectedIndex = lekar.Pol == Model.Enum.Pol.Muski ? 0 : 1;
 
@@ -98,7 +100,8 @@ namespace Bolnica.view.SekretarView.Lekari
                 Korisnik = new KorisnikDTO() { KorisnickoIme = korIme.Text, Lozinka = lozinka.Password },
                 Pol = pol.SelectedIndex == 0 ? Model.Enum.Pol.Muski : Model.Enum.Pol.Zenski,
                 Specijalizacija = (string) Specijalizacija.SelectedItem,
-                BrojSlobodnihDana = lekar.BrojSlobodnihDana
+                BrojSlobodnihDana = lekar.BrojSlobodnihDana,
+                Drzava = drzava.Text
 
             };
             noviLekar.DatumRodjenja = datum.SelectedDate != null ? (DateTime) datum.SelectedDate : DateTime.Now;
@@ -114,8 +117,15 @@ namespace Bolnica.view.SekretarView.Lekari
                     jmbg.Focus();
                     return;
                 }
+                
+                foreach (Window window in App.Current.Windows)
+                {
+                    if (window.DataContext is SekretarWindowViewModel sekretarWindowViewModel)
+                    {
+                        sekretarWindowViewModel.AzurirajLekare();
+                    }
+                }
 
-                lekariPrikaz.ItemsSource = lekarKontroler.GetAll(); 
                 SekretarWindow.SortirajDataGrid(lekariPrikaz, 1, ListSortDirection.Ascending);
                 this.Close();
             }

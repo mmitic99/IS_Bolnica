@@ -485,7 +485,8 @@
                                   AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                                   VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  
-                                  CanUserResizeRows="False">
+                                  CanUserResizeRows="False"
+                                  ItemsSource="{Binding Path=PrikazLekara, Mode=OneWay}">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="FontSize" Value="20"/>

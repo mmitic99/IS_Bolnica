@@ -112,7 +112,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Pol:</Label>
-                    <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0" FontSize="15">
+                    <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0" FontSize="15" VerticalContentAlignment="Center">
                         <ComboBoxItem>Muški</ComboBoxItem>
                         <ComboBoxItem>Ženski</ComboBoxItem>
                     </ComboBox>
@@ -136,9 +136,7 @@
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" FontSize="15">Vrsta specijalizacije:</Label>
-                    <ComboBox x:Name="Specijalizacija" Grid.Column="1" Height="26" VerticalAlignment="Top" FontSize="15">
-                        
-                    </ComboBox>
+                    <ComboBox x:Name="Specijalizacija" Grid.Column="1" FontSize="15" VerticalContentAlignment="Center"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>

@@ -59,8 +59,22 @@ namespace Servis
 
         public void IzmeniLekara(string jmbg, Lekar lekar)
         {
-            ObrisiLekara(jmbg);
+            ObrisiLekaraZaIzmenu(jmbg);
             Save(lekar);
+        }
+
+        private void ObrisiLekaraZaIzmenu(string jmbg)
+        {
+            List<Lekar> lekari = skladisteZaLekara.GetAll();
+            foreach (Lekar lekar in lekari)
+            {
+                if (lekar.Jmbg.Equals(jmbg))
+                {
+                    lekari.Remove(lekar);
+                    skladisteZaLekara.SaveAll(lekari);
+                    break;
+                }
+            }
         }
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
@@ -154,10 +168,10 @@ namespace Servis
                 if (lekar.Jmbg.Equals(jmbg) && LekarNemaTermine(jmbg))
                 {
                     uspesno = lekari.Remove(lekar);
+                    skladisteZaLekara.SaveAll(lekari);
                     break;
                 }
             }
-            skladisteZaLekara.SaveAll(lekari);
             return uspesno;
         }
 

@@ -47,7 +47,7 @@ namespace Kontroler
                 DatumRodjenja = lekar.DatumRodjenja,
                 BrojTelefona = lekar.BrojTelefona,
                 Email = lekar.Email,
-                Grad = new Grad(){Naziv = lekar.NazivGrada},
+                Grad = new Grad(){Naziv = lekar.NazivGrada, drzava = new Drzava(){Naziv = lekar.Drzava}},
                 Korisnik = new Korisnik(){KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka},
                 Specijalizacija = new Specijalizacija(){VrstaSpecijalizacije =  lekar.Specijalizacija},
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
@@ -87,7 +87,8 @@ namespace Kontroler
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                     IdOrdinacija = lekar.IdOrdinacija,
                     FullName = lekar.FullName,
-                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija,
+                    Drzava = lekar.Grad.drzava.Naziv
                 };
             }
 
@@ -123,7 +124,8 @@ namespace Kontroler
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                     IdOrdinacija = lekar.IdOrdinacija,
                     FullName = lekar.FullName,
-                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                    ImeiSpecijalizacija = lekar.ImeiSpecijalizacija,
+                    Drzava = lekar.Grad.drzava.Naziv
                 });
             }
 
@@ -171,7 +173,8 @@ namespace Kontroler
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
                 FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija,
+                Drzava = lekar.Grad.drzava.Naziv
             };
         }
         public List<int> DobijTerminePijenja(String terminiPijenja)
@@ -198,7 +201,7 @@ namespace Kontroler
                 DatumRodjenja = lekar.DatumRodjenja,
                 BrojTelefona = lekar.BrojTelefona,
                 Email = lekar.Email,
-                Grad = new Grad() { Naziv = lekar.NazivGrada },
+                Grad = new Grad() { Naziv = lekar.NazivGrada, drzava = new Drzava(){Naziv = lekar.Drzava}},
                 Korisnik = new Korisnik() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
                 Specijalizacija = new Specijalizacija() { VrstaSpecijalizacije = lekar.Specijalizacija },
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
@@ -229,7 +232,8 @@ namespace Kontroler
                 BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                 IdOrdinacija = lekar.IdOrdinacija,
                 FullName = lekar.FullName,
-                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
+                ImeiSpecijalizacija = lekar.ImeiSpecijalizacija,
+                Drzava = lekar.Grad.drzava.Naziv
             };
         }
 
