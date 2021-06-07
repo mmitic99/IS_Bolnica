@@ -202,7 +202,7 @@
     <Sprat>3</Sprat>
     <BrojSobe>304</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-    <RenoviraSe>true</RenoviraSe>
+    <RenoviraSe>false</RenoviraSe>
     <Kvadratura>54</Kvadratura>
     <Staticka>
       <StacionarnaOprema>
@@ -239,23 +239,20 @@
   <Prostorija>
     <termin />
     <IdProstorije>11</IdProstorije>
-    <Sprat>0</Sprat>
+    <Sprat>4</Sprat>
     <BrojSobe>410</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>0</Kvadratura>
+    <Kvadratura>54</Kvadratura>
     <Staticka />
     <Potrosna />
   </Prostorija>
   <Prostorija>
-    <termin />
     <IdProstorije>12</IdProstorije>
-    <Sprat>0</Sprat>
+    <Sprat>4</Sprat>
     <BrojSobe>420</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>0</Kvadratura>
-    <Staticka />
-    <Potrosna />
+    <Kvadratura>45</Kvadratura>
   </Prostorija>
 </ArrayOfProstorija>

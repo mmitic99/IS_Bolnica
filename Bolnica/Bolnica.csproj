@@ -259,8 +259,13 @@
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
+    <Compile Include="Validacije\LekStrategy.cs" />
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
+    <Compile Include="Validacije\ProstorijaStrategy.cs" />
+    <Compile Include="Validacije\ValidacijaContext.cs" />
+    <Compile Include="Validacije\ValidacijaStrategy.cs" />
+    <Compile Include="Validacije\ZakazanaPreraspodelaStatickeOpremeStrategy.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
     <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />
