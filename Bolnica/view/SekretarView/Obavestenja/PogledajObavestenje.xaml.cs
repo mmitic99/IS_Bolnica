@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
+using Bolnica.ViewModel.SekretarViewModel.ObavestenjaViewModel;
 
 namespace Bolnica.view.SekretarView.Obavestenja
 {
@@ -24,14 +25,7 @@ namespace Bolnica.view.SekretarView.Obavestenja
         public PogledajObavestenje(ObavestenjeDTO obavestenje)
         {
             InitializeComponent();
-            datumIVremeObavestenja.Content += " " + obavestenje.VremeObavestenja.ToString("dd.MM.yyyy HH:mm");
-            naslov.Text = obavestenje.Naslov;
-            sadrzaj.Text = obavestenje.Sadrzaj;
-        }
-
-        private void otkazi_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            this.DataContext = new PogledajObavestenjaViewModel(obavestenje);
         }
     }
 }

@@ -24,7 +24,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="top" FontSize="18">Naslov:</TextBlock>
-            <TextBox Grid.Column="1" Margin="5" x:Name="naslov" TextWrapping="Wrap" Text="{Binding NaslovText}">
+            <TextBox Grid.Column="1" Margin="5" x:Name="naslov" TextWrapping="Wrap" Text="{Binding NaslovText, UpdateSourceTrigger=PropertyChanged}">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding PotvrdiCommand}"/>
                     <KeyBinding Key="Escape" Command="{Binding OtkaziCommand}"/>
@@ -37,7 +37,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" TextWrapping="Wrap">Tekst obaveštenja:</TextBlock>
-            <TextBox Grid.Column="1" Margin="5" x:Name="sadrzaj" TextWrapping="Wrap" Text="{Binding SadrzajText}"/>
+            <TextBox Grid.Column="1" Margin="5" x:Name="sadrzaj" TextWrapping="Wrap" Text="{Binding SadrzajText, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

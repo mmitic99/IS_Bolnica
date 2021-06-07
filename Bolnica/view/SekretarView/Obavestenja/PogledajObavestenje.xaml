@@ -15,10 +15,12 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="datumIVremeObavestenja" Grid.Row="0" VerticalAlignment="Center" FontSize="15">Datum i vreme objavljivanja:</Label>
-        <TextBlock x:Name="naslov" Grid.Row="1" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5">Naslov</TextBlock>
-        <TextBlock x:Name="sadrzaj" Grid.Row="2" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Justify" TextWrapping="Wrap" Margin="10">Sadrzaj</TextBlock>
-        <Button Grid.Row="3" x:Name="otkazi" Click="otkazi_Click" Width="100" Margin="15" FontSize="15"
+        <Label x:Name="datumIVremeObavestenja" Grid.Row="0" VerticalAlignment="Center" FontSize="15" Content="{Binding DatumText}"></Label>
+        <TextBlock x:Name="naslov" Grid.Row="1" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5" Text="{Binding NaslovText}"></TextBlock>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="sadrzaj" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Justify" TextWrapping="Wrap" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Visible" Text="{Binding SadrzajText}"></TextBlock>
+        </ScrollViewer>
+        <Button Grid.Row="3" x:Name="otkazi" Width="100" Margin="15" FontSize="15" Command="{Binding OtkaziCommand}"
                 Style="{StaticResource BasicButton}" 
                 Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
     </Grid>
