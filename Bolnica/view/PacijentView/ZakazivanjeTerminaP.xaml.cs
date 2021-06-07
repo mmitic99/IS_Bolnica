@@ -2,6 +2,7 @@
 using Bolnica.viewActions;
 using Kontroler;
 using Model;
+using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
@@ -73,12 +74,6 @@ namespace Bolnica.view.PacijentView
             {
                 MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini,null,ViewModel.JmbgPacijenta);
                 MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
-            }
-            else
-            {
-                var s = new Upozorenje("Nema slobodnih termina po traženim kriterujumima!");
-                s.Owner = PacijentMainWindow.getInstance();
-                s.ShowDialog();
             }
         }
 

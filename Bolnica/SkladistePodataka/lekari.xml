@@ -59,6 +59,34 @@
   <Lekar>
     <Grad>
       <drzava />
+      <Naziv>Zajecar</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>7897611</KorisnickoIme>
+      <Lozinka>Maja</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
+    </Korisnik>
+    <Ime>Maja</Ime>
+    <Prezime>Balazevic</Prezime>
+    <Jmbg>7897611</Jmbg>
+    <BrojTelefona />
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <Email />
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>18</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
+    <Specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </Specijalizacija>
+    <FullName>dr Maja Balazevic</FullName>
+    <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
+    <IdOrdinacija>1</IdOrdinacija>
+  </Lekar>
+  <Lekar>
+    <Grad>
+      <drzava />
       <Naziv>Beograd</Naziv>
     </Grad>
     <Korisnik>
@@ -104,39 +132,11 @@
     <Adresa>Trg Aekse Santica 12</Adresa>
     <BrojSlobodnihDana>25</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
-    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>kardiohirurgija</VrstaSpecijalizacije>
     </Specijalizacija>
     <FullName>dr Dusko Jankovic</FullName>
     <ImeiSpecijalizacija>dr Dusko Jankovic- kardiohirurgija</ImeiSpecijalizacija>
     <IdOrdinacija>3</IdOrdinacija>
-  </Lekar>
-  <Lekar>
-    <Grad>
-      <drzava />
-      <Naziv>Zajecar</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>7897611</KorisnickoIme>
-      <Lozinka>Maja</Lozinka>
-      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
-    </Korisnik>
-    <Ime>Maja</Ime>
-    <Prezime>Balazevic</Prezime>
-    <Jmbg>7897611</Jmbg>
-    <BrojTelefona />
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <Email />
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>18</BrojSlobodnihDana>
-    <NaOdmoru>false</NaOdmoru>
-    <Specijalizacija>
-      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </Specijalizacija>
-    <FullName>dr Maja Balazevic</FullName>
-    <ImeiSpecijalizacija>dr Maja Balazevic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>1</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

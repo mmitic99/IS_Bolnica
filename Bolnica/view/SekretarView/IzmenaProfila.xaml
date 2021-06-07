@@ -23,11 +23,11 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">JMBG*:</Label>
-                    <TextBox x:Name="jmbg" Grid.Column="1" FontSize="15">
+                    <Label Grid.Column="0">JMBG*:</Label>
+                    <TextBox x:Name="jmbg" Grid.Column="1">
                         <TextBox.Text>
                             <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -52,11 +52,11 @@
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Ime*:</Label>
-                    <TextBox x:Name="ime" Grid.Column="1" FontSize="15">
+                    <Label Grid.Column="0">Ime*:</Label>
+                    <TextBox x:Name="ime" Grid.Column="1">
                         <TextBox.Text>
                             <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
@@ -80,11 +80,11 @@
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Prezime:</Label>
-                    <TextBox x:Name="prezime" Grid.Column="1" FontSize="15">
+                    <Label Grid.Column="0">Prezime:</Label>
+                    <TextBox x:Name="prezime" Grid.Column="1">
                         <TextBox.Text>
                             <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
@@ -108,22 +108,22 @@
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Pol:</Label>
-                    <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0" FontSize="15">
+                    <Label Grid.Column="0">Pol:</Label>
+                    <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0">
                         <ComboBoxItem>Muški</ComboBoxItem>
                         <ComboBoxItem>Ženski</ComboBoxItem>
                     </ComboBox>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Datum rođenja:</Label>
-                    <DatePicker x:Name="datum" Grid.Column="1" Text="{Binding DatumRodjenja}" FontSize="15"/>
+                    <Label Grid.Column="0">Datum rođenja:</Label>
+                    <DatePicker x:Name="datum" Grid.Column="1" Text="{Binding DatumRodjenja}"/>
                 </Grid>
             </StackPanel>
         </Grid>
@@ -132,11 +132,11 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Broj telefona:</Label>
-                    <TextBox x:Name="tel" Grid.Column="1" FontSize="15">
+                    <Label Grid.Column="0">Broj telefona:</Label>
+                    <TextBox x:Name="tel" Grid.Column="1">
                         <TextBox.Text>
                             <Binding Path="BrojTelefona" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -160,11 +160,11 @@
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">E-mail adresa:</Label>
-                    <TextBox x:Name="email" Grid.Column="1" FontSize="15">
+                    <Label Grid.Column="0">E-mail adresa:</Label>
+                    <TextBox x:Name="email" Grid.Column="1">
                         <TextBox.Text>
                             <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -188,50 +188,63 @@
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Adresa stanovanja:</Label>
-                    <TextBox x:Name="adresa" Grid.Column="1" Text="{Binding Adresa}" FontSize="15"/>
+                    <Label Grid.Column="0">Adresa stanovanja:</Label>
+                    <TextBox x:Name="adresa" Grid.Column="1" Text="{Binding Adresa}"/>
                 </Grid>
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Grad:</Label>
-                    <TextBox x:Name="grad" Grid.Column="1" Text="{Binding NazivGrada}" FontSize="15"/>
+                    <Label Grid.Column="0">Grad:</Label>
+                    <TextBox x:Name="grad" Grid.Column="1" Text="{Binding NazivGrada}"/>
                 </Grid>
                 <Grid Margin="15, 15, 15, 30">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="160"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" FontSize="15">Država:</Label>
-                    <TextBox x:Name="drzava" Grid.Column="1" FontSize="15"/>
+                    <Label Grid.Column="0">Država:</Label>
+                    <TextBox x:Name="drzava" Grid.Column="1"/>
                 </Grid>
             </StackPanel>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="160"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" FontSize="15">Korisničko ime:</Label>
-            <TextBox x:Name="korIme" Grid.Column="1" Text="{Binding Korisnik.KorisnickoIme}" FontSize="15"/>
+            <Label Grid.Column="0">Korisničko ime:</Label>
+            <TextBox x:Name="korIme" Grid.Column="1" Text="{Binding Korisnik.KorisnickoIme}"/>
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="2" Margin="15">
-            <Button x:Name="potvrdi" Width="100" Click="potvrdi_Click" Content="Potvrdi" FontSize="15"
-                    Style="{StaticResource ValidationButton}" 
-                    Template="{StaticResource RoundedSmallerButton}"/>
+            <Button x:Name="potvrdi" Width="100" Click="potvrdi_Click" Content="Potvrdi">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=tel}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="2" Margin="15">
-            <Button Width="100" Click="otkazi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
+            <Button Width="100" Click="otkazi_Click">Otkaži</Button>
         </Grid>
 
     </Grid>

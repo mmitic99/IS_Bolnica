@@ -14,6 +14,9 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,11 +29,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -120,6 +120,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -144,10 +149,10 @@
     </ApplicationDefinition>
     <Compile Include="Commands\SekretarCommands.cs" />
     <Compile Include="DTOs\AnamnezaDTO.cs" />
+    <Compile Include="DTOs\BolnicaDTO.cs" />
     <Compile Include="DTOs\BolnickoLecenjeDTO.cs" />
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
-    <Compile Include="DTOs\FeedbackDTO.cs" />
     <Compile Include="DTOs\IzmenaOpremeInfoDTO.cs" />
     <Compile Include="DTOs\IzvestajDTO.cs" />
     <Compile Include="DTOs\KorisnikDTO.cs" />
@@ -157,6 +162,7 @@
     <Compile Include="DTOs\ObavestenjeDTO.cs" />
     <Compile Include="DTOs\PacijentDTO.cs" />
     <Compile Include="DTOs\PotrosnaOpremaDTO.cs" />
+    <Compile Include="DTOs\PraksaDTO.cs" />
     <Compile Include="DTOs\PrebacivanjeOpremeInfoDTO.cs" />
     <Compile Include="DTOs\PretragaInfoDTO.cs" />
     <Compile Include="DTOs\ProstorijaDTO.cs" />
@@ -175,8 +181,6 @@
     <Compile Include="DTOs\LekValidacijaDTO.cs" />
     <Compile Include="DTOs\ReceptDTO.cs" />
     <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
-    <Compile Include="Kontroler\FeedbackKontroler.cs" />
-    <Compile Include="Kontroler\IzvestajKontroler.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
     <Compile Include="Kontroler\LekarKontroler.cs" />
@@ -199,7 +203,6 @@
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Enum\VrstaPodsetnika.cs" />
-    <Compile Include="model\Feedback.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\KorisnickaAktivnost.cs" />
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
@@ -209,35 +212,34 @@
     <Compile Include="model\Podsetnik.cs" />
     <Compile Include="model\RadnoVreme.cs" />
     <Compile Include="model\Recept.cs" />
-    <Compile Include="Repozitorijum\Factory\SkladisteRadnihVremenaFactory\ISkladisteRadnihVremenaFactory.cs" />
-    <Compile Include="Repozitorijum\Factory\SkladisteRadnihVremenaFactory\SkladisteRadnihVremenaXmlFactory.cs" />
-    <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\ISkladisteZaFeedbackFactory.cs" />
-    <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\SkladisteZaFeedbackFactoryXml.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladiste.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteBolnickihLecenja.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladistePacijenta.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteRadnihVremena.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteSekretara.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteUpravnik.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaAnketeOLekaru.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaFeedback.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaKorisnickeAktivnosti.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaKvartalneAnkete.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaLekara.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaLekove.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaNaprednaRenoviranja.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaObavestenja.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaPodsetnike.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaProstorije.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaRenoviranja.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaSpecijalizaciju.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaTermine.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaVerifikacijuLeka.cs" />
-    <Compile Include="Repozitorijum\ISkladista\ISkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repozitorijum\ISkladiste.cs" />
+    <Compile Include="Repozitorijum\ISkladisteBolnickihLecenja.cs" />
+    <Compile Include="Repozitorijum\ISkladistePacijenta.cs" />
+    <Compile Include="Repozitorijum\ISkladisteRadnihVremena.cs" />
+    <Compile Include="Repozitorijum\ISkladisteSekretara.cs" />
+    <Compile Include="Repozitorijum\ISkladisteUpravnik.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaAnketeOLekaru.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaKorisnickeAktivnosti.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaKvartalneAnkete.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaLekara.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaLekove.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaNaprednaRenoviranja.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaObavestenja.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaPodsetnike.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaProstorije.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaRenoviranja.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaSpecijalizaciju.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaTermine.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaVerifikacijuLeka.cs" />
+    <Compile Include="Repozitorijum\ISkladisteZaZakazanuPreraspodeluStatickeOpreme.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteBolnickihLecenjaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteRadnihVremenaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaAnketeOLekaruXml.cs" />
-    <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaFeedbackXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKvartalneAnketeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaKorisnickeAktivnostiXml.cs" />
     <Compile Include="Servis\AnamnezaServis.cs" />
@@ -245,8 +247,6 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
-    <Compile Include="Servis\FeedbackServis.cs" />
-    <Compile Include="Servis\IzvestajServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
@@ -259,13 +259,8 @@
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
-    <Compile Include="Validacije\LekStrategy.cs" />
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
-    <Compile Include="Validacije\ProstorijaStrategy.cs" />
-    <Compile Include="Validacije\ValidacijaContext.cs" />
-    <Compile Include="Validacije\ValidacijaStrategy.cs" />
-    <Compile Include="Validacije\ZakazanaPreraspodelaStatickeOpremeStrategy.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
     <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />
@@ -309,9 +304,6 @@
     <Compile Include="viewActions\ValidationErrors.cs" />
     <Compile Include="viewActions\ZakazivanjeTerminaViewModel.cs" />
     <Compile Include="viewActions\ZdravstveniKartonViewModel.cs" />
-    <Compile Include="ViewModel\SekretarViewModel\DodavanjeObavestenjaViewModel.cs" />
-    <Compile Include="ViewModel\SekretarViewModel\IzmenaObavestenjaViewModel.cs" />
-    <Compile Include="ViewModel\SekretarViewModel\SekretarWindowViewModel.cs" />
     <Compile Include="view\LekarView\AnamnezaPage.xaml.cs">
       <DependentUpon>AnamnezaPage.xaml</DependentUpon>
     </Compile>
@@ -402,9 +394,6 @@
     <Compile Include="view\SekretarView\Pacijenti\DodavanjeGostujucegPacijenta.xaml.cs">
       <DependentUpon>DodavanjeGostujucegPacijenta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\SekretarView\SekretarFeedback.xaml.cs">
-      <DependentUpon>SekretarFeedback.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\SekretarView\Termini\DodavanjeLekaraTerminu.xaml.cs">
       <DependentUpon>DodavanjeLekaraTerminu.xaml</DependentUpon>
     </Compile>
@@ -449,6 +438,9 @@
     </Compile>
     <Compile Include="view\SekretarView\SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\UpravnikView\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\UpravnikView\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
@@ -592,10 +584,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\SekretarView\SekretarFeedback.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="view\SekretarView\Termini\DodavanjeLekaraTerminu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -656,6 +644,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\UpravnikView\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\UpravnikView\UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -690,19 +682,15 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -762,9 +750,6 @@
     <Resource Include="Images\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="business-woman-icon-14.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="view\PacijentView\background.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -804,9 +789,54 @@
     <Resource Include="view\PacijentView\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\draw.png" />
+    <Resource Include="view\UpravnikView\pocetna_strana.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\odjava.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\oprema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\praksa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\prostorije.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\business-woman-icon-14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\lek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\upravnik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="view\UpravnikView\LeptirVideo.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\bolnicalogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\UpravnikView\test snimak.wmv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LeptirVideo.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

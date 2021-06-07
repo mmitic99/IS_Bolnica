@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.SekretarView.Lekari"
         mc:Ignorable="d"
-        Title="DodajRadnoVreme" Height="300" Width="500"
+        Title="DodajRadnoVreme" Height="300" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
@@ -16,11 +16,11 @@
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" FontSize="15">Status:</Label>
-                <ComboBox x:Name="Status" Grid.Column="1" SelectedIndex="0" SelectionChanged="Status_OnSelectionChanged" FontSize="15">
+                <Label Grid.Column="0">Status:</Label>
+                <ComboBox x:Name="Status" Grid.Column="1" SelectedIndex="0" SelectionChanged="Status_OnSelectionChanged">
                     <ComboBoxItem>Radi</ComboBoxItem>
                     <ComboBoxItem>Odmor</ComboBoxItem>
                     <ComboBoxItem>Slobodan dan</ComboBoxItem>
@@ -28,36 +28,32 @@
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" x:Name="datumVremePLabela" FontSize="15">Datum i vreme početka:</Label>
-                <Label Grid.Column="0" x:Name="datumPLabela" Visibility="Hidden" FontSize="15">Datum početka:</Label>
-                <Label Grid.Column="0" x:Name="datumLabela" Visibility="Hidden" FontSize="15">Datum:</Label>
-                <DatePicker x:Name="DatumPocetka" Grid.Column="1" FontSize="15"/>
-                <ComboBox Grid.Column="2" x:Name="VremePocetka" Margin="15,0,0,0" FontSize="15"></ComboBox>
+                <Label Grid.Column="0" x:Name="datumVremePLabela">Datum i vreme početka:</Label>
+                <Label Grid.Column="0" x:Name="datumPLabela" Visibility="Hidden">Datum početka:</Label>
+                <Label Grid.Column="0" x:Name="datumLabela" Visibility="Hidden">Datum:</Label>
+                <DatePicker x:Name="DatumPocetka" Grid.Column="1"/>
+                <ComboBox Grid.Column="2" x:Name="VremePocetka" Margin="15,0,0,0"></ComboBox>
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" x:Name="datumVremeZLabela" FontSize="15">Datum i vreme završetka:</Label>
-                <Label Grid.Column="0" x:Name="datumZLabela" Visibility="Hidden" FontSize="15">Datum završetka:</Label>
-                <DatePicker x:Name="DatumKraja" Grid.Column="1" FontSize="15"/>
-                <ComboBox Grid.Column="2" x:Name="VremeKraja" Margin="15,0,0,0" FontSize="15"></ComboBox>
+                <Label Grid.Column="0" x:Name="datumVremeZLabela">Datum i vreme završetka:</Label>
+                <Label Grid.Column="0" x:Name="datumZLabela" Visibility="Hidden">Datum završetka:</Label>
+                <DatePicker x:Name="DatumKraja" Grid.Column="1"/>
+                <ComboBox Grid.Column="2" x:Name="VremeKraja" Margin="15,0,0,0"></ComboBox>
             </Grid>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85">Potvrdi</Button>
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85">Otkaži</Button>
         </StackPanel>
 
     </Grid>

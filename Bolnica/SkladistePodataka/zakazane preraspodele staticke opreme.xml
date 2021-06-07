@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfZakazanaPreraspodelaStatickeOpreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfZakazanaPreraspodelaStatickeOpreme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-06-11T15:30:00</DatumIVremePreraspodele>
+    <NazivOpreme>Sto</NazivOpreme>
+    <KolicinaOpreme>3</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>302</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>7</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-06-13T17:30:00</DatumIVremePreraspodele>
+    <NazivOpreme>Sto</NazivOpreme>
+    <KolicinaOpreme>1</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>302</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>7</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+</ArrayOfZakazanaPreraspodelaStatickeOpreme>

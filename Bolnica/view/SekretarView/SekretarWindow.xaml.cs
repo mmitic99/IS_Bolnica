@@ -15,7 +15,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
-using Bolnica.ViewModel.SekretarViewModel;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Model.Enum;
@@ -34,11 +33,14 @@ namespace Bolnica.view.SekretarView
         private LekarKontroler lekarKontroler;
         private ProstorijeKontroler prostorijeKontroler;
         private LekKontroler lekKontroler;
+        public string[] XOsaBrojTermina { get; set; }
+        public Func<double, string> YOsaBrojTermina { get; set; }
+        public string[] XOsaBrojNovihPacijenata { get; set; }
+        public Func<double, string> YOsaBrojNovihPacijenata { get; set; }
 
         public SekretarWindow(SekretarDTO sekretar)
         {
             InitializeComponent();
-            this.DataContext = new SekretarWindowViewModel();
 
             pacijentKontroler = new PacijentKontroler();
             terminKontroler = new TerminKontroler();
@@ -52,16 +54,14 @@ namespace Bolnica.view.SekretarView
             PrezimeS.Content = sekretar.Prezime;
 
             PacijentiPrikaz.ItemsSource = pacijentKontroler.GetAll();
+            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
-            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg(sekretar.Jmbg);
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg(sekretar.Jmbg);
 
             StatusBar.Text = DateTime.Now.ToString("dddd, dd.MM.yyyy HH:mm:ss");
             DispatcherTimer timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(0.5)};
             timer.Tick += Timer_Tick;
             timer.Start();
-
-            DatumZaTermin.DisplayDateStart = DateTime.Now;
-            DatumZaTermin.SelectedDate = DateTime.Now;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace Bolnica.view.SekretarView
 
         private void DodavanjeGostujuceg_Click(object sender, RoutedEventArgs e)
         {
-            var s = new DodavanjeGostujucegPacijenta(PacijentiPrikaz, TerminiPrikaz, DatumZaTermin);
+            var s = new DodavanjeGostujucegPacijenta(PacijentiPrikaz, TerminiPrikaz);
             Pacijenti.IsSelected = true;
             s.ShowDialog();
         }
@@ -86,14 +86,13 @@ namespace Bolnica.view.SekretarView
         {
             if (PacijentiPrikaz.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate izabrati pacijenta koga želite da izmenite.", "Greška",
+                MessageBox.Show("Morate izabrati pacijenta koga želite da izmenite.", "Greška", 
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
             var s = new IzmenaPacijenta(PacijentiPrikaz);
             s.ShowDialog();
-
+            
         }
 
         private void BrisanjePacijenta_Click(object sender, RoutedEventArgs e)
@@ -124,22 +123,20 @@ namespace Bolnica.view.SekretarView
 
         private void ZakazivanjeTermina_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(null, false, null, DatumZaTermin);
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null);
             Termini.IsSelected = true;
             s.ShowDialog();
         }
 
         private void ZakazivanjeTerminaZaOdabranogPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar((PacijentDTO) PacijentiPrikaz.SelectedItem, false, null, DatumZaTermin);
-            Termini.IsSelected = true;
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, (PacijentDTO)PacijentiPrikaz.SelectedItem);
             s.ShowDialog();
         }
 
         private void ZakazivanjeTerminaZaOdabranogLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new ZakazivanjeTerminaSekretar(null, false, (LekarDTO) LekariPrikaz.SelectedItem, DatumZaTermin);
-            Termini.IsSelected = true;
+            var s = new ZakazivanjeTerminaSekretar(TerminiPrikaz, null, false, (LekarDTO)LekariPrikaz.SelectedItem);
             s.ShowDialog();
         }
 
@@ -151,8 +148,8 @@ namespace Bolnica.view.SekretarView
                     MessageBoxImage.Error);
                 return;
             }
-
-            var s = new IzmenaTermina(TerminiPrikaz, DatumZaTermin);
+            
+            var s = new IzmenaTermina(TerminiPrikaz);
             s.ShowDialog();
         }
 
@@ -160,11 +157,9 @@ namespace Bolnica.view.SekretarView
         {
             if (TerminiPrikaz.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate izabrati termin koji želite da otkažete.", "Greška", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                MessageBox.Show("Morate izabrati termin koji želite da otkažete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
             MessageBoxResult izbor = MessageBox.Show("Da li ste sigurni da želite da otkažete izabrani termin?",
                 "Otkazivanje termina", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
@@ -175,7 +170,6 @@ namespace Bolnica.view.SekretarView
                 SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
             }
         }
-
         private void GenerisanjeIzvestaja_Click(object sender, RoutedEventArgs e)
         {
             var s = new GenerisiIzvestaj();
@@ -189,14 +183,23 @@ namespace Bolnica.view.SekretarView
             s.Show();
         }
 
+
         private void DodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            ((SekretarWindowViewModel) DataContext).DodajObavestenje();
+            var s = new DodavanjeObavestenja(ObavestenjaPrikaz);
+            s.ShowDialog();
         }
 
         private void IzmeniObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            ((SekretarWindowViewModel) DataContext).IzmeniObavestenje();
+            if (ObavestenjaPrikaz.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate izabrati obaveštenje koje želite da izmenite.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
+            var s = new IzmenaObavestenja(ObavestenjaPrikaz);
+            s.ShowDialog();
         }
 
         private void ObrisiObavestenje_Click(object sender, RoutedEventArgs e)
@@ -220,11 +223,10 @@ namespace Bolnica.view.SekretarView
                     MessageBox.Show("Brisanje obaveštenja nije uspešno.", "Greška", MessageBoxButton.OK,
                         MessageBoxImage.Error);
                 }
-
-                ((SekretarWindowViewModel)DataContext).AzurirajObavestenja();
+                
+                ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
             }
         }
-
         private void PogledajObavestenje_Click(object sender, EventArgs e)
         {
             if (ObavestenjaPrikaz.SelectedIndex == -1)
@@ -233,7 +235,6 @@ namespace Bolnica.view.SekretarView
                     MessageBoxImage.Error);
                 return;
             }
-
             var s = new PogledajObavestenje((ObavestenjeDTO) ObavestenjaPrikaz.SelectedItem);
             s.Show();
         }
@@ -252,7 +253,6 @@ namespace Bolnica.view.SekretarView
                     MessageBoxImage.Error);
                 return;
             }
-
             var s = new IzmenaLekara(LekariPrikaz);
             s.ShowDialog();
         }
@@ -261,8 +261,7 @@ namespace Bolnica.view.SekretarView
         {
             if (LekariPrikaz.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate izabrati lekara koga želite da obrišete.", "Greška", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                MessageBox.Show("Morate izabrati lekara koga želite da obrišete.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -278,7 +277,6 @@ namespace Bolnica.view.SekretarView
                         MessageBoxImage.Error);
                     return;
                 }
-
                 LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
                 SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
             }
@@ -286,23 +284,20 @@ namespace Bolnica.view.SekretarView
 
         private void RadnoVremeLekara_Click(object sender, RoutedEventArgs e)
         {
-            var s = new RadnoVremeLekara(((LekarDTO) LekariPrikaz.SelectedItem).Jmbg);
+            var s = new RadnoVremeLekara(((LekarDTO)LekariPrikaz.SelectedItem).Jmbg);
             s.ShowDialog();
         }
 
         private void Pocetna_Selected(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new SekretarWindowViewModel();
-            //ObavestenjaPrikaz.ItemsSource = obavestenjaKontroler.GetObavestenjaByJmbg("-1");
+            ObavestenjaPrikaz.ItemsSource = ObavestenjaKontroler.getInstance().GetOavestenjaByJmbg("-1");
             AzurirajDijagramBrojTermina();
             AzurirajPodeluPoPolovima();
             AzurirajDijagramBrojNovihPacijenata();
             UkupanBrojPacijenata.Text = pacijentKontroler.GetAll().Count.ToString();
             UkupanBrojLekara.Text = lekarKontroler.GetAll().Count.ToString();
-            UkupanBrojSobaZaPregled.Text =
-                prostorijeKontroler.GetBrojProstorija(VrstaProstorije.Soba_za_preglede).ToString();
-            UkupanBrojOperacionihSala.Text =
-                prostorijeKontroler.GetBrojProstorija(VrstaProstorije.Operaciona_sala).ToString();
+            UkupanBrojSobaZaPregled.Text = prostorijeKontroler.GetBrojProstorija(VrstaProstorije.Soba_za_preglede).ToString();
+            UkupanBrojOperacionihSala.Text = prostorijeKontroler.GetBrojProstorija(VrstaProstorije.Operaciona_sala).ToString();
         }
 
         private void Pacijenti_Selected(object sender, RoutedEventArgs e)
@@ -313,27 +308,24 @@ namespace Bolnica.view.SekretarView
 
         private void Termini_Selected(object sender, RoutedEventArgs e)
         {
-            DatumZaTermin.SelectedDate = DateTime.Now;
+            TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekar();
+            SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
         }
-
         private void Lekari_Selected(object sender, RoutedEventArgs e)
         {
             LekariPrikaz.ItemsSource = lekarKontroler.GetAll();
             SortirajDataGrid(LekariPrikaz, 1, ListSortDirection.Ascending);
         }
-
         private void Prostorije_Selected(object sender, RoutedEventArgs e)
         {
             ProstorijePrikaz.ItemsSource = prostorijeKontroler.GetAll();
             SortirajDataGrid(ProstorijePrikaz, 0, ListSortDirection.Ascending);
         }
-
         private void Lekovi_Selected(object sender, RoutedEventArgs e)
         {
             LekoviPrikaz.ItemsSource = lekKontroler.GetAll();
             SortirajDataGrid(LekariPrikaz, 0, ListSortDirection.Ascending);
         }
-
         public static void SortirajDataGrid(DataGrid dataGrid, int kolona, ListSortDirection sortDirection)
         {
             var column = dataGrid.Columns[kolona];
@@ -343,11 +335,9 @@ namespace Bolnica.view.SekretarView
             {
                 col.SortDirection = null;
             }
-
             column.SortDirection = sortDirection;
             dataGrid.Items.Refresh();
         }
-
         private void AzurirajDijagramBrojTermina()
         {
             List<string> sviDaniUMesecu = GenerisiSveDaneUMesecu();
@@ -364,7 +354,8 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(terminKontroler.GetMesecneOperacije(sviDaniUMesecu))
                 }
             };
-            ((SekretarWindowViewModel)DataContext).XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
+            XOsaBrojTermina = PretvoriListuUNiz(sviDaniUMesecu);
+            DataContext = this;
         }
 
         private string[] PretvoriListuUNiz(List<string> sviDaniUMesecu)
@@ -388,10 +379,8 @@ namespace Bolnica.view.SekretarView
             {
                 sviDaniUMesecu.Add(datum.Day.ToString());
             }
-
             return sviDaniUMesecu;
         }
-
         private void AzurirajPodeluPoPolovima()
         {
             SeriesCollection podelaPoPolovima = new SeriesCollection()
@@ -410,7 +399,7 @@ namespace Bolnica.view.SekretarView
                 }
             };
             PodelaPoPolovima.Series = podelaPoPolovima;
-            //DataContext = this;
+            DataContext = this;
         }
 
         private void AzurirajDijagramBrojNovihPacijenata()
@@ -424,8 +413,8 @@ namespace Bolnica.view.SekretarView
                     Values = new ChartValues<int>(pacijentKontroler.GetBrojNovihPacijenataUMesecu(sviDaniUMesecu))
                 }
             };
-            ((SekretarWindowViewModel)DataContext).XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
-            //DataContext = this;
+            XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
+            DataContext = this;
         }
 
 
@@ -439,49 +428,6 @@ namespace Bolnica.view.SekretarView
         {
             var s = new IzmenaLozinke(sekretar);
             s.ShowDialog();
-        }
-
-        private void Feedback_Click(object sender, ExecutedRoutedEventArgs e)
-        {
-            var s = new SekretarFeedback(sekretar.Jmbg);
-            s.ShowDialog();
-        }
-
-        private void DatumZaTermin_OnSelectedDateChanged(object sender, RoutedEventArgs e)
-        {
-            if (Dan.IsChecked == true)
-            {
-                IzaberiDatumLabela.Content = "Izaberi datum:";
-                if (DatumZaTermin.SelectedDate != null)
-                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaDan((DateTime)DatumZaTermin.SelectedDate);
-                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
-            }
-            else if (Nedelja.IsChecked == true)
-            {
-                IzaberiDatumLabela.Content = "Izaberi nedelju:";
-                if (DatumZaTermin.SelectedDate != null)
-                {
-                    int razlika = (7 + ((DateTime) DatumZaTermin.SelectedDate).DayOfWeek - DayOfWeek.Monday) % 7;
-                    TerminiPrikaz.ItemsSource =
-                        terminKontroler.GetBuduciTerminPacLekarZaNedelju(((DateTime) DatumZaTermin.SelectedDate).AddDays(-1 * razlika));
-                }
-
-                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
-            }
-            else if (Mesec.IsChecked == true)
-            {
-                IzaberiDatumLabela.Content = "Izaberi mesec:";
-                if (DatumZaTermin.SelectedDate != null)
-                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaMesec((DateTime)DatumZaTermin.SelectedDate);
-                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
-            }
-            else if (Godina.IsChecked == true)
-            {
-                IzaberiDatumLabela.Content = "Izaberi godinu:";
-                if (DatumZaTermin.SelectedDate != null)
-                    TerminiPrikaz.ItemsSource = terminKontroler.GetBuduciTerminPacLekarZaGodinu((DateTime) DatumZaTermin.SelectedDate);
-                SortirajDataGrid(TerminiPrikaz, 0, ListSortDirection.Ascending);
-            }
         }
     }
 }

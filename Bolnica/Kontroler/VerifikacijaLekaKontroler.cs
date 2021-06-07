@@ -39,11 +39,7 @@ namespace Bolnica.Kontroler
             VerifikacijaLekaServis.GetInstance().PosaljiVerifikacijuLeka(verifikacijaLeka);
         }
 
-        public void ObrisiVerifikacijuLeka(Object verifikacija)
-        {
-            VerifikacijaLekaDTO verifikacijaDTO = (VerifikacijaLekaDTO)verifikacija;
-            VerifikacijaLekaServis.GetInstance().ObrisiVerifikacijuLeka(verifikacijaDTO.IdVerifikacijeLeka);
-        }
+        public void ObrisiVerifikacijuLeka() { }
 
         public List<VerifikacijaLekaDTO> GetAll()
         {

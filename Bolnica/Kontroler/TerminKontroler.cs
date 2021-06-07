@@ -319,7 +319,7 @@ namespace Kontroler
 
         public List<TerminDTO> GetByDateForLekar(DateTime datum, String jmbgLekara)
         {
-            List<Termin> termini = TerminServis.GetByDateForLekar(datum, jmbgLekara);
+            List<Termin> termini = SkladisteZaTermineXml.getInstance().GetByDateForLekar(datum, jmbgLekara);
             List<TerminDTO> terminiDTO = new List<TerminDTO>();
             foreach (Termin termin in termini)
             {
@@ -345,73 +345,6 @@ namespace Kontroler
                 return TerminServis.GenerisiIzvestaj(datumPocetka, datumZavrsetka);
 
             }
-
-        public IEnumerable GetBuduciTerminPacLekarZaDan(DateTime selectedDate)
-        {
-            IEnumerable sviTermini = TerminServis.GetBuduciTerminPacLekar();
-            var terminiZaDatum = new List<TerminPacijentLekarDTO>();
-            foreach (TerminPacijentLekarDTO termin in sviTermini)
-            {
-                if (termin.termin.DatumIVremeTermina.Day == selectedDate.Day &&
-                    termin.termin.DatumIVremeTermina.Month == selectedDate.Month &&
-                    termin.termin.DatumIVremeTermina.Year == selectedDate.Year)
-                {
-                    terminiZaDatum.Add(termin);
-                }
-            }
-
-            return terminiZaDatum;
-        }
-
-        public IEnumerable GetBuduciTerminPacLekarZaNedelju(DateTime prviDanUNedelji)
-        {
-            DateTime zadnjiDanUNedelji = prviDanUNedelji.AddDays(6);
-            IEnumerable sviTermini = TerminServis.GetBuduciTerminPacLekar();
-            var terminiZaDatum = new List<TerminPacijentLekarDTO>();
-            foreach (TerminPacijentLekarDTO termin in sviTermini)
-            {
-                if (termin.termin.DatumIVremeTermina >= prviDanUNedelji && termin.termin.DatumIVremeTermina <= zadnjiDanUNedelji)
-                {
-                    terminiZaDatum.Add(termin);
-                }
-            }
-            return terminiZaDatum;
-        }
-
-        public IEnumerable GetBuduciTerminPacLekarZaMesec(DateTime izabraniDatum)
-        {
-            IEnumerable sviTermini = TerminServis.GetBuduciTerminPacLekar();
-            var terminiZaDatum = new List<TerminPacijentLekarDTO>();
-            foreach (TerminPacijentLekarDTO termin in sviTermini)
-            {
-                if (termin.termin.DatumIVremeTermina.Month == izabraniDatum.Month &&
-                    termin.termin.DatumIVremeTermina.Year == izabraniDatum.Year)
-                {
-                    terminiZaDatum.Add(termin);
-                }
-            }
-
-            return terminiZaDatum;
-        }
-
-        public IEnumerable GetBuduciTerminPacLekarZaGodinu(DateTime izabranaGodina)
-        {
-            IEnumerable sviTermini = TerminServis.GetBuduciTerminPacLekar();
-            var terminiZaDatum = new List<TerminPacijentLekarDTO>();
-            foreach (TerminPacijentLekarDTO termin in sviTermini)
-            {
-                if (termin.termin.DatumIVremeTermina.Year == izabranaGodina.Year)
-                {
-                    terminiZaDatum.Add(termin);
-                }
-            }
-
-            return terminiZaDatum;
-        }
-
-        public List<Termin> GetByJmbgLekar(string tJmbgLekara)
-        {
-            return TerminServis.GetByJmbgLekar(tJmbgLekara);
-        }
+        
     }
 }

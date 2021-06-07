@@ -1,4 +1,5 @@
 using Model;
+using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,6 @@ namespace Kontroler
     public class ProstorijeKontroler
     {
 
-        public Servis.TerminServis terminServis;
-        public Servis.ProstorijeServis prostorijeServis;
         private static ProstorijeKontroler instance = null;
 
         public static ProstorijeKontroler GetInstance()
@@ -47,6 +46,23 @@ namespace Kontroler
         {
             ProstorijeServis.GetInstance().AzurirajRenoviranjaProstorija();
             ProstorijeServis.GetInstance().AzurirajRenoviranjeFlegProstorije();
+        }
+
+        public void IzmeniKolicinuLeka(int idLeka, double kolicina, int izProstorije, int uProstoriju)
+        {
+            // TODO: implement
+        }
+
+        public int DobaviProstoriju(DateTime pocetakTermina, DateTime krajTermina, Model.Enum.VrstaProstorije vrstaProstorije)
+        {
+            // TODO: implement
+            return 0;
+        }
+
+        public List<Termin> PrikaziTermine(int idProstorije)
+        {
+            // TODO: implement
+            return null;
         }
 
         public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime pocetakTermina, double trajanje)
@@ -90,12 +106,12 @@ namespace Kontroler
 
         public void Save(Prostorija prostorija)
         {
-            prostorijeServis.Save(prostorija);
+            // TODO: implement
         }
 
         public void SaveAll(List<Prostorija> prostorije)
         {
-            prostorijeServis.SaveAll(prostorije);
+            // TODO: implement
         }
 
         public void DodajPotrosnuOpremuUMagacin(String tipOpreme, int kolicina)
@@ -297,6 +313,9 @@ namespace Kontroler
             };
             ProstorijeServis.GetInstance().DodajNaprednoRenoviranje(renoviranje);
         }
+
+        public Servis.TerminServis terminServis;
+        public Servis.ProstorijeServis prostorijeServis;
 
         public int GetBrojProstorija(VrstaProstorije vrstaProstorije)
         {

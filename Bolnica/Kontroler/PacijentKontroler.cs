@@ -100,12 +100,30 @@ namespace Kontroler
             PacijentServis.SacuvajKomentarNaDijagnozu(IzabraniRecept, pacijent);
         }
 
+        public bool DodajAlergen(String alergen)
+        {
+            // TODO: implement
+            return false;
+        }
+
+
+        public bool DodajIzvestaj(Izvestaj izvestaj)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public bool IzmeniIzvestaj(Izvestaj izvestaj)
+        {
+            return false;
+        }
+
         public Object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             return PacijentServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
         }
 
-        public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
+        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
         {
             throw new NotImplementedException();
         }

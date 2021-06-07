@@ -15,7 +15,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>21</Kolicina>
+        <Kolicina>22</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
@@ -169,6 +169,10 @@
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
         <Kolicina>4</Kolicina>
       </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
+        <Kolicina>1</Kolicina>
+      </StacionarnaOprema>
     </Staticka>
     <Potrosna />
   </Prostorija>
@@ -183,7 +187,7 @@
     <Staticka>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>3</Kolicina>
+        <Kolicina>1</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Kompjuter</TipStacionarneOpreme>
@@ -248,11 +252,14 @@
     <Potrosna />
   </Prostorija>
   <Prostorija>
+    <termin />
     <IdProstorije>12</IdProstorije>
     <Sprat>4</Sprat>
     <BrojSobe>420</BrojSobe>
-    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <VrstaProstorije>Operaciona_sala</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>45</Kvadratura>
+    <Kvadratura>65</Kvadratura>
+    <Staticka />
+    <Potrosna />
   </Prostorija>
 </ArrayOfProstorija>

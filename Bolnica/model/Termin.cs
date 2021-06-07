@@ -2,7 +2,7 @@ using System;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Model;
 using Model.Enum;
-using Servis;
+using Repozitorijum;
 
 namespace Bolnica.model
 {
@@ -21,7 +21,7 @@ namespace Bolnica.model
         {
             get
             {
-                return ProstorijeServis.GetInstance().GetById(this.IdProstorije).BrojSobe;
+                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).BrojSobe;
             }
             set
             {
@@ -33,7 +33,7 @@ namespace Bolnica.model
         {
             get
             {
-                return ProstorijeServis.GetInstance().GetById(this.IdProstorije).Sprat;
+                return SkladisteZaProstorijeXml.GetInstance().GetById(this.IdProstorije).Sprat;
             }
             set
             {
@@ -52,7 +52,7 @@ namespace Bolnica.model
         {
             get
             {
-                Lekar l=LekarServis.getInstance().getByJmbg(JmbgLekara);
+                Lekar l=SkladisteZaLekaraXml.GetInstance().getByJmbg(JmbgLekara);
                 return l.FullName;
             }
             set
@@ -64,7 +64,7 @@ namespace Bolnica.model
         {
            get
             {
-                Pacijent p = PacijentServis.GetInstance().GetByJmbg(JmbgPacijenta);
+                Pacijent p = SkladistePacijentaXml.GetInstance().GetByJmbg(JmbgPacijenta);
                 return p.FullName;
             }
             set

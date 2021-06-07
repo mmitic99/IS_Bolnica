@@ -10,7 +10,6 @@ namespace Kontroler
     public class ObavestenjaKontroler
     {
         public static ObavestenjaKontroler instance =null;
-        public Servis.ObavestenjaServis obavestenjaServis;
 
         public static ObavestenjaKontroler getInstance()
         {
@@ -59,7 +58,7 @@ namespace Kontroler
             obavestenjaServis.SaveAll(obavestenje);
         }
 
-        public List<ObavestenjeDTO> GetObavestenjaByJmbg(string jmbg)
+        public List<ObavestenjeDTO> GetOavestenjaByJmbg(string jmbg)
         {
             List<Obavestenje> obavestenja = obavestenjaServis.GetObavestenjaByJmbg(jmbg);
             List<ObavestenjeDTO> obavestenjaDto = new List<ObavestenjeDTO>();
@@ -148,6 +147,8 @@ namespace Kontroler
                 kvartalnaAnketa = novoObavestenje.kvartalnaAnketa
             });
         }
+
+        public Servis.ObavestenjaServis obavestenjaServis;
 
         public bool ObrisiObavestenje(ObavestenjeDTO obavestenje)
         {

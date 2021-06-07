@@ -1,0 +1,49 @@
+﻿<Page x:Class="Bolnica.view.UpravnikView.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.UpravnikView"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Login">
+
+    <Grid>
+        <Label Content="PRIJAVA" FontSize="30" FontFamily="Yu Gothic UI Semibold" Margin="248,112,906.698,552" />
+        <Label Content="ZABORAVILI STE LOZINKU ?" FontSize="30" FontFamily="Yu Gothic UI Semibold" Margin="760,112,125.698,552" />
+        <Separator VerticalAlignment="Center" Margin="506,107,506,556" Background="Black" Height="57" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.144"/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform Y="0.45"/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator VerticalAlignment="Center" Margin="506,556,506,107" Background="Black" Height="57" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.144"/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform Y="0.45"/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Image Height="120" Width="120" Source="bolnicalogo.png" />
+        <Label Content="KORISNIČKO IME" FontSize="18" FontFamily="Yu Gothic UI Semibold" Margin="87,275,1030.698,405" />
+        <Label Content="LOZINKA" FontSize="18" FontFamily="Yu Gothic UI Semibold" Margin="87,342,1030.698,338" />
+        <Label Content="ULOGA" FontSize="18" FontFamily="Yu Gothic UI Semibold" Margin="87,407,1030.698,273" />
+        <Label Content="E-MAIL ADRESA" FontSize="18" FontFamily="Yu Gothic UI Semibold" Margin="760,342,357.698,338" />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="337,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="337,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="337,410,0,0" VerticalAlignment="Top" Width="182" Height="30">
+            <ComboBoxItem Content="upravnik" FontSize="16"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="1003,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="760,198,0,0" TextWrapping="Wrap" Text="Nema problema, unesite vašu e-mail adresu da Vam pošaljemo zahtev za izmenu lozinke." VerticalAlignment="Top" Width="394" FontSize="16" TextAlignment="Center" FontFamily="Yu Gothic UI Semibold"/>
+        <Button x:Name="PrijavaButton" Content="Prijavi se" FontFamily="Yu Gothic UI Semibold" HorizontalAlignment="Left" Height="60" Margin="200,565,0,0" VerticalAlignment="Top" Width="223" FontSize="22" Click="PrijavaButton_Click"/>
+        <Button x:Name="ZaboravljenaLozinkaButton" Content="Pošalji zahtev" FontFamily="Yu Gothic UI Semibold" HorizontalAlignment="Left" Height="60" Margin="853,565,0,0" VerticalAlignment="Top" Width="223" FontSize="22" Click="ZaboravljenaLozinkaButton_Click"/>
+    </Grid>
+</Page>

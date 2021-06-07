@@ -1,5 +1,6 @@
 ﻿using Bolnica.DTOs;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Bolnica.model;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Servis;
 using iText.Kernel.Colors;
@@ -35,9 +35,12 @@ namespace Servis
         {
             if (instance == null)
             {
-                instance = new TerminServis();
+                return new TerminServis();
             }
-            return instance;
+            else
+            {
+                return instance;
+            }
         }
 
         public TerminServis()
@@ -357,7 +360,7 @@ namespace Servis
             {
                 if (parametri.TacnoVreme > DateTime.Today.AddDays(1)
                     && (parametri.JmbgLekara == null || lekar.Jmbg == parametri.JmbgLekara)
-                    && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(lekar.Jmbg, parametri.TacnoVreme, parametri.trajanjeUMinutama))
+                    && LekarServis.getInstance().DaLiJeLekarSlobodan(new ParamsToCheckAvailabilityOfDoctorDTO(parametri.JmbgLekara, parametri.TacnoVreme, parametri.trajanjeUMinutama))
                     && ProstorijeServis.PostojiSlobodnaProstorija(new ParamsToCheckAvailabilityOfRoomDTO(parametri.vrstaPregleda, parametri.TacnoVreme, parametri.trajanjeUMinutama)))
                 {
                     Termin t = new Termin()
@@ -521,6 +524,12 @@ namespace Servis
             return datumVreme;
         }
 
+        public bool OdloziTermin(Termin termin)
+        {
+            // TODO: implement
+            return true;
+        }
+
         public void RemoveByID(string iDTermina)
         {
             skladisteZaTermine.RemoveById(iDTermina);
@@ -566,12 +575,12 @@ namespace Servis
 
         public void Save(Termin termin)
         {
-            skladisteZaTermine.Save(termin);
+            // TODO: implement
         }
 
         public void SaveAll(List<Termin> termini)
         {
-            skladisteZaTermine.SaveAll(termini);
+            // TODO: implement
         }
 
         public IEnumerable GetBuduciTerminPacLekar()
@@ -642,11 +651,15 @@ namespace Servis
             }
             catch (IOException e)
             {
-                return "otvoren";
+                MessageBox.Show("Fajl na adresi: '" + Path.GetFullPath(putanjaIzvestaja) + "' je već otvoren. Zatvorite fajl i pokušajte ponovo.", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return null;
             }
             catch (Exception e)
             {
-                return "";
+                MessageBox.Show("Desila se nepoznata greška prilikom generisanja izveštaja", "Greška", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return null;
             }
         }
 
@@ -661,11 +674,6 @@ namespace Servis
                 }
             }
             return termini.OrderBy(termin => termin.DatumIVremeTermina).ToList();
-        }
-
-        public List<Termin> GetByJmbgLekar(string tJmbgLekara)
-        {
-            return skladisteZaTermine.GetByJmbgLekar(tJmbgLekara);
         }
     }
     

@@ -26,9 +26,8 @@ namespace Bolnica.viewActions
         public List<ObavestenjeDTO> obavestenja
         {
             get
-            { 
-
-                return ObavestenjaKontroler.GetObavestenjaByJmbg(JmbgKorisnika).OrderByDescending(x => x.VremeObavestenja).ToList();
+            {
+                return ObavestenjaKontroler.GetOavestenjaByJmbg(JmbgKorisnika);
             }
         }
         public string JmbgKorisnika { get; set; }

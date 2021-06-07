@@ -4,9 +4,8 @@ using System.IO;
 using System.Xml.Serialization;
 using Bolnica.DTOs;
 using Bolnica.model;
-using Bolnica.Repozitorijum.ISkladista;
 using Model;
-using Servis;
+using Repozitorijum;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste
 {
@@ -52,12 +51,12 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
         {
 
             List<TerminPacijentLekarDTO> termini = new List<TerminPacijentLekarDTO>();
-            foreach (Termin termin in GetAll())
+            foreach (Termin termin in SkladisteZaTermineXml.getInstance().GetAll())
             {
                 if (termin.DatumIVremeTermina >= DateTime.Now)
                 {
-                    Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(termin.JmbgPacijenta);
-                    Lekar lekar = LekarServis.getInstance().getByJmbg(termin.JmbgLekara);
+                    Pacijent pacijent = SkladistePacijentaXml.GetInstance().GetByJmbg(termin.JmbgPacijenta);
+                    Lekar lekar = SkladisteZaLekaraXml.GetInstance().getByJmbg(termin.JmbgLekara);
                     List<string> alergeni = new List<string>();
                     List<AnamnezaDTO> anamneze = DobaviAnamnezeZaPacijenta(pacijent);
                     List<IzvestajDTO> izvestaji = DobaviIzvestajeZaPacijenta(pacijent);

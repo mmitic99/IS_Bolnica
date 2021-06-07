@@ -65,9 +65,8 @@ namespace Kontroler
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            Lekar lekar = (Lekar) lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
-            if (lekar != null)
-            {
+            Lekar lekar =  (Lekar)lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            if (lekar != null) {
                 return new LekarDTO()
                 {
                     Ime = lekar.Ime,
@@ -81,17 +80,20 @@ namespace Kontroler
                     BrojTelefona = lekar.BrojTelefona,
                     Email = lekar.Email,
                     NazivGrada = lekar.Grad.Naziv,
-                    Korisnik = new KorisnikDTO()
-                        {KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka},
-                    Specijalizacija = lekar.Specijalizacija.ToString(),
+                    Korisnik = new KorisnikDTO() { KorisnickoIme = lekar.Korisnik.KorisnickoIme, Lozinka = lekar.Korisnik.Lozinka },
+                    Specijalizacija =  lekar.Specijalizacija.ToString(),
                     BrojSlobodnihDana = lekar.BrojSlobodnihDana,
                     IdOrdinacija = lekar.IdOrdinacija,
                     FullName = lekar.FullName,
                     ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
                 };
             }
-
             return null;
+        }
+
+        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        {
+            throw new NotImplementedException();
         }
 
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
@@ -132,12 +134,12 @@ namespace Kontroler
 
         public void Save(Model.Lekar lekar)
         {
-            lekarServis.Save(lekar);
+            // TODO: implement
         }
 
         public void SaveAll(List<Lekar> lekari)
         {
-            lekarServis.SaveAll(lekari);
+            // TODO: implement
         }
 
         public Servis.LekarServis lekarServis;
@@ -231,11 +233,6 @@ namespace Kontroler
                 FullName = lekar.FullName,
                 ImeiSpecijalizacija = lekar.ImeiSpecijalizacija
             };
-        }
-
-        public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
-        {
-            throw new NotImplementedException();
         }
     }
 }

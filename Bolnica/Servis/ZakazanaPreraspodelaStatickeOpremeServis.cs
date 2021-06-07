@@ -6,9 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
-using Bolnica.Validacije;
 
 namespace Bolnica.Servis
 {
@@ -16,7 +14,6 @@ namespace Bolnica.Servis
     {
         private static ZakazanaPreraspodelaStatickeOpremeServis instance = null;
         public ISkladisteZaZakazanuPreraspodeluStatickeOpreme skladisteZaZakazanuPreraspodeluStatickeOpreme;
-        public ValidacijaContext validacija = new ValidacijaContext(new ZakazanaPreraspodelaStatickeOpremeStrategy());
 
         public static ZakazanaPreraspodelaStatickeOpremeServis GetInstance()
         {
@@ -50,14 +47,14 @@ namespace Bolnica.Servis
 
         public bool ProveraValidnostiPreraspodeleOpreme(String trajanje)
         {
-            bool validno = true;
             Regex sablon = new Regex(@"^[1-9]{1}[0-9]*$");
-            if (!(sablon.IsMatch(trajanje) && !trajanje.Equals("")))
+            if (sablon.IsMatch(trajanje) && !trajanje.Equals(""))
+                return true;
+            else
             {
-                validacija.IspisiGresku(1);
-                validno = false;
+                MessageBox.Show("Neispravno uneto trajanje termina za preraspodelu opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
-            return validno;
         }
 
         public List<ZakazanaPreraspodelaStatickeOpreme> GetAll()

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,7 +29,7 @@ namespace Bolnica.view.LekarView
     {
         private static TerminiPage instance = null;
         public String FullIme;
-        private TerminKontroler terminKontroler = new TerminKontroler();
+
 
         public static TerminiPage getInstance()
         {
@@ -45,7 +46,7 @@ namespace Bolnica.view.LekarView
             InitializeComponent();
             DatePicker1.SelectedDate = DateTime.Today;
             this.DataContext = this;
-            Pregledi_Table.ItemsSource = terminKontroler.GetByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
+            Pregledi_Table.ItemsSource = SkladisteZaTermineXml.getInstance().GetByDateForLekar(DateTime.Now.Date, lekar.Jmbg);
             ImeDoktora.DataContext = lekar;
             instance = this;
         }

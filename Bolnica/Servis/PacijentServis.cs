@@ -1,27 +1,28 @@
 ﻿using Bolnica.DTOs;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Servis
 {
     public class PacijentServis : KorisnikServis
     {
-        private KorisnickeAktivnostiPacijentaServis KorisnickeAktivnostiPacijentaServis;
         public static PacijentServis instance = null;
-
         public static PacijentServis GetInstance()
         {
             if(instance == null)
             {
-                instance = new PacijentServis();
+                return new PacijentServis();
             }
-            return instance;
+            else
+            {
+                return instance;
+            }
         }
         public PacijentServis()
         {
@@ -29,25 +30,46 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermineXml();
             skladisteZaObavestenja = new SkladisteZaObavestenjaXml();
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
-            KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
         }
 
 
         public bool RegistrujPacijenta(Pacijent pacijent)
         {
-            bool retVal = true;
             List<Pacijent> pacijenti = skladistePacijenta.GetAll();
 
             for (int i = 0; i < pacijenti.Count; i++)
             {
                 if (pacijenti.ElementAt(i).Jmbg.Equals(pacijent.Jmbg))
                 {
-                    retVal =  false;
+                    return false;
                 }
             }
-            if(retVal)
-                skladistePacijenta.Save(pacijent);
-            return retVal;
+            skladistePacijenta.Save(pacijent);
+            return true;
+        }
+
+        public bool DodajAlergen(String alergen)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public bool DodajObavestenje(Model.Obavestenje obavestenje)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public bool DodajIzvestaj(Izvestaj izvestaj)
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public bool IzmeniIzvestaj(Izvestaj izvestaj)
+        {
+            // TODO: implement
+            return false;
         }
 
         public Object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
@@ -98,10 +120,10 @@ namespace Servis
             for(int i=0; i<pacijent.ZdravstveniKarton.Izvestaj.Count; i++)
             {
                 for(int j=0; j<pacijent.ZdravstveniKarton.Izvestaj[i].recepti.Count; j++)
-                    if(pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j].IdRecepta == izabraniRecept.IdRecepta)
-                    {
-                            pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j] = izabraniRecept;
-                    }
+                if(pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j].IdRecepta == izabraniRecept.IdRecepta)
+                {
+                        pacijent.ZdravstveniKarton.Izvestaj[i].recepti[j] = izabraniRecept;
+                }
             }
             IzmeniPacijenta(pacijent, pacijent);
         }
@@ -131,7 +153,7 @@ namespace Servis
                 if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))
                 {
                     korisnickaAktivnost.JmbgKorisnika = noviJmbg;
-                    KorisnickeAktivnostiPacijentaServis.IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
+                    KorisnickeAktivnostiPacijentaServis.GetInstance().IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
                 }
             }
         }

@@ -2,6 +2,7 @@
 using Bolnica.Servis;
 using Bolnica.view;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -10,8 +11,6 @@ using Kontroler;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
 using Bolnica.model.Enum;
-using System.Linq;
-using Bolnica.Repozitorijum.ISkladista;
 
 namespace Servis
 {
@@ -29,9 +28,12 @@ namespace Servis
         {
             if (instance == null)
             {
-                instance = new ObavestenjaServis();
+                return new ObavestenjaServis();
             }
-            return instance;
+            else
+            {
+                return instance;
+            }
         }
 
         public ObavestenjaServis()
@@ -43,7 +45,8 @@ namespace Servis
             this.LekarServis = new LekarServis();
         }
 
-        public List<Obavestenje> GetAll()
+        public List<Obavestenje> GetAll
+            ()
         {
             return SkladisteZaObavestenja.GetAll();
         }
@@ -61,6 +64,7 @@ namespace Servis
         public List<Obavestenje> GetObavestenjaByJmbg(String jmbg)
         {
             List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetObavestenjaByJmbg(jmbg);
+
             foreach(Obavestenje obavestenje in SkladisteZaObavestenja.GetObavestenjaByJmbg("-1"))
             {
                 if (!obavestenja.Contains(obavestenje))
@@ -68,7 +72,7 @@ namespace Servis
                     obavestenja.Add(obavestenje);
                 }
             }
-            List<Obavestenje> sortiranaObavestenja = obavestenja.OrderByDescending(x => x.VremeObavestenja).ToList();
+
             return obavestenja;
         }
 
@@ -91,7 +95,7 @@ namespace Servis
                 " treba da uzmete Vaš lek. Prijatan dan Vam želi ,,Zdravo bolnica"
             };
             return PosaljiPodsetnik(podsetnik);
-         }
+            }
 
         internal bool NapravikorisnickePodsetnike(KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano)
         {
@@ -119,28 +123,19 @@ namespace Servis
 
         private bool PosaljiPodsetnik(Podsetnik podsetnik)
         {
-            bool uspesnoPoslat = false;
-            if (!DaLiJePrethodnoPodsetnikPoslat(podsetnik))
-            {
-                SkladisteZaPodsetnike.Save(podsetnik);
-                uspesnoPoslat = true;
-            }
-            return uspesnoPoslat;    
+            if (DaLiJePodsetnikPoslat(podsetnik)) return false;
+            SkladisteZaPodsetnike.Save(podsetnik);
+            return true;    
         }
 
-        private bool DaLiJePrethodnoPodsetnikPoslat(Podsetnik podsetnik)
+        private bool DaLiJePodsetnikPoslat(Podsetnik podsetnik)
         {
-            bool poslatPodsetnik = false;
             List<Podsetnik> podsetnici = SkladisteZaPodsetnike.GetAll();
             foreach(Podsetnik p in podsetnici)
             {
-                if (DaLiJeIstiPodsetnik(p, podsetnik))
-                {
-                    poslatPodsetnik = true;
-                    break;
-                }
+                if (DaLiJeIstiPodsetnik(p, podsetnik)) return true;
             }
-            return poslatPodsetnik;
+            return false;
         }
 
         private bool DaLiJeIstiPodsetnik(Podsetnik p, Podsetnik podsetnik)
@@ -156,11 +151,13 @@ namespace Servis
             Pacijent pacijent = PacijentServis.GetByJmbg(JmbgPacijenta);
             Lekar lekar = LekarServis.GetByJmbg(JmbgLekara);
             AnketeServis.GetAnketaOLekaru(JmbgLekara);
+
             PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
             {
                 IDAnkete = JmbgPacijenta + JmbgLekara + DateTime.Now.ToString(),
                 JmbgLekara = JmbgLekara
             };
+
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,
@@ -246,20 +243,18 @@ namespace Servis
 
         private string GetNazivMesec(int month)
         {
-            string tekstualniZapisMeseca="";
-            if (month == 1) tekstualniZapisMeseca = "januarska";
-            else if (month == 2) tekstualniZapisMeseca = "februarska";
-            else if (month == 3) tekstualniZapisMeseca = "martovska";
-            else if (month == 4) tekstualniZapisMeseca = "aprilska";
-            else if (month == 5) tekstualniZapisMeseca = "majska";
-            else if (month == 6) tekstualniZapisMeseca = "junska";
-            else if (month == 7) tekstualniZapisMeseca = "julska";
-            else if (month == 8) tekstualniZapisMeseca = "avgustovska";
-            else if (month == 9) tekstualniZapisMeseca = "septembarska";
-            else if (month == 10) tekstualniZapisMeseca = "oktobarska";
-            else if (month == 11) tekstualniZapisMeseca = "novembarska";
-            else tekstualniZapisMeseca = "decembarska";
-            return tekstualniZapisMeseca;
+            if (month == 1) return "januarska";
+            else if (month == 2) return "februarska";
+            else if (month == 3) return "martovska";
+            else if (month == 4) return "aprilska";
+            else if (month == 5) return "majska";
+            else if (month == 6) return "junska";
+            else if (month == 7) return "julska";
+            else if (month == 8) return "avgustovska";
+            else if (month == 9) return "septembarska";
+            else if (month == 10) return "oktobarska";
+            else if (month == 11) return "novembarska";
+            else return "decembarska";
         }
 
         public bool IzmeniObavestenje(Obavestenje staroObavestenje, Obavestenje novoObavestenje)
@@ -271,7 +266,6 @@ namespace Servis
 
         public bool ObrisiObavestenje(Obavestenje obavestenje)
         {
-            bool retVal = false;
             List<Obavestenje> obavestenja = SkladisteZaObavestenja.GetAll();
             foreach (Obavestenje obavestenje1 in obavestenja)
             {
@@ -279,11 +273,10 @@ namespace Servis
                 {
                     obavestenja.Remove(obavestenje);
                     SkladisteZaObavestenja.SaveAll(obavestenja);
-                    retVal = true;
-                    break;
+                    return true;
                 }
             }
-            return retVal;
+            return false;
         }
 
         public List<Podsetnik> DobaviAktuelnePodsetnike(string jmbgPacijenta)

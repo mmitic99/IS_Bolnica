@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using Bolnica.Repozitorijum.ISkladista;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste
 {
@@ -63,7 +62,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             }
         }
 
-        public void RemoveById(string jmbgPacijenta)
+        public void RemoveByID(string jmbgPacijenta)
         {
             List<BolnickoLecenje> svaLecenja = this.GetAll();
             foreach(BolnickoLecenje bolnickoLecenje in svaLecenja)

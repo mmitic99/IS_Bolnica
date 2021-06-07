@@ -61,7 +61,7 @@
                                         <Grid Grid.Row="0">
                                             <StackPanel Orientation="Vertical">
                                                 <TextBlock Text="Beleške:" FontSize="20"/>
-                                                <ListView x:Name="NotesList" ItemsSource="{Binding KomentariKorisnika.KomentariKorisnika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                <ListView x:Name="NotesList" ItemsSource="{Binding KomentariKorisnika.KomentariKorisnika}"
                           ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                           ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                                             </StackPanel>

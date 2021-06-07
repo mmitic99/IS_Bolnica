@@ -3,11 +3,11 @@ using Bolnica.model;
 using Bolnica.Servis;
 using Kontroler;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using static Bolnica.DTOs.ReceptDTO;
 using Bolnica.view;
@@ -42,19 +42,23 @@ namespace Servis
 
         public bool RegistrujLekara(Lekar lekar)
         {
-            bool sacuvaj = true;
             List<Lekar> lekari = skladisteZaLekara.GetAll();
 
             for (int i = 0; i < lekari.Count; i++)
             {
                 if (lekari.ElementAt(i).Jmbg.Equals(lekar.Jmbg))
                 {
-                    sacuvaj = false;
+                    return false;
                 }
             }
-            if(sacuvaj)
-                skladisteZaLekara.Save(lekar);
-            return sacuvaj;
+            skladisteZaLekara.Save(lekar);
+            return true;
+        }
+
+        public bool DodajObavestenje(Model.Obavestenje obavestenje)
+        {
+            // TODO: implement
+            return false;
         }
 
         public void IzmeniLekara(string jmbg, Lekar lekar)
@@ -90,7 +94,6 @@ namespace Servis
 
         private bool ProveriTermineLekara(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
-            bool retVal = true;
             List<Termin> terminiLekara = skladisteZaTermine.GetByJmbgLekar(parametri.IDDoctor);
             foreach (Termin termin in terminiLekara)
             {
@@ -98,11 +101,11 @@ namespace Servis
                     StariTerminUnutarNovogTermina(parametri, termin) ||
                     TerminiSePoklapaju(parametri, termin))
                 {
-                    retVal = false;
+                    return false;
                 }
             }
 
-            return retVal;
+            return true;
         }
 
         private static bool TerminiSePoklapaju(ParamsToCheckAvailabilityOfDoctorDTO parametri, Termin termin)
@@ -125,16 +128,15 @@ namespace Servis
 
         private bool DaLiLekarRadi(ParamsToCheckAvailabilityOfDoctorDTO parametri)
         {
-            bool retVal = false;
             foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(parametri.IDDoctor))
             {
                 if (LekarRadi(parametri, radnoVreme))
                 {
-                    retVal = true;
+                    return true;
                 }
             }
 
-            return retVal;
+            return false;
         }
 
         private static bool LekarRadi(ParamsToCheckAvailabilityOfDoctorDTO parametri, RadnoVreme radnoVreme)
@@ -196,7 +198,7 @@ namespace Servis
 
         public void SaveAll(List<Lekar> lekari)
         {
-            skladisteZaLekara.SaveAll(lekari);
+            // TODO: implement
         }
         public Lekar GetByJmbg(string jmbg)
         {
@@ -236,11 +238,6 @@ namespace Servis
             return LekarWindow.getInstance().lekarTrenutni;
         }
         private RadnoVremeServis radnoVremeServis;
-
-        public Lekar getByJmbg(string jmbgLekara)
-        {
-            return skladisteZaLekara.getByJmbg(jmbgLekara);
-        }
     }
    
 }

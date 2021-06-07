@@ -73,18 +73,8 @@ public partial class PomeranjeTermina : UserControl
                 
             };
             List<TerminDTO> moguciTermini = TerminKontroler.NadjiTermineZaParametre(parametriDTO);
-            if(moguciTermini.Count>0)
-            {
                 MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
                 MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
-            }
-            else
-            {
-                var s = new Upozorenje("Nema slobodnih termina po kriterijumima pretrage!");
-                s.Owner = PacijentMainWindow.getInstance();
-                s.ShowDialog();
-            }
-
             
         }
     }

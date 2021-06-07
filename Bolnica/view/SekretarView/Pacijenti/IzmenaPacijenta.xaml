@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:validacije="clr-namespace:Bolnica.Validacije"
         mc:Ignorable="d"
-        Title="IzmenaPacijenta" Height="630" Width="800"
+        Title="IzmenaPacijenta" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
         <TabControl Grid.Row="0" Grid.ColumnSpan="2" Margin="5">
             <TabItem x:Name="izmena">
                 <TabItem.Header>
-                    <AccessText FontSize="20">_Izmena</AccessText>
+                    <TextBlock Text="Izmena" FontSize="20"/>
                 </TabItem.Header>
 
                 <Grid>
@@ -37,8 +37,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">JMBG*:</Label>
-                                <TextBox x:Name="jmbg" Grid.Column="1" FontSize="15">
+                                <Label Grid.Column="0">JMBG*:</Label>
+                                <TextBox x:Name="jmbg" Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -66,8 +66,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Ime*:</Label>
-                                <TextBox x:Name="ime" Grid.Column="1" FontSize="15">
+                                <Label Grid.Column="0">Ime*:</Label>
+                                <TextBox x:Name="ime" Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="Ime" UpdateSourceTrigger="LostFocus">
                                             <Binding.ValidationRules>
@@ -94,8 +94,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Prezime:</Label>
-                                <TextBox x:Name="prezime" Grid.Column="1" FontSize="15">
+                                <Label Grid.Column="0">Prezime:</Label>
+                                <TextBox x:Name="prezime" Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="Prezime" UpdateSourceTrigger="LostFocus">
                                             <Binding.ValidationRules>
@@ -122,8 +122,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Pol:</Label>
-                                <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0" FontSize="15">
+                                <Label Grid.Column="0">Pol:</Label>
+                                <ComboBox x:Name="pol" Grid.Column="1" SelectedIndex="0">
                                     <ComboBoxItem>Muški</ComboBoxItem>
                                     <ComboBoxItem>Ženski</ComboBoxItem>
                                 </ComboBox>
@@ -133,16 +133,16 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Datum rođenja:</Label>
-                                <DatePicker x:Name="datum" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Datum rođenja:</Label>
+                                <DatePicker x:Name="datum" Grid.Column="1"/>
                             </Grid>
                             <Grid Margin="15,15,15,30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Bračno stanje:</Label>
-                                <ComboBox x:Name="BracnoStanje" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Bračno stanje:</Label>
+                                <ComboBox x:Name="BracnoStanje" Grid.Column="1"/>
                             </Grid>
                             <Separator/>
                             <Grid Margin="15, 30, 15, 0">
@@ -150,8 +150,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Korisničko ime:</Label>
-                                <TextBox x:Name="korIme" Grid.Column="1"  FontSize="15"/>
+                                <Label Grid.Column="0">Korisničko ime:</Label>
+                                <TextBox x:Name="korIme" Grid.Column="1" />
                             </Grid>
                         </StackPanel>
                     </Grid>
@@ -163,16 +163,16 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Zanimanje:</Label>
-                                <TextBox x:Name="Zanimanje" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Zanimanje:</Label>
+                                <TextBox x:Name="Zanimanje" Grid.Column="1"/>
                             </Grid>
                             <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Broj telefona:</Label>
-                                <TextBox x:Name="tel" Grid.Column="1" FontSize="15">
+                                <Label Grid.Column="0">Broj telefona:</Label>
+                                <TextBox x:Name="tel" Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="BrojTelefona" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -199,8 +199,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">E-mail adresa:</Label>
-                                <TextBox x:Name="email" Grid.Column="1" FontSize="15">
+                                <Label Grid.Column="0">E-mail adresa:</Label>
+                                <TextBox x:Name="email" Grid.Column="1">
                                     <TextBox.Text>
                                         <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>
@@ -227,24 +227,24 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Adresa stanovanja:</Label>
-                                <TextBox x:Name="adresa" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Adresa stanovanja:</Label>
+                                <TextBox x:Name="adresa" Grid.Column="1"/>
                             </Grid>
                             <Grid Margin="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Grad:</Label>
-                                <TextBox x:Name="grad" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Grad:</Label>
+                                <TextBox x:Name="grad" Grid.Column="1"/>
                             </Grid>
                             <Grid Margin="15, 15, 15, 30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Država:</Label>
-                                <TextBox x:Name="drzava" Grid.Column="1" FontSize="15"/>
+                                <Label Grid.Column="0">Država:</Label>
+                                <TextBox x:Name="drzava" Grid.Column="1"/>
                             </Grid>
                             <Separator/>
                             <Grid Margin="15, 30, 15, 0">
@@ -252,8 +252,8 @@
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="160"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" FontSize="15">Lozinka:</Label>
-                                <PasswordBox x:Name="lozinka" Grid.Column="1"  FontSize="15"/>
+                                <Label Grid.Column="0">Lozinka:</Label>
+                                <PasswordBox x:Name="lozinka" Grid.Column="1" />
                             </Grid>
                         </StackPanel>
                     </Grid>
@@ -262,7 +262,7 @@
             </TabItem>
             <TabItem x:Name="zdrKarton">
                 <TabItem.Header>
-                    <AccessText FontSize="20">_Zdravstveni karton</AccessText>
+                    <TextBlock Text="Zdravstveni karton" FontSize="20"/>
                 </TabItem.Header>
 
                 <Grid>
@@ -280,8 +280,8 @@
                     <ListBox Grid.Row="1" Grid.Column="0" FontSize="20" x:Name="alergeniList" Margin="5"/>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="dodajA" Margin="50,10" Click="DodajAlergen_Click" FontSize="15">Dodaj alergen</Button>
-                        <Button x:Name="obrisiA" Margin="50,10" Click="ObrisiAlergen_Click" FontSize="15">Obriši alergen</Button>
+                        <Button x:Name="dodajA" Margin="50,10" Click="DodajAlergen_Click">Dodaj alergen</Button>
+                        <Button x:Name="obrisiA" Margin="50,10" Click="ObrisiAlergen_Click">Obriši alergen</Button>
                     </StackPanel>
 
                 </Grid>
@@ -293,18 +293,30 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="sacuvaj_Click" Content="Potvrdi" FontSize="15"
-                    Style = "{StaticResource ValidationButton}"
-                    Template="{StaticResource RoundedSmallerButton}"/>
+            <Button x:Name="sacuvaj" Width="100" Grid.Column="0" Click="sacuvaj_Click" Content="Potvrdi">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=jmbg}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=ime}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=prezime}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="1" Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="1" Click="Otkazi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
+            <Button Width="100" Grid.Column="1" Click="Otkazi_Click">Otkaži</Button>
         </Grid>
 
     </Grid>

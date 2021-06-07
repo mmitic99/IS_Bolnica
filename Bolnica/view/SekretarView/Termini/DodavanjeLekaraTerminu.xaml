@@ -13,7 +13,7 @@
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="1" Name="DodavanjeLekaraTerminuPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" FontSize="18">
+        <DataGrid Grid.Row="1" Name="DodavanjeLekaraTerminuPrikaz" CanUserAddRows="false" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="jmbgL" Header="JMBG" Binding="{Binding Jmbg}" Width="*"/>
                 <DataGridTextColumn x:Name="imeL" Header="Ime" Binding="{Binding Ime}" Width="*"/>
@@ -25,12 +25,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="100" Grid.Column="0" Click="potvrdi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Potvrdi</Button>
-            <Button Width="100" Grid.Column="1" Click="otkazi_Click" FontSize="15"
-                    Style="{StaticResource BasicButton}" 
-                    Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
+            <Button Width="100" Grid.Column="0" Click="potvrdi_Click">Potvrdi</Button>
+            <Button Width="100" Grid.Column="1" Click="otkazi_Click">Otkaži</Button>
         </Grid>
     </Grid>
 </Window>

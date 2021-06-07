@@ -5,7 +5,7 @@ namespace Kontroler
    public interface KorisnikKontroler
    {
       Object PrijavljivanjeKorisnika(String korisnickoIme, String lozinka);
-      bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka);
+      bool IzmenaLozinke(String staraLozinka, String novaLozinka);
       bool IzmenaKorisnickogImena(String staroKorisnickoIme, String novoKorisnickoIme);
    }
 }

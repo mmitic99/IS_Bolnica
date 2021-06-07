@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using Bolnica.Repozitorijum.ISkladista;
 using Model;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste
@@ -70,7 +69,7 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             serializer.Serialize(writer, lekovi);
             writer.Close();
         }
-        public Lek GetById(int id)
+        public Lek getById(int id)
         {
             List<Lek> lekovi = this.GetAll();
            Lek l1 = new Lek();

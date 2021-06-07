@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.Repozitorijum;
 using Bolnica.model;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
@@ -35,19 +34,7 @@ namespace Bolnica.Servis
             skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka);
         }
 
-        public void ObrisiVerifikacijuLeka(String idVerifikacije)
-        {
-            List<VerifikacijaLeka> SveVerifikacije = skladisteZaVerifikacijuLeka.GetAll();
-            foreach (VerifikacijaLeka verifikacija in SveVerifikacije)
-            {
-                if (idVerifikacije.Equals(verifikacija.IdVerifikacijeLeka))
-                {
-                    SveVerifikacije.Remove(verifikacija);
-                    break;
-                }
-            }
-            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacije);
-        }
+        public void ObrisiVerifikacijuLeka() { }
 
         public List<VerifikacijaLeka> GetAll()
         {

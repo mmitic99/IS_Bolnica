@@ -1,5 +1,6 @@
 ﻿using Bolnica.view.LekarView;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +29,8 @@ namespace Bolnica.view
         }
         public Lekar lekarTrenutni;
         
+
+        SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
         public LekarWindow(LekarDTO lekar)
         {
 

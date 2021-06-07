@@ -1,11 +1,11 @@
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bolnica.Repozitorijum;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.DTOs;
-using Bolnica.Repozitorijum.ISkladista;
 
 namespace Servis
 {
@@ -74,17 +74,18 @@ namespace Servis
 
         public List<Sekretar> GetAll()
         {
-            return skladisteSekretara.GetAll();
+            // TODO: implement
+            return null;
         }
 
         public void Save(Model.Sekretar sekretar)
         {
-            skladisteSekretara.Save(sekretar);
+            // TODO: implement
         }
 
         public void SaveAll(List<Sekretar> sekretari)
         {
-            skladisteSekretara.SaveAll(sekretari);
+            // TODO: implement
         }
 
         public ISkladisteSekretara skladisteSekretara;

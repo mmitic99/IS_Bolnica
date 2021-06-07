@@ -33,8 +33,6 @@ namespace Bolnica.Validacije
                             return new ValidationResult(true, null);
                     }
                 }
-                if(emailTrimed.Length == 0)
-                    return new ValidationResult(true, null);
                 return new ValidationResult(false, "Email adresa nije u dobrom formatu.");
 
             }

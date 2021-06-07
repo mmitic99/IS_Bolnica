@@ -16,8 +16,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
         private DataGrid pacijentiPrikaz;
         private DataGrid terminiPrikaz;
         private PacijentKontroler pacijentKontroler;
-        private DatePicker datumZaTermin;
-        public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz, DataGrid terminiPrikaz, DatePicker datumZaTermin)
+        public DodavanjeGostujucegPacijenta(DataGrid pacijentiPrikaz, DataGrid terminiPrikaz)
         {
             InitializeComponent();
             this.pacijentiPrikaz = pacijentiPrikaz;
@@ -25,7 +24,6 @@ namespace Bolnica.view.SekretarView.Pacijenti
             pacijentKontroler = new PacijentKontroler();
             this.Owner = App.Current.MainWindow;
             DataContext = new PacijentDTO();
-            this.datumZaTermin = datumZaTermin;
         }
 
         private void sacuvaj_Click(object sender, RoutedEventArgs e)
@@ -71,7 +69,7 @@ namespace Bolnica.view.SekretarView.Pacijenti
 
                 if (dialogResult == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var s = new ZakazivanjeTerminaSekretar(pacijent, true, null, datumZaTermin);
+                    var s = new ZakazivanjeTerminaSekretar(terminiPrikaz, pacijent, true);
                     s.Show();
                 }
 

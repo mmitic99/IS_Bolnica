@@ -29,7 +29,6 @@ namespace Bolnica.view.SekretarView
             this.sekretar = sekretar;
             DataContext = sekretar;
             sekretarKontroler = new SekretarKontroler();
-            this.Owner = App.Current.MainWindow;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using Bolnica.Repozitorijum.ISkladista;
 using Model;
 
 namespace Bolnica.Repozitorijum.XmlSkladiste

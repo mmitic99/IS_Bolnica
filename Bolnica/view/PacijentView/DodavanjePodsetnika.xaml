@@ -6,11 +6,9 @@
              xmlns:local="clr-namespace:Bolnica.view.PacijentView"
              mc:Ignorable="d" 
              FontSize="15"
-             d:DesignHeight="673" d:DesignWidth="804">
-    <UserControl.Background>
-        <SolidColorBrush Color="#FFF1F7F9" Opacity="0.7"/>
-    </UserControl.Background>
-    <Grid Opacity="1.0">
+             d:DesignHeight="673" d:DesignWidth="804"
+             Background="Transparent">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="70"/>

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bolnica.view.SekretarView"
+        xmlns:local="clr-namespace:Bolnica.view"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
@@ -13,7 +13,7 @@
         <RoutedUICommand x:Key="OdjavaCommand" Text="Ctrl+Alt+O"/>
     </Window.Resources>
     <Window.CommandBindings>
-        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="DodajObavestenje_Click"/>
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajObavestenjeCommand}" Executed="DodajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}" Executed="DodavanjePacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}" Executed="DodavanjeGostujuceg_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminCommand}" Executed="ZakazivanjeTermina_Click" />
@@ -32,18 +32,17 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.ObrisiLekaraCommand}" Executed="BrisanjeLekara_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.PogledajObavestenjeCommand}" Executed="PogledajObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.RadnoVremeLekaraCommand}" Executed="RadnoVremeLekara_Click" />
-        <CommandBinding Command="{x:Static commands:SekretarCommands.FeedbackCommand}" Executed="Feedback_Click" />
         <CommandBinding Command="{StaticResource OdjavaCommand}" Executed="Odjava_Click"/>
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="{StaticResource OdjavaCommand}" Gesture="Ctrl+Alt+O"/>
     </Window.InputBindings>
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Height="25" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <MenuItem Header="_File" FontSize="18">
+        <Menu DockPanel.Dock="Top" Height="22" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <MenuItem Header="File">
                 <MenuItem Header="Odjavi se" Command="{StaticResource OdjavaCommand}" InputGestureText="Ctrl+Alt+O"/>
             </MenuItem>
-            <MenuItem Header="_Edit" FontSize="18">
+            <MenuItem Header="Edit">
                 <MenuItem Header="Dodaj pacijenta" Command="{x:Static commands:SekretarCommands.DodajPacijentaCommand}"/>
                 <MenuItem Header="Dodaj gostujućeg pacijenta" Command="{x:Static commands:SekretarCommands.DodajGostujucegPacijentaCommand}"/>
                 <MenuItem Header="Izmeni pacijenta" Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}"/>
@@ -53,17 +52,14 @@
                 <MenuItem Header="Izmeni termin" Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}"/>
                 <MenuItem Header="Otkaži termin" Command="{x:Static commands:SekretarCommands.ObrisiTerminCommand}"/>
             </MenuItem>
-            <MenuItem Header="Pr_ofil" FontSize="18">
+            <MenuItem Header="Profil">
                 <MenuItem Header="Izmeni profil" Command="{x:Static commands:SekretarCommands.IzmeniProfilCommand}"/>
                 <MenuItem Header="Izmeni lozinku" Command="{x:Static commands:SekretarCommands.IzmeniLozinkuCommand}"/>
-            </MenuItem>
-            <MenuItem Header="_Help" FontSize="18">
-                <MenuItem Header="Oceni aplikaciju" Command="{x:Static commands:SekretarCommands.FeedbackCommand}"/>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem HorizontalAlignment="Right">
-                <TextBlock x:Name="StatusBar" FontSize="15"/>
+                <TextBlock x:Name="StatusBar"/>
             </StatusBarItem>
         </StatusBar>
 
@@ -79,15 +75,15 @@
 
             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="113"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="103"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Margin="0,0,14,0"/>
+                <Border Grid.Column="0"/>
                 <Border BorderBrush="LightGray" BorderThickness="1" Grid.Column="1"/>
 
-                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Height="89" Margin="0,16,0,0">
-                    <Label x:Name="ImeS" FontSize="18" HorizontalAlignment="Center">Ime</Label>
-                    <Label x:Name="PrezimeS" FontSize="18" HorizontalAlignment="Center">Prezime</Label>
+                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,22,0,21" Height="62">
+                    <Label x:Name="ImeS" FontSize="16" HorizontalAlignment="Center">Ime</Label>
+                    <Label x:Name="PrezimeS" FontSize="16" HorizontalAlignment="Center">Prezime</Label>
                 </StackPanel>
 
                 <Grid Grid.Column="1">
@@ -98,13 +94,11 @@
 
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
                         <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
-                                 Click="DodavanjeGostujuceg_Click"
-                                Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}">
-                            <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+                                Width="120" Height="40" Click="DodavanjeGostujuceg_Click">
+                            <TextBlock Text="Dodaj gostujućeg pacijenta" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button>
-                        <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="16"
-                                 Click="ZakazivanjeTermina_Click"
-                                Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}">
+                        <Button HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" 
+                                Width="120" Height="40" Click="ZakazivanjeTermina_Click">
                             Zakaži termin
                         </Button>
 
@@ -117,7 +111,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label FontSize="15" Grid.Column="0" >Odjavi se</Label>
+                                <Label FontSize="13" Grid.Column="0" >Odjavi se</Label>
                                 <Image Grid.Column="1" Source="/Images/logout.png" Width="20"/>
                             </Grid>
                         </Button>
@@ -128,7 +122,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="/Images/user.png" Height="40"/>
-                                <Label FontSize="15" Grid.Row="1" FontWeight="Bold">Izmeni profil</Label>
+                                <Label FontSize="13" Grid.Row="1" FontWeight="Bold">Izmeni profil</Label>
                             </Grid>
                         </Button>
                     </StackPanel>
@@ -147,7 +141,7 @@
                                 <DataTemplate>
                                     <ContentPresenter Content="{TemplateBinding Content}">
                                         <ContentPresenter.LayoutTransform>
-                                            <RotateTransform Angle="0" />
+                                            <RotateTransform Angle="-360" />
                                         </ContentPresenter.LayoutTransform>
                                     </ContentPresenter>
                                 </DataTemplate>
@@ -155,9 +149,9 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem x:Name="Pocetna" Width="110" Selector.Selected="Pocetna_Selected">
+                <TabItem x:Name="Pocetna" Width="100" Selector.Selected="Pocetna_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">_Početna</AccessText>
+                        <TextBlock Text="Početna" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -167,7 +161,7 @@
 
                         <Grid Grid.Column="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="80"/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
@@ -175,7 +169,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="LightGray" BorderThickness="2" Margin="2">
+                            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" Margin="2">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
@@ -184,19 +178,19 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock FontSize="18" TextWrapping="Wrap" TextAlignment="Center">Broj pacijenata</TextBlock>
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj pacijenata</TextBlock>
                                         <TextBlock x:Name="UkupanBrojPacijenata" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock FontSize="18" TextWrapping="Wrap" TextAlignment="Center">Broj lekara</TextBlock>
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj lekara</TextBlock>
                                         <TextBlock x:Name="UkupanBrojLekara" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock FontSize="18" TextWrapping="Wrap" TextAlignment="Center">Broj soba za pregled</TextBlock>
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj soba za pregled</TextBlock>
                                         <TextBlock x:Name="UkupanBrojSobaZaPregled" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
                                     </StackPanel>
                                     <StackPanel Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <TextBlock FontSize="18" TextWrapping="Wrap" TextAlignment="Center">Broj operacionih sala</TextBlock>
+                                        <TextBlock FontSize="16" TextWrapping="Wrap" TextAlignment="Center">Ukupan broj operacionih sala</TextBlock>
                                         <TextBlock x:Name="UkupanBrojOperacionihSala" FontSize="22" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,5,0,0">123</TextBlock>
                                     </StackPanel>
                                 </Grid>
@@ -207,7 +201,7 @@
                                     <RowDefinition Height="40"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Row="0" FontSize="18" VerticalAlignment="Center">Broj zakazanih pregleda i operaciju u tekućem mesecu:</Label>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Broj zakazanih pregleda i operaciju u tekućem mesecu:</Label>
                                 <lvc:CartesianChart x:Name="BrojTermina" Grid.Row="1">
                                     <lvc:CartesianChart.AxisY>
                                         <lvc:Axis LabelFormatter="{Binding YOsaBrojTermina}"></lvc:Axis>
@@ -222,7 +216,7 @@
                                     <RowDefinition Height="40"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Row="0" FontSize="18" VerticalAlignment="Center">Podela pacijenata po polovima:</Label>
+                                <Label Grid.Row="0" FontSize="15" VerticalAlignment="Center">Podela pacijenata po polovima:</Label>
                                 <lvc:PieChart Grid.Row="1" x:Name="PodelaPoPolovima" StartingRotationAngle="0"/>
                             </Grid>
                             <Grid Grid.Row="2" Grid.Column="1">
@@ -230,7 +224,7 @@
                                     <RowDefinition Height="40"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontSize="18" VerticalAlignment="Center" TextWrapping="Wrap">Broj novih pacijenata u tekućem mesecu:</TextBlock>
+                                <TextBlock Grid.Row="0" FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap">Broj novih pacijenata u tekućem mesecu:</TextBlock>
                                 <lvc:CartesianChart x:Name="BrojNovihPacijenata" Grid.Row="1">
                                     <lvc:CartesianChart.AxisY>
                                         <lvc:Axis LabelFormatter="{Binding YOsaBrojNovihPacijenata}"></lvc:Axis>
@@ -242,7 +236,7 @@
                             </Grid>
                         </Grid>
 
-                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1" Margin="2"/>
+                        <Border Grid.Column="1" BorderBrush="LightGray" BorderThickness="1"/>
 
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
@@ -254,10 +248,10 @@
                             <Label Grid.Row="0" FontSize="25" FontWeight="SemiBold" VerticalContentAlignment="Center">OBAVEŠTENJA:</Label>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="3">
-                                <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Command="{Binding DodajObavestenjeCommand}">
+                                <Button x:Name="DodajObavestenje" Background="Transparent" BorderThickness="0" Margin="10,0,10,0" ToolTip="Dodaj obaveštenje" Click="DodajObavestenje_Click">
                                     <Image Source="/Images/add.png"/>
                                 </Button>
-                                <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Command="{Binding IzmeniObavestenjeCommand}">
+                                <Button x:Name="IzmeniObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Izmeni obaveštenje" Click="IzmeniObavestenje_Click">
                                     <Image Source="/Images/draw.png"/>
                                 </Button>
                                 <Button x:Name="ObrisiObavestenje" Background="Transparent" BorderThickness="0" Margin="5,0,10,0" ToolTip="Obriši obaveštenje" Click="ObrisiObavestenje_Click">
@@ -270,12 +264,8 @@
                             </Button>
 
                             <DataGrid x:Name="ObavestenjaPrikaz" Grid.Row="2" HeadersVisibility="None"
-                                    Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
-                                    Margin="5" BorderThickness="0" GridLinesVisibility="None" IsReadOnly="True" 
-                                  VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" CanUserResizeRows="False"
-                                    ItemsSource="{Binding Path=PrikazObavestenja, Mode=OneWay}"
-                                    SelectedItem="{Binding SelectedObavestenje}">
+                              Background="Transparent" AutoGenerateColumns="False" CanUserAddRows="False" 
+                                      Margin="5" BorderThickness="0" GridLinesVisibility="None">
                                 <DataGrid.Resources>
                                     <Style TargetType="DataGridRow">
                                         <EventSetter Event="MouseDoubleClick" Handler="PogledajObavestenje_Click"/>
@@ -293,8 +283,8 @@
                                                                     <RowDefinition Height="40"/>
                                                                     <RowDefinition Height="80"/>
                                                                 </Grid.RowDefinitions>
-                                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" FontSize="20" TextTrimming="CharacterEllipsis"/>
-                                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="18" TextTrimming="WordEllipsis" TextAlignment="Justify"/>
+                                                                <TextBlock Grid.Row="0" Text="{Binding Naslov}" FontWeight="Bold" FontSize="17" TextTrimming="CharacterEllipsis"/>
+                                                                <TextBlock Grid.Row="1" Text="{Binding Sadrzaj}" TextWrapping="Wrap" FontSize="15" TextTrimming="WordEllipsis" TextAlignment="Justify"/>
                                                             </Grid>
                                                         </Border>
                                                     </StackPanel>
@@ -304,13 +294,17 @@
                                     </DataGridTemplateColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
+
+
+
                         </Grid>
+
                     </Grid>
 
                 </TabItem>
-                <TabItem  x:Name="Pacijenti" Width="110" Selector.Selected="Pacijenti_Selected">
+                <TabItem  x:Name="Pacijenti" Width="100" Selector.Selected="Pacijenti_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">P_acijenti</AccessText>
+                        <TextBlock Text="Pacijenti" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -319,28 +313,43 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
-                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0"
-                                    VerticalAlignment="Top" Click="DodavanjePacijenta_Click" 
-                                    FontSize="16" 
-                                    Style="{StaticResource BasicButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Izmeni pacijenta" x:Name="IzmeniPacijenta" HorizontalAlignment="Left" 
-                                    Margin="30,0,0,0" VerticalAlignment="Top" 
-                                    Click="IzmenaPacijenta_Click" FontSize="16" 
-                                    Style="{StaticResource PacijentiDisabledButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" 
-                                    VerticalAlignment="Top" Click="BrisanjePacijenta_Click" 
-                                    FontSize="16" Style="{StaticResource PacijentiDisabledButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
+                            <Button Content="Dodaj pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="DodavanjePacijenta_Click"/>
+                            <Button Content="Izmeni pacijenta" x:Name="IzmeniPacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="IzmenaPacijenta_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=PacijentiPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Content="Obriši pacijenta" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="BrisanjePacijenta_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=PacijentiPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="PacijentiPrikaz" CanUserAddRows="false" 
-                                  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="18" CanUserResizeRows="False">
+                                  VerticalContentAlignment="Center" FontSize="14" CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
@@ -368,71 +377,62 @@
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="Termini" Width="110" Selector.Selected="Termini_Selected">
+                <TabItem  x:Name="Termini" Width="100" Selector.Selected="Termini_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">_Termini</AccessText>
+                        <TextBlock Text="Termini" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
-                            <RowDefinition Height="40"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
-                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" 
-                                    VerticalAlignment="Center" Click="ZakazivanjeTermina_Click" FontSize="16" 
-                                    Style="{StaticResource BasicButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Izmeni termin" x:Name="IzmeniTermin" HorizontalAlignment="Left"
-                                    Margin="30,0,0,0" VerticalAlignment="Center"  
-                                    Click="IzmeniTermin_Click" FontSize="16" 
-                                    Style="{StaticResource TerminiDisabledButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" 
-                                    VerticalAlignment="Center"  Click="OtkakazivanjeTermina_Click" 
-                                    FontSize="16" Style="{StaticResource TerminiDisabledButton}" 
-                                    Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Generiši izvestaj" HorizontalAlignment="Left" Margin="30,0,0,0"
-                                    VerticalAlignment="Center"  Click="GenerisanjeIzvestaja_Click" 
-                                    FontSize="16" Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}"/>
+                            <Button Content="Zakaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="ZakazivanjeTermina_Click"/>
+                            <Button Content="Izmeni termin" x:Name="IzmeniTermin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="IzmeniTermin_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=TerminiPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Content="Otkaži termin" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="OtkakazivanjeTermina_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=TerminiPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Content="Generiši izvestaj" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="GenerisanjeIzvestaja_Click"/>
                         </StackPanel>
-
-                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="30,0,0,0">
-                            <RadioButton x:Name="Dan" IsChecked="True" 
-                                         Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
-                                Dan
-                            </RadioButton>
-
-                            <RadioButton x:Name="Nedelja" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">
-                                Nedelja
-                            </RadioButton>
-                            <RadioButton x:Name="Mesec" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Mesec</RadioButton>
-                            <RadioButton x:Name="Godina" Width="50" Margin="3,8" Click="DatumZaTermin_OnSelectedDateChanged"
-                                         Style="{StaticResource BasicRadioButton}" Template="{StaticResource RoundedRadioButton}">Godina</RadioButton>
-
-                            <Label x:Name="IzaberiDatumLabela" Width="100" Margin="100,3,0, 3" VerticalAlignment="Center">Izaberi datum:</Label>
-                            <DatePicker x:Name="DatumZaTermin" Margin="0,3,0, 3" VerticalAlignment="Center" SelectedDateChanged="DatumZaTermin_OnSelectedDateChanged"></DatePicker>
-
-                        </StackPanel>
-
-                        <DataGrid Grid.Row="2" Name="TerminiPrikaz" CanUserAddRows="false" 
-                                  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                        <DataGrid Grid.Row="1" Name="TerminiPrikaz" CanUserAddRows="false" 
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="18"  CanUserResizeRows="False">
+                                  VerticalContentAlignment="Center" FontSize="14"  CanUserResizeRows="False">
 
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
                                 <DataGridTextColumn x:Name="DatVrT" Header="Datum i vreme početka" Width="Auto" Binding="{Binding termin.DatumIVremeTermina, StringFormat=dd.MM.yyyy   HH:mm}"/>
-                                <DataGridTextColumn x:Name="VrstaT" Header="Vrsta" Width="Auto" Binding="{Binding termin.VrstaTermina}"/>
+                                <DataGridTextColumn x:Name="VrstaT" Header="Vrsta" Width="70" Binding="{Binding termin.VrstaTermina}"/>
                                 <DataGridTextColumn x:Name="PacijentT" Header="Pacijent" Width="*">
                                     <DataGridTextColumn.Binding>
                                         <MultiBinding StringFormat="{}{0} {1}">
@@ -449,14 +449,14 @@
                                         </MultiBinding>
                                     </DataGridTextColumn.Binding>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn x:Name="ProstorijaT" Header="Prostorija" Width="100" Binding="{Binding termin.brojSobe}"/>
+                                <DataGridTextColumn x:Name="ProstorijaT" Header="Prostorija" Width="90" Binding="{Binding termin.brojSobe}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="Lekari" Width="110" Selector.Selected="Lekari_Selected">
+                <TabItem  x:Name="Lekari" Width="100" Selector.Selected="Lekari_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">_Lekari</AccessText>
+                        <TextBlock Text="Lekari" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -464,31 +464,60 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2">
-                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" 
-                                    VerticalAlignment="Top"  Click="DodavanjeLekara_Click" FontSize="16"
-                                    Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" 
-                                    Margin="30,0,0,0" VerticalAlignment="Top"  
-                                    Click="IzmenaLekara_Click" FontSize="16"
-                                    Style="{StaticResource LekariDisabledButton}" Template="{StaticResource RoundedButton}"/>
-                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" 
-                                     Click="BrisanjeLekara_Click" FontSize="16"
-                                    Style="{StaticResource LekariDisabledButton}" Template="{StaticResource RoundedButton}"/>
-                            <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" 
-                                    Click="RadnoVremeLekara_Click" FontSize="15.5"
-                                    Style="{StaticResource LekariDisabledButton}" Template="{StaticResource RoundedButton}">
-                                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Radno vreme lekara</TextBlock>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Dodaj lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="DodavanjeLekara_Click"/>
+                            <Button Content="Izmeni lekara" x:Name="IzmeniLekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="IzmenaLekara_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Content="Obriši lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="BrisanjeLekara_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            
+                            <Button Content="Radno vreme lekara" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="RadnoVremeLekara_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Setter Property="Opacity" Value="1" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedItem, ElementName=LekariPrikaz}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                                <Setter Property="Opacity" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
                             </Button>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="LekariPrikaz" CanUserAddRows="false" 
-                                  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
                                   CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
@@ -515,9 +544,9 @@
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="Prostorije" Width="110" Selector.Selected="Prostorije_Selected">
+                <TabItem  x:Name="Prostorije" Width="100" Selector.Selected="Prostorije_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">P_rostorije</AccessText>
+                        <TextBlock Text="Prostorije" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -525,38 +554,35 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2">
-                            <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="45" FontSize="16"
-                                    Style="{StaticResource ProstorijeDisabledButton}" Template="{StaticResource RoundedButton}">
-                                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Uvid u inventar i materijal</TextBlock>
-                            </Button>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Uvid u inventar i materijal" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="ProstorijePrikaz" CanUserAddRows="false" 
-                                  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
                                   CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="120"/>
+                                <DataGridTextColumn x:Name="IdP" Header="Id Prostorije" Binding="{Binding IdProstorije}" Width="100"/>
                                 <DataGridTextColumn x:Name="SpratP" Header="Sprat" Binding="{Binding Sprat}" Width="80"/>
                                 <DataGridTextColumn x:Name="BrojProstorijeP" Header="Broj prostorije" Binding="{Binding BrojSobe}" Width="*"/>
                                 <DataGridTextColumn x:Name="VrstaP" Header="Vrsta" Binding="{Binding VrstaProstorije}" Width="*"/>
-                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="170"/>
-                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="120" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
+                                <DataGridTextColumn x:Name="KvadraturaP" Header="Kvadratura [m^2]" Binding="{Binding Kvadratura}" Width="150"/>
+                                <DataGridCheckBoxColumn x:Name="RenoviraSeP" Header="Renovira se" Width="100" Binding="{Binding RenoviraSe}" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
                 </TabItem>
-                <TabItem  x:Name="Lekovi" Width="110" Selector.Selected="Lekovi_Selected">
+                <TabItem  x:Name="Lekovi" Width="100" Selector.Selected="Lekovi_Selected">
                     <TabItem.Header>
-                        <AccessText FontSize="23">Le_kovi</AccessText>
+                        <TextBlock Text="Lekovi" FontSize="20"></TextBlock>
                     </TabItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -564,24 +590,18 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2">
-                            <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="45" FontSize="16"
-                                    Style="{StaticResource BasicButton}" Template="{StaticResource RoundedButton}">
-                                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Zahtev za dodavanje leka</TextBlock>
-                            </Button>
-                            <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="45" FontSize="16"
-                                    Style="{StaticResource LekoviDisabledButton}" Template="{StaticResource RoundedButton}">
-                                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Zahtev za brisanje leka</TextBlock>
-                            </Button>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,25">
+                            <Button Content="Zahtev za dodavanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+                            <Button Content="Zahtev za brisanje leka" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
                         </StackPanel>
                         <DataGrid Grid.Row="1" Name="LekoviPrikaz" CanUserAddRows="false" 
-                                  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                                  AutoGenerateColumns="False" IsReadOnly="True" 
                                   VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                                  VerticalContentAlignment="Center" FontSize="18" Grid.ColumnSpan="2"  
+                                  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2"  
                                   CanUserResizeRows="False">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>

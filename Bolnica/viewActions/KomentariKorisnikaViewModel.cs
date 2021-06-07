@@ -16,8 +16,14 @@ namespace Bolnica.viewActions
         public Recept IzabraniRecept { get; set; }
         public ObservableCollection<Beleska> KomentariKorisnika
         {
-            get;
-            set;
+            get
+            {
+                return new ObservableCollection<Beleska>( IzabraniRecept.KomentariPacijenta);
+            }
+            set
+            {
+
+            }
  
         }
         public MyICommand AddNoteCommand { get; set; }
@@ -43,7 +49,6 @@ namespace Bolnica.viewActions
             this.KomentariKorisnika = new ObservableCollection<Beleska>();
             this.PacijentKontroler = new PacijentKontroler();
             this.IzabraniRecept = recept;
-            this.KomentariKorisnika = new ObservableCollection<Beleska>(IzabraniRecept.KomentariPacijenta);
             AddNoteCommand = new MyICommand(OnAdd);
         }
         
@@ -71,7 +76,6 @@ namespace Bolnica.viewActions
                 PacijentKontroler.SacuvajKomentarNaDijagnozu(IzabraniRecept, Pacijent);
                 TrenutnaBeleska.Naslov = "";
                 TrenutnaBeleska.Opis = "";
-                KomentariKorisnika.Add(beleska);
 
                 if(RadioButtonChecked)
                 {

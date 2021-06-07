@@ -117,7 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bolnicalogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\bolnicalogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_woman_icon_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\business-woman-icon-14.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\draw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\lek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeptirVideo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\LeptirVideo.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="odjava" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\odjava.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oprema" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\oprema.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="p" xml:space="preserve">
     <value />
+  </data>
+  <data name="pocetna_strana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\pocetna_strana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="praksa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\praksa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prostorije" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\prostorije.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="test_snimak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\test snimak.wmv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="upravnik" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\UpravnikView\upravnik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

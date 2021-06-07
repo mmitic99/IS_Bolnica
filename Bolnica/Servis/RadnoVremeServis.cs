@@ -8,11 +8,10 @@ using System.Windows;
 using Bolnica.model;
 using Bolnica.model.Enum;
 using Bolnica.Repozitorijum;
-using Bolnica.Repozitorijum.Factory.SkladisteRadnihVremenaFactory;
-using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
 using Model;
+using Repozitorijum;
 using Servis;
 
 namespace Bolnica.Servis
@@ -21,24 +20,10 @@ namespace Bolnica.Servis
     {
         private ISkladisteRadnihVremena skladisteRadnihVremena;
         private ISkladisteZaLekara skladisteZaLekara;
-        private ISkladisteZaTermine skladisteZaTermine;
-
-        private ISkladisteRadnihVremenaFactory _skladisteRadnihVremenaFactory = new SkladisteRadnihVremenaXmlFactory();
-        public ISkladisteRadnihVremenaFactory SkladisteRadnihVremenaFactory
-        {
-            get => _skladisteRadnihVremenaFactory;
-            set
-            {
-                _skladisteRadnihVremenaFactory = value;
-                skladisteRadnihVremena = value.CreateSkladisteRadnihVremena();
-            }
-        }
-
         public RadnoVremeServis()
         {
-            skladisteRadnihVremena = SkladisteRadnihVremenaFactory.CreateSkladisteRadnihVremena();
+            skladisteRadnihVremena = new SkladisteRadnihVremenaXml();
             skladisteZaLekara = SkladisteZaLekaraXml.GetInstance();
-            skladisteZaTermine = new SkladisteZaTermineXml();
         }
         public List<RadnoVreme> GetAll()
         {
@@ -48,63 +33,55 @@ namespace Bolnica.Servis
         public bool Save(RadnoVreme moguceRadnoVreme)
         {
             bool sacuvaj = false;
-            List<RadnoVreme> radnoVremeLekara = (List<RadnoVreme>) GetByJmbg(moguceRadnoVreme.JmbgLekara);
-            sacuvaj = radnoVremeLekara.Count == 0 || ProveriRadnaVremenaLekara(moguceRadnoVreme);
-            if(sacuvaj)
-            {
-                sacuvaj = IzmeniSlobodneDane(moguceRadnoVreme);
-                if(sacuvaj)
-                    skladisteRadnihVremena.Save(moguceRadnoVreme);
-            }
-            return sacuvaj;
-        }
 
-        private bool IzmeniSlobodneDane(RadnoVreme moguceRadnoVreme)
-        {
-            bool retVal = true;
             if (moguceRadnoVreme.StatusRadnogVremena == StatusRadnogVremena.NaOdmoru)
             {
                 Lekar lekar = skladisteZaLekara.getByJmbg(moguceRadnoVreme.JmbgLekara);
-                int brojDanaZaOdmor =
-                    (int) Math.Ceiling((moguceRadnoVreme.DatumIVremeZavrsetka - moguceRadnoVreme.DatumIVremePocetka).TotalDays);
+                int brojDanaZaOdmor = (int)Math.Ceiling((moguceRadnoVreme.DatumIVremeZavrsetka - moguceRadnoVreme.DatumIVremePocetka).TotalDays);
                 if (brojDanaZaOdmor > lekar.BrojSlobodnihDana)
                 {
-                    retVal = false;
+                    return false;
                 }
+                else
+                {
+                    lekar.BrojSlobodnihDana -= brojDanaZaOdmor;
 
-                lekar.BrojSlobodnihDana -= brojDanaZaOdmor;
-                skladisteZaLekara.IzmeniLekara(moguceRadnoVreme.JmbgLekara, lekar);
+                    skladisteZaLekara.IzmeniLekara(moguceRadnoVreme.JmbgLekara, lekar);
+
+                }
             }
 
-            return retVal;
-        }
 
-        private bool ProveriRadnaVremenaLekara(RadnoVreme moguceRadnoVreme)
-        {
-            bool sacuvaj = false;
+            List<RadnoVreme> radnoVremeLekara = (List<RadnoVreme>) GetByJmbg(moguceRadnoVreme.JmbgLekara);
+
+            if (radnoVremeLekara.Count == 0)
+            {
+                sacuvaj = true;
+            }
+
             foreach (RadnoVreme radnoVreme in GetByJmbg(moguceRadnoVreme.JmbgLekara))
             {
-                if (DaLiJeMoguceRadnoVremeIspravno(moguceRadnoVreme, radnoVreme))
+                if ((moguceRadnoVreme.DatumIVremePocetka >= radnoVreme.DatumIVremePocetka &&
+                     moguceRadnoVreme.DatumIVremePocetka <= radnoVreme.DatumIVremeZavrsetka) ||
+                    (moguceRadnoVreme.DatumIVremeZavrsetka >= radnoVreme.DatumIVremePocetka &&
+                     moguceRadnoVreme.DatumIVremeZavrsetka <= radnoVreme.DatumIVremeZavrsetka) ||
+                    (radnoVreme.DatumIVremePocetka >= moguceRadnoVreme.DatumIVremePocetka &&
+                     radnoVreme.DatumIVremePocetka <= moguceRadnoVreme.DatumIVremeZavrsetka) ||
+                    (radnoVreme.DatumIVremeZavrsetka >= moguceRadnoVreme.DatumIVremePocetka &&
+                     radnoVreme.DatumIVremeZavrsetka <= moguceRadnoVreme.DatumIVremeZavrsetka)
+                    )
                 {
                     sacuvaj = false;
                     break;
                 }
+
                 sacuvaj = true;
             }
 
-            return sacuvaj;
-        }
+            if(sacuvaj)
+                skladisteRadnihVremena.Save(moguceRadnoVreme);
 
-        private static bool DaLiJeMoguceRadnoVremeIspravno(RadnoVreme moguceRadnoVreme, RadnoVreme radnoVreme)
-        {
-            return (moguceRadnoVreme.DatumIVremePocetka >= radnoVreme.DatumIVremePocetka &&
-                    moguceRadnoVreme.DatumIVremePocetka <= radnoVreme.DatumIVremeZavrsetka) ||
-                   (moguceRadnoVreme.DatumIVremeZavrsetka >= radnoVreme.DatumIVremePocetka &&
-                    moguceRadnoVreme.DatumIVremeZavrsetka <= radnoVreme.DatumIVremeZavrsetka) ||
-                   (radnoVreme.DatumIVremePocetka >= moguceRadnoVreme.DatumIVremePocetka &&
-                    radnoVreme.DatumIVremePocetka <= moguceRadnoVreme.DatumIVremeZavrsetka) ||
-                   (radnoVreme.DatumIVremeZavrsetka >= moguceRadnoVreme.DatumIVremePocetka &&
-                    radnoVreme.DatumIVremeZavrsetka <= moguceRadnoVreme.DatumIVremeZavrsetka);
+            return sacuvaj;
         }
 
         public void SaveAll(List<RadnoVreme> radnaVremena)
@@ -132,42 +109,21 @@ namespace Bolnica.Servis
         {
             List<RadnoVreme> radnaVremena = GetAll();
             bool uspesno = false;
-
             foreach (var radnoVreme in radnaVremena)
             {
                 if (radnoVreme.IdRadnogVremena.Equals(idRadnogVremena))
                 {
-                    if(NemaZakazanihTermina(radnoVreme))
-                    {
-                        uspesno = radnaVremena.Remove(radnoVreme);
-                        SaveAll(radnaVremena);
-                    }
+                    uspesno = radnaVremena.Remove(radnoVreme);
                     break;
                 }
             }
+            SaveAll(radnaVremena);
             return uspesno;
-        }
-
-        private bool NemaZakazanihTermina(RadnoVreme radnoVreme)
-        {
-            bool nema = true;
-            List<Termin> termini = skladisteZaTermine.GetByJmbgLekar(radnoVreme.JmbgLekara);
-
-            foreach (Termin termin in termini)
-            {
-                if (termin.DatumIVremeTermina >= radnoVreme.DatumIVremePocetka ||
-                    termin.DatumIVremeTermina <= radnoVreme.DatumIVremeZavrsetka)
-                {
-                    nema = false;
-                    break;
-                }
-            }
-            return nema;
         }
 
         public IEnumerable<RadnoVreme> GetByJmbgAkoRadi(string jmbgLekara)
         {
-            List<RadnoVreme> svaRadnaVremena = GetAll();
+            List<RadnoVreme> svaRadnaVremena = (List<RadnoVreme>) GetAll();
             List<RadnoVreme> radnaVremena = new List<RadnoVreme>();
             foreach (RadnoVreme radnoVreme in svaRadnaVremena)
             {

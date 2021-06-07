@@ -2,6 +2,7 @@
 using Bolnica.view.UpravnikView;
 using Kontroler;
 using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

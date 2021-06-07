@@ -30,13 +30,11 @@ namespace Bolnica.view.LekarView
         public ReceptDTO recept { get; set; }
         public PacijentDTO pacijent { get; set; }
         public PacijentDTO pacijent1;
-        public PacijentKontroler PacijentKontroler;
-        public ObavestenjaKontroler ObavestenjaKontroler;
+        public PacijentKontroler kontroler;
 
         public IzdavanjeReceptaPage()
         {
             InitializeComponent();
-            ObavestenjaKontroler = new ObavestenjaKontroler();
             pacijent = (PacijentDTO)PacijentInfoPage.getInstance().ComboBox1.SelectedItem;
             pacijent1 = pacijent;
             txt1.Text = pacijent.Ime;
@@ -44,7 +42,6 @@ namespace Bolnica.view.LekarView
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName;
             BolnickiLekBox.ItemsSource = LekKontroler.GetInstance().GetAll();
-
             
             
 
@@ -75,7 +72,7 @@ namespace Bolnica.view.LekarView
 
 
 
-            ObavestenjaKontroler.PosaljiAnketuOLekaru(pacijent.Jmbg, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
 
             LekarKontroler.getInstance().IzdajRecept(parametri);
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
