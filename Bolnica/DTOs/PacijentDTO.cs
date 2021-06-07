@@ -25,5 +25,6 @@ namespace Bolnica.DTOs
         public ZdravstveniKartonDTO ZdravstveniKarton { get; set; }
         public bool Registrovan { get; set; }
         public String FullName { get; set; }
+        public DateTime datumKreiranjaNaloga { get; set; }
     }
 }

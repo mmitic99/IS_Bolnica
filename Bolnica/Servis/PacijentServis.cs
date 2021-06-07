@@ -83,7 +83,7 @@ namespace Servis
             bool uspesno = false;
             foreach (Pacijent pacijent in pacijenti)
             {
-                if (pacijent.Jmbg.Equals(jmbg))
+                if (pacijent.Jmbg.Equals(jmbg) && PacijentNemaTermine(jmbg))
                 {
                     uspesno = pacijenti.Remove(pacijent);
                     skladistePacijenta.SaveAll(pacijenti);
@@ -91,6 +91,11 @@ namespace Servis
                 }
             }
             return uspesno;
+        }
+
+        private bool PacijentNemaTermine(string jmbg)
+        {
+            return !(TerminServis.getInstance().GetByJmbgPacijenta(jmbg).Count > 0);
         }
 
         public void SacuvajKomentarNaDijagnozu(Recept izabraniRecept, Pacijent pacijent)

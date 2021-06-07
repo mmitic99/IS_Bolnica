@@ -174,7 +174,8 @@ namespace Kontroler
                         Alergeni = alergeni,
                         Anamneze = anamneze,
                         Izvestaj = izvestaji
-                    }
+                    },
+                    datumKreiranjaNaloga = pacijent.Korisnik.DatumKreiranjaNaloga
                 });
 
             }
@@ -262,7 +263,8 @@ namespace Kontroler
                 Korisnik = new Korisnik()
                 {
                     KorisnickoIme = stariPacijent.Korisnik.KorisnickoIme,
-                    Lozinka = stariPacijent.Korisnik.Lozinka
+                    Lozinka = stariPacijent.Korisnik.Lozinka,
+                    DatumKreiranjaNaloga = stariPacijent.datumKreiranjaNaloga
                 },
                 Registrovan = stariPacijent.Registrovan,
                 ZdravstveniKarton = new ZdravstveniKarton()
@@ -288,7 +290,8 @@ namespace Kontroler
                 Korisnik = new Korisnik()
                 {
                     KorisnickoIme = noviPacijent.Korisnik.KorisnickoIme,
-                    Lozinka = noviPacijent.Korisnik.Lozinka
+                    Lozinka = noviPacijent.Korisnik.Lozinka,
+                    DatumKreiranjaNaloga = stariPacijent.datumKreiranjaNaloga
                 },
                 Registrovan = noviPacijent.Registrovan,
                 ZdravstveniKarton = new ZdravstveniKarton()
@@ -364,7 +367,8 @@ namespace Kontroler
                     Alergeni = alergeni,
                     Anamneze = anamneze,
                     Izvestaj = izvestaji
-                }
+                },
+                datumKreiranjaNaloga = pacijent.Korisnik.DatumKreiranjaNaloga
             };
             return pacijentDTO;
             

@@ -113,7 +113,7 @@ namespace Bolnica.view.SekretarView
                 bool uspesno = pacijentKontroler.ObrisiPacijenta(((PacijentDTO) PacijentiPrikaz.SelectedItem).Jmbg);
                 if (!uspesno)
                 {
-                    MessageBox.Show("Brisanje nije uspešno.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Brisanje nije uspešno. Pacijent ima zakazane termine.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -274,7 +274,7 @@ namespace Bolnica.view.SekretarView
                 bool uspesno = lekarKontroler.ObrisiLekara(((LekarDTO) LekariPrikaz.SelectedItem).Jmbg);
                 if (!uspesno)
                 {
-                    MessageBox.Show("Lekar nije uspešno obrisan.", "Greška", MessageBoxButton.OK,
+                    MessageBox.Show("Brisanje lekara nije uspešno. Lekar ima zakazane termine.", "Greška", MessageBoxButton.OK,
                         MessageBoxImage.Error);
                     return;
                 }

@@ -151,7 +151,7 @@ namespace Servis
             bool uspesno = false;
             foreach (Lekar lekar in lekari)
             {
-                if (lekar.Jmbg.Equals(jmbg))
+                if (lekar.Jmbg.Equals(jmbg) && LekarNemaTermine(jmbg))
                 {
                     uspesno = lekari.Remove(lekar);
                     break;
@@ -159,6 +159,11 @@ namespace Servis
             }
             skladisteZaLekara.SaveAll(lekari);
             return uspesno;
+        }
+
+        private bool LekarNemaTermine(string jmbg)
+        {
+            return !(TerminServis.getInstance().GetByJmbgLekar(jmbg).Count > 0);
         }
 
         internal int DobaviIndeksSelectovanogLekara(Termin termin)

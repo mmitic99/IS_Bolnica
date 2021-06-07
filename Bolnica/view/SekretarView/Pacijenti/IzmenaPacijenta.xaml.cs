@@ -105,7 +105,8 @@ namespace Bolnica.view.SekretarView.Pacijenti
                 },
                 ZdravstveniKarton = pacijent.ZdravstveniKarton,
                 BracnoStanje = (string)BracnoStanje.SelectedItem,
-                Zanimanje = Zanimanje.Text
+                Zanimanje = Zanimanje.Text,
+                datumKreiranjaNaloga = pacijent.datumKreiranjaNaloga
             };
             noviPacijent.ZdravstveniKarton.Alergeni = new List<string>(alergeni);
 
