@@ -20,6 +20,7 @@
                    HorizontalAlignment="Left"
                    Margin="20,0,0,0"
                        VerticalAlignment="Center"/>
+            
             <DataGrid x:Name="prikazTermina"
                        CanUserAddRows="false"
                       AutoGenerateColumns="False"
@@ -29,6 +30,7 @@
                       Grid.Row="1"
                       FontSize="15"
                       Width="804"
+                      ItemsSource="{Binding ZakazaniTerminiPacijenta, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
                       CanUserReorderColumns="False"
                       CanUserResizeColumns="False"
                       SelectionMode="Single" 
@@ -84,7 +86,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="generisiIzvestaj" Grid.Row="2" HorizontalAlignment="Right" Width="120" Height="50"
+            <Button x:Name="generisiIzvestaj" Grid.Row="2" HorizontalAlignment="Right" Width="100" Height="50"
                     Background="Transparent" BorderThickness="0" 
                     Command="{Binding KreirajIzvestajCommand}">
                 <Grid>
@@ -94,10 +96,23 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="Kreiraj izveštaj" Grid.Row="1">
                     </TextBlock>
-                    <Image Source="draw.png"/>
+                    <Image Source="Images/draw.png"/>
                 </Grid>
                 
             </Button>
+            <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" VerticalAlignment="Top"
+                        RenderTransformOrigin="2.957,1.078" Margin="280,10,0,0" 
+                        Width="155" Height="30"
+                        SelectedDate="{Binding Path=pocetakIntervala, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        CalendarClosed="datepicker1_CalendarClosed">
+                
+            </DatePicker>
+            <TextBlock Height="30" Width="30" Text="do" TextAlignment="Center" Margin="437,10,337,10.4"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="5"></TextBlock>
+            <DatePicker Name="datepicker2" HorizontalAlignment="Left" VerticalAlignment="Top"
+                        RenderTransformOrigin="2.957,1.078" Margin="467,10,0,0" Width="155"
+                        Height="30"  CalendarClosed="datepicker2_CalendarClosed"
+                        SelectedDate="{Binding Path=krajIntervala, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        />
         </Grid>
     </StackPanel>
 </UserControl>

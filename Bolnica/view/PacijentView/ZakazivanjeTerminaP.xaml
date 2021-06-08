@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:sdk="http://schemas.microsoft.com/xrm/9.0/Contracts"
              xmlns:local="clr-namespace:Bolnica.view.PacijentView"
              mc:Ignorable="d" 
              d:DesignHeight="673" d:DesignWidth="804"
@@ -24,9 +27,10 @@
                     <ColumnDefinition Width="620"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Unesite tegobe:" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-                <TextBox x:Name="tegobe" TextWrapping="Wrap" Grid.Column="1" Margin="9.6,0,360.4,10" Width="250"/>
+                <TextBox x:Name="tegobe" TextWrapping="Wrap" Text="{Binding Mode=TwoWay, Path=OpisTegobe, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="9.6,0,360.4,10" Width="250"/>
                 <Label Content="Izaberite lekara:" HorizontalAlignment="Right" Grid.Row="1"/>
-                <ComboBox x:Name="izabraniLekar" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="30" Margin="10,0,0,0">
+                <ComboBox x:Name="izabraniLekar" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="30" SelectedIndex="{Binding IndeksSelektovanogLekara}" 
+                          ItemsSource="{Binding sviLekari}"  IsDropDownOpen="{Binding Mode=TwoWay, Path=SviLekariOpened, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding FullName}"/>
@@ -41,14 +45,28 @@
                          VerticalAlignment="Top"
                          HorizontalAlignment="Left"
                          Margin="10,0,0,0">
-                    <Calendar x:Name="kalendar" 
-                              HorizontalAlignment="Left" 
+                    <Calendar Name="Cal" SelectionMode="MultipleRange" HorizontalAlignment="Left" 
                               VerticalAlignment="Top"
-                              SelectionMode="MultipleRange" 
-                              FontSize="15" />
+                              DisplayDateStart="{Binding DisplayDateTimeStart}"
+                              DisplayDateEnd="{Binding DisplayDateTimeEnd}"
+                              SelectedDate="{Binding Mode=TwoWay, Path=IzabraniDan, UpdateSourceTrigger=PropertyChanged}"
+                              FontSize="15" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectedDatesChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectionCommand}" CommandParameter="{Binding SelectedDates, ElementName=Cal}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Calendar>
                 </Viewbox>
                 <Label Content="Odaberite interval vremena:" HorizontalAlignment="Right" Grid.Row="3"/>
-                <ComboBox Name="satnicaPocetak" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                <ComboBox Name="satnicaPocetak" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" IsDropDownOpen="{Binding SatnicaPocetakOpened }"
+                          VerticalAlignment="Top" Margin="10,0,0,0" 
+                          SelectedIndex="{Binding Mode=TwoWay,Path=SatnicaPocetak, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <i:InvokeCommandAction Command="{Binding IspravnostVremena}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ComboBoxItem>
                         06
                     </ComboBoxItem>
@@ -94,7 +112,13 @@
 
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="56,0,0,0"/>
-                <ComboBox Name="minutPocetak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="70,0,0,0" >
+                <ComboBox Name="minutPocetak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" IsDropDownOpen="{Binding Mode=TwoWay, Path=MinutPocetakOpened, UpdateSourceTrigger=PropertyChanged}"
+                          Grid.Row="3" Margin="70,0,0,0" SelectedIndex="{Binding Mode=TwoWay,Path=MinutPocetak, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <i:InvokeCommandAction Command="{Binding IspravnostVremena}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ComboBoxItem>
                         00
                     </ComboBoxItem>
@@ -103,7 +127,14 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <Label Content="do" Grid.Row="3" Grid.Column="1" HorizontalContentAlignment="Left" Margin="120,0,0,0"/>
-                <ComboBox Name="satnicaKraj" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,0,0,0">
+                <ComboBox Name="satnicaKraj" Grid.Column="1" Grid.Row="3" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                          Margin="150,0,0,0" SelectedIndex="{Binding Mode=TwoWay,Path=SatnicaKraj, UpdateSourceTrigger=PropertyChanged}" 
+                          IsDropDownOpen="{Binding Mode=TwoWay, Path=SatnicaKrajOpened, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <i:InvokeCommandAction Command="{Binding IspravnostVremena}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ComboBoxItem>
                         06
                     </ComboBoxItem>
@@ -151,7 +182,15 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="196,0,0,0"/>
-                <ComboBox Name="minutKraj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3" Margin="210,0,0,0" >
+                <ComboBox Name="minutKraj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3"
+                          Margin="210,0,0,0" SelectedItem="{Binding Mode=TwoWay, Path=IzabraniLekar, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedIndex="{Binding Mode=TwoWay,Path=MinutKraj, UpdateSourceTrigger=PropertyChanged}" 
+                          IsDropDownOpen="{Binding Mode=TwoWay,Path=MinutKrajOpened, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged" >
+                            <i:InvokeCommandAction Command="{Binding IspravnostVremena}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ComboBoxItem>
                         00
                     </ComboBoxItem>
@@ -161,15 +200,15 @@
                 </ComboBox>
                 <Label Content="Odaberite prioritet:" Grid.Row="4" HorizontalAlignment="Right" FontSize="15"/>
                 <StackPanel x:Name="prioritet" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
-                    <RadioButton x:Name="nema" Margin="0,0,0,10" IsChecked="True">Želim da pregled što je pre moguće, nije bitno kada ni kod kog lekara</RadioButton>
-                    <RadioButton x:Name="lekar" Margin="0,0,0,10">Želim da zakažem pregled isključivo kod izabranog lekara</RadioButton>
-                    <RadioButton x:Name="vreme">Želim da zakažem pregled isključivo u odabranom vremenu</RadioButton>
+                    <RadioButton x:Name="nema" Margin="0,0,0,10" IsChecked="{Binding  Mode=TwoWay,Path=NemaPrioritetChecked, UpdateSourceTrigger=PropertyChanged}">Želim da pregled što je pre moguće, nije bitno kada ni kod kog lekara</RadioButton>
+                    <RadioButton x:Name="lekar" Margin="0,0,0,10" IsChecked="{Binding Mode=TwoWay, Path=LekarPrioritetChecked, UpdateSourceTrigger=PropertyChanged}">Želim da zakažem pregled isključivo kod izabranog lekara</RadioButton>
+                    <RadioButton x:Name="vreme" IsChecked="{Binding Mode=TwoWay,Path=VremePrioritetChecked, UpdateSourceTrigger=PropertyChanged}">Želim da zakažem pregled isključivo u odabranom vremenu</RadioButton>
                 </StackPanel>
 
             </Grid>
         </StackPanel>
 
-        <Button Content="Zakaži" HorizontalAlignment="Left" Height="46" Margin="447,627,0,-0.2" VerticalAlignment="Top" Width="265" Click="Button_Click"/>
-        <Button Content="Izađi" HorizontalAlignment="Left" Height="46" Margin="89,627,0,-0.2" VerticalAlignment="Top" Width="265" Click="Button_Click_1"/>
+        <Button Content="Zakaži" HorizontalAlignment="Left" Height="46" Margin="447,627,0,-0.2" VerticalAlignment="Top" Width="265" BorderThickness="{Binding Ivice}" Command="{Binding PretragaTermina}"/>
+        <Button Content="Izađi" HorizontalAlignment="Left" Height="46" Margin="89,627,0,-0.2" VerticalAlignment="Top" Width="265" Command="{Binding Nazad}"/>
     </Grid>
 </UserControl>

@@ -300,7 +300,7 @@
                             <ColumnDefinition Width="80"></ColumnDefinition>
                             <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="survey.png" Height="60"/>
+                        <Image Source="Images/survey.png" Height="60"/>
                         <Label Content="Sačuvajte anketu" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10.2,22,-37,22.6"

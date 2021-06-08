@@ -16,17 +16,26 @@ namespace Bolnica.viewActions
         public AnketaLekar Anketa { get; set; }
         public String IdAnkete { get; set; }
         public String PunoImeLekara { get; set; }
+        public String JmbgLekara { get; set; }
         private LekarKontroler LekarKontroler;
 
         public AnketaOLekaruViewModel()
         {
 
         }
+        public AnketaOLekaruViewModel(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
+        {
+            this.LekarKontroler = new LekarKontroler();
+            IdAnkete = anketaOLekaru.IDAnkete;
+            PunoImeLekara = LekarKontroler.GetByJmbg(anketaOLekaru.JmbgLekara).FullName;
+            JmbgLekara = anketaOLekaru.JmbgLekara;
+        }
         public AnketaOLekaruViewModel(AnketaLekar anketa)
         {
             anketa = anketa;
             this.LekarKontroler = new LekarKontroler();
             PunoImeLekara = LekarKontroler.GetByJmbg(anketa.JmbgLekara).FullName;
+            JmbgLekara = anketa.JmbgLekara;
 
         }
     }

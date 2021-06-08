@@ -48,7 +48,7 @@
                     <ColumnDefinition Width="70"></ColumnDefinition>
                     <ColumnDefinition Width="145"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="previous.png"></Image>
+                <Image Source="Images/previous.png"></Image>
                 <Label Content="Nazad" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10,0,0,0"
@@ -67,7 +67,7 @@
                         <ColumnDefinition Width="80"></ColumnDefinition>
                         <ColumnDefinition Width="150"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="survey.png" Height="60"/>
+                    <Image Source="Images/survey.png" Height="60"/>
                     <Label Content="Popunite anketu" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10.2,22,-37,22.6"
@@ -87,7 +87,7 @@
                         <ColumnDefinition Width="80"></ColumnDefinition>
                         <ColumnDefinition Width="150"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="survey.png" Height="60"/>
+                    <Image Source="Images/survey.png" Height="60"/>
                     <Label Content="Popunite anketu" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10.2,22,-37,22.6"

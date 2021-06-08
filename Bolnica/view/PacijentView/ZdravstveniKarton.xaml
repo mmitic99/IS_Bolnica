@@ -76,7 +76,7 @@
                                Foreground="Red"/>
                                                     <TextBlock Text="Dodatne napomene:"/>
                                                     <TextBox Text="{Binding Path=KomentariKorisnika.TrenutnaBeleska.Opis, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
-                                                    <TextBlock Text="{Binding KomentariKorisnika.ValidationErrors[Opis]}"
+                                                    <TextBlock Text="{Binding KomentariKorisnika.TrenutnaBeleska.ValidationErrors[Opis]}"
                                Foreground="Red"/>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="Kreiraj podsetnik:"/>

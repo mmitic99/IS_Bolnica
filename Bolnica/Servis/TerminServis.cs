@@ -106,6 +106,32 @@ namespace Servis
             });
         }
 
+        public Dictionary<DateTime, String> getNotesForTheMonth(DateTime targetDate, string jmbgPacijenta)
+        {
+            List<Termin> terminiUProsledjenomMesecu = getTerminiUMesecu(targetDate, jmbgPacijenta);
+            Dictionary<DateTime, String> beleskeZaSvakiDan = new Dictionary<DateTime, string>();
+            foreach(Termin termin in terminiUProsledjenomMesecu)
+            {
+                if (!beleskeZaSvakiDan.ContainsKey(termin.DatumIVremeTermina.Date))
+                {
+                    beleskeZaSvakiDan.Add(termin.DatumIVremeTermina.Date ,termin.DatumIVremeTermina.ToString("HH:mm") + " " + termin.VrstaTermina +" "+ termin.lekar + ProstorijeServis.GetIspisSobe(termin.IdProstorije) + "\n");
+                }
+                else
+                {
+                    String beleska = beleskeZaSvakiDan[termin.DatumIVremeTermina.Date];
+                    beleska = beleska + termin.DatumIVremeTermina.ToString("HH:mm") + " " + termin.VrstaTermina +" "+ termin.lekar+ProstorijeServis.GetIspisSobe(termin.IdProstorije)+ "\n";
+                    beleskeZaSvakiDan.Remove(termin.DatumIVremeTermina.Date);
+                    beleskeZaSvakiDan.Add(termin.DatumIVremeTermina.Date, beleska);
+                }
+            }
+            return beleskeZaSvakiDan;
+        }
+
+        private List<Termin> getTerminiUMesecu(DateTime targetDate, string jmbgPacijenta)
+        {
+            return GetByJmbgPacijentaVremenskiPeriod(targetDate, targetDate.AddMonths(1).Date.AddSeconds(-1), jmbgPacijenta);
+        }
+
         public List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
         {
             List<Termin> sviTerminiKorisnika = skladisteZaTermine.GetByJmbgPacijenta(jmbgKorisnkika); //vraca samo za pazijenta
@@ -124,6 +150,21 @@ namespace Servis
         {
             return skladisteZaTermine.GetByJmbgPacijenta(jmbg);
         }
+
+        public List<Termin> GetByJmbgPacijentaVremenskiPeriod(DateTime pocetak, DateTime kraj, string jmbgPacijenta)
+        {
+            List<Termin> sviTerminiPacijenta = GetByJmbgPacijenta(jmbgPacijenta);
+            List<Termin> filtriraniTerminiPacijenta = new List<Termin>();
+            foreach(Termin t in sviTerminiPacijenta)
+            {
+                if(t.DatumIVremeTermina>=pocetak && t.DatumIVremeTermina<=kraj)
+                {
+                    filtriraniTerminiPacijenta.Add(t);
+                }
+            }
+            return filtriraniTerminiPacijenta;
+        }
+
 
         public List<Termin> NadjiTermineZaParametre(ParametriZaTrazenjeTerminaKlasifikovanoDTO parametri)
         {
@@ -630,7 +671,6 @@ namespace Servis
                     tabela.AddCell(new Cell(1, 1).Add(new Paragraph(termin.brojSobe)));
 
                 }
-
                 document.Add(tabela);
 
                 document.Add(new Paragraph("\n\n" + "Datum i vreme:"));

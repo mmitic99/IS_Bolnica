@@ -17,7 +17,7 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Border Background="#FF407294"/>
-            <Image Source="sad.png"
+            <Image Source="Images/sad.png"
                    Width="120"
                    Margin="0,0,0,20"/>
             <TextBlock Text="Žao nam je, trenutno nemate prava da izvršite željenu aktivnost."

@@ -161,25 +161,29 @@
   </KvartalnaAnketa>
   <KvartalnaAnketa>
     <datum>2021-06-01T00:17:40.4617391+02:00</datum>
-    <BrojAnketiranih>1</BrojAnketiranih>
+    <BrojAnketiranih>4</BrojAnketiranih>
     <StrucnostMedicinskogOsoboljaProsecnaOcena>2</StrucnostMedicinskogOsoboljaProsecnaOcena>
-    <LjubaznostMedicinskogOsoboljaProsecnaOcena>3</LjubaznostMedicinskogOsoboljaProsecnaOcena>
-    <LjubaznostNemedicnskogOsobljaProsecnaOcena>3</LjubaznostNemedicnskogOsobljaProsecnaOcena>
-    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>3</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
-    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>4</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
-    <DostupnostTerminaURazumnomRokuProsecnaOcena>3</DostupnostTerminaURazumnomRokuProsecnaOcena>
-    <InformacijeOOdlozenomTerminuProsecnaOcena>3</InformacijeOOdlozenomTerminuProsecnaOcena>
-    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>4</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
-    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>3</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
-    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>3</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
-    <IzgledNaseBolniceProsecnaOcena>4</IzgledNaseBolniceProsecnaOcena>
-    <OpremljenostBolniceProsecnaOcena>3</OpremljenostBolniceProsecnaOcena>
-    <CelokupniUtisak>3</CelokupniUtisak>
+    <LjubaznostMedicinskogOsoboljaProsecnaOcena>2.5</LjubaznostMedicinskogOsoboljaProsecnaOcena>
+    <LjubaznostNemedicnskogOsobljaProsecnaOcena>2.5</LjubaznostNemedicnskogOsobljaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>2.5</JednostavnostZakazivanjaTerminaPrekoTelefonaProsecnaOcena>
+    <JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>2.5</JednostavnostZakazivanjaTerminaPrekoAplikacijeProsecnaOcena>
+    <DostupnostTerminaURazumnomRokuProsecnaOcena>2.25</DostupnostTerminaURazumnomRokuProsecnaOcena>
+    <InformacijeOOdlozenomTerminuProsecnaOcena>2.5</InformacijeOOdlozenomTerminuProsecnaOcena>
+    <DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>2.75</DostupnostLekaraKadaJeBolnicaZatvorenaProsecnaOcena>
+    <DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>2.25</DostupnostLekaraUTokuRadnihSatiLekaraProsecnaOcena>
+    <RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>2.25</RezultatiTestovaDostupniURazumnoVremeProsecnaOcena>
+    <IzgledNaseBolniceProsecnaOcena>2.75</IzgledNaseBolniceProsecnaOcena>
+    <OpremljenostBolniceProsecnaOcena>2.5</OpremljenostBolniceProsecnaOcena>
+    <CelokupniUtisak>1.5</CelokupniUtisak>
     <komentari>
+      <string />
+      <string />
+      <string />
       <string />
     </komentari>
     <anketuPopunili>
       <string>1234567894444</string>
+      <string>1234567890123</string>
     </anketuPopunili>
   </KvartalnaAnketa>
 </ArrayOfKvartalnaAnketa>
