@@ -18,6 +18,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Threading;
 using System.Windows.Controls.Primitives;
+using Syncfusion.Pdf.Graphics;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -754,8 +755,11 @@ namespace Bolnica.view.UpravnikView
 
         public void NamapirajSadrzajVerifikacije(int index)
         {
-            List<VerifikacijaLekaDTO> SveVerifikacijeLekova = VerifikacijaLekaKontroler.GetInstance().GetAll();
-            Sadrzaj.Text = SveVerifikacijeLekova[index].Sadrzaj;
+            if (TabelaVerifikacija.SelectedIndex != -1)
+            {
+                List<VerifikacijePrikazDTO> SveVerifikacijeLekova = VerifikacijaLekaKontroler.GetInstance().GetVerifikacijePrikaz("1903999772025");
+                Sadrzaj.Text = SveVerifikacijeLekova[index].Sadrzaj;
+            }
         }
 
         public void NamapirajVrstuLeka(int index)
@@ -909,7 +913,6 @@ namespace Bolnica.view.UpravnikView
         private void OsveziPrikazVerifikacijaLeka()
         {
             TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetVerifikacijePrikaz("1903999772025");
-            LekariLekovi.ItemsSource = LekarKontroler.getInstance().GetAll();
         }
 
         private void OsveziPrikazZakazanihPreraspodela()
@@ -1077,9 +1080,11 @@ namespace Bolnica.view.UpravnikView
             using (PdfDocument Document = new PdfDocument())
             {
                 PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 16);
+                Graphics.DrawString("Izvestaj zauzetosti prostorije - TERMINI", Font , PdfBrushes.Black, new PointF(113, 20));
                 PdfLightTable PdfLightTable = new PdfLightTable();
                 DataTable Table = new DataTable();
-                Table.TableName = "TABELA ZAUZETOSTI PROSTORIJA ZA NAREDNIH 7 DANA - TERMINI";
                 Table.Columns.Add("Prostorija");
                 Table.Columns.Add("Datum i vreme početka termina");
                 Table.Columns.Add("Trajanje termina");
@@ -1090,7 +1095,7 @@ namespace Bolnica.view.UpravnikView
                         Table.Rows.Add(new string[] { termin.brojSobe, termin.DatumIVremeTermina.ToString(), "30" });
                 }
                 PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 0));
+                PdfLightTable.Draw(Page, new PointF(0, 70));
                 Document.Save("..\\..\\SkladistePodataka\\Izvestaj o zauzetosti prostorija - termini.pdf");
                 Document.Close(true);
             }
@@ -1101,9 +1106,11 @@ namespace Bolnica.view.UpravnikView
             using (PdfDocument Document = new PdfDocument())
             {
                 PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 16);
+                Graphics.DrawString("Izvestaj zauzetosti prostorije - PRERASPODELE OPREME", Font, PdfBrushes.Black, new PointF(58, 20));
                 PdfLightTable PdfLightTable = new PdfLightTable();
                 DataTable Table = new DataTable();
-                Table.TableName = "TABELA ZAUZETOSTI PROSTORIJA ZA NAREDNIH 7 DANA - PRERASPODELE";
                 Table.Columns.Add("Prostrija iz koje se prenosi oprema");
                 Table.Columns.Add("Prostorija u koju se prenosi oprema");
                 Table.Columns.Add("Datum i vreme početka preraspodele");
@@ -1115,7 +1122,7 @@ namespace Bolnica.view.UpravnikView
                     Table.Rows.Add(new string[] { preraspodela.BrojProstorijeIzKojeSePrenosiOprema, preraspodela.BrojProstorijeUKojuSePrenosiOprema, preraspodela.DatumIVremePreraspodele.ToString(), "60" });
                 }
                 PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 0));
+                PdfLightTable.Draw(Page, new PointF(0, 70));
                 Document.Save("..\\..\\SkladistePodataka\\Izvestaj o zauzetosti prostorija - preraspodele.pdf");
                 Document.Close(true);
             }
@@ -1126,9 +1133,11 @@ namespace Bolnica.view.UpravnikView
             using (PdfDocument Document = new PdfDocument())
             {
                 PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 16);
+                Graphics.DrawString("Izvestaj zauzetosti prostorije - RENOVIRANJA", Font, PdfBrushes.Black, new PointF(93, 20));
                 PdfLightTable PdfLightTable = new PdfLightTable();
                 DataTable Table = new DataTable();
-                Table.TableName = "TABELA ZAUZETOSTI PROSTORIJA ZA NAREDNIH 7 DANA - PRERASPODELE";
                 Table.Columns.Add("Prostorija");
                 Table.Columns.Add("Sprat");
                 Table.Columns.Add("Datum i vreme početka renoviranja");
@@ -1140,7 +1149,7 @@ namespace Bolnica.view.UpravnikView
                     Table.Rows.Add(new string[] { renoviranje.BrojProstorije, renoviranje.Sprat.ToString(), renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
                 }
                 PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 0));
+                PdfLightTable.Draw(Page, new PointF(0, 70));
                 Document.Save("..\\..\\SkladistePodataka\\Izvestaj o zauzetosti prostorija - renoviranja.pdf");
                 Document.Close(true);
             }
@@ -1151,9 +1160,11 @@ namespace Bolnica.view.UpravnikView
             using (PdfDocument Document = new PdfDocument())
             {
                 PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 16);
+                Graphics.DrawString("Izvestaj zauzetosti prostorije - NAPREDNA RENOVIRANJA", Font, PdfBrushes.Black, new PointF(40, 20));
                 PdfLightTable PdfLightTable = new PdfLightTable();
                 DataTable Table = new DataTable();
-                Table.TableName = "TABELA ZAUZETOSTI PROSTORIJA ZA NAREDNIH 7 DANA - PRERASPODELE";
                 Table.Columns.Add("Glavna prostorija");
                 Table.Columns.Add("Prostorija 1");
                 Table.Columns.Add("Prostorija 2");
@@ -1166,7 +1177,7 @@ namespace Bolnica.view.UpravnikView
                     Table.Rows.Add(new string[] { renoviranje.BrojGlavneProstorije, renoviranje.BrojProstorije1, renoviranje.BrojProstorije2, renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
                 }
                 PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 0));
+                PdfLightTable.Draw(Page, new PointF(0, 70));
                 Document.Save("..\\..\\SkladistePodataka\\Izvestaj o zauzetosti prostorija - napredna renoviranja.pdf");
                 Document.Close(true);
             }
@@ -1241,11 +1252,17 @@ namespace Bolnica.view.UpravnikView
 
         private void ObrisiVerifikaciju_Click(object sender, RoutedEventArgs e)
         {
-            var potvrda = MessageBox.Show("Da li ste sigurni da želite da obrišete verifikaciju leka ?", "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (potvrda == MessageBoxResult.Yes)
-            { 
-                
+            if (TabelaVerifikacija.SelectedIndex != -1)
+            {
+                var potvrda = MessageBox.Show("Da li ste sigurni da želite da obrišete verifikaciju leka ?", "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (potvrda == MessageBoxResult.Yes)
+                {
+                    VerifikacijaLekaKontroler.GetInstance().ObrisiVerifikacijuLeka(TabelaVerifikacija.SelectedItem);
+                    OsveziPrikazVerifikacijaLeka();
+                }
             }
+            else
+                MessageBox.Show("Označite verifikaciju koju želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void ProstorijeStanjeOpreme_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

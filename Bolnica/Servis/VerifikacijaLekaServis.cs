@@ -36,7 +36,19 @@ namespace Bolnica.Servis
             skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka);
         }
 
-        public void ObrisiVerifikacijuLeka() { }
+        public void ObrisiVerifikacijuLeka(String idVerifikacije)
+        {
+            List<VerifikacijaLeka> SveVerifikacije = skladisteZaVerifikacijuLeka.GetAll();
+            foreach (VerifikacijaLeka verifikacija in SveVerifikacije)
+            {
+                if (idVerifikacije.Equals(verifikacija.IdVerifikacijeLeka))
+                {
+                    SveVerifikacije.Remove(verifikacija);
+                    break;
+                }
+            }
+            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacije);
+        }
 
         public List<VerifikacijaLeka> GetAll()
         {

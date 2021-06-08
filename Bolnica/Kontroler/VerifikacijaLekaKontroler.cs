@@ -68,7 +68,7 @@ namespace Bolnica.Kontroler
             {
                 verifikacije.Add(new VerifikacijaLekaDTO()
                 {
-                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString() + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
+                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString("dd.MM.yyyy HH:mm:ss") + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
                     VremeSlanjaZahteva = verifikacija.VremeSlanjaZahteva,
                     Naslov = verifikacija.Naslov,
                     Sadrzaj = verifikacija.Sadrzaj,
@@ -91,6 +91,8 @@ namespace Bolnica.Kontroler
                 vp.Naslov = v.Naslov;
                 vp.ImeLekara = LekarKontroler.getInstance().GetByJmbg(v.JmbgPosiljaoca).FullName;
                 vp.Napomena = v.Napomena;
+                vp.ID = v.IdVerifikacijeLeka;
+                vp.Sadrzaj = v.Sadrzaj;
                 verifikacijePrikaz.Add(vp);
             }
             return verifikacijePrikaz;
@@ -104,6 +106,12 @@ namespace Bolnica.Kontroler
         public void SaveAll(List<VerifikacijaLeka> verifikacije)
         {
             VerifikacijaLekaServis.GetInstance().SaveAll(verifikacije);
+        }
+
+        public void ObrisiVerifikacijuLeka(Object verifikacija)
+        {
+            VerifikacijePrikazDTO verifikacijaDTO = (VerifikacijePrikazDTO)verifikacija;
+            VerifikacijaLekaServis.GetInstance().ObrisiVerifikacijuLeka(verifikacijaDTO.ID);
         }
     }
 }
