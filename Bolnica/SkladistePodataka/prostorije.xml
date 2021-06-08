@@ -248,11 +248,14 @@
     <Potrosna />
   </Prostorija>
   <Prostorija>
+    <termin />
     <IdProstorije>12</IdProstorije>
     <Sprat>4</Sprat>
     <BrojSobe>420</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
     <Kvadratura>45</Kvadratura>
+    <Staticka />
+    <Potrosna />
   </Prostorija>
 </ArrayOfProstorija>
