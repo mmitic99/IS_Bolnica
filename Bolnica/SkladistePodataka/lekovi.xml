@@ -32,12 +32,12 @@
   </Lek>
   <Lek>
     <VrstaLeka>Kapsula</VrstaLeka>
-    <KolicinaLeka>23</KolicinaLeka>
-    <NazivLeka>dsa</NazivLeka>
+    <KolicinaLeka>20</KolicinaLeka>
+    <NazivLeka>Defrinol</NazivLeka>
     <KlasaLeka>Analgetik</KlasaLeka>
     <IdLeka>3</IdLeka>
-    <JacinaLeka>23</JacinaLeka>
-    <ZamenskiLek>adxsasd</ZamenskiLek>
-    <SastavLeka>dsa</SastavLeka>
+    <JacinaLeka>500</JacinaLeka>
+    <ZamenskiLek>Brufen</ZamenskiLek>
+    <SastavLeka>sastojak1, sastojak2, sastojak3, sastojak4, sastojak5</SastavLeka>
   </Lek>
 </ArrayOfLek>

@@ -9,6 +9,7 @@ using Bolnica.model;
 using Bolnica.Servis;
 using Bolnica.view.UpravnikView;
 using Bolnica.DTOs;
+using Kontroler;
 
 namespace Bolnica.Kontroler
 {
@@ -79,6 +80,22 @@ namespace Bolnica.Kontroler
             return verifikacije;
         }
 
+        public List<VerifikacijePrikazDTO> GetVerifikacijePrikaz(String jmbg)
+        {
+            List<VerifikacijaLekaDTO> verifikacije = GetObavestenjaByJmbg(jmbg);
+            List<VerifikacijePrikazDTO> verifikacijePrikaz = new List<VerifikacijePrikazDTO>();
+            foreach (VerifikacijaLekaDTO v in verifikacije)
+            {
+                VerifikacijePrikazDTO vp = new VerifikacijePrikazDTO();
+                vp.VremeSlanjaZahteva = v.VremeSlanjaZahteva;
+                vp.Naslov = v.Naslov;
+                vp.ImeLekara = LekarKontroler.getInstance().GetByJmbg(v.JmbgPosiljaoca).FullName;
+                vp.Napomena = v.Napomena;
+                verifikacijePrikaz.Add(vp);
+            }
+            return verifikacijePrikaz;
+        }
+
         public void Save(VerifikacijaLeka verifikacija)
         {
             VerifikacijaLekaServis.GetInstance().Save(verifikacija);
@@ -88,6 +105,5 @@ namespace Bolnica.Kontroler
         {
             VerifikacijaLekaServis.GetInstance().SaveAll(verifikacije);
         }
-
     }
 }

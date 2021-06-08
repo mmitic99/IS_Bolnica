@@ -631,16 +631,13 @@ namespace Servis
             {
                 foreach (Prostorija Soba in SveProstorije)
                 {
-                    if (unos.Equals(Soba.BrojSobe))
+                    if (Soba.BrojSobe.Equals(unos))
                     {
                         MessageBox.Show("Već postoji soba sa istim brojem !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
-                    else
-                    {
-                        return true;
-                    }
                 }
+                return true;
             }
             return false;
         }
@@ -657,11 +654,8 @@ namespace Servis
                         MessageBox.Show("Već postoji soba sa istim brojem !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
-                    else
-                    {
-                        return true;
-                    }
                 }
+                return true;
             }
             return false;
         }
@@ -699,10 +693,27 @@ namespace Servis
         {
             bool checkNaziv = false;
             bool checkKolicina = false;
-
+            List<StacionarnaOprema> stacionarna = GetMagacin().Staticka;
+            List<PotrosnaOprema> potrosna = GetMagacin().Potrosna;
             Regex sablon = new Regex(@"^[a-zA-ZŠĐŽĆČšđžćč\s]*$");
             if (sablon.IsMatch(NazivOpreme))
             {
+                foreach (StacionarnaOprema oprema in stacionarna)
+                {
+                    if (oprema.TipStacionarneOpreme.ToLower().Equals(NazivOpreme))
+                    {
+                        MessageBox.Show("Stacionarna oprema već postoji, možete joj promeniti stanje u ,,IZMENI'' !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+                foreach (PotrosnaOprema oprema in potrosna)
+                {
+                    if (oprema.TipOpreme.ToLower().Equals(NazivOpreme))
+                    {
+                        MessageBox.Show("Potrošna oprema već postoji, možete joj promeniti stanje u ,,IZMENI'' !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
                 checkNaziv = true;
             }
             else

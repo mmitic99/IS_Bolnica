@@ -88,7 +88,7 @@ namespace Bolnica.Servis
                 {
                     if (vrstaOperacije.Equals("dodaj"))
                     {
-                        if (lek.NazivLeka.Equals(l.NazivLeka))
+                        if (lek.NazivLeka.Equals(l.NazivLeka.ToLower()))
                         {
                             MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;
@@ -100,7 +100,7 @@ namespace Bolnica.Servis
                     }
                     else if (vrstaOperacije.Equals("izmeni"))
                     {
-                        if (lek.NazivLeka != SviLekovi[indexSelektovanogLeka].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
+                        if (lek.NazivLeka != SviLekovi[indexSelektovanogLeka].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka.ToLower()))
                         {
                             MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;

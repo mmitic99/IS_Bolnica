@@ -15,19 +15,23 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>22</Kolicina>
+        <Kolicina>21</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
-        <Kolicina>14</Kolicina>
+        <Kolicina>13</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Kompjuter</TipStacionarneOpreme>
-        <Kolicina>5</Kolicina>
+        <Kolicina>25</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Respirator</TipStacionarneOpreme>
-        <Kolicina>3</Kolicina>
+        <Kolicina>20</Kolicina>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Hirurski sto</TipStacionarneOpreme>
+        <Kolicina>10</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna>
@@ -68,7 +72,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
-        <Kolicina>5</Kolicina>
+        <Kolicina>3</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
@@ -99,7 +103,7 @@
     <Staticka>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>8</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Respirator</TipStacionarneOpreme>
@@ -123,6 +127,10 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
+        <Kolicina>7</Kolicina>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
         <Kolicina>2</Kolicina>
       </StacionarnaOprema>
     </Staticka>
@@ -163,15 +171,15 @@
     <Staticka>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
+        <Kolicina>2</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>6</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
+        <Kolicina>6</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -195,7 +203,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>2</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -219,7 +227,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>3</Kolicina>
+        <Kolicina>4</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -245,20 +253,9 @@
     <IdProstorije>11</IdProstorije>
     <Sprat>4</Sprat>
     <BrojSobe>410</BrojSobe>
-    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
     <Kvadratura>54</Kvadratura>
-    <Staticka />
-    <Potrosna />
-  </Prostorija>
-  <Prostorija>
-    <termin />
-    <IdProstorije>12</IdProstorije>
-    <Sprat>4</Sprat>
-    <BrojSobe>420</BrojSobe>
-    <VrstaProstorije>Operaciona_sala</VrstaProstorije>
-    <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>65</Kvadratura>
     <Staticka />
     <Potrosna />
   </Prostorija>

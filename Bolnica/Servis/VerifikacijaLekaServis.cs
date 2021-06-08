@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Bolnica.Repozitorijum;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Servis;
+using Bolnica.DTOs;
 
 namespace Bolnica.Servis
 {

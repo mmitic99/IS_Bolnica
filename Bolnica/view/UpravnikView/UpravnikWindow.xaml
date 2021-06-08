@@ -183,12 +183,13 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="76*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="63*"/>
                             <ColumnDefinition Width="327*"/>
                             <ColumnDefinition Width="670*"/>
                         </Grid.ColumnDefinitions>
                         <DataGrid x:Name ="TabelaProstorija" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
-                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="3">
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="36.755,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="3" Grid.Column="1">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe}"/>
                                 <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
@@ -197,24 +198,24 @@
                                 <DataGridCheckBoxColumn Header="Renoviranje" Binding="{Binding RenoviraSe}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <TextBox x:Name="BrojProstorijeTextBox" HorizontalAlignment="Left" Height="30" Margin="187.151,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <TextBox x:Name="SpratTextBox" HorizontalAlignment="Left" Height="30" Margin="187.151,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <TextBox x:Name="KvadraturaTextBox" HorizontalAlignment="Left" Height="30" Margin="187.151,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <ComboBox x:Name="VrstaProstorijeComboBox" HorizontalAlignment="Left" Height="30" Margin="187.151,595,0,0" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="1">
+                        <TextBox x:Name="BrojProstorijeTextBox" HorizontalAlignment="Left" Height="30" Margin="186.925,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <TextBox x:Name="SpratTextBox" HorizontalAlignment="Left" Height="30" Margin="186.925,505,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <TextBox x:Name="KvadraturaTextBox" HorizontalAlignment="Left" Height="30" Margin="186.925,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <ComboBox x:Name="VrstaProstorijeComboBox" HorizontalAlignment="Left" Height="30" Margin="186.925,595,0,0" VerticalAlignment="Top" Width="175" FontSize="16" Grid.ColumnSpan="2" Grid.Column="2">
                             <ComboBoxItem Content="Soba za preglede"/>
                             <ComboBoxItem Content="Operaciona sala"/>
                             <ComboBoxItem Content="Soba za bolesnike"/>
                             <ComboBoxItem Content="Magacin"/>
                         </ComboBox>
-                        <TextBlock x:Name="BrojProstorije" HorizontalAlignment="Left" Height="30" Margin="50,460,0,0" TextWrapping="Wrap" Text="Broj prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBlock x:Name="VrstaProstorije" HorizontalAlignment="Left" Height="30" Margin="50,595,0,0" TextWrapping="Wrap" Text="Vrsta prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBlock x:Name="Sprat" HorizontalAlignment="Left" Height="30" Margin="50,505,0,0" TextWrapping="Wrap" Text="Sprat*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBlock x:Name="Kvadratura" HorizontalAlignment="Left" Height="30" Margin="50,550,0,0" TextWrapping="Wrap" Text="Kvadratura (m2)*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBlock x:Name="BrojProstorije" HorizontalAlignment="Left" Height="30" Margin="36.755,460,0,0" TextWrapping="Wrap" Text="Broj prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <TextBlock x:Name="VrstaProstorije" HorizontalAlignment="Left" Height="30" Margin="36.755,595,0,0" TextWrapping="Wrap" Text="Vrsta prostorije*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <TextBlock x:Name="Sprat" HorizontalAlignment="Left" Height="30" Margin="36.755,505,0,0" TextWrapping="Wrap" Text="Sprat*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+                        <TextBlock x:Name="Kvadratura" HorizontalAlignment="Left" Height="30" Margin="36.755,550,0,0" TextWrapping="Wrap" Text="Kvadratura (m2)*" VerticalAlignment="Top" Width="150" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
 
-                        <Button Background="WhiteSmoke" Content="Dodaj novu prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="149.981,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="DodajProstoriju" RenderTransformOrigin="0.493,0.347" Grid.Column="2"/>
-                        <Button Background="WhiteSmoke" Content="Obriši prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="149.981,560,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="ObrisiProstoriju" Grid.Column="2"/>
-                        <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24.151,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <Button Background="WhiteSmoke" Content="Generiši izveštaje" FontSize="15" HorizontalAlignment="Left" Margin="441.981,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="GenerisiIzvestaje_Click" RenderTransformOrigin="0.493,0.347" Grid.Column="2"/>
+                        <Button Background="WhiteSmoke" Content="Dodaj novu prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="149.982,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="DodajProstoriju" RenderTransformOrigin="0.493,0.347" Grid.Column="3"/>
+                        <Button Background="WhiteSmoke" Content="Obriši prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="149.982,560,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="ObrisiProstoriju" Grid.Column="3"/>
+                        <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23.925,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <Button Background="WhiteSmoke" Content="Generiši izveštaje" FontSize="15" HorizontalAlignment="Left" Margin="441.982,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="GenerisiIzvestaje_Click" RenderTransformOrigin="0.493,0.347" Grid.Column="3"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="IzmeniProstorijeTab" Header="IZMENI" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
@@ -266,6 +267,46 @@
                         <Button Background="WhitesMOKE" Content="Izmeni prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="14.566,512,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="IzmeniProstoriju" Grid.Column="3"/>
                         <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Image Margin="-179,475,421.019,9.925" Source="upravnik.png" Stretch="Fill"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="StanjeOpremeTab" Header="STANJE OPREME" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
+                    <TabItem.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="AliceBlue" Offset="0.0" />
+                            <GradientStop Color="DeepSkyBlue" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Grid x:Name="OpremaStanje">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="DeepSkyBlue" Offset="0.0" />
+                                <GradientStop Color="Blue" Offset="0.7" />
+                                <GradientStop Color="MidnightBlue" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <DataGrid Grid.Column="0" x:Name ="ProstorijeStanjeOpreme" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="339" Margin="40,122,0,0" VerticalAlignment="Top" Width="454" SelectionChanged="ProstorijeStanjeOpreme_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe}"/>
+                                <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
+                                <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid Grid.Column="0" x:Name ="OpremaStanjeOpreme" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="339" Margin="578,122,0,0" VerticalAlignment="Top" Width="452" SelectionChanged="OpremaStanjeOpreme_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic UI Semibold" Binding="{Binding TipStacionarneOpreme}"  Width="*"/>
+                                <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic UI Semibold" Binding="{Binding Kolicina}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="578,470,0,0" VerticalAlignment="Top" Height="35" Width="212"/>
+                        <Label Content="Količina (+/-)*" HorizontalAlignment="Left" Margin="578,520,0,0" VerticalAlignment="Top" Height="35" Width="212"/>
+                        <Button Content="Obriši" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" Margin="849,574,0,0" Height="40" Click="ObrisiStatickuOpremuIzProstorije"/>
+                        <Button Content="Izmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="578,574,0,0" Height="40" Click="IzmeniStatickuOpremuIzProstorije"/>
+                        <TextBox x:Name="NazivOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="849,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="16" IsEnabled="False"/>
+                        <TextBox x:Name="KolicinaOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="849,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" FontSize="16"/>
+                        <Label Content="Selektujte prostoriju:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="353" Margin="141,46,0,0" Height="71" FontSize="25"/>
+                        <Label Content="Staticka oprema prostorije:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="383" Margin="646,46,0,0" Height="71" FontSize="25"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="RENOVIRANJE" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
@@ -407,7 +448,7 @@
                         </ComboBox>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="ProstorijeOpremaTab" Header="OPREMA" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
+                <TabItem x:Name="ProstorijeOpremaTab" Header="RAD SA OPREMOM" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
                     <TabItem.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="AliceBlue" Offset="0.0" />
@@ -429,7 +470,7 @@
                             <ColumnDefinition Width="13*"/>
                         </Grid.ColumnDefinitions>
                         <DataGrid Grid.Column="0" x:Name ="TabelaProstorijaIzKojeSePrebacujeOprema" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
-                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="40,87,0,0" VerticalAlignment="Top" Width="454">
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="40,87,0,0" VerticalAlignment="Top" Width="454" SelectionChanged="TabelaProstorijaIzKojeSePrebacujeOprema_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe}"/>
                                 <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
@@ -437,14 +478,14 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <DataGrid Grid.Column="1" x:Name ="TabelaProstorijeUKojuSePrebacujeOprema" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
-                          SelectionMode="Single"  AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="41.755,87,0,0" VerticalAlignment="Top" Width="452">
+                          SelectionMode="Single"  AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="41.755,87,0,0" VerticalAlignment="Top" Width="452" SelectionChanged="TabelaProstorijeUKojuSePrebacujeOprema_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Broj prostorije" Binding="{Binding BrojSobe}"/>
                                 <DataGridTextColumn Header="Vrsta prostorije" Binding="{Binding VrstaProstorije}" Width="*"/>
                                 <DataGridTextColumn Header="Sprat" Binding="{Binding Sprat}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button Background="WhiteSmoke" Content="Pogledaj/Prebaci statičku opremu" FontSize="15" HorizontalAlignment="Left" Margin="139.849,514,0,0" VerticalAlignment="Top" Width="255" Height="60" Click="PrikaziProzorZaSelektovanuProstoriju" RenderTransformOrigin="0.493,0.347" Grid.Column="1"/>
+                        <Button Background="WhiteSmoke" Content="Prebaci statičku opremu" FontSize="18" HorizontalAlignment="Left" Margin="139.849,571,0,0" VerticalAlignment="Top" Width="255" Height="56" Click="PrikaziProzorZaSelektovanuProstoriju" RenderTransformOrigin="0.493,0.347" Grid.Column="1"/>
                         <Label Content="Selektujte prostoriju iz koje želite da prebacite opremu:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,43,0,0" Height="39" Width="454" FontFamily="Yu Gothic UI Semibold" FontSize="17" FontWeight="Bold"/>
                         <Label Content="Selektujte prostoriju u koju želite da prebacite opremu:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41.755,43,0,0" Height="39" Width="454" FontFamily="Yu Gothic UI Semibold" FontSize="17" FontWeight="Bold" Grid.Column="1"/>
                         <TextBox x:Name="NazivPretraga" HorizontalAlignment="Left" Height="38" Margin="64,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
@@ -459,9 +500,15 @@
                         <Label Content="Količina*" HorizontalAlignment="Left" Margin="397,494,0,0" VerticalAlignment="Top" Width="97" Height="34"/>
                         <Button Content="Pretraži" HorizontalAlignment="Left" Margin="64,587,0,0" VerticalAlignment="Top" Width="190" Height="40" Click="PretraziOpremu"/>
                         <Button Content="Reset" HorizontalAlignment="Left" Margin="283,587,0,0" VerticalAlignment="Top" Width="189" Height="40" Click="ResetujPretraguOpreme"/>
+                        <Label Content="Opcije*" HorizontalAlignment="Left" Margin="283,494,0,0" VerticalAlignment="Top" Width="97" Height="34"/>
+                        <Label Content="IZ SOBE" HorizontalAlignment="Left" Margin="41.849,487,0,0" VerticalAlignment="Top" Height="84" Width="119" FontSize="24" Grid.Column="1"/>
+                        <TextBox x:Name="OpremaSoba1" HorizontalAlignment="Left" IsEnabled="False" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Grid.Column="1" Margin="161.849,494,0,0"/>
+                        <TextBox x:Name="OpremaSoba2" HorizontalAlignment="Left" Height="34" IsEnabled="False" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Grid.Column="1" Margin="367.849,494,0,0"/>
+                        <Label Content="U" HorizontalAlignment="Left" Margin="312.849,487,0,0" VerticalAlignment="Top" Height="84" Width="55" FontSize="24" Grid.Column="1"/>
+
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="RaspodelaOpremeTab" LostFocus="RaspodelaOpremeTab_LostFocus" Header="RASPODELA OPREME" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue" IsEnabled="False">
+                <TabItem x:Name="RaspodelaOpremeTab" LostFocus="RaspodelaOpremeTab_LostFocus" Header="RUČNA RASPODELA" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue" IsEnabled="False">
                     <TabItem.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="AliceBlue" Offset="0.0" />
@@ -493,7 +540,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <DataGrid Grid.Column="4" x:Name ="TabelaOpremeUKojuSePrebacuje" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
-                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="42.35,87,0,0" VerticalAlignment="Top" Width="454" Grid.ColumnSpan="3" SelectionChanged="TabelaOpremeUKojuSePrebacuje_SelectionChanged">
+                            SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="42.35,87,0,0" VerticalAlignment="Top" Width="454" Grid.ColumnSpan="3">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Naziv opreme" FontFamily="Yu Gothic UI Semibold" Binding="{Binding TipStacionarneOpreme}"  Width="*"/>
                                 <DataGridTextColumn Header="Količina opreme" FontFamily="Yu Gothic UI Semibold" Binding="{Binding Kolicina}" Width="*"/>
@@ -501,18 +548,12 @@
                         </DataGrid>
                         <Label x:Name="ProstorijaUKojuSePrebacujeLabel" Content="PROSTORIJA U KOJU SE PREBACUJE" VerticalAlignment="Top" Margin="42.35,29,37.99,0" Height="58" Width="454" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Column="4"/>
                         <Label x:Name="ProstorijaIzKojeSePrebacujeLabel" Content="PROSTORIJA IZ KOJE SE PREBACUJE" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40,29,44.65,0" Height="58" Width="453" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="4"/>
-                        <TextBox x:Name="NazivOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="127.038,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Grid.Column="5"/>
-                        <TextBox x:Name="KolicinaOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="127.038,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontSize="16" Grid.ColumnSpan="2" Grid.Column="5"/>
-                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="44.35,463,0,0" VerticalAlignment="Top" Height="35" Width="210" Grid.Column="4" Grid.ColumnSpan="2"/>
-                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="44.35,519,0,0" VerticalAlignment="Top" Width="210" Grid.Column="4" Grid.ColumnSpan="2"/>
-                        <Button Content="Prebaci opremu" HorizontalAlignment="Left" Margin="9.679,577,0,0" VerticalAlignment="Top" Width="208" Height="45" Click="PrebaciStatickuOpremuUProstoriju" Grid.ColumnSpan="2" Grid.Column="2"/>
-                        <Button Content="Izmeni opremu" HorizontalAlignment="Left" Margin="44.35,577,0,0" VerticalAlignment="Top" Width="210" Height="45" Click="IzmeniStatickuOpremuIzProstorije" Grid.Column="4" Grid.ColumnSpan="2"/>
-                        <Button Content="Obriši opremu" HorizontalAlignment="Left" Margin="127.038,577,0,0" VerticalAlignment="Top" Width="210" Height="45" Click="ObrisiStatickuOpremuIzProstorije" Grid.Column="5" Grid.ColumnSpan="2"/>
-                        <Button Content="Zakazivanje prebacivanja" HorizontalAlignment="Left" Margin="43,577,0,0" VerticalAlignment="Top" Width="208" Height="45" Click="PrikaziProzorZaZakazivanjePrebacivanjaOpreme" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="NazivOpremeSKojomSeRadi_Copy" HorizontalAlignment="Left" Height="30" Margin="7.679,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="16" Grid.ColumnSpan="2" IsEnabled="False" Grid.Column="2"/>
-                        <TextBox x:Name="KolicinaOpremeSKojomSeRadi_Copy" HorizontalAlignment="Left" Height="30" Margin="9.679,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="16" Grid.ColumnSpan="2" Grid.Column="2"/>
-                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="43,463,0,0" VerticalAlignment="Top" Height="35" Width="217" Grid.ColumnSpan="2"/>
-                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="43,519,0,0" VerticalAlignment="Top" Width="208" Grid.ColumnSpan="2"/>
+                        <Button Content="Prebaci opremu" HorizontalAlignment="Left" Margin="124.038,486,0,0" VerticalAlignment="Top" Width="292" Height="50" Click="PrebaciStatickuOpremuUProstoriju" Grid.ColumnSpan="2" Grid.Column="4"/>
+                        <Button Content="Zakazivanje prebacivanja" HorizontalAlignment="Left" Margin="124.038,570,0,0" VerticalAlignment="Top" Width="292" Height="50" Click="PrikaziProzorZaZakazivanjePrebacivanjaOpreme" Grid.ColumnSpan="2" Grid.Column="4"/>
+                        <TextBox x:Name="NazivOpremeSKojomSeRadi_Copy" HorizontalAlignment="Left" Height="35" Margin="7.679,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="18" Grid.ColumnSpan="2" IsEnabled="False" Grid.Column="2"/>
+                        <TextBox x:Name="KolicinaOpremeSKojomSeRadi_Copy" HorizontalAlignment="Left" Height="35" Margin="7.679,555,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" FontSize="18" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="43,479,0,0" VerticalAlignment="Top" Height="44" Width="217" Grid.ColumnSpan="2"/>
+                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="43,548,0,0" VerticalAlignment="Top" Width="208" Grid.ColumnSpan="2" Height="42"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="ZakazanaPrebacivanjaOpremeTab"  FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue" IsEnabled="False" LostFocus="ZakazanaPrebacivanjaOpremeTab_LostFocus">
@@ -524,8 +565,8 @@
                     </TabItem.Background>
                     <TabItem.Header>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock TextWrapping="Wrap" Text="  PREBACIVANJE" Height="25" Width="140" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock TextWrapping="Wrap" Text="  OPREME" Height="25" Width="90" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock TextWrapping="Wrap" Text="  ZAKAZANA" Height="25" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock TextWrapping="Wrap" Text="  RASPODELA" Height="25" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
@@ -690,8 +731,8 @@
                         </DataGrid>
                         <Label Content="PREGLED SVIH LEKOVA" VerticalAlignment="Top" Margin="54,24,593.019,0" Height="58" Width="368" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="NazivLeka"  HorizontalAlignment="Left" Height="30" Margin="514.283,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="JacinaLeka" HorizontalAlignment="Left" Height="30" Margin="514.283,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="KolicinaLeka" HorizontalAlignment="Left" Height="30" Margin="514.283,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="JacinaLeka" HorizontalAlignment="Left" Height="30" Margin="514.283,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="ZamenskiLek" HorizontalAlignment="Left" Height="30" Margin="514.283,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="SastavLeka" HorizontalAlignment="Left" Height="82" Margin="368.283,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <ComboBox x:Name="VrstaLeka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="514.283,87,0,0" Height="30" Grid.Column="1" Grid.ColumnSpan="2">
@@ -785,8 +826,8 @@
                         </DataGrid>
                         <Label Content="PREGLED SVIH LEKOVA" VerticalAlignment="Top" Margin="53,24,650.396,0" Height="58" Width="368" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="NazivLekaIzmeni"  HorizontalAlignment="Left" Height="30" Margin="514.283,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="JacinaLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="514.283,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="KolicinaLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="514.283,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="JacinaLekaIzmeni" HorizontalAlignment="Left" Height="30" Margin="514.283,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="ZamenskiLekIzmeni" HorizontalAlignment="Left" Height="30" Margin="514.283,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
 
                         <ComboBox x:Name="VrstaLekaIzmeni" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Margin="514.283,87,0,0" Height="30" Grid.Column="1" Grid.ColumnSpan="2">
@@ -843,17 +884,17 @@
                             <ColumnDefinition Width="373*"/>
                         </Grid.ColumnDefinitions>
                         <DataGrid x:Name ="TabelaVerifikacija" FontSize="15" CanUserSortColumns="False" Background="LightGray" AutoGenerateColumns="False"  IsReadOnly="True" 
-                          SelectionMode="Single" AlternatingRowBackground ="LightBlue"  HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="5" SelectionChanged="TabelaVerifikacija_SelectionChanged">
+                          SelectionMode="Single" AlternatingRowBackground ="LightBlue" HorizontalAlignment="Left" Height="352" Margin="50,87,0,0" VerticalAlignment="Top" Width="971" Grid.ColumnSpan="5" SelectionChanged="TabelaVerifikacija_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Vreme prijema" Binding="{Binding VremeSlanjaZahteva}" Width="180"/>
                                 <DataGridTextColumn Header="Lek" Binding="{Binding Naslov}" Width="150"/>
-                                <DataGridTextColumn Header="JMBG lekara" Binding="{Binding JmbgPosiljaoca}" Width="170"/>
+                                <DataGridTextColumn x:Name="ImeLekara" Header="Ime lekara" Binding="{Binding ImeLekara}" Width="170"/>
                                 <DataGridTextColumn Header="Napomena" Binding="{Binding Napomena}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="135" Margin="50,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" FontSize="16" Grid.ColumnSpan="3"/>
                         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,454,0,0" TextWrapping="Wrap" Text="Informacije o leku:" VerticalAlignment="Top" Width="166" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <Button Background="WhiteSmoke" Content="Obriši verifikaciju" FontSize="15" HorizontalAlignment="Left" Margin="342,517,0,0" VerticalAlignment="Top" Width="175" Height="60" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <Button Background="WhiteSmoke" Content="Obriši verifikaciju" FontSize="15" HorizontalAlignment="Left" Margin="342,517,0,0" VerticalAlignment="Top" Width="175" Height="60" Grid.ColumnSpan="3" Grid.Column="2" Click="ObrisiVerifikaciju_Click"/>
                         <Label Content="PREGLED SVIH VERIFIKACIJA LEKOVA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="491" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3"/>
                     </Grid>
                 </TabItem>
@@ -991,9 +1032,9 @@
                         <TextBox x:Name="NazivDinamickeOpremeIzmeni" HorizontalAlignment="Left" Height="30" Margin="277.304,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="3" Grid.ColumnSpan="2" IsEnabled="False"/>
                         <TextBox x:Name="KolicinaDinamickeOpremeIzmeni" HorizontalAlignment="Left" Height="30" Margin="277.304,519,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" FontSize="16" Grid.Column="3" Grid.ColumnSpan="2"/>
                         <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="76,458,0,0" VerticalAlignment="Top" Height="35" Width="175"/>
-                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="76,514,0,0" VerticalAlignment="Top" Width="175"/>
+                        <Label Content="Količina (+/-)*" HorizontalAlignment="Left" Margin="76,514,0,0" VerticalAlignment="Top" Width="175"/>
                         <Label Content="Naziv opreme*" HorizontalAlignment="Left" Margin="78.304,458,0,0" VerticalAlignment="Top" Grid.Column="3" RenderTransformOrigin="0.499,0.277" Width="175"/>
-                        <Label Content="Količina*" HorizontalAlignment="Left" Margin="78.304,514,0,0" VerticalAlignment="Top" Grid.Column="3" Width="175"/>
+                        <Label Content="Količina (+/-)*" HorizontalAlignment="Left" Margin="78.304,514,0,0" VerticalAlignment="Top" Grid.Column="3" Width="175"/>
                         <Button Grid.ColumnSpan="3" Content="Izmeni opremu" HorizontalAlignment="Left" Margin="181,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Click="IzmeniStatickuOpremuMagacin"/>
                         <Button Content="Izmeni opremu" HorizontalAlignment="Left" Margin="179.304,576,0,0" VerticalAlignment="Top" Width="175" Height="45" Grid.Column="3" Click="IzmeniPotrosnuOpremuMagacin"/>
                     </Grid>

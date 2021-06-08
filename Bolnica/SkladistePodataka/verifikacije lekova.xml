@@ -90,4 +90,22 @@
     <Napomena>Odobreno.</Napomena>
     <IdVerifikacijeLeka>5/4/2021 3:32:28 AM19039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-06-07T19:54:05.4586403+02:00</VremeSlanjaZahteva>
+    <Naslov>ytr</Naslov>
+    <Sadrzaj>Vrsta:Tableta Jačina:55 mg Zamenski lek:ytr Sastav:yt,tr</Sadrzaj>
+    <JmbgPrimaoca>609</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena>tr</Napomena>
+    <IdVerifikacijeLeka>7.6.2021. 19:54:051903999772025609</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-06-08T01:16:41.4352574+02:00</VremeSlanjaZahteva>
+    <Naslov />
+    <Sadrzaj>Vrsta:sirup   Jačina:44 mg   Zamenski lek:   Sastav:rty</Sadrzaj>
+    <JmbgPrimaoca>6667</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>8.6.2021. 01:16:4119039997720256667</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

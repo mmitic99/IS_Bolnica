@@ -20,4 +20,24 @@
     <IdProstorijeUKojUSePrenosiOprema>7</IdProstorijeUKojUSePrenosiOprema>
     <TrajanjePreraspodele>60</TrajanjePreraspodele>
   </ZakazanaPreraspodelaStatickeOpreme>
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-06-12T14:30:00</DatumIVremePreraspodele>
+    <NazivOpreme>Stolica</NazivOpreme>
+    <KolicinaOpreme>1</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>002</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>105</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>1</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>4</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-06-16T13:30:00</DatumIVremePreraspodele>
+    <NazivOpreme>Kompjuter</NazivOpreme>
+    <KolicinaOpreme>2</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>207</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>6</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
 </ArrayOfZakazanaPreraspodelaStatickeOpreme>

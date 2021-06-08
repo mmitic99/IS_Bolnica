@@ -174,6 +174,7 @@
     <Compile Include="DTOs\StacionarnaOpremaDTO.cs" />
     <Compile Include="DTOs\TerminDTO.cs" />
     <Compile Include="DTOs\VerifikacijaLekaDTO.cs" />
+    <Compile Include="DTOs\VerifikacijePrikazDTO.cs" />
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
     <Compile Include="Kontroler\AnamnezaKontroler.cs" />
