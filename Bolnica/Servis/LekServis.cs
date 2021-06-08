@@ -4,6 +4,7 @@ using Bolnica.view.LekarView;
 using Bolnica.view.UpravnikView;
 using Model;
 using System;
+using Model.Enum;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Bolnica.Validacije;
 
 namespace Bolnica.Servis
 {
@@ -21,6 +23,7 @@ namespace Bolnica.Servis
         private static LekServis instance = null;
         public int IdLekaGenerator = 0;
         public ISkladisteZaLekove skladisteZaLekove;
+        public ValidacijaContext validacija = new ValidacijaContext(new LekStrategy());
         public static LekServis GetInstance()
         {
             if (instance == null)
@@ -73,137 +76,130 @@ namespace Bolnica.Servis
 
         private bool Validiraj(Regex sablon, String unos)
         {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
+            bool validno = true;
+            if (!sablon.IsMatch(unos))
+                validno = false;
+            return validno;
         }
 
         private bool ValidirajNazivLeka(LekValidacijaDTO lek, String vrstaOperacije, int indexSelektovanogLeka)
         {
-            Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
+            bool validno = true;
+            Regex sablon = new Regex(@"^[0-9a-zA-ZŠĐŽĆČšđžćč\s]+$");
             List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             if (sablon.IsMatch(lek.NazivLeka))
             {
                 foreach (Lek l in SviLekovi)
                 {
-                    if (vrstaOperacije.Equals("dodaj"))
-                    {
-                        if (lek.NazivLeka.Equals(l.NazivLeka))
-                        {
-                            MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
-                        }
+                    if (vrstaOperacije.Equals("dodaj") && lek.NazivLeka.Equals(l.NazivLeka))
+                    { //6
+                        validacija.IspisiGresku(6);
+                        validno = false;
                     }
                     else if (vrstaOperacije.Equals("izmeni"))
                     {
                         if (lek.NazivLeka != SviLekovi[indexSelektovanogLeka].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
-                        {
-                            MessageBox.Show("Već postoji lek sa istim nazivom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
+                        { //6
+                            validacija.IspisiGresku(6);
+                            validno = false;
                         }
                     }
                 }
             }
-            return false;
+            return validno;
         }
         private bool ValidirajComboBoxoveLeka(LekValidacijaDTO lek)
         {
+            bool validno = true;
             if (lek.VrstaLeka == -1 || lek.KlasaLeka == -1)
-            {
-                MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+            { //7
+                validacija.IspisiGresku(7);
+                validno = false;
             }
-            return true;
+            return validno;
         }
 
 public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, int selektovaniLek)
         {
+            bool validno = true;
+            int idGreske = 0;
             if (ValidirajNazivLeka(lek, DodajIliIzmeni, selektovaniLek) == false)
             {
-                MessageBox.Show("Neispravno unet naziv leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                validno = false;
+                idGreske = 1;
             }
 
             if (Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), lek.KolicinaLeka) == false)
             {
-                MessageBox.Show("Neispravno uneta količina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                validno = false;
+                idGreske = 2;
             }
 
             if (Validiraj(new Regex(@"^[1-9]{1}[0-9]*$"), lek.JacinaLeka) == false)
             {
-                MessageBox.Show("Neispravno uneta jačina leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                validno = false;
+                idGreske = 3;
             }
 
-            if (Validiraj(new Regex(@"^[0-9a-zA-Z\s]+$"), lek.ZamenskiLek) == false)
+            if (Validiraj(new Regex(@"^[0-9a-zA-ZšđžćčŠĐŽĆČ\s]+$"), lek.ZamenskiLek) == false)
             {
-                MessageBox.Show("Neispravno unet zamenski lek !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                validno = false;
+                idGreske = 4;
             }
 
-            if (Validiraj(new Regex(@"^[0-9a-zA-Z,\s]+$"), lek.SastavLeka) == false)
+            if (Validiraj(new Regex(@"^[0-9a-zA-ZŠĐŽĆČšđžćč,\s]+$"), lek.SastavLeka) == false)
             {
-                MessageBox.Show("Neispravno unet sastav leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                validno = false;
+                idGreske = 5;
             }
 
-            if (ValidirajComboBoxoveLeka(lek) == true)
-                return true;
-            else
-                return false;
+            if (ValidirajComboBoxoveLeka(lek) == false)
+                validno = false;
+            validacija.IspisiGresku(idGreske);
+            return validno;
         }
 
         public Model.Enum.VrstaLeka GetVrstuLeka(int IndexSelektovaneVrsteLeka)
         {
+            VrstaLeka vrsta = VrstaLeka.SumecaTableta;
             if (IndexSelektovaneVrsteLeka == 0)
-                return Model.Enum.VrstaLeka.Kapsula;
+                vrsta = VrstaLeka.Kapsula;
             else if (IndexSelektovaneVrsteLeka == 1)
-                return Model.Enum.VrstaLeka.Tableta;
+                vrsta = VrstaLeka.Tableta;
             else if (IndexSelektovaneVrsteLeka == 2)
-                return Model.Enum.VrstaLeka.Sirup;
+                vrsta = VrstaLeka.Sirup;
             else if (IndexSelektovaneVrsteLeka == 3)
-                return Model.Enum.VrstaLeka.Sprej;
+                vrsta = VrstaLeka.Sprej;
             else if (IndexSelektovaneVrsteLeka == 4)
-                return Model.Enum.VrstaLeka.Gel;
-            else
-                return Model.Enum.VrstaLeka.SumecaTableta;
+                vrsta = VrstaLeka.Gel;
+            return vrsta;
         }
 
 
         public Model.Enum.KlasaLeka GetKlasuLeka(int IndexSelektovaneKlaseLeka)
         {
+            KlasaLeka klasa = KlasaLeka.Statin;
             if (IndexSelektovaneKlaseLeka == 0)
-                return Model.Enum.KlasaLeka.Analgetik;
+                klasa = KlasaLeka.Analgetik;
             else if (IndexSelektovaneKlaseLeka == 1)
-                return Model.Enum.KlasaLeka.Antipiretik;
+                klasa = KlasaLeka.Antipiretik;
             else if (IndexSelektovaneKlaseLeka == 2)
-                return Model.Enum.KlasaLeka.Antimalarijski_Lek;
+                klasa = KlasaLeka.Antimalarijski_Lek;
             else if (IndexSelektovaneKlaseLeka == 3)
-                return Model.Enum.KlasaLeka.Antibiotik;
+                klasa = KlasaLeka.Antibiotik;
             else if (IndexSelektovaneKlaseLeka == 4)
-                return Model.Enum.KlasaLeka.Antiseptik;
+                klasa = KlasaLeka.Antiseptik;
             else if (IndexSelektovaneKlaseLeka == 5)
-                return Model.Enum.KlasaLeka.Stabilizator_Raspolozenja;
+                klasa = KlasaLeka.Stabilizator_Raspolozenja;
             else if (IndexSelektovaneKlaseLeka == 6)
-                return Model.Enum.KlasaLeka.Hormonska_Zamena;
+                klasa = KlasaLeka.Hormonska_Zamena;
             else if (IndexSelektovaneKlaseLeka == 7)
-                return Model.Enum.KlasaLeka.Oralni_Kontraceptiv;
+                klasa = KlasaLeka.Oralni_Kontraceptiv;
             else if (IndexSelektovaneKlaseLeka == 8)
-                return Model.Enum.KlasaLeka.Stimulant;
+                klasa = KlasaLeka.Stimulant;
             else if (IndexSelektovaneKlaseLeka == 9)
-                return Model.Enum.KlasaLeka.Trankvilajzer;
-            else
-                return Model.Enum.KlasaLeka.Statin;
+                klasa = KlasaLeka.Trankvilajzer;
+            return klasa;
         }
 
         public List<Lek> GetAll()

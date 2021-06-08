@@ -19,16 +19,17 @@ namespace Bolnica.view.UpravnikView
     /// </summary>
     public partial class UpravnikWindow : Window
     {
-        Upravnik upravnik;
+        UpravnikDTO upravnik;
 
         private static UpravnikWindow instance = null;
+        FeedbackKontroler FeedbackKontroler = new FeedbackKontroler();
 
         public static UpravnikWindow GetInstance()
         {
             return instance;
         }
 
-        public UpravnikWindow(Upravnik upravnik)
+        public UpravnikWindow(UpravnikDTO upravnik)
         {
             InitializeComponent();
 
@@ -337,14 +338,14 @@ namespace Bolnica.view.UpravnikView
         }
         private String VrstaProstorijeLepIspis(Model.Enum.VrstaProstorije vrsta)
         {
+            String ispis = "SOBA ZA PREGLEDE";
             if (vrsta == Model.Enum.VrstaProstorije.Magacin)
-                return "MAGACIN";
+                ispis = "MAGACIN";
             else if (vrsta == Model.Enum.VrstaProstorije.Operaciona_sala)
-                return "OPERACIONA SALA";
+                ispis = "OPERACIONA SALA";
             else if (vrsta == Model.Enum.VrstaProstorije.Soba_za_bolesnike)
-                return "SOBA ZA BOLESNIKE";
-            else
-                return "SOBA ZA PREGLEDE";
+                ispis = "SOBA ZA BOLESNIKE";
+            return ispis;
         }
 
         private void VratiSeNazad_Click(object sender, RoutedEventArgs e)
@@ -569,18 +570,18 @@ namespace Bolnica.view.UpravnikView
 
         private String VrstaLekaLepIspis(int index)
         {
+            String ispis = "šumeća tableta";
             if (index == 0)
-                return "kapsula";
+                ispis = "kapsula";
             else if (index == 1)
-                return "tableta";
+                ispis = "tableta";
             else if (index == 2)
-                return "sirup";
+                ispis = "sirup";
             else if (index == 3)
-                return "sprej";
+                ispis = "sprej";
             else if (index == 4)
-                return "gel";
-            else
-                return "šumeća tableta";
+                ispis = "gel";
+            return ispis;
         }
 
         private String GetJmbgLekaraZaValidaciju(int index)
@@ -949,6 +950,30 @@ namespace Bolnica.view.UpravnikView
             }
             else
                 MessageBox.Show("Označite verifikaciju koje želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void PosaljiFeedback(object sender, RoutedEventArgs e)
+        {
+            if (!SadrzajFeedbacka.Text.Trim().Equals(""))
+                {
+                if ((OcenaCombobox.SelectedIndex != -1))
+                {
+                    FeedbackDTO recenzija = new FeedbackDTO()
+                    {
+                        JmbgKorisnika = "1903999772025",
+                        DatumIVreme = DateTime.Now,
+                        Sadrzaj = SadrzajFeedbacka.Text,
+                        Ocena = OcenaCombobox.SelectedIndex + 1
+                    };
+                    FeedbackKontroler.Save(recenzija);
+                    MessageBox.Show("Recenzija uspešno poslata !", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                    SadrzajFeedbacka.Clear();
+                }
+                else
+                    MessageBox.Show("Morate izabrati ocenu za aplikaciju !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Unesite sadržaj recenzije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

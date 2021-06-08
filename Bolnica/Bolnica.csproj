@@ -167,6 +167,7 @@
     <Compile Include="DTOs\SekretarDTO.cs" />
     <Compile Include="DTOs\StacionarnaOpremaDTO.cs" />
     <Compile Include="DTOs\TerminDTO.cs" />
+    <Compile Include="DTOs\UpravnikDTO.cs" />
     <Compile Include="DTOs\VerifikacijaLekaDTO.cs" />
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
@@ -259,8 +260,13 @@
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
+    <Compile Include="Validacije\LekStrategy.cs" />
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
+    <Compile Include="Validacije\ProstorijaStrategy.cs" />
+    <Compile Include="Validacije\ValidacijaContext.cs" />
+    <Compile Include="Validacije\ValidacijaStrategy.cs" />
+    <Compile Include="Validacije\ZakazanaPreraspodelaStatickeOpremeStrategy.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
     <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />

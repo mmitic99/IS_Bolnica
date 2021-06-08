@@ -1,93 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVerifikacijaLeka xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:20:49.6469453+02:00</VremeSlanjaZahteva>
-    <Naslov>Analgin</Naslov>
-    <Sadrzaj>Stagoddd</Sadrzaj>
+    <VremeSlanjaZahteva>2021-06-08T03:37:19.4641788+02:00</VremeSlanjaZahteva>
+    <Naslov>Defrinol</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:sastojak1, sastojak2</Sadrzaj>
     <JmbgPrimaoca>6667</JmbgPrimaoca>
     <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
-    <Napomena>Nis spec</Napomena>
-    <IdVerifikacijeLeka>4.5.2021. 03:20:4919039997720256667</IdVerifikacijeLeka>
+    <Napomena />
+    <IdVerifikacijeLeka>08.06.2021 03:37:1919039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Lekic</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
+    <VremeSlanjaZahteva>2021-06-08T03:38:09.4462235+02:00</VremeSlanjaZahteva>
+    <Naslov>Fluimucil</Naslov>
+    <Sadrzaj>Vrsta:sprej Jačina:500 mg Zamenski lek:Lek Sastav:sastojak1, sastojak2, sastojak3</Sadrzaj>
     <JmbgPrimaoca>6667</JmbgPrimaoca>
     <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
-    <Napomena>nemanista</Napomena>
-    <IdVerifikacijeLeka>4.5.2021. 03:32:2819039997720256667</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Panklav</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
     <Napomena />
-    <IdVerifikacijeLeka>4.5.2021. 03:32:2819039997720256667</IdVerifikacijeLeka>
+    <IdVerifikacijeLeka>08.06.2021 03:38:0919039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:20:49.6469453+02:00</VremeSlanjaZahteva>
-    <Naslov>Analgin</Naslov>
-    <Sadrzaj>Stagoddd</Sadrzaj>
+    <VremeSlanjaZahteva>2021-06-08T03:37:19.4641788+02:00</VremeSlanjaZahteva>
+    <Naslov>Defrinol</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:sastojak1, sastojak2</Sadrzaj>
     <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
     <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena>Odobreno.</Napomena>
-    <IdVerifikacijeLeka>5/4/2021 3:20:49 AM66671903999772025</IdVerifikacijeLeka>
+    <Napomena>Lek odobren.</Napomena>
+    <IdVerifikacijeLeka>08.06.2021 03:37:1966671903999772025</IdVerifikacijeLeka>
   </VerifikacijaLeka>
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Lekic</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
+    <VremeSlanjaZahteva>2021-06-08T03:38:09.4462235+02:00</VremeSlanjaZahteva>
+    <Naslov>Fluimucil</Naslov>
+    <Sadrzaj>Vrsta:sprej Jačina:500 mg Zamenski lek:Lek Sastav:sastojak1, sastojak2, sastojak3</Sadrzaj>
     <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
     <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena>Los zamenski lek</Napomena>
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Lekic</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena>Pa ovaj put je malo bolje</Napomena>
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Lekic</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena>Nije dobro, promeni zamenski lek.</Napomena>
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-25T00:20:55.0869623+02:00</VremeSlanjaZahteva>
-    <Naslov>Hepatrombin</Naslov>
-    <Sadrzaj>Vrsta:gel Jačina:500 mg Zamenski lek:Kreuterhof Sastav:alantoin, dekspantenol, bronopol, karbomer</Sadrzaj>
-    <JmbgPrimaoca>4536</JmbgPrimaoca>
-    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>25.5.2021. 00:20:5519039997720254536</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-25T14:03:20.0268151+02:00</VremeSlanjaZahteva>
-    <Naslov>Kreuterhof</Naslov>
-    <Sadrzaj>Vrsta:gel Jačina:500 mg Zamenski lek:Hepatrombin Sastav:sastojak 1, sastojak 2</Sadrzaj>
-    <JmbgPrimaoca>1231828828477</JmbgPrimaoca>
-    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>25.5.2021. 14:03:2019039997720251231828828477</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Panklav</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
-    <JmbgPrimaoca>6667</JmbgPrimaoca>
-    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
-    <Napomena>Odobreno.</Napomena>
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM19039997720256667</IdVerifikacijeLeka>
+    <Napomena>Zamenski lek treba da bude Palitrex.</Napomena>
+    <IdVerifikacijeLeka>08.06.2021 03:38:0966671903999772025</IdVerifikacijeLeka>
   </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

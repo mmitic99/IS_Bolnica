@@ -38,11 +38,11 @@ namespace Bolnica.Servis
         public void ObrisiVerifikacijuLeka(String idVerifikacije)
         {
             List<VerifikacijaLeka> SveVerifikacije = skladisteZaVerifikacijuLeka.GetAll();
-            foreach (VerifikacijaLeka verifikacija in SveVerifikacije)
+            for (int i = 0; i < SveVerifikacije.Count; i++)
             {
-                if (idVerifikacije.Equals(verifikacija.IdVerifikacijeLeka))
+                if (idVerifikacije.Equals(SveVerifikacije[i].IdVerifikacijeLeka))
                 {
-                    SveVerifikacije.Remove(verifikacija);
+                    SveVerifikacije.RemoveAt(i);
                     break;
                 }
             }

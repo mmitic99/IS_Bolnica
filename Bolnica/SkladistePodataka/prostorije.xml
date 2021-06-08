@@ -11,7 +11,7 @@
     <Staticka>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>19</Kolicina>
+        <Kolicina>18</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
@@ -167,7 +167,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>5</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -202,7 +202,7 @@
     <Sprat>3</Sprat>
     <BrojSobe>304</BrojSobe>
     <VrstaProstorije>Soba_za_bolesnike</VrstaProstorije>
-    <RenoviraSe>true</RenoviraSe>
+    <RenoviraSe>false</RenoviraSe>
     <Kvadratura>54</Kvadratura>
     <Staticka>
       <StacionarnaOprema>
@@ -239,22 +239,22 @@
   <Prostorija>
     <termin />
     <IdProstorije>11</IdProstorije>
-    <Sprat>0</Sprat>
+    <Sprat>4</Sprat>
     <BrojSobe>410</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>0</Kvadratura>
+    <Kvadratura>54</Kvadratura>
     <Staticka />
     <Potrosna />
   </Prostorija>
   <Prostorija>
     <termin />
     <IdProstorije>12</IdProstorije>
-    <Sprat>0</Sprat>
+    <Sprat>4</Sprat>
     <BrojSobe>420</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
-    <Kvadratura>0</Kvadratura>
+    <Kvadratura>45</Kvadratura>
     <Staticka />
     <Potrosna />
   </Prostorija>

@@ -6,4 +6,16 @@
     <Sadrzaj>Sve super</Sadrzaj>
     <Ocena>5</Ocena>
   </Feedback>
+  <Feedback>
+    <JmbgKorisnika>1903999772025</JmbgKorisnika>
+    <DatumIVreme>2021-06-08T23:54:36.365126+02:00</DatumIVreme>
+    <Sadrzaj>Aplikacija radi kao zmaj !</Sadrzaj>
+    <Ocena>5</Ocena>
+  </Feedback>
+  <Feedback>
+    <JmbgKorisnika>1903999772025</JmbgKorisnika>
+    <DatumIVreme>2021-06-08T23:55:31.1347245+02:00</DatumIVreme>
+    <Sadrzaj>Aplikacija fenomenalna !</Sadrzaj>
+    <Ocena>5</Ocena>
+  </Feedback>
 </ArrayOfFeedback>

@@ -71,7 +71,7 @@ namespace Bolnica.Kontroler
             {
                 verifikacije.Add(new VerifikacijaLekaDTO()
                 {
-                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString() + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
+                    IdVerifikacijeLeka = verifikacija.VremeSlanjaZahteva.ToString("dd.MM.yyyy HH:mm:ss") + verifikacija.JmbgPosiljaoca + verifikacija.JmbgPrimaoca,
                     VremeSlanjaZahteva = verifikacija.VremeSlanjaZahteva,
                     Naslov = verifikacija.Naslov,
                     Sadrzaj = verifikacija.Sadrzaj,

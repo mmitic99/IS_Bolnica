@@ -17,7 +17,7 @@ namespace Bolnica.model
         public String IdVerifikacijeLeka { get; set; }
         public VerifikacijaLeka(DateTime vremeSlanja, String naslov, String sadrzaj, String jmbgPosiljaoca, String jmbgPrimaoca, String napomena)
         {
-            IdVerifikacijeLeka = vremeSlanja.ToString() + jmbgPosiljaoca + jmbgPrimaoca;
+            IdVerifikacijeLeka = vremeSlanja.ToString("dd/MM/yyyy HH:mm:ss") + jmbgPosiljaoca + jmbgPrimaoca;
             VremeSlanjaZahteva = vremeSlanja;
             Naslov = naslov;
             Sadrzaj = sadrzaj;
