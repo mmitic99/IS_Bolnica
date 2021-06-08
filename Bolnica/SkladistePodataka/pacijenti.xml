@@ -195,10 +195,20 @@
               <ImeDoktora>dr Dunja Jovanovic</ImeDoktora>
               <KomentariPacijenta>
                 <Beleska>
-                  <ValidationErrors />
-                  <IsValid>false</IsValid>
                   <Naslov>popiti caj</Naslov>
                   <Opis>detalji</Opis>
+                </Beleska>
+                <Beleska>
+                  <Naslov>vv</Naslov>
+                  <Opis>ff</Opis>
+                </Beleska>
+                <Beleska>
+                  <Naslov>gg</Naslov>
+                  <Opis>cc</Opis>
+                </Beleska>
+                <Beleska>
+                  <Naslov>ff</Naslov>
+                  <Opis>dobro</Opis>
                 </Beleska>
               </KomentariPacijenta>
             </Recept>

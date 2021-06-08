@@ -123,6 +123,13 @@ namespace Servis
             skladisteZaRenoviranja.SaveAll(SvaRenoviranja);
             DeselektujMoguceRenoviranje(IdProstorije);
         }
+
+        internal string GetIspisSobe(int idProstorije)
+        {
+            Prostorija p = GetById(idProstorije);
+            return" sprat "+p.Sprat+"/" + p.BrojSobe;
+        }
+
         private void ObrisiZavrsenaRenoviranja(ref List<Renoviranje> SvaRenoviranja, List<int> IdProstorijaZaBrisanjeIzRenoviranja)
         {
             foreach (int ID in IdProstorijaZaBrisanjeIzRenoviranja)

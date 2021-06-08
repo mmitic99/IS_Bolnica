@@ -17,7 +17,10 @@
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                       Height="565"
+                      ItemsSource="{Binding TerminiZaPrikazivanje}"
                       SelectionMode="Single"
+                      SelectedItem="{Binding Mode=TwoWay,Path=IzabraniTermin, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedIndex="{Binding Mode=TwoWay, Path=IndeksIzabranogTermina, UpdateSourceTrigger=PropertyChanged}"
                       CanUserResizeColumns="False"
                       CanUserResizeRows="False"
                       >
@@ -46,8 +49,8 @@
                     <ColumnDefinition Width="402"/>
                     <ColumnDefinition Width="402"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Nazad" Content="Nazad" Height="50" Click="Nazad_Click"/>
-                <Button x:Name="Zakaži" Content="Zakažite termin" Height="50" Grid.Column="1" Click="Zakaži_Click">
+                <Button x:Name="Nazad" Content="Nazad" Height="50" Command="{Binding Nazad}"/>
+                <Button x:Name="Zakaži" BorderThickness="{Binding Ivice}" Content="Zakažite termin" Height="50" Grid.Column="1" Command="{Binding Zakazi}">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="IsEnabled" Value="True" />

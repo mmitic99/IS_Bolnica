@@ -7,47 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bolnica.model
 {
-    public class Beleska : ValidationBase
+    public class Beleska
     {
-        private string naslov;
-        private string opis;
+        public String Naslov { get; set; }
+        public String Opis { get; set; }
 
-        public string Naslov
-        {
-            get { return naslov; }
-            set
-            {
-                if (naslov != value)
-                {
-                    naslov = value;
-                    OnPropertyChanged("Naslov");
-                }
-            }
-        }
-
-        public string Opis
-        {
-            get { return opis; }
-            set
-            {
-                if (opis != value)
-                {
-                    opis = value;
-                    OnPropertyChanged("Opis");
-                }
-            }
-        }
-
-        protected override void ValidateSelf()
-        {
-            if (string.IsNullOrWhiteSpace(this.Naslov))
-            {
-                this.ValidationErrors["Naslov"] = "Naslov je neophodan.";
-            }
-            if (string.IsNullOrWhiteSpace(this.opis))
-            {
-                this.ValidationErrors["Opis"] = "Opis ne može da bude prazan.";
-            }
-        }
     }
 }

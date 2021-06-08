@@ -71,7 +71,7 @@ namespace Bolnica.Servis
             AnketaLekar anketa = GetAnketaOLekaru(anketaOLekaru.JmbgLekara);
             foreach (String ID in anketa.ispunjeneAnkete)
             {
-                if (ID.Equals(anketaOLekaru.IDAnkete))
+                if (ID != null && ID.Equals(anketaOLekaru.IDAnkete))
                 {
                     popunioAnketu = true;
                     break;

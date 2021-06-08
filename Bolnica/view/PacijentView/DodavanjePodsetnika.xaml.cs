@@ -46,8 +46,8 @@ namespace Bolnica.view.PacijentView
             {
                 Datumi = kalendar.SelectedDates,
                 JmbgKorisnika = ViewModel.pacijent,
-                Minut = minut.Text,
-                Sat = sat.Text,
+                Minut = minut.Value,
+                Sat = sat.Value,
                 Naslov = naslov.Text,
                 Sadrzaj = sadrzaj.Text
             };

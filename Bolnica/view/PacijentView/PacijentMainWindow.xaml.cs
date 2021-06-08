@@ -113,5 +113,15 @@ namespace Bolnica.view
             zvonce.Visibility = Visibility.Visible;
             Obavestenja.IsChecked = true;
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            MainViewModel.PrekiniDemo();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainViewModel.PrekiniDemo();
+        }
     }
 }

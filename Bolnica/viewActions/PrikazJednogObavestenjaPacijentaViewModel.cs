@@ -42,6 +42,7 @@ namespace Bolnica.viewActions
             if(obavestenje.anketaOLekaru!=null)
             {
                 this.ZakacenaAnketaOLekaru = AnketeKontroler.GetAnketaOLekaruByJmbg(obavestenje.anketaOLekaru.JmbgLekara);
+                MainViewModel.getInstance().AnketaOLekaruVM = new AnketaOLekaruViewModel(obavestenje.anketaOLekaru);
             }
         }
 

@@ -100,6 +100,12 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=19.1460.0.66, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.Compression.Base.19.1.0.66\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
@@ -122,6 +128,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -136,6 +145,21 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -154,6 +178,7 @@
     <Compile Include="DTOs\LekarDTO.cs" />
     <Compile Include="DTOs\LekDTO.cs" />
     <Compile Include="DTOs\NaprednoRenoviranjeDTO.cs" />
+    <Compile Include="DTOs\NotesForCalendarDTO.cs" />
     <Compile Include="DTOs\ObavestenjeDTO.cs" />
     <Compile Include="DTOs\PacijentDTO.cs" />
     <Compile Include="DTOs\PotrosnaOpremaDTO.cs" />
@@ -258,12 +283,16 @@
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="viewActions\AnketaOLekaruViewModel.cs" />
+    <Compile Include="viewActions\BeleskaViewModel.cs" />
     <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />
+    <Compile Include="viewActions\KalendarViewModel.cs" />
     <Compile Include="viewActions\KomentariKorisnikaViewModel.cs" />
     <Compile Include="viewActions\MyICommand.cs" />
     <Compile Include="viewActions\PodesavanjeObavestenjaViewModel.cs" />
     <Compile Include="viewActions\PomeranjeTerminaViewModel.cs" />
+    <Compile Include="viewActions\PomocObavestenjaViewModel.cs" />
+    <Compile Include="viewActions\PomocTerminiViewModel.cs" />
     <Compile Include="viewActions\PregledViewModel.cs" />
     <Compile Include="viewActions\PrikazJednogObavestenjaPacijentaViewModel.cs" />
     <Compile Include="viewActions\PrikazKvartalneAnketeViewModel.cs" />
@@ -336,6 +365,9 @@
     <Compile Include="view\PacijentView\DodavanjePodsetnika.xaml.cs">
       <DependentUpon>DodavanjePodsetnika.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\PacijentView\Kalendar.xaml.cs">
+      <DependentUpon>Kalendar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\PacijentView\MoguciTermini.xaml.cs">
       <DependentUpon>MoguciTermini.xaml</DependentUpon>
     </Compile>
@@ -344,6 +376,12 @@
     </Compile>
     <Compile Include="view\PacijentView\PomeranjeTermina.xaml.cs">
       <DependentUpon>PomeranjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\PomocObavestenjaView.xaml.cs">
+      <DependentUpon>PomocObavestenjaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\PomocRukovanjeTerminima.xaml.cs">
+      <DependentUpon>PomocRukovanjeTerminima.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\PrikazAnketeOLekaru.xaml.cs">
       <DependentUpon>PrikazAnketeOLekaru.xaml</DependentUpon>
@@ -508,6 +546,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\PacijentView\Kalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\PacijentView\MoguciTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -517,6 +559,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\PomeranjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\PomocObavestenjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\PomocRukovanjeTerminima.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -718,32 +768,32 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\User-Interface-Logout-icon.png" />
+    <Resource Include="view\PacijentView\Images\User-Interface-Logout-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\image.jpg" />
+    <Resource Include="view\PacijentView\Images\image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\patient.png" />
+    <Resource Include="view\PacijentView\Images\patient.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\Login.png" />
+    <Resource Include="view\PacijentView\Images\Login.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logout.png" />
-    <Resource Include="view\PacijentView\bell.png" />
+    <Resource Include="view\PacijentView\Images\bell.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\notification.png" />
+    <Resource Include="view\PacijentView\Images\notification.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\medicine.png" />
+    <Resource Include="view\PacijentView\Images\medicine.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\email.png" />
+    <Resource Include="view\PacijentView\Images\email.png" />
     <Resource Include="Images\add_event.png" />
   </ItemGroup>
   <ItemGroup>
@@ -753,7 +803,7 @@
     <Resource Include="business-woman-icon-14.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\background.jpg" />
+    <Resource Include="view\PacijentView\Images\background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\minus.png" />
@@ -765,19 +815,19 @@
     <Resource Include="Images\eye.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\sad.png" />
+    <Resource Include="view\PacijentView\Images\sad.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\warning.png" />
+    <Resource Include="view\PacijentView\Images\warning.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\previous.png" />
+    <Resource Include="view\PacijentView\Images\previous.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\survey.png" />
+    <Resource Include="view\PacijentView\Images\survey.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\doctor %281%29.png" />
+    <Resource Include="view\PacijentView\Images\doctor %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="view\LekarView\doctor1.png" />
@@ -786,13 +836,31 @@
     <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\configuration-gears.png" />
+    <Resource Include="view\PacijentView\Images\configuration-gears.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\add.png" />
+    <Resource Include="view\PacijentView\Images\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="view\PacijentView\draw.png" />
+    <Resource Include="view\PacijentView\Images\draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\Images\presentation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\Images\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="view\PacijentView\Images\brisanje.png" />
+    <Resource Include="view\PacijentView\Images\formular_zakazivanje.png" />
+    <Resource Include="view\PacijentView\Images\moguci_termini.png" />
+    <Resource Include="view\PacijentView\Images\zakazivanje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kalendar\MyCalendar-master\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\MyCalendar.Calendar.csproj">
+      <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
+      <Name>MyCalendar.Calendar</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

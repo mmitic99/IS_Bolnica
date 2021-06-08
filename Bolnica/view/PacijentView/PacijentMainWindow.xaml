@@ -7,11 +7,11 @@
         xmlns:viewActions="clr-namespace:Bolnica.viewActions"
         mc:Ignorable="d" MaxHeight="768" MaxWidth="1024"
         Title="PacijentMainWindow" Height="768" WindowStyle="None" Width="1024" UseLayoutRounding="False"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" MouseDown="Window_MouseDown">
 
     <Border CornerRadius="6">
         <Border.Background>
-            <ImageBrush ImageSource="background.jpg"/>
+            <ImageBrush ImageSource="Images/background.jpg"/>
         </Border.Background>
         <Grid RenderTransformOrigin="0.515,0.401">
             <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image Source="Login.png" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" OpacityMask="{x:Null}" Stretch="UniformToFill"/>
+            <Image Source="Images/Login.png" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" OpacityMask="{x:Null}" Stretch="UniformToFill"/>
             <StackPanel Margin="0,75,0,0" Grid.RowSpan="2" Background="#FFE5EAEE">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
                     <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                     <Grid.OpacityMask>
                         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                     </Grid.OpacityMask>
-                    <Image Name="fotPacijenta" Source="patient.png">
+                    <Image Name="fotPacijenta" Source="Images/patient.png">
                         <Image.Effect>
                             <DropShadowEffect/>
                         </Image.Effect>
@@ -49,7 +49,8 @@
                 <RadioButton x:Name="pocetnaStranica" Content="Početna"
                              Height="50"
                              FontSize="14"
-                            Style="{StaticResource TerminPacijentTheme}"/>
+                            Style="{StaticResource TerminPacijentTheme}"
+                             Command="{Binding PregledKalendaraCommand}"/>
                 <RadioButton x:Name="Profil" Content="Profil"
                              Height="50"
                              FontSize="14"
@@ -91,7 +92,7 @@
                             <RowDefinition Height="30"></RowDefinition>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
-                        <Image Source="User-Interface-Logout-icon.png" Margin="0,0,0,0.4"/>
+                        <Image Source="Images/User-Interface-Logout-icon.png" Margin="0,0,0,0.4"/>
                         <TextBlock Text="Odjavite se" Grid.Row="1"/>
                     </Grid>
                 </StackPanel>
@@ -110,9 +111,9 @@
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Obaveštenja" Margin="0,30,0,0" Grid.RowSpan="2" Height="16" VerticalAlignment="Top"/>
-                        <Image x:Name="zvonce" Source="bell.png" Margin="0,0,0,0.4"/>
+                        <Image x:Name="zvonce" Source="Images/bell.png" Margin="0,0,0,0.4"/>
 
-                        <Image x:Name="zvonceSaObevestenjem" Source="notification.png" Visibility="Hidden" />
+                        <Image x:Name="zvonceSaObevestenjem" Source="Images/notification.png" Visibility="Hidden" />
                         <Border CornerRadius="50"
                                 Width="12"
                                 Height="12"
@@ -136,7 +137,44 @@
                 </StackPanel>
 
             </Button>
+            <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,130,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding DemoCommand}"
+                    Click="Button_Click">
+                <StackPanel Width="70" Height="50">
+                    <Grid Width="70" Height="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Demo" Margin="0,30,0,0" Grid.RowSpan="2" Height="16" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Image x:Name="demo" Source="Images/presentation.png" Margin="0,0,0,0.4"/>
+                    </Grid>
+                </StackPanel>
 
+            </Button>
+            <Button Grid.Column="1" Width="70" Height="50" VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,180,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding PomocCommand}"
+                    Click="Button_Click">
+                <StackPanel Width="70" Height="50">
+                    <Grid Width="70" Height="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Pomoć" Margin="0,30,0,0" Grid.RowSpan="2" Height="16" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <Image x:Name="pomoc" Source="Images/question-mark.png" Margin="0,0,0,0.4"/>
+                    </Grid>
+                </StackPanel>
+
+            </Button>
             <ContentControl Grid.Row="1" 
                             x:Name="content"
                             Grid.Column="1"                 

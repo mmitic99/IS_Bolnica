@@ -34,8 +34,8 @@ namespace Bolnica.Kontroler
         {
             if (uneteSveOcene(kvartalnaAnketa))
             {
-              PopunjenaKvartalnaAnketaDTO popunjenaAnketa = KlasifikujParametrePopunjeneKvartalne(kvartalnaAnketa);
-               return AnketeServis.SacuvajKvartalnuAnketu(popunjenaAnketa);
+                PopunjenaKvartalnaAnketaDTO popunjenaAnketa = KlasifikujParametrePopunjeneKvartalne(kvartalnaAnketa);
+                return AnketeServis.SacuvajKvartalnuAnketu(popunjenaAnketa);
             }
             else
                 return false;
@@ -74,22 +74,25 @@ namespace Bolnica.Kontroler
                 && !DaLiJePoslataKvartalnaAnketa(DateTime.Today);
         }
 
-        internal bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        public bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
         {
-            if(uneteSveOceneLekarAnketa(popunjena))
+            bool uspesnoSacuvana = false;
+            if (uneteSveOceneLekarAnketa(popunjena))
             {
                 PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = KlasifikujParametrePopunjeneAnketeOLekaru(popunjena);
-                return AnketeServis.SacuvajAnketuOLekaru(popunjenaAnketa);
+                uspesnoSacuvana = AnketeServis.SacuvajAnketuOLekaru(popunjenaAnketa);
             }
-            else
-            {
-                return false;
-            }
+            return uspesnoSacuvana;
         }
 
         private bool uneteSveOceneLekarAnketa(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
         {
-            return true;
+            bool isPopunjena = false;
+            if ((String)popunjena.Ocena != "-1" && popunjena.Komentar != null)
+            {
+                isPopunjena = true;
+            }
+            return isPopunjena;
         }
 
         private PopunjenaAnketaPoslePregledaDTO KlasifikujParametrePopunjeneAnketeOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
@@ -131,7 +134,24 @@ namespace Bolnica.Kontroler
 
         private bool uneteSveOcene(KvartalnaAnketaDTO kvartalnaAnketa)
         {
-            return true;
+            bool UneteSveOcene = false;
+            if ((String)kvartalnaAnketa.LjubaznostMedicinskogOsobolja != "-1" &&
+                (String)kvartalnaAnketa.InformacijeOOdlozenomTerminu != "-1" &&
+                (String)kvartalnaAnketa.IzgledNaseBolnice != "-1" &&
+                (String)kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoAplikacije != "-1" &&
+                (String)kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoTelefona != "-1" &&
+                (String)kvartalnaAnketa.LjubaznostNemedicnskogOsoblja != "-1" &&
+                (String)kvartalnaAnketa.OpremljenostBolnice != "-1" &&
+                (String)kvartalnaAnketa.RezultatiTestovaDostupniURazumnoVreme!="-1"&&
+                (String)kvartalnaAnketa.StrucnostMedicinskogOsobolja != "-1" &&
+                (String)kvartalnaAnketa.CelokupniUtisak != "-1" &&
+                (String)kvartalnaAnketa.DostupnostLekaraUTokuRadnihSatiLekara != "-1" &&
+                (String)kvartalnaAnketa.DostupnostLekaraKadaJeBolnicaZatvorena!="-1" &&
+                (String)kvartalnaAnketa.DostupnostTerminaURazumnomRoku != "-1")
+            {
+                UneteSveOcene = true;
+            }
+            return UneteSveOcene;
         }
     }
 }

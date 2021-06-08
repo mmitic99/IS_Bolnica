@@ -96,6 +96,11 @@ namespace Kontroler
 
         }
 
+        public Dictionary<DateTime, String> getNotesForTheMonth(DateTime targetDate, string jmbgPacijenta)
+        {
+            return TerminServis.getNotesForTheMonth(targetDate, jmbgPacijenta);
+        }
+
         public IEnumerable<int> GetMesecnePreglede(List<string> sviDaniUMesecu)
         {
             return MesecniPreglediPoDanu(sviDaniUMesecu, VrstaPregleda.Pregled);
@@ -142,6 +147,11 @@ namespace Kontroler
         public IEnumerable GetByJmbgPacijenta(string jmbg)
         {
             return TerminServis.GetByJmbgPacijenta(jmbg);
+        }
+
+        public IEnumerable GetByJmbgPacijentaVremenskiPeriod(DateTime pocetak, DateTime kraj, string JmbgPacijenta)
+        {
+            return TerminServis.GetByJmbgPacijentaVremenskiPeriod(pocetak, kraj, JmbgPacijenta);
         }
 
         internal DateTime? PrviMoguciDanZakazivanja(Object prethodniTermin)

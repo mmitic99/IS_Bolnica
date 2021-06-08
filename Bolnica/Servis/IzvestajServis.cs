@@ -10,18 +10,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Servis;
 
 namespace Bolnica.Servis
 {
     class IzvestajServis
     {
-        private ISkladisteZaTermine skladisteZaTermine;
-
+        private TerminServis TerminServis;
         public IzvestajServis()
         {
-            skladisteZaTermine = new SkladisteZaTermineXml();
+            TerminServis = new TerminServis();
         }
-        internal void KreirajIzvestajOPregledimaIOperacijama(string jmbgPacijenta)
+        internal void KreirajIzvestajOPregledimaIOperacijama(DateTime pocetakIntervala, DateTime krajIntervala, string jmbgPacijenta)
         {
             using (PdfDocument Document = new PdfDocument())
             {
@@ -34,12 +34,9 @@ namespace Bolnica.Servis
                 table.Columns.Add("Lekar");
                 table.Columns.Add("Trajanje termina");
                 table.Rows.Add(new string[] { "Datum i vreme početka", "Tip termina", "Lekar", "Trajanje termina" });
-                foreach (Termin termin in skladisteZaTermine.GetByJmbgPacijenta(jmbgPacijenta))
+                foreach (Termin termin in TerminServis.GetByJmbgPacijentaVremenskiPeriod(pocetakIntervala, krajIntervala, jmbgPacijenta) )
                 {
-                    if (termin.DatumIVremeTermina > DateTime.Today.AddMonths(-1) && termin.DatumIVremeTermina<DateTime.Today)
-                    {
-                        table.Rows.Add(new string[] { termin.DatumIVremeTermina.ToString("dd.MM.yyyy HH:mm"), termin.VrstaTermina.ToString(), termin.lekar, termin.TrajanjeTermina.ToString() });
-                    }
+                   table.Rows.Add(new string[] { termin.DatumIVremeTermina.ToString("dd.MM.yyyy HH:mm"), termin.VrstaTermina.ToString(), termin.lekar, termin.TrajanjeTermina.ToString() });        
                 }
                 pdfLightTable.DataSource = table;
                 pdfLightTable.Draw(Page, new PointF(0, 0));
