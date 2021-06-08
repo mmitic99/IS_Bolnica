@@ -212,7 +212,7 @@ namespace Servis
 
         public Renoviranje GetRenoviranjeByIdProstorije(int id)
         {
-            Renoviranje ren = new Renoviranje();
+            Renoviranje ren = null;
             List<Renoviranje> Renoviranja = skladisteZaRenoviranja.GetAll();
             foreach (Renoviranje renoviranje in Renoviranja)
             {
@@ -266,18 +266,44 @@ namespace Servis
             return validno;
         }
 
-        public bool ProveriRenoviranje(Renoviranje renoviranjeZaProstoriju, DateTime datumIVremePreraspodele)
+        public bool ProveriRenoviranje(Renoviranje renoviranjeZaProstoriju, DateTime datumIVremeRenoviranja)
         {
             bool validno = true;
             if (renoviranjeZaProstoriju != null)
             {
                 DateTime pomerenZbogPonoci = renoviranjeZaProstoriju.DatumZavrsetkaRenoviranja.AddHours(23);
-                if (DateTime.Compare(renoviranjeZaProstoriju.DatumPocetkaRenoviranja, datumIVremePreraspodele) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremePreraspodele) >= 0)
+                if (DateTime.Compare(renoviranjeZaProstoriju.DatumPocetkaRenoviranja, datumIVremeRenoviranja) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremeRenoviranja) >= 0)
                 {
                     validno = false;
                 }
             }
             return validno;
+        }
+
+        public bool ProveriNaprednoRenoviranje(NaprednoRenoviranje naprednoZaProstoriju, DateTime datumIVremeRenoviranja)
+        {
+            bool validno = true;
+            if (naprednoZaProstoriju != null)
+            {
+                DateTime pomerenZbogPonoci = naprednoZaProstoriju.DatumZavrsetkaRenoviranja.AddHours(23);
+                if (DateTime.Compare(naprednoZaProstoriju.DatumPocetkaRenoviranja, datumIVremeRenoviranja) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremeRenoviranja) >= 0)
+                {
+                    validno = false;
+                }
+            }
+            return validno;
+        }
+
+        private NaprednoRenoviranje GetNaprednoRenoviranjeByBroj(String brojProstorije)
+        {
+            NaprednoRenoviranje pronadjenoRenoviranje = null;
+            List <NaprednoRenoviranje> svaRenoviranja = skladisteZaNaprednaRenoviranja.GetAll();
+            foreach (NaprednoRenoviranje ren in svaRenoviranja)
+            {
+                if (ren.BrojGlavneProstorije.Equals(brojProstorije) || ren.BrojProstorije1.Equals(brojProstorije) || ren.BrojProstorije2.Equals(brojProstorije))
+                    pronadjenoRenoviranje = ren;
+            }
+            return pronadjenoRenoviranje;
         }
 
         public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime datumIVremePreraspodele, double trajanje)
@@ -287,6 +313,7 @@ namespace Servis
             List<Termin> terminiProstorije = GetTerminiByIdProstorije(iDProstorije);
             List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
             Renoviranje renoviranjeZaProstoriju = GetRenoviranjeByIdProstorije(iDProstorije);
+            NaprednoRenoviranje naprednoZaProstoriju = GetNaprednoRenoviranjeByBroj(GetBrojProstorijeByIdProstorije(iDProstorije));
             slobodan = ProveriTermine(datumIVremePreraspodele, terminiProstorije);
             if (slobodan == false)
                 skrozSlobodan = false;
@@ -296,20 +323,16 @@ namespace Servis
             slobodan = ProveriRenoviranje(renoviranjeZaProstoriju, datumIVremePreraspodele);
             if (slobodan == false)
                 skrozSlobodan = false;
+            slobodan = ProveriNaprednoRenoviranje(naprednoZaProstoriju, datumIVremePreraspodele);
+            if (slobodan == false)
+                skrozSlobodan = false;
             return skrozSlobodan;
         }
 
-        public bool DaLiJeSLobodnaProstorijaZaRenoviranje(int iDProstorije, DateTime DatumPocetka, DateTime DatumKraja)
+        public bool ProveriTermineZaRenoviranje(int iDProstorije, DateTime DatumPocetka, DateTime DatumKraja)
         {
-            bool slobodan = true;
             List<Termin> terminiProstorije = GetTerminiByIdProstorije(iDProstorije);
-            List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
-            Renoviranje renoviranjeZaProstoriju = GetRenoviranjeByIdProstorije(iDProstorije);
-            if (renoviranjeZaProstoriju != null)
-            { //6
-                validacija.IspisiGresku(6);
-                slobodan = false;
-            }
+            bool slobodan = true;
             foreach (Termin t in terminiProstorije)
             {
                 if (DatumPocetka.Date <= t.DatumIVremeTermina.Date && DatumKraja.Date >= t.DatumIVremeTermina.Date)
@@ -318,6 +341,13 @@ namespace Servis
                     break;
                 }
             }
+            return slobodan;
+        }
+
+        public bool ProveriPreraspodeleZaRenoviranje(int iDProstorije, DateTime DatumPocetka, DateTime DatumKraja)
+        {
+            List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
+            bool slobodan = true;
             foreach (ZakazanaPreraspodelaStatickeOpreme prer in preraspodeleProstorije)
             {
                 if (DatumPocetka.Date <= prer.DatumIVremePreraspodele.Date && DatumKraja.Date >= prer.DatumIVremePreraspodele.Date)
@@ -326,6 +356,22 @@ namespace Servis
                     break;
                 }
             }
+            return slobodan;
+        }
+
+        public bool DaLiJeSLobodnaProstorijaZaRenoviranje(int iDProstorije, DateTime DatumPocetka, DateTime DatumKraja)
+        {
+            bool slobodan = true;
+            List<ZakazanaPreraspodelaStatickeOpreme> preraspodeleProstorije = GetPreraspodeleByIdProstorije(iDProstorije);
+            Renoviranje renoviranjeZaProstoriju = GetRenoviranjeByIdProstorije(iDProstorije);
+            NaprednoRenoviranje naprednoZaProstoriju = GetNaprednoRenoviranjeByBroj(GetBrojProstorijeByIdProstorije(iDProstorije));
+            if (renoviranjeZaProstoriju != null || naprednoZaProstoriju != null)
+            { //6
+                validacija.IspisiGresku(6);
+                slobodan = false;
+            }
+            slobodan = ProveriTermineZaRenoviranje(iDProstorije, DatumPocetka, DatumKraja);
+            slobodan = ProveriPreraspodeleZaRenoviranje(iDProstorije, DatumPocetka, DatumKraja); 
             return slobodan;
         }
 
@@ -782,6 +828,18 @@ namespace Servis
             return id;
         }
 
+        public String GetBrojProstorijeByIdProstorije(int id)
+        {
+            String brojProstorije = "";
+            List<Prostorija> prostorije = skladisteZaProstorije.GetAll();
+            foreach (Prostorija p in prostorije)
+            {
+                if (p.IdProstorije == id)
+                    brojProstorije = p.BrojSobe;
+            }
+            return brojProstorije;
+        }
+
         public Model.Enum.VrstaProstorije GetVrstaProstorijeByBrojProstorije(String brojProstorije)
         {
             VrstaProstorije vrsta = Model.Enum.VrstaProstorije.Soba_za_preglede;
@@ -1046,7 +1104,6 @@ namespace Servis
             else
             {
                 await Task.Delay(preraspodela.DatumIVremePreraspodele.AddMinutes(60) - DateTime.Now);
-                //await Task.Delay(10000);
                 PrebaciZakazanuStacionarnuOpremuUProstoriju(prebacivanjeInfo);
                 AzurirajPreraspodeleOpreme();
             }
@@ -1173,11 +1230,44 @@ namespace Servis
                 }
             }
         }
+
+        private bool ProveriPodelu(NaprednoRenoviranje renoviranje)
+        {
+            int IdGlavne = GetIdProstorijeByBrojProstorije(renoviranje.BrojGlavneProstorije);
+            return DaLiJeSLobodnaProstorijaZaRenoviranje(IdGlavne, renoviranje.DatumPocetkaRenoviranja, renoviranje.DatumZavrsetkaRenoviranja);
+        }
+
+        private bool ProveriSpajanje(NaprednoRenoviranje renoviranje)
+        {
+            bool validno = false;
+            int IdPrve = GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije1);
+            int IdDruge = GetIdProstorijeByBrojProstorije(renoviranje.BrojProstorije2);
+            bool validnaPrva = DaLiJeSLobodnaProstorijaZaRenoviranje(IdPrve, renoviranje.DatumPocetkaRenoviranja, renoviranje.DatumZavrsetkaRenoviranja);
+            bool validnaDruga = DaLiJeSLobodnaProstorijaZaRenoviranje(IdDruge, renoviranje.DatumPocetkaRenoviranja, renoviranje.DatumZavrsetkaRenoviranja);
+            if (validnaPrva && validnaDruga)
+                validno = true;
+            return validno;
+        }
         public void DodajNaprednoRenoviranje(NaprednoRenoviranje renoviranje)
         {
-            List<NaprednoRenoviranje> SvaNapredna = skladisteZaNaprednaRenoviranja.GetAll();
-            SvaNapredna.Add(renoviranje);
-            skladisteZaNaprednaRenoviranja.SaveAll(SvaNapredna);
+            bool validnaPodela = false;
+            bool validnoSpajanje = false;
+            if (renoviranje.Podela == true)
+            {
+                validnaPodela = ProveriPodelu(renoviranje);
+            }
+            else if (renoviranje.Spajanje == true)
+            {
+                validnoSpajanje = ProveriSpajanje(renoviranje);
+            }
+            if (validnaPodela && validnoSpajanje)
+            {
+                List<NaprednoRenoviranje> SvaNapredna = skladisteZaNaprednaRenoviranja.GetAll();
+                SvaNapredna.Add(renoviranje);
+                skladisteZaNaprednaRenoviranja.SaveAll(SvaNapredna);
+            }
+            else
+                validacija.IspisiGresku(18);
         }
 
         public void ObrisiNaprednoRenoviranje(int index)

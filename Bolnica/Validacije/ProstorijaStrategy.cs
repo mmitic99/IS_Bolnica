@@ -65,6 +65,9 @@ namespace Bolnica.Validacije
                 case 17:
                     MessageBox.Show("Nevalidna pretraga !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
+                case 18:
+                    MessageBox.Show("Prostorija je zauzeta u tom periodu !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
                 default:
                     break;
             }

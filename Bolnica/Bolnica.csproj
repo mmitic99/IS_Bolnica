@@ -167,6 +167,7 @@
     <Compile Include="DTOs\SekretarDTO.cs" />
     <Compile Include="DTOs\StacionarnaOpremaDTO.cs" />
     <Compile Include="DTOs\TerminDTO.cs" />
+    <Compile Include="DTOs\UpravnikDTO.cs" />
     <Compile Include="DTOs\VerifikacijaLekaDTO.cs" />
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />

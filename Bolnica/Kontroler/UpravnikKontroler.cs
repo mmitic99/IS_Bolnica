@@ -1,3 +1,4 @@
+using Bolnica.DTOs;
 using Model;
 using Servis;
 using System;
@@ -14,7 +15,16 @@ namespace Kontroler
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
-            return upravnikServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            Upravnik upravnik = (Upravnik)upravnikServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
+            if (upravnik != null)
+            {
+                UpravnikDTO upravnikDTO = new UpravnikDTO();
+                upravnikDTO.Ime = upravnik.Ime;
+                upravnikDTO.Prezime = upravnik.Prezime;
+                upravnikDTO.Jmbg = upravnik.Jmbg;
+                return upravnikDTO;
+            }
+            return null;
         }
 
         public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)

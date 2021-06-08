@@ -66,7 +66,7 @@ namespace Bolnica.view
         {
             if (uloga.Equals("u"))
             {
-                Upravnik prijavljeniUpravnik = (Upravnik)upravnikKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
+                UpravnikDTO prijavljeniUpravnik = (UpravnikDTO)upravnikKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
                 if(prijavljeniUpravnik == null)
                 {

@@ -11,7 +11,7 @@
     <Staticka>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>19</Kolicina>
+        <Kolicina>18</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
@@ -167,7 +167,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>4</Kolicina>
+        <Kolicina>5</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />

@@ -9,7 +9,33 @@
         Title="UpravnikWindow" Height="720" Width="1280">
     <TabControl>
         <TabItem Header="Mihailo Majstorović" Background="DodgerBlue" FontSize="15" FontFamily="Yu Gothic Medium" Width="191" BorderBrush="DodgerBlue" IsEnabled="False"/>
-        <TabItem x:Name="PocetnaStrana" Header="POČETNA STRANA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="200" BorderBrush="DodgerBlue"/>
+        <TabItem x:Name="PocetnaStrana" Header="POČETNA STRANA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="200" BorderBrush="DodgerBlue">
+            <TabControl TabStripPlacement="Left">
+                <TabItem Header="RECENZIJA" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">
+                    <Grid Background="DodgerBlue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="239*"/>
+                            <ColumnDefinition Width="382*"/>
+                            <ColumnDefinition Width="78*"/>
+                            <ColumnDefinition Width="372*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="SadrzajFeedbacka" HorizontalAlignment="Left" Height="295" Margin="79,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="918" FontSize="16" Grid.ColumnSpan="4"/>
+                        <Button Background="WhiteSmoke" Content="Pošalji" FontSize="25" HorizontalAlignment="Left" Margin="9.83,520,0,0" VerticalAlignment="Top" Width="197" Height="72" Grid.Column="3" Click="PosaljiFeedback" />
+                        <Label Content="RECENZIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="491" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Label Content="Ovde možete upisati vaše mišljenje o aplikaciji:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,87,0,0" Height="58" Width="599" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                        <ComboBox x:Name="OcenaCombobox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Margin="72.906,537,0,0" Height="45" FontSize="24" Grid.Column="1">
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="3"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                        </ComboBox>
+                        <Label Content="Ocena*:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="183,531,0,0" Height="58" Width="106" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </TabItem>
         <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue">
             <TabControl TabStripPlacement="Left" >
                 <TabItem x:Name="DodajObrisiProstorijeTab" Header="DODAJ/OBRIŠI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue">

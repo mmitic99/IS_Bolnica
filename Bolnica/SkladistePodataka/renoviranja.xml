@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfRenoviranje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfRenoviranje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Renoviranje>
+    <IdProstorije>5</IdProstorije>
+    <BrojProstorije>204</BrojProstorije>
+    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <Sprat>2</Sprat>
+    <DatumPocetkaRenoviranja>2021-06-15T00:00:00</DatumPocetkaRenoviranja>
+    <DatumZavrsetkaRenoviranja>2021-06-19T00:00:00</DatumZavrsetkaRenoviranja>
+  </Renoviranje>
+</ArrayOfRenoviranje>
