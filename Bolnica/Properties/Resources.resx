@@ -133,9 +133,6 @@
   <data name="lek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\UpravnikView\lek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LeptirVideo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\view\UpravnikView\LeptirVideo.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="odjava" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\UpravnikView\odjava.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,9 +153,6 @@
   </data>
   <data name="prostorije" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\UpravnikView\prostorije.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="test_snimak" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\view\UpravnikView\test snimak.wmv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="upravnik" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\UpravnikView\upravnik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

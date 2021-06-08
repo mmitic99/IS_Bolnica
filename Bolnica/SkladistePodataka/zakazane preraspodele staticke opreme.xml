@@ -40,4 +40,14 @@
     <IdProstorijeUKojUSePrenosiOprema>6</IdProstorijeUKojUSePrenosiOprema>
     <TrajanjePreraspodele>60</TrajanjePreraspodele>
   </ZakazanaPreraspodelaStatickeOpreme>
+  <ZakazanaPreraspodelaStatickeOpreme>
+    <DatumIVremePreraspodele>2021-06-26T15:30:00</DatumIVremePreraspodele>
+    <NazivOpreme>Kompjuter</NazivOpreme>
+    <KolicinaOpreme>2</KolicinaOpreme>
+    <BrojProstorijeIzKojeSePrenosiOprema>001</BrojProstorijeIzKojeSePrenosiOprema>
+    <BrojProstorijeUKojuSePrenosiOprema>304</BrojProstorijeUKojuSePrenosiOprema>
+    <IdProstorijeIzKojeSePrenosiOprema>0</IdProstorijeIzKojeSePrenosiOprema>
+    <IdProstorijeUKojUSePrenosiOprema>8</IdProstorijeUKojUSePrenosiOprema>
+    <TrajanjePreraspodele>60</TrajanjePreraspodele>
+  </ZakazanaPreraspodelaStatickeOpreme>
 </ArrayOfZakazanaPreraspodelaStatickeOpreme>

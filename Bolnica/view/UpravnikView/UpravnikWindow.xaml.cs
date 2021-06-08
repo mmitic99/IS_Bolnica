@@ -33,6 +33,7 @@ namespace Bolnica.view.UpravnikView
         List<PraksaDTO> SvePrakse = new List<PraksaDTO>();
         private static UpravnikWindow instance = null;
         private bool isDragging = false;
+        private DispatcherTimer timer;
 
         public static UpravnikWindow GetInstance()
         {
@@ -60,9 +61,8 @@ namespace Bolnica.view.UpravnikView
             Bolnice.ItemsSource = SveBolnice;
             Prakse.ItemsSource = SvePrakse;
             ImeUpravnika.Header = upravnik.Ime + " " + upravnik.Prezime;
-
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100);
             timer.Tick += timer_Tick;
             timer.Start();
         }
@@ -141,12 +141,17 @@ namespace Bolnica.view.UpravnikView
         {
             if (TabelaProstorija.SelectedIndex != -1)
             {
-                var potvrda = MessageBox.Show("Da li ste sigurni da želite da obrišete prostoriju ?", "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (potvrda == MessageBoxResult.Yes)
+                if (!(ProstorijeKontroler.GetInstance().GetAll()[TabelaProstorija.SelectedIndex].VrstaProstorije == Model.Enum.VrstaProstorije.Magacin))
                 {
-                    ProstorijeKontroler.GetInstance().IzbrisiProstoriju(TabelaProstorija.SelectedIndex);
-                    OsveziPrikazProstorija();
+                    var potvrda = MessageBox.Show("Da li ste sigurni da želite da obrišete prostoriju ?", "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (potvrda == MessageBoxResult.Yes)
+                    {
+                        ProstorijeKontroler.GetInstance().IzbrisiProstoriju(TabelaProstorija.SelectedIndex);
+                        OsveziPrikazProstorija();
+                    }
                 }
+                else
+                    MessageBox.Show("Ne možete obrisati magacin !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -538,8 +543,8 @@ namespace Bolnica.view.UpravnikView
             LekDTO lekZaDodavanje;
             if (LekKontroler.GetInstance().ProveriValidnostLeka(lekZaValidaciju, "dodaj", -1))
             {
-                String naziv = NazivLekaIzmeni.Text.Trim().ToLower();
-                String zamenski = ZamenskiLekIzmeni.Text.Trim().ToLower();
+                String naziv = NazivLeka.Text.Trim().ToLower();
+                String zamenski = ZamenskiLek.Text.Trim().ToLower();
                 if (naziv.Length > 1)
                     naziv = char.ToUpper(naziv[0]) + naziv.Substring(1);
                 if (zamenski.Length > 1)
@@ -902,6 +907,7 @@ namespace Bolnica.view.UpravnikView
         {
             TabelaLekova.ItemsSource = LekKontroler.GetInstance().GetAll();
             TabelaLekovaIzmeni.ItemsSource = LekKontroler.GetInstance().GetAll();
+            LekariLekovi.ItemsSource = LekarKontroler.getInstance().GetAll();
         }
 
         private void OsveziPrikazRenoviranja()
@@ -1211,6 +1217,19 @@ namespace Bolnica.view.UpravnikView
                 timelineSlider.Value = TutorialVideo.Position.TotalSeconds;
             }
         }
+
+        private void Tutorial_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (TutorialVideo.NaturalDuration.HasTimeSpan)
+            {
+                TimeSpan ts = TutorialVideo.NaturalDuration.TimeSpan;
+                timelineSlider.Maximum = ts.TotalSeconds;
+                timelineSlider.SmallChange = 1;
+                timelineSlider.LargeChange = Math.Min(10, ts.Seconds / 10);
+            }
+            timer.Start();
+        }
+
         private void timelineSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             TutorialVideo.Position = TimeSpan.FromSeconds(timelineSlider.Value);
@@ -1272,6 +1291,7 @@ namespace Bolnica.view.UpravnikView
                 OsveziPrikazOpreme();
                 NazivOpremeSKojomSeRadi.Clear();
                 KolicinaOpremeSKojomSeRadi.Clear();
+                BrojProstorijeLabel.Content = "Statička oprema prostorije:  " + ProstorijeKontroler.GetInstance().GetAll()[ProstorijeStanjeOpreme.SelectedIndex].BrojSobe;
             }
         }
 
@@ -1283,7 +1303,8 @@ namespace Bolnica.view.UpravnikView
 
         private void TabelaProstorijeUKojuSePrebacujeOprema_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            OpremaSoba2.Text = ProstorijeKontroler.GetInstance().GetAll()[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe;
+            if (TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex != -1)
+                OpremaSoba2.Text = ProstorijeKontroler.GetInstance().GetAll()[TabelaProstorijeUKojuSePrebacujeOprema.SelectedIndex].BrojSobe;
         }
     }
 }

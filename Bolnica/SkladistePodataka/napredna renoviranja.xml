@@ -9,4 +9,13 @@
     <Spajanje>true</Spajanje>
     <Podela>false</Podela>
   </NaprednoRenoviranje>
+  <NaprednoRenoviranje>
+    <BrojGlavneProstorije>420</BrojGlavneProstorije>
+    <BrojProstorije1>460</BrojProstorije1>
+    <BrojProstorije2>470</BrojProstorije2>
+    <DatumPocetkaRenoviranja>2021-06-24T00:00:00</DatumPocetkaRenoviranja>
+    <DatumZavrsetkaRenoviranja>2021-06-27T00:00:00</DatumZavrsetkaRenoviranja>
+    <Spajanje>false</Spajanje>
+    <Podela>true</Podela>
+  </NaprednoRenoviranje>
 </ArrayOfNaprednoRenoviranje>

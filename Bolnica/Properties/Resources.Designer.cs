@@ -111,16 +111,6 @@ namespace Bolnica.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] LeptirVideo {
-            get {
-                object obj = ResourceManager.GetObject("LeptirVideo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap odjava {
@@ -186,16 +176,6 @@ namespace Bolnica.Properties {
             get {
                 object obj = ResourceManager.GetObject("prostorije", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] test_snimak {
-            get {
-                object obj = ResourceManager.GetObject("test_snimak", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

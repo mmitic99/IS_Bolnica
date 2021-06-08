@@ -8,4 +8,12 @@
     <DatumPocetkaRenoviranja>2021-06-11T00:00:00</DatumPocetkaRenoviranja>
     <DatumZavrsetkaRenoviranja>2021-06-15T00:00:00</DatumZavrsetkaRenoviranja>
   </Renoviranje>
+  <Renoviranje>
+    <IdProstorije>13</IdProstorije>
+    <BrojProstorije>402</BrojProstorije>
+    <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
+    <Sprat>4</Sprat>
+    <DatumPocetkaRenoviranja>2021-06-16T00:00:00</DatumPocetkaRenoviranja>
+    <DatumZavrsetkaRenoviranja>2021-06-25T00:00:00</DatumZavrsetkaRenoviranja>
+  </Renoviranje>
 </ArrayOfRenoviranje>

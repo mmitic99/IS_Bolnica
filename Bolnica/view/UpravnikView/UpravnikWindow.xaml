@@ -70,8 +70,8 @@
                             <RowDefinition Height="550"/>
                             <RowDefinition Height="100"/>
                         </Grid.RowDefinitions>
-                        <MediaElement Source="LeptirVideo.mp4" Margin="0,125,0.207,100.264" LoadedBehavior="Manual" Name="TutorialVideo" MediaEnded="TutorialVideo_MediaEnded" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                        <Slider  Name="timelineSlider" ValueChanged="timelineSlider_ValueChanged" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" Height="15" VerticalAlignment="Top" Margin="212,534,212.207,0" Grid.ColumnSpan="2">
+                        <MediaElement Source="Tutorialmp4.mp4" Margin="0,125,0.207,100.264" LoadedBehavior="Manual" Name="TutorialVideo" MediaOpened="Tutorial_MediaOpened" MediaEnded="TutorialVideo_MediaEnded" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                        <Slider  Name="timelineSlider" ValueChanged="timelineSlider_ValueChanged" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" Height="30" VerticalAlignment="Top" Margin="164,0.264,159.208,0" Grid.ColumnSpan="2" Grid.Row="1">
                             <Slider.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="-1"/>
@@ -306,7 +306,7 @@
                         <TextBox x:Name="NazivOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="849,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="16" IsEnabled="False"/>
                         <TextBox x:Name="KolicinaOpremeSKojomSeRadi" HorizontalAlignment="Left" Height="30" Margin="849,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" FontSize="16"/>
                         <Label Content="Selektujte prostoriju:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="353" Margin="141,46,0,0" Height="71" FontSize="25"/>
-                        <Label Content="Staticka oprema prostorije:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="383" Margin="646,46,0,0" Height="71" FontSize="25"/>
+                        <Label x:Name="BrojProstorijeLabel" Content="Statička oprema prostorije:  " HorizontalAlignment="Left" VerticalAlignment="Top" Width="424" Margin="605,46,0,0" Height="71" FontSize="25"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="RENOVIRANJE" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
@@ -768,7 +768,7 @@
                         <Label Content="Klasa leka*" HorizontalAlignment="Left" Margin="368.283,128,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Količina*" HorizontalAlignment="Left" Margin="368.283,176,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Jačina(mg)*" HorizontalAlignment="Left" Margin="368.283,225,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
-                        <Label Content="Zamenski lek" HorizontalAlignment="Left" Margin="368.283,276,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Zamenski lek*" HorizontalAlignment="Left" Margin="368.283,276,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Lekar*" HorizontalAlignment="Left" Margin="368.283,326,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Sastav" HorizontalAlignment="Left" Margin="368.283,372,0,0" VerticalAlignment="Top" Height="40" Width="108" Grid.Column="1"/>
                         <TextBox x:Name="Napomena" HorizontalAlignment="Left" Height="82" Margin="368.283,543,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Grid.Column="1" Grid.ColumnSpan="2"/>
@@ -856,7 +856,7 @@
                         <Label Content="Klasa leka*" HorizontalAlignment="Left" Margin="368.283,128,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Količina*" HorizontalAlignment="Left" Margin="368.283,176,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Jačina(mg)*" HorizontalAlignment="Left" Margin="368.283,225,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
-                        <Label Content="Zamenski lek" HorizontalAlignment="Left" Margin="368.283,276,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
+                        <Label Content="Zamenski lek*" HorizontalAlignment="Left" Margin="368.283,276,0,0" VerticalAlignment="Top" Height="40" Width="130" Grid.Column="1"/>
                         <Label Content="Sastav" HorizontalAlignment="Left" Margin="368.283,372,0,0" VerticalAlignment="Top" Height="40" Width="108" Grid.Column="1"/>
                         <TextBox x:Name="SastavLekaIzmeni" HorizontalAlignment="Left" Height="82" Margin="368.283,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Grid.Column="1" Grid.ColumnSpan="2"/>
                     </Grid>
