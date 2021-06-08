@@ -16,7 +16,7 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Border Background="#FF407294"/>
-            <Image Source="warning.png"
+            <Image Source="Images/warning.png"
                    Width="120"/>
             <TextBlock Text="Da li je zaista neophodno da obavite ovu aktivnost?"
                        Grid.Row="1"

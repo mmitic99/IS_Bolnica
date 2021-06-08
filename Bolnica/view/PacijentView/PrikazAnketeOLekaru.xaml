@@ -15,7 +15,7 @@
                    Margin="10"
                    />
         <StackPanel Orientation="Horizontal">
-            <Image Source="doctor (1).png" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,20,020,20"/>
+            <Image Source="Images/doctor (1).png" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,20,020,20"/>
             <TextBlock Text="dr Ana Anini" x:Name="ImeLekara" FontSize="20" TextAlignment="Left" Width="645"
                        HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="50,30,30,30"/>
 
@@ -70,7 +70,7 @@
                             <ColumnDefinition Width="80"></ColumnDefinition>
                             <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="survey.png" Height="60"/>
+                        <Image Source="Images/survey.png" Height="60"/>
                         <Label Content="Sačuvajte anketu" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10.2,22,-37,22.6"

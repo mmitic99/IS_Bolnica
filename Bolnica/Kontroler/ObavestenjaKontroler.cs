@@ -104,8 +104,8 @@ namespace Kontroler
                 Naslov = (String)podsetnikDTO.Naslov,
                 Sadrzaj = (String)podsetnikDTO.Sadrzaj
             };
-            int minut = int.Parse((String)podsetnikDTO.Minut);
-            int sat = int.Parse((String)podsetnikDTO.Sat);
+            int minut = (int)podsetnikDTO.Minut;
+            int sat = (int)podsetnikDTO.Sat;
 
             TimeSpan vreme = new TimeSpan(sat, minut, 0);
             for(int i=0; i<podsetnikKlasifikovnoDTO.Datumi.Count; i++)

@@ -36,9 +36,10 @@ namespace Bolnica.view.PacijentView
 
         private void SacuvajAnketu_Click(object sender, RoutedEventArgs e)
         {
+
             PopunjenaAnketaPoslePregledaObjectDTO popunjena = new PopunjenaAnketaPoslePregledaObjectDTO()
             {
-                JmbgLekara = MainViewModel.getInstance().AnketaOLekaruVM.Anketa.JmbgLekara,
+                JmbgLekara = MainViewModel.getInstance().AnketaOLekaruVM.JmbgLekara,
                 Komentar = Komentar.Text,
                 Ocena = vratiOcenu(OcenaLekara),
                 IDAnkete = MainViewModel.getInstance().AnketaOLekaruVM.IdAnkete

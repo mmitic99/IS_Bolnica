@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Bolnica.view.PacijentView.PomocRukovanjeTerminima"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             mc:Ignorable="d" 
+             d:DesignWidth="804"
+             Background="#FFF1F7F9"
+             FontSize="15" Height="673" Width="804">
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+        <DockPanel Height="2060">
+            <Grid  Height="673" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button SelectiveScrollingGrid.SelectiveScrollingOrientation="None" x:Name="nazad" Height="70" Width="50" HorizontalAlignment="Center" VerticalAlignment ="Center"
+                    Background="Transparent" BorderThickness="0" Command="{Binding nazad}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <Image Height="50" Width="50" Margin="0,0,-2,0" VerticalAlignment="Top" Source="Images/previous.png"></Image>
+                    </Grid>
+                </Button>
+            </Grid>
+            <StackPanel Margin="10,10,10,215" Width="720" >
+                <TextBlock Text="Pomoć pri rukovanju terminima" FontSize="20" FontWeight="SemiBold" Margin="20" Height="50"></TextBlock>
+                <TextBlock Margin="10" TextWrapping="Wrap" >
+                    1. U slučaju da želite da otkažete neki od zakaznih termina potrebno je da odaberete termin i zatim pritisnite ,,Otkaži termin. Pregled će se obrisati iz tabele.
+                    <LineBreak/>
+                    <LineBreak/>
+                  <Italic> Napomena: Moći ćete da pritisnite to dugme samo ako je termin moguće otkazati. U poslednjoj koloni table piše poslednji dan otkazivanja. Imajte u vidu da je operacije moguće otkazati samo pozivom. </Italic>
+                </TextBlock>
+                <Border>
+                    <DockPanel>
+                        <Image  Margin="20" Source="Images/brisanje.png" Width="670" Height="361" Visibility="Visible"/>
+                    </DockPanel>
+                </Border>
+                <TextBlock TextWrapping="Wrap" Margin="10">
+                    2. U slučaju da želite da zakažete novi termin, potrebno je da pritisnete ,,Zakaži termin", kada će Vam se pojaviti formular za popunjavanje nekih zahteva termina, a zatim kada ga ispunite i pritisnete ,,Zakaži".
+                    <LineBreak/>
+                    Ukoliko postoje termini po Vašim željama, pojaviće se lista termina, a ukoliko ne pojaviće se poruka da nema termina koji ispunjavaju Vaše zahteve.</TextBlock>
+                <StackPanel Height="1805">
+                    <Image Source="Images\zakazivanje.png" Height="428" Margin="155,12" Visibility="Visible"/>
+                    <Image  Source="Images/formular_zakazivanje.png" Height="381" Margin ="20"/>
+                    <Image Source="Images/moguci_termini.png" Height="356" Margin="20"/>
+                </StackPanel>
+                <TextBlock TextWrapping="Wrap" Margin="10" Text="Nakon odabira jednog od mogućih termina i pritiskom na zakaži termin, termin će se zakazati i pojaiće se u tabeli zakazanih termina."></TextBlock>
+                <TextBlock TextWrapping="Wrap" Height="106">
+                    <LineBreak/>
+                    3. U slučaju da želite da pomerite ili izmenite već zakazani termin, odaberite jedan od ponuđenih termina i izaberite opciju ,,Izmeni termin"
+                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>

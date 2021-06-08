@@ -21,7 +21,7 @@ namespace Bolnica.viewActions
  
         }
         public MyICommand AddNoteCommand { get; set; }
-        private Beleska trenutnaBeleska = new Beleska()
+        private BeleskaViewModel trenutnaBeleska = new BeleskaViewModel()
         {
     
         };
@@ -36,7 +36,6 @@ namespace Bolnica.viewActions
             }
         }
 
-
         public KomentariKorisnikaViewModel(Recept recept, Pacijent pacijent)
         {
             this.Pacijent = pacijent;
@@ -47,7 +46,7 @@ namespace Bolnica.viewActions
             AddNoteCommand = new MyICommand(OnAdd);
         }
         
-        public Beleska TrenutnaBeleska
+        public BeleskaViewModel TrenutnaBeleska
         {
             get { return trenutnaBeleska; }
             set

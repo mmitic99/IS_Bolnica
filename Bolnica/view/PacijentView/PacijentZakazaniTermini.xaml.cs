@@ -52,9 +52,6 @@ namespace Bolnica.view
             this.MainViewModel = MainViewModel.getInstance();
             this.TerminKontroler = new TerminKontroler();
             this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
-            prikazTermina.ItemsSource = ViewModel.ZakazaniTerminiPacijenta;
-            DataContext = ViewModel;
-
         }
 
         private void ZakazivanjeTerminaBC(object sender, RoutedEventArgs e)
@@ -138,6 +135,18 @@ namespace Bolnica.view
             }
           
         }
+        private void datepicker2_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            ViewModel.DaLiJeIspravanPocetniDatum();
+            prikazTermina.ItemsSource = ViewModel.ZakazaniTerminiPacijenta;
+            datepicker1.SelectedDate = ViewModel.pocetakIntervala;
+        }
 
+        private void datepicker1_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            ViewModel.daLiJeIspravanKrajnjiDatum();
+            prikazTermina.ItemsSource = ViewModel.ZakazaniTerminiPacijenta;
+            datepicker2.SelectedDate = ViewModel.krajIntervala;
+        }
     }
 }

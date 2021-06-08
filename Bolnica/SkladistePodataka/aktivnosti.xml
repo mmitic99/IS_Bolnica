@@ -2,7 +2,7 @@
 <ArrayOfKorisnickeAktivnostiNaAplikaciji xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>123456789</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>HalfSpam</TrenutnoSeTretiraKao>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
     <AktivnostiKorisnika>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
@@ -268,9 +268,88 @@
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
     <JmbgKorisnika>1234567894444</JmbgKorisnika>
-    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
-    <AktivnostiKorisnika />
+    <TrenutnoSeTretiraKao>HalfSpam</TrenutnoSeTretiraKao>
+    <AktivnostiKorisnika>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:29:31.8758769+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:29:47.8823035+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:35:50.1493983+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:50:06.7262711+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-08T13:02:12.6356202+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-08T22:22:34.8988709+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-08T22:49:47.6232759+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-08T22:51:06.3898913+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+    </AktivnostiKorisnika>
     <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
     <BrojPutaBlokiranja>0</BrojPutaBlokiranja>
+  </KorisnickeAktivnostiNaAplikaciji>
+  <KorisnickeAktivnostiNaAplikaciji>
+    <JmbgKorisnika>1234123123232</JmbgKorisnika>
+    <TrenutnoSeTretiraKao>Spam</TrenutnoSeTretiraKao>
+    <AktivnostiKorisnika>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:37:59.7012481+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:39:34.4186896+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:41:39.7287909+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:42:16.3674401+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:42:19.4975461+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-03T17:46:37.5998338+02:00</DatumIVreme>
+        <logickiObrisan>false</logickiObrisan>
+      </KorisnickaAktivnost>
+    </AktivnostiKorisnika>
+    <BlokiranDo>2021-06-17T00:00:00+02:00</BlokiranDo>
+    <BrojPutaBlokiranja>1</BrojPutaBlokiranja>
   </KorisnickeAktivnostiNaAplikaciji>
 </ArrayOfKorisnickeAktivnostiNaAplikaciji>

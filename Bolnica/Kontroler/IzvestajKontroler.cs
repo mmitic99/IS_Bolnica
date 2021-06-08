@@ -15,9 +15,9 @@ namespace Bolnica.Kontroler
         {
             this.IzvestajServis = new IzvestajServis();
         }
-        public void KreirajIzvestajOPregledimaIOperacijama(string jmbgPacijenta)
+        public void KreirajIzvestajOPregledimaIOperacijama(DateTime pocetakIntervala, DateTime krajIntervala, string jmbgPacijenta)
         {
-            IzvestajServis.KreirajIzvestajOPregledimaIOperacijama(jmbgPacijenta);
+            IzvestajServis.KreirajIzvestajOPregledimaIOperacijama(pocetakIntervala, krajIntervala, jmbgPacijenta);
         }
     }
 }
