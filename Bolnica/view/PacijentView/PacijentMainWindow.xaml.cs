@@ -41,7 +41,7 @@ namespace Bolnica.view
             instance = this;
             this.MainViewModel = PacijentMainViewModel;
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
             this.AnketeKontroler = new AnketeKontroler();
             ZapocniRadAplikacije();
 
@@ -62,7 +62,7 @@ namespace Bolnica.view
 
         private void OdblokirajKorisnike(object sender, EventArgs e)
         {
-            KorisnickeAktivnostiPacijentaKontroler.OdblokirajKorisnike();
+            KorisnickeAktivnostiPacijentaKontroler.OdblokirajKorisnika();
         }
 
         private void PosaljiKvartalneAnkete(object sender, EventArgs e)

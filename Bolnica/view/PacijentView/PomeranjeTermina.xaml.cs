@@ -75,7 +75,7 @@ public partial class PomeranjeTermina : UserControl
             List<TerminDTO> moguciTermini = TerminKontroler.NadjiTermineZaParametre(parametriDTO);
             if(moguciTermini.Count>0)
             {
-                MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena");
+                MainViewModel.MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, "izmena", moguciTermini[0].JmbgPacijenta);
                 MainViewModel.CurrentView = MainViewModel.MoguciTerminiVM;
             }
             else

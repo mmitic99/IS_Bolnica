@@ -87,7 +87,7 @@ namespace Bolnica.viewActions
             PacijentTerminiVM = new PacijentTerminiViewModel(Pacijent);
             ObavestenjaVM = new ObavestenjaViewModel(Pacijent);
             PacijentZakaziVM = new PacijentZakaziTermin(Pacijent);
-            MoguciTerminiVM = new MoguciTerminiViewModel();
+            MoguciTerminiVM = new MoguciTerminiViewModel(null, null, JmbgPacijenta);
             PomeranjeTerminaVM = new PomeranjeTerminaViewModel(Pacijent);
             PrikazObavestenjaVM = new PrikazJednogObavestenjaPacijentaViewModel();
             PrikazKvartalneAnketeVM = new PrikazKvartalneAnketeViewModel();

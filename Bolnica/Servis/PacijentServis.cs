@@ -29,7 +29,6 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermineXml();
             skladisteZaObavestenja = new SkladisteZaObavestenjaXml();
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
-            KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
         }
 
 
@@ -147,14 +146,8 @@ namespace Servis
 
         private void IzmeniJmbgPacijentaUAktivnostima(string stariJmbg, string noviJmbg)
         {
-            foreach (KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost in skladisteZaKorisnickeAktivnosti.GetAll())
-            {
-                if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))
-                {
-                    korisnickaAktivnost.JmbgKorisnika = noviJmbg;
-                    KorisnickeAktivnostiPacijentaServis.IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
-                }
-            }
+            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis(stariJmbg);
+            KorisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti(noviJmbg);            
         }
 
         private void IzmeniJmbgPacijentaUObavestenjima(string stariJmbg, string noviJmbg)

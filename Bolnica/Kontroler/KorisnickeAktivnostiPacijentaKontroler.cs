@@ -7,60 +7,49 @@ namespace Kontroler
     public class KorisnickeAktivnostiPacijentaKontroler
     {
         private KorisnickeAktivnostiPacijentaServis KorisnickeAktivnostiPacijentaServis;
-        private static KorisnickeAktivnostiPacijentaKontroler instance;
-
-        public static KorisnickeAktivnostiPacijentaKontroler GetInstane()
+        public KorisnickeAktivnostiPacijentaKontroler(String JmbgKorisnika)
         {
-            if(instance==null)
-            {
-                instance = new KorisnickeAktivnostiPacijentaKontroler();
-            }
-            return instance;
+            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis(JmbgKorisnika);
         }
 
-        public KorisnickeAktivnostiPacijentaKontroler()
-        {
-            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
-        }
-
-        public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
-        {
-            return KorisnickeAktivnostiPacijentaServis.DobaviBrojOtkazivanjaUProteklihMesecDana(jmbgKorisnika);
-        }
-
-        public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
-        {
-            return KorisnickeAktivnostiPacijentaServis.DobaviBrojZakazanihPregledaUBuducnosti(jmbgKorisnkika);
-        }
-
-        public void OdblokirajKorisnike()
+        public void OdblokirajKorisnika()
         {
             KorisnickeAktivnostiPacijentaServis.OdblokirajKorisnika();
         }
 
-        public void DodajZakazivanje(string jmbg)
+        public void DodajZakazivanje()
         {
-            KorisnickeAktivnostiPacijentaServis.DodajZakazivanje(jmbg);
+            KorisnickeAktivnostiPacijentaServis.DodajZakazivanje();
         }
 
-        public void DodajOdlaganje(string jmbgPacijenta)
+        public void DodajOdlaganje()
         {
-            KorisnickeAktivnostiPacijentaServis.DodajOdlaganje(jmbgPacijenta);
+            KorisnickeAktivnostiPacijentaServis.DodajPomeranje();
         }
 
-        public bool DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
+        public bool DaLiJeMoguceOdlozitiZakazaniTermin()
         {
-            return KorisnickeAktivnostiPacijentaServis.DaLiJeMoguceOdlozitiZakazaniTermin(jmbgPacijenta);
+            return KorisnickeAktivnostiPacijentaServis.DaLiMozeDaPomeri();
         }
 
-        public bool DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
+        public bool DaLiJeMoguceZakazatiNoviTermin()
         {
-            return KorisnickeAktivnostiPacijentaServis.DaLiJeMoguceZakazatiNoviTermin(jmbgKorisnika);
+            return KorisnickeAktivnostiPacijentaServis.DaLiMozeDaZakaze();
         }
 
-        public string DobaviPorukuZabrane(string jmbgPacijenta)
+        public string DobaviPorukuZabrane()
         {
-            return KorisnickeAktivnostiPacijentaServis.DobaviPorukuZabrane(jmbgPacijenta);
+            return KorisnickeAktivnostiPacijentaServis.DobaviPorukuZabrane();
+        }
+
+        public bool DaLiJePredZabranuZakazivanja()
+        {
+            return KorisnickeAktivnostiPacijentaServis.DaLiJePredZabranuZakazivanja();
+        }
+
+        public bool PredZabranuOtkazivanja()
+        {
+            return KorisnickeAktivnostiPacijentaServis.DaLiJePredZabranuOtkazivanja();
         }
     }
 }

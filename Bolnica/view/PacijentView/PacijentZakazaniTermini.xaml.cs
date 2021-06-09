@@ -51,16 +51,16 @@ namespace Bolnica.view
             this.ViewModel = MainViewModel.getInstance().PacijentTerminiVM;
             this.MainViewModel = MainViewModel.getInstance();
             this.TerminKontroler = new TerminKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
         }
 
         private void ZakazivanjeTerminaBC(object sender, RoutedEventArgs e)
         {
-            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceZakazatiNoviTermin(ViewModel.JmbgPacijenta))
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceZakazatiNoviTermin())
                 zakaziButton.Command = MainViewModel.PacijentZakaziTerminCommand;
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane());
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }    
@@ -69,8 +69,8 @@ namespace Bolnica.view
         private void IzmenaTerminaBC(object sender, RoutedEventArgs e)
         {
             MainViewModel.PomeranjeTerminaVM.SelektovanJeTermin(prikazTermina.SelectedItem);
-            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin(ViewModel.JmbgPacijenta))
-                if(KorisnickeAktivnostiPacijentaKontroler.DobaviBrojOtkazivanjaUProteklihMesecDana(ViewModel.JmbgPacijenta)>=MAX_BROJ_OTKAZIVANJA-1)
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin())
+                if(KorisnickeAktivnostiPacijentaKontroler.DaLiJePredZabranuZakazivanja())
                 {
                     var DijjalogPredBan = new UpozorenjePredBan("p", prikazTermina.SelectedItem);
                     DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
@@ -83,7 +83,7 @@ namespace Bolnica.view
                 }
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane());
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();          
                 DijalogUpozorenja.ShowDialog();
             }
@@ -92,9 +92,9 @@ namespace Bolnica.view
 
         private void OtkazivanjeTerminaBC(object sender, RoutedEventArgs e)
         {
-            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin(ViewModel.JmbgPacijenta))
+            if (KorisnickeAktivnostiPacijentaKontroler.DaLiJeMoguceOdlozitiZakazaniTermin())
             {
-                if (KorisnickeAktivnostiPacijentaKontroler.DobaviBrojOtkazivanjaUProteklihMesecDana(ViewModel.JmbgPacijenta) >= MAX_BROJ_OTKAZIVANJA-1)
+                if (KorisnickeAktivnostiPacijentaKontroler.PredZabranuOtkazivanja())
                 {
                     var DijjalogPredBan = new UpozorenjePredBan("o", prikazTermina.SelectedItem);
                     DijjalogPredBan.Owner = PacijentMainWindow.getInstance();
@@ -104,12 +104,12 @@ namespace Bolnica.view
                 {
                     TerminKontroler.RemoveSelected(prikazTermina.SelectedItem);
                     RefresujPrikazTermina();
-                    KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(ViewModel.JmbgPacijenta);
+                    KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje();
                 }
             }
             else
             {
-                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane(ViewModel.JmbgPacijenta));
+                var DijalogUpozorenja = new Upozorenje(KorisnickeAktivnostiPacijentaKontroler.DobaviPorukuZabrane());
                 DijalogUpozorenja.Owner = PacijentMainWindow.getInstance();
                 DijalogUpozorenja.ShowDialog();
             }
