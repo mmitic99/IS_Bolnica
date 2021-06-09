@@ -90,4 +90,40 @@
     <Napomena>Odobreno.</Napomena>
     <IdVerifikacijeLeka>5/4/2021 3:32:28 AM19039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
+    <Naslov>Panklav</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
+    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
+    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:20:49.6469453+02:00</VremeSlanjaZahteva>
+    <Naslov>Analgin</Naslov>
+    <Sadrzaj>Stagoddd</Sadrzaj>
+    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
+    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>5/4/2021 3:20:49 AM66671903999772025</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
+    <Naslov>Lekic</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
+    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
+    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
+  <VerifikacijaLeka>
+    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
+    <Naslov>Panklav</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
+    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
+    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
+    <Napomena />
+    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+  </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>

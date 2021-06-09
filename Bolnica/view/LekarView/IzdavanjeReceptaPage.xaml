@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.PacijentView"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800" 
       Title="IzdavanjeReceptaPage">
 
     <Grid>
@@ -14,18 +14,18 @@
         <Label Content="Prezime pacijenta :" HorizontalAlignment="Left" Margin="37,125,0,0" VerticalAlignment="Top" Width="106"/>
         <Label Content="Datum rodjenja pacijenta :" HorizontalAlignment="Left" Margin="37,171,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Datum propisivanja leka :" HorizontalAlignment="Left" Margin="37,224,0,0" VerticalAlignment="Top" Width="144"/>
-        <Label Content="ID broj jekara :" HorizontalAlignment="Left" Margin="37,277,0,0" VerticalAlignment="Top" Width="144"/>
-        <Label Content="Broj kartona pacijenta :" HorizontalAlignment="Left" Margin="37,326,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Ime lekara :" HorizontalAlignment="Left" Margin="37,257,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Broj kartona pacijenta :" HorizontalAlignment="Left" Margin="37,306,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Šifra leka :" HorizontalAlignment="Left" Margin="477,72,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Termini uzimanja leka :" HorizontalAlignment="Left" Margin="477,119,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Dodatne napomene :" HorizontalAlignment="Left" Margin="472,344,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Ime leka :" HorizontalAlignment="Left" Margin="477,157,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Količina doze :" HorizontalAlignment="Left" Margin="477,204,0,0" VerticalAlignment="Top" Width="144"/>
-        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,82,0,0"/>
-        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,127,0,0"/>
-        <TextBox x:Name="txt3"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,173,0,0"/>
-        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,277,0,0"/>
-        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,330,0,0"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,82,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,127,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="txt3"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,173,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="txt5" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,256,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="txt6" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,309,0,0" />
         <TextBox x:Name="txt7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="612,75,0,0"/>
         <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="612,123,0,0"/>
         <TextBox x:Name="txtImeLeka" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="612,161,0,0" LostFocus="txtImeLeka_LostFocus"/>
@@ -33,11 +33,11 @@
         <TextBox x:Name="txt11" HorizontalAlignment="Left" Height="110" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Margin="622,303,0,0"/>
         <Button x:Name="PotvrdiBtn" Content="Potvrdi" HorizontalAlignment="Left" Margin="436,420,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="228,420,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <DatePicker Name="Datum" HorizontalAlignment="Left" Margin="203,226,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Duracija uzimanja leka :" HorizontalAlignment="Left" Margin="468,255,0,0" VerticalAlignment="Top" Width="144"/>
+        <TextBox Name="Datum" HorizontalAlignment="Left" Margin="203,224,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Duracija uzimanja leka :" HorizontalAlignment="Left" Margin="442,257,0,0" VerticalAlignment="Top" Width="144"/>
         <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="612,255,0,0"/>
-        <Label Content="Dijagnoza :" HorizontalAlignment="Left" Margin="37,379,0,0" VerticalAlignment="Top" Width="144"/>
-        <TextBox x:Name="txt12" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,382,0,0"/>
+        <Label Content="Dijagnoza :" HorizontalAlignment="Left" Margin="37,360,0,0" VerticalAlignment="Top" Width="144"/>
+        <TextBox x:Name="txt12" HorizontalAlignment="Left" Height="61" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="203,344,0,0"/>
         <Label Content="Izaberi lek &#xD;&#xA;u okviru bolnice:" HorizontalAlignment="Left" Margin="353,41,0,0" VerticalAlignment="Top" Width="96"/>
         <ComboBox x:Name="BolnickiLekBox" HorizontalAlignment="Left" Margin="353,88,0,0" VerticalAlignment="Top" Width="106" SelectionChanged="BolnickiLekBox_SelectionChanged">
             <ComboBox.ItemTemplate>
@@ -45,7 +45,12 @@
                     <TextBlock Text="{Binding NazivLeka}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
+            <ComboBox.ToolTip>
+                izaberite lek iz bolnice
+            </ComboBox.ToolTip>
         </ComboBox>
+        <Label Content="Dana" HorizontalAlignment="Left" Margin="732,255,0,0" VerticalAlignment="Top" Width="60" Height="24"/>
+        <Label Content="Dnevno" HorizontalAlignment="Left" Margin="732,207,0,0" VerticalAlignment="Top" Width="60" Height="24"/>
 
     </Grid>
 </Page>

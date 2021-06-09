@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.LekarView"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"  
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PrikazBolnickihLecenja">
 
@@ -21,10 +21,30 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Produži boravak" HorizontalAlignment="Left" Margin="638,128,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_Produzi" />
-        <Button Content="Otpusti pacijenta" HorizontalAlignment="Left" Margin="635,341,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Otpusti" />
-        <Button Content="Povratak" HorizontalAlignment="Left" Margin="635,379,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Povratak" />
+        <Button x:Name="ProduziButton" Content="Produži boravak" HorizontalAlignment="Left" Margin="638,128,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_Produzi" >
+            <Button.ToolTip>
+                Odaberite datum iz kalendara i produzite boravak izabranom pacijentu.
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="OtpustiButton" Content="Otpusti pacijenta" HorizontalAlignment="Left" Margin="635,341,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Otpusti" >
+            <Button.ToolTip>
+                Otpustite izabranog pacijenta sa lecenja.
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Povratak" HorizontalAlignment="Left" Margin="635,379,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_Povratak" >
+            <Button.ToolTip>
+                Vratite se na stranicu zdravstvenog kartona.
+            </Button.ToolTip>
+        </Button>
         <Calendar x:Name="Kalendar" HorizontalAlignment="Left" Margin="625,165,0,0" VerticalAlignment="Top" Width="165" Height="150" RenderTransformOrigin="0.349,0.4"/>
+        <Label Content="Izaberite prostoriju:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,54,0,0"/>
+        <ComboBox x:Name="ProstorijaBox" Margin="235,59,491,369.6" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding BrojSobe}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
     </Grid>
 </Page>

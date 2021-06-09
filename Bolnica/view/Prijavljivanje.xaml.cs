@@ -18,6 +18,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
 using Bolnica.viewActions;
+using Bolnica.view.LekarView;
+using Bolnica.view.LekarView.Help;
+using System.Deployment;
+using System.Deployment.Application;
 
 namespace Bolnica.view
 { 
@@ -25,7 +29,7 @@ namespace Bolnica.view
     {
         private String uloga;
         private bool potvrdi = false;
-
+        public bool IsFirstRun { get; }
         private UpravnikKontroler upravnikKontroler;
         private SekretarKontroler sekretarKontroler;
         private LekarKontroler lekarKontroler;
@@ -100,7 +104,7 @@ namespace Bolnica.view
                 }
             }
             else if (uloga.Equals("l"))
-            {
+            {   
                 LekarDTO prijavljeniLekar = (LekarDTO)lekarKontroler.PrijavljivanjeKorisnika(korIme.Text, lozinka.Password);
 
                 if (prijavljeniLekar == null)
@@ -110,10 +114,15 @@ namespace Bolnica.view
                 }
                 else
                 {
+                    
                     var s = new LekarWindow(prijavljeniLekar);
                     potvrdi = true;
                     this.Close();
                     s.Show();
+                    
+                            var z = new Help();
+                            z.Show();
+ 
                 }
             }
             else if (uloga.Equals("p"))

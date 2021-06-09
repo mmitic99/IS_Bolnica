@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,11 +40,12 @@ namespace Bolnica.view.LekarView
             pacijent1 = pacijent;
             txt1.Text = pacijent.Ime;
             txt2.Text = pacijent.Prezime;
+            Datum.Text = DateTime.Today.ToShortDateString();
             txt3.Text = pacijent.DatumRodjenja.ToShortDateString();
             txt5.Text = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName;
             BolnickiLekBox.ItemsSource = LekKontroler.GetInstance().GetAll();
-            
-            
+            setToolTip(LekarProfilPage.isToolTipVisible);
+
 
         }
 
@@ -52,30 +54,71 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
 
+        private bool Validiraj(Regex sablon, String unos)
+        {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            List<int> terminiInt = LekarKontroler.getInstance().DobijTerminePijenja(txt8.Text);
-            ReceptiDTO parametri = new ReceptiDTO()
+            
+            if (Validiraj(new Regex(@"^[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text))
             {
-                terminiUzimanjaTokomDana = terminiInt,
-                ImeLeka = txtImeLeka.Text,
-                SifraLeka = txt7.Text,
-                DodatneNapomene = txt11.Text,
-                DatumIzdavanja = Datum.DisplayDate,
-                BrojDana = int.Parse(txt4.Text),
-                Doza = int.Parse(txt10.Text),
-                Dijagnoza = txt12.Text,
-                ImeDoktora = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName,
-                p = pacijent,
-                p1 = pacijent
-            };
+                List<int> terminiInt = LekarKontroler.getInstance().DobijTerminePijenja(txt8.Text);
+                bool greska = false;
+                foreach(int i in terminiInt)
+                {
+                    if (i > 24)
+                        greska = true;
+                }
+                if (terminiInt.Count > 5)
+                    greska = true;
+                if (!greska)
+                {
+                    if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt4.Text))
+                    {
+                        if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt10.Text) && (int.Parse(txt10.Text) < 7))
+                        {
+                            ReceptiDTO parametri = new ReceptiDTO()
+                            {
+                                terminiUzimanjaTokomDana = terminiInt,
+                                ImeLeka = txtImeLeka.Text,
+                                SifraLeka = txt7.Text,
+                                DodatneNapomene = txt11.Text,
+                                DatumIzdavanja = DateTime.Today,
+                                BrojDana = int.Parse(txt4.Text),
+                                Doza = int.Parse(txt10.Text),
+                                Dijagnoza = txt12.Text,
+                                ImeDoktora = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName,
+                                p = pacijent,
+                                p1 = pacijent
+
+                            };
+                            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+                            LekarKontroler.getInstance().IzdajRecept(parametri);
+                            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+                        }
+                        else
+                            MessageBox.Show("Ne može se piti više od 7 lekova odjednom !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                        MessageBox.Show("Izaberite broj dana izmedju 1 i 999 !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                    MessageBox.Show("Maksimalan sat je 24 i maksimalan broj termina je 5 !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            MessageBox.Show("Neispravno uneti termini pića!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            
 
 
 
-            ObavestenjaKontroler.getInstance().PosaljiAnketuOLekaru(pacijent.Jmbg, LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
-
-            LekarKontroler.getInstance().IzdajRecept(parametri);
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
+            
+            
         }
 
         private void txtImeLeka_LostFocus(object sender, RoutedEventArgs e)
@@ -130,6 +173,24 @@ namespace Bolnica.view.LekarView
                         PotvrdiBtn.IsEnabled = true;
                 }
 
+            }
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
             }
         }
     }

@@ -31,34 +31,6 @@
   <Lekar>
     <Grad>
       <drzava />
-      <Naziv>Beograd</Naziv>
-    </Grad>
-    <Korisnik>
-      <KorisnickoIme>6667</KorisnickoIme>
-      <Lozinka>Milos</Lozinka>
-      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
-    </Korisnik>
-    <Ime>Milos</Ime>
-    <Prezime>Marinkovic</Prezime>
-    <Jmbg>6667</Jmbg>
-    <BrojTelefona>123321</BrojTelefona>
-    <Pol>Zenski</Pol>
-    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
-    <Email>mail</Email>
-    <Adresa>Jovana Vojvodica 23/A</Adresa>
-    <BrojSlobodnihDana>25</BrojSlobodnihDana>
-    <NaOdmoru>false</NaOdmoru>
-    <obavestenje />
-    <Specijalizacija>
-      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
-    </Specijalizacija>
-    <FullName>dr Milos Marinkovic</FullName>
-    <ImeiSpecijalizacija>dr Milos Marinkovic- opšta medicina</ImeiSpecijalizacija>
-    <IdOrdinacija>0</IdOrdinacija>
-  </Lekar>
-  <Lekar>
-    <Grad>
-      <drzava />
       <Naziv>Zajecar</Naziv>
     </Grad>
     <Korisnik>
@@ -132,11 +104,39 @@
     <Adresa>Trg Aekse Santica 12</Adresa>
     <BrojSlobodnihDana>25</BrojSlobodnihDana>
     <NaOdmoru>false</NaOdmoru>
+    <obavestenje />
     <Specijalizacija>
       <VrstaSpecijalizacije>kardiohirurgija</VrstaSpecijalizacije>
     </Specijalizacija>
     <FullName>dr Dusko Jankovic</FullName>
     <ImeiSpecijalizacija>dr Dusko Jankovic- kardiohirurgija</ImeiSpecijalizacija>
     <IdOrdinacija>3</IdOrdinacija>
+  </Lekar>
+  <Lekar>
+    <Grad>
+      <drzava />
+      <Naziv>Beograd</Naziv>
+    </Grad>
+    <Korisnik>
+      <KorisnickoIme>6667</KorisnickoIme>
+      <Lozinka>Milos</Lozinka>
+      <DatumKreiranjaNaloga>0001-01-01T00:00:00</DatumKreiranjaNaloga>
+    </Korisnik>
+    <Ime>Milos</Ime>
+    <Prezime>Marinkovic</Prezime>
+    <Jmbg>6667</Jmbg>
+    <BrojTelefona>1231112</BrojTelefona>
+    <Pol>Zenski</Pol>
+    <DatumRodjenja>1967-12-25T00:00:00</DatumRodjenja>
+    <Email>mail</Email>
+    <Adresa>Jovana Vojvodica 23/A</Adresa>
+    <BrojSlobodnihDana>25</BrojSlobodnihDana>
+    <NaOdmoru>false</NaOdmoru>
+    <Specijalizacija>
+      <VrstaSpecijalizacije>opšta medicina</VrstaSpecijalizacije>
+    </Specijalizacija>
+    <FullName>dr Milos Marinkovic</FullName>
+    <ImeiSpecijalizacija>dr Milos Marinkovic- opšta medicina</ImeiSpecijalizacija>
+    <IdOrdinacija>0</IdOrdinacija>
   </Lekar>
 </ArrayOfLekar>

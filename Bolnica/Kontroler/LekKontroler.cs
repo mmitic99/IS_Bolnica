@@ -92,5 +92,6 @@ namespace Bolnica.Kontroler
         {
             return LekServis.GetInstance().getById(id);
         }
+
     }
 }

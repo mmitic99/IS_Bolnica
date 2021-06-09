@@ -1,0 +1,25 @@
+﻿<Window x:Class="Bolnica.view.LekarView.Help.HelpF1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.LekarView.Help"
+        mc:Ignorable="d"
+        Title="HelpF1" Height="586.118" Width="1209.876" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Help" FontSize="30"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="572,7,0,0" Width="76"/>
+        <Label Content="Termini Window&#xD;&#xA;" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="147,62,0,0" Width="156" Height="40"/>
+        <Label Content="Pacijent Info Window" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,62,0,0" Width="208" Height="40"/>
+        <Label Content="Obaveštenja WIndow&#xA;" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="890,62,0,0" Width="194" Height="40"/>
+        <Label Content="Lek Window&#xA;" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="147,280,0,0" Width="156" Height="40"/>
+        <Label Content="Dodatni info o pacijent prozoru&#xA;" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="464,280,0,0" Width="301" Height="40"/>
+        <Label Content="Profil Window" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="903,280,0,0" Width="156" Height="40"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" Text="Prečica za termin widnow je Alt+T. Potrebno je izabrati termin da bi se on ažurirao,obrisao ili prikazao pacijenta. Pri uvidu u termine moguće je prikazati termine za bilo koji dan." VerticalAlignment="Top" Margin="57,107,0,0" Height="168" Width="352"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Margin="816,325,0,0" Height="168" Width="352"><Run Text="Prečica za termin widnow je Alt+"/><Run Text="R"/><Run Text=". "/><Run Text="Ovde se nalazte informacije o samom korisniku koje možete menjati. Takođe je omogućena opcija za paljenje i gašenje tooltip'ova. Kliokm na dugme omoguči se pale a na onemoguči se gase."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" Text="Prečica za ovaj prozor je Alt+ P. Za sve dugmiće koji se nalaze na prozoru obezbešena je prečica. (Alt+I - izdavanje recepta, Alt+Z - zakazivanje termina, Alt+B prikaz bolničkih lečenja,Alt+A - prikazivanje anamneza pacijenta). Ako nije odabran pacijent nije moguće koristiti dugmiće i prečice.)" VerticalAlignment="Top" Margin="435,107,0,0" Height="178" Width="352"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" Text="Prečica za ovaj prozor je Alt+O. Prikazana su sva obaveštenja lekara, potrebno je izabrati obaveštenje da bi bilo obrisano." VerticalAlignment="Top" Margin="816,107,0,0" Height="168" Width="352"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" Text="Prećica za ovaj prozor je Alt+L. Sastoji se od dva taba. Tab verifikacija lekova prikazuje sve zahteve upravnika da se verifikuje lek. Potrebno je upisati mišljenje o leku u polje napomena. Drugi tab je prikaz lekova, prikazuju se svi lekovi iz bolnice i moguće ih je menjati." VerticalAlignment="Top" Margin="57,325,0,0" Height="168" Width="352"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="16" TextWrapping="Wrap" Text="Pri izdavanju leka, termini za uzimanje leka moraju biti napisani u formatu broj zarez broj zarez... Kada se zakazuje termin ako ne izlaze dostupni termini lekar je verovatno na odmoru.Anamnezu možete pisati u toku i nakon pregleda. Moguče je produživanje i ranije otpuštanje paciejnta sa bolničkog lečenja. Nije moguće menjati pacijentove podatke." VerticalAlignment="Top" Margin="435,325,0,0" Height="194" Width="352"/>
+
+    </Grid>
+</Window>

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Bolnica.view.LekarWindow"
-        mc:Ignorable="d"
-        Title="LekarWindow" Height="530" Width="830">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Title="" Height="530" Width="830"  ResizeMode="NoResize"  >
+    
     <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#F0DBD7">
-        <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Height="450" Width="800"/>
-
+        <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Height="450" Width="800" />
     </Grid>
 </Window>

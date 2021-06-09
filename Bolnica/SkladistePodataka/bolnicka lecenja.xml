@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfBolnickoLecenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BolnickoLecenje>
+    <idProstorije>6</idProstorije>
+    <jmbgPacijenta>1234567890123</jmbgPacijenta>
+    <pocetakBolnickogLecenja>2021-06-08T00:00:00</pocetakBolnickogLecenja>
+    <krajBolnickogLecenja>2021-06-24T00:00:00</krajBolnickogLecenja>
+    <jmbgLekara>6667</jmbgLekara>
+  </BolnickoLecenje>
+  <BolnickoLecenje>
     <idProstorije>4</idProstorije>
-    <jmbgPacijenta>4567891230987</jmbgPacijenta>
-    <pocetakBolnickogLecenja>2021-05-26T00:00:00</pocetakBolnickogLecenja>
-    <krajBolnickogLecenja>2022-02-25T00:00:00</krajBolnickogLecenja>
+    <jmbgPacijenta>1234</jmbgPacijenta>
+    <pocetakBolnickogLecenja>2021-06-08T00:00:00</pocetakBolnickogLecenja>
+    <krajBolnickogLecenja>2021-06-18T00:00:00</krajBolnickogLecenja>
     <jmbgLekara>6667</jmbgLekara>
   </BolnickoLecenje>
 </ArrayOfBolnickoLecenje>

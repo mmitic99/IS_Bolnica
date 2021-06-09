@@ -1,58 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfObavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:35.9003651+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 8/8/0008 12:00:00 AM je pomeren na 8/8/0008 12:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:36.3691048+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/4/2021 7:00:00 AM je pomeren na 4/4/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:36.8308686+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 3/3/0004 12:00:00 AM je pomeren na 3/3/0004 12:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:37.2777164+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 7/3/2018 9:00:00 AM je pomeren na 7/3/2018 9:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-25T23:37:37.729464+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 8:00:00 AM je pomeren na 4/19/2021 8:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:38.1822539+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 6:00:00 AM je pomeren na 4/19/2021 6:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:38.624072+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 7:30:00 AM je pomeren na 4/19/2021 7:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -97,14 +49,6 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:41.5303072+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 11:30:00 AM je pomeren na 4/19/2021 11:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-25T23:37:42.2773754+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 12:00:00 PM je pomeren na 4/19/2021 12:00:00 PM.</Sadrzaj>
@@ -117,22 +61,6 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/19/2021 9:30:00 AM je pomeren na 4/19/2021 9:30:00 AM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:43.7563924+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:00:00 AM je pomeren na 4/20/2021 8:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:44.5014161+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/20/2021 8:30:00 AM je pomeren na 4/20/2021 8:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -181,22 +109,6 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 4/28/2021 7:00:00 AM je pomeren na 4/28/2021 7:00:00 AM.</Sadrzaj>
     <JmbgKorisnika>4536</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:49.7314326+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/27/2021 7:00:00 PM je pomeren na 5/27/2021 7:00:00 PM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:50.5113476+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 6:00:00 AM je pomeren na 5/5/2021 6:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -257,22 +169,6 @@
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
   <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:56.4988585+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/5/2021 7:00:00 AM je pomeren na 5/5/2021 7:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:37:57.2029785+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 12/4/2021 10:00:00 AM je pomeren na 12/4/2021 10:00:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
     <VremeObavestenja>2021-05-25T23:37:57.9541024+02:00</VremeObavestenja>
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/2/2021 1:30:00 PM je pomeren na 5/2/2021 1:30:00 PM.</Sadrzaj>
@@ -293,14 +189,6 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:38:00.1950847+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -981,14 +869,6 @@
     <Naslov>Izmena zakazanog termina</Naslov>
     <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 6/16/2021 6:30:00 PM je pomeren na 6/16/2021 6:30:00 PM.</Sadrzaj>
     <JmbgKorisnika>609</JmbgKorisnika>
-    <Vidjeno>false</Vidjeno>
-    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
-  </Obavestenje>
-  <Obavestenje>
-    <VremeObavestenja>2021-05-25T23:39:53.0293247+02:00</VremeObavestenja>
-    <Naslov>Izmena zakazanog termina</Naslov>
-    <Sadrzaj>Poštovani, obaveštavamo vas da je termin koji ste imali zakazan za 5/8/2021 6:30:00 AM je pomeren na 5/8/2021 6:30:00 AM.</Sadrzaj>
-    <JmbgKorisnika>6667</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
   </Obavestenje>
@@ -6191,5 +6071,215 @@
     <JmbgKorisnika>123456789</JmbgKorisnika>
     <Vidjeno>false</Vidjeno>
     <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T01:20:37.4296514+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Sara
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>456789123098766676/8/2021 1:20:37 AM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T12:34:42.6722973+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Jovana
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234123123232</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123412312323266676/8/2021 12:34:42 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T12:40:59.7563858+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Jovana
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234123123232</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123412312323266676/8/2021 12:40:59 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T22:43:20.3288809+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Jovana
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123466676/8/2021 10:43:20 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T22:43:45.4129078+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Jovana
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123466676/8/2021 10:43:45 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T22:44:53.3196545+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678966676/8/2021 10:44:53 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T22:54:23.5287258+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Pera
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123456789012366676/8/2021 10:54:23 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-08T22:55:00.7599698+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Pera
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123456789012366676/8/2021 10:55:00 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-09T14:44:27.5240385+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Sara
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>456789123098766676/9/2021 2:44:27 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-06T14:51:21.1134851+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Jovana
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123466676/6/2021 2:51:21 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-06T14:52:11.1413561+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Mihailo
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>123456789</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>12345678966676/6/2021 2:52:11 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-06T14:52:48.5805195+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Nikola
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>2313213154641</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>231321315464166676/6/2021 2:52:48 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-06T14:53:56.0865202+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Pera
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>1234567890123</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>123456789012366676/6/2021 2:53:56 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
+  </Obavestenje>
+  <Obavestenje>
+    <VremeObavestenja>2021-06-06T14:54:43.1600973+02:00</VremeObavestenja>
+    <Naslov>Anketa o nedavnom pregledu</Naslov>
+    <Sadrzaj>Poštovani/a Sara
+nedavno ste bili na pregledu kod dr Milos Marinkovic. Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža.Hvala Vam na izdvojenom vremenu.
+
+Prijatan dan Vam želi ZDRAVO bolnica.</Sadrzaj>
+    <JmbgKorisnika>4567891230987</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <kvartalnaAnketa>0001-01-01T00:00:00</kvartalnaAnketa>
+    <anketaOLekaru>
+      <IDAnkete>456789123098766676/6/2021 2:54:43 PM</IDAnkete>
+      <JmbgLekara>6667</JmbgLekara>
+    </anketaOLekaru>
   </Obavestenje>
 </ArrayOfObavestenje>

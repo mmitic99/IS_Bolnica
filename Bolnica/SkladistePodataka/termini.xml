@@ -274,7 +274,7 @@
     <brojSobe>004</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>Boli</opisTegobe>
   </Termin>
@@ -288,7 +288,7 @@
     <brojSobe>101</brojSobe>
     <sprat>1</sprat>
     <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -302,7 +302,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -316,7 +316,7 @@
     <brojSobe>001</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -330,7 +330,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -344,7 +344,7 @@
     <brojSobe>302</brojSobe>
     <sprat>3</sprat>
     <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -358,7 +358,7 @@
     <brojSobe>101</brojSobe>
     <sprat>1</sprat>
     <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -372,7 +372,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>Problem sa stolicom</opisTegobe>
   </Termin>
@@ -386,7 +386,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -400,7 +400,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -414,7 +414,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Dunja Jovanovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>Pacijent zeli da zakaze kontrolni pregled.</opisTegobe>
   </Termin>
@@ -428,7 +428,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Miroslav Mi</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -442,7 +442,7 @@
     <brojSobe>101</brojSobe>
     <sprat>1</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>840</TrajanjeTermina>
     <opisTegobe>dsad</opisTegobe>
   </Termin>
@@ -456,7 +456,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe>Boli</opisTegobe>
   </Termin>
@@ -470,7 +470,7 @@
     <brojSobe>101</brojSobe>
     <sprat>1</sprat>
     <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -484,7 +484,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -498,7 +498,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Milos Marinkovic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -512,7 +512,7 @@
     <brojSobe>002</brojSobe>
     <sprat>0</sprat>
     <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Jovana Jovanovic</pacijent>
+    <pacijent> </pacijent>
     <TrajanjeTermina>0</TrajanjeTermina>
     <opisTegobe />
   </Termin>
@@ -1114,5 +1114,33 @@
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>120</TrajanjeTermina>
     <opisTegobe>dssd</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-22T09:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>609</JmbgLekara>
+    <JmbgPacijenta>4567891230987</JmbgPacijenta>
+    <IDTermina>45678912309876096/22/2021 9:30:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Dunja Jovanovic</lekar>
+    <pacijent>Sara Sarić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>asdasd</opisTegobe>
+  </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-04T10:00:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>1</IdProstorije>
+    <JmbgLekara>6667</JmbgLekara>
+    <JmbgPacijenta>4567891230987</JmbgPacijenta>
+    <IDTermina>456789123098766676/4/2021 10:00:00 AM</IDTermina>
+    <brojSobe>002</brojSobe>
+    <sprat>0</sprat>
+    <lekar>dr Milos Marinkovic</lekar>
+    <pacijent>Sara Sarić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe>afgdfgdas</opisTegobe>
   </Termin>
 </ArrayOfTermin>

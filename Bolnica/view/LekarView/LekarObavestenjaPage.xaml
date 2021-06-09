@@ -19,14 +19,35 @@
             <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_Pacijenti" />
             <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_Lekovi" />
             <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" />
-            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2" />
+            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Profil"/>
             <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut"/>
         </Menu>
         <Image HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="61" Source="doctor1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
         <TextBlock x:Name="ImeDoktora"  Text ="{Binding FullName}" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="89" FontSize="10"/>
-        <DataGrid HorizontalAlignment="Left" Height="335" Margin="10,84,0,0" VerticalAlignment="Top" Width="780" Background="#F0DBD7">
-            
+        <DataGrid x:Name="ObavestenjaPrikaz" HorizontalAlignment="Left" Height="266" Margin="41,110,0,0"  Grid.Row="2" VerticalAlignment="Top" Width="723" AutoGenerateColumns="false" IsReadOnly="True"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn   Header="Datum obaveštenja" Binding="{Binding VremeObavestenja, StringFormat=\{0:dd.MM.yyyy\}}" />
+                <DataGridTextColumn   Header="Vreme obaveštenja" Binding="{Binding VremeObavestenja, StringFormat=\{0:HH:mm\}}"/>
+                <DataGridTextColumn Header="Obaveštenja" Binding="{Binding Sadrzaj}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+       
+
         </DataGrid>
+        <DatePicker x:Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="571,380,0,0" VerticalAlignment="Top" Height="30" Width="103" />
+        <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="696,380,0,0" Height="30" Click="Button_Click_Prikazi">
+            <Button.ToolTip>
+                Izaberite datum i prikazite sva obavestenja tog dana.
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Izbriši obaveštenje" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Margin="66,386,0,0" Click="Button_Click_1"/>
+
 
     </Grid>
 </Page>

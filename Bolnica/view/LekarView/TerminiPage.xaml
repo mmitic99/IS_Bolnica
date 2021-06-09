@@ -7,10 +7,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TerminiPage">
-
+    
     <Grid>
-        <Button Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="27,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_1" BorderBrush="Aquamarine"/>
-        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="149,380,0,0" VerticalAlignment="Top" Width="102" Height="30" Click="Button_Click_2" />
+        <Button x:Name="AzurirajButton" Content="Ažuriraj termin" HorizontalAlignment="Left" Margin="27,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_1">
+            <Button.ToolTip>
+                <ToolTip x:Name="AzurirajButtonTooltip">
+                    Dugme za azuriranje termina.
+                </ToolTip>
+                
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Obriši termin" HorizontalAlignment="Left" Margin="149,380,0,0" VerticalAlignment="Top" Width="102" Height="30" Click="Button_Click_2">
+            <Button.ToolTip>
+                Kliknite za brisanje termina.
+            </Button.ToolTip>
+        </Button>
         <DataGrid x:Name="Pregledi_Table" ItemsSource ="{Binding Termini}" AutoGenerateColumns="False" HorizontalAlignment="Right" 
             Height="290" VerticalAlignment="Top" Width="783" Margin="0,83,10,0" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"
                   AlternatingRowBackground="#F0DBD7" Background="#F0DBD7" ScrollViewer.CanContentScroll="True" >
@@ -26,20 +37,52 @@
             </DataGrid.Columns>
         </DataGrid>
         <DatePicker Name="DatePicker1" IsTodayHighlighted="True" Text="Datum" HorizontalAlignment="Left" Margin="571,380,0,0" VerticalAlignment="Top" Height="30" Width="103" />
-        <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="696,380,0,0" Height="30" Click="Button_Click_3"/>
-        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="277,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_4" RenderTransformOrigin="-0.75,0.48" />
+        <Button Content="Prikaži" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="696,380,0,0" Height="30" Click="Button_Click_3">
+            <Button.ToolTip>
+                Izaberite datum i prikazite termine za uneti datum.
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Prikaži pacijenta" HorizontalAlignment="Left" Margin="277,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="Button_Click_4" RenderTransformOrigin="-0.75,0.48" >
+            <Button.ToolTip>
+                Izaberite pacijenta iz tabele termina i predjite na njegov zdravstveni karton.
+            </Button.ToolTip>
+        </Button>
         <Menu HorizontalAlignment="Left" Height="65" Margin="90,0,0,0" VerticalAlignment="Top" Width="700" Background="#F0DBD7" Cursor="Hand">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="Termini" FontSize="20" />
-            <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_Pacijenti"/>
-            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_Lekovi"/>
-            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Obavestenja"/>
-            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2"/>
-            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut"/>
+            <MenuItem Header="Termini" FontSize="20" >
+                <MenuItem.ToolTip>
+                    Stranica sa informacijama o terminima
+                </MenuItem.ToolTip>
+            </MenuItem>
+            <MenuItem Header="Pacijenti" FontSize="20" Click="MenuItem_Click_Pacijenti">
+                <MenuItem.ToolTip>
+                    Stranica sa informacijama o pacijentima
+                </MenuItem.ToolTip>
+                </MenuItem>
+            <MenuItem Header="Lekovi" FontSize="20" Click="MenuItem_Click_Lekovi">
+                <MenuItem.ToolTip>
+                    Stranica sa informacijama o lekovima
+                </MenuItem.ToolTip>
+            </MenuItem>
+            <MenuItem Header="Obaveštenja" Width="120" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Obavestenja">
+                <MenuItem.ToolTip>
+                    Stranica sa informacijama o obavestenjima
+                </MenuItem.ToolTip>
+            </MenuItem>
+            <MenuItem Header="Profil" Width="60" FontSize="20" Margin="0,0,0,-0.2" Click="MenuItem_Click_Profil">
+                <MenuItem.ToolTip>
+                    Stranica sa informacijama o profilu lekara
+                </MenuItem.ToolTip>
+            </MenuItem>
+            <MenuItem Header="Log out" Width="80" FontSize="20"  HorizontalAlignment="Right" Margin="0,0,0,0.2" Click="MenuItem_Click_LogOut">
+                <MenuItem.ToolTip>
+                    Odjavite se
+                </MenuItem.ToolTip>
+            </MenuItem>
         </Menu>
         <Image HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="61" Source="doctor1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" >
 

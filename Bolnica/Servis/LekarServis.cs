@@ -222,7 +222,7 @@ namespace Servis
             PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
         }
         public List<int> dobijTerminePijenja(String terminiPijenja)
-        {
+        {   
             String[] termini = terminiPijenja.Split(',');
             List<int> terminiInt = new List<int>();
             for (int i = 0; i < termini.Length; i++)

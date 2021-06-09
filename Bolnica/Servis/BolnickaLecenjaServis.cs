@@ -1,4 +1,5 @@
-﻿using Bolnica.Repozitorijum;
+﻿using Bolnica.model;
+using Bolnica.Repozitorijum;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using System;
 using System.Collections.Generic;
@@ -32,5 +33,6 @@ namespace Bolnica.Servis
         {
                 SkladisteBolnickihLecenjaXml.GetInstance().RemoveByID(jmbgPacijenta);  
         }
+        
     }
 }
