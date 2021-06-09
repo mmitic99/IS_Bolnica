@@ -1297,4 +1297,18 @@
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
   </Termin>
+  <Termin>
+    <DatumIVremeTermina>2021-06-10T14:30:00+02:00</DatumIVremeTermina>
+    <VrstaTermina>Pregled</VrstaTermina>
+    <IdProstorije>12</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
+    <JmbgPacijenta>1234567890123</JmbgPacijenta>
+    <IDTermina>123456789012378976116/10/2021 2:30:00 PM</IDTermina>
+    <brojSobe>420</brojSobe>
+    <sprat>4</sprat>
+    <lekar>dr Maja Balazevic</lekar>
+    <pacijent>Pera Perić</pacijent>
+    <TrajanjeTermina>30</TrajanjeTermina>
+    <opisTegobe />
+  </Termin>
 </ArrayOfTermin>

@@ -29,7 +29,7 @@
                 <Label Content="Unesite tegobe:" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 <TextBox x:Name="tegobe" TextWrapping="Wrap" Text="{Binding Mode=TwoWay, Path=OpisTegobe, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="9.6,0,360.4,10" Width="250"/>
                 <Label Content="Izaberite lekara:" HorizontalAlignment="Right" Grid.Row="1"/>
-                <ComboBox x:Name="izabraniLekar" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="30" SelectedIndex="{Binding IndeksSelektovanogLekara}" 
+                <ComboBox x:Name="izabraniLekar" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="30" SelectedIndex="{Binding IndeksSelektovanogLekara}" SelectedItem="{Binding Mode=TwoWay, Path=IzabraniLekar, UpdateSourceTrigger=PropertyChanged}"
                           ItemsSource="{Binding sviLekari}"  IsDropDownOpen="{Binding Mode=TwoWay, Path=SviLekariOpened, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -182,7 +182,7 @@
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="196,0,0,0"/>
                 <ComboBox Name="minutKraj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" Grid.Row="3"
-                          Margin="210,0,0,0" SelectedItem="{Binding Mode=TwoWay, Path=IzabraniLekar, UpdateSourceTrigger=PropertyChanged}"
+                          Margin="210,0,0,0"
                           SelectedIndex="{Binding Mode=TwoWay,Path=MinutKraj, UpdateSourceTrigger=PropertyChanged}" 
                           IsDropDownOpen="{Binding Mode=TwoWay,Path=MinutKrajOpened, UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Triggers>
