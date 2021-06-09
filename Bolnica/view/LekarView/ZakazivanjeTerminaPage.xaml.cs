@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,6 +49,7 @@ namespace Bolnica.view.LekarView
             isHitan = false;
             if(SpecBox!=null)
             SpecBox.ItemsSource = specijalizacijaKontroler.GetAll();
+            setToolTip(LekarProfilPage.isToolTipVisible);
         }
 
         private void LekariBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,69 +57,89 @@ namespace Bolnica.view.LekarView
             LekarDTO l = (LekarDTO)LekariBox.SelectedItem;
 
         }
+        private bool Validiraj(Regex sablon, String unos)
+        {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
             
         {
-
-
-            int vrstaTermina = 0;
-            if ((VrstaPregleda)TerminBox.SelectedItem == VrstaPregleda.Operacija) 
-            {
-                vrstaTermina = 1;
-            }
-            int SadasnjiSat = DateTime.Now.Hour;
-            int ComboSat=0;
-            if (SadasnjiSat < 19 && SadasnjiSat > 6)
-            {
-                ComboSat = SadasnjiSat - 6;
-            }
-            int SadasnjiMinut;
-            
-
-            if (terminCheckBox.IsChecked==true)
-            {
-                Kalendar.SelectedDates.Add(DateTime.Today);
-                ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
-            {
-                Pacijent = jmbgPacijenta,
-                IzabraniDatumi = Kalendar.SelectedDates,
-                IzabraniLekar = LekariBox.SelectedItem,
-                PocetnaSatnica = ComboSat,
-                PocetakMinut = 0,
-                KrajnjaSatnica = ComboSat+1,
-                KrajnjiMinuti = 0,
-                NemaPrioritet = false,
-                OpisTegobe = txt1.Text,
-                PrioritetLekar = false,
-                PriotitetVreme = true,
-                trajanjeUMinutama = int.Parse(txt2.Text),
-                vrstaTermina = vrstaTermina
-
-            };
-            LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
-        }
-            else {
-                ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
+            if (TerminBox.SelectedItem != null) { 
+            if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text)) {
+                int proveraVremena = int.Parse(txt2.Text);
+                if (proveraVremena % 30 == 0)
                 {
-                    Pacijent = jmbgPacijenta,
-                    IzabraniDatumi = Kalendar.SelectedDates,
-                    IzabraniLekar = LekariBox.SelectedItem,
-                    PocetnaSatnica = 0,
-                    PocetakMinut = 0,
-                    KrajnjaSatnica = 14,
-                    KrajnjiMinuti = 0,
-                    NemaPrioritet = false,
-                    OpisTegobe = txt1.Text,
-                    PrioritetLekar = true,
-                    PriotitetVreme = false,
-                    trajanjeUMinutama = int.Parse(txt2.Text),
-                    vrstaTermina = vrstaTermina
 
-                };
-                LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
+                    int vrstaTermina = 0;
+                    if ((VrstaPregleda)TerminBox.SelectedItem == VrstaPregleda.Operacija)
+                    {
+                        vrstaTermina = 1;
+                    }
+                    int SadasnjiSat = DateTime.Now.Hour;
+                    int ComboSat = 0;
+                    if (SadasnjiSat < 19 && SadasnjiSat > 6)
+                    {
+                        ComboSat = SadasnjiSat - 6;
+                    }
+                    int SadasnjiMinut;
+
+
+                    if (terminCheckBox.IsChecked == true)
+                    {
+                        Kalendar.SelectedDates.Add(DateTime.Today);
+                        ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
+                        {
+                            Pacijent = jmbgPacijenta,
+                            IzabraniDatumi = Kalendar.SelectedDates,
+                            IzabraniLekar = LekariBox.SelectedItem,
+                            PocetnaSatnica = ComboSat,
+                            PocetakMinut = 0,
+                            KrajnjaSatnica = ComboSat + 1,
+                            KrajnjiMinuti = 0,
+                            NemaPrioritet = false,
+                            OpisTegobe = txt1.Text,
+                            PrioritetLekar = false,
+                            PriotitetVreme = true,
+                            trajanjeUMinutama = int.Parse(txt2.Text),
+                            vrstaTermina = vrstaTermina
+
+                        };
+                        LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
+                    }
+                    else
+                    {
+                        ParametriZaTrazenjeMogucihTerminaDTO parametriDTO = new ParametriZaTrazenjeMogucihTerminaDTO()
+                        {
+                            Pacijent = jmbgPacijenta,
+                            IzabraniDatumi = Kalendar.SelectedDates,
+                            IzabraniLekar = LekariBox.SelectedItem,
+                            PocetnaSatnica = 0,
+                            PocetakMinut = 0,
+                            KrajnjaSatnica = 14,
+                            KrajnjiMinuti = 0,
+                            NemaPrioritet = false,
+                            OpisTegobe = txt1.Text,
+                            PrioritetLekar = true,
+                            PriotitetVreme = false,
+                            trajanjeUMinutama = int.Parse(txt2.Text),
+                            vrstaTermina = vrstaTermina
+
+                        };
+                        LekarWindow.getInstance().Frame1.Content = new PrikazDostupnihTermina(parametriDTO);
+                    }
+                }
+                else
+                    MessageBox.Show("Trajanje mora biti deljivo sa 30 i manje od 361 minut !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-           
+            else
+                     MessageBox.Show("Pogrešan unos podataka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Izaberi vrstu termina !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
 
         }
 
@@ -131,6 +153,24 @@ namespace Bolnica.view.LekarView
             if(terminCheckBox.IsChecked== true)
             {
                 isHitan = true;
+            }
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
             }
         }
     }

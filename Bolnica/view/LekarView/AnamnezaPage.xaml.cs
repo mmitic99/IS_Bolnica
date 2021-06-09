@@ -27,6 +27,7 @@ namespace Bolnica.view.LekarView
             pacijentKontroler = new PacijentKontroler();
             jmbgPacijenta = jmbg;
             Anamneza_Table.ItemsSource = pacijentKontroler.GetByJmbg(jmbg).ZdravstveniKarton.Anamneze;
+            setToolTip(LekarProfilPage.isToolTipVisible);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,26 @@ namespace Bolnica.view.LekarView
                 AnamnezaDTO anamnezaDTO = AnamnezaKontroler.GetInstance().getAnamnezaById(((AnamnezaDTO)Anamneza_Table.SelectedItem).IdAnamneze);
                LekarWindow.getInstance().Frame1.Content = new AzurirajAnamnezuPage(anamnezaDTO);
             }
-               
+               else
+                MessageBox.Show("Označite anamnezu koju želite da izmenite !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
+            }
         }
     }
 }

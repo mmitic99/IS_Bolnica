@@ -42,6 +42,7 @@ namespace Bolnica.view.LekarView
                  moguciTermini = TerminKontroler.getInstance().NadjiTermineZaParametre(parametriDTO);
             }
             prikazMogucih.ItemsSource = new ObservableCollection<TerminDTO>(moguciTermini);
+            setToolTip(LekarProfilPage.isToolTipVisible);
 
         }
 
@@ -52,10 +53,33 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
-            LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((TerminDTO)prikazMogucih.SelectedItem).JmbgPacijenta);
+            if (prikazMogucih.SelectedIndex != -1)
+            {
+                TerminKontroler.getInstance().ZakaziTermin((TerminDTO)prikazMogucih.SelectedItem);
+                LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(((TerminDTO)prikazMogucih.SelectedItem).JmbgPacijenta);
+            }
+            else
+                MessageBox.Show("Označite termin u kom želite da zakažete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
+            }
         }
 
-        
+
     }
 }

@@ -18,8 +18,16 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Prikaži anamnezu" HorizontalAlignment="Left" Margin="676,96,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_1"/>
-        <Button Content="Povratak na pacijenta" HorizontalAlignment="Left" Margin="673,371,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click"/>
+        <Button Content="Prikaži anamnezu" HorizontalAlignment="Left" Margin="676,96,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_1">
+            <Button.ToolTip>
+                Prikazi sve anamneze pacijenta
+            </Button.ToolTip>
+        </Button>
+        <Button Content="Povratak na pacijenta" HorizontalAlignment="Left" Margin="673,371,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click">
+            <Button.ToolTip>
+                Vrati se na zdravstveni karton pacijenta.
+            </Button.ToolTip>
+        </Button>
 
     </Grid>
 </Page>

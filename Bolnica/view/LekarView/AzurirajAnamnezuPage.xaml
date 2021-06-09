@@ -12,7 +12,11 @@
         <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="106,210,0,0" VerticalAlignment="Top"/>
         <Label Content="Ažuriranje anamneze" HorizontalAlignment="Left" Margin="280,33,0,0" VerticalAlignment="Top" FontSize="20"/>
         <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="240" Margin="194,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="381"/>
-        <Button Content="Povratak" HorizontalAlignment="Left" Margin="194,344,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Povratak" HorizontalAlignment="Left" Margin="194,344,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2">
+            <Button.ToolTip>
+                Povratak na pregled anamneza
+            </Button.ToolTip>
+        </Button>
         <Button Content="Izmeni" HorizontalAlignment="Left" Margin="500,344,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
 

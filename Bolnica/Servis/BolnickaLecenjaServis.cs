@@ -1,3 +1,4 @@
+
 ﻿using System.Collections.Generic;
 using Bolnica.model;
 using Bolnica.Repozitorijum;
@@ -49,5 +50,6 @@ namespace Bolnica.Servis
         {
             SkladisteBolnickihLecenja.SaveAll(bolnickaLecenja);
         }
+        
     }
 }

@@ -3,7 +3,7 @@
   <Lek>
     <VrstaLeka>Tableta</VrstaLeka>
     <KolicinaLeka>19</KolicinaLeka>
-    <NazivLeka>Brufen</NazivLeka>
+    <NazivLeka>Brufena</NazivLeka>
     <KlasaLeka>Analgetik</KlasaLeka>
     <IdLeka>0</IdLeka>
     <JacinaLeka>490</JacinaLeka>
@@ -15,7 +15,7 @@
     <KolicinaLeka>200</KolicinaLeka>
     <NazivLeka>Prospan</NazivLeka>
     <KlasaLeka>Antiseptik</KlasaLeka>
-    <IdLeka>1</IdLeka>
+    <IdLeka>0</IdLeka>
     <JacinaLeka>100</JacinaLeka>
     <ZamenskiLek>Mukodin</ZamenskiLek>
     <SastavLeka>sirup</SastavLeka>
@@ -25,7 +25,7 @@
     <KolicinaLeka>30</KolicinaLeka>
     <NazivLeka>TylolHot</NazivLeka>
     <KlasaLeka>Analgetik</KlasaLeka>
-    <IdLeka>2</IdLeka>
+    <IdLeka>0</IdLeka>
     <JacinaLeka>550</JacinaLeka>
     <ZamenskiLek>Neki lek</ZamenskiLek>
     <SastavLeka>sastojak, sastojci</SastavLeka>

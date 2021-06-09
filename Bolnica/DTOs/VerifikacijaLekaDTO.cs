@@ -15,6 +15,17 @@ namespace Bolnica.DTOs
         public String JmbgPosiljaoca { get; set; }
         public String Napomena { get; set; }
         public String IdVerifikacijeLeka { get; set; }
+        public String ImeUpravnika
+        {
+            get
+            {
+                return "Mihailo Majstorović";
+            }
+            set
+            {
+
+            }
+        }
         public VerifikacijaLekaDTO(DateTime vremeSlanja, String naslov, String sadrzaj, String jmbgPosiljaoca, String jmbgPrimaoca, String napomena)
         {
             IdVerifikacijeLeka = vremeSlanja.ToString("dd/MM/yyyy HH:mm:ss") + jmbgPosiljaoca + jmbgPrimaoca;

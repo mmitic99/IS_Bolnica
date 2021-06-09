@@ -21,6 +21,11 @@ using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
 using Bolnica.DTOs;
 using Bolnica.Kontroler;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Tables;
+using System.Drawing;
+using System.Data;
+using Syncfusion.Pdf.Graphics;
 
 namespace Bolnica.view.LekarView
 {
@@ -40,16 +45,28 @@ namespace Bolnica.view.LekarView
         }
         public PacijentInfoPage(String jmbg)
         {
+            
            
             
             InitializeComponent();
             instance = this;
             int izabraniPacijent = 0;
             Jmbg = jmbg;
+            PocetakLecenjaBox.DisplayDateStart = DateTime.Today.AddDays(1);
+            KrajLecenjaBox.DisplayDateStart = DateTime.Today.AddDays(1); 
+            if (Jmbg == null)
+            {
+                PosaljiButton.IsEnabled = false;
+                IzdajReceptButton.IsEnabled = false;
+                UnesiAnamnezuButton.IsEnabled = false;
+                ZakaziTerminButton.IsEnabled = false;
+                IzvestajButton.IsEnabled = false;
+            }
             ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
             List<PacijentDTO> pacijentiDTO = PacijentKontroler.GetInstance().GetAll();
             ComboBox1.ItemsSource = pacijentiDTO;
-            
+            setToolTip(LekarProfilPage.isToolTipVisible);
+
             List<ProstorijaDTO> prostorije = new List<ProstorijaDTO>();
 
             foreach(ProstorijaDTO p in ProstorijeKontroler.GetInstance().GetAll())
@@ -100,6 +117,11 @@ namespace Bolnica.view.LekarView
 
         private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            PosaljiButton.IsEnabled = true;
+            IzdajReceptButton.IsEnabled = true;
+            UnesiAnamnezuButton.IsEnabled = true;
+            ZakaziTerminButton.IsEnabled = true;
+            IzvestajButton.IsEnabled = true;
             pacijent = (PacijentDTO)ComboBox1.SelectedItem;
             Jmbg = pacijent.Jmbg;
             txt1.Text = pacijent.Ime;
@@ -125,19 +147,27 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
             String dijalog = AnamnezaTxt.Text;
-            Anamneza anamneza = new Anamneza()
+            if (dijalog != "")
             {
-                AnamnezaDijalog = dijalog, 
-                DatumAnamneze=DateTime.Now, 
-                ImeLekara= LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName
-            };
-            PacijentDTO pacijent = (PacijentDTO)ComboBox1.SelectedItem;
-            Pacijent pacijentIzmena = PacijentServis.GetInstance().GetByJmbg(pacijent.Jmbg);
-            Pacijent pacijentNovi = pacijentIzmena;
-            pacijentNovi.ZdravstveniKarton.Anamneze.Add(anamneza);
-            PacijentServis.GetInstance().IzmeniPacijenta(pacijentIzmena, pacijentNovi);
-            AnamnezaTxt.Clear();
+                Anamneza anamneza = new Anamneza()
+                {
+                    AnamnezaDijalog = dijalog,
+                    DatumAnamneze = DateTime.Now,
+                    ImeLekara = LekarKontroler.getInstance().trenutnoUlogovaniLekar().FullName
+                };
+                PacijentDTO pacijent = (PacijentDTO)ComboBox1.SelectedItem;
+                Pacijent pacijentIzmena = PacijentServis.GetInstance().GetByJmbg(pacijent.Jmbg);
+                Pacijent pacijentNovi = pacijentIzmena;
+                pacijentNovi.ZdravstveniKarton.Anamneze.Add(anamneza);
+                PacijentServis.GetInstance().IzmeniPacijenta(pacijentIzmena, pacijentNovi);
+                AnamnezaTxt.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Nece moci");
+            }
 
         }
 
@@ -170,52 +200,67 @@ namespace Bolnica.view.LekarView
         }
         private void Button_Click_SlanjeNaLecenje(object sender, RoutedEventArgs e)
         {
-           ProstorijaDTO prostorija = ((ProstorijaDTO)ProstorijaBox.SelectedItem);
-            DateTime vremePocetkaLecenja = (DateTime)PocetakLecenjaBox.SelectedDate;
-            DateTime vremeKrajaLecenja = (DateTime)KrajLecenjaBox.SelectedDate;
-            int zauzetiKreveti = 0;
-            int brojKreveta = 0;
-            bool pacijentVecLezi = false;
-           foreach (BolnickoLecenjeDTO bl in BolnickaLecenjaKontroler.GetInstance().GetAll())
+            if (PocetakLecenjaBox.SelectedDate != null && KrajLecenjaBox.SelectedDate != null)
             {
-                if (bl.idProstorije == prostorija.IdProstorije)
+                if (ProstorijaBox.SelectedItem != null)
                 {
-                    zauzetiKreveti++;
-                }
+                    ProstorijaDTO prostorija = ((ProstorijaDTO)ProstorijaBox.SelectedItem);
+                    DateTime vremePocetkaLecenja = (DateTime)PocetakLecenjaBox.SelectedDate;
+                    DateTime vremeKrajaLecenja = (DateTime)KrajLecenjaBox.SelectedDate;
+                    int zauzetiKreveti = 0;
+                    int brojKreveta = 0;
+                    bool pacijentVecLezi = false;
+                    foreach (BolnickoLecenjeDTO bl in BolnickaLecenjaKontroler.GetInstance().GetAll())
+                    {
+                        if (bl.idProstorije == prostorija.IdProstorije)
+                        {
+                            zauzetiKreveti++;
+                        }
 
-            }
-           
-                foreach(StacionarnaOpremaDTO so in prostorija.Staticka)
-            {
-                if (so.TipStacionarneOpreme.Equals("Krevet"))
+                    }
+
+                    foreach (StacionarnaOpremaDTO so in prostorija.Staticka)
+                    {
+                        if (so.TipStacionarneOpreme.Equals("Krevet"))
+                        {
+                            brojKreveta = so.Kolicina;
+                        }
+                    }
+                    foreach (BolnickoLecenjeDTO bolnickoLecenjeDTO in BolnickaLecenjaKontroler.GetInstance().GetAll())
+                    {
+                        if (Jmbg.Equals(bolnickoLecenjeDTO.jmbgPacijenta))
+                            pacijentVecLezi = true;
+                    }
+                    if (pacijentVecLezi)
+                    {
+                        MessageBox.Show("Pacijent je več na stacionarnom lečenju.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (zauzetiKreveti < brojKreveta)
+                    {
+                        BolnickoLecenjeDTO bolnickoLecenjeDTO = new BolnickoLecenjeDTO()
+                        {
+                            idProstorije = prostorija.IdProstorije,
+                            jmbgPacijenta = Jmbg,
+                            jmbgLekara = LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg,
+                            DatumPrijema = vremePocetkaLecenja,
+                            DatumOtpustanja = vremeKrajaLecenja
+                        };
+                        BolnickaLecenjaKontroler.GetInstance().Save(bolnickoLecenjeDTO);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Svi kreveti su zauzeti, izaberite drugu prostoriju!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                }
+                else
                 {
-                     brojKreveta = so.Kolicina;
+                    MessageBox.Show("Izaberite prostoriju!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-                foreach(BolnickoLecenjeDTO bolnickoLecenjeDTO in BolnickaLecenjaKontroler.GetInstance().GetAll())
+            else
             {
-                if (Jmbg.Equals(bolnickoLecenjeDTO.jmbgPacijenta))
-                    pacijentVecLezi = true;
-            }
-            if (pacijentVecLezi)
-            {
-                MessageBox.Show("Pacijent je več na stacionarnom lečenju.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (zauzetiKreveti < brojKreveta)
-            {
-                BolnickoLecenjeDTO bolnickoLecenjeDTO = new BolnickoLecenjeDTO()
-                {
-                    idProstorije = prostorija.IdProstorije,
-                    jmbgPacijenta = Jmbg,
-                    jmbgLekara = LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg,
-                    DatumPrijema = vremePocetkaLecenja,
-                    DatumOtpustanja = vremeKrajaLecenja
-                };
-                BolnickaLecenjaKontroler.GetInstance().Save(bolnickoLecenjeDTO);
-            }
-            else {
-                MessageBox.Show("Svi kreveti su zauzeti, izaberite drugu prostoriju!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Izaberite datume!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
 
@@ -226,6 +271,102 @@ namespace Bolnica.view.LekarView
         {
             LekarWindow.getInstance().Frame1.Content = new PrikazBolnickihLecenja();
                 }
+        private void setToolTip(bool Prikazi)
+        {
 
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            SacuvajIzvestajPacijenta();
+            SacuvajReceptIDijagnozujPacijenta();
+        }
+        private void SacuvajIzvestajPacijenta()
+        {
+            using (PdfDocument Document = new PdfDocument())
+            {
+                Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(Jmbg);
+                PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+                Graphics.DrawString(pacijent.FullName + "-Izvestaj o stanju pacijenta - anamneze", Font, PdfBrushes.Black, new PointF(113, 20));
+                PdfLightTable PdfLightTable = new PdfLightTable();
+                DataTable Table = new DataTable();
+
+                Table.TableName = "IZVEŠTAJ O STANJU PACIJENTA U PROŠLIH 7 DANA.";
+                Table.Columns.Add("Datum pregleda");
+                Table.Columns.Add("Anamneza");
+                Table.Rows.Add(new string[] { "Datum pregleda", "Anamneza" });
+               
+                foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                {
+                    if (DateTime.Compare(anamneza.DatumAnamneze.Date, DateTime.Now.Date) < 0 && (DateTime.Compare(anamneza.DatumAnamneze.Date, DateTime.Now.Date.AddDays(-7)) >= 0))
+                    {
+
+                        Table.Rows.Add(new string[] { anamneza.DatumAnamneze.ToShortDateString(), anamneza.AnamnezaDijalog });
+
+
+                    }
+                }
+                PdfLightTable.DataSource = Table;
+                PdfLightTable.Draw(Page, new PointF(0, 70));
+                Document.Save("..\\..\\SkladistePodataka\\Izvestaj o stanju pacijenta-anamneza.pdf");
+                Document.Close(true);
+            }
+
+        }
+        private void SacuvajReceptIDijagnozujPacijenta()
+        {
+            using (PdfDocument Document = new PdfDocument())
+            {
+                Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(Jmbg);
+                PdfPage Page = Document.Pages.Add();
+                PdfGraphics Graphics = Page.Graphics;
+                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+                Graphics.DrawString( pacijent.FullName + "-Izvestaj o stanju pacijenta - terapija i dijagnoza", Font, PdfBrushes.Black, new PointF(113, 20));
+                PdfLightTable PdfLightTable = new PdfLightTable();
+                DataTable Table = new DataTable();
+
+                Table.TableName = "IZVEŠTAJ O STANJU PACIJENTA U PROŠLIH 7 DANA.";
+                Table.Columns.Add("Datum pregleda");
+                Table.Columns.Add("Dijagnoza");
+                Table.Columns.Add("Terapija");
+                Table.Rows.Add(new string[] { "Datum pregleda", "Dijagnoza", "Terapija" });
+                foreach (Izvestaj izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
+                    foreach (Recept recept in izvestaj.recepti)
+                    {
+                    if (DateTime.Compare(recept.DatumIzdavanja.Date, DateTime.Now.Date) < 0 && (DateTime.Compare(recept.DatumIzdavanja.Date, DateTime.Now.Date.AddDays(-7)) >= 0))
+                    {
+
+                        Table.Rows.Add(new string[] { recept.DatumIzdavanja.ToShortDateString(), recept.Dijagnoza,recept.ImeLeka });
+
+
+                    }
+                }
+                PdfLightTable.DataSource = Table;
+                PdfLightTable.Draw(Page, new PointF(0, 70));
+                Document.Save("..\\..\\SkladistePodataka\\Izvestaj o stanju pacijenta-dijagnoza i terapija.pdf");
+                Document.Close(true);
+            }
+        }
+
+        private void MenuItem_Click_Profil(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekarProfilPage();
+        }
     }
 }

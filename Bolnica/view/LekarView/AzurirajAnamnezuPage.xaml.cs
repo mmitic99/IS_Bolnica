@@ -33,6 +33,7 @@ namespace Bolnica.view.LekarView
             this.DataContext = this;
             txt1.Text = anamneza.AnamnezaDijalog;
             anamnezaDTONova = anamneza;
+            setToolTip(LekarProfilPage.isToolTipVisible);
         }
 
        
@@ -50,6 +51,24 @@ namespace Bolnica.view.LekarView
             AnamnezaKontroler.GetInstance().IzmenaAnamneze(anamnezaDTONova.IdAnamneze, dijalog, pacijent);
             
             
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
+            }
         }
     }
 }

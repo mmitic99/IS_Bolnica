@@ -8,13 +8,6 @@
     <StatusRadnogVremena>SlobodanDan</StatusRadnogVremena>
   </RadnoVreme>
   <RadnoVreme>
-    <IdRadnogVremena>Radi66671.5.2021. 08:00:00</IdRadnogVremena>
-    <JmbgLekara>6667</JmbgLekara>
-    <DatumIVremePocetka>2021-05-01T08:00:00</DatumIVremePocetka>
-    <DatumIVremeZavrsetka>2021-05-31T15:00:00</DatumIVremeZavrsetka>
-    <StatusRadnogVremena>Radi</StatusRadnogVremena>
-  </RadnoVreme>
-  <RadnoVreme>
     <IdRadnogVremena>Radi453615.5.2021. 12:00:00</IdRadnogVremena>
     <JmbgLekara>4536</JmbgLekara>
     <DatumIVremePocetka>2021-05-15T12:00:00</DatumIVremePocetka>
@@ -103,6 +96,13 @@
     <JmbgLekara>6667</JmbgLekara>
     <DatumIVremePocetka>2021-06-03T06:00:00</DatumIVremePocetka>
     <DatumIVremeZavrsetka>2021-06-04T15:00:00</DatumIVremeZavrsetka>
+    <StatusRadnogVremena>Radi</StatusRadnogVremena>
+  </RadnoVreme>
+  <RadnoVreme>
+    <IdRadnogVremena>Radi66676/1/2021 7:00:00 AM</IdRadnogVremena>
+    <JmbgLekara>6667</JmbgLekara>
+    <DatumIVremePocetka>2021-06-01T07:00:00</DatumIVremePocetka>
+    <DatumIVremeZavrsetka>2021-08-27T20:00:00</DatumIVremeZavrsetka>
     <StatusRadnogVremena>Radi</StatusRadnogVremena>
   </RadnoVreme>
 </ArrayOfRadnoVreme>

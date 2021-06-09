@@ -1,0 +1,58 @@
+﻿<Window x:Class="Bolnica.view.LekarView.Help.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk ="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Bolnica.view.LekarView.Help"
+        mc:Ignorable="d"
+         Title="Help" Height="459.9" Width="700" ResizeMode="NoResize">
+    <Grid Margin="0,0,3.6,-1.8" >
+        <xctk:Wizard FinishButtonClosesWindow="True">
+            <xctk:WizardPage x:Name="IntroPage" 
+                                   Title="Dobrodošli"
+                                   Description="Ovaj Wizard će ti objasniti kako funkcioniše aplikacija." HelpButtonVisibility="Hidden" Margin="0,0,-1.2,-0.2"/>
+
+            <xctk:WizardPage x:Name="Page1" PageType="Interior"
+                                   Title="TerminWindow"
+                                   Description="U okviru prozora za termina, moguće je izmeniti termin, obrisati ga ili preći na karton pacijenta klikom na dugme.
+                                    Datum prikaza termian je po defaultu, današnji datum.Sada ćemo proći kroz prozor zdravstvenog kartona pacijenta."                       
+                                   NextPage="{Binding ElementName=Page2}"
+                                   PreviousPage="{Binding ElementName=IntroPage}" HelpButtonVisibility="Hidden">
+                <Image HorizontalAlignment="Left" Height="300" VerticalAlignment="Center" Width="588" Source="termin page.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="Page2" PageType="Interior"
+                                   Title="Pacijent Window"
+                                   Description="U okviru prozora zdravstvenog kartona pacijenta, moguće je videti sve podatke o pacijentu, izdati mu recept(Alt + I), zakazati novi termin(Alt + Z), poslati ga na bolničko lečenje(Alt + B), pisati mu anamnezu(Alt+A). Takodje je moguće pregledati sve anamneze pacijenta, sve pacijente na bolničkom lečenju i moguče je izgenerisati izveštaj." HelpButtonVisibility="Hidden" NextPage="{Binding ElementName=Page3}"
+                                   PreviousPage="{Binding ElementName=Page1}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="Pacijent.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="Page3" PageType="Interior"
+                                   Title="Lekovi Window 1"
+                                   Description="U ovom prozoru se komunicira sa upravnikom o verifikaciji lekova koje on šalje." HelpButtonVisibility="Hidden" NextPage="{Binding ElementName=Page4}" PreviousPage="{Binding ElementName=Page2}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="lekovi1.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="Page4" PageType="Interior"
+                                   Title="Lekovi WIndow 2"
+                                   Description="Ovde imate uvid o svim lekovima u bolnici i možete ih menjati." HelpButtonVisibility="Hidden" NextPage="{Binding ElementName=Page5}" PreviousPage="{Binding ElementName=Page3}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="lekovi2.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="Page5" PageType="Interior"
+                                   Title="Obaveštenja"
+                                   Description="Ovde imate prikaz svih obaveštenja, možete ih brisati i prikazivati stara." HelpButtonVisibility="Hidden" NextPage="{Binding ElementName=Page6}" PreviousPage="{Binding ElementName=Page4}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="obavestenje.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="Page6" PageType="Interior"
+                                   Title="Profil"
+                                   Description="Ovde imate uvid o svom profilu, koji možete menjati i takođe možete omogućiti-onemogućiti tooltip-ove" HelpButtonVisibility="Hidden"  NextPage="{Binding ElementName=LastPage}" PreviousPage="{Binding ElementName=Page5}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="profil.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="LastPage" PageType="Interior"
+                                   Title="Izdavanje recepta"
+                                   Description="U ovom prozoru izdajete recept pacijentu, bitno je napomenuti način unosa nekih podataka, što je istaknuto na slici ispod."
+                                   CanFinish="True" HelpButtonVisibility="Hidden"  PreviousPage="{Binding ElementName=Page6}">
+                <Image HorizontalAlignment="Left" Height="280" VerticalAlignment="Center" Width="588" Source="recept.png" Margin="24,-1,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill" />
+            </xctk:WizardPage>
+        </xctk:Wizard>
+    </Grid>
+</Window>

@@ -18,6 +18,8 @@ using System.Windows.Shapes;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
+using Bolnica.DTOs;
+using System.Text.RegularExpressions;
 
 namespace Bolnica.view.LekarView
 {
@@ -26,11 +28,15 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class AzurirajTerminPage : Page
     {
-        public Termin selektovani { get; set; }
+        public TerminDTO selektovani { get; set; }
 
-        Termin t = null;
+
         private TerminKontroler terminKontroler = new TerminKontroler();
         private ProstorijeKontroler prostorijeKontroler = new ProstorijeKontroler();
+        TerminDTO t = null;
+        SkladisteZaTermineXml skladiste = new SkladisteZaTermineXml();
+        SkladisteZaProstorijeXml skladprost = new SkladisteZaProstorijeXml();
+
         public AzurirajTerminPage(TerminiPage pr)
         {
             InitializeComponent();
@@ -38,14 +44,29 @@ namespace Bolnica.view.LekarView
             ComboBox1.ItemsSource = Enum.GetValues(typeof(VrstaPregleda));
             ComboBox2.ItemsSource = prostorijeKontroler.GetAll();
 
-            this.selektovani = (Termin)TerminiPage.getInstance().Pregledi_Table.SelectedItem;
-            List<Termin> termini = terminKontroler.GetAll();
+
+
+
+            this.selektovani = (TerminDTO)TerminiPage.getInstance().Pregledi_Table.SelectedItem;
+            List<Termin> termini = skladiste.GetAll();
+            setToolTip(LekarProfilPage.isToolTipVisible);
 
             this.DataContext = this;
             if (TerminiPage.getInstance().Pregledi_Table.SelectedIndex != -1)
             {
-                t = (Termin)TerminiPage.getInstance().Pregledi_Table.SelectedItem;
-                txt1.Text = t.DatumIVremeTermina.ToString();
+                List<String> sati = new List<String>();
+                for (int i = 7; i <= 20; i++)
+                {
+                    sati.Add(i.ToString());
+                }
+                List<String> minuti = new List<String>();
+                minuti.Add("00");
+                minuti.Add("30");
+                SatiBox.ItemsSource = sati;
+                MinutiBox.ItemsSource = minuti;
+                Kalendar.DisplayDateStart = DateTime.Today.AddDays(1);
+                t = (TerminDTO)TerminiPage.getInstance().Pregledi_Table.SelectedItem;
+               
                 txt2.Text = t.TrajanjeTermina.ToString();
                 ComboBox1.SelectedItem = t.VrstaTermina;
 
@@ -53,42 +74,81 @@ namespace Bolnica.view.LekarView
 
             }
         }
-
+        private bool Validiraj(Regex sablon, String unos)
+        {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        if(SatiBox.SelectedItem!=null && MinutiBox.SelectedItem!=null && ComboBox2.SelectedItem != null) { 
+            if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text))
 
-
-
-            List<Termin> termini = terminKontroler.GetAll();
-            foreach (Termin t in termini)
             {
-                if (t.IDTermina != null)
+                int proveraVremena = int.Parse(txt2.Text);
+                if (proveraVremena % 30 == 0)
                 {
-                    if (t.IDTermina.Equals(this.selektovani.IDTermina))
+                    List<Termin> termini = SkladisteZaTermineXml.getInstance().GetAll();
+                    foreach (Termin t in termini)
                     {
-                        String vreme = txt1.Text;
-                        String trajanje = txt2.Text;
-                        Double trajanjeDou = Double.Parse(trajanje);
-                        VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
-                        Prostorija p = (Prostorija)ComboBox2.SelectedItem;
+                        if (t.IDTermina != null)
+                        {
+                            if (t.IDTermina.Equals(this.selektovani.IDTermina))
+                            {
+                                DateTime datum = Kalendar.SelectedDate.Value;
+                                String vreme = datum.ToString() + " " + SatiBox.SelectedItem + ":" + MinutiBox;
+                                String trajanje = txt2.Text;
+                                Double trajanjeDou = Double.Parse(trajanje);
+                                VrstaPregleda pre = (VrstaPregleda)ComboBox1.SelectedItem;
+                                Prostorija p = (Prostorija)ComboBox2.SelectedItem;
+                                int sat = int.Parse((String)SatiBox.SelectedItem);
+                                int minut = int.Parse((String)MinutiBox.SelectedItem);
+                                DateTime vremeDataTime = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
+                                t.DatumIVremeTermina = vremeDataTime;
+                                t.TrajanjeTermina = trajanjeDou;
+                                t.VrstaTermina = pre;
+                                t.IdProstorije = p.IdProstorije;
 
 
-                        var vremeDataTime = DateTime.Parse(vreme);
-                        t.DatumIVremeTermina = vremeDataTime;
-                        t.TrajanjeTermina = trajanjeDou;
-                        t.VrstaTermina = pre;
-                        t.IdProstorije = p.IdProstorije;
-
-
+                            }
+                        }
                     }
+
+                    SkladisteZaTermineXml.getInstance().SaveAll(termini);
+
+                    TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(SkladisteZaTermineXml.getInstance().GetByJmbgLekar(t.JmbgLekara));
+                    LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().GetByJmbg(t.JmbgLekara));
                 }
+                else
+                    MessageBox.Show("Trajanje mora biti deljivo sa 30 i manje od 360 !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            else
+                MessageBox.Show("Trajanje mora biti deljivo sa 30 i manje od 360 !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Popunite sve!", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void setToolTip(bool Prikazi)
+        {
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
             }
 
-            terminKontroler.SaveAll(termini);
-
-            TerminiPage.getInstance().Pregledi_Table.ItemsSource = new ObservableCollection<Termin>(terminKontroler.GetByJmbgLekar(t.JmbgLekara));
-            LekarWindow.getInstance().Frame1.Content = new TerminiPage(LekarKontroler.getInstance().GetByJmbg(t.JmbgLekara));
         }
     }
 }

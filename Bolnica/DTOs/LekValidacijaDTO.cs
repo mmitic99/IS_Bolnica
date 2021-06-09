@@ -27,6 +27,7 @@ namespace Bolnica.DTOs
         public String JacinaLeka { get; set; }
         public String ZamenskiLek { get; set; }
         public String SastavLeka { get; set; }
+        
     }
 }
 

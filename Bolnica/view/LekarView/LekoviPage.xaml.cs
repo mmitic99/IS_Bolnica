@@ -21,6 +21,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
+using System.Text.RegularExpressions;
 
 namespace Bolnica.view.LekarView
 {
@@ -54,13 +55,16 @@ namespace Bolnica.view.LekarView
             VerifikacijaLekova = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
             ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
             instance = this;
-
+            setToolTip(LekarProfilPage.isToolTipVisible);
+            PosaljiBtn.IsEnabled = false;
+            izmeniButton.IsEnabled = false;
 
         }
 
         private void TabelaLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {   if (TabelaLekova.SelectedIndex != -1)
             {
+                izmeniButton.IsEnabled = true;
                 lek = (LekDTO)TabelaLekova.SelectedItem;
                 int indexSelektovanogLeka = TabelaLekova.SelectedIndex;
                 txt1.Text = Lekovi[indexSelektovanogLeka].NazivLeka;
@@ -73,6 +77,13 @@ namespace Bolnica.view.LekarView
                 KlasaCombo.SelectedItem = Lekovi[indexSelektovanogLeka].KlasaLeka;
             }
         }
+        private bool Validiraj(Regex sablon, String unos)
+        {
+            if (sablon.IsMatch(unos))
+                return true;
+            else
+                return false;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -80,12 +91,26 @@ namespace Bolnica.view.LekarView
 
             if (TabelaLekova.SelectedIndex != -1)
             {
-                LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
-                
+                if (Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt1.Text))
+                {
+                    if (Validiraj(new Regex(@"^[0-9]{1,4}$"), txt2.Text))
+                    {
+                        if (Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt3.Text))
+                        {
+                            LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
 
-                LekDTO lekZaIzmenu = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
-                    LekKontroler.GetInstance().IzmeniLekLekar(TabelaLekova.SelectedIndex, lekZaIzmenu);
-                
+
+                            LekDTO lekZaIzmenu = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
+                            LekKontroler.GetInstance().IzmeniLekLekar(TabelaLekova.SelectedIndex, lekZaIzmenu);
+                        }
+                        else
+                            MessageBox.Show("Ime zamenskog leka mora bit string  !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                        MessageBox.Show("Jacina mora biti broj !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                    MessageBox.Show("Ime leka mora bit string !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -96,15 +121,24 @@ namespace Bolnica.view.LekarView
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        { String napomena = NapomenaTxt.Text;
-            VerifikacijaLekaDTO vL = new VerifikacijaLekaDTO(verifikacijaLeka.VremeSlanjaZahteva, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
-            VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(vL);
-            NapomenaTxt.Text = "";
-            SastavTxt.Text = "";
+        {
+            String napomena = NapomenaTxt.Text;
+            if (TabelaVerifikacija.SelectedIndex != -1) {
+                if (NapomenaTxt.Text != "")
+                {
+                    VerifikacijaLekaDTO vL = new VerifikacijaLekaDTO(verifikacijaLeka.VremeSlanjaZahteva, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
+                    VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(vL);
+                    NapomenaTxt.Text = "";
+                    SastavTxt.Text = "";
+                }
+                else MessageBox.Show("Dodajte komentar !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        else MessageBox.Show("Označite lek koji želite da verifikujete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            PosaljiBtn.IsEnabled = true;
             verifikacijaLeka = (VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem;
             SastavTxt.Text = ((VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem).Sadrzaj;
 
@@ -132,6 +166,33 @@ namespace Bolnica.view.LekarView
         {
             LekarWindow.getInstance().Frame1.Content = new LekarObavestenjaPage();
         }
+        private void setToolTip(bool Prikazi)
+        {
 
+
+            if (Prikazi)
+            {
+                Style style = new Style(typeof(ToolTip));
+                style.Setters.Add(new Setter(UIElement.VisibilityProperty, Visibility.Collapsed));
+                style.Seal();
+                this.Resources.Add(typeof(ToolTip), style);
+
+
+            }
+            else
+            {
+                this.Resources.Remove(typeof(ToolTip));
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void MenuItem_Click_Profil(object sender, RoutedEventArgs e)
+        {
+            LekarWindow.getInstance().Frame1.Content = new LekarProfilPage();
+        }
     }
 }
