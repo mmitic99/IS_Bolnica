@@ -10,26 +10,46 @@ namespace Servis
 {
     public class KorisnickeAktivnostiPacijentaServis
     {
+        public const int MAX_BROJ_ZAKAZANIH_PACIjENTA = 5;
+        public const int MAX_BROJ_OTKAZIVANJA = 3;
         public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
         public IStanjeKorisnika TrenutnoStanjeKorisnika;
         public IStanjeKorisnika Spam { get; set; }
         public IStanjeKorisnika HalfSpam { get; set; }
         public IStanjeKorisnika NonSpam { get; set; }
+        public KorisnickeAktivnostiNaAplikaciji korisnickeAktivnostiNaAplikaciji { get; set; }
+        public TerminServis TerminServis { get; }
 
-        public KorisnickeAktivnostiPacijentaServis(string JmbgPacijenta)
+        public KorisnickeAktivnostiPacijentaServis(string JmbgKorisnika)
         {
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
-            this.Spam = new SpamStanje(this);
-            this.HalfSpam = new HalfSpamStanje(this);
-            this.NonSpam = new NonSpamStanje(this);
+            this.TerminServis = new TerminServis();
+            this.korisnickeAktivnostiNaAplikaciji = GetByJmbg(JmbgKorisnika);
+            Spam = new SpamStanje(this);
+            HalfSpam = new HalfSpamStanje(this);
+            NonSpam = new NonSpamStanje(this);
+            TrenutnoStanjeKorisnika = postaviPocetnoStanjeKorisnika();
         }
 
-        void postaviTrenutnoStanje(IStanjeKorisnika novoStanje)
+        private IStanjeKorisnika postaviPocetnoStanjeKorisnika()
         {
-            TrenutnoStanjeKorisnika = novoStanje;
+            IStanjeKorisnika stanje = NonSpam;
+            if (korisnickeAktivnostiNaAplikaciji.BlokiranDo != DateTime.MinValue) stanje = Spam;
+            else if(TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA) stanje = HalfSpam;
+            return stanje;
         }
 
-        public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
+        public bool DaLiJePredZabranuOtkazivanja()
+        {
+            return TrenutnoStanjeKorisnika.DaLiJePredZabranuOtkazivanja();
+        }
+
+        public bool DaLiJePredZabranuZakazivanja()
+        {
+            return TrenutnoStanjeKorisnika.DaLiJePredZabranuZakazivanja();
+        }
+
+        public KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)
         {
             KorisnickeAktivnostiNaAplikaciji aktivnosti = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgKorisnika);
             if (aktivnosti == null)
@@ -39,80 +59,6 @@ namespace Servis
             return aktivnosti;
         }
 
-        public Model.Enum.VrstaKorisnikaAplikacije GetRangKorisnika(String jmbgKorisnika)
-        {
-            return GetByJmbg(jmbgKorisnika).TrenutnoSeTretiraKao;
-        }
-
-        public int DobaviBrojZakazanihPregledaUBuducnosti(String jmbgKorisnkika)
-        {
-            return TerminServis.getInstance().NadjiSveTerminePacijentaIzBuducnosti(jmbgKorisnkika).Count;
-        }
-
-        internal void OdblokirajKorisnika()
-        {
-            List<KorisnickeAktivnostiNaAplikaciji> aktivnosti = skladisteZaKorisnickeAktivnosti.GetAll();
-            foreach (KorisnickeAktivnostiNaAplikaciji aktivnost in aktivnosti)
-            {
-                if (aktivnost.TrenutnoSeTretiraKao == VrstaKorisnikaAplikacije.Spam &&
-                    (aktivnost.BlokiranDo.Equals(DateTime.Now) || aktivnost.BlokiranDo < DateTime.Now))
-                {
-                    LogickiObrisiOdlaganja(aktivnost);
-                    aktivnost.OdblokirajKorisnika();
-                }
-            }
-        }
-
-        private void LogickiObrisiOdlaganja(KorisnickeAktivnostiNaAplikaciji aktivnost)
-        {
-            foreach (KorisnickaAktivnost akt in aktivnost.AktivnostiKorisnika)
-            {
-                if (akt.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
-                {
-                    akt.logickiObrisan = true;
-                }
-            }
-            IzmenaKorisnickeAktivnosti(aktivnost);
-        }
-
-        public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)
-        {
-            List<KorisnickaAktivnost> aktivnostiKorisnika = GetByJmbg(jmbgKorisnika).AktivnostiKorisnika;
-            return IzracunajBrojOdlaganja(aktivnostiKorisnika);
-        }
-
-        private int IzracunajBrojOdlaganja(List<KorisnickaAktivnost> aktivnostiKorisnika)
-        {
-            int brojOdlaganja = 0;
-            foreach (KorisnickaAktivnost aktivnost in aktivnostiKorisnika)
-            {
-                if (DateTime.Today.AddMonths(-1) < aktivnost.DatumIVreme
-                    && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda
-                    && !aktivnost.logickiObrisan)
-                {
-                    brojOdlaganja++;
-                }
-            }
-            return brojOdlaganja;
-        }
-
-        internal string DobaviPorukuZabrane(string jmbgPacijenta)
-        {
-            VrstaKorisnikaAplikacije tretiraSeKao = GetRangKorisnika(jmbgPacijenta);
-            String povratna = "";
-            if (tretiraSeKao == VrstaKorisnikaAplikacije.HalfSpam)
-            {
-                povratna += "Premašili ste dozvoljeni broj zakazanih termina. Pokušajte ponovo kada prethodno zakazani budu završeni ili nas kontaktirajte putem telefona +381218381071781."
-                    + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
-            }
-            else if (tretiraSeKao == VrstaKorisnikaAplikacije.Spam)
-            {
-                povratna += "Premašili ste dozvoljeni broj odlaganja termina. Pokušajte ponovo uskoro ili nas kontaktirajte putem telefona +381218381071781."
-                    + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja i otkazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
-            }
-            return povratna;
-        }
-
         public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
         {
             KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
@@ -120,69 +66,51 @@ namespace Servis
             return noveAktivnosti;
         }
 
-        public Boolean DaLiJeMoguceZakazatiNoviTermin(String jmbgKorisnika)
+        public bool OdblokirajKorisnika()
         {
-            bool moguceZakazati = true;
-            VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgKorisnika);
-            if (rangKorisnika == VrstaKorisnikaAplikacije.HalfSpam || rangKorisnika == VrstaKorisnikaAplikacije.Spam)
-                moguceZakazati = false;        
-            return moguceZakazati;
+            return TrenutnoStanjeKorisnika.OdblokirajKorisnika();
         }
 
-        public Boolean DaLiJeMoguceOdlozitiZakazaniTermin(String jmbgPacijenta)
+        public bool DaLiMozeDaZakaze()
         {
-            bool moguceOdloziti = true;
-            VrstaKorisnikaAplikacije rangKorisnika = GetRangKorisnika(jmbgPacijenta);
-            if (rangKorisnika == VrstaKorisnikaAplikacije.Spam)
-                moguceOdloziti = false;
-            return moguceOdloziti;
+            return TrenutnoStanjeKorisnika.DaLiMozeDaZakaze();
         }
 
-        public void DodajZakazivanje(String jmbgPacijenta)
+        public bool DaLiMozeDaPomeri()
         {
-            KorisnickaAktivnost zakazivanje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.ZakazivanjePregleda, DateTime.Now);
-            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
-            sveAktivnostiKorisnika.AktivnostiKorisnika.Add(zakazivanje);
-            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
+            return TrenutnoStanjeKorisnika.DaLiMozeDaPomeri();
         }
 
-        public void DodajOdlaganje(String jmbgPacijenta)
+        public bool DodajPomeranje()
         {
-            KorisnickaAktivnost odlaganje = new KorisnickaAktivnost(VrstaKorisnickeAkcije.OdlaganjePregleda, DateTime.Now);
-            KorisnickeAktivnostiNaAplikaciji sveAktivnostiKorisnika = skladisteZaKorisnickeAktivnosti.GetByJmbg(jmbgPacijenta);
-            sveAktivnostiKorisnika.AktivnostiKorisnika.Add(odlaganje);
-            IzmenaKorisnickeAktivnosti(sveAktivnostiKorisnika);
+            return TrenutnoStanjeKorisnika.DodajPomeranje();
         }
 
-        public bool IzmenaKorisnickeAktivnosti(Model.KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost, string noviJmbg = null)
+        public bool DodajZakazivanje()
         {
-            AzurirajRang(korisnickaAktivnost);
+            return TrenutnoStanjeKorisnika.DodajZakazivanje();
+        }
+
+        public String DobaviPorukuZabrane()
+        {
+            return TrenutnoStanjeKorisnika.DobaviPorukuZabrane();
+        }
+
+        public bool SacuvajIzmenjenekorisnickeAktivnosti(string noviJmbg = null)
+        {
             List<KorisnickeAktivnostiNaAplikaciji> aktivnostiSvihKorisnika = skladisteZaKorisnickeAktivnosti.GetAll();
             for (int i = 0; i < aktivnostiSvihKorisnika.Count; i++)
             {
-                if (aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickaAktivnost.JmbgKorisnika))
+                if (aktivnostiSvihKorisnika[i].JmbgKorisnika.Equals(korisnickeAktivnostiNaAplikaciji.JmbgKorisnika))
                 {
                     if (noviJmbg != null)
-                        korisnickaAktivnost.JmbgKorisnika = noviJmbg;
-                    aktivnostiSvihKorisnika[i] = korisnickaAktivnost;
+                        korisnickeAktivnostiNaAplikaciji.JmbgKorisnika = noviJmbg;
+                    aktivnostiSvihKorisnika[i] = korisnickeAktivnostiNaAplikaciji;
                     break;
                 }
             }
             skladisteZaKorisnickeAktivnosti.SaveAll(aktivnostiSvihKorisnika);
             return true;
-        }
-
-        public void AzurirajRang(KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost)
-        {
-            if (IzracunajBrojOdlaganja(korisnickaAktivnost.AktivnostiKorisnika) > 2)
-            {
-                korisnickaAktivnost.BlokirajKorisnika();
-            }
-            else if (DobaviBrojZakazanihPregledaUBuducnosti(korisnickaAktivnost.JmbgKorisnika) > 4)
-                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.HalfSpam;
-            else
-                korisnickaAktivnost.TrenutnoSeTretiraKao = VrstaKorisnikaAplikacije.Normalan;
-        }
-
+        }     
     }
 }

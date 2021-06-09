@@ -147,14 +147,7 @@ namespace Servis
         private void IzmeniJmbgPacijentaUAktivnostima(string stariJmbg, string noviJmbg)
         {
             this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis(stariJmbg);
-            foreach (KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost in skladisteZaKorisnickeAktivnosti.GetAll())
-            {
-                if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))
-                {
-                    korisnickaAktivnost.JmbgKorisnika = noviJmbg;
-                    KorisnickeAktivnostiPacijentaServis.IzmenaKorisnickeAktivnosti(korisnickaAktivnost, noviJmbg);
-                }
-            }
+            KorisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti(noviJmbg);            
         }
 
         private void IzmeniJmbgPacijentaUObavestenjima(string stariJmbg, string noviJmbg)

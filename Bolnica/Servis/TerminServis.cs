@@ -127,12 +127,17 @@ namespace Servis
             return beleskeZaSvakiDan;
         }
 
+        public int DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(string jmbg)
+        {
+            return DobaviSveTerminePacijentaIzBuducnosti(jmbg).Count;
+        }
+
         private List<Termin> getTerminiUMesecu(DateTime targetDate, string jmbgPacijenta)
         {
             return GetByJmbgPacijentaVremenskiPeriod(targetDate, targetDate.AddMonths(1).Date.AddSeconds(-1), jmbgPacijenta);
         }
 
-        public List<Termin> NadjiSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
+        public List<Termin> DobaviSveTerminePacijentaIzBuducnosti(string jmbgKorisnkika)
         {
             List<Termin> sviTerminiKorisnika = skladisteZaTermine.GetByJmbgPacijenta(jmbgKorisnkika); //vraca samo za pazijenta
             List<Termin> sviTerminiKorisnikaIzBuducnosti = new List<Termin>();
@@ -210,8 +215,6 @@ namespace Servis
                 SviDani = parametri.SviMoguciDaniZakazivanja
             };
             moguciTermini = DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu);
-
-
             return moguciTermini;
         }
 
@@ -240,7 +243,6 @@ namespace Servis
                 parametriZaPotraguTerminaUNekomIntervalu.SviDani = parametri.SviMoguciDaniZakazivanja;
                 DodajJosTermina(moguciTermini, DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu));
             }
-
             return moguciTermini;
         }
 
@@ -354,7 +356,6 @@ namespace Servis
             {
                 parametriZaPotraguTerminaUNekomIntervalu.jmbgLekara = null;
                 DodajJosTermina(moguciTermini, DobaviTermineZaInterval(parametriZaPotraguTerminaUNekomIntervalu));
-
             }
             return moguciTermini;
         }
@@ -470,7 +471,6 @@ namespace Servis
                 pocetak += TimeSpan.FromMinutes(dodaj);
             }
             return pocetak;
-
         }
 
         public DateTime? DobaviPrviMoguciDanZakazivanja(Termin termin)
@@ -581,15 +581,16 @@ namespace Servis
 
         private bool DaLiLekarRadi(string jmbgLekara, DateTime datumIVreme)
         {
+            bool lekarRadi = false;
             foreach (RadnoVreme radnoVreme in radnoVremeServis.GetByJmbgAkoRadi(jmbgLekara))
             {
                 if (LekarRadi(datumIVreme, radnoVreme))
                 {
-                    return true;
+                    lekarRadi = true;
+                    break;
                 }
             }
-
-            return false;
+            return lekarRadi;
         }
 
         private static bool LekarRadi(DateTime datumIVreme, RadnoVreme radnoVreme)

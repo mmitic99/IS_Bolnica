@@ -128,6 +128,11 @@ namespace Kontroler
             return mesecniTerminiPoDanu;
         }
 
+        public int DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(string jmbg)
+        {
+            return TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(jmbg);
+        }
+
         public List<Termin> GetAll()
         {
             return TerminServis.GetAll();
@@ -224,7 +229,7 @@ namespace Kontroler
         public bool DaLiJeMoguceOtkazatiTermin(object selectedItem)
         {
             Termin selektovaniTermin = (Termin)selectedItem;
-            return selektovaniTermin.DatumIVremeTermina.Date.AddDays(-1) > DateTime.Today
+            return selektovaniTermin.DatumIVremeTermina.Date > DateTime.Today
                 && selektovaniTermin.VrstaTermina != VrstaPregleda.Operacija;
         }
 

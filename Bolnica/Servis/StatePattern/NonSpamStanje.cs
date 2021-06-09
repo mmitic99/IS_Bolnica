@@ -1,4 +1,6 @@
-﻿using Servis;
+﻿using Model;
+using Model.Enum;
+using Servis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,53 +9,94 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Servis.StatePattern
 {
-    class NonSpamStanje : IStanjeKorisnika
+    public class NonSpamStanje : IStanjeKorisnika
     {
+        public const int MAX_BROJ_ZAKAZANIH_PACIjENTA = 5;
+        public const int MAX_BROJ_OTKAZIVANJA = 3;
         private KorisnickeAktivnostiPacijentaServis korisnickeAktivnostiPacijentaServis;
-
         public NonSpamStanje(KorisnickeAktivnostiPacijentaServis korisnickeAktivnostiPacijentaServis)
         {
             this.korisnickeAktivnostiPacijentaServis = korisnickeAktivnostiPacijentaServis;
         }
 
-        public bool BlokirajKorisnika(string JmbgKorisnika)
+        public bool BlokirajKorisnika()
         {
-            throw new NotImplementedException();
+            korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja++;
+            korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo = DateTime.Today.AddDays(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja * 14);
+            korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
+            korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.Spam;
+            return true;
         }
 
-        public bool DaLiMozeDaPomeri(string JmbgKorisnika)
+        public bool DaLiMozeDaPomeri()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public bool DaLiMozeDaZakaze(string JmbgKorisnika)
+        public bool DaLiMozeDaZakaze()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public int DobaviBrojOtkazivanjeUProteklihMesecDana(string JmbgKorisnika)
+        public int DobaviBrojOtkazivanjeUProteklihMesecDana()
         {
-            throw new NotImplementedException();
+            int brojOdlaganja = 0;
+            foreach(KorisnickaAktivnost aktivnost in korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.AktivnostiKorisnika)
+            {
+                if (DateTime.Today.AddMonths(-1) < aktivnost.DatumIVreme
+                     && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda
+                     && !aktivnost.logickiObrisan)
+                {
+                    brojOdlaganja++;
+                }
+            }
+            return brojOdlaganja;
         }
 
-        public string DobaviPorukuZabrane(string JmbgKorisnik)
+        public string DobaviPorukuZabrane()
         {
-            throw new NotImplementedException();
+            return "Trenutno nemate zabrane na aplikaciji!";
         }
 
-        public bool DodajPomeranje(string JmbgKorisnika)
+        public bool DodajPomeranje()
         {
-            throw new NotImplementedException();
+            korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.AktivnostiKorisnika.Add(new KorisnickaAktivnost(VrstaKorisnickeAkcije.OdlaganjePregleda, DateTime.Now));
+            korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
+            if(DobaviBrojOtkazivanjeUProteklihMesecDana() >= MAX_BROJ_OTKAZIVANJA)
+            {
+                BlokirajKorisnika();
+            }
+            return true;
         }
 
-        public bool DodajZakazivanje(string JmbgKorisnika)
+        public bool DodajZakazivanje()
         {
-            throw new NotImplementedException();
+            korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.AktivnostiKorisnika.Add(new KorisnickaAktivnost(VrstaKorisnickeAkcije.ZakazivanjePregleda, DateTime.Now));
+            korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
+            if(korisnickeAktivnostiPacijentaServis.TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA)
+            {
+                korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.HalfSpam;
+            }
+            return true;
         }
 
-        public bool OdblokirajKorisnika(string JmbgKorisnika)
+        public bool OdblokirajKorisnika()
         {
-            throw new NotImplementedException();
+            return false;
+        }
+
+        public bool DaLiJePredZabranuOtkazivanja()
+        {
+            bool predZabranu = false;
+            if (DobaviBrojOtkazivanjeUProteklihMesecDana() >= MAX_BROJ_OTKAZIVANJA - 1) predZabranu = true;          
+            return predZabranu;
+        }
+
+        public bool DaLiJePredZabranuZakazivanja()
+        {
+            bool predZabranu = false;
+            if (korisnickeAktivnostiPacijentaServis.TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA - 1) predZabranu = true;
+            return predZabranu;
         }
     }
 }

@@ -48,13 +48,13 @@ namespace Bolnica.view.PacijentView
             {
                 TerminKontroler.ZakaziTermin(selectedItem);
                 MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
-                KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje(MainViewModel.Pacijent.Jmbg);
+                KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje();
             }
            else if(upozorenjeZa.Equals("o"))
             {
+                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje();
                 TerminKontroler.RemoveSelected(selectedItem);
                 PacijentZakazaniTermini.getInstance().RefresujPrikazTermina();
-                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(MainViewModel.Pacijent.Jmbg);
             }
             else if(upozorenjeZa.Equals("p"))
             {

@@ -62,7 +62,7 @@ namespace Bolnica.view
 
         private void OdblokirajKorisnike(object sender, EventArgs e)
         {
-            KorisnickeAktivnostiPacijentaKontroler.OdblokirajKorisnike();
+            KorisnickeAktivnostiPacijentaKontroler.OdblokirajKorisnika();
         }
 
         private void PosaljiKvartalneAnkete(object sender, EventArgs e)

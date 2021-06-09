@@ -112,17 +112,18 @@ namespace Bolnica.viewActions
             this.ivice = 1;
             this.TerminiZaPrikazivanje = NapraviRandomTerminiZaPrikazivanje();
         }
+
         public void ZakaziTermin()
         {
             if (pozivaoc != null)
             {
                 TerminKontroler.IzmeniTermin(IzabraniTermin, PacijentZakazaniTermini.getInstance().prikazTermina.SelectedItem);
                 MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
-                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje(ViewModel.jmbg);
+                KorisnickeAktivnostiPacijentaKontroler.DodajOdlaganje();
             }
             else
             {
-                if (KorisnickeAktivnostiPacijentaKontroler.DobaviBrojZakazanihPregledaUBuducnosti(jmbg) >= MAX_BROJ_ZAKAZANIH - 1)
+                if (TerminKontroler.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(jmbg) >= MAX_BROJ_ZAKAZANIH - 1)
                 {
                     var s = new UpozorenjePredBan("z", IzabraniTermin);
                     s.Owner = PacijentMainWindow.getInstance();
@@ -131,12 +132,13 @@ namespace Bolnica.viewActions
                 else
                 {
                     TerminKontroler.ZakaziTermin(IzabraniTermin);
-                    KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje(ViewModel.jmbg);
-                    MainViewModel.CurrentView = MainViewModel.PacijentTerminCommand;
+                    KorisnickeAktivnostiPacijentaKontroler.DodajZakazivanje();
+                    MainViewModel.CurrentView = MainViewModel.PacijentTerminiVM;
 
                 }
             }
         }
+
         private ObservableCollection<TerminDTO> NapraviRandomTerminiZaPrikazivanje()
         {
             ObservableCollection<TerminDTO> izgenerisaniTermini = new ObservableCollection<TerminDTO>();

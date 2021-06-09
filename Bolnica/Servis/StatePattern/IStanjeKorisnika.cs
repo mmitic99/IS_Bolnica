@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Servis.StatePattern
 {
-    interface IStanjeKorisnika
+    public interface IStanjeKorisnika
     {
-        bool DodajZakazivanje(String JmbgKorisnika);
-        bool DodajPomeranje(String JmbgKorisnika);
-        bool DaLiMozeDaZakaze(String JmbgKorisnika);
-        bool DaLiMozeDaPomeri(String JmbgKorisnika);
-        int DobaviBrojOtkazivanjeUProteklihMesecDana(String JmbgKorisnika);
-        bool OdblokirajKorisnika(String JmbgKorisnika);
-        bool BlokirajKorisnika(String JmbgKorisnika);
-        String DobaviPorukuZabrane(String JmbgKorisnik);
+        bool DodajZakazivanje();
+        bool DodajPomeranje();
+        int DobaviBrojOtkazivanjeUProteklihMesecDana();
+        bool OdblokirajKorisnika();
+        bool BlokirajKorisnika();
+        String DobaviPorukuZabrane();
+        bool DaLiMozeDaZakaze();
+        bool DaLiMozeDaPomeri();
+        bool DaLiJePredZabranuZakazivanja();
+        bool DaLiJePredZabranuOtkazivanja();
     }
 }

@@ -1284,15 +1284,15 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-06-14T17:30:00+02:00</DatumIVremeTermina>
+    <DatumIVremeTermina>2021-06-11T14:00:00+02:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
+    <IdProstorije>12</IdProstorije>
+    <JmbgLekara>7897611</JmbgLekara>
     <JmbgPacijenta>1234567894444</JmbgPacijenta>
-    <IDTermina>12345678944446096/14/2021 5:30:00 PM</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
+    <IDTermina>123456789444478976116/11/2021 2:00:00 PM</IDTermina>
+    <brojSobe>420</brojSobe>
+    <sprat>4</sprat>
+    <lekar>dr Maja Balazevic</lekar>
     <pacijent>Mihailo Majstorovic</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />

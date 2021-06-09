@@ -1,4 +1,6 @@
-﻿using Servis;
+﻿using Model;
+using Model.Enum;
+using Servis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,53 +9,97 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Servis.StatePattern
 {
-    class SpamStanje : IStanjeKorisnika
+    public class SpamStanje : IStanjeKorisnika
     {
         private KorisnickeAktivnostiPacijentaServis korisnickeAktivnostiPacijentaServis;
-
+        public const int MAX_BROJ_ZAKAZANIH_PACIjENTA = 5;
+        public const int MAX_BROJ_OTKAZIVANJA = 3;
         public SpamStanje(KorisnickeAktivnostiPacijentaServis korisnickeAktivnostiPacijentaServis)
         {
             this.korisnickeAktivnostiPacijentaServis = korisnickeAktivnostiPacijentaServis;
         }
 
-        public bool BlokirajKorisnika(string JmbgKorisnika)
+        public bool BlokirajKorisnika()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public bool DaLiMozeDaPomeri(string JmbgKorisnika)
+        public bool DaLiMozeDaPomeri()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public bool DaLiMozeDaZakaze(string JmbgKorisnika)
+        public bool DaLiMozeDaZakaze()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public int DobaviBrojOtkazivanjeUProteklihMesecDana(string JmbgKorisnika)
+        public int DobaviBrojOtkazivanjeUProteklihMesecDana()
         {
-            throw new NotImplementedException();
+            int brojOdlaganja = 0;
+            foreach (KorisnickaAktivnost aktivnost in korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.AktivnostiKorisnika)
+            {
+                if (DateTime.Today.AddMonths(-1) < aktivnost.DatumIVreme
+                     && aktivnost.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda
+                     && !aktivnost.logickiObrisan)
+                {
+                    brojOdlaganja++;
+                }
+            }
+            return brojOdlaganja;
         }
 
-        public string DobaviPorukuZabrane(string JmbgKorisnik)
+        public string DobaviPorukuZabrane()
         {
-            throw new NotImplementedException();
+            return "Premašili ste dozvoljeni broj odlaganja termina. Pokušajte ponovo uskoro ili nas kontaktirajte putem telefona +381218381071781."
+                    + "\r\n" + "Molimo Vas da smanjite bespotrebna zakazivanja i otkazivanja kako bi zajedno doprineli boljem iskorišćenju radnog vremena naših zaposlenih.";
         }
 
-        public bool DodajPomeranje(string JmbgKorisnika)
+        public bool DodajPomeranje()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public bool DodajZakazivanje(string JmbgKorisnika)
+        public bool DodajZakazivanje()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public bool OdblokirajKorisnika(string JmbgKorisnika)
+        public bool OdblokirajKorisnika()
         {
-            throw new NotImplementedException();
+            bool korisnikOdblokiran = false;
+            if (korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo <= DateTime.Now)
+            {
+                logickiObrisiOdlaganja();
+                korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo = DateTime.MinValue;
+                korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
+                if (korisnickeAktivnostiPacijentaServis.TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA)
+                    korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.HalfSpam;
+                else korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.NonSpam;
+                korisnikOdblokiran = true;
+            }
+            return korisnikOdblokiran;
+        }
+
+        private void logickiObrisiOdlaganja()
+        {
+            foreach (KorisnickaAktivnost akt in korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.AktivnostiKorisnika)
+            {
+                if (akt.VrstaAktivnosti == VrstaKorisnickeAkcije.OdlaganjePregleda)
+                {
+                    akt.logickiObrisan = true;
+                }
+            }
+        }
+
+        public bool DaLiJePredZabranuOtkazivanja()
+        {
+            return false;
+        }
+
+        public bool DaLiJePredZabranuZakazivanja()
+        {
+            return false;
         }
     }
 }
