@@ -67,6 +67,10 @@
             <DataTemplate DataType="{x:Type viewActions:PomocObavestenjaViewModel}">
                 <PacijentView:PomocObavestenjaView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewActions:InformacijeAplikacijaViewModel}">
+                <PacijentView:InformacijeAplikacija/>
+            </DataTemplate>
 
             <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
                 <Setter Property="ContentTemplate">

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfPodsetnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Podsetnik>
+    <VremeObavestenja>2021-06-09T01:51:00+02:00</VremeObavestenja>
+    <Naslov>Obavestenje</Naslov>
+    <Sadrzaj>Obavestenje</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+</ArrayOfPodsetnik>

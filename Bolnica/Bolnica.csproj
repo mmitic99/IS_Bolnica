@@ -296,6 +296,7 @@
     <Compile Include="viewActions\BeleskaViewModel.cs" />
     <Compile Include="viewActions\BindableBase.cs" />
     <Compile Include="viewActions\DodavanjePodsetnikaViewModel.cs" />
+    <Compile Include="viewActions\InformacijeAplikacijaViewModel.cs" />
     <Compile Include="viewActions\KalendarViewModel.cs" />
     <Compile Include="viewActions\KomentariKorisnikaViewModel.cs" />
     <Compile Include="viewActions\MyICommand.cs" />
@@ -379,6 +380,9 @@
     </Compile>
     <Compile Include="view\PacijentView\DodavanjePodsetnika.xaml.cs">
       <DependentUpon>DodavanjePodsetnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\PacijentView\InformacijeAplikacija.xaml.cs">
+      <DependentUpon>InformacijeAplikacija.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\PacijentView\Kalendar.xaml.cs">
       <DependentUpon>Kalendar.xaml</DependentUpon>
@@ -558,6 +562,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\PacijentView\DodavanjePodsetnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\PacijentView\InformacijeAplikacija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -877,7 +885,9 @@
       <Name>MyCalendar.Calendar</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="view\PacijentView\Images\Group of doctors standing at hospital building.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

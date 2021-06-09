@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bolnica.viewActions
+{
+    public class InformacijeAplikacijaViewModel
+    {
+        private string jmbgPacijenta;
+
+        public InformacijeAplikacijaViewModel(string jmbgPacijenta)
+        {
+            this.jmbgPacijenta = jmbgPacijenta;
+        }
+    }
+}

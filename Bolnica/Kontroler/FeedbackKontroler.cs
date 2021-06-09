@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bolnica.DTOs;
 using Bolnica.model;
 using Bolnica.Servis;
@@ -34,13 +35,23 @@ namespace Bolnica.Kontroler
 
         public bool Save(FeedbackDTO feedback)
         {
-            return FeedbackServis.Save(new Feedback()
+            bool uspesno = false;
+            if (DaLiJePopunjenFeedback(feedback))
             {
-                DatumIVreme = feedback.DatumIVreme,
-                JmbgKorisnika = feedback.JmbgKorisnika,
-                Ocena = feedback.Ocena,
-                Sadrzaj = feedback.Sadrzaj
-            });
+                uspesno = FeedbackServis.Save(new Feedback()
+                {
+                    DatumIVreme = feedback.DatumIVreme,
+                    JmbgKorisnika = feedback.JmbgKorisnika,
+                    Ocena = feedback.Ocena,
+                    Sadrzaj = feedback.Sadrzaj
+                });
+            }
+            return uspesno;
+        }
+
+        private bool DaLiJePopunjenFeedback(FeedbackDTO feedback)
+        {
+            return feedback.Ocena != -1;
         }
 
         public void SaveAll(List<FeedbackDTO> feedbacksDto)

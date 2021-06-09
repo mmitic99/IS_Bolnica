@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Bolnica.view.PacijentView.InformacijeAplikacija"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bolnica.view.PacijentView"
+             mc:Ignorable="d" 
+             Height="675" Width="810"
+             Background="#FFF1F7F9"
+             FontSize="15">
+    <StackPanel Orientation="Horizontal">
+        <Grid  Height="673" Width="60" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="nazad" Height="70" Width="50" HorizontalAlignment="Center" VerticalAlignment ="Center"
+                    Background="Transparent" BorderThickness="0" Command="{Binding nazad}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Image Height="50" Width="50" Margin="0,0,-2,0" VerticalAlignment="Top" Source="Images/previous.png"></Image>
+
+                </Grid>
+            </Button>
+        </Grid>
+        <StackPanel>
+        <TextBlock Margin="10" FontSize="20" FontWeight="SemiBold">Aplikacija Bolnica-Zdravo v 1.0</TextBlock>
+            <Image Source="Images/Group of doctors standing at hospital building.jpg" Width="750" Height="300"></Image>
+        <TextBlock Margin="10">Ovde možete da napišete svoje mišljenje o našoj aplikaciji i time doprinesete njenom poboljšanju.</TextBlock>
+            <StackPanel Height="224" Margin="10,0">
+                <StackPanel Orientation="Horizontal" Margin="20,20,0,20">
+                    <TextBlock Text="Na skali od 1-5 koliko Vam se do sada svidela naša aplikacija?" Width="245" TextWrapping="Wrap"></TextBlock>
+                    <StackPanel Orientation="Horizontal" x:Name="OcenaAplikacije">
+                        <RadioButton
+                        Content="1"
+                        Style="{StaticResource KvartalnaAnketaRadioButtonTheme}" RenderTransformOrigin="1.667,0.657"/>
+                        <RadioButton Content="2" Width="90"
+                                 Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                        <RadioButton Content="3" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                        <RadioButton Content="4"
+                             Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                        <RadioButton Content="5" Style="{StaticResource KvartalnaAnketaRadioButtonTheme}"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20">
+                    <TextBlock Text="Ostavite komentar:"/>
+                    <TextBox x:Name="Komentar" Margin="20,0,0,0" Width="550" Height="94"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Height="70" Name="posalji" BorderThickness="0" Background="#FF407294" Click="Button_Click">
+                Pošalji Feedback
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
+

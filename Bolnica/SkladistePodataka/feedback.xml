@@ -18,4 +18,10 @@
     <Sadrzaj>Aplikacija fenomenalna !</Sadrzaj>
     <Ocena>5</Ocena>
   </Feedback>
+  <Feedback>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <DatumIVreme>2021-06-09T03:11:56.909085+02:00</DatumIVreme>
+    <Sadrzaj>Ova bolnica poseduje najmoderniju aplikaciju u celom zdravstvenom sistemu!</Sadrzaj>
+    <Ocena>5</Ocena>
+  </Feedback>
 </ArrayOfFeedback>

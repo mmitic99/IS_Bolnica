@@ -71,6 +71,11 @@
                              FontSize="14"
                             Style="{StaticResource TerminPacijentTheme}"
                              Command="{Binding ZdravstevniKartonCommand}"/>
+                <RadioButton x:Name="AplikacijaInfo" Content="O Aplikaciji"
+                             Height="50"
+                             FontSize="14"
+                            Style="{StaticResource TerminPacijentTheme}"
+                             Command="{Binding InfoCommand}"/>
                 
 
             </StackPanel>

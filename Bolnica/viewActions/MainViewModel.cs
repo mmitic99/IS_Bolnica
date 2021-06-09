@@ -35,6 +35,7 @@ namespace Bolnica.viewActions
         public RelayCommand VratiSeNazaCommand { get; set; }
         public RelayCommand PregledKalendaraCommand { get; set; }
         public RelayCommand DemoCommand { get; set; }
+        public RelayCommand InfoCommand { get; set; }
 
         public PacijentTerminiViewModel PacijentTerminiVM { get; set; }
         public ObavestenjaViewModel ObavestenjaVM { get; set; }
@@ -53,6 +54,7 @@ namespace Bolnica.viewActions
         public KalendarViewModel KalendarVM { get; set; }
         public PacijentZakaziTermin PacijentZakaziDEMO = new PacijentZakaziTermin(true);
         public MoguciTerminiViewModel MoguciTerminiDEMO { get; set; }
+        public InformacijeAplikacijaViewModel InformacijeAplikacijaVM { get; set; }
 
 
         private object _currentView;
@@ -95,6 +97,7 @@ namespace Bolnica.viewActions
             DodavanjePodsetnikaVM = new DodavanjePodsetnikaViewModel(Pacijent);
             PomocObavestenjaVM = new PomocObavestenjaViewModel();
             KalendarVM = new KalendarViewModel();
+            InformacijeAplikacijaVM = new InformacijeAplikacijaViewModel(JmbgPacijenta);
 
             PacijentZakaziDEMO = new PacijentZakaziTermin(true);
 
@@ -214,6 +217,14 @@ namespace Bolnica.viewActions
                 PacijentZakaziDEMO = new PacijentZakaziTermin(true);
                 CurrentView = PacijentZakaziDEMO;
                 nit.Start();
+            }
+            );
+
+            InfoCommand = new RelayCommand(o =>
+            {
+                PreviousView = CurrentView;
+                InformacijeAplikacijaVM = new InformacijeAplikacijaViewModel(JmbgPacijenta);
+                CurrentView = InformacijeAplikacijaVM;
             }
             );
         }
