@@ -642,7 +642,7 @@ namespace Servis
 
                 document.SetFont(normalnFont);
 
-                Paragraph header = new Paragraph("Izveštaj sekretara za vremenski period: " + datumPocetka.Date.ToString("dd.MM.yyyy") +
+                Paragraph header = new Paragraph("Zakazani pregledi i operacije u periodu: " + datumPocetka.Date.ToString("dd.MM.yyyy") +
                                                  " - " + datumZavrsetka.Date.ToString("dd.MM.yyyy"))
                     .SetTextAlignment(TextAlignment.CENTER)
                     .SetFontSize(18);

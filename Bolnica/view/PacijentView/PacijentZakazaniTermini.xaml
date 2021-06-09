@@ -104,15 +104,26 @@
                         RenderTransformOrigin="2.957,1.078" Margin="280,10,0,0" 
                         Width="155" Height="30"
                         SelectedDate="{Binding Path=pocetakIntervala, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        CalendarClosed="datepicker1_CalendarClosed">
-                
+                        CalendarClosed="datepicker1_CalendarClosed"
+                        >
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
             </DatePicker>
             <TextBlock Height="30" Width="30" Text="do" TextAlignment="Center" Margin="437,10,337,10.4"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="5"></TextBlock>
             <DatePicker Name="datepicker2" HorizontalAlignment="Left" VerticalAlignment="Top"
                         RenderTransformOrigin="2.957,1.078" Margin="467,10,0,0" Width="155"
                         Height="30"  CalendarClosed="datepicker2_CalendarClosed"
                         SelectedDate="{Binding Path=krajIntervala, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        />
+                        >
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
         </Grid>
     </StackPanel>
 </UserControl>
