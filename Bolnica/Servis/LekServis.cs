@@ -80,7 +80,7 @@ namespace Bolnica.Servis
 
         private bool ValidirajNazivLeka(LekValidacijaDTO lek, String vrstaOperacije, int indexSelektovanogLeka)
         {
-            Regex sablon = new Regex(@"^[0-9a-zA-Z\s]+$");
+            Regex sablon = new Regex(@"^[0-9a-zA-ZšđžćčŠĐŽĆČ\s]+$");
             List<Lek> SviLekovi = SkladisteZaLekoveXml.GetInstance().GetAll();
             if (sablon.IsMatch(lek.NazivLeka))
             {
@@ -144,13 +144,13 @@ public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, in
                 return false;
             }
 
-            if (Validiraj(new Regex(@"^[0-9a-zA-Z\s]+$"), lek.ZamenskiLek) == false)
+            if (Validiraj(new Regex(@"^[0-9a-zA-ZšđžćčŠĐŽĆČ\s]+$"), lek.ZamenskiLek) == false)
             {
                 MessageBox.Show("Neispravno unet zamenski lek !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
-            if (Validiraj(new Regex(@"^[0-9a-zA-Z,\s]+$"), lek.SastavLeka) == false)
+            if (Validiraj(new Regex(@"^[0-9a-zA-ZŠĐŽĆČšđžćč,\s]+$"), lek.SastavLeka) == false)
             {
                 MessageBox.Show("Neispravno unet sastav leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;

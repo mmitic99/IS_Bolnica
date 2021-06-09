@@ -266,15 +266,16 @@ namespace Servis
 
         public bool ProveriRenoviranje(Renoviranje renoviranjeZaProstoriju, DateTime datumIVremePreraspodele)
         {
+            bool validno = true;
             if (renoviranjeZaProstoriju != null)
             {
                 DateTime pomerenZbogPonoci = renoviranjeZaProstoriju.DatumZavrsetkaRenoviranja.AddHours(23);
                 if (DateTime.Compare(renoviranjeZaProstoriju.DatumPocetkaRenoviranja, datumIVremePreraspodele) <= 0 && DateTime.Compare(pomerenZbogPonoci, datumIVremePreraspodele) >= 0)
                 {
-                    return false;
+                    validno = false;
                 }
             }
-            return true;
+            return validno;
         }
 
         public bool DaLiJeSLobodnaProstorija(int iDProstorije, DateTime datumIVremePreraspodele, double trajanje)
@@ -597,7 +598,7 @@ namespace Servis
 
         public bool ProveriValidnostProstorije(ProstorijaValidacijaDTO prostorija)
         {
-            if (ValidirajBrojProstorije(new Regex(@"^[0-9a-zA-Z]+$"), prostorija.BrojSobe) == false)
+            if (ValidirajBrojProstorije(new Regex(@"^[0-9a-zA-ZšđžćčŠĐŽĆČ\s]+$"), prostorija.BrojSobe) == false)
             {
                 MessageBox.Show("Neispravno unet broj prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;

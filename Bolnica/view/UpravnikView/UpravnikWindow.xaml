@@ -892,7 +892,7 @@
                                 <DataGridTextColumn Header="Napomena" Binding="{Binding Napomena}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="135" Margin="50,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" FontSize="16" Grid.ColumnSpan="3"/>
+                        <TextBox x:Name="Sadrzaj" IsEnabled="False" HorizontalAlignment="Left" Height="135" Margin="50,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" FontSize="16" Grid.ColumnSpan="3"/>
                         <TextBlock HorizontalAlignment="Left" Height="30" Margin="50,454,0,0" TextWrapping="Wrap" Text="Informacije o leku:" VerticalAlignment="Top" Width="166" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Button Background="WhiteSmoke" Content="Obriši verifikaciju" FontSize="15" HorizontalAlignment="Left" Margin="342,517,0,0" VerticalAlignment="Top" Width="175" Height="60" Grid.ColumnSpan="3" Grid.Column="2" Click="ObrisiVerifikaciju_Click"/>
                         <Label Content="PREGLED SVIH VERIFIKACIJA LEKOVA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="491" FontFamily="Yu Gothic UI Semibold" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3"/>

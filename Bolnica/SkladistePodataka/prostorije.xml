@@ -15,7 +15,7 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>21</Kolicina>
+        <Kolicina>18</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
@@ -27,11 +27,11 @@
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Respirator</TipStacionarneOpreme>
-        <Kolicina>20</Kolicina>
+        <Kolicina>25</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Hirurski sto</TipStacionarneOpreme>
-        <Kolicina>10</Kolicina>
+        <Kolicina>13</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna>
@@ -67,16 +67,16 @@
     <Kvadratura>30</Kvadratura>
     <Staticka>
       <StacionarnaOprema>
-        <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
-        <Kolicina>1</Kolicina>
-      </StacionarnaOprema>
-      <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
-        <Kolicina>3</Kolicina>
+        <Kolicina>9</Kolicina>
       </StacionarnaOprema>
       <StacionarnaOprema>
         <TipStacionarneOpreme>Krevet</TipStacionarneOpreme>
-        <Kolicina>2</Kolicina>
+        <Kolicina>8</Kolicina>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
+        <Kolicina>3</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -128,6 +128,10 @@
       <StacionarnaOprema>
         <TipStacionarneOpreme>Stolica</TipStacionarneOpreme>
         <Kolicina>2</Kolicina>
+      </StacionarnaOprema>
+      <StacionarnaOprema>
+        <TipStacionarneOpreme>Sto</TipStacionarneOpreme>
+        <Kolicina>4</Kolicina>
       </StacionarnaOprema>
     </Staticka>
     <Potrosna />
@@ -261,7 +265,7 @@
     <termin />
     <IdProstorije>13</IdProstorije>
     <Sprat>4</Sprat>
-    <BrojSobe>402</BrojSobe>
+    <BrojSobe>430</BrojSobe>
     <VrstaProstorije>Soba_za_preglede</VrstaProstorije>
     <RenoviraSe>false</RenoviraSe>
     <Kvadratura>55</Kvadratura>

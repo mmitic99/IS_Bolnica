@@ -1097,7 +1097,7 @@ namespace Bolnica.view.UpravnikView
                 Table.Rows.Add(new string[] { "Prostorija", "Datum i vreme pocetka termina", "Trajanje termina" });
                 foreach (Termin termin in SkladisteZaTermineXml.getInstance().GetAll())
                 {
-                    if (DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date) > 0) /*&& DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date.AddDays(7)) <= 0*///)
+                    if (DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date) > 0 && DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date.AddDays(7)) <= 0)
                         Table.Rows.Add(new string[] { termin.brojSobe, termin.DatumIVremeTermina.ToString(), "30" });
                 }
                 PdfLightTable.DataSource = Table;
@@ -1124,8 +1124,8 @@ namespace Bolnica.view.UpravnikView
                 Table.Rows.Add(new string[] { "Prostorija iz koje se prenosi oprema", "Prostorija iz koje se prenosi oprema", "Datum i vreme početka preraspodele", "Trajanje preraspodele" });
                 foreach (ZakazanaPreraspodelaStatickeOpreme preraspodela in SkladisteZaZakazanuPreraspodeluStatickeOpremeXml.GetInstance().GetAll())
                 {
-                    // if (DateTime.Compare(preraspodela.DatumIVremePreraspodele.Date, DateTime.Now.Date) > 0) /*&& DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date.AddDays(7)) <= 0*///)
-                    Table.Rows.Add(new string[] { preraspodela.BrojProstorijeIzKojeSePrenosiOprema, preraspodela.BrojProstorijeUKojuSePrenosiOprema, preraspodela.DatumIVremePreraspodele.ToString(), "60" });
+                    if (DateTime.Compare(preraspodela.DatumIVremePreraspodele.Date, DateTime.Now.Date) > 0 && DateTime.Compare(preraspodela.DatumIVremePreraspodele.Date, DateTime.Now.Date.AddDays(7)) <= 0)
+                        Table.Rows.Add(new string[] { preraspodela.BrojProstorijeIzKojeSePrenosiOprema, preraspodela.BrojProstorijeUKojuSePrenosiOprema, preraspodela.DatumIVremePreraspodele.ToString(), "60" });
                 }
                 PdfLightTable.DataSource = Table;
                 PdfLightTable.Draw(Page, new PointF(0, 70));
@@ -1151,8 +1151,10 @@ namespace Bolnica.view.UpravnikView
                 Table.Rows.Add(new string[] { "Prostorija", "Sprat", "Datum i vreme početka renoviranja", "Datum i vreme kraja renoviranja" });
                 foreach (Renoviranje renoviranje in SkladisteZaRenoviranjaXml.GetInstance().GetAll())
                 {
-                    // if (DateTime.Compare(preraspodela.DatumIVremePreraspodele.Date, DateTime.Now.Date) > 0) /*&& DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date.AddDays(7)) <= 0*///)
-                    Table.Rows.Add(new string[] { renoviranje.BrojProstorije, renoviranje.Sprat.ToString(), renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
+                    if (DateTime.Compare(renoviranje.DatumPocetkaRenoviranja.Date, DateTime.Now.Date) > 0 && DateTime.Compare(renoviranje.DatumPocetkaRenoviranja.Date, DateTime.Now.Date.AddDays(7)) <= 0)
+                        Table.Rows.Add(new string[] { renoviranje.BrojProstorije, renoviranje.Sprat.ToString(), renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
+                    if (DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja.Date, DateTime.Now.Date) > 0 && DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja.Date, DateTime.Now.Date.AddDays(7)) <= 0)
+                        Table.Rows.Add(new string[] { renoviranje.BrojProstorije, renoviranje.Sprat.ToString(), renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
                 }
                 PdfLightTable.DataSource = Table;
                 PdfLightTable.Draw(Page, new PointF(0, 70));
@@ -1179,8 +1181,10 @@ namespace Bolnica.view.UpravnikView
                 Table.Rows.Add(new string[] { "Glavna prostorija", "Prostorija 1", "Prostorija 2", "Datum i vreme početka renoviranja", "Datum i vreme kraja renoviranja" });
                 foreach (NaprednoRenoviranje renoviranje in SkladisteZaNaprednaRenoviranjaXml.GetInstance().GetAll())
                 {
-                    // if (DateTime.Compare(preraspodela.DatumIVremePreraspodele.Date, DateTime.Now.Date) > 0) /*&& DateTime.Compare(termin.DatumIVremeTermina.Date, DateTime.Now.Date.AddDays(7)) <= 0*///)
-                    Table.Rows.Add(new string[] { renoviranje.BrojGlavneProstorije, renoviranje.BrojProstorije1, renoviranje.BrojProstorije2, renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
+                    if (DateTime.Compare(renoviranje.DatumPocetkaRenoviranja.Date, DateTime.Now.Date) > 0 && DateTime.Compare(renoviranje.DatumPocetkaRenoviranja.Date, DateTime.Now.Date.AddDays(7)) <= 0)
+                        Table.Rows.Add(new string[] { renoviranje.BrojGlavneProstorije, renoviranje.BrojProstorije1, renoviranje.BrojProstorije2, renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
+                    if (DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja.Date, DateTime.Now.Date) > 0 && DateTime.Compare(renoviranje.DatumZavrsetkaRenoviranja.Date, DateTime.Now.Date.AddDays(7)) <= 0)
+                        Table.Rows.Add(new string[] { renoviranje.BrojGlavneProstorije, renoviranje.BrojProstorije1, renoviranje.BrojProstorije2, renoviranje.DatumPocetkaRenoviranja.ToString(), renoviranje.DatumZavrsetkaRenoviranja.ToString() });
                 }
                 PdfLightTable.DataSource = Table;
                 PdfLightTable.Draw(Page, new PointF(0, 70));
