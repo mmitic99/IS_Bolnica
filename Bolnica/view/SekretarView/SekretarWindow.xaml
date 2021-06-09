@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:commands="clr-namespace:Bolnica.Commands"
         mc:Ignorable="d"
-        Title="SekretarWindow" Height="600" Width="800"
+        Title="Zdravo bolnica" Height="600" Width="800"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
         <RoutedUICommand x:Key="OdjavaCommand" Text="Ctrl+Alt+O"/>

@@ -32,7 +32,6 @@ namespace Bolnica.view.SekretarView.Termini
             specijalizacijaKontroler = new SpecijalizacijaKontroler();
             lekarKontroler = new LekarKontroler();
 
-            hitanT.IsChecked = hitan;
             datum.SelectedDate = DateTime.Now.AddDays(1);
             termin = new TerminDTO();
             if (izabraniPacijent != null)
@@ -54,6 +53,7 @@ namespace Bolnica.view.SekretarView.Termini
 
             vrstaSpec.ItemsSource = specijalizacijaKontroler.GetAll();
             this.datumZaTermin = datumZaTermin;
+            hitanT.IsChecked = hitan;
 
         }
 
@@ -130,14 +130,29 @@ namespace Bolnica.view.SekretarView.Termini
             {
                 if (vremeT != null && !pacijent.Text.Equals("") && vrstaSpec.SelectedIndex != -1)
                 {
+                    vremeT.Visibility = Visibility.Visible;
+                    NeRadi.Visibility = Visibility.Hidden;
                     moguciTermini = TerminKontroler.getInstance().NadjiHitanTermin(termin.JmbgPacijenta, (vrstaSpec.SelectedItem).ToString());
-                    vremeT.ItemsSource = GenerisiVremena(moguciTermini);
+                    vremeT.ItemsSource = GenerisiVremena(moguciTermini); 
+                    if (vremeT.Items.Count == 0)
+                    {
+                        NeRadi.Content = "Ni jedan lekar ne radi!";
+                        vremeT.Visibility = Visibility.Hidden;
+                        NeRadi.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        vremeT.Visibility = Visibility.Visible;
+                        NeRadi.Visibility = Visibility.Hidden;
+                    }
                 }
                 return;
             }
 
             if (vremeT != null && (!pacijent.Text.Equals("") || sender.Equals(pacijent)) && (!lekar.Text.Equals("") || sender.Equals(lekar)))
             {
+                vremeT.Visibility = Visibility.Visible;
+                NeRadi.Visibility = Visibility.Hidden;
                 TimeSpan pocetak = new TimeSpan(6, 0, 0);
                 TimeSpan kraj = new TimeSpan(23, 59, 59);
 
@@ -160,12 +175,9 @@ namespace Bolnica.view.SekretarView.Termini
                 };
                 moguciTermini = terminKontroler.NadjiTermineZaParametre(parametri);
                 vremeT.ItemsSource = GenerisiVremena(moguciTermini);
-            }
-
-            if (vremeT != null)
-            {
-                if (vremeT.Items.Count == 0 && lekar != null && !lekar.Text.Equals(""))
+                if (vremeT.Items.Count == 0)
                 {
+                    NeRadi.Content = "Lekar ne radi!";
                     vremeT.Visibility = Visibility.Hidden;
                     NeRadi.Visibility = Visibility.Visible;
                 }
@@ -244,6 +256,8 @@ namespace Bolnica.view.SekretarView.Termini
             lekar.Text = "";
             vrstaSpec.SelectedIndex = -1;
             datum.IsEnabled = false;
+            datum.SelectedDate = DateTime.Now;
+            vremeT.ItemsSource = null;
         }
 
         private void hitanT_Unchecked(object sender, RoutedEventArgs e)
@@ -264,6 +278,7 @@ namespace Bolnica.view.SekretarView.Termini
             datum.IsEnabled = true;
             datum.DisplayDateStart = DateTime.Now.AddDays(1);
             datum.SelectedDate = DateTime.Now.AddDays(1);
+            vremeT.ItemsSource = null;
         }
 
         private void vremeT_SelectionChanged(object sender, SelectionChangedEventArgs e)

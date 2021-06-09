@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view"
         xmlns:validacije="clr-namespace:Bolnica.Validacije"
         mc:Ignorable="d"
-        Title="IzmenaPacijenta" Height="630" Width="800"
+        Title="Izmena pacijenta" Height="630" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />

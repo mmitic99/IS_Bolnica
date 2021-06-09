@@ -352,4 +352,11 @@
     <BlokiranDo>2021-06-17T00:00:00+02:00</BlokiranDo>
     <BrojPutaBlokiranja>1</BrojPutaBlokiranja>
   </KorisnickeAktivnostiNaAplikaciji>
+  <KorisnickeAktivnostiNaAplikaciji>
+    <JmbgKorisnika>6545454645454</JmbgKorisnika>
+    <TrenutnoSeTretiraKao>Normalan</TrenutnoSeTretiraKao>
+    <AktivnostiKorisnika />
+    <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
+    <BrojPutaBlokiranja>0</BrojPutaBlokiranja>
+  </KorisnickeAktivnostiNaAplikaciji>
 </ArrayOfKorisnickeAktivnostiNaAplikaciji>

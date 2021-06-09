@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.SekretarView.Lekari"
         mc:Ignorable="d"
-        Title="RadnoVremeLekara" Height="450" Width="620"
+        Title="Radno vreme" Height="450" Width="620"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <RoutedUICommand x:Key="OtkaziCommand" Text="Otkazi" />
