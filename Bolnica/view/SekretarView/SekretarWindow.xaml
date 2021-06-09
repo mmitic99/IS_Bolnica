@@ -20,6 +20,7 @@
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajLekaraCommand}" Executed="DodavanjeLekara_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminPacijentuCommand}" Executed="ZakazivanjeTerminaZaOdabranogPacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.DodajTerminLekaruCommand}" Executed="ZakazivanjeTerminaZaOdabranogLekara_Click" />
+        <CommandBinding Command="{x:Static commands:SekretarCommands.DodajIzvestajCommand}" Executed="GenerisanjeIzvestaja_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniObavestenjeCommand}" Executed="IzmeniObavestenje_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniPacijentaCommand}" Executed="IzmenaPacijenta_Click" />
         <CommandBinding Command="{x:Static commands:SekretarCommands.IzmeniTerminCommand}" Executed="IzmeniTermin_Click" />

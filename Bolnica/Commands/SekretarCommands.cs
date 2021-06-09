@@ -16,7 +16,8 @@ namespace Bolnica.Commands
 		public static readonly ICommand DodajTerminCommand;
 		public static readonly ICommand DodajLekaraCommand;
 		public static readonly ICommand DodajTerminPacijentuCommand;
-		public static readonly ICommand DodajTerminLekaruCommand;
+        public static readonly ICommand DodajTerminLekaruCommand;
+        public static readonly ICommand DodajIzvestajCommand;
 
 		public static readonly ICommand IzmeniObavestenjeCommand;
 		public static readonly ICommand IzmeniPacijentaCommand;
@@ -65,9 +66,13 @@ namespace Bolnica.Commands
 			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.P }, ModifierKeys.Control, "Ctrl+T, P"));
 			DodajTerminPacijentuCommand = new RoutedUICommand("DodajTerminPacijentuCommand", "DodajTerminPacijentuCommand", typeof(SekretarCommands), inputGestures);
 
-			inputGestures = new InputGestureCollection();
-			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.L }, ModifierKeys.Control, "Ctrl+T, L"));
-			DodajTerminLekaruCommand = new RoutedUICommand("DodajTerminLekaruCommand", "DodajTerminLekaruCommand", typeof(SekretarCommands), inputGestures);
+            inputGestures = new InputGestureCollection();
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.T, Key.L }, ModifierKeys.Control, "Ctrl+T, L"));
+            DodajTerminLekaruCommand = new RoutedUICommand("DodajTerminLekaruCommand", "DodajTerminLekaruCommand", typeof(SekretarCommands), inputGestures);
+
+            inputGestures = new InputGestureCollection();
+            inputGestures.Add(new MultiKeyGesture(new Key[] { Key.A, Key.I }, ModifierKeys.Control, "Ctrl+A, I"));
+            DodajIzvestajCommand = new RoutedUICommand("DodajIzvestajCommand", "DodajIzvestajCommand", typeof(SekretarCommands), inputGestures);
 
 			inputGestures = new InputGestureCollection();
 			inputGestures.Add(new MultiKeyGesture(new Key[] { Key.E, Key.O }, ModifierKeys.Control, "Ctrl+E, O"));

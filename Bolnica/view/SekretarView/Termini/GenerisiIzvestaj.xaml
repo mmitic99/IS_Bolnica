@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.SekretarView.Termini"
         mc:Ignorable="d"
-        Title="RadnoVremeLekara" Height="300" Width="400"
+        Title="Izveštaj zakazanih termina" Height="300" Width="450"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <RoutedUICommand x:Key="PotvrdiCommand" Text="Potvrdi" />
@@ -29,16 +29,16 @@
 
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Margin="15" FontSize="15">Datum početka:</Label>
                 <DatePicker x:Name="DatumPocetka" Grid.Column="1" Margin="15" FontSize="15"/>
             </Grid>
             <Grid Margin="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Margin="15" FontSize="15">Datum završetka:</Label>
                 <DatePicker x:Name="DatumZavrsetka" Grid.Column="1" Margin="15" FontSize="15"/>
@@ -46,10 +46,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="85" FontSize="15"
+            <Button x:Name="Potvrdi" Margin="50,10" Click="Potvrdi_Click" Width="100" FontSize="15"
                     Style="{StaticResource BasicButton}" 
                     Template="{StaticResource RoundedSmallerButton}">Potvrdi</Button>
-            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="85" FontSize="15"
+            <Button x:Name="Otkazi" Margin="50,10" Click="Otkazi_Click" Width="100" FontSize="15"
                     Style="{StaticResource BasicButton}" 
                     Template="{StaticResource RoundedSmallerButton}">Otkaži</Button>
         </StackPanel>
