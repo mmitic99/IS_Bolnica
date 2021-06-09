@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace Bolnica.view.PacijentView
 {
-    /// <summary>
-    /// Interaction logic for InformacijeAplikacija.xaml
-    /// </summary>
     public partial class InformacijeAplikacija : UserControl
     {
         private FeedbackKontroler FeedbackKontroler;

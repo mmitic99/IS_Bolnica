@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Servis;
+using Syncfusion.Pdf.Graphics;
 
 namespace Bolnica.Servis
 {
@@ -26,6 +27,10 @@ namespace Bolnica.Servis
             using (PdfDocument Document = new PdfDocument())
             {
                 PdfPage Page = Document.Pages.Add();
+                PdfGraphics graphics = Page.Graphics;
+                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+                string title = "Uvid u zakazane operacije i preglede od " + pocetakIntervala.ToString("dd.MM.yyyy.") + " do " + krajIntervala.ToString("dd.MM.yyyy.");
+                graphics.DrawString(title, font, PdfBrushes.Black, new PointF(0,0));
                 PdfLightTable pdfLightTable = new PdfLightTable();
                 DataTable table = new DataTable();
                 table.TableName = "Prikaz pregleda i operacija u proteklih mesec dana";
@@ -39,7 +44,7 @@ namespace Bolnica.Servis
                    table.Rows.Add(new string[] { termin.DatumIVremeTermina.ToString("dd.MM.yyyy HH:mm"), termin.VrstaTermina.ToString(), termin.lekar, termin.TrajanjeTermina.ToString() });        
                 }
                 pdfLightTable.DataSource = table;
-                pdfLightTable.Draw(Page, new PointF(0, 0));
+                pdfLightTable.Draw(Page, new PointF(0, 20));
                 Document.Save("..\\..\\SkladistePodataka\\IzvestajPregleda - pregledi.pdf");
                 Document.Close(true);
             }

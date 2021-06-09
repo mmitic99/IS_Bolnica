@@ -109,7 +109,6 @@
                     <ComboBoxItem>
                         19
                     </ComboBoxItem>
-
                 </ComboBox>
                 <Label Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="56,0,0,0"/>
                 <ComboBox Name="minutPocetak" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="30" Grid.Column="1" IsDropDownOpen="{Binding Mode=TwoWay, Path=MinutPocetakOpened, UpdateSourceTrigger=PropertyChanged}"
