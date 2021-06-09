@@ -7,20 +7,9 @@ namespace Kontroler
     public class KorisnickeAktivnostiPacijentaKontroler
     {
         private KorisnickeAktivnostiPacijentaServis KorisnickeAktivnostiPacijentaServis;
-        private static KorisnickeAktivnostiPacijentaKontroler instance;
-
-        public static KorisnickeAktivnostiPacijentaKontroler GetInstane()
+        public KorisnickeAktivnostiPacijentaKontroler(String JmbgKorisnika)
         {
-            if(instance==null)
-            {
-                instance = new KorisnickeAktivnostiPacijentaKontroler();
-            }
-            return instance;
-        }
-
-        public KorisnickeAktivnostiPacijentaKontroler()
-        {
-            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
+            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis(JmbgKorisnika);
         }
 
         public int DobaviBrojOtkazivanjaUProteklihMesecDana(String jmbgKorisnika)

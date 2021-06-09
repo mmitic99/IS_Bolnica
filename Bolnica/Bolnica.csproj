@@ -282,6 +282,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaRenoviranjaXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaVerifikacijuLekaXml.cs" />
     <Compile Include="Servis\LekServis.cs" />
+    <Compile Include="Servis\StatePattern\IStanjeKorisnika.cs" />
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />

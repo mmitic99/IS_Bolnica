@@ -4,27 +4,29 @@ using Model.Enum;
 using System;
 using System.Collections.Generic;
 using Bolnica.Repozitorijum.ISkladista;
+using Bolnica.Servis.StatePattern;
 
 namespace Servis
 {
     public class KorisnickeAktivnostiPacijentaServis
     {
-        private static KorisnickeAktivnostiPacijentaServis instance = null;
         public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
+        public IStanjeKorisnika TrenutnoStanjeKorisnika;
+        public IStanjeKorisnika Spam { get; set; }
+        public IStanjeKorisnika HalfSpam { get; set; }
+        public IStanjeKorisnika NonSpam { get; set; }
 
-        public static KorisnickeAktivnostiPacijentaServis GetInstance()
+        public KorisnickeAktivnostiPacijentaServis(string JmbgPacijenta)
         {
-            if (instance == null)
-            {
-                instance = new KorisnickeAktivnostiPacijentaServis();
-            }
-            return instance;
+            skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
+            this.Spam = new SpamStanje(this);
+            this.HalfSpam = new HalfSpamStanje(this);
+            this.NonSpam = new NonSpamStanje(this);
         }
 
-        public KorisnickeAktivnostiPacijentaServis()
+        void postaviTrenutnoStanje(IStanjeKorisnika novoStanje)
         {
-            instance = this;
-            skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
+            TrenutnoStanjeKorisnika = novoStanje;
         }
 
         public Model.KorisnickeAktivnostiNaAplikaciji GetByJmbg(String jmbgKorisnika)

@@ -338,6 +338,7 @@ namespace Bolnica.viewActions
             if (moguciTermini.Count > 0)
             {
                 MainViewModel.getInstance().MoguciTerminiVM = new MoguciTerminiViewModel(moguciTermini, null, JmbgPacijenta);
+                MainViewModel.getInstance().PreviousView = MainViewModel.getInstance().CurrentView;
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().MoguciTerminiVM;
             }
             else

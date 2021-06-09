@@ -51,7 +51,7 @@ namespace Bolnica.view
             this.ViewModel = MainViewModel.getInstance().PacijentTerminiVM;
             this.MainViewModel = MainViewModel.getInstance();
             this.TerminKontroler = new TerminKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
         }
 
         private void ZakazivanjeTerminaBC(object sender, RoutedEventArgs e)

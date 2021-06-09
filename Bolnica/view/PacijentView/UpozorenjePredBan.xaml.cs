@@ -38,7 +38,7 @@ namespace Bolnica.view.PacijentView
             this.upozorenjeZa = upozorenjeZa;
             this.selectedItem = selectedItem;
             this.TerminKontroler = new TerminKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

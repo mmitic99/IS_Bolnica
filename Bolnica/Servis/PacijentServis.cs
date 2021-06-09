@@ -29,7 +29,6 @@ namespace Servis
             skladisteZaTermine = new SkladisteZaTermineXml();
             skladisteZaObavestenja = new SkladisteZaObavestenjaXml();
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
-            KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis();
         }
 
 
@@ -147,6 +146,7 @@ namespace Servis
 
         private void IzmeniJmbgPacijentaUAktivnostima(string stariJmbg, string noviJmbg)
         {
+            this.KorisnickeAktivnostiPacijentaServis = new KorisnickeAktivnostiPacijentaServis(stariJmbg);
             foreach (KorisnickeAktivnostiNaAplikaciji korisnickaAktivnost in skladisteZaKorisnickeAktivnosti.GetAll())
             {
                 if (korisnickaAktivnost.JmbgKorisnika.Equals(stariJmbg))

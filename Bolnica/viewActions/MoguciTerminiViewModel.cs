@@ -83,7 +83,7 @@ namespace Bolnica.viewActions
         {
             MainViewModel = MainViewModel.getInstance();
             this.TerminKontroler = new TerminKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(jmbg);
 
             this.jmbg = jmbg;
             if(terminiZaPrikazivanje!=null)

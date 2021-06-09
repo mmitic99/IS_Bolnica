@@ -8,7 +8,6 @@ namespace Model
     {
 
         public String JmbgKorisnika { get; set; }
-        public VrstaKorisnikaAplikacije TrenutnoSeTretiraKao { get; set; }
         public List<KorisnickaAktivnost> AktivnostiKorisnika { get; set; }
         public DateTime BlokiranDo { get; set; }
         public int BrojPutaBlokiranja { get; set; }

@@ -41,7 +41,7 @@ namespace Bolnica.view
             instance = this;
             this.MainViewModel = PacijentMainViewModel;
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
-            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler();
+            this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
             this.AnketeKontroler = new AnketeKontroler();
             ZapocniRadAplikacije();
 
