@@ -407,7 +407,6 @@ namespace Bolnica.view.SekretarView
                 }
             };
             PodelaPoPolovima.Series = podelaPoPolovima;
-            //DataContext = this;
         }
 
         private void AzurirajDijagramBrojNovihPacijenata()
@@ -422,7 +421,6 @@ namespace Bolnica.view.SekretarView
                 }
             };
             ((SekretarWindowViewModel)DataContext).XOsaBrojNovihPacijenata = PretvoriListuUNiz(sviDaniUMesecu);
-            //DataContext = this;
         }
 
 
@@ -492,7 +490,7 @@ namespace Bolnica.view.SekretarView
 
         private void SelectFirstPacijenta(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Pocetna.IsSelected)
+            if (Pacijenti.IsSelected)
             {
                 PacijentiPrikaz.SelectedIndex = 0;
                 PacijentiPrikaz.Focus();
@@ -501,7 +499,7 @@ namespace Bolnica.view.SekretarView
 
         private void SelectFirstTermin(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Pocetna.IsSelected)
+            if (Termini.IsSelected)
             {
                 TerminiPrikaz.SelectedIndex = 0;
                 TerminiPrikaz.Focus();
@@ -510,7 +508,7 @@ namespace Bolnica.view.SekretarView
 
         private void SelectFirstLekara(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Pocetna.IsSelected)
+            if (Lekari.IsSelected)
             {
                 LekariPrikaz.SelectedIndex = 0;
                 LekariPrikaz.Focus();
