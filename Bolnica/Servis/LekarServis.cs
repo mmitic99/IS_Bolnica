@@ -18,6 +18,9 @@ namespace Servis
     {
         public PacijentServis PacijentServis;
         public static LekarServis instance = null;
+        public ISkladisteZaLekara skladisteZaLekara;
+        public ISkladisteZaTermine skladisteZaTermine;
+        private RadnoVremeServis radnoVremeServis;
 
         public static LekarServis getInstance()
         {
@@ -182,25 +185,33 @@ namespace Servis
 
         internal int DobaviIndeksSelectovanogLekara(Termin termin)
         {
+            int indeksSelektovanog = 0;
             List<Lekar> lekari = skladisteZaLekara.GetAll();
             for (int i = 0; i < lekari.Count; i++)
             {
                 if (lekari[i].Jmbg.Equals(termin.JmbgLekara))
                 {
-                    return i;
+                    indeksSelektovanog = i;
+                    break;
                 }
             }
-            return 0;
+            return indeksSelektovanog;
         }
 
-        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        public bool IzmenaLozinke(string jmbg, string novaLozinka)
         {
-            throw new NotImplementedException();
+            Lekar l =skladisteZaLekara.getByJmbg(jmbg);
+            l.Korisnik.Lozinka = novaLozinka;
+            skladisteZaLekara.Save(l);
+            return true;
         }
 
-        public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
+        public bool IzmenaKorisnickogImena(string jmbg, string novoKorisnickoIme)
         {
-            throw new NotImplementedException();
+            Lekar l = skladisteZaLekara.getByJmbg(jmbg);
+            l.Korisnik.KorisnickoIme = novoKorisnickoIme;
+            skladisteZaLekara.Save(l);
+            return true;
         }
 
         public List<Lekar> GetAll()
@@ -222,8 +233,6 @@ namespace Servis
             return skladisteZaLekara.getByJmbg(jmbg);
         }
 
-        public ISkladisteZaLekara skladisteZaLekara;
-        public ISkladisteZaTermine skladisteZaTermine;
         public void izdajRecept(ReceptiDTO parametri)
         {
             Recept Recept = new Recept(parametri.ImeLeka, parametri.SifraLeka, parametri.DodatneNapomene, parametri.DatumIzdavanja, parametri.BrojDana, parametri.Doza, parametri.terminiUzimanjaTokomDana, parametri.Dijagnoza, parametri.ImeDoktora);
@@ -238,6 +247,7 @@ namespace Servis
             pacijent1.ZdravstveniKarton.Izvestaj.Add(izvestaj);
             PacijentServis.GetInstance().IzmeniPacijenta(pacijent, pacijent1);
         }
+
         public List<int> dobijTerminePijenja(String terminiPijenja)
         {   
             String[] termini = terminiPijenja.Split(',');
@@ -250,11 +260,11 @@ namespace Servis
             }
             return terminiInt;
         }
+
         public Lekar trenutnoUlogovaniLekar()
         {
             return LekarWindow.getInstance().lekarTrenutni;
         }
-        private RadnoVremeServis radnoVremeServis;
 
         public Lekar getByJmbg(string jmbgLekara)
         {

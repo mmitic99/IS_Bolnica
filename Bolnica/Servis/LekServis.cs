@@ -108,6 +108,7 @@ namespace Bolnica.Servis
             }
             return validno;
         }
+
         private bool ValidirajComboBoxoveLeka(LekValidacijaDTO lek)
         {
             bool validno = true;
@@ -174,7 +175,6 @@ public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, in
                 vrsta = VrstaLeka.Gel;
             return vrsta;
         }
-
 
         public Model.Enum.KlasaLeka GetKlasuLeka(int IndexSelektovaneKlaseLeka)
         {

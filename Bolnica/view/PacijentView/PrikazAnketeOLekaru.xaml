@@ -50,7 +50,7 @@
                         <ColumnDefinition Width="70"></ColumnDefinition>
                         <ColumnDefinition Width="145"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="previous.png"></Image>
+                    <Image Source="Images/previous.png"></Image>
                     <Label Content="Nazad" Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="10,0,0,0"
@@ -61,8 +61,7 @@
                 </Grid>
             </Button>
             <Button x:Name="SacuvajAnketu" 
-                   
-                    HorizontalAlignment="Left"
+                HorizontalAlignment="Left"
                 Visibility="Visible" Background="Transparent" BorderThickness="0" Margin="100,0,0,0" Height="83" Click="SacuvajAnketu_Click">
                 <Border Width="300" Height="82" CornerRadius="19" Background="#FF407294">
                     <Grid>

@@ -178,12 +178,12 @@ namespace Servis
         public int NabaviNovePodsetnike(string jmbg)
         {
             int brojNovihPodsetnika = 0;
-            brojNovihPodsetnika += NabaviPodsetnikeOUzimanjuLeka(jmbg);
-            brojNovihPodsetnika += NabaviKorisnickePodsetnike(jmbg);
+            brojNovihPodsetnika += NabaviBrojPodsetnikaOUzimanjuLeka(jmbg);
+            brojNovihPodsetnika += NabaviBrojKorisnickihPodsetnika(jmbg);
             return brojNovihPodsetnika;
         }
 
-        private int NabaviKorisnickePodsetnike(string jmbg)
+        private int NabaviBrojKorisnickihPodsetnika(string jmbg)
         {
             int brojNovihPodsetnika = 0;
             List<Podsetnik> podsetnici = SkladisteZaPodsetnike.GetPodsetniciByJmbg(jmbg);
@@ -199,7 +199,7 @@ namespace Servis
             return brojNovihPodsetnika;
         }
 
-        private int NabaviPodsetnikeOUzimanjuLeka(string jmbg)
+        private int NabaviBrojPodsetnikaOUzimanjuLeka(string jmbg)
         {
             int brojNovihPodsetnika = 0;
             List<Recept> recepti = PacijentServis.DobaviReceptePacijenta(jmbg);
@@ -303,7 +303,5 @@ namespace Servis
             }
             return uzimanjeTerapijePodsetnik;
         }
-
-
     }
 }

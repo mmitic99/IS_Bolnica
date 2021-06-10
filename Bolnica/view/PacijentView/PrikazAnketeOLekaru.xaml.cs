@@ -39,10 +39,10 @@ namespace Bolnica.view.PacijentView
 
             PopunjenaAnketaPoslePregledaObjectDTO popunjena = new PopunjenaAnketaPoslePregledaObjectDTO()
             {
-                JmbgLekara = MainViewModel.getInstance().AnketaOLekaruVM.JmbgLekara,
+                JmbgLekara = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru.JmbgLekara,
                 Komentar = Komentar.Text,
                 Ocena = vratiOcenu(OcenaLekara),
-                IDAnkete = MainViewModel.getInstance().AnketaOLekaruVM.IdAnkete
+                IDAnkete = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru.IDAnkete
             };
             if(AnketeKontroler.SacuvajAnketuOLekaru(popunjena))
             {

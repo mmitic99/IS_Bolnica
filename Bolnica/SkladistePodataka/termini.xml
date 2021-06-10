@@ -1102,20 +1102,6 @@
     <opisTegobe />
   </Termin>
   <Termin>
-    <DatumIVremeTermina>2021-06-11T15:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>7897611</JmbgLekara>
-    <JmbgPacijenta>1234567890123</JmbgPacijenta>
-    <IDTermina>1234567890123789761111.6.2021. 15:30:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Maja Balazevic</lekar>
-    <pacijent>Pera Perić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
     <DatumIVremeTermina>2021-06-10T17:00:00</DatumIVremeTermina>
     <VrstaTermina>Pregled</VrstaTermina>
     <IdProstorije>1</IdProstorije>
@@ -1153,20 +1139,6 @@
     <brojSobe>101</brojSobe>
     <sprat>1</sprat>
     <lekar>dr Dusko Jankovic</lekar>
-    <pacijent>Pera Perić</pacijent>
-    <TrajanjeTermina>30</TrajanjeTermina>
-    <opisTegobe />
-  </Termin>
-  <Termin>
-    <DatumIVremeTermina>2021-06-15T16:30:00</DatumIVremeTermina>
-    <VrstaTermina>Pregled</VrstaTermina>
-    <IdProstorije>1</IdProstorije>
-    <JmbgLekara>609</JmbgLekara>
-    <JmbgPacijenta>1234567890123</JmbgPacijenta>
-    <IDTermina>123456789012360915.6.2021. 16:30:00</IDTermina>
-    <brojSobe>002</brojSobe>
-    <sprat>0</sprat>
-    <lekar>dr Dunja Jovanovic</lekar>
     <pacijent>Pera Perić</pacijent>
     <TrajanjeTermina>30</TrajanjeTermina>
     <opisTegobe />
