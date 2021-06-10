@@ -232,6 +232,7 @@
     <Compile Include="Kontroler\LekKontroler.cs" />
     <Compile Include="Kontroler\ObavestenjaKontroler.cs" />
     <Compile Include="Kontroler\PacijentKontroler.cs" />
+    <Compile Include="Kontroler\PodsetniciKontroler.cs" />
     <Compile Include="Kontroler\ProstorijeKontroler.cs" />
     <Compile Include="Kontroler\RadnoVremeKontroler.cs" />
     <Compile Include="Kontroler\SekretarKontroler.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="Servis\AnketeOLekaruServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
     <Compile Include="Servis\FeedbackServis.cs" />
+    <Compile Include="Servis\PodsetniciServis.cs" />
     <Compile Include="Servis\ServisInterfejs\IVerifikacijaLekaServis.cs" />
     <Compile Include="Servis\IzvestajLekarServis.cs" />
     <Compile Include="Servis\IzvestajPacijentServis.cs" />

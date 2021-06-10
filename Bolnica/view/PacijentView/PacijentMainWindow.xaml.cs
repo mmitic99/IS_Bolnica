@@ -24,6 +24,7 @@ namespace Bolnica.view
     {
         public static PacijentMainWindow instance = null;
         private ObavestenjaKontroler ObavestenjaKontroler;
+        private PodsetniciKontroler PodsetniciKontroler;
         private MainViewModel MainViewModel;
         private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
         private AnketeKvartalneKontroler AnketeKvartalneKontroler;
@@ -42,6 +43,7 @@ namespace Bolnica.view
             instance = this;
             this.MainViewModel = PacijentMainViewModel;
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
+            this.PodsetniciKontroler = new PodsetniciKontroler();
             this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
             this.AnketeOLekaruKontroler = new AnketeOLekaruKontroler();
             this.AnketeKvartalneKontroler = new AnketeKvartalneKontroler();
@@ -78,7 +80,7 @@ namespace Bolnica.view
 
         public void NabaviNovePodsetnike(object sender, EventArgs e)
         {
-            int brojNovihPodsetnika = ObavestenjaKontroler.nabaviNovePodsetnike(MainViewModel.Pacijent);
+            int brojNovihPodsetnika = PodsetniciKontroler.nabaviNovePodsetnike(MainViewModel.Pacijent);
             if(brojNovihPodsetnika > 0)
             {
                 PrimiObavestenja(brojNovihPodsetnika);

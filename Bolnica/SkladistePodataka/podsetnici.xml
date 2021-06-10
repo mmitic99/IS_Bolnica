@@ -9,4 +9,49 @@
     <Ubaceno>false</Ubaceno>
     <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
   </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-10T12:48:00</VremeObavestenja>
+    <Naslov>12</Naslov>
+    <Sadrzaj>12</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-10T11:49:00+02:00</VremeObavestenja>
+    <Naslov />
+    <Sadrzaj />
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-10T11:15:00+02:00</VremeObavestenja>
+    <Naslov>da</Naslov>
+    <Sadrzaj>da</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-22T11:50:00</VremeObavestenja>
+    <Naslov>ne</Naslov>
+    <Sadrzaj>da</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>false</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
+  <Podsetnik>
+    <VremeObavestenja>2021-06-10T11:57:00</VremeObavestenja>
+    <Naslov>proba</Naslov>
+    <Sadrzaj>podsetnik</Sadrzaj>
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <Vidjeno>false</Vidjeno>
+    <Ubaceno>true</Ubaceno>
+    <VrstaPodsetnika>Korisnicki</VrstaPodsetnika>
+  </Podsetnik>
 </ArrayOfPodsetnik>

@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.DTOs;
+using Bolnica.Kontroler;
 
 namespace Bolnica.view.PacijentView
 {
@@ -23,12 +24,14 @@ namespace Bolnica.view.PacijentView
         private MainViewModel MainViewModel;
         private DodavanjePodsetnikaViewModel ViewModel;
         private ObavestenjaKontroler ObavestenjaKontroler;
+        private PodsetniciKontroler PodsetniciKontroler;
         public DodavanjePodsetnika()
         {
             InitializeComponent();
             this.MainViewModel = MainViewModel.getInstance();
             this.ViewModel = MainViewModel.DodavanjePodsetnikaVM;
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
+            this.PodsetniciKontroler = new PodsetniciKontroler();
             SetStartView();
         }
 
@@ -51,7 +54,7 @@ namespace Bolnica.view.PacijentView
                 Naslov = naslov.Text,
                 Sadrzaj = sadrzaj.Text
             };
-            ObavestenjaKontroler.NapraviKorisnickiPodsetnik(PodsetnikDTO);
+            PodsetniciKontroler.NapraviKorisnickiPodsetnik(PodsetnikDTO);
             MainViewModel.DodavanjePodsetnikaVM = new DodavanjePodsetnikaViewModel(MainViewModel.Pacijent);
             MainViewModel.CurrentView = MainViewModel.ObavestenjaVM;
         }

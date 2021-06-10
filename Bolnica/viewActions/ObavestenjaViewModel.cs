@@ -1,4 +1,5 @@
 ﻿using Bolnica.DTOs;
+using Bolnica.Kontroler;
 using Bolnica.model;
 using Kontroler;
 using Model;
@@ -14,11 +15,12 @@ namespace Bolnica.viewActions
     public class ObavestenjaViewModel
     {
         private ObavestenjaKontroler ObavestenjaKontroler;
+        private PodsetniciKontroler PodsetniciKontroler;
         public ObservableCollection<Notifikacija> podsetnici
         {
             get
             {
-                ObservableCollection<Notifikacija> notifikacijas = new ObservableCollection<Notifikacija>(ObavestenjaKontroler.DobaviPodsetnikeZaTerapiju(Pacijent));
+                ObservableCollection<Notifikacija> notifikacijas = new ObservableCollection<Notifikacija>(PodsetniciKontroler.DobaviPodsetnikeZaTerapiju(Pacijent));
                 return notifikacijas;
             }
         }
@@ -37,6 +39,7 @@ namespace Bolnica.viewActions
         public ObavestenjaViewModel(Pacijent pacijent)
         {
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
+            this.PodsetniciKontroler = new PodsetniciKontroler();
             this.JmbgKorisnika = pacijent.Jmbg;
             this.Pacijent = pacijent;
 
