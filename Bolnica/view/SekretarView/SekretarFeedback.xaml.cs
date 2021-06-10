@@ -39,6 +39,7 @@ namespace Bolnica.view.SekretarView
             {
                 MessageBox.Show("Polje za sadržaj ne može ostati prazno.", "Greška", MessageBoxButton.OK,
                     MessageBoxImage.Error);
+                return;
             }
             feedbackKontroler.Save(new FeedbackDTO()
             {
