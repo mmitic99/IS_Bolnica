@@ -454,7 +454,7 @@
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-06-10T01:02:45.7699596+02:00</DatumIVreme>
-        <logickiObrisan>false</logickiObrisan>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
@@ -469,7 +469,7 @@
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-06-10T01:03:07.5959897+02:00</DatumIVreme>
-        <logickiObrisan>false</logickiObrisan>
+        <logickiObrisan>true</logickiObrisan>
       </KorisnickaAktivnost>
       <KorisnickaAktivnost>
         <VrstaAktivnosti>ZakazivanjePregleda</VrstaAktivnosti>
@@ -479,10 +479,15 @@
       <KorisnickaAktivnost>
         <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
         <DatumIVreme>2021-06-10T01:03:16.889285+02:00</DatumIVreme>
+        <logickiObrisan>true</logickiObrisan>
+      </KorisnickaAktivnost>
+      <KorisnickaAktivnost>
+        <VrstaAktivnosti>OdlaganjePregleda</VrstaAktivnosti>
+        <DatumIVreme>2021-06-10T14:48:02.428476+02:00</DatumIVreme>
         <logickiObrisan>false</logickiObrisan>
       </KorisnickaAktivnost>
     </AktivnostiKorisnika>
-    <BlokiranDo>2021-07-08T00:00:00+02:00</BlokiranDo>
+    <BlokiranDo>0001-01-01T00:00:00</BlokiranDo>
     <BrojPutaBlokiranja>2</BrojPutaBlokiranja>
   </KorisnickeAktivnostiNaAplikaciji>
   <KorisnickeAktivnostiNaAplikaciji>
