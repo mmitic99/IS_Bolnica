@@ -46,22 +46,16 @@ namespace Bolnica.view.LekarView
             instance = this;
             setToolTip(LekarProfilPage.isToolTipVisible);
         }
-        private bool Validiraj(Regex sablon, String unos)
-        {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
-        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Validiraj(new Regex(@"^[A-Z]{1}[a-z]{1,19}$"), txt1.Text)){
-                if (Validiraj(new Regex(@"^[A-Za-z\s]{1,40}$"), txt2.Text))
+            if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[A-Z]{1}[a-z]{1,19}$"), txt1.Text)){
+                if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[A-Za-z\s]{1,40}$"), txt2.Text))
                 {
-                    if (Validiraj(new Regex(@"^[A-Za-z\s0-9/]{1,69}$"), txt3.Text))
+                    if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[A-Za-z\s0-9/]{1,69}$"), txt3.Text))
                     {
-                        if (Validiraj(new Regex(@"^[0-9]{1,15}$"), txt4.Text))
+                        if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,15}$"), txt4.Text))
                         {
                             LekarDTO trenutniLekar = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
                             LekarDTO lekar = new LekarDTO
@@ -166,6 +160,12 @@ namespace Bolnica.view.LekarView
             {
                 this.Resources.Remove(typeof(ToolTip));
             }
+        }
+
+        private void Button_Click_Feedback(object sender, RoutedEventArgs e)
+        {
+            var s = new LekarFeedbackWindow();
+            s.Show();
         }
     }
 }

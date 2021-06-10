@@ -292,77 +292,10 @@ namespace Bolnica.view.LekarView
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            SacuvajIzvestajPacijenta();
-            SacuvajReceptIDijagnozujPacijenta();
+            IzvestajKontroler.GetInstance().KreirajIzvestajLekara(DateTime.Today, DateTime.Today.AddDays(-7));
         }
-        private void SacuvajIzvestajPacijenta()
-        {
-            using (PdfDocument Document = new PdfDocument())
-            {
-                Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(Jmbg);
-                PdfPage Page = Document.Pages.Add();
-                PdfGraphics Graphics = Page.Graphics;
-                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-                Graphics.DrawString(pacijent.FullName + "-Izvestaj o stanju pacijenta - anamneze", Font, PdfBrushes.Black, new PointF(113, 20));
-                PdfLightTable PdfLightTable = new PdfLightTable();
-                DataTable Table = new DataTable();
-
-                Table.TableName = "IZVEŠTAJ O STANJU PACIJENTA U PROŠLIH 7 DANA.";
-                Table.Columns.Add("Datum pregleda");
-                Table.Columns.Add("Anamneza");
-                Table.Rows.Add(new string[] { "Datum pregleda", "Anamneza" });
-               
-                foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
-                {
-                    if (DateTime.Compare(anamneza.DatumAnamneze.Date, DateTime.Now.Date) < 0 && (DateTime.Compare(anamneza.DatumAnamneze.Date, DateTime.Now.Date.AddDays(-7)) >= 0))
-                    {
-
-                        Table.Rows.Add(new string[] { anamneza.DatumAnamneze.ToShortDateString(), anamneza.AnamnezaDijalog });
-
-
-                    }
-                }
-                PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 70));
-                Document.Save("..\\..\\SkladistePodataka\\Izvestaj o stanju pacijenta-anamneza.pdf");
-                Document.Close(true);
-            }
-
-        }
-        private void SacuvajReceptIDijagnozujPacijenta()
-        {
-            using (PdfDocument Document = new PdfDocument())
-            {
-                Pacijent pacijent = PacijentServis.GetInstance().GetByJmbg(Jmbg);
-                PdfPage Page = Document.Pages.Add();
-                PdfGraphics Graphics = Page.Graphics;
-                PdfFont Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
-                Graphics.DrawString( pacijent.FullName + "-Izvestaj o stanju pacijenta - terapija i dijagnoza", Font, PdfBrushes.Black, new PointF(113, 20));
-                PdfLightTable PdfLightTable = new PdfLightTable();
-                DataTable Table = new DataTable();
-
-                Table.TableName = "IZVEŠTAJ O STANJU PACIJENTA U PROŠLIH 7 DANA.";
-                Table.Columns.Add("Datum pregleda");
-                Table.Columns.Add("Dijagnoza");
-                Table.Columns.Add("Terapija");
-                Table.Rows.Add(new string[] { "Datum pregleda", "Dijagnoza", "Terapija" });
-                foreach (Izvestaj izvestaj in pacijent.ZdravstveniKarton.Izvestaj)
-                    foreach (Recept recept in izvestaj.recepti)
-                    {
-                    if (DateTime.Compare(recept.DatumIzdavanja.Date, DateTime.Now.Date) < 0 && (DateTime.Compare(recept.DatumIzdavanja.Date, DateTime.Now.Date.AddDays(-7)) >= 0))
-                    {
-
-                        Table.Rows.Add(new string[] { recept.DatumIzdavanja.ToShortDateString(), recept.Dijagnoza,recept.ImeLeka });
-
-
-                    }
-                }
-                PdfLightTable.DataSource = Table;
-                PdfLightTable.Draw(Page, new PointF(0, 70));
-                Document.Save("..\\..\\SkladistePodataka\\Izvestaj o stanju pacijenta-dijagnoza i terapija.pdf");
-                Document.Close(true);
-            }
-        }
+        
+        
 
         private void MenuItem_Click_Profil(object sender, RoutedEventArgs e)
         {

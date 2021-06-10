@@ -22,6 +22,7 @@ using System.Windows.Shapes;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Kontroler;
 using System.Text.RegularExpressions;
+using Bolnica.Repozitorijum.Factory.VerifikacijaLekaFactory;
 
 namespace Bolnica.view.LekarView
 {
@@ -30,29 +31,33 @@ namespace Bolnica.view.LekarView
     /// </summary>
     public partial class LekoviPage : Page
     {
-       
+        
         public LekDTO lek;
         public List<LekDTO> Lekovi;
-        public VerifikacijaLekaDTO verifikacijaLeka;
+        public IVerifikacijaLekaDTO verifikacijaLeka;
 
         private static LekoviPage instance = null;
-        
+        private IVerifikacijaLekaKontroler iVerifikacijaLekaKontroler;
 
 
         public static LekoviPage getInstance()
         {
             return instance;
+           
+
+
         }
       
         public LekoviPage()
         {
             InitializeComponent();
+            iVerifikacijaLekaKontroler = new VerifikacijaLekaKontroler();
             this.DataContext = this;
             Lekovi = LekKontroler.GetInstance().GetAll(); 
-            TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            TabelaVerifikacija.ItemsSource = iVerifikacijaLekaKontroler.GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
             TabelaLekova.ItemsSource = LekKontroler.GetInstance().GetAll();
-            List<VerifikacijaLekaDTO> VerifikacijaLekova = new List<VerifikacijaLekaDTO>();
-            VerifikacijaLekova = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
+            List<IVerifikacijaLekaDTO> VerifikacijaLekova = new List<IVerifikacijaLekaDTO>();
+            VerifikacijaLekova = iVerifikacijaLekaKontroler.GetObavestenjaByJmbg(LekarKontroler.getInstance().trenutnoUlogovaniLekar().Jmbg);
             ImeDoktora.DataContext = LekarKontroler.getInstance().trenutnoUlogovaniLekar();
             instance = this;
             setToolTip(LekarProfilPage.isToolTipVisible);
@@ -77,13 +82,7 @@ namespace Bolnica.view.LekarView
                 KlasaCombo.SelectedItem = Lekovi[indexSelektovanogLeka].KlasaLeka;
             }
         }
-        private bool Validiraj(Regex sablon, String unos)
-        {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
-        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -91,13 +90,14 @@ namespace Bolnica.view.LekarView
 
             if (TabelaLekova.SelectedIndex != -1)
             {
-                if (Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt1.Text))
+                if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt1.Text))
                 {
-                    if (Validiraj(new Regex(@"^[0-9]{1,4}$"), txt2.Text))
+                    if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,4}$"), txt2.Text))
                     {
-                        if (Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt3.Text))
+                        if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[A-Za-z]{1,25}$"), txt3.Text))
                         {
-                            LekValidacijaDTO lekZaValidaciju = new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
+                            LekValidacijaDTO lekZaValidaciju = 
+                                new LekValidacijaDTO(VrstaCombo.SelectedIndex, lek.KolicinaLeka.ToString(), txt1.Text, KlasaCombo.SelectedIndex, txt2.Text, txt3.Text, txt4.Text);
 
 
                             LekDTO lekZaIzmenu = new LekDTO(LekKontroler.GetInstance().GetVrstuLeka(lekZaValidaciju.VrstaLeka), Int64.Parse(lekZaValidaciju.KolicinaLeka), lekZaValidaciju.NazivLeka, LekKontroler.GetInstance().GetKlasuLeka(lekZaValidaciju.KlasaLeka), Int32.Parse(lekZaValidaciju.JacinaLeka), lekZaValidaciju.ZamenskiLek, lekZaValidaciju.SastavLeka);
@@ -126,8 +126,8 @@ namespace Bolnica.view.LekarView
             if (TabelaVerifikacija.SelectedIndex != -1) {
                 if (NapomenaTxt.Text != "")
                 {
-                    VerifikacijaLekaDTO vL = new VerifikacijaLekaDTO(verifikacijaLeka.VremeSlanjaZahteva, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
-                    VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(vL);
+                    IVerifikacijaLekaDTO vL = VerifikacijaLekaFactory.CreateVerifikacijaLekaDTOSaParametrima(DateTime.Now, verifikacijaLeka.Naslov, verifikacijaLeka.Sadrzaj, verifikacijaLeka.JmbgPrimaoca, verifikacijaLeka.JmbgPosiljaoca, napomena);
+                    iVerifikacijaLekaKontroler.PosaljiVerifikacijuLeka(vL);
                     NapomenaTxt.Text = "";
                     SastavTxt.Text = "";
                 }
@@ -139,8 +139,8 @@ namespace Bolnica.view.LekarView
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             PosaljiBtn.IsEnabled = true;
-            verifikacijaLeka = (VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem;
-            SastavTxt.Text = ((VerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem).Sadrzaj;
+            verifikacijaLeka = (IVerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem;
+            SastavTxt.Text = ((IVerifikacijaLekaDTO)TabelaVerifikacija.SelectedItem).Sadrzaj;
 
         }
 

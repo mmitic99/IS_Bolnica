@@ -49,6 +49,9 @@
         <Button Content="Onemogući" HorizontalAlignment="Left" VerticalAlignment="Top" Width="71" Margin="573,312,0,0" Click="Button_Click_DA"/>
         <Button Content="Omogući" HorizontalAlignment="Left" VerticalAlignment="Top" Width="59" Margin="479,312,0,0" Click="Button_Click_NE"/>
         <Label Content="ToolTips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,280,0,0" RenderTransformOrigin="0.508,0.521"/>
+        <Button Content="Ostavi feedback" FontSize="13" Margin="512,272,180,153.6" RenderTransformOrigin="0.501,0.503" Click="Button_Click_Feedback">
+            <Button.ToolTip>Izmena profila</Button.ToolTip>
+        </Button>
 
 
     </Grid>

@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using System.Text.RegularExpressions;
+using Bolnica.Repozitorijum.Factory.VerifikacijaLekaFactory;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -23,7 +24,7 @@ namespace Bolnica.view.UpravnikView
 
         private static UpravnikWindow instance = null;
         FeedbackKontroler FeedbackKontroler = new FeedbackKontroler();
-
+        private IVerifikacijaLekaKontroler iVerifikacijaLekaKontroler;
         public static UpravnikWindow GetInstance()
         {
             return instance;
@@ -32,7 +33,7 @@ namespace Bolnica.view.UpravnikView
         public UpravnikWindow(UpravnikDTO upravnik)
         {
             InitializeComponent();
-
+            iVerifikacijaLekaKontroler = new VerifikacijaLekaKontroler();
             this.upravnik = upravnik;
             instance = this;
             this.DataContext = this;
@@ -554,16 +555,15 @@ namespace Bolnica.view.UpravnikView
             {
                 String infoOLeku = "Vrsta:" + VrstaLekaLepIspis(lekZaValidaciju.VrstaLeka) + " Jačina:" + lekZaValidaciju.JacinaLeka + " mg" + 
                                    " Zamenski lek:" + lekZaValidaciju.ZamenskiLek + " Sastav:" + lekZaValidaciju.SastavLeka;
-                VerifikacijaLekaDTO verifikacija = new VerifikacijaLekaDTO
-                                                       (
-                                                       DateTime.Now, 
-                                                       lekZaValidaciju.NazivLeka, 
-                                                       infoOLeku, 
-                                                       "1903999772025", 
-                                                       GetJmbgLekaraZaValidaciju(LekariLekovi.SelectedIndex), 
-                                                       Napomena.Text
-                                                       );
-                VerifikacijaLekaKontroler.GetInstance().PosaljiVerifikacijuLeka(verifikacija);
+                IVerifikacijaLekaDTO verifikacija = VerifikacijaLekaFactory.CreateVerifikacijaLekaDTOSaParametrima(
+                                                       DateTime.Now,
+                                                       lekZaValidaciju.NazivLeka,
+                                                       infoOLeku,
+                                                       "1903999772025",
+                                                       GetJmbgLekaraZaValidaciju(LekariLekovi.SelectedIndex),
+                                                       Napomena.Text);
+                                                       
+                iVerifikacijaLekaKontroler.PosaljiVerifikacijuLeka(verifikacija);
                 MessageBox.Show("Lek uspešno poslat lekaru na verifikaciju.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
@@ -643,7 +643,7 @@ namespace Bolnica.view.UpravnikView
 
         public void NamapirajSadrzajVerifikacije(int index)
         {
-            List<VerifikacijaLekaDTO> SveVerifikacijeLekova = VerifikacijaLekaKontroler.GetInstance().GetAll();
+            List<IVerifikacijaLekaDTO> SveVerifikacijeLekova = iVerifikacijaLekaKontroler.GetAll();
             Sadrzaj.Text = SveVerifikacijeLekova[index].Sadrzaj;
         }
 
@@ -794,7 +794,7 @@ namespace Bolnica.view.UpravnikView
 
             private void OsveziPrikazVerifikacijaLeka()
             {
-                TabelaVerifikacija.ItemsSource = VerifikacijaLekaKontroler.GetInstance().GetObavestenjaByJmbg(upravnik.Jmbg);
+                TabelaVerifikacija.ItemsSource = iVerifikacijaLekaKontroler.GetObavestenjaByJmbg(upravnik.Jmbg);
                 LekariLekovi.ItemsSource = LekarKontroler.getInstance().GetAll();
                 LekariLekoviIzmeni.ItemsSource = LekarKontroler.getInstance().GetAll();
             }
@@ -945,7 +945,7 @@ namespace Bolnica.view.UpravnikView
         {
             if (TabelaVerifikacija.SelectedIndex != -1)
             {
-                VerifikacijaLekaKontroler.GetInstance().ObrisiVerifikacijuLeka(TabelaVerifikacija.SelectedItem);
+                iVerifikacijaLekaKontroler.ObrisiVerifikacijuLeka(TabelaVerifikacija.SelectedItem);
                 OsveziPrikazVerifikacijaLeka();
             }
             else
@@ -974,6 +974,11 @@ namespace Bolnica.view.UpravnikView
             }
             else
                 MessageBox.Show("Unesite sadržaj recenzije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void GenerisiIzvestaj(object sender, RoutedEventArgs e)
+        {
+            IzvestajKontroler.GetInstance().KreirajIzvestajUpravnika(DateTime.Today,DateTime.Today.AddDays(7));
         }
     }
 }

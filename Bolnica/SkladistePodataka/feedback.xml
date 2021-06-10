@@ -24,4 +24,16 @@
     <Sadrzaj>Ova bolnica poseduje najmoderniju aplikaciju u celom zdravstvenom sistemu!</Sadrzaj>
     <Ocena>5</Ocena>
   </Feedback>
+  <Feedback>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <DatumIVreme>2021-06-10T01:42:20.3004365+02:00</DatumIVreme>
+    <Sadrzaj>opa</Sadrzaj>
+    <Ocena>1</Ocena>
+  </Feedback>
+  <Feedback>
+    <JmbgKorisnika>6667</JmbgKorisnika>
+    <DatumIVreme>2021-06-10T01:43:43.066371+02:00</DatumIVreme>
+    <Sadrzaj>tada</Sadrzaj>
+    <Ocena>1</Ocena>
+  </Feedback>
 </ArrayOfFeedback>

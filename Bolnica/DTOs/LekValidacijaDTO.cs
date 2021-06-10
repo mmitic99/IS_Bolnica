@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.DTOs
 {
-    public class LekValidacijaDTO
+    public class LekValidacijaDTO : ILekValidacijaDTO
     {
         public LekValidacijaDTO() { }
 
@@ -27,7 +27,7 @@ namespace Bolnica.DTOs
         public String JacinaLeka { get; set; }
         public String ZamenskiLek { get; set; }
         public String SastavLeka { get; set; }
-        
+
     }
 }
 

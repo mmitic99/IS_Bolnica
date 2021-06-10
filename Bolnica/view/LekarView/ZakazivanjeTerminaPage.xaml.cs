@@ -57,19 +57,13 @@ namespace Bolnica.view.LekarView
             LekarDTO l = (LekarDTO)LekariBox.SelectedItem;
 
         }
-        private bool Validiraj(Regex sablon, String unos)
-        {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
             
         {
             if (TerminBox.SelectedItem != null) { 
-            if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text)) {
+            if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text)) {
                 int proveraVremena = int.Parse(txt2.Text);
                 if (proveraVremena % 30 == 0)
                 {

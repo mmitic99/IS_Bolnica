@@ -57,18 +57,12 @@ namespace Bolnica.view.LekarView
             LekarWindow.getInstance().Frame1.Content = new PacijentInfoPage(pacijent.Jmbg);
         }
 
-        private bool Validiraj(Regex sablon, String unos)
-        {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
-        }
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             
-            if (Validiraj(new Regex(@"^[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text))
+            if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,2}$"), txt8.Text) || LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text) || LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}[,]{1}[0-9]{1,2}$"), txt8.Text))
             {
                 List<int> terminiInt = LekarKontroler.getInstance().DobijTerminePijenja(txt8.Text);
                 bool greska = false;
@@ -81,9 +75,9 @@ namespace Bolnica.view.LekarView
                     greska = true;
                 if (!greska)
                 {
-                    if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt4.Text))
+                    if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,3}$"), txt4.Text))
                     {
-                        if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt10.Text) && (int.Parse(txt10.Text) < 7))
+                        if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,3}$"), txt10.Text) && (int.Parse(txt10.Text) < 7))
                         {
                             ReceptiDTO parametri = new ReceptiDTO()
                             {

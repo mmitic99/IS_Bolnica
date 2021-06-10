@@ -67,7 +67,7 @@
                         <Button Background="WhiteSmoke" Content="Dodaj novu prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="552,470,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="DodajProstoriju" RenderTransformOrigin="0.493,0.347"/>
                         <Button Background="WhiteSmoke" Content="Obriši prostoriju" FontSize="15" HorizontalAlignment="Left" Margin="552,560,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="ObrisiProstoriju"/>
                         <Label Content="PREGLED SVIH PROSTORIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,24,0,0" Height="58" Width="352" FontFamily="Yu Gothic Medium" FontSize="25" FontWeight="Bold"/>
-                        <Image Margin="861,475,50.396,19.83" Source="/Bolnica;component/business-woman-icon-14.jpg" Stretch="Fill"/>
+                        <Button Background="WhiteSmoke" Content="Generiši izveštaj" FontSize="15" HorizontalAlignment="Left" Margin="846,535,0,0" VerticalAlignment="Top" Width="175" Height="60" Click="GenerisiIzvestaj" RenderTransformOrigin="0.493,0.347"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="IzmeniProstorijeTab" Header="IZMENI" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="188" BorderBrush="DodgerBlue" >

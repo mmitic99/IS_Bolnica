@@ -6,7 +6,7 @@ using Model;
 using Servis;
 using System;
 using System.Collections.Generic;
-
+using System.Text.RegularExpressions;
 using static Bolnica.DTOs.ReceptDTO;
 
 
@@ -57,11 +57,7 @@ namespace Kontroler
             });
         }
 
-        public bool DodajObavestenje(Obavestenje obavestenje)
-        {
-            // TODO: implement
-            return false;
-        }
+
 
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
@@ -95,10 +91,7 @@ namespace Kontroler
             return null;
         }
 
-        public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public List<LekarDTO> GetAll()
         {
@@ -240,6 +233,20 @@ namespace Kontroler
         public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
         {
             throw new NotImplementedException();
+        }
+
+        public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
+        {
+            throw new NotImplementedException();
+        }
+        public bool Validiraj(Regex sablon, String unos)
+        {
+            bool validno;
+            if (sablon.IsMatch(unos))
+                validno= true;
+            else
+                validno = false;
+            return validno;
         }
     }
 }
