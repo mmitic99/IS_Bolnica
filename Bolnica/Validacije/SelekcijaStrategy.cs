@@ -64,6 +64,9 @@ namespace Bolnica.Validacije
                 case 17:
                     MessageBox.Show("Označite verifikaciju koje želite da obrišete !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
+                case 18:
+                    MessageBox.Show("Uspesno kreiran izvestaj!");
+                    break;
                 default:
                     break;
             }

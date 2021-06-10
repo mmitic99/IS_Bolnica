@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Bolnica.model;
 using Bolnica.Template_class;
+using Bolnica.Validacije;
 using Bolnica.viewActions;
 using Model;
 using Servis;
@@ -50,7 +51,8 @@ namespace Bolnica.Servis
 
         public override void PrikaziObavestenje()
         {
-            MessageBox.Show("Uspesno kreiran izvestaj!");
+            ValidacijaContext validacija = new ValidacijaContext(new SelekcijaStrategy());
+            validacija.IspisiGresku(18);
         }
     }
 }
