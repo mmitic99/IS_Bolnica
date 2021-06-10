@@ -74,18 +74,12 @@ namespace Bolnica.view.LekarView
 
             }
         }
-        private bool Validiraj(Regex sablon, String unos)
-        {
-            if (sablon.IsMatch(unos))
-                return true;
-            else
-                return false;
-        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         if(SatiBox.SelectedItem!=null && MinutiBox.SelectedItem!=null && ComboBox2.SelectedItem != null) { 
-            if (Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text))
+            if (LekarKontroler.getInstance().Validiraj(new Regex(@"^[0-9]{1,3}$"), txt2.Text))
 
             {
                 int proveraVremena = int.Parse(txt2.Text);

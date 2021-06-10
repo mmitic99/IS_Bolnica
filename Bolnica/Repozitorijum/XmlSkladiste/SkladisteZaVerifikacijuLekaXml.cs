@@ -84,5 +84,9 @@ namespace Bolnica.Repozitorijum.XmlSkladiste
             }
             return odgovarajuceVerifikacije;
         }
+
+        
+
+    
     }
 }

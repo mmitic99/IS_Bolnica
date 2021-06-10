@@ -44,7 +44,7 @@ namespace Bolnica.viewActions
 
         public void KreirajIzvestaj()
         {
-            IzvestajKontroler.KreirajIzvestajOPregledimaIOperacijama(pocetakIntervala, krajIntervala, JmbgPacijenta);
+            IzvestajKontroler.KreirajIzvestajPacijenta(pocetakIntervala, krajIntervala);
         }
 
         public void daLiJeIspravanKrajnjiDatum()

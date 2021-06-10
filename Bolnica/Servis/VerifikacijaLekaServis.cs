@@ -7,13 +7,15 @@ using Bolnica.Repozitorijum;
 using Bolnica.model;
 using Bolnica.Repozitorijum.ISkladista;
 using Bolnica.Repozitorijum.XmlSkladiste;
+using Bolnica.Repozitorijum.Factory.VerifikacijaLekaFactory;
 
 namespace Bolnica.Servis
 {
-    public class VerifikacijaLekaServis
+    public class VerifikacijaLekaServis : IVerifikacijaLekaServis
     {
         private static VerifikacijaLekaServis instance = null;
         public ISkladisteZaVerifikacijuLeka skladisteZaVerifikacijuLeka;
+        
         public static VerifikacijaLekaServis GetInstance()
         {
             if (instance == null)
@@ -28,16 +30,16 @@ namespace Bolnica.Servis
             skladisteZaVerifikacijuLeka = new SkladisteZaVerifikacijuLekaXml();
         }
 
-        public void PosaljiVerifikacijuLeka(VerifikacijaLeka verifikacijaLeka)
+        public void PosaljiVerifikacijuLeka(IVerifikacijaLeka verifikacijaLeka)
         {
-            List<VerifikacijaLeka> SveVerifikacijeLeka = skladisteZaVerifikacijuLeka.GetAll();
+           List<IVerifikacijaLeka> SveVerifikacijeLeka = skladisteZaVerifikacijuLeka.GetAll().Cast<IVerifikacijaLeka>().ToList(); 
             SveVerifikacijeLeka.Add(verifikacijaLeka);
-            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka);
+            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacijeLeka.Cast<VerifikacijaLeka>().ToList());
         }
 
         public void ObrisiVerifikacijuLeka(String idVerifikacije)
         {
-            List<VerifikacijaLeka> SveVerifikacije = skladisteZaVerifikacijuLeka.GetAll();
+            List<IVerifikacijaLeka> SveVerifikacije = skladisteZaVerifikacijuLeka.GetAll().Cast<IVerifikacijaLeka>().ToList();
             for (int i = 0; i < SveVerifikacije.Count; i++)
             {
                 if (idVerifikacije.Equals(SveVerifikacije[i].IdVerifikacijeLeka))
@@ -46,27 +48,28 @@ namespace Bolnica.Servis
                     break;
                 }
             }
-            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacije);
+            skladisteZaVerifikacijuLeka.SaveAll(SveVerifikacije.Cast<VerifikacijaLeka>().ToList());
         }
 
-        public List<VerifikacijaLeka> GetAll()
+        public List<IVerifikacijaLeka> GetAll()
         {
-            return skladisteZaVerifikacijuLeka.GetAll();
+            return skladisteZaVerifikacijuLeka.GetAll().Cast<IVerifikacijaLeka>().ToList();
         }
 
-        public List<VerifikacijaLeka> GetObavestenjaByJmbg(String jmbg)
+        public List<IVerifikacijaLeka> GetObavestenjaByJmbg(String jmbg)
         {
-            return skladisteZaVerifikacijuLeka.GetObavestenjaByJmbg(jmbg);
+            return skladisteZaVerifikacijuLeka.GetObavestenjaByJmbg(jmbg).Cast<IVerifikacijaLeka>().ToList();
         }
 
-        public void Save(VerifikacijaLeka verifikacija)
+        public void Save(IVerifikacijaLeka verifikacija)
         {
-            skladisteZaVerifikacijuLeka.Save(verifikacija);
+            IVerifikacijaLeka verifikacijaNova = VerifikacijaLekaFactory.CreateVerifikacijaLeka();
+            skladisteZaVerifikacijuLeka.Save((VerifikacijaLeka)verifikacijaNova);
         }
 
-        public void SaveAll(List<VerifikacijaLeka> verifikacije)
+        public void SaveAll(List<IVerifikacijaLeka> verifikacije)
         {
-            skladisteZaVerifikacijuLeka.SaveAll(verifikacije);
+            skladisteZaVerifikacijuLeka.SaveAll(verifikacije.Cast<VerifikacijaLeka>().ToList());
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica.Kontroler;
 using Kontroler;
 
 namespace Bolnica.view.SekretarView.Termini
@@ -42,7 +43,7 @@ namespace Bolnica.view.SekretarView.Termini
                     MessageBoxImage.Error);
                 return;
             }
-
+            /*
             string putanjaIzvestaja = terminKontroler.GenerisiIzvestaj((DateTime)DatumPocetka.SelectedDate, (DateTime)DatumZavrsetka.SelectedDate);
 
             if (putanjaIzvestaja.Equals("otvoren"))
@@ -56,11 +57,14 @@ namespace Bolnica.view.SekretarView.Termini
                 MessageBox.Show("Desila se nepoznata greška prilikom generisanja izveštaja.", "Greška",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
+
             }
             
             MessageBox.Show("Izveštaj se nalazi na sledećoj putanji: " + putanjaIzvestaja, "Obaveštenje",
                 MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
+            */
+            IzvestajKontroler.GetInstance().KreirajIzvestajSekretara((DateTime)DatumPocetka.SelectedDate, (DateTime)DatumZavrsetka.SelectedDate);
         }
 
         private void Otkazi_Click(object sender, RoutedEventArgs e)

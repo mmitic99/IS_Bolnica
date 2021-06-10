@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bolnica.model
 {
-    public class VerifikacijaLeka
+    public class VerifikacijaLeka : IVerifikacijaLeka
     {
         public DateTime VremeSlanjaZahteva { get; set; }
         public String Naslov { get; set; }
@@ -17,7 +17,7 @@ namespace Bolnica.model
         public String IdVerifikacijeLeka { get; set; }
         public VerifikacijaLeka(DateTime vremeSlanja, String naslov, String sadrzaj, String jmbgPosiljaoca, String jmbgPrimaoca, String napomena)
         {
-            IdVerifikacijeLeka = vremeSlanja.ToString("dd/MM/yyyy HH:mm:ss") + jmbgPosiljaoca + jmbgPrimaoca;
+            IdVerifikacijeLeka = vremeSlanja.ToString("dd.MM.yyyy HH:mm:ss") + jmbgPosiljaoca + jmbgPrimaoca;
             VremeSlanjaZahteva = vremeSlanja;
             Naslov = naslov;
             Sadrzaj = sadrzaj;
@@ -27,7 +27,7 @@ namespace Bolnica.model
         }
 
         public VerifikacijaLeka() { }
-        
+
 
     }
 }

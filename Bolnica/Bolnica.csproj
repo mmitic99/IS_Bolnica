@@ -122,7 +122,7 @@
       <HintPath>packages\Syncfusion.OfficeChart.Base.19.1.0.66\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Base, Version=19.1460.0.66, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Pdf.Wpf.19.1.0.66\lib\net46\Syncfusion.Pdf.Base.dll</HintPath> 
+      <HintPath>packages\Syncfusion.Pdf.Wpf.19.1.0.66\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=19.1460.0.67, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.Compression.Base.19.1.0.67\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
@@ -191,6 +191,8 @@
     <Compile Include="DTOs\Constants.cs" />
     <Compile Include="DTOs\DataTransferObjects.cs" />
     <Compile Include="DTOs\FeedbackDTO.cs" />
+    <Compile Include="DTOs\DTO Interfejs\IVerifikacijaLekaDTO.cs" />
+    <Compile Include="DTOs\DTO Interfejs\ILekValidacijaDTO.cs" />
     <Compile Include="DTOs\IzmenaOpremeInfoDTO.cs" />
     <Compile Include="DTOs\IzvestajDTO.cs" />
     <Compile Include="DTOs\KorisnikDTO.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="DTOs\ReceptDTO.cs" />
     <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
     <Compile Include="Kontroler\FeedbackKontroler.cs" />
+    <Compile Include="Kontroler\KontrolerInterfejs\IVerifikacijaLekaKontroler.cs" />
     <Compile Include="Kontroler\IzvestajKontroler.cs" />
     <Compile Include="Kontroler\KorisnickeAktivnostiPacijentaKontroler.cs" />
     <Compile Include="Kontroler\KorisnikKontroler.cs" />
@@ -245,6 +248,7 @@
     <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Enum\VrstaPodsetnika.cs" />
     <Compile Include="model\Feedback.cs" />
+    <Compile Include="model\model Interfejs\IVerifikacijaLeka.cs" />
     <Compile Include="model\Izvestaj.cs" />
     <Compile Include="model\KorisnickaAktivnost.cs" />
     <Compile Include="model\KorisnickeAktivnostiNaAplikaciji.cs" />
@@ -258,6 +262,7 @@
     <Compile Include="Repozitorijum\Factory\SkladisteRadnihVremenaFactory\SkladisteRadnihVremenaXmlFactory.cs" />
     <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\ISkladisteZaFeedbackFactory.cs" />
     <Compile Include="Repozitorijum\Factory\SkladisteZaFeedbackFactory\SkladisteZaFeedbackFactoryXml.cs" />
+    <Compile Include="Repozitorijum\Factory\VerifikacijaLekaFactory\VerifikacijaLekaFactory.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladiste.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladisteBolnickihLecenja.cs" />
     <Compile Include="Repozitorijum\ISkladista\ISkladistePacijenta.cs" />
@@ -291,7 +296,11 @@
     <Compile Include="Servis\AnketeServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
     <Compile Include="Servis\FeedbackServis.cs" />
-    <Compile Include="Servis\IzvestajServis.cs" />
+    <Compile Include="Servis\ServisInterfejs\IVerifikacijaLekaServis.cs" />
+    <Compile Include="Servis\IzvestajLekarServis.cs" />
+    <Compile Include="Servis\IzvestajPacijentServis.cs" />
+    <Compile Include="Servis\IzvestajSekretarServis.cs" />
+    <Compile Include="Servis\IzvestajUpravnikServis.cs" />
     <Compile Include="Servis\KorisnickeAktivnostiPacijentaServis.cs" />
     <Compile Include="Servis\RadnoVremeServis.cs" />
     <Compile Include="Servis\SpecijalizacijaServis.cs" />
@@ -302,6 +311,7 @@
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaVerifikacijuLekaXml.cs" />
     <Compile Include="Servis\LekServis.cs" />
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
+    <Compile Include="Template class\DefaultIzvestaj.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\LekStrategy.cs" />
@@ -378,6 +388,9 @@
     </Compile>
     <Compile Include="view\LekarView\Help\HelpF1.xaml.cs">
       <DependentUpon>HelpF1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\LekarView\LekarFeedbackWindow.xaml.cs">
+      <DependentUpon>LekarFeedbackWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\LekarView\LekarObavestenjaPage.xaml.cs">
       <DependentUpon>LekarObavestenjaPage.xaml</DependentUpon>
@@ -562,6 +575,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LekarView\Help\HelpF1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\LekarView\LekarFeedbackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -949,6 +966,7 @@
   <ItemGroup>
     <Resource Include="view\LekarView\Help\recept.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -37,39 +37,21 @@
     <IdVerifikacijeLeka>08.06.2021 03:38:0966671903999772025</IdVerifikacijeLeka>
   </VerifikacijaLeka>
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Panklav</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+    <VremeSlanjaZahteva>2021-06-10T03:59:24.4371299+02:00</VremeSlanjaZahteva>
+    <Naslov>gas</Naslov>
+    <Sadrzaj>Vrsta:kapsula Jačina:543 mg Zamenski lek:gaser Sastav:mnogo me boli cmar</Sadrzaj>
+    <JmbgPrimaoca>6667</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena>da</Napomena>
+    <IdVerifikacijeLeka>10.06.2021 03:59:2419039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
   <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:20:49.6469453+02:00</VremeSlanjaZahteva>
-    <Naslov>Analgin</Naslov>
-    <Sadrzaj>Stagoddd</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>5/4/2021 3:20:49 AM66671903999772025</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Lekic</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Lekoo Sastav:nisamomoguciospejseveboze</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
-  </VerifikacijaLeka>
-  <VerifikacijaLeka>
-    <VremeSlanjaZahteva>2021-05-04T03:32:28.2484974+02:00</VremeSlanjaZahteva>
-    <Naslov>Panklav</Naslov>
-    <Sadrzaj>Vrsta:tableta Jačina:500 mg Zamenski lek:Febricet Sastav:ibuprofen, sastojak 1, sastojak 2</Sadrzaj>
-    <JmbgPrimaoca>1903999772025</JmbgPrimaoca>
-    <JmbgPosiljaoca>6667</JmbgPosiljaoca>
-    <Napomena />
-    <IdVerifikacijeLeka>5/4/2021 3:32:28 AM66671903999772025</IdVerifikacijeLeka>
+    <VremeSlanjaZahteva>2021-06-10T04:05:45.3165173+02:00</VremeSlanjaZahteva>
+    <Naslov>has</Naslov>
+    <Sadrzaj>Vrsta:tableta Jačina:543 mg Zamenski lek:hasanaginica Sastav:dasa</Sadrzaj>
+    <JmbgPrimaoca>6667</JmbgPrimaoca>
+    <JmbgPosiljaoca>1903999772025</JmbgPosiljaoca>
+    <Napomena>dasads</Napomena>
+    <IdVerifikacijeLeka>10.06.2021 04:05:4519039997720256667</IdVerifikacijeLeka>
   </VerifikacijaLeka>
 </ArrayOfVerifikacijaLeka>
