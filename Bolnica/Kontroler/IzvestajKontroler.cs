@@ -25,6 +25,7 @@ namespace Bolnica.Kontroler
         }
         public void KreirajIzvestajPacijenta(DateTime pocetakIntervala, DateTime krajIntervala)
         {
+
             DefaultIzvestaj izvestaj = new IzvestajPacijentServis();
             izvestaj.GenerisiIzvestaj(pocetakIntervala, krajIntervala);
         }

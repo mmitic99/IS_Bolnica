@@ -13,6 +13,8 @@ using Bolnica.Repozitorijum.XmlSkladiste;
 using System.Text.RegularExpressions;
 using Bolnica.Repozitorijum.Factory.VerifikacijaLekaFactory;
 using Bolnica.Validacije;
+using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 
 namespace Bolnica.view.UpravnikView
 {
@@ -27,6 +29,8 @@ namespace Bolnica.view.UpravnikView
         FeedbackKontroler FeedbackKontroler = new FeedbackKontroler();
         private IVerifikacijaLekaKontroler iVerifikacijaLekaKontroler;
         public ValidacijaContext validacija;
+        private bool isDragging = false;
+        private DispatcherTimer timer;
         public static UpravnikWindow GetInstance()
         {
             return instance;
@@ -44,6 +48,10 @@ namespace Bolnica.view.UpravnikView
             ProstorijeKontroler.GetInstance().AzurirajStanjeOpremeAkoJeBiloPrebacivanja();
             ProstorijeKontroler.GetInstance().AzurirajNaprednaRenoviranjaProstorija();
             PrikaziTabele();
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.Tick += timer_Tick;
+            timer.Start();
         }
 
         private void PrikaziTabele()
@@ -1021,6 +1029,65 @@ namespace Bolnica.view.UpravnikView
         private void GenerisiIzvestaj(object sender, RoutedEventArgs e)
         {
             IzvestajKontroler.GetInstance().KreirajIzvestajUpravnika(DateTime.Today, DateTime.Today.AddDays(7));
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (!isDragging)
+            {
+                timelineSlider.Value = TutorialVideo.Position.TotalSeconds;
+            }
+        }
+
+        private void Tutorial_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            if (TutorialVideo.NaturalDuration.HasTimeSpan)
+            {
+                TimeSpan ts = TutorialVideo.NaturalDuration.TimeSpan;
+                timelineSlider.Maximum = ts.TotalSeconds;
+                timelineSlider.SmallChange = 1;
+                timelineSlider.LargeChange = Math.Min(10, ts.Seconds / 10);
+            }
+            timer.Start();
+        }
+
+        private void timelineSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            TutorialVideo.Position = TimeSpan.FromSeconds(timelineSlider.Value);
+        }
+
+        private void TutorialVideo_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            TutorialVideo.Stop();
+        }
+
+        private void timelineSlider_DragStarted(object sender, DragStartedEventArgs e)
+        {
+            isDragging = true;
+        }
+
+        private void timelineSlider_DragCompleted(object sender, DragCompletedEventArgs e)
+        {
+            isDragging = false;
+            TutorialVideo.Position = TimeSpan.FromSeconds(timelineSlider.Value);
+        }
+
+        private void btnPusti_Click(object sender, RoutedEventArgs e)
+        {
+            TutorialVideo.Play();
+            lblStatus.Content = "Snimak pušten";
+        }
+
+        private void btnPauza_Click(object sender, RoutedEventArgs e)
+        {
+            TutorialVideo.Pause();
+            lblStatus.Content = "Snimak pauziran";
+        }
+
+        private void btnZaustavi_Click(object sender, RoutedEventArgs e)
+        {
+            TutorialVideo.Stop();
+            lblStatus.Content = "Snimak resetovan na početak";
         }
     }
 }

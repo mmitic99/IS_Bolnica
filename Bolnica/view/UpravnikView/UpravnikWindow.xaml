@@ -34,6 +34,39 @@
 
                     </Grid>
                 </TabItem>
+                <TabItem Header="TUTORIAL" FontSize="18" FontFamily="Yu Gothic UI Semibold" Width="188" BorderBrush="DodgerBlue">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="273*"/>
+                            <ColumnDefinition Width="85*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="550"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <MediaElement Source="Tutorialmp4.mp4" Margin="0,125,0.207,100.264" LoadedBehavior="Manual" Name="TutorialVideo" MediaOpened="Tutorial_MediaOpened" MediaEnded="TutorialVideo_MediaEnded" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                        <Slider  Name="timelineSlider" ValueChanged="timelineSlider_ValueChanged" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" Height="30" VerticalAlignment="Top" Margin="164,0.264,159.208,0" Grid.ColumnSpan="2" Grid.Row="1">
+                            <Slider.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Slider.RenderTransform>
+                        </Slider>
+                        <TextBlock HorizontalAlignment="Left" Margin="42,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="102" Width="967" FontSize="32" Text="Ako niste sigurni kako da koristite aplikaciju, klikom na dugme ,,Pusti&quot; možete pogledati tutorial." Grid.ColumnSpan="2"/>
+                        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0.264,0.207,0.264">
+                            <Label Name="lblStatus" Content="Kliknite ,,Pusti'' da pustite snimak" HorizontalContentAlignment="Center" Margin="0,-3,0,0"/>
+                            <WrapPanel Margin="0,-3,0,0" HorizontalAlignment="Center">
+                                <Button Name="btnPlay" Click="btnPusti_Click" Width="120" Height="50">Pusti</Button>
+                                <Button Name="btnPause" Margin="30,0" Click="btnPauza_Click" Width="120" Height="50">Pauziraj</Button>
+                                <Button Name="btnStop" Click="btnZaustavi_Click" Width="120" Height="50">Početak</Button>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
             </TabControl>
         </TabItem>
         <TabItem Header="PROSTORIJE" Background="DodgerBlue" FontSize="18" FontFamily="Yu Gothic Medium" Width="150" BorderBrush="DodgerBlue">
