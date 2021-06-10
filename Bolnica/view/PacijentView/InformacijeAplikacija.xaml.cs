@@ -74,7 +74,6 @@ namespace Bolnica.view.PacijentView
                 }
             }
             return povratna;
-
         }
     }
 }

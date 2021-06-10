@@ -272,6 +272,10 @@
                   <Naslov>ff</Naslov>
                   <Opis>dobro</Opis>
                 </Beleska>
+                <Beleska>
+                  <Naslov>napomena1</Naslov>
+                  <Opis>napomena2</Opis>
+                </Beleska>
               </KomentariPacijenta>
             </Recept>
           </recepti>
