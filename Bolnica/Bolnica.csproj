@@ -245,7 +245,6 @@
     <Compile Include="model\BolnickoLecenje.cs" />
     <Compile Include="model\Enum\StatusRadnogVremena.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
-    <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Enum\VrstaPodsetnika.cs" />
     <Compile Include="model\Feedback.cs" />
     <Compile Include="model\model Interfejs\IVerifikacijaLeka.cs" />
