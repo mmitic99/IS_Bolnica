@@ -193,14 +193,20 @@ namespace Servis
             return 0;
         }
 
-        public bool IzmenaLozinke(string staraLozinka, string novaLozinka)
+        public bool IzmenaLozinke(string jmbg, string novaLozinka)
         {
-            throw new NotImplementedException();
+            Lekar l = skladisteZaLekara.getByJmbg(jmbg);
+            l.Korisnik.Lozinka = novaLozinka;
+            skladisteZaLekara.Save(l);
+            return true;
         }
 
-        public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
+        public bool IzmenaKorisnickogImena(string jmbg, string novoKorisnickoIme)
         {
-            throw new NotImplementedException();
+            Lekar l = skladisteZaLekara.getByJmbg(jmbg);
+            l.Korisnik.KorisnickoIme = novoKorisnickoIme;
+            skladisteZaLekara.Save(l);
+            return true;
         }
 
         public List<Lekar> GetAll()

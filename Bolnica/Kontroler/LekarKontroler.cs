@@ -15,7 +15,7 @@ namespace Kontroler
     public class LekarKontroler : KorisnikKontroler
     {
         public static LekarKontroler instance = null;
-
+        public LekarServis lekarServis;
         public static LekarKontroler getInstance()
         {
             if(instance==null)
@@ -57,12 +57,6 @@ namespace Kontroler
             });
         }
 
-        public bool DodajObavestenje(Obavestenje obavestenje)
-        {
-            // TODO: implement
-            return false;
-        }
-
         public object PrijavljivanjeKorisnika(string korisnickoIme, string lozinka)
         {
             Lekar lekar = (Lekar) lekarServis.PrijavljivanjeKorisnika(korisnickoIme, lozinka);
@@ -97,7 +91,7 @@ namespace Kontroler
 
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
         {
-            throw new NotImplementedException();
+            return LekarServis.getInstance().IzmenaKorisnickogImena(staroKorisnickoIme, novoKorisnickoIme);
         }
 
         public List<LekarDTO> GetAll()
@@ -128,7 +122,6 @@ namespace Kontroler
                     Drzava = lekar.Grad.drzava.Naziv
                 });
             }
-
             return lekariDto;
         }
 
@@ -142,16 +135,16 @@ namespace Kontroler
             lekarServis.SaveAll(lekari);
         }
 
-        public Servis.LekarServis lekarServis;
-
         internal int DobaviIndeksSelektovanogLekara(Object termin)
         {
            return LekarServis.getInstance().DobaviIndeksSelectovanogLekara((Termin)termin);
         }
+
         public void IzdajRecept(ReceptiDTO parametri)
         {
             LekarServis.getInstance().izdajRecept(parametri);
         }
+
         public LekarDTO GetByJmbg(string jmbg)
         {
             Lekar lekar = lekarServis.GetByJmbg(jmbg);
@@ -239,7 +232,7 @@ namespace Kontroler
 
         public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
         {
-            throw new NotImplementedException();
+            return lekarServis.IzmenaLozinke(jmbg, novaLozinka);
         }
     }
 }

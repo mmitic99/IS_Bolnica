@@ -23,16 +23,12 @@ namespace Kontroler
                 return instance;
             }
         }
-        private ObavestenjaServis ObavestenjaServis;
 
         public ObavestenjaKontroler()
         {
             instance = this;
             obavestenjaServis = new ObavestenjaServis();
-            ObavestenjaServis = new ObavestenjaServis();
         }
-
-
 
         public List<Obavestenje> GetAll()
         {
@@ -92,7 +88,7 @@ namespace Kontroler
         public bool NapraviKorisnickiPodsetnik(KorisnickiPodsetnikFrontDTO podsetnikDTO)
         {
             KorisnickiPodsetnikKlasifikovnoDTO podsetnikKlasifikovano = KlasifikujParametreKorisnickogPodsetnika(podsetnikDTO);
-            return ObavestenjaServis.NapravikorisnickePodsetnike(podsetnikKlasifikovano);
+            return obavestenjaServis.NapravikorisnickePodsetnike(podsetnikKlasifikovano);
         }
 
         private KorisnickiPodsetnikKlasifikovnoDTO KlasifikujParametreKorisnickogPodsetnika(KorisnickiPodsetnikFrontDTO podsetnikDTO)
@@ -120,10 +116,9 @@ namespace Kontroler
             return ObavestenjaServis.getInstance().DobaviAktuelnePodsetnike(pacijent.Jmbg);
         }
 
-        public int nabaviNovePodsetnike(Pacijent pacijent
-            )
+        public int nabaviNovePodsetnike(Pacijent pacijent)
         {
-            return ObavestenjaServis.NabaviNovePodsetnike(pacijent.Jmbg);
+            return obavestenjaServis.NabaviNovePodsetnike(pacijent.Jmbg);
         }
 
         public bool IzmeniObavestenje(ObavestenjeDTO staroObavestenje, ObavestenjeDTO novoObavestenje)

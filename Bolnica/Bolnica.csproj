@@ -122,7 +122,7 @@
       <HintPath>packages\Syncfusion.OfficeChart.Base.19.1.0.66\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Pdf.Base, Version=19.1460.0.66, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Pdf.Wpf.19.1.0.66\lib\net46\Syncfusion.Pdf.Base.dll</HintPath> 
+      <HintPath>packages\Syncfusion.Pdf.Wpf.19.1.0.66\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=19.1460.0.67, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.Compression.Base.19.1.0.67\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
@@ -216,9 +216,10 @@
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
     <Compile Include="Kontroler\AnamnezaKontroler.cs" />
-    <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="DTOs\LekValidacijaDTO.cs" />
     <Compile Include="DTOs\ReceptDTO.cs" />
+    <Compile Include="Kontroler\AnketeKvartalneKontroler.cs" />
+    <Compile Include="Kontroler\AnketeOLekaruKontroler.cs" />
     <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
     <Compile Include="Kontroler\FeedbackKontroler.cs" />
     <Compile Include="Kontroler\IzvestajKontroler.cs" />
@@ -242,7 +243,6 @@
     <Compile Include="model\BolnickoLecenje.cs" />
     <Compile Include="model\Enum\StatusRadnogVremena.cs" />
     <Compile Include="model\Enum\VrstaKorisnickeAkcije.cs" />
-    <Compile Include="model\Enum\VrstaKorisnikaAplikacije.cs" />
     <Compile Include="model\Enum\VrstaPodsetnika.cs" />
     <Compile Include="model\Feedback.cs" />
     <Compile Include="model\Izvestaj.cs" />
@@ -288,7 +288,8 @@
     <Compile Include="Servis\AnamnezaServis.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaPodsetnikeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
-    <Compile Include="Servis\AnketeServis.cs" />
+    <Compile Include="Servis\AnketeKvartalneServis.cs" />
+    <Compile Include="Servis\AnketeOLekaruServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
     <Compile Include="Servis\FeedbackServis.cs" />
     <Compile Include="Servis\IzvestajServis.cs" />

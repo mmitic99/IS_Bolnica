@@ -107,12 +107,12 @@ namespace Kontroler
 
         public bool IzmenaLozinke(string jmbg, string staraLozinka, string novaLozinka)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool IzmenaKorisnickogImena(string staroKorisnickoIme, string novoKorisnickoIme)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public List<PacijentDTO> GetAll()
@@ -185,67 +185,13 @@ namespace Kontroler
 
         public bool IzmeniPacijenta(PacijentDTO stariPacijent, PacijentDTO noviPacijent)
         {
-            List<Anamneza> anamneze = new List<Anamneza>();
-            if (stariPacijent.ZdravstveniKarton.Anamneze != null)
-                foreach (AnamnezaDTO anamneza in stariPacijent.ZdravstveniKarton.Anamneze)
-                {
-                    anamneze.Add(new Anamneza()
-                    {
-                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
-                        DatumAnamneze = anamneza.DatumAnamneze,
-                        IdAnamneze = anamneza.IdAnamneze,
-                        ImeLekara = anamneza.ImeLekara
-                    });
-                }
+            List<Anamneza> anamneze = KlasifikujAnamnezu(stariPacijent);
+            List<Izvestaj> izvestaji = KlasifikujIzvestaje(stariPacijent);
+            List<Anamneza> anamnezeNovi = KlasifikujAnamnezu(noviPacijent);
+            List<Izvestaj> izvestajiNovi = KlasifikujIzvestaje(noviPacijent);
+            List<string> alergeni = KlasifikujAlergene(stariPacijent);
+            List<string> alergeniNovi = KlasifikujAlergene(noviPacijent);
 
-            List<Izvestaj> izvestaji = new List<Izvestaj>();
-            if (stariPacijent.ZdravstveniKarton.Izvestaj != null)
-                foreach (IzvestajDTO izvestaj in stariPacijent.ZdravstveniKarton.Izvestaj)
-                {
-                    izvestaji.Add(new Izvestaj()
-                    {
-                        datum = izvestaj.datum,
-                        dijagnoza = izvestaj.dijagnoza,
-                        recepti = izvestaj.recepti
-                    });
-                }
-
-            List<Anamneza> anamnezeNovi = new List<Anamneza>();
-            if (noviPacijent.ZdravstveniKarton.Anamneze != null)
-                foreach (AnamnezaDTO anamneza in noviPacijent.ZdravstveniKarton.Anamneze)
-                {
-                    anamneze.Add(new Anamneza()
-                    {
-                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
-                        DatumAnamneze = anamneza.DatumAnamneze,
-                        IdAnamneze = anamneza.IdAnamneze,
-                        ImeLekara = anamneza.ImeLekara
-                    });
-                }
-
-            List<Izvestaj> izvestajiNovi = new List<Izvestaj>();
-            if (noviPacijent.ZdravstveniKarton.Izvestaj != null)
-                foreach (IzvestajDTO izvestaj in noviPacijent.ZdravstveniKarton.Izvestaj)
-                {
-                    izvestaji.Add(new Izvestaj()
-                    {
-                        datum = izvestaj.datum,
-                        dijagnoza = izvestaj.dijagnoza,
-                        recepti = izvestaj.recepti
-                    });
-                }
-
-            List<string> alergeni = new List<string>();
-            if (stariPacijent.ZdravstveniKarton.Alergeni != null)
-            {
-                alergeni = stariPacijent.ZdravstveniKarton.Alergeni;
-            }
-
-            List<string> alergeniNovi = new List<string>();
-            if (noviPacijent.ZdravstveniKarton.Alergeni != null)
-            {
-                alergeniNovi = noviPacijent.ZdravstveniKarton.Alergeni;
-            }
             return PacijentServis.IzmeniPacijenta(new Pacijent()
             {
                 Ime = stariPacijent.Ime,
@@ -301,7 +247,49 @@ namespace Kontroler
                     Izvestaj = izvestajiNovi
                 }
             });
+        }
 
+        private List<string> KlasifikujAlergene(PacijentDTO stariPacijent)
+        {
+            List<string> alergeni = new List<string>();
+            if (stariPacijent.ZdravstveniKarton.Alergeni != null)
+            {
+                alergeni = stariPacijent.ZdravstveniKarton.Alergeni;
+            }
+            return alergeni;
+        }
+
+        private List<Izvestaj> KlasifikujIzvestaje(PacijentDTO stariPacijent)
+        {
+            List<Izvestaj> izvestaji = new List<Izvestaj>();
+            if (stariPacijent.ZdravstveniKarton.Izvestaj != null)
+                foreach (IzvestajDTO izvestaj in stariPacijent.ZdravstveniKarton.Izvestaj)
+                {
+                    izvestaji.Add(new Izvestaj()
+                    {
+                        datum = izvestaj.datum,
+                        dijagnoza = izvestaj.dijagnoza,
+                        recepti = izvestaj.recepti
+                    });
+                }
+            return izvestaji;
+        }
+
+        private List<Anamneza> KlasifikujAnamnezu(PacijentDTO stariPacijent)
+        {
+            List<Anamneza> anamneze = new List<Anamneza>();
+            if (stariPacijent.ZdravstveniKarton.Anamneze != null)
+                foreach (AnamnezaDTO anamneza in stariPacijent.ZdravstveniKarton.Anamneze)
+                {
+                    anamneze.Add(new Anamneza()
+                    {
+                        AnamnezaDijalog = anamneza.AnamnezaDijalog,
+                        DatumAnamneze = anamneza.DatumAnamneze,
+                        IdAnamneze = anamneza.IdAnamneze,
+                        ImeLekara = anamneza.ImeLekara
+                    });
+                }
+            return anamneze;
         }
 
         public List<Recept> DobaviRecepePacijenta(string jmbg)
@@ -371,9 +359,6 @@ namespace Kontroler
                 datumKreiranjaNaloga = pacijent.Korisnik.DatumKreiranjaNaloga
             };
             return pacijentDTO;
-            
-
-
         }
 
         public bool ObrisiPacijenta(string jmbg)
@@ -384,24 +369,20 @@ namespace Kontroler
         public int GetBrojMuskihPacijenata()
         {
             int broj = 0;
-
             foreach (Pacijent pacijent in PacijentServis.GetAll())
             {
                 if (pacijent.Pol == Pol.Muski) broj++;
             }
-
             return broj;
         }
 
         public int GetBrojZenskihPacijenata()
         {
             int broj = 0;
-
             foreach (Pacijent pacijent in PacijentServis.GetAll())
             {
                 if (pacijent.Pol == Pol.Zenski) broj++;
             }
-
             return broj;
         }
 

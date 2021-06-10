@@ -15,8 +15,16 @@ namespace Bolnica.viewActions
 
         public ObavestenjeDTO obavestenje { get; set; }
         public KvartalnaAnketa ZakacenaKvartalnaAnketa {get; set;}
+        public DateTime datumZakaceneKvartalne
+        {
+            get
+            {
+                return ZakacenaKvartalnaAnketa.datum;
+            }
+        }
         public AnketaLekar ZakacenaAnketaOLekaru { get; set; }
-        private AnketeKontroler AnketeKontroler;
+        private AnketeKvartalneKontroler AnketeKvartalneKontroler;
+        private AnketeOLekaruKontroler AnketeOLekaruKontroler;
 
 
         public PrikazJednogObavestenjaPacijentaViewModel()
@@ -32,7 +40,8 @@ namespace Bolnica.viewActions
         public PrikazJednogObavestenjaPacijentaViewModel(object selectedItem)
         {
             this.obavestenje = (ObavestenjeDTO)selectedItem;
-            this.AnketeKontroler = new AnketeKontroler();
+            this.AnketeOLekaruKontroler = new AnketeOLekaruKontroler();
+            this.AnketeKvartalneKontroler = new AnketeKvartalneKontroler();
             PrikaciKvartalnuAnketu();
             PrikaciAnketuOLekaru();
         }
@@ -41,7 +50,7 @@ namespace Bolnica.viewActions
         {
             if(obavestenje.anketaOLekaru!=null)
             {
-                this.ZakacenaAnketaOLekaru = AnketeKontroler.GetAnketaOLekaruByJmbg(obavestenje.anketaOLekaru.JmbgLekara);
+                this.ZakacenaAnketaOLekaru = AnketeOLekaruKontroler.GetAnketaOLekaruByJmbg(obavestenje.anketaOLekaru.JmbgLekara);
                 MainViewModel.getInstance().AnketaOLekaruVM = new AnketaOLekaruViewModel(obavestenje.anketaOLekaru);
             }
         }
@@ -50,7 +59,7 @@ namespace Bolnica.viewActions
         {
             if (obavestenje.kvartalnaAnketa != new DateTime(0))
             {
-                this.ZakacenaKvartalnaAnketa = AnketeKontroler.GetByDate(obavestenje.VremeObavestenja);
+                this.ZakacenaKvartalnaAnketa = AnketeKvartalneKontroler.GetByDate(obavestenje.VremeObavestenja);
             }
         }
     }
