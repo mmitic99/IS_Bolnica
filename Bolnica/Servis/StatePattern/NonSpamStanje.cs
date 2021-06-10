@@ -24,7 +24,7 @@ namespace Bolnica.Servis.StatePattern
             korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja++;
             korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo = DateTime.Today.AddDays(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja * 14);
             korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
-            korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.Spam;
+            korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = new SpamStanje(korisnickeAktivnostiPacijentaServis);
             return true;
         }
 
@@ -75,7 +75,7 @@ namespace Bolnica.Servis.StatePattern
             korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
             if(korisnickeAktivnostiPacijentaServis.TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA)
             {
-                korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.HalfSpam;
+                korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = new HalfSpamStanje(korisnickeAktivnostiPacijentaServis);
             }
             return true;
         }

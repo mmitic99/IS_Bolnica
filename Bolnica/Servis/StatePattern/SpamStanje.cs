@@ -74,8 +74,8 @@ namespace Bolnica.Servis.StatePattern
                 korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo = DateTime.MinValue;
                 korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
                 if (korisnickeAktivnostiPacijentaServis.TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA)
-                    korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.HalfSpam;
-                else korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.NonSpam;
+                    korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = new HalfSpamStanje(korisnickeAktivnostiPacijentaServis);
+                else korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = new NonSpamStanje(korisnickeAktivnostiPacijentaServis);
                 korisnikOdblokiran = true;
             }
             return korisnikOdblokiran;

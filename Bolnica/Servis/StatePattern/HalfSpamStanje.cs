@@ -23,7 +23,7 @@ namespace Bolnica.Servis.StatePattern
             korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja++;
             korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BlokiranDo = DateTime.Today.AddDays(korisnickeAktivnostiPacijentaServis.korisnickeAktivnostiNaAplikaciji.BrojPutaBlokiranja * 14);
             korisnickeAktivnostiPacijentaServis.SacuvajIzmenjenekorisnickeAktivnosti();
-            korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = korisnickeAktivnostiPacijentaServis.Spam;
+            korisnickeAktivnostiPacijentaServis.TrenutnoStanjeKorisnika = new SpamStanje(korisnickeAktivnostiPacijentaServis);
             return true;
         }
 

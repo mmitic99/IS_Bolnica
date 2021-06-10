@@ -14,28 +14,22 @@ namespace Servis
         public const int MAX_BROJ_OTKAZIVANJA = 3;
         public ISkladisteZaKorisnickeAktivnosti skladisteZaKorisnickeAktivnosti;
         public IStanjeKorisnika TrenutnoStanjeKorisnika;
-        public IStanjeKorisnika Spam { get; set; }
-        public IStanjeKorisnika HalfSpam { get; set; }
-        public IStanjeKorisnika NonSpam { get; set; }
         public KorisnickeAktivnostiNaAplikaciji korisnickeAktivnostiNaAplikaciji { get; set; }
-        public TerminServis TerminServis { get; }
+        public TerminServis TerminServis { get;}
 
         public KorisnickeAktivnostiPacijentaServis(string JmbgKorisnika)
         {
             skladisteZaKorisnickeAktivnosti = new SkladisteZaKorisnickeAktivnostiXml();
             this.TerminServis = new TerminServis();
             this.korisnickeAktivnostiNaAplikaciji = GetByJmbg(JmbgKorisnika);
-            Spam = new SpamStanje(this);
-            HalfSpam = new HalfSpamStanje(this);
-            NonSpam = new NonSpamStanje(this);
             TrenutnoStanjeKorisnika = postaviPocetnoStanjeKorisnika();
         }
 
         private IStanjeKorisnika postaviPocetnoStanjeKorisnika()
         {
-            IStanjeKorisnika stanje = NonSpam;
-            if (korisnickeAktivnostiNaAplikaciji.BlokiranDo != DateTime.MinValue) stanje = Spam;
-            else if(TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA) stanje = HalfSpam;
+            IStanjeKorisnika stanje = new NonSpamStanje(this);
+            if (korisnickeAktivnostiNaAplikaciji.BlokiranDo != DateTime.MinValue) stanje = new SpamStanje(this);
+            else if(TerminServis.DobaviBrojZakazanihTerminaPacijentaIzBuducnosti(korisnickeAktivnostiNaAplikaciji.JmbgKorisnika) >= MAX_BROJ_ZAKAZANIH_PACIjENTA) stanje = new HalfSpamStanje(this);
             return stanje;
         }
 
@@ -59,7 +53,7 @@ namespace Servis
             return aktivnosti;
         }
 
-        public KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
+        private KorisnickeAktivnostiNaAplikaciji NapraviNoveKorisnickeAktivnosti(String jmbgKorisnika)
         {
             KorisnickeAktivnostiNaAplikaciji noveAktivnosti = new KorisnickeAktivnostiNaAplikaciji(jmbgKorisnika);
             skladisteZaKorisnickeAktivnosti.Save(noveAktivnosti);
