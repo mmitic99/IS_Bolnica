@@ -9,6 +9,7 @@ using System.Windows;
 using Bolnica.model;
 using Bolnica.Repozitorijum.XmlSkladiste;
 using Bolnica.Template_class;
+using Bolnica.Validacije;
 using Bolnica.view.LekarView;
 using Bolnica.viewActions;
 using Model;
@@ -34,7 +35,8 @@ namespace Bolnica.Servis
 
         public override void PrikaziObavestenje()
         {
-            MessageBox.Show("Uspesno kreiran izvestaji!");
+            ValidacijaContext validacija = new ValidacijaContext(new SelekcijaStrategy());
+            validacija.IspisiGresku(18);
         }
         private void SacuvajIzvestajPreraspodela(DateTime pocetak, DateTime kraj)
         {
