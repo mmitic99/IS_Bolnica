@@ -34,6 +34,9 @@ namespace Bolnica.Validacije
                 case 7:
                     MessageBox.Show("Selektujte  vrstu/klasu leka !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
+                case 8:
+                    MessageBox.Show("Lek uspešno poslat lekaru na verifikaciju.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+                    break;
                 default:
                     break;
             }

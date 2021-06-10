@@ -57,7 +57,7 @@ namespace Bolnica.Servis
             skladisteZaLekove.SaveAll(SviLekovi);
         }
 
-        public void IzmeniLekLekar(int index,Lek lek)
+        public void IzmeniLekLekar(int index, Lek lek)
         {
             List<Lek> SviLekovi = skladisteZaLekove.GetAll();
             int StariIdLeka = LekoviPage.getInstance().Lekovi[index].IdLeka;
@@ -92,14 +92,14 @@ namespace Bolnica.Servis
                 foreach (Lek l in SviLekovi)
                 {
                     if (vrstaOperacije.Equals("dodaj") && lek.NazivLeka.Equals(l.NazivLeka))
-                    { //6
+                    {
                         validacija.IspisiGresku(6);
                         validno = false;
                     }
                     else if (vrstaOperacije.Equals("izmeni"))
                     {
                         if (lek.NazivLeka != SviLekovi[indexSelektovanogLeka].NazivLeka && lek.NazivLeka.Equals(l.NazivLeka))
-                        { //6
+                        {
                             validacija.IspisiGresku(6);
                             validno = false;
                         }
@@ -108,19 +108,18 @@ namespace Bolnica.Servis
             }
             return validno;
         }
-
         private bool ValidirajComboBoxoveLeka(LekValidacijaDTO lek)
         {
             bool validno = true;
             if (lek.VrstaLeka == -1 || lek.KlasaLeka == -1)
-            { //7
+            {
                 validacija.IspisiGresku(7);
                 validno = false;
             }
             return validno;
         }
 
-public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, int selektovaniLek)
+        public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, int selektovaniLek)
         {
             bool validno = true;
             int idGreske = 0;
@@ -175,6 +174,7 @@ public bool ProveriValidnostLeka(LekValidacijaDTO lek, String DodajIliIzmeni, in
                 vrsta = VrstaLeka.Gel;
             return vrsta;
         }
+
 
         public Model.Enum.KlasaLeka GetKlasuLeka(int IndexSelektovaneKlaseLeka)
         {

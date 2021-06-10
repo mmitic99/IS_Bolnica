@@ -12,7 +12,7 @@ namespace Bolnica.Validacije
     {
         public void IspisiPorukuGreske(int idGreske)
         {
-            switch (idGreske) 
+            switch (idGreske)
             {
                 case 1:
                     MessageBox.Show("Neispravno unet broj prostorije !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -67,6 +67,27 @@ namespace Bolnica.Validacije
                     break;
                 case 18:
                     MessageBox.Show("Prostorija je zauzeta u tom periodu !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 19:
+                    MessageBox.Show("Ne možete prebaciti toliko opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 20:
+                    MessageBox.Show("Prostorija u koju želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 21:
+                    MessageBox.Show("Prostorija iz koje želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 22:
+                    MessageBox.Show("Niste uneli sve potrebne podatke (broj prostorije ili datume) !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 23:
+                    MessageBox.Show("Ne možete prebaciti toliko opreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 24:
+                    MessageBox.Show("Prostorija u koju želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                case 25:
+                    MessageBox.Show("Prostorija iz koje želite da prebacite opremu je zauzeta u to vreme !", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
                 default:
                     break;

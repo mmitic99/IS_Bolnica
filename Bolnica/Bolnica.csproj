@@ -320,9 +320,11 @@
     <Compile Include="Servis\VerifikacijaLekaServis.cs" />
     <Compile Include="Template class\DefaultIzvestaj.cs" />
     <Compile Include="Validacije\EmailValidationRule.cs" />
+    <Compile Include="Validacije\FeedbackStrategy.cs" />
     <Compile Include="Validacije\JmbgValidationRule.cs" />
     <Compile Include="Validacije\LekStrategy.cs" />
     <Compile Include="Validacije\PraznoPoljeValidationRule.cs" />
+    <Compile Include="Validacije\SelekcijaStrategy.cs" />
     <Compile Include="Validacije\StringToIntValidationRule.cs" />
     <Compile Include="Validacije\ProstorijaStrategy.cs" />
     <Compile Include="Validacije\ValidacijaContext.cs" />
