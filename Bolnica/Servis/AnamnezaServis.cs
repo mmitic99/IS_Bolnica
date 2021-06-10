@@ -27,14 +27,7 @@ namespace Bolnica.Servis
         }
         public Anamneza getAnamnezaById(String Id)
         {
-            List<Anamneza> sveAnamneze = new List<Anamneza>();
-            foreach (Pacijent pacijent in PacijentServis.GetInstance().GetAll())
-            {
-                foreach(Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
-                {
-                    sveAnamneze.Add(anamneza);
-                }
-            }
+            List<Anamneza> sveAnamneze = getSveAnamneze();        
             Anamneza anamnezaNova = new Anamneza();
             foreach (Anamneza anamneza in sveAnamneze)
             {
@@ -49,10 +42,22 @@ namespace Bolnica.Servis
             }
             return anamnezaNova;
         }
-       
+
+        private List<Anamneza> getSveAnamneze()
+        {
+            List<Anamneza> sveAnamneze = new List<Anamneza>();
+            foreach (Pacijent pacijent in PacijentServis.GetInstance().GetAll())
+            {
+                foreach (Anamneza anamneza in pacijent.ZdravstveniKarton.Anamneze)
+                {
+                    sveAnamneze.Add(anamneza);
+                }
+            }
+            return sveAnamneze;
+        }
+
         public void IzmenaAnamneze(String id, String dijalog,Pacijent pacijent)
         {
-
             Anamneza anamneza = AnamnezaServis.GetInstance().getAnamnezaById(id);
             Pacijent pacijentNovi = pacijent;
             anamneza.AnamnezaDijalog = dijalog;

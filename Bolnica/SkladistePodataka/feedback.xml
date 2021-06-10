@@ -25,6 +25,7 @@
     <Ocena>5</Ocena>
   </Feedback>
   <Feedback>
+<<<<<<< HEAD
     <JmbgKorisnika>6667</JmbgKorisnika>
     <DatumIVreme>2021-06-10T01:42:20.3004365+02:00</DatumIVreme>
     <Sadrzaj>opa</Sadrzaj>
@@ -41,5 +42,11 @@
     <DatumIVreme>2021-06-10T10:05:35.1303666+02:00</DatumIVreme>
     <Sadrzaj>Moze bolje</Sadrzaj>
     <Ocena>3</Ocena>
+=======
+    <JmbgKorisnika>1234567894444</JmbgKorisnika>
+    <DatumIVreme>2021-06-10T03:53:21.1595129+02:00</DatumIVreme>
+    <Sadrzaj>Jako dobra</Sadrzaj>
+    <Ocena>4</Ocena>
+>>>>>>> KT6/Solid-S
   </Feedback>
 </ArrayOfFeedback>

@@ -11,22 +11,12 @@ using Bolnica.Repozitorijum.XmlSkladiste;
 
 namespace Bolnica.Servis
 {
-    class AnketeServis
+    class AnketeKvartalneServis
     {
-        public static AnketeServis instance;
         public ISkladisteZaKvartalneAnkete skladisteZaKvartalneAnkete;
-        public ISkladisteZaAnketeOLekaru SkladisteZaAnketeOLekaru;
-        public static AnketeServis GetInstance()
+        public AnketeKvartalneServis()
         {
-            if (instance == null) return new AnketeServis();
-            else return instance;
-        }
-
-        public AnketeServis()
-        {
-            instance = this;
             skladisteZaKvartalneAnkete = new SkladisteZaKvartalneAnketeXml();
-            SkladisteZaAnketeOLekaru = new SkladisteZaAnketeOLekaruXml();
         }
 
         public bool DaLiJePoslataKvartalnaAnketa(DateTime today)
@@ -51,28 +41,13 @@ namespace Bolnica.Servis
             return istekloVreme;
         }
 
-        public bool DaLiJeKorisnikPopunioKvartalnuAnketu(string jmbg, KvartalnaAnketa anketa)
+        public bool DaLiJeKorisnikPopunioKvartalnuAnketu(string jmbg, DateTime DatumZakaceneKvartalne)
         {
             bool popunioAnketu = false;
-            KvartalnaAnketa kvartalnaAnketa = GetKvartalnaAnketa(anketa.datum);
+            KvartalnaAnketa kvartalnaAnketa = GetKvartalnaAnketa(DatumZakaceneKvartalne);
             foreach (String jmbgPopunjenih in kvartalnaAnketa.anketuPopunili)
             {
                 if (jmbgPopunjenih.Equals(jmbg))
-                {
-                    popunioAnketu = true;
-                    break;
-                }
-            }
-            return popunioAnketu;
-        }
-
-        public bool DaLiJeKorisnikPopunioAnketuOLekaru(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
-        {
-            bool popunioAnketu = false;
-            AnketaLekar anketa = GetAnketaOLekaru(anketaOLekaru.JmbgLekara);
-            foreach (String ID in anketa.ispunjeneAnkete)
-            {
-                if (ID != null && ID.Equals(anketaOLekaru.IDAnkete))
                 {
                     popunioAnketu = true;
                     break;
@@ -95,28 +70,9 @@ namespace Bolnica.Servis
             }
             if (kvartalnaAnketa == null)
             {
-               kvartalnaAnketa = kreirajNovuKvartalnuAnketu(datumAnkete);
+                kvartalnaAnketa = kreirajNovuKvartalnuAnketu(datumAnkete);
             }
             return kvartalnaAnketa;
-        }
-
-        public AnketaLekar GetAnketaOLekaru(string jmbgLekara)
-        {
-            AnketaLekar anketaLekar = null;
-            List<AnketaLekar> sveAnkete = SkladisteZaAnketeOLekaru.GetAll();
-            foreach (AnketaLekar anketa in sveAnkete)
-            {
-                if (anketa.JmbgLekara.Equals(jmbgLekara))
-                {
-                    anketaLekar = anketa;
-                    break;
-                }
-            }
-            if(anketaLekar == null)
-            {
-                anketaLekar = kreirajNovuAnketuOLekaru(jmbgLekara);
-            }
-            return anketaLekar;
         }
 
         public bool SacuvajKvartalnuAnketu(PopunjenaKvartalnaAnketaDTO popunjenaAnketa)
@@ -126,25 +82,11 @@ namespace Bolnica.Servis
             return SacuvajIzmenjenuKvartalnuAnketu(kvartalnaAnketa);
         }
 
-        internal bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaDTO popunjenaAnketa)
-        {
-            AnketaLekar anketaOLekaru = GetAnketaOLekaru(popunjenaAnketa.JmbgLekara);
-            DodajPopunjenuAnketu(popunjenaAnketa, anketaOLekaru);
-            return SacuvajIzmenjenuAnketuOLekaru(anketaOLekaru);
-        }
-
         private KvartalnaAnketa kreirajNovuKvartalnuAnketu(DateTime datumAnkete)
         {
             KvartalnaAnketa kvartalnaAnketa = new KvartalnaAnketa(datumAnkete);
             skladisteZaKvartalneAnkete.Save(kvartalnaAnketa);
             return kvartalnaAnketa;
-        }
-
-        private AnketaLekar kreirajNovuAnketuOLekaru(string jmbgLekara)
-        {
-            AnketaLekar anketaOLekaru = new AnketaLekar(jmbgLekara);
-            SkladisteZaAnketeOLekaru.Save(anketaOLekaru);
-            return anketaOLekaru;
         }
 
         private void DodajPopunjenuKvartalnuAnketu(PopunjenaKvartalnaAnketaDTO anketa, KvartalnaAnketa kvartalnaAnketa)
@@ -167,14 +109,6 @@ namespace Bolnica.Servis
             ++kvartalnaAnketa.BrojAnketiranih;
         }
 
-        private void DodajPopunjenuAnketu(PopunjenaAnketaPoslePregledaDTO anketa, AnketaLekar anketaOLekaru)
-        {
-            anketaOLekaru.Komentari.Add(anketa.Komentar);
-            anketaOLekaru.ProsecnaOcena = azuriranjeProsecneOcene(anketa.Ocena, anketaOLekaru.ProsecnaOcena, anketaOLekaru.BrojAnketa);
-            anketaOLekaru.ispunjeneAnkete.Add(anketa.IDAnkete);
-            ++anketaOLekaru.BrojAnketa;
-        }
-
         private double azuriranjeProsecneOcene(double novaOcena, double ProsecnaOcena, int BrojAnketiranih)
         {
             return (ProsecnaOcena * BrojAnketiranih + novaOcena) / (BrojAnketiranih + 1);
@@ -183,9 +117,9 @@ namespace Bolnica.Servis
         private bool SacuvajIzmenjenuKvartalnuAnketu(KvartalnaAnketa kvartalnaAnketa)
         {
             List<KvartalnaAnketa> ankete = skladisteZaKvartalneAnkete.GetAll();
-            for(int i=0; i<ankete.Count; i++)
+            for (int i = 0; i < ankete.Count; i++)
             {
-                if(ankete[i].datum.Equals(kvartalnaAnketa.datum))
+                if (ankete[i].datum.Equals(kvartalnaAnketa.datum))
                 {
                     ankete[i] = kvartalnaAnketa;
                     break;
@@ -194,19 +128,7 @@ namespace Bolnica.Servis
             skladisteZaKvartalneAnkete.SaveAll(ankete);
             return true;
         }
-        private bool SacuvajIzmenjenuAnketuOLekaru(AnketaLekar anketaOLekaru)
-        {
-            List<AnketaLekar> ankete = SkladisteZaAnketeOLekaru.GetAll();
-            for (int i = 0; i < ankete.Count; i++)
-            {
-                if (ankete[i].JmbgLekara.Equals(anketaOLekaru.JmbgLekara))
-                {
-                    ankete[i] = anketaOLekaru;
-                    break;
-                }
-            }
-            SkladisteZaAnketeOLekaruXml.GetInstance().SaveAll(ankete);
-            return true;
-        }
+
     }
 }
+

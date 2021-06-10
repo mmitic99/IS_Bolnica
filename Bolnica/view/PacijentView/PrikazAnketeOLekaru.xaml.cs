@@ -22,13 +22,13 @@ namespace Bolnica.view.PacijentView
     {
         private MainViewModel MainViewModel;
         private AnketaOLekaruViewModel ViewModel;
-        private AnketeKontroler AnketeKontroler;
+        private AnketeOLekaruKontroler AnketeOLekaruKontroler;
         public PrikazAnketeOLekaru()
         {
             InitializeComponent();
             this.MainViewModel = MainViewModel.getInstance();
             this.ViewModel = MainViewModel.AnketaOLekaruVM;
-            this.AnketeKontroler = new AnketeKontroler();
+            this.AnketeOLekaruKontroler = new AnketeOLekaruKontroler();
             ImeLekara.Text = ViewModel.PunoImeLekara;
             Nazad.Command = MainViewModel.PrikazObavestenjaCommand;
 
@@ -44,7 +44,7 @@ namespace Bolnica.view.PacijentView
                 Ocena = vratiOcenu(OcenaLekara),
                 IDAnkete = MainViewModel.getInstance().PrikazObavestenjaVM.obavestenje.anketaOLekaru.IDAnkete
             };
-            if(AnketeKontroler.SacuvajAnketuOLekaru(popunjena))
+            if(AnketeOLekaruKontroler.SacuvajAnketuOLekaru(popunjena))
             {
                 MainViewModel.CurrentView = MainViewModel.PrikazObavestenjaVM;
             }

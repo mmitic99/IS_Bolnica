@@ -10,35 +10,24 @@ using System.Threading.Tasks;
 
 namespace Bolnica.Kontroler
 {
-    class AnketeKontroler
+    class AnketeKvartalneKontroler
     {
-        private AnketeServis AnketeServis;
-        public static AnketeKontroler instance;
-        public static AnketeKontroler GetInstance()
-        {
-            if (instance == null) return new AnketeKontroler();
-            else return instance;
-        }
-        public AnketeKontroler()
-        {
-            instance = this;
-            this.AnketeServis = new AnketeServis();
-        }
+        private AnketeKvartalneServis AnketeKvartalneServis;
 
-        internal bool DaLiJeKorisnikPopunioAnketu(Pacijent pacijent, model.KvartalnaAnketa anketa)
+        public AnketeKvartalneKontroler()
         {
-            return AnketeServis.DaLiJeKorisnikPopunioKvartalnuAnketu(pacijent.Jmbg, anketa);
+            this.AnketeKvartalneServis = new AnketeKvartalneServis();
         }
 
         public bool SacuvajKvartalnuAnketu(KvartalnaAnketaDTO kvartalnaAnketa)
         {
+            bool uspesnoSacuvana = false;
             if (uneteSveOcene(kvartalnaAnketa))
             {
                 PopunjenaKvartalnaAnketaDTO popunjenaAnketa = KlasifikujParametrePopunjeneKvartalne(kvartalnaAnketa);
-                return AnketeServis.SacuvajKvartalnuAnketu(popunjenaAnketa);
+                uspesnoSacuvana = AnketeKvartalneServis.SacuvajKvartalnuAnketu(popunjenaAnketa);
             }
-            else
-                return false;
+            return uspesnoSacuvana;
         }
 
         private PopunjenaKvartalnaAnketaDTO KlasifikujParametrePopunjeneKvartalne(KvartalnaAnketaDTO kvartalnaAnketa)
@@ -74,62 +63,24 @@ namespace Bolnica.Kontroler
                 && !DaLiJePoslataKvartalnaAnketa(DateTime.Today);
         }
 
-        public bool SacuvajAnketuOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        public KvartalnaAnketa GetByDate(DateTime kvartalnaAnketa)
         {
-            bool uspesnoSacuvana = false;
-            if (uneteSveOceneLekarAnketa(popunjena))
-            {
-                PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = KlasifikujParametrePopunjeneAnketeOLekaru(popunjena);
-                uspesnoSacuvana = AnketeServis.SacuvajAnketuOLekaru(popunjenaAnketa);
-            }
-            return uspesnoSacuvana;
+            return AnketeKvartalneServis.GetKvartalnaAnketa(kvartalnaAnketa);
         }
 
-        private bool uneteSveOceneLekarAnketa(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        internal bool DaLiJeIstekloVremeZaPopunjavanjeAnkete(DateTime DatumZakaceneKvartalne)
         {
-            bool isPopunjena = false;
-            if ((String)popunjena.Ocena != "-1" && popunjena.Komentar != null)
-            {
-                isPopunjena = true;
-            }
-            return isPopunjena;
+            return AnketeKvartalneServis.DaLiJeIstekloVremeZaPopunjavanjeAnkete(DatumZakaceneKvartalne);
         }
 
-        private PopunjenaAnketaPoslePregledaDTO KlasifikujParametrePopunjeneAnketeOLekaru(PopunjenaAnketaPoslePregledaObjectDTO popunjena)
+        internal bool DaLiJeKorisnikPopunioAnketu(String JmbgPacijenta, DateTime datumZakaceneKvartalne)
         {
-            PopunjenaAnketaPoslePregledaDTO popunjenaAnketa = new PopunjenaAnketaPoslePregledaDTO()
-            {
-                IDAnkete = (String)popunjena.IDAnkete,
-                JmbgLekara = (String)popunjena.JmbgLekara,
-                Komentar = (String)popunjena.Komentar,
-                Ocena = Double.Parse((String)popunjena.Ocena)
-            };
-            return popunjenaAnketa;
-        }
-
-        internal AnketaLekar GetAnketaOLekaruByJmbg(string jmbgLekara)
-        {
-            return AnketeServis.GetAnketaOLekaru(jmbgLekara);
-        }
-
-        internal KvartalnaAnketa GetByDate(DateTime kvartalnaAnketa)
-        {
-            return AnketeServis.GetKvartalnaAnketa(kvartalnaAnketa);
-        }
-
-        internal bool DaLiJeIstekloVremeZaPopunjavanjeAnkete(KvartalnaAnketa anketa)
-        {
-            return AnketeServis.DaLiJeIstekloVremeZaPopunjavanjeAnkete(anketa.datum);
+            return AnketeKvartalneServis.DaLiJeKorisnikPopunioKvartalnuAnketu(JmbgPacijenta, datumZakaceneKvartalne);
         }
 
         internal bool DaLiJePoslataKvartalnaAnketa(DateTime today)
         {
-            return AnketeServis.DaLiJePoslataKvartalnaAnketa(today);
-        }
-
-        internal bool DaLiJeKorisnikPopunioAnketu(PrikacenaAnketaPoslePregledaDTO anketaOLekaru)
-        {
-            return AnketeServis.DaLiJeKorisnikPopunioAnketuOLekaru(anketaOLekaru);
+            return AnketeKvartalneServis.DaLiJePoslataKvartalnaAnketa(today);
         }
 
         private bool uneteSveOcene(KvartalnaAnketaDTO kvartalnaAnketa)
@@ -142,11 +93,11 @@ namespace Bolnica.Kontroler
                 (String)kvartalnaAnketa.JednostavnostZakazivanjaTerminaPrekoTelefona != "-1" &&
                 (String)kvartalnaAnketa.LjubaznostNemedicnskogOsoblja != "-1" &&
                 (String)kvartalnaAnketa.OpremljenostBolnice != "-1" &&
-                (String)kvartalnaAnketa.RezultatiTestovaDostupniURazumnoVreme!="-1"&&
+                (String)kvartalnaAnketa.RezultatiTestovaDostupniURazumnoVreme != "-1" &&
                 (String)kvartalnaAnketa.StrucnostMedicinskogOsobolja != "-1" &&
                 (String)kvartalnaAnketa.CelokupniUtisak != "-1" &&
                 (String)kvartalnaAnketa.DostupnostLekaraUTokuRadnihSatiLekara != "-1" &&
-                (String)kvartalnaAnketa.DostupnostLekaraKadaJeBolnicaZatvorena!="-1" &&
+                (String)kvartalnaAnketa.DostupnostLekaraKadaJeBolnicaZatvorena != "-1" &&
                 (String)kvartalnaAnketa.DostupnostTerminaURazumnomRoku != "-1")
             {
                 UneteSveOcene = true;

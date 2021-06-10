@@ -22,14 +22,14 @@ namespace Bolnica.view.PacijentView
     {
         private PrikazKvartalneAnketeViewModel ViewModel;
         private MainViewModel MainViewModel;
-        private AnketeKontroler AnketeKontroler;
+        private AnketeKvartalneKontroler AnketeKvartalneKontroler;
 
         public PrikazKvartalneAnkete()
         {
             InitializeComponent();
             this.MainViewModel = MainViewModel.getInstance();
             this.ViewModel = MainViewModel.PrikazKvartalneAnketeVM;
-            this.AnketeKontroler = new AnketeKontroler();
+            this.AnketeKvartalneKontroler = new AnketeKvartalneKontroler();
             Nazad.Command = MainViewModel.PrikazObavestenjaCommand;
         }
 
@@ -56,7 +56,7 @@ namespace Bolnica.view.PacijentView
                 
             };
 
-            if (AnketeKontroler.GetInstance().SacuvajKvartalnuAnketu(kvartalnaAnketa))
+            if (AnketeKvartalneKontroler.SacuvajKvartalnuAnketu(kvartalnaAnketa))
             {
                 MainViewModel.getInstance().CurrentView = MainViewModel.getInstance().PrikazObavestenjaVM;
             }

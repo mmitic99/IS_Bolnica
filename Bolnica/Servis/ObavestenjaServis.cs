@@ -22,7 +22,8 @@ namespace Servis
         private ISkladisteZaObavestenja SkladisteZaObavestenja;
         private ISkladisteZaPodsetnike SkladisteZaPodsetnike;
         private PacijentServis PacijentServis;
-        private AnketeServis AnketeServis;
+        private AnketeKvartalneServis AnketeKvartalneServis;
+        private AnketeOLekaruServis AnketeOLekaruServis;
         private LekarServis LekarServis;
 
         public static ObavestenjaServis getInstance()
@@ -39,7 +40,8 @@ namespace Servis
             this.PacijentServis = new PacijentServis();
             this.SkladisteZaObavestenja = new SkladisteZaObavestenjaXml();
             this.SkladisteZaPodsetnike = new SkladisteZaPodsetnikeXml();
-            this.AnketeServis = new AnketeServis();
+            this.AnketeKvartalneServis = new AnketeKvartalneServis();
+            this.AnketeOLekaruServis = new AnketeOLekaruServis();
             this.LekarServis = new LekarServis();
         }
 
@@ -155,7 +157,7 @@ namespace Servis
         {
             Pacijent pacijent = PacijentServis.GetByJmbg(JmbgPacijenta);
             Lekar lekar = LekarServis.GetByJmbg(JmbgLekara);
-            AnketeServis.GetAnketaOLekaru(JmbgLekara);
+            AnketeOLekaruServis.GetAnketaOLekaru(JmbgLekara);
             PrikacenaAnketaPoslePregledaDTO anketaOLekaru = new PrikacenaAnketaPoslePregledaDTO()
             {
                 IDAnkete = JmbgPacijenta + JmbgLekara + DateTime.Now.ToString(),
@@ -169,8 +171,7 @@ namespace Servis
                 Sadrzaj = "Poštovani/a " + pacijent.Ime + "\r\n" + "nedavno ste bili na pregledu kod " + lekar.FullName + ". Molimo Vas da popunite anketu o usluzi koja Vam je pružena i na taj način pomognete da poboljšamo komunikaciju i usluge koje naša bolnica pruža." +
                 "Hvala Vam na izdvojenom vremenu." + "\r\n\n" + "Prijatan dan Vam želi ZDRAVO bolnica.",
                 Vidjeno = false,
-                anketaOLekaru = anketaOLekaru
-                
+                anketaOLekaru = anketaOLekaru            
             };
             SkladisteZaObavestenja.Save(obavestenje);
         }
@@ -230,7 +231,7 @@ namespace Servis
 
         internal void PosaljiKvartalnuAnketu()
         {
-            AnketeServis.GetKvartalnaAnketa(DateTime.Today);
+            AnketeKvartalneServis.GetKvartalnaAnketa(DateTime.Today);
             Obavestenje obavestenje = new Obavestenje()
             {
                 VremeObavestenja = DateTime.Now,

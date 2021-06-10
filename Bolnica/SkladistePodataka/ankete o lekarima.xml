@@ -2,7 +2,7 @@
 <ArrayOfAnketaLekar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AnketaLekar>
     <JmbgLekara>609</JmbgLekara>
-    <ProsecnaOcena>2</ProsecnaOcena>
+    <ProsecnaOcena>2.4</ProsecnaOcena>
     <Komentari>
       <string>Uzas</string>
       <string>Jako ljubazna</string>
@@ -15,9 +15,6 @@
     <ispunjeneAnkete>
       <string>2313213154646095/4/2021 6:06:54 PM</string>
       <string>2313213154646095/4/2021 6:04:37 PM</string>
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
-      <string xsi:nil="true" />
       <string>12345678944446096/2/2021 10:59:42 AM</string>
     </ispunjeneAnkete>
   </AnketaLekar>
@@ -30,6 +27,19 @@
     <BrojAnketa>1</BrojAnketa>
     <ispunjeneAnkete>
       <string>123456789012366675/5/2021 1:14:54 AM</string>
+    </ispunjeneAnkete>
+  </AnketaLekar>
+  <AnketaLekar>
+    <JmbgLekara>12345678944446096/2/2021 10:59:42 AM</JmbgLekara>
+    <ProsecnaOcena>2.5</ProsecnaOcena>
+    <Komentari>
+      <string>123</string>
+      <string />
+    </Komentari>
+    <BrojAnketa>2</BrojAnketa>
+    <ispunjeneAnkete>
+      <string xsi:nil="true" />
+      <string xsi:nil="true" />
     </ispunjeneAnkete>
   </AnketaLekar>
 </ArrayOfAnketaLekar>

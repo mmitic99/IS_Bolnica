@@ -23,14 +23,16 @@ namespace Bolnica.view.PacijentView
     {
         private PrikazJednogObavestenjaPacijentaViewModel ViewModel;
         private MainViewModel MainViewModel;
-        private AnketeKontroler AnketeKontroler;
+        private AnketeKvartalneKontroler AnketeKvartalneKontroler;
+        private AnketeOLekaruKontroler AnketeOLekaruKontroler;
         
         public PrikazObavestenja()
         {
             InitializeComponent();
             MainViewModel = MainViewModel.getInstance();
             ViewModel = MainViewModel.PrikazObavestenjaVM;
-            this.AnketeKontroler = new AnketeKontroler();
+            this.AnketeKvartalneKontroler = new AnketeKvartalneKontroler();
+            this.AnketeOLekaruKontroler = new AnketeOLekaruKontroler();
             SetStarPage();
 
         }
@@ -56,13 +58,13 @@ namespace Bolnica.view.PacijentView
 
         private void KvartalnaAnketaDugme_Click(object sender, RoutedEventArgs e)
         {
-            if(AnketeKontroler.DaLiJeKorisnikPopunioAnketu(MainViewModel.Pacijent, ViewModel.ZakacenaKvartalnaAnketa))
+            if(AnketeKvartalneKontroler.DaLiJeKorisnikPopunioAnketu(MainViewModel.JmbgPacijenta, ViewModel.datumZakaceneKvartalne))
             {
                 var s = new Upozorenje("Već ste popunili anketu!");
                 s.Owner = PacijentMainWindow.getInstance();
                 s.ShowDialog();
             }
-            else if (AnketeKontroler.DaLiJeIstekloVremeZaPopunjavanjeAnkete(MainViewModel.getInstance().PrikazKvartalneAnketeVM.anketa))
+            else if (AnketeKvartalneKontroler.DaLiJeIstekloVremeZaPopunjavanjeAnkete(ViewModel.datumZakaceneKvartalne))
             {
                 var s = new Upozorenje("Vreme za popunjavanje ove ankete je isteklo!");
                 s.Owner = PacijentMainWindow.getInstance();
@@ -72,12 +74,11 @@ namespace Bolnica.view.PacijentView
             {
                 KvartalnaAnketaDugme.Command = MainViewModel.KvartalnaAnketaCommand;
             }
-            
         }
 
         private void AnketaLekarDugme_Click(object sender, RoutedEventArgs e)
         {
-            if (!AnketeKontroler.DaLiJeKorisnikPopunioAnketu(ViewModel.obavestenje.anketaOLekaru))
+            if (!AnketeOLekaruKontroler.DaLiJeKorisnikPopunioAnketu(ViewModel.obavestenje.anketaOLekaru))
             {
                 AnketaLekarDugme.Command = MainViewModel.AnketaOLekaruCommand;
             }

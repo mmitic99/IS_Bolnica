@@ -218,9 +218,10 @@
     <Compile Include="DTOs\ZakazanaPreraspodelaStatickeOpremeDTO.cs" />
     <Compile Include="DTOs\ZdravstveniKartonDTO.cs" />
     <Compile Include="Kontroler\AnamnezaKontroler.cs" />
-    <Compile Include="Kontroler\AnketeKontroler.cs" />
     <Compile Include="DTOs\LekValidacijaDTO.cs" />
     <Compile Include="DTOs\ReceptDTO.cs" />
+    <Compile Include="Kontroler\AnketeKvartalneKontroler.cs" />
+    <Compile Include="Kontroler\AnketeOLekaruKontroler.cs" />
     <Compile Include="Kontroler\BolnickaLecenjaKontroler.cs" />
     <Compile Include="Kontroler\FeedbackKontroler.cs" />
     <Compile Include="Kontroler\KontrolerInterfejs\IVerifikacijaLekaKontroler.cs" />
@@ -292,7 +293,8 @@
     <Compile Include="Servis\AnamnezaServis.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaPodsetnikeXml.cs" />
     <Compile Include="Repozitorijum\XmlSkladiste\SkladisteZaNaprednaRenoviranjaXml.cs" />
-    <Compile Include="Servis\AnketeServis.cs" />
+    <Compile Include="Servis\AnketeKvartalneServis.cs" />
+    <Compile Include="Servis\AnketeOLekaruServis.cs" />
     <Compile Include="Servis\BolnickaLecenjaServis.cs" />
     <Compile Include="Servis\FeedbackServis.cs" />
     <Compile Include="Servis\ServisInterfejs\IVerifikacijaLekaServis.cs" />

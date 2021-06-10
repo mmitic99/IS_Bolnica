@@ -26,7 +26,8 @@ namespace Bolnica.view
         private ObavestenjaKontroler ObavestenjaKontroler;
         private MainViewModel MainViewModel;
         private KorisnickeAktivnostiPacijentaKontroler KorisnickeAktivnostiPacijentaKontroler;
-        private AnketeKontroler AnketeKontroler;
+        private AnketeKvartalneKontroler AnketeKvartalneKontroler;
+        private AnketeOLekaruKontroler AnketeOLekaruKontroler;
 
 
         public static PacijentMainWindow getInstance()
@@ -42,7 +43,8 @@ namespace Bolnica.view
             this.MainViewModel = PacijentMainViewModel;
             this.ObavestenjaKontroler = new ObavestenjaKontroler();
             this.KorisnickeAktivnostiPacijentaKontroler = new KorisnickeAktivnostiPacijentaKontroler(MainViewModel.JmbgPacijenta);
-            this.AnketeKontroler = new AnketeKontroler();
+            this.AnketeOLekaruKontroler = new AnketeOLekaruKontroler();
+            this.AnketeKvartalneKontroler = new AnketeKvartalneKontroler();
             ZapocniRadAplikacije();
 
         }
@@ -67,7 +69,7 @@ namespace Bolnica.view
 
         private void PosaljiKvartalneAnkete(object sender, EventArgs e)
         {
-            if (AnketeKontroler.DaLiJeVremeZaKvartalnuAnketu())
+            if (AnketeKvartalneKontroler.DaLiJeVremeZaKvartalnuAnketu())
             {
                 ObavestenjaKontroler.PosaljiKvartalnuAnketu();
                 PrimiObavestenja(1);
